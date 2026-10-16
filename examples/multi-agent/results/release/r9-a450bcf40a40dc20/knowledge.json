@@ -1,0 +1,112 @@
+{
+  "api.budget_seconds": {
+    "evidence": {
+      "quote": "The total retry budget is 120 seconds.",
+      "source_id": "fixture-spec"
+    },
+    "id": "api.budget_seconds",
+    "kind": "claim",
+    "scope": "api:v1",
+    "unit": "s",
+    "value": 120
+  },
+  "api.max_attempts": {
+    "evidence": {
+      "quote": "The retry limit may be 3 or 4 attempts.",
+      "source_id": "fixture-spec"
+    },
+    "id": "api.max_attempts",
+    "kind": "claim",
+    "scope": "api:v1",
+    "unit": "count",
+    "value": 3
+  },
+  "api.timeout_seconds": {
+    "evidence": {
+      "quote": "The API timeout may be 30 or 40 seconds.",
+      "source_id": "fixture-spec"
+    },
+    "id": "api.timeout_seconds",
+    "kind": "claim",
+    "scope": "api:v1",
+    "unit": "s",
+    "value": 40
+  },
+  "code/client_config.py": {
+    "bindings": [
+      "api.timeout_seconds",
+      "api.max_attempts",
+      "api.budget_seconds"
+    ],
+    "id": "code/client_config.py",
+    "kind": "code",
+    "template": "\"\"\"Generated configuration; no network client is executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nMAX_ATTEMPTS = {{api.max_attempts}}\nBUDGET_SECONDS = {{api.budget_seconds}}\n"
+  },
+  "docs/lease-recovery.md": {
+    "bindings": [
+      "api.budget_seconds"
+    ],
+    "id": "docs/lease-recovery.md",
+    "kind": "document",
+    "template": "# Возврат задания\n\nБюджет: {{api.budget_seconds}} s.\n"
+  },
+  "docs/linux.md": {
+    "bindings": [
+      "platform.linux"
+    ],
+    "id": "docs/linux.md",
+    "kind": "document",
+    "template": "# Linux\n\nПоддержка Linux: {{platform.linux}}.\n"
+  },
+  "docs/platforms.md": {
+    "bindings": [
+      "platform.linux",
+      "platform.windows"
+    ],
+    "id": "docs/platforms.md",
+    "kind": "document",
+    "template": "# Поддерживаемые платформы\n\n- platform.linux: {{platform.linux}}\n- platform.windows: {{platform.windows}}\n"
+  },
+  "docs/reference.md": {
+    "bindings": [
+      "api.timeout_seconds",
+      "api.max_attempts",
+      "api.budget_seconds"
+    ],
+    "id": "docs/reference.md",
+    "kind": "document",
+    "template": "# API\n\nTimeout: {{api.timeout_seconds}} s. Attempts: {{api.max_attempts}}. Budget: {{api.budget_seconds}} s.\n"
+  },
+  "docs/retries.md": {
+    "bindings": [
+      "api.max_attempts",
+      "api.timeout_seconds",
+      "api.budget_seconds"
+    ],
+    "id": "docs/retries.md",
+    "kind": "document",
+    "template": "# Повторные попытки\n\nДо {{api.max_attempts}} попыток по {{api.timeout_seconds}} секунд; бюджет {{api.budget_seconds}} секунд.\n"
+  },
+  "platform.linux": {
+    "evidence": {
+      "quote": "Linux is supported.",
+      "source_id": "fixture-spec"
+    },
+    "id": "platform.linux",
+    "kind": "claim",
+    "scope": "platforms:api-v1",
+    "unit": "",
+    "value": true
+  },
+  "platform.windows": {
+    "evidence": {
+      "quote": "Windows is supported.",
+      "source_id": "fixture-spec"
+    },
+    "id": "platform.windows",
+    "kind": "claim",
+    "scope": "platforms:api-v1",
+    "unit": "",
+    "value": true
+  }
+}
