@@ -311,6 +311,11 @@ def _changes(before: dict[str, Any], after: dict[str, Any]) -> dict[str, list[st
 def compare_releases(before: str | Path, after: str | Path) -> dict[str, Any]:
     """Compare two verified releases, separating semantic and rendered changes."""
     previous, current = load_release(before), load_release(after)
+    return _compare_loaded_releases(previous, current)
+
+
+def _compare_loaded_releases(previous: dict[str, Any], current: dict[str, Any]) -> dict[str, Any]:
+    """Reuse captured verified inputs so a caller can analyze the same snapshots."""
     old, new = previous["snapshot"]["artifacts"], current["snapshot"]["artifacts"]
     artifact_changes = _changes(previous["snapshot"]["digests"], current["snapshot"]["digests"])
     details = []

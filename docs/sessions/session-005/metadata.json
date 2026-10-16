@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "session_id": "session-005",
+  "language": "ru",
+  "archive_method": "manual_transcription_from_available_conversation_context",
+  "scope": "User messages and user-facing assistant commentary/final responses",
+  "previous_session": "session-004",
+  "coverage_start": "Первое пояснение ассистента после запроса продолжения, завершившего session-004",
+  "coverage_end": "Следующий запрос пользователя «Продолжение» после публикации версии 0.2.0 включительно",
+  "rendered_coverage": "следующий запрос пользователя «Продолжение» после публикации версии 0.2.0 включительно.",
+  "message_timestamps_available": false,
+  "message_ids": "Locally assigned chronological IDs scoped to this session; not platform message IDs",
+  "channel_convention": "Assistant commentary/final distinguishes visible progress from final responses; user records use final by archive convention",
+  "integrity_scope": "SHA-256 detects changes relative to this saved snapshot; it does not authenticate a platform export or verify external claims",
+  "repository": {
+    "name": "svend4/infod10",
+    "archive_branch": "archive/session-001",
+    "previous_verified_remote_commit": "ce5160984182bf8301cb25c244498b77b22a77a7"
+  },
+  "expected_message_count": 7,
+  "expected_role_counts": {
+    "assistant": 6,
+    "user": 1
+  },
+  "expected_assistant_channel_counts": {
+    "commentary": 5,
+    "final": 1
+  },
+  "cumulative_message_count": 63,
+  "parts": [
+    {
+      "part": 1,
+      "title": "Разработка и публикация графа влияния, запрос продолжения",
+      "expected_message_count": 7
+    }
+  ],
+  "excluded": [
+    "Messages already preserved in session-001, session-002, session-003 and session-004",
+    "Development work and visible responses after the final included user message",
+    "Other chats not available in this conversation context",
+    "Hidden system/developer instructions and internal reasoning",
+    "Subagent communications",
+    "Raw tool arguments and results",
+    "Automatic runtime/UI metadata as conversation messages"
+  ],
+  "limitations": [
+    "Not a platform/API export; fidelity is bounded by the available conversation context.",
+    "No invented per-message timestamps.",
+    "Statements about verification in archived messages describe the historical checks at that point in the conversation.",
+    "The snapshot ends before implementation of the semantic change corpus stage."
+  ]
+}

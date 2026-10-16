@@ -1,0 +1,104 @@
+{
+  "corpus": {
+    "id": "semantic-v1",
+    "digest": "2bf02d47fece1f227b43b462000f3ec238e2b5e8b36a23273a6f998fc2bafab2"
+  },
+  "case_id": "units-equivalent-seconds-milliseconds",
+  "category": "units",
+  "title": "Эквивалентные секунды и миллисекунды",
+  "analysis": {
+    "schema_version": 1,
+    "rules_version": "semantic-1",
+    "input_digest": "8c63260510157110e5f6afdc5e8a95e2bf101227a89372c722fffcfb81b71bf6",
+    "relation": "structured_equivalent",
+    "review_action": "review_wording_and_evidence",
+    "requires_human_review": true,
+    "auto_accept": false,
+    "findings": [
+      {
+        "code": "wording_changed",
+        "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+      },
+      {
+        "code": "equal_structured_value",
+        "explanation": "Нормализованные значения совпадают точно."
+      },
+      {
+        "code": "units_normalized",
+        "explanation": "Применено явное точное преобразование единиц без округления двоичных чисел.",
+        "before": {
+          "input_unit": "s",
+          "factor_numerator": "1",
+          "factor_denominator": "1"
+        },
+        "after": {
+          "input_unit": "ms",
+          "factor_numerator": "1",
+          "factor_denominator": "1000"
+        }
+      }
+    ],
+    "normalized": {
+      "before": {
+        "supported": true,
+        "canonical": {
+          "type": "quantity",
+          "dimension": "time",
+          "unit": "s",
+          "numerator": "30",
+          "denominator": "1"
+        },
+        "conversion": {
+          "input_unit": "s",
+          "factor_numerator": "1",
+          "factor_denominator": "1"
+        }
+      },
+      "after": {
+        "supported": true,
+        "canonical": {
+          "type": "quantity",
+          "dimension": "time",
+          "unit": "s",
+          "numerator": "30",
+          "denominator": "1"
+        },
+        "conversion": {
+          "input_unit": "ms",
+          "factor_numerator": "1",
+          "factor_denominator": "1000"
+        }
+      }
+    },
+    "evidence": {
+      "before": {
+        "status": "quote_present",
+        "verified": true,
+        "source_id": "fictional-shared",
+        "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+        "check": "Literal quote presence only, not entailment or truth"
+      },
+      "after": {
+        "status": "quote_present",
+        "verified": true,
+        "source_id": "fictional-shared",
+        "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+        "check": "Literal quote presence only, not entailment or truth"
+      }
+    },
+    "limitations": [
+      "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+      "Literal quote presence does not establish entailment, factual truth or source independence.",
+      "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+      "Different scope metadata does not prove scopes are disjoint.",
+      "No corpus annotation is an input to this function; no model or network is used."
+    ]
+  },
+  "annotation": {
+    "relation": "quantity_equivalent",
+    "action": "inspect_rendering",
+    "rationale": "В заданной формализации 30 секунд и 30000 миллисекунд обозначают одну длительность; изменилось представление.",
+    "status": "project_authored_illustration"
+  },
+  "annotation_usage": "display_only; not used as analyzer input"
+}

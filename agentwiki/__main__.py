@@ -11,7 +11,9 @@ import sys
 from .demo import DATABASE_NAME, run_demo
 from .store import Store, WorkbenchError, search_release
 from .impact import analyze_impact, dependency_graph
-from .releases import compare_releases, load_release
+from .releases import _compare_loaded_releases, load_release
+from .corpus import analyze_case, get_case, load_corpus
+from .semantic import analyze_pair_file
 
 
 def _workers(value: str) -> int:
@@ -49,9 +51,10 @@ def _mermaid(graph: dict) -> str:
 
 
 def comparison_with_impact(before: Path, after: Path) -> dict:
-    comparison = compare_releases(before, after)
-    old = load_release(before)["snapshot"]
-    new = load_release(after)["snapshot"]
+    previous, current = load_release(before), load_release(after)
+    comparison = _compare_loaded_releases(previous, current)
+    old = previous["snapshot"]
+    new = current["snapshot"]
     changes = comparison["artifact_changes"]
     modified = changes["modified"]
     dependency_changes = comparison["dependency_changes"]
@@ -117,6 +120,20 @@ def main(argv: list[str] | None = None) -> int:
     impact_demo = commands.add_parser("impact-demo", help="Выполнить пример графа влияния и обновления списка платформ.")
     impact_demo.add_argument("--workspace", type=Path, required=True)
     impact_demo.add_argument("--workers", default=6, type=_workers)
+    corpus = commands.add_parser("corpus", help="Просматривать авторские примеры смысловых изменений и их разбор.")
+    corpus_commands = corpus.add_subparsers(dest="corpus_command", required=True)
+    for action in ["list", "show", "analyze"]:
+        command = corpus_commands.add_parser(action)
+        command.add_argument("--path", type=Path, help="Другой JSONL-корпус; по умолчанию semantic-v1.")
+        if action == "list":
+            command.add_argument("--category", help="Фильтр по категории.")
+            command.add_argument("--with-annotations", action="store_true", help="Показать авторские редакторские пояснения.")
+        else:
+            command.add_argument("--case", required=True, help="Идентификатор случая.")
+            if action == "show":
+                command.add_argument("--pair", action="store_true", help="Вывести только before/after/sources для review-pair.")
+    review_pair = commands.add_parser("review-pair", help="Объяснить различия пары структурированных утверждений; автоматического принятия нет.")
+    review_pair.add_argument("--input", type=Path, required=True, help="JSON с before, after и sources.")
     arguments = parser.parse_args(argv)
     try:
         if arguments.command == "demo":
@@ -146,11 +163,28 @@ def main(argv: list[str] | None = None) -> int:
             print(_mermaid(graph) if arguments.format == "mermaid" else json.dumps(graph, ensure_ascii=False, indent=2))
         elif arguments.command == "compare":
             print(json.dumps(comparison_with_impact(arguments.before.expanduser(), arguments.after.expanduser()), ensure_ascii=False, indent=2))
-        else:
+        elif arguments.command == "impact-demo":
             from .impact_demo import run_impact_demo
 
             report = run_impact_demo(arguments.workspace, arguments.workers)
             print(json.dumps({"report": str(arguments.workspace / "report.md"), "releases": {name: release["release_id"] for name, release in report["releases"].items()}, "summary": report["summary"]}, ensure_ascii=False, indent=2))
+        elif arguments.command == "review-pair":
+            print(json.dumps(analyze_pair_file(arguments.input.expanduser()), ensure_ascii=False, indent=2))
+        elif arguments.corpus_command == "list":
+            catalog = load_corpus(arguments.path)
+            if arguments.category is not None and arguments.category not in catalog["categories"]:
+                raise WorkbenchError("unknown_category", f"Unknown corpus category: {arguments.category}")
+            cases = [case for case in catalog["cases"].values() if arguments.category is None or case["category"] == arguments.category]
+            cases = [{key: case[key] for key in ["case_id", "category", "title", "annotation", "limitations"]} for case in cases]
+            if not arguments.with_annotations:
+                cases = [{key: case[key] for key in ["case_id", "category", "title"]} for case in cases]
+            print(json.dumps({"corpus_id": catalog["corpus_id"], "sha256": catalog["sha256"], "total_cases": catalog["case_count"], "selected_cases": len(cases), "categories": catalog["categories"], "annotation_status": "project_authored_illustration", "cases": cases}, ensure_ascii=False, indent=2))
+        elif arguments.corpus_command == "show":
+            case = get_case(arguments.case, arguments.path)
+            value = {key: case[key] for key in ["before", "after", "sources"]} if arguments.pair else case
+            print(json.dumps(value, ensure_ascii=False, indent=2))
+        else:
+            print(json.dumps(analyze_case(arguments.case, arguments.path), ensure_ascii=False, indent=2))
     except (WorkbenchError, ValueError, OSError, RuntimeError) as error:
         code = getattr(error, "code", "operation_failed")
         print(f"Ошибка [{code}]: {error}", file=sys.stderr)

@@ -1,0 +1,100 @@
+{
+  "corpus": {
+    "id": "semantic-v1",
+    "digest": "2bf02d47fece1f227b43b462000f3ec238e2b5e8b36a23273a6f998fc2bafab2"
+  },
+  "case_id": "provenance-quote-not-in-source",
+  "category": "provenance",
+  "title": "Цитаты нет в указанном снимке",
+  "analysis": {
+    "schema_version": 1,
+    "rules_version": "semantic-1",
+    "input_digest": "68e01074ac1f035545569a7d48a07ab8a4f2040f0fb653f857be1187292f5d41",
+    "relation": "undetermined",
+    "review_action": "supply_context_or_editorial_review",
+    "requires_human_review": true,
+    "auto_accept": false,
+    "findings": [
+      {
+        "code": "evidence_unverified",
+        "explanation": "Основание не удалось проверить по сохранённому снимку; вывод требует редактора.",
+        "side": "after",
+        "status": "quote_absent"
+      },
+      {
+        "code": "evidence_changed",
+        "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+      },
+      {
+        "code": "wording_changed",
+        "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+      },
+      {
+        "code": "structured_value_changed",
+        "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+      }
+    ],
+    "normalized": {
+      "before": {
+        "supported": true,
+        "canonical": {
+          "type": "quantity",
+          "dimension": "time",
+          "unit": "s",
+          "numerator": "30",
+          "denominator": "1"
+        },
+        "conversion": {
+          "input_unit": "s",
+          "factor_numerator": "1",
+          "factor_denominator": "1"
+        }
+      },
+      "after": {
+        "supported": true,
+        "canonical": {
+          "type": "quantity",
+          "dimension": "time",
+          "unit": "s",
+          "numerator": "40",
+          "denominator": "1"
+        },
+        "conversion": {
+          "input_unit": "s",
+          "factor_numerator": "1",
+          "factor_denominator": "1"
+        }
+      }
+    },
+    "evidence": {
+      "before": {
+        "status": "quote_present",
+        "verified": true,
+        "source_id": "fictional-before",
+        "source_digest": "db87529b75e66a1c7af16860f162c43c89ff0ec5fe1b7fc254fc16d4655975ff",
+        "check": "Literal quote presence only, not entailment or truth"
+      },
+      "after": {
+        "status": "quote_absent",
+        "verified": false,
+        "source_id": "fictional-after",
+        "source_digest": "db87529b75e66a1c7af16860f162c43c89ff0ec5fe1b7fc254fc16d4655975ff",
+        "check": "Literal quote presence only, not entailment or truth"
+      }
+    },
+    "limitations": [
+      "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+      "Literal quote presence does not establish entailment, factual truth or source independence.",
+      "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+      "Different scope metadata does not prove scopes are disjoint.",
+      "No corpus annotation is an input to this function; no model or network is used."
+    ]
+  },
+  "annotation": {
+    "relation": "evidence_quote_absent",
+    "action": "abstain",
+    "rationale": "Контрольная сумма снимка правильная, но заявленной цитаты в нём нет; ссылочная целостность основания нарушена.",
+    "status": "project_authored_illustration"
+  },
+  "annotation_usage": "display_only; not used as analyzer input"
+}

@@ -1,0 +1,104 @@
+{
+  "corpus": {
+    "id": "semantic-v1",
+    "digest": "2bf02d47fece1f227b43b462000f3ec238e2b5e8b36a23273a6f998fc2bafab2"
+  },
+  "case_id": "kind-measurement-to-guarantee",
+  "category": "kind",
+  "title": "Измерение превращено в гарантию",
+  "analysis": {
+    "schema_version": 1,
+    "rules_version": "semantic-1",
+    "input_digest": "6edea4f3b0ddbb482bde09389aeb5ecd47cecd604f6705b07380e82f043e0847",
+    "relation": "review_required",
+    "review_action": "review_change_or_preserve_attributed_disagreement",
+    "requires_human_review": true,
+    "auto_accept": false,
+    "findings": [
+      {
+        "code": "kind_changed",
+        "explanation": "Изменение типа, обязательности, отрицания или атрибуции влияет на содержание.",
+        "before": "measurement",
+        "after": "guarantee"
+      },
+      {
+        "code": "measurement_to_guarantee",
+        "explanation": "Результат измерения превращён в гарантию; числовое совпадение не обосновывает такое усиление."
+      },
+      {
+        "code": "evidence_changed",
+        "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+      },
+      {
+        "code": "wording_changed",
+        "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+      },
+      {
+        "code": "equal_structured_value",
+        "explanation": "Нормализованные значения совпадают точно."
+      }
+    ],
+    "normalized": {
+      "before": {
+        "supported": true,
+        "canonical": {
+          "type": "quantity",
+          "dimension": "time",
+          "unit": "s",
+          "numerator": "3",
+          "denominator": "50"
+        },
+        "conversion": {
+          "input_unit": "ms",
+          "factor_numerator": "1",
+          "factor_denominator": "1000"
+        }
+      },
+      "after": {
+        "supported": true,
+        "canonical": {
+          "type": "quantity",
+          "dimension": "time",
+          "unit": "s",
+          "numerator": "3",
+          "denominator": "50"
+        },
+        "conversion": {
+          "input_unit": "ms",
+          "factor_numerator": "1",
+          "factor_denominator": "1000"
+        }
+      }
+    },
+    "evidence": {
+      "before": {
+        "status": "quote_present",
+        "verified": true,
+        "source_id": "fictional-before",
+        "source_digest": "bba64e7b469b766036568240d003f463350772b07f00e3246733716227f65124",
+        "check": "Literal quote presence only, not entailment or truth"
+      },
+      "after": {
+        "status": "quote_present",
+        "verified": true,
+        "source_id": "fictional-after",
+        "source_digest": "029105d299feaa422df396aaff6f3105ce3684841c0bc2fcad71cc368b76e120",
+        "check": "Literal quote presence only, not entailment or truth"
+      }
+    },
+    "limitations": [
+      "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+      "Literal quote presence does not establish entailment, factual truth or source independence.",
+      "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+      "Different scope metadata does not prove scopes are disjoint.",
+      "No corpus annotation is an input to this function; no model or network is used."
+    ]
+  },
+  "annotation": {
+    "relation": "assertion_kind_changed",
+    "action": "review_evidence",
+    "rationale": "Одно наблюдение и гарантия имеют разную доказательную нагрузку, даже если числа совпадают.",
+    "status": "project_authored_illustration"
+  },
+  "annotation_usage": "display_only; not used as analyzer input"
+}
