@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "obligations": [
+    {
+      "id": "retry-default-methods",
+      "description": "The authored adapter retains the complete default method set, which does not include POST.",
+      "scope": {
+        "library": "urllib3",
+        "version": "2.5.0",
+        "setting": "Retry-default-allowed-methods"
+      },
+      "relation": "equals",
+      "value_type": "string_set",
+      "document": {
+        "artifact_id": "docs/urllib3-retry.md",
+        "fence_id": "retry-defaults",
+        "path": [
+          "default_allowed_methods"
+        ]
+      },
+      "code": {
+        "artifact_id": "code/urllib3_retry_defaults.py",
+        "symbol": "DEFAULT_ALLOWED_METHODS"
+      }
+    },
+    {
+      "id": "retry-default-total",
+      "description": "The authored adapter retains the Retry constructor default total retry count; this is not max_attempts.",
+      "scope": {
+        "library": "urllib3",
+        "version": "2.5.0",
+        "setting": "Retry-default-total",
+        "unit": "retries"
+      },
+      "relation": "equals",
+      "value_type": "integer",
+      "document": {
+        "artifact_id": "docs/urllib3-retry.md",
+        "fence_id": "retry-defaults",
+        "path": [
+          "total_default"
+        ]
+      },
+      "code": {
+        "artifact_id": "code/urllib3_retry_defaults.py",
+        "symbol": "TOTAL_DEFAULT"
+      }
+    }
+  ]
+}

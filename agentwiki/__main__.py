@@ -20,6 +20,7 @@ from .review_set_cli import register_review_set_parser, run_review_set_command
 from .obligations_cli import register_obligations_parser, run_obligations_command
 from .coverage_cli import register_coverage_parser, run_coverage_command
 from .inventory_rebase_cli import register_rebase_parser, run_rebase_command
+from .inventory_amendment_cli import register_amendment_parser, run_amendment_command
 
 
 def _workers(value: str) -> int:
@@ -146,6 +147,7 @@ def main(argv: list[str] | None = None) -> int:
     register_obligations_parser(commands)
     register_coverage_parser(commands)
     register_rebase_parser(commands)
+    register_amendment_parser(commands)
     editorial_demo = commands.add_parser("editorial-demo", help="Показать историю решений программных проверяющих и устаревание оснований.")
     editorial_demo.add_argument("--workspace", type=Path, required=True)
     editorial_demo.add_argument("--workers", default=3, type=_workers)
@@ -164,6 +166,9 @@ def main(argv: list[str] | None = None) -> int:
     rebase_demo = commands.add_parser("inventory-rebase-demo", help="Показать перенос описаний обещаний при изменении документов и кода.")
     rebase_demo.add_argument("--workspace", type=Path, required=True)
     rebase_demo.add_argument("--workers", default=3, type=_workers)
+    amendment_demo = commands.add_parser("inventory-amendment-demo", help="Оформить явный пересмотр обещаний на авторском адаптере urllib3.")
+    amendment_demo.add_argument("--workspace", type=Path, required=True)
+    amendment_demo.add_argument("--workers", default=3, type=_workers)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -217,6 +222,13 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(run_coverage_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "inventory-rebase":
             print(json.dumps(run_rebase_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "inventory-amendment":
+            print(json.dumps(run_amendment_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "inventory-amendment-demo":
+            from .inventory_amendment_demo import run_amendment_demo
+
+            report = run_amendment_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "inventory-rebase-demo":
             from .inventory_rebase_demo import run_rebase_demo
 

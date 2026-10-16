@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "source_commit": "aaab4eccc10c965897540b21e15f11859d0b62e7",
+  "authorship": "AI project authors; no independent human annotation",
+  "facts": [
+    {
+      "id": "retry-default-allowed-methods",
+      "kind": "direct_literal_with_negative_membership_derivation",
+      "statement_ru": "DEFAULT_ALLOWED_METHODS содержит HEAD, GET, PUT, DELETE, OPTIONS и TRACE; POST в этом наборе отсутствует.",
+      "value": [
+        "HEAD",
+        "GET",
+        "PUT",
+        "DELETE",
+        "OPTIONS",
+        "TRACE"
+      ],
+      "negative_member": "POST",
+      "evidence": [
+        {
+          "source_path": "upstream/retry.py",
+          "source_sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+          "lines": {
+            "start": 183,
+            "end": 186
+          },
+          "url": "https://github.com/urllib3/urllib3/blob/aaab4eccc10c965897540b21e15f11859d0b62e7/src/urllib3/util/retry.py#L183-L186",
+          "quote": "    #: Default methods to be used for ``allowed_methods``\n    DEFAULT_ALLOWED_METHODS = frozenset(\n        [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"]\n    )"
+        },
+        {
+          "source_path": "upstream/retry.py",
+          "source_sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+          "lines": {
+            "start": 202,
+            "end": 210
+          },
+          "url": "https://github.com/urllib3/urllib3/blob/aaab4eccc10c965897540b21e15f11859d0b62e7/src/urllib3/util/retry.py#L202-L210",
+          "quote": "    def __init__(\n        self,\n        total: bool | int | None = 10,\n        connect: int | None = None,\n        read: int | None = None,\n        redirect: bool | int | None = None,\n        status: int | None = None,\n        other: int | None = None,\n        allowed_methods: typing.Collection[str] | None = DEFAULT_ALLOWED_METHODS,"
+        }
+      ],
+      "scope_limit": "Значение default method allowlist; не универсальный запрет повтора POST при любых категориях ошибок."
+    },
+    {
+      "id": "retry-constructor-default-total",
+      "kind": "constructor_default_and_parameter_meaning",
+      "statement_ru": "У конструктора Retry значение total по умолчанию равно 10; total задаёт число повторов, а не общее число попыток.",
+      "value": 10,
+      "value_unit": "retries",
+      "evidence": [
+        {
+          "source_path": "upstream/retry.py",
+          "source_sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+          "lines": {
+            "start": 70,
+            "end": 78
+          },
+          "url": "https://github.com/urllib3/urllib3/blob/aaab4eccc10c965897540b21e15f11859d0b62e7/src/urllib3/util/retry.py#L70-L78",
+          "quote": "    :param int total:\n        Total number of retries to allow. Takes precedence over other counts.\n\n        Set to ``None`` to remove this constraint and fall back on other\n        counts.\n\n        Set to ``0`` to fail on the first retry.\n\n        Set to ``False`` to disable and imply ``raise_on_redirect=False``."
+        },
+        {
+          "source_path": "upstream/retry.py",
+          "source_sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+          "lines": {
+            "start": 202,
+            "end": 210
+          },
+          "url": "https://github.com/urllib3/urllib3/blob/aaab4eccc10c965897540b21e15f11859d0b62e7/src/urllib3/util/retry.py#L202-L210",
+          "quote": "    def __init__(\n        self,\n        total: bool | int | None = 10,\n        connect: int | None = None,\n        read: int | None = None,\n        redirect: bool | int | None = None,\n        status: int | None = None,\n        other: int | None = None,\n        allowed_methods: typing.Collection[str] | None = DEFAULT_ALLOWED_METHODS,"
+        }
+      ],
+      "scope_limit": "Сигнатура Retry(), а не каждый клиент, PoolManager или вызов с явно заданным retries."
+    }
+  ],
+  "related_caveats": [
+    {
+      "id": "none-means-any-verb",
+      "statement_ru": "Публичная документация описывает allowed_methods=None как возможность повторять любой HTTP-метод.",
+      "evidence": [
+        {
+          "source_path": "upstream/retry.py",
+          "source_sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+          "lines": {
+            "start": 127,
+            "end": 134
+          },
+          "url": "https://github.com/urllib3/urllib3/blob/aaab4eccc10c965897540b21e15f11859d0b62e7/src/urllib3/util/retry.py#L127-L134",
+          "quote": "    :param Collection allowed_methods:\n        Set of uppercased HTTP method verbs that we should retry on.\n\n        By default, we only retry on methods which are considered to be\n        idempotent (multiple requests with the same parameters end with the\n        same state). See :attr:`Retry.DEFAULT_ALLOWED_METHODS`.\n\n        Set to a ``None`` value to retry on any verb."
+        }
+      ],
+      "scope_limit": "Возможность зависит и от остальных условий политики повтора."
+    },
+    {
+      "id": "methods-filter-is-not-universal",
+      "statement_ru": "В захваченном increment() ветка connection error не обращается к _is_method_retryable, ветка read error обращается.",
+      "evidence": [
+        {
+          "source_path": "upstream/retry.py",
+          "source_sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+          "lines": {
+            "start": 379,
+            "end": 385
+          },
+          "url": "https://github.com/urllib3/urllib3/blob/aaab4eccc10c965897540b21e15f11859d0b62e7/src/urllib3/util/retry.py#L379-L385",
+          "quote": "    def _is_method_retryable(self, method: str) -> bool:\n        \"\"\"Checks if a given HTTP method should be retried upon, depending if\n        it is included in the allowed_methods\n        \"\"\"\n        if self.allowed_methods and method.upper() not in self.allowed_methods:\n            return False\n        return True"
+        },
+        {
+          "source_path": "upstream/retry.py",
+          "source_sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+          "lines": {
+            "start": 457,
+            "end": 476
+          },
+          "url": "https://github.com/urllib3/urllib3/blob/aaab4eccc10c965897540b21e15f11859d0b62e7/src/urllib3/util/retry.py#L457-L476",
+          "quote": "        redirect = self.redirect\n        status_count = self.status\n        other = self.other\n        cause = \"unknown\"\n        status = None\n        redirect_location = None\n\n        if error and self._is_connection_error(error):\n            # Connect retry?\n            if connect is False:\n                raise reraise(type(error), error, _stacktrace)\n            elif connect is not None:\n                connect -= 1\n\n        elif error and self._is_read_error(error):\n            # Read retry?\n            if read is False or method is None or not self._is_method_retryable(method):\n                raise reraise(type(error), error, _stacktrace)\n            elif read is not None:\n                read -= 1"
+        }
+      ],
+      "scope_limit": "Статическое чтение этих веток; поведение клиента в сети не измерялось."
+    }
+  ],
+  "selected_defaults": {
+    "default_allowed_methods": [
+      "HEAD",
+      "GET",
+      "PUT",
+      "DELETE",
+      "OPTIONS",
+      "TRACE"
+    ],
+    "total_default": {
+      "value": 10,
+      "unit": "retries"
+    }
+  }
+}

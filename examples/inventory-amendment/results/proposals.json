@@ -1,0 +1,136 @@
+{
+  "base-document": {
+    "id": "p_5a74f9ddc589ae27fa98f901",
+    "task_id": "amendment-base-document",
+    "author": "amendment-document-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Author a local selected-literal adapter candidate without changing urllib3 upstream.",
+      "readset": {
+        "docs/urllib3-retry.md": "ade1107d6c2dcebe2b787ce7b171d16689165094e1d90a613fab5bd74d5ceb96"
+      },
+      "writes": [
+        {
+          "bindings": [],
+          "id": "docs/urllib3-retry.md",
+          "kind": "document",
+          "template": "Локальный кандидат авторского адаптера; исходная библиотека не изменяется.\n\n# Авторский адаптер: выбранные значения Retry 2.5.0\n\nЭтот документ составлен авторами проекта по закреплённым исходникам urllib3;\nэто не документ, опубликованный командой urllib3.\n\nНабор Retry.DEFAULT_ALLOWED_METHODS содержит HEAD, GET, PUT, DELETE, OPTIONS и TRACE; POST в нём отсутствует.\n\nУ конструктора Retry значение total по умолчанию равно 10; параметр считает повторы, а не все попытки.\n\n```json agentwiki:retry-defaults\n{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n```\n\nОбласть: конструктор Retry и его значения по умолчанию в urllib3 2.5.0.\nЭто не утверждение о настройках любого PoolManager или приложения.\nНабор методов не означает универсального запрета повторять POST: фильтр\nметодов применяется не ко всем категориям ошибок одинаково.\nПри total=10 исходная попытка не входит в счётчик повторов; разрешённые\nповторы зависят от категории ошибки и остальных условий. Это не гарантия\n11 обращений и не универсальный предел сетевых операций приложения.\n"
+        }
+      ]
+    },
+    "digest": "e55f1f249338b12e34a772fa56215745e2f096b336fc2c2ca8d2936973be2228",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "base-code": {
+    "id": "p_afd8f4bbe0277650af409d6c",
+    "task_id": "amendment-base-code",
+    "author": "amendment-code-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Author a local selected-literal adapter candidate without changing urllib3 upstream.",
+      "readset": {
+        "code/urllib3_retry_defaults.py": "21fc260a2d836fe535619238aa8d7d32d75a60e00d3c8b09d03b338a7f1f15db"
+      },
+      "writes": [
+        {
+          "bindings": [],
+          "id": "code/urllib3_retry_defaults.py",
+          "kind": "code",
+          "template": "# Local selected-literal candidate; read as data, never executed.\n\"\"\"Manually authored literals derived from urllib3 Retry 2.5.0.\n\nThis is an adapter for selected defaults, not upstream urllib3 source,\nnot a runnable client and not proof of urllib3 runtime behavior.\n\"\"\"\nDEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}\nTOTAL_DEFAULT = 10\n"
+        }
+      ]
+    },
+    "digest": "50d01541d5631917a1e5124ee844632df03e14ad18ad0a3f6d77890438012788",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "reworded-document": {
+    "id": "p_bb127794e1526e65df54ab37",
+    "task_id": "amendment-reworded-document",
+    "author": "amendment-document-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Author a local selected-literal adapter candidate without changing urllib3 upstream.",
+      "readset": {
+        "docs/urllib3-retry.md": "ade1107d6c2dcebe2b787ce7b171d16689165094e1d90a613fab5bd74d5ceb96"
+      },
+      "writes": [
+        {
+          "bindings": [],
+          "id": "docs/urllib3-retry.md",
+          "kind": "document",
+          "template": "Локальный кандидат авторского адаптера; исходная библиотека не изменяется.\n\n# Авторский адаптер: выбранные значения Retry 2.5.0\n\nЭтот документ составлен авторами проекта по закреплённым исходникам urllib3;\nэто не документ, опубликованный командой urllib3.\n\nНабор Retry.DEFAULT_ALLOWED_METHODS содержит HEAD, GET, PUT, DELETE, OPTIONS и TRACE; POST в нём отсутствует.\n\nВ urllib3 2.5.0 конструктор Retry задаёт total=10 по умолчанию; единица этого счётчика — повторы.\n\n```json agentwiki:retry-defaults\n{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n```\n\nОбласть: конструктор Retry и его значения по умолчанию в urllib3 2.5.0.\nЭто не утверждение о настройках любого PoolManager или приложения.\nНабор методов не означает универсального запрета повторять POST: фильтр\nметодов применяется не ко всем категориям ошибок одинаково.\nПри total=10 исходная попытка не входит в счётчик повторов; разрешённые\nповторы зависят от категории ошибки и остальных условий. Это не гарантия\n11 обращений и не универсальный предел сетевых операций приложения.\n"
+        }
+      ]
+    },
+    "digest": "c7ea5bb96f4774c13d62f84efb1c38ed8ba2bac8953b93930344abbd007b0cb4",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "composite-base": {
+    "id": "p_c8e8ae93b25ffe7bf5560f44",
+    "task_id": "amendment-compose-base",
+    "author": "amendment-integrator",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "{\"components\":[{\"digest\":\"e55f1f249338b12e34a772fa56215745e2f096b336fc2c2ca8d2936973be2228\",\"proposal_id\":\"p_5a74f9ddc589ae27fa98f901\",\"write_ids\":[\"docs/urllib3-retry.md\"]},{\"digest\":\"50d01541d5631917a1e5124ee844632df03e14ad18ad0a3f6d77890438012788\",\"proposal_id\":\"p_afd8f4bbe0277650af409d6c\",\"write_ids\":[\"code/urllib3_retry_defaults.py\"]}],\"text\":\"Compose exact local urllib3 adapter candidates for base inventory consideration.\"}",
+      "readset": {
+        "code/urllib3_retry_defaults.py": "21fc260a2d836fe535619238aa8d7d32d75a60e00d3c8b09d03b338a7f1f15db",
+        "docs/urllib3-retry.md": "ade1107d6c2dcebe2b787ce7b171d16689165094e1d90a613fab5bd74d5ceb96"
+      },
+      "writes": [
+        {
+          "bindings": [],
+          "id": "code/urllib3_retry_defaults.py",
+          "kind": "code",
+          "template": "# Local selected-literal candidate; read as data, never executed.\n\"\"\"Manually authored literals derived from urllib3 Retry 2.5.0.\n\nThis is an adapter for selected defaults, not upstream urllib3 source,\nnot a runnable client and not proof of urllib3 runtime behavior.\n\"\"\"\nDEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}\nTOTAL_DEFAULT = 10\n"
+        },
+        {
+          "bindings": [],
+          "id": "docs/urllib3-retry.md",
+          "kind": "document",
+          "template": "Локальный кандидат авторского адаптера; исходная библиотека не изменяется.\n\n# Авторский адаптер: выбранные значения Retry 2.5.0\n\nЭтот документ составлен авторами проекта по закреплённым исходникам urllib3;\nэто не документ, опубликованный командой urllib3.\n\nНабор Retry.DEFAULT_ALLOWED_METHODS содержит HEAD, GET, PUT, DELETE, OPTIONS и TRACE; POST в нём отсутствует.\n\nУ конструктора Retry значение total по умолчанию равно 10; параметр считает повторы, а не все попытки.\n\n```json agentwiki:retry-defaults\n{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n```\n\nОбласть: конструктор Retry и его значения по умолчанию в urllib3 2.5.0.\nЭто не утверждение о настройках любого PoolManager или приложения.\nНабор методов не означает универсального запрета повторять POST: фильтр\nметодов применяется не ко всем категориям ошибок одинаково.\nПри total=10 исходная попытка не входит в счётчик повторов; разрешённые\nповторы зависят от категории ошибки и остальных условий. Это не гарантия\n11 обращений и не универсальный предел сетевых операций приложения.\n"
+        }
+      ]
+    },
+    "digest": "9c7995fab4b50b4a4590128402a0a7ea106ffdc28420c95853dfd46c8d7484fa",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "composite-reworded": {
+    "id": "p_1f0234ad3c8f40e975bf4179",
+    "task_id": "amendment-compose-reworded",
+    "author": "amendment-integrator",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "{\"components\":[{\"digest\":\"c7ea5bb96f4774c13d62f84efb1c38ed8ba2bac8953b93930344abbd007b0cb4\",\"proposal_id\":\"p_bb127794e1526e65df54ab37\",\"write_ids\":[\"docs/urllib3-retry.md\"]},{\"digest\":\"50d01541d5631917a1e5124ee844632df03e14ad18ad0a3f6d77890438012788\",\"proposal_id\":\"p_afd8f4bbe0277650af409d6c\",\"write_ids\":[\"code/urllib3_retry_defaults.py\"]}],\"text\":\"Compose exact local urllib3 adapter candidates for reworded inventory consideration.\"}",
+      "readset": {
+        "code/urllib3_retry_defaults.py": "21fc260a2d836fe535619238aa8d7d32d75a60e00d3c8b09d03b338a7f1f15db",
+        "docs/urllib3-retry.md": "ade1107d6c2dcebe2b787ce7b171d16689165094e1d90a613fab5bd74d5ceb96"
+      },
+      "writes": [
+        {
+          "bindings": [],
+          "id": "code/urllib3_retry_defaults.py",
+          "kind": "code",
+          "template": "# Local selected-literal candidate; read as data, never executed.\n\"\"\"Manually authored literals derived from urllib3 Retry 2.5.0.\n\nThis is an adapter for selected defaults, not upstream urllib3 source,\nnot a runnable client and not proof of urllib3 runtime behavior.\n\"\"\"\nDEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}\nTOTAL_DEFAULT = 10\n"
+        },
+        {
+          "bindings": [],
+          "id": "docs/urllib3-retry.md",
+          "kind": "document",
+          "template": "Локальный кандидат авторского адаптера; исходная библиотека не изменяется.\n\n# Авторский адаптер: выбранные значения Retry 2.5.0\n\nЭтот документ составлен авторами проекта по закреплённым исходникам urllib3;\nэто не документ, опубликованный командой urllib3.\n\nНабор Retry.DEFAULT_ALLOWED_METHODS содержит HEAD, GET, PUT, DELETE, OPTIONS и TRACE; POST в нём отсутствует.\n\nВ urllib3 2.5.0 конструктор Retry задаёт total=10 по умолчанию; единица этого счётчика — повторы.\n\n```json agentwiki:retry-defaults\n{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n```\n\nОбласть: конструктор Retry и его значения по умолчанию в urllib3 2.5.0.\nЭто не утверждение о настройках любого PoolManager или приложения.\nНабор методов не означает универсального запрета повторять POST: фильтр\nметодов применяется не ко всем категориям ошибок одинаково.\nПри total=10 исходная попытка не входит в счётчик повторов; разрешённые\nповторы зависят от категории ошибки и остальных условий. Это не гарантия\n11 обращений и не универсальный предел сетевых операций приложения.\n"
+        }
+      ]
+    },
+    "digest": "5d8f8a7b7a809171cd03150734a61dd416376a4efd9b7dc9383715d3b56f6d41",
+    "status": "proposed",
+    "accepted_revision": null
+  }
+}

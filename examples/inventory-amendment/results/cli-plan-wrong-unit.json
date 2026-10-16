@@ -1,0 +1,64 @@
+{
+  "path": "examples/inventory-amendment/results/cli-wrong-unit-amendment.json",
+  "report_id": "amd_d115c80f88494f072cc4de250e99ac1fe35c80af1681ccda1a58640420676139",
+  "report_digest": "d115c80f88494f072cc4de250e99ac1fe35c80af1681ccda1a58640420676139",
+  "state": "blocked",
+  "counts": {
+    "total": 2,
+    "retained": 1,
+    "revisions_requested": 1,
+    "reaffirmations_requested": 0,
+    "pending": 0,
+    "candidate_covered": 1,
+    "candidate_matching": 1
+  },
+  "results": [
+    {
+      "id": "retry-default-methods-promise",
+      "action": "retain",
+      "source_rebase_state": "reusable_descriptor",
+      "source_descriptor_digest": "7e532c2ac2c0190cfc3d962c70722351b37f5b0d2f95fdd13f1a07df28c071d3",
+      "transformed_descriptor_digest": "7e532c2ac2c0190cfc3d962c70722351b37f5b0d2f95fdd13f1a07df28c071d3",
+      "candidate_descriptor_digest": "7e532c2ac2c0190cfc3d962c70722351b37f5b0d2f95fdd13f1a07df28c071d3",
+      "changed_fields": [],
+      "rationale": null,
+      "anchor_verified": true,
+      "mapping_state": "mapped",
+      "satisfaction_state": "match",
+      "outcome": "ready_for_human_review"
+    },
+    {
+      "id": "retry-default-total-promise",
+      "action": "revise",
+      "source_rebase_state": "unresolved",
+      "source_descriptor_digest": "561186e27c21c03e6194036f91aae09387068bf6165d45a4337c4ddfb0c662db",
+      "transformed_descriptor_digest": "561186e27c21c03e6194036f91aae09387068bf6165d45a4337c4ddfb0c662db",
+      "candidate_descriptor_digest": "2e681c5cadfdca1927000b1451ba574a47197fa96e36067343fd4f77a44cb39b",
+      "changed_fields": [
+        "anchor",
+        "description",
+        "requirement"
+      ],
+      "rationale": "Deliberately incorrect authored scope uses attempts although the target obligation specifies retries.",
+      "anchor_verified": true,
+      "mapping_state": "invalid_mapping",
+      "satisfaction_state": "not_evaluated",
+      "outcome": "authored_blocked"
+    }
+  ],
+  "blockers": [
+    {
+      "code": "promise_invalid_mapping",
+      "promise_id": "retry-default-total-promise"
+    },
+    {
+      "code": "amendment_candidate_blocked",
+      "promise_id": "retry-default-total-promise",
+      "action": "revise"
+    }
+  ],
+  "preserved_promise_count": 2,
+  "requires_human_review": true,
+  "auto_accept": false,
+  "live_state_checked": false
+}

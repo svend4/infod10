@@ -1,0 +1,639 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T16:36:21.079300+02:00",
+  "report_timezone": "Europe/Berlin",
+  "workspace": "/tmp/infod10-amendment-development-03",
+  "source_import": "source-import.json",
+  "upstream_commit": "aaab4eccc10c965897540b21e15f11859d0b62e7",
+  "concurrency": {
+    "worker_pool_size": 3,
+    "submitted_author_jobs": 3,
+    "submitted_editorial_review_jobs": 6,
+    "author_ids": [
+      "amendment-code-author",
+      "amendment-document-author"
+    ],
+    "observed_author_threads": [
+      "amendment-author_0",
+      "amendment-author_1",
+      "amendment-author_2"
+    ],
+    "observed_editorial_threads": [
+      "amendment-editor_0",
+      "amendment-editor_1",
+      "amendment-editor_2"
+    ],
+    "integrator_id": "amendment-integrator",
+    "all_actor_kinds": [
+      "agent"
+    ]
+  },
+  "authors": {
+    "base-document": {
+      "label": "base-document",
+      "author": "amendment-document-author",
+      "thread": "amendment-author_0",
+      "task_id": "amendment-base-document",
+      "proposal_id": "p_5a74f9ddc589ae27fa98f901",
+      "digest": "e55f1f249338b12e34a772fa56215745e2f096b336fc2c2ca8d2936973be2228",
+      "replayed": false
+    },
+    "base-code": {
+      "label": "base-code",
+      "author": "amendment-code-author",
+      "thread": "amendment-author_1",
+      "task_id": "amendment-base-code",
+      "proposal_id": "p_afd8f4bbe0277650af409d6c",
+      "digest": "50d01541d5631917a1e5124ee844632df03e14ad18ad0a3f6d77890438012788",
+      "replayed": false
+    },
+    "reworded-document": {
+      "label": "reworded-document",
+      "author": "amendment-document-author",
+      "thread": "amendment-author_2",
+      "task_id": "amendment-reworded-document",
+      "proposal_id": "p_bb127794e1526e65df54ab37",
+      "digest": "c7ea5bb96f4774c13d62f84efb1c38ed8ba2bac8953b93930344abbd007b0cb4",
+      "replayed": false
+    }
+  },
+  "component_reviews": {
+    "base-document": {
+      "proposal_id": "p_5a74f9ddc589ae27fa98f901",
+      "proposal_digest": "e55f1f249338b12e34a772fa56215745e2f096b336fc2c2ca8d2936973be2228",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 1
+    },
+    "base-code": {
+      "proposal_id": "p_afd8f4bbe0277650af409d6c",
+      "proposal_digest": "50d01541d5631917a1e5124ee844632df03e14ad18ad0a3f6d77890438012788",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 2
+    },
+    "reworded-document": {
+      "proposal_id": "p_bb127794e1526e65df54ab37",
+      "proposal_digest": "c7ea5bb96f4774c13d62f84efb1c38ed8ba2bac8953b93930344abbd007b0cb4",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 3
+    }
+  },
+  "compositions": {
+    "base": {
+      "proposal_id": "p_c8e8ae93b25ffe7bf5560f44",
+      "digest": "9c7995fab4b50b4a4590128402a0a7ea106ffdc28420c95853dfd46c8d7484fa",
+      "replayed": false,
+      "components": [
+        {
+          "position": 1,
+          "proposal_id": "p_5a74f9ddc589ae27fa98f901",
+          "digest": "e55f1f249338b12e34a772fa56215745e2f096b336fc2c2ca8d2936973be2228",
+          "write_ids": [
+            "docs/urllib3-retry.md"
+          ]
+        },
+        {
+          "position": 2,
+          "proposal_id": "p_afd8f4bbe0277650af409d6c",
+          "digest": "50d01541d5631917a1e5124ee844632df03e14ad18ad0a3f6d77890438012788",
+          "write_ids": [
+            "code/urllib3_retry_defaults.py"
+          ]
+        }
+      ]
+    },
+    "reworded": {
+      "proposal_id": "p_1f0234ad3c8f40e975bf4179",
+      "digest": "5d8f8a7b7a809171cd03150734a61dd416376a4efd9b7dc9383715d3b56f6d41",
+      "replayed": false,
+      "components": [
+        {
+          "position": 1,
+          "proposal_id": "p_bb127794e1526e65df54ab37",
+          "digest": "c7ea5bb96f4774c13d62f84efb1c38ed8ba2bac8953b93930344abbd007b0cb4",
+          "write_ids": [
+            "docs/urllib3-retry.md"
+          ]
+        },
+        {
+          "position": 2,
+          "proposal_id": "p_afd8f4bbe0277650af409d6c",
+          "digest": "50d01541d5631917a1e5124ee844632df03e14ad18ad0a3f6d77890438012788",
+          "write_ids": [
+            "code/urllib3_retry_defaults.py"
+          ]
+        }
+      ]
+    }
+  },
+  "composite_reviews": {
+    "base": {
+      "proposal_id": "p_c8e8ae93b25ffe7bf5560f44",
+      "proposal_digest": "9c7995fab4b50b4a4590128402a0a7ea106ffdc28420c95853dfd46c8d7484fa",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "composite-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 4
+    },
+    "reworded": {
+      "proposal_id": "p_1f0234ad3c8f40e975bf4179",
+      "proposal_digest": "5d8f8a7b7a809171cd03150734a61dd416376a4efd9b7dc9383715d3b56f6d41",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "composite-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 5
+    }
+  },
+  "editorial_reviews": [
+    {
+      "label": "base-document",
+      "reviewer": "amendment-editor-agent-a",
+      "thread": "amendment-editor_0",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_db7f8813859805b5d5f3c86426f9282807c2bff25f07de2a9fdd5a60768f5843",
+        "packet_digest": "db7f8813859805b5d5f3c86426f9282807c2bff25f07de2a9fdd5a60768f5843",
+        "reviewer": "amendment-editor-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of manually supplied selected default-method-set metadata. Exact templates are attached, but the fields are not inferred from their prose. This decision does not assess the total quote, prove equivalence of its rewording, validate urllib3 behavior, constitute human review or authorize acceptance.",
+        "operation_id": "base-document-amendment-editor-agent-a",
+        "supersedes": null,
+        "decision_id": "dec_1b3ef82a66ec24b9f576c99a8daa81dd51c49cb09ff37e0bb7f8c538fcdf1aa9",
+        "request_digest": "1b3ef82a66ec24b9f576c99a8daa81dd51c49cb09ff37e0bb7f8c538fcdf1aa9",
+        "recorded_at": "2026-10-16T14:36:19.452129+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "base-document",
+      "reviewer": "amendment-editor-agent-b",
+      "thread": "amendment-editor_1",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_db7f8813859805b5d5f3c86426f9282807c2bff25f07de2a9fdd5a60768f5843",
+        "packet_digest": "db7f8813859805b5d5f3c86426f9282807c2bff25f07de2a9fdd5a60768f5843",
+        "reviewer": "amendment-editor-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of manually supplied selected default-method-set metadata. Exact templates are attached, but the fields are not inferred from their prose. This decision does not assess the total quote, prove equivalence of its rewording, validate urllib3 behavior, constitute human review or authorize acceptance.",
+        "operation_id": "base-document-amendment-editor-agent-b",
+        "supersedes": null,
+        "decision_id": "dec_7ed922d0be2dde0309d0c36107d29dfa71ef6be52ebc21c4a5257da14ce3b04e",
+        "request_digest": "7ed922d0be2dde0309d0c36107d29dfa71ef6be52ebc21c4a5257da14ce3b04e",
+        "recorded_at": "2026-10-16T14:36:19.462606+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "base-code",
+      "reviewer": "amendment-editor-agent-a",
+      "thread": "amendment-editor_2",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_1c6a3b71fd9e6bfcb3e694d488ab889558630ea8bf6eaf28d4e8a865cf9952a9",
+        "packet_digest": "1c6a3b71fd9e6bfcb3e694d488ab889558630ea8bf6eaf28d4e8a865cf9952a9",
+        "reviewer": "amendment-editor-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of manually supplied selected default-method-set metadata. Exact templates are attached, but the fields are not inferred from their prose. This decision does not assess the total quote, prove equivalence of its rewording, validate urllib3 behavior, constitute human review or authorize acceptance.",
+        "operation_id": "base-code-amendment-editor-agent-a",
+        "supersedes": null,
+        "decision_id": "dec_8419b3967335c64613787618d9281b112c3b213619970691848555a03b5fdadb",
+        "request_digest": "8419b3967335c64613787618d9281b112c3b213619970691848555a03b5fdadb",
+        "recorded_at": "2026-10-16T14:36:19.443237+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "base-code",
+      "reviewer": "amendment-editor-agent-b",
+      "thread": "amendment-editor_2",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_1c6a3b71fd9e6bfcb3e694d488ab889558630ea8bf6eaf28d4e8a865cf9952a9",
+        "packet_digest": "1c6a3b71fd9e6bfcb3e694d488ab889558630ea8bf6eaf28d4e8a865cf9952a9",
+        "reviewer": "amendment-editor-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of manually supplied selected default-method-set metadata. Exact templates are attached, but the fields are not inferred from their prose. This decision does not assess the total quote, prove equivalence of its rewording, validate urllib3 behavior, constitute human review or authorize acceptance.",
+        "operation_id": "base-code-amendment-editor-agent-b",
+        "supersedes": null,
+        "decision_id": "dec_3f1e2c10af86db72b0ffe50813120d638e28b1073aa0dc64c3a818b0dcf32a30",
+        "request_digest": "3f1e2c10af86db72b0ffe50813120d638e28b1073aa0dc64c3a818b0dcf32a30",
+        "recorded_at": "2026-10-16T14:36:19.444484+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "reworded-document",
+      "reviewer": "amendment-editor-agent-a",
+      "thread": "amendment-editor_2",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_15b5d831bbf6d69477b49d008c06d62c3986d0db80f2f27083aa53e5845ab56d",
+        "packet_digest": "15b5d831bbf6d69477b49d008c06d62c3986d0db80f2f27083aa53e5845ab56d",
+        "reviewer": "amendment-editor-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of manually supplied selected default-method-set metadata. Exact templates are attached, but the fields are not inferred from their prose. This decision does not assess the total quote, prove equivalence of its rewording, validate urllib3 behavior, constitute human review or authorize acceptance.",
+        "operation_id": "reworded-document-amendment-editor-agent-a",
+        "supersedes": null,
+        "decision_id": "dec_254a1206ed31dd4d1c9dc1f6b18f4a8169bdfd9917c9f6fd5e749b3c4decfb7c",
+        "request_digest": "254a1206ed31dd4d1c9dc1f6b18f4a8169bdfd9917c9f6fd5e749b3c4decfb7c",
+        "recorded_at": "2026-10-16T14:36:19.445545+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "reworded-document",
+      "reviewer": "amendment-editor-agent-b",
+      "thread": "amendment-editor_2",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_15b5d831bbf6d69477b49d008c06d62c3986d0db80f2f27083aa53e5845ab56d",
+        "packet_digest": "15b5d831bbf6d69477b49d008c06d62c3986d0db80f2f27083aa53e5845ab56d",
+        "reviewer": "amendment-editor-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of manually supplied selected default-method-set metadata. Exact templates are attached, but the fields are not inferred from their prose. This decision does not assess the total quote, prove equivalence of its rewording, validate urllib3 behavior, constitute human review or authorize acceptance.",
+        "operation_id": "reworded-document-amendment-editor-agent-b",
+        "supersedes": null,
+        "decision_id": "dec_cb3e3f813e93658da2551dfb99628375a34f3309e14f50ec77919e149affd8fe",
+        "request_digest": "cb3e3f813e93658da2551dfb99628375a34f3309e14f50ec77919e149affd8fe",
+        "recorded_at": "2026-10-16T14:36:19.446422+00:00",
+        "replayed": false
+      }
+    }
+  ],
+  "rebase": {
+    "report_id": "reb_9319be95e677f84723b942705738e7a8d3983665aab79cfcce5a30a4ba05da8b",
+    "counts": {
+      "total": 2,
+      "reusable_descriptor": 1,
+      "needs_review": 0,
+      "unresolved": 1,
+      "preserved_promises": 2,
+      "cleared_reference_promises": 1
+    }
+  },
+  "stages": {
+    "pending": {
+      "report_id": "amd_38fa9453641aafb3e0daf65cef0e5a7079aded7fb1113e19af09ca50ed601f74",
+      "state": "blocked",
+      "counts": {
+        "total": 2,
+        "retained": 1,
+        "revisions_requested": 0,
+        "reaffirmations_requested": 0,
+        "pending": 1,
+        "candidate_covered": 1,
+        "candidate_matching": 1
+      },
+      "results": [
+        {
+          "id": "retry-default-methods-promise",
+          "action": "retain",
+          "source_rebase_state": "reusable_descriptor",
+          "source_descriptor_digest": "7e532c2ac2c0190cfc3d962c70722351b37f5b0d2f95fdd13f1a07df28c071d3",
+          "transformed_descriptor_digest": "7e532c2ac2c0190cfc3d962c70722351b37f5b0d2f95fdd13f1a07df28c071d3",
+          "candidate_descriptor_digest": "7e532c2ac2c0190cfc3d962c70722351b37f5b0d2f95fdd13f1a07df28c071d3",
+          "changed_fields": [],
+          "rationale": null,
+          "anchor_verified": true,
+          "mapping_state": "mapped",
+          "satisfaction_state": "match",
+          "outcome": "ready_for_human_review"
+        },
+        {
+          "id": "retry-default-total-promise",
+          "action": "pending",
+          "source_rebase_state": "unresolved",
+          "source_descriptor_digest": "561186e27c21c03e6194036f91aae09387068bf6165d45a4337c4ddfb0c662db",
+          "transformed_descriptor_digest": "561186e27c21c03e6194036f91aae09387068bf6165d45a4337c4ddfb0c662db",
+          "candidate_descriptor_digest": "428ae89061c8dbc9c74c4e1fbfc2fe055053c7f14f513c28cc9df9b77785a44c",
+          "changed_fields": [
+            "obligation_ids"
+          ],
+          "rationale": null,
+          "anchor_verified": false,
+          "mapping_state": "uncovered",
+          "satisfaction_state": "not_evaluated",
+          "outcome": "pending"
+        }
+      ],
+      "blockers": [
+        {
+          "code": "promise_anchor_unresolved",
+          "promise_id": "retry-default-total-promise"
+        },
+        {
+          "code": "promise_uncovered",
+          "promise_id": "retry-default-total-promise"
+        },
+        {
+          "code": "amendment_action_pending",
+          "promise_id": "retry-default-total-promise"
+        }
+      ],
+      "coverage_counts": {
+        "total": 2,
+        "assigned": 1,
+        "mapped": 1,
+        "anchor_verified": 1,
+        "covered": 1,
+        "matching": 1,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 1,
+        "invalid_mapping": 0,
+        "unresolved_anchor": 1,
+        "unique_requirements": 2,
+        "covered_unique_requirements": 1,
+        "assigned_obligation_ids": 1,
+        "mapped_obligation_ids": 1
+      }
+    },
+    "reaffirm-old-quote": {
+      "report_id": "amd_9c292b9ce81121bd641f0b34a68d99addb49ff505398cdc0fb9d01317e990c85",
+      "state": "blocked",
+      "counts": {
+        "total": 2,
+        "retained": 1,
+        "revisions_requested": 0,
+        "reaffirmations_requested": 1,
+        "pending": 0,
+        "candidate_covered": 1,
+        "candidate_matching": 1
+      },
+      "results": [
+        {
+          "id": "retry-default-methods-promise",
+          "action": "retain",
+          "source_rebase_state": "reusable_descriptor",
+          "source_descriptor_digest": "7e532c2ac2c0190cfc3d962c70722351b37f5b0d2f95fdd13f1a07df28c071d3",
+          "transformed_descriptor_digest": "7e532c2ac2c0190cfc3d962c70722351b37f5b0d2f95fdd13f1a07df28c071d3",
+          "candidate_descriptor_digest": "7e532c2ac2c0190cfc3d962c70722351b37f5b0d2f95fdd13f1a07df28c071d3",
+          "changed_fields": [],
+          "rationale": null,
+          "anchor_verified": true,
+          "mapping_state": "mapped",
+          "satisfaction_state": "match",
+          "outcome": "ready_for_human_review"
+        },
+        {
+          "id": "retry-default-total-promise",
+          "action": "reaffirm",
+          "source_rebase_state": "unresolved",
+          "source_descriptor_digest": "561186e27c21c03e6194036f91aae09387068bf6165d45a4337c4ddfb0c662db",
+          "transformed_descriptor_digest": "561186e27c21c03e6194036f91aae09387068bf6165d45a4337c4ddfb0c662db",
+          "candidate_descriptor_digest": "561186e27c21c03e6194036f91aae09387068bf6165d45a4337c4ddfb0c662db",
+          "changed_fields": [],
+          "rationale": "Attempt to retain the old descriptor, whose exact quote is absent from the target.",
+          "anchor_verified": false,
+          "mapping_state": "mapped",
+          "satisfaction_state": "match",
+          "outcome": "authored_blocked"
+        }
+      ],
+      "blockers": [
+        {
+          "code": "promise_anchor_unresolved",
+          "promise_id": "retry-default-total-promise"
+        },
+        {
+          "code": "amendment_candidate_blocked",
+          "promise_id": "retry-default-total-promise",
+          "action": "reaffirm"
+        }
+      ],
+      "coverage_counts": {
+        "total": 2,
+        "assigned": 2,
+        "mapped": 2,
+        "anchor_verified": 1,
+        "covered": 1,
+        "matching": 1,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 0,
+        "invalid_mapping": 0,
+        "unresolved_anchor": 1,
+        "unique_requirements": 2,
+        "covered_unique_requirements": 1,
+        "assigned_obligation_ids": 2,
+        "mapped_obligation_ids": 2
+      }
+    },
+    "revised-quote": {
+      "report_id": "amd_e9791f492b9f6f20d520cfb53d43a1b402b4276d97073e8e709aa251f9bfe599",
+      "state": "current_for_human_review",
+      "counts": {
+        "total": 2,
+        "retained": 1,
+        "revisions_requested": 1,
+        "reaffirmations_requested": 0,
+        "pending": 0,
+        "candidate_covered": 2,
+        "candidate_matching": 2
+      },
+      "results": [
+        {
+          "id": "retry-default-methods-promise",
+          "action": "retain",
+          "source_rebase_state": "reusable_descriptor",
+          "source_descriptor_digest": "7e532c2ac2c0190cfc3d962c70722351b37f5b0d2f95fdd13f1a07df28c071d3",
+          "transformed_descriptor_digest": "7e532c2ac2c0190cfc3d962c70722351b37f5b0d2f95fdd13f1a07df28c071d3",
+          "candidate_descriptor_digest": "7e532c2ac2c0190cfc3d962c70722351b37f5b0d2f95fdd13f1a07df28c071d3",
+          "changed_fields": [],
+          "rationale": null,
+          "anchor_verified": true,
+          "mapping_state": "mapped",
+          "satisfaction_state": "match",
+          "outcome": "ready_for_human_review"
+        },
+        {
+          "id": "retry-default-total-promise",
+          "action": "revise",
+          "source_rebase_state": "unresolved",
+          "source_descriptor_digest": "561186e27c21c03e6194036f91aae09387068bf6165d45a4337c4ddfb0c662db",
+          "transformed_descriptor_digest": "561186e27c21c03e6194036f91aae09387068bf6165d45a4337c4ddfb0c662db",
+          "candidate_descriptor_digest": "917d5ca6ad23a7b1c475536109b114e3e143ff0174529e11a65848f007028555",
+          "changed_fields": [
+            "anchor",
+            "description"
+          ],
+          "rationale": "Author explicitly reanchors the promise to the new wording and retains the selected retries unit and literal values.",
+          "anchor_verified": true,
+          "mapping_state": "mapped",
+          "satisfaction_state": "match",
+          "outcome": "ready_for_human_review"
+        }
+      ],
+      "blockers": [],
+      "coverage_counts": {
+        "total": 2,
+        "assigned": 2,
+        "mapped": 2,
+        "anchor_verified": 2,
+        "covered": 2,
+        "matching": 2,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 0,
+        "invalid_mapping": 0,
+        "unresolved_anchor": 0,
+        "unique_requirements": 2,
+        "covered_unique_requirements": 2,
+        "assigned_obligation_ids": 2,
+        "mapped_obligation_ids": 2
+      }
+    },
+    "wrong-unit": {
+      "report_id": "amd_fdbdf34ced10e85498668cd56cc7c9ca9033376bb009fe3bfc3f3c301bbe6b43",
+      "state": "blocked",
+      "counts": {
+        "total": 2,
+        "retained": 1,
+        "revisions_requested": 1,
+        "reaffirmations_requested": 0,
+        "pending": 0,
+        "candidate_covered": 1,
+        "candidate_matching": 1
+      },
+      "results": [
+        {
+          "id": "retry-default-methods-promise",
+          "action": "retain",
+          "source_rebase_state": "reusable_descriptor",
+          "source_descriptor_digest": "7e532c2ac2c0190cfc3d962c70722351b37f5b0d2f95fdd13f1a07df28c071d3",
+          "transformed_descriptor_digest": "7e532c2ac2c0190cfc3d962c70722351b37f5b0d2f95fdd13f1a07df28c071d3",
+          "candidate_descriptor_digest": "7e532c2ac2c0190cfc3d962c70722351b37f5b0d2f95fdd13f1a07df28c071d3",
+          "changed_fields": [],
+          "rationale": null,
+          "anchor_verified": true,
+          "mapping_state": "mapped",
+          "satisfaction_state": "match",
+          "outcome": "ready_for_human_review"
+        },
+        {
+          "id": "retry-default-total-promise",
+          "action": "revise",
+          "source_rebase_state": "unresolved",
+          "source_descriptor_digest": "561186e27c21c03e6194036f91aae09387068bf6165d45a4337c4ddfb0c662db",
+          "transformed_descriptor_digest": "561186e27c21c03e6194036f91aae09387068bf6165d45a4337c4ddfb0c662db",
+          "candidate_descriptor_digest": "2e681c5cadfdca1927000b1451ba574a47197fa96e36067343fd4f77a44cb39b",
+          "changed_fields": [
+            "anchor",
+            "description",
+            "requirement"
+          ],
+          "rationale": "Deliberately incorrect authored scope uses attempts although the target obligation specifies retries.",
+          "anchor_verified": true,
+          "mapping_state": "invalid_mapping",
+          "satisfaction_state": "not_evaluated",
+          "outcome": "authored_blocked"
+        }
+      ],
+      "blockers": [
+        {
+          "code": "promise_invalid_mapping",
+          "promise_id": "retry-default-total-promise"
+        },
+        {
+          "code": "amendment_candidate_blocked",
+          "promise_id": "retry-default-total-promise",
+          "action": "revise"
+        }
+      ],
+      "coverage_counts": {
+        "total": 2,
+        "assigned": 2,
+        "mapped": 1,
+        "anchor_verified": 2,
+        "covered": 1,
+        "matching": 1,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 0,
+        "invalid_mapping": 1,
+        "unresolved_anchor": 0,
+        "unique_requirements": 2,
+        "covered_unique_requirements": 1,
+        "assigned_obligation_ids": 2,
+        "mapped_obligation_ids": 1
+      }
+    }
+  },
+  "final_runtime_status": {
+    "revision": 1,
+    "artifacts": 2,
+    "sources": 0,
+    "tasks": {
+      "done": 5
+    },
+    "proposals": {
+      "proposed": 5
+    },
+    "events": 21,
+    "rules_version": "mvp-1"
+  },
+  "summary": {
+    "verified_upstream_snapshot_count": 3,
+    "imported_input_file_count": 7,
+    "component_proposal_count": 3,
+    "composite_proposal_count": 2,
+    "review_set_count": 2,
+    "obligation_report_count": 2,
+    "coverage_report_count": 5,
+    "rebase_plan_count": 1,
+    "amendment_report_count": 4,
+    "listed_promise_count": 2,
+    "packet_count": 3,
+    "decision_count": 6,
+    "journal_event_count": 13,
+    "all_original_promises_preserved": true,
+    "semantic_equivalence_proved": false,
+    "upstream_changed": false,
+    "file_proposals_remain_unaccepted": true,
+    "human_review_recorded": false,
+    "auto_accept": false,
+    "release_created": false
+  },
+  "limitations": [
+    "The two-promise inventory and selected-literal adapter are authored manually; page completeness and source entailment are not established.",
+    "The local scenario rewords one adapter quote; it does not demonstrate an upstream urllib3 change or migration.",
+    "Explicit revision is a new authored descriptor, not an automatic proof of semantic equivalence between old and new prose.",
+    "Programmed editorial decisions concern supplied selected default-method metadata only, not total wording or whole-file semantics.",
+    "Actor names and kinds are self-declared; two reviewers are not authenticated people or independent models.",
+    "Upstream Python is read and hashed; selected adapter literals are AST-parsed as data. Neither is imported or executed; no external LLM is used.",
+    "No file proposal is accepted, no runtime revision is advanced by acceptance, and no release is created.",
+    "Captured runtime and journal observations are sequential, not a common transaction or live-state check.",
+    "Worker-pool size is not measured capacity, throughput or independent agent quality."
+  ]
+}

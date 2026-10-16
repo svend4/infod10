@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "rebase_report_id": "reb_9319be95e677f84723b942705738e7a8d3983665aab79cfcce5a30a4ba05da8b",
+  "rebase_report_digest": "9319be95e677f84723b942705738e7a8d3983665aab79cfcce5a30a4ba05da8b",
+  "actions": [
+    {
+      "promise_id": "retry-default-total-promise",
+      "action": "revise",
+      "descriptor": {
+        "id": "retry-default-total-promise",
+        "description": "Explicit authored reconsideration: Retry constructor default total remains 10 retries; no conversion to attempts is claimed.",
+        "anchor": {
+          "artifact_id": "docs/urllib3-retry.md",
+          "quote": "В urllib3 2.5.0 конструктор Retry задаёт total=10 по умолчанию; единица этого счётчика — повторы."
+        },
+        "requirement": {
+          "scope": {
+            "library": "urllib3",
+            "version": "2.5.0",
+            "setting": "Retry-default-total",
+            "unit": "attempts"
+          },
+          "relation": "equals",
+          "value_type": "integer",
+          "document": {
+            "artifact_id": "docs/urllib3-retry.md",
+            "fence_id": "retry-defaults",
+            "path": [
+              "total_default"
+            ]
+          },
+          "code": {
+            "artifact_id": "code/urllib3_retry_defaults.py",
+            "symbol": "TOTAL_DEFAULT"
+          }
+        },
+        "obligation_ids": [
+          "retry-default-total"
+        ]
+      },
+      "rationale": "Deliberately incorrect authored scope uses attempts although the target obligation specifies retries."
+    }
+  ]
+}

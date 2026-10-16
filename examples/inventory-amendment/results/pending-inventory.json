@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "promises": [
+    {
+      "anchor": {
+        "artifact_id": "docs/urllib3-retry.md",
+        "quote": "Набор Retry.DEFAULT_ALLOWED_METHODS содержит HEAD, GET, PUT, DELETE, OPTIONS и TRACE; POST в нём отсутствует."
+      },
+      "description": "The authored adapter retains the complete default method set, which does not include POST.",
+      "id": "retry-default-methods-promise",
+      "obligation_ids": [
+        "retry-default-methods"
+      ],
+      "requirement": {
+        "code": {
+          "artifact_id": "code/urllib3_retry_defaults.py",
+          "symbol": "DEFAULT_ALLOWED_METHODS"
+        },
+        "document": {
+          "artifact_id": "docs/urllib3-retry.md",
+          "fence_id": "retry-defaults",
+          "path": [
+            "default_allowed_methods"
+          ]
+        },
+        "relation": "equals",
+        "scope": {
+          "library": "urllib3",
+          "setting": "Retry-default-allowed-methods",
+          "version": "2.5.0"
+        },
+        "value_type": "string_set"
+      }
+    },
+    {
+      "anchor": {
+        "artifact_id": "docs/urllib3-retry.md",
+        "quote": "У конструктора Retry значение total по умолчанию равно 10; параметр считает повторы, а не все попытки."
+      },
+      "description": "The authored adapter retains the Retry constructor default total retry count; this is not max_attempts.",
+      "id": "retry-default-total-promise",
+      "obligation_ids": [],
+      "requirement": {
+        "code": {
+          "artifact_id": "code/urllib3_retry_defaults.py",
+          "symbol": "TOTAL_DEFAULT"
+        },
+        "document": {
+          "artifact_id": "docs/urllib3-retry.md",
+          "fence_id": "retry-defaults",
+          "path": [
+            "total_default"
+          ]
+        },
+        "relation": "equals",
+        "scope": {
+          "library": "urllib3",
+          "setting": "Retry-default-total",
+          "unit": "retries",
+          "version": "2.5.0"
+        },
+        "value_type": "integer"
+      }
+    }
+  ]
+}
