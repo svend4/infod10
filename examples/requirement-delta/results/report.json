@@ -1,0 +1,571 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T16:49:28.726190+02:00",
+  "report_timezone": "Europe/Berlin",
+  "workspace": "/tmp/infod10-requirement-delta-development-01",
+  "source_import": "source-import.json",
+  "published_input_commit": "dd5f63b0bef5ded8f0a4b3a5f55475b70241d1a9",
+  "concurrency": {
+    "requested_worker_pool_size": 3,
+    "analysis_worker_pool_size": 3,
+    "submitted_analysis_jobs": 7,
+    "observed_analysis_threads": [
+      "requirement-delta-analysis_0",
+      "requirement-delta-analysis_1",
+      "requirement-delta-analysis_2"
+    ],
+    "external_llm_calls": 0
+  },
+  "counts": {
+    "source_reports": 5,
+    "case_amendments": 7,
+    "authored_change_plans": 5,
+    "delta_reports": 7,
+    "promises_per_case": 2,
+    "ready_for_human_review_cases": 5,
+    "blocked_cases": 2,
+    "new_runtime_proposals": 0,
+    "new_editorial_decisions": 0,
+    "accepted_proposals": 0,
+    "releases": 0
+  },
+  "cases": {
+    "prose-reanchor": {
+      "domain": "manual-urllib3-adapter",
+      "amendment_file": "prose-reanchor-amendment.json",
+      "delta_file": "prose-reanchor-delta.json",
+      "changes_file": null,
+      "amendment_report_id": "amd_e9791f492b9f6f20d520cfb53d43a1b402b4276d97073e8e709aa251f9bfe599",
+      "delta_report_id": "rqd_9f808b1fcfa14187873ee7fcf4f3522017bd19ba248f18f185295da51897db9d",
+      "state": "current_for_human_review",
+      "attention_state": "attention_required",
+      "counts": {
+        "total": 2,
+        "requirements_unchanged": 2,
+        "declared_relations_relaxed": 0,
+        "declared_relations_strengthened": 0,
+        "structural_changes": 0,
+        "selected_value_changed_promises": 0,
+        "attention_promises": 1
+      },
+      "review_attention": [
+        {
+          "id": "retry-default-total-promise",
+          "reasons": [
+            {
+              "code": "description_changed"
+            },
+            {
+              "code": "quote_changed"
+            }
+          ]
+        }
+      ],
+      "blockers": [],
+      "promise_ids": [
+        "retry-default-methods-promise",
+        "retry-default-total-promise"
+      ],
+      "results": [
+        {
+          "id": "retry-default-methods-promise",
+          "requirement_change": "unchanged",
+          "relation_comparison": {
+            "comparable": true,
+            "before_implies_after": true,
+            "after_implies_before": true,
+            "basis": "identical_declared_requirement"
+          },
+          "document_value_change": "unchanged",
+          "code_value_change": "unchanged",
+          "document_dependencies_changed": false,
+          "code_dependencies_changed": false,
+          "amendment_outcome": "ready_for_human_review"
+        },
+        {
+          "id": "retry-default-total-promise",
+          "requirement_change": "unchanged",
+          "relation_comparison": {
+            "comparable": true,
+            "before_implies_after": true,
+            "after_implies_before": true,
+            "basis": "identical_declared_requirement"
+          },
+          "document_value_change": "unchanged",
+          "code_value_change": "unchanged",
+          "document_dependencies_changed": false,
+          "code_dependencies_changed": false,
+          "amendment_outcome": "ready_for_human_review"
+        }
+      ]
+    },
+    "relation-relaxed": {
+      "domain": "manual-urllib3-adapter",
+      "amendment_file": "relation-relaxed-amendment.json",
+      "delta_file": "relation-relaxed-delta.json",
+      "changes_file": "relation-relaxed-changes.json",
+      "amendment_report_id": "amd_f0e00b56e8ba8e5da7feef4b2f6888bcc18c4fb8f8e8d62defeb4a0558cbf59a",
+      "delta_report_id": "rqd_e503c47b4d3802a2a31c96368520036b3ed668c3f8ec759b6bea22c905cb8066",
+      "state": "current_for_human_review",
+      "attention_state": "attention_required",
+      "counts": {
+        "total": 2,
+        "requirements_unchanged": 1,
+        "declared_relations_relaxed": 1,
+        "declared_relations_strengthened": 0,
+        "structural_changes": 0,
+        "selected_value_changed_promises": 0,
+        "attention_promises": 1
+      },
+      "review_attention": [
+        {
+          "id": "retry-default-methods-promise",
+          "reasons": [
+            {
+              "code": "declared_relation_relaxed"
+            },
+            {
+              "code": "description_changed"
+            }
+          ]
+        }
+      ],
+      "blockers": [],
+      "promise_ids": [
+        "retry-default-methods-promise",
+        "retry-default-total-promise"
+      ],
+      "results": [
+        {
+          "id": "retry-default-methods-promise",
+          "requirement_change": "declared_relation_relaxed",
+          "relation_comparison": {
+            "comparable": true,
+            "before_implies_after": true,
+            "after_implies_before": false,
+            "basis": "finite_string_set_predicate_schema"
+          },
+          "document_value_change": "unchanged",
+          "code_value_change": "unchanged",
+          "document_dependencies_changed": false,
+          "code_dependencies_changed": false,
+          "amendment_outcome": "ready_for_human_review"
+        },
+        {
+          "id": "retry-default-total-promise",
+          "requirement_change": "unchanged",
+          "relation_comparison": {
+            "comparable": true,
+            "before_implies_after": true,
+            "after_implies_before": true,
+            "basis": "identical_declared_requirement"
+          },
+          "document_value_change": "unchanged",
+          "code_value_change": "unchanged",
+          "document_dependencies_changed": false,
+          "code_dependencies_changed": false,
+          "amendment_outcome": "ready_for_human_review"
+        }
+      ]
+    },
+    "relation-strengthened": {
+      "domain": "manual-urllib3-adapter",
+      "amendment_file": "relation-strengthened-amendment.json",
+      "delta_file": "relation-strengthened-delta.json",
+      "changes_file": "relation-strengthened-changes.json",
+      "amendment_report_id": "amd_28397c7b56b434d7ed1b16f9833400eed81cdb7112c520edfd57b914185d5ad3",
+      "delta_report_id": "rqd_9c4c2bfe8bbbe8aa002e0f4b5e7d3dce8b6aa91a1d010f572e443fa5247b5b9b",
+      "state": "current_for_human_review",
+      "attention_state": "attention_required",
+      "counts": {
+        "total": 2,
+        "requirements_unchanged": 1,
+        "declared_relations_relaxed": 0,
+        "declared_relations_strengthened": 1,
+        "structural_changes": 0,
+        "selected_value_changed_promises": 0,
+        "attention_promises": 1
+      },
+      "review_attention": [
+        {
+          "id": "retry-default-methods-promise",
+          "reasons": [
+            {
+              "code": "declared_relation_strengthened"
+            },
+            {
+              "code": "description_changed"
+            }
+          ]
+        }
+      ],
+      "blockers": [],
+      "promise_ids": [
+        "retry-default-methods-promise",
+        "retry-default-total-promise"
+      ],
+      "results": [
+        {
+          "id": "retry-default-methods-promise",
+          "requirement_change": "declared_relation_strengthened",
+          "relation_comparison": {
+            "comparable": true,
+            "before_implies_after": false,
+            "after_implies_before": true,
+            "basis": "finite_string_set_predicate_schema"
+          },
+          "document_value_change": "unchanged",
+          "code_value_change": "unchanged",
+          "document_dependencies_changed": false,
+          "code_dependencies_changed": false,
+          "amendment_outcome": "ready_for_human_review"
+        },
+        {
+          "id": "retry-default-total-promise",
+          "requirement_change": "unchanged",
+          "relation_comparison": {
+            "comparable": true,
+            "before_implies_after": true,
+            "after_implies_before": true,
+            "basis": "identical_declared_requirement"
+          },
+          "document_value_change": "unchanged",
+          "code_value_change": "unchanged",
+          "document_dependencies_changed": false,
+          "code_dependencies_changed": false,
+          "amendment_outcome": "ready_for_human_review"
+        }
+      ]
+    },
+    "scope-change": {
+      "domain": "manual-urllib3-adapter",
+      "amendment_file": "scope-change-amendment.json",
+      "delta_file": "scope-change-delta.json",
+      "changes_file": "scope-change-changes.json",
+      "amendment_report_id": "amd_e3d3e38957beb2ccc0f6a4bac7d9e80dfcb5c790a8089ada22ca6d19b71a72df",
+      "delta_report_id": "rqd_f8d9ec238dcadf6a63b01aae37d43a2455087196c38d92d9647bc1c7433be94e",
+      "state": "current_for_human_review",
+      "attention_state": "attention_required",
+      "counts": {
+        "total": 2,
+        "requirements_unchanged": 1,
+        "declared_relations_relaxed": 0,
+        "declared_relations_strengthened": 0,
+        "structural_changes": 1,
+        "selected_value_changed_promises": 0,
+        "attention_promises": 1
+      },
+      "review_attention": [
+        {
+          "id": "retry-default-methods-promise",
+          "reasons": [
+            {
+              "code": "structural_change"
+            },
+            {
+              "code": "description_changed"
+            }
+          ]
+        }
+      ],
+      "blockers": [],
+      "promise_ids": [
+        "retry-default-methods-promise",
+        "retry-default-total-promise"
+      ],
+      "results": [
+        {
+          "id": "retry-default-methods-promise",
+          "requirement_change": "structural_change",
+          "relation_comparison": {
+            "comparable": false,
+            "before_implies_after": null,
+            "after_implies_before": null,
+            "basis": null
+          },
+          "document_value_change": "unchanged",
+          "code_value_change": "unchanged",
+          "document_dependencies_changed": false,
+          "code_dependencies_changed": false,
+          "amendment_outcome": "ready_for_human_review"
+        },
+        {
+          "id": "retry-default-total-promise",
+          "requirement_change": "unchanged",
+          "relation_comparison": {
+            "comparable": true,
+            "before_implies_after": true,
+            "after_implies_before": true,
+            "basis": "identical_declared_requirement"
+          },
+          "document_value_change": "unchanged",
+          "code_value_change": "unchanged",
+          "document_dependencies_changed": false,
+          "code_dependencies_changed": false,
+          "amendment_outcome": "ready_for_human_review"
+        }
+      ]
+    },
+    "fictional-attempt-limit": {
+      "domain": "fictional-client",
+      "amendment_file": "fictional-attempt-limit-amendment.json",
+      "delta_file": "fictional-attempt-limit-delta.json",
+      "changes_file": "fictional-attempt-limit-changes.json",
+      "amendment_report_id": "amd_2dbe789b324a71578c807028cd4ec7f120d0e5427823e19dbc6bd4435e25aac9",
+      "delta_report_id": "rqd_de627e38bda12d3f1f2ee5c2a6276cbe61396f166479a5aac721a7b4645b8736",
+      "state": "current_for_human_review",
+      "attention_state": "attention_required",
+      "counts": {
+        "total": 2,
+        "requirements_unchanged": 2,
+        "declared_relations_relaxed": 0,
+        "declared_relations_strengthened": 0,
+        "structural_changes": 0,
+        "selected_value_changed_promises": 1,
+        "attention_promises": 1
+      },
+      "review_attention": [
+        {
+          "id": "attempt-limit-promise",
+          "reasons": [
+            {
+              "code": "selected_value_changed",
+              "endpoint": "document"
+            },
+            {
+              "code": "selected_value_changed",
+              "endpoint": "code"
+            },
+            {
+              "code": "description_changed"
+            },
+            {
+              "code": "quote_changed"
+            }
+          ]
+        }
+      ],
+      "blockers": [],
+      "promise_ids": [
+        "allowed-methods-promise",
+        "attempt-limit-promise"
+      ],
+      "results": [
+        {
+          "id": "allowed-methods-promise",
+          "requirement_change": "unchanged",
+          "relation_comparison": {
+            "comparable": true,
+            "before_implies_after": true,
+            "after_implies_before": true,
+            "basis": "identical_declared_requirement"
+          },
+          "document_value_change": "unchanged",
+          "code_value_change": "unchanged",
+          "document_dependencies_changed": false,
+          "code_dependencies_changed": false,
+          "amendment_outcome": "ready_for_human_review"
+        },
+        {
+          "id": "attempt-limit-promise",
+          "requirement_change": "unchanged",
+          "relation_comparison": {
+            "comparable": true,
+            "before_implies_after": true,
+            "after_implies_before": true,
+            "basis": "identical_declared_requirement"
+          },
+          "document_value_change": "changed",
+          "code_value_change": "changed",
+          "document_dependencies_changed": false,
+          "code_dependencies_changed": false,
+          "amendment_outcome": "ready_for_human_review"
+        }
+      ]
+    },
+    "blocked-unit": {
+      "domain": "manual-urllib3-adapter",
+      "amendment_file": "blocked-unit-amendment.json",
+      "delta_file": "blocked-unit-delta.json",
+      "changes_file": null,
+      "amendment_report_id": "amd_fdbdf34ced10e85498668cd56cc7c9ca9033376bb009fe3bfc3f3c301bbe6b43",
+      "delta_report_id": "rqd_36807e1446a611ed5e3dae0aedd87def0eee9f21db3edcaec7d6947b5a0397e0",
+      "state": "blocked",
+      "attention_state": "attention_required",
+      "counts": {
+        "total": 2,
+        "requirements_unchanged": 1,
+        "declared_relations_relaxed": 0,
+        "declared_relations_strengthened": 0,
+        "structural_changes": 1,
+        "selected_value_changed_promises": 0,
+        "attention_promises": 1
+      },
+      "review_attention": [
+        {
+          "id": "retry-default-total-promise",
+          "reasons": [
+            {
+              "code": "structural_change"
+            },
+            {
+              "code": "description_changed"
+            },
+            {
+              "code": "quote_changed"
+            },
+            {
+              "code": "amendment_authored_blocked"
+            }
+          ]
+        }
+      ],
+      "blockers": [
+        {
+          "code": "promise_invalid_mapping",
+          "promise_id": "retry-default-total-promise"
+        },
+        {
+          "action": "revise",
+          "code": "amendment_candidate_blocked",
+          "promise_id": "retry-default-total-promise"
+        }
+      ],
+      "promise_ids": [
+        "retry-default-methods-promise",
+        "retry-default-total-promise"
+      ],
+      "results": [
+        {
+          "id": "retry-default-methods-promise",
+          "requirement_change": "unchanged",
+          "relation_comparison": {
+            "comparable": true,
+            "before_implies_after": true,
+            "after_implies_before": true,
+            "basis": "identical_declared_requirement"
+          },
+          "document_value_change": "unchanged",
+          "code_value_change": "unchanged",
+          "document_dependencies_changed": false,
+          "code_dependencies_changed": false,
+          "amendment_outcome": "ready_for_human_review"
+        },
+        {
+          "id": "retry-default-total-promise",
+          "requirement_change": "structural_change",
+          "relation_comparison": {
+            "comparable": false,
+            "before_implies_after": null,
+            "after_implies_before": null,
+            "basis": null
+          },
+          "document_value_change": "unchanged",
+          "code_value_change": "unchanged",
+          "document_dependencies_changed": false,
+          "code_dependencies_changed": false,
+          "amendment_outcome": "authored_blocked"
+        }
+      ]
+    },
+    "stale-reaffirm": {
+      "domain": "fictional-client",
+      "amendment_file": "stale-reaffirm-amendment.json",
+      "delta_file": "stale-reaffirm-delta.json",
+      "changes_file": "stale-reaffirm-changes.json",
+      "amendment_report_id": "amd_ef907894cf1d31be4f4a90e8f72e8ecb9b08dbd6010274928a7c9cf8917d0d4c",
+      "delta_report_id": "rqd_dcbbec1ac3f0b06c10aa4735ebcf747c8790fa1ba8633f753562519573457a14",
+      "state": "blocked",
+      "attention_state": "attention_required",
+      "counts": {
+        "total": 2,
+        "requirements_unchanged": 2,
+        "declared_relations_relaxed": 0,
+        "declared_relations_strengthened": 0,
+        "structural_changes": 0,
+        "selected_value_changed_promises": 0,
+        "attention_promises": 2
+      },
+      "review_attention": [
+        {
+          "id": "allowed-methods-promise",
+          "reasons": [
+            {
+              "code": "render_dependencies_changed",
+              "endpoint": "document"
+            },
+            {
+              "code": "render_dependencies_changed",
+              "endpoint": "code"
+            }
+          ]
+        },
+        {
+          "id": "attempt-limit-promise",
+          "reasons": [
+            {
+              "code": "render_dependencies_changed",
+              "endpoint": "document"
+            },
+            {
+              "code": "render_dependencies_changed",
+              "endpoint": "code"
+            }
+          ]
+        }
+      ],
+      "blockers": [
+        {
+          "actual": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d",
+          "code": "stale_read",
+          "expected": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+          "id": "api.timeout_seconds"
+        }
+      ],
+      "promise_ids": [
+        "allowed-methods-promise",
+        "attempt-limit-promise"
+      ],
+      "results": [
+        {
+          "id": "allowed-methods-promise",
+          "requirement_change": "unchanged",
+          "relation_comparison": {
+            "comparable": true,
+            "before_implies_after": true,
+            "after_implies_before": true,
+            "basis": "identical_declared_requirement"
+          },
+          "document_value_change": "unchanged",
+          "code_value_change": "unchanged",
+          "document_dependencies_changed": true,
+          "code_dependencies_changed": true,
+          "amendment_outcome": "ready_for_human_review"
+        },
+        {
+          "id": "attempt-limit-promise",
+          "requirement_change": "unchanged",
+          "relation_comparison": {
+            "comparable": true,
+            "before_implies_after": true,
+            "after_implies_before": true,
+            "basis": "identical_declared_requirement"
+          },
+          "document_value_change": "unchanged",
+          "code_value_change": "unchanged",
+          "document_dependencies_changed": true,
+          "code_dependencies_changed": true,
+          "amendment_outcome": "ready_for_human_review"
+        }
+      ]
+    }
+  },
+  "requires_human_review": true,
+  "auto_accept": false,
+  "live_state_checked": false,
+  "fresh_runtime_capture": false,
+  "captured_code_executed": false,
+  "semantic_prose_equivalence_established": false,
+  "guarantee_direction_established": false,
+  "performance_or_quality_measured": false
+}

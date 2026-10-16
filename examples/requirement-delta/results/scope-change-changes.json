@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "rebase_report_id": "reb_a22355d509c467f09ca91ed840a3d5cadc2ac4556c0779c8eb8db7861e9f4dab",
+  "rebase_report_digest": "a22355d509c467f09ca91ed840a3d5cadc2ac4556c0779c8eb8db7861e9f4dab",
+  "actions": [
+    {
+      "promise_id": "retry-default-methods-promise",
+      "action": "revise",
+      "rationale": "Author adds a scope label; equal selected values do not establish structural equivalence.",
+      "descriptor": {
+        "anchor": {
+          "artifact_id": "docs/urllib3-retry.md",
+          "quote": "Набор Retry.DEFAULT_ALLOWED_METHODS содержит HEAD, GET, PUT, DELETE, OPTIONS и TRACE; POST в нём отсутствует."
+        },
+        "description": "Authored candidate review adds an explicit scope label to the same selected method sets.",
+        "id": "retry-default-methods-promise",
+        "obligation_ids": [
+          "retry-default-methods"
+        ],
+        "requirement": {
+          "code": {
+            "artifact_id": "code/urllib3_retry_defaults.py",
+            "symbol": "DEFAULT_ALLOWED_METHODS"
+          },
+          "document": {
+            "artifact_id": "docs/urllib3-retry.md",
+            "fence_id": "retry-defaults",
+            "path": [
+              "default_allowed_methods"
+            ]
+          },
+          "relation": "equals",
+          "scope": {
+            "library": "urllib3",
+            "setting": "Retry-default-allowed-methods",
+            "version": "2.5.0",
+            "review_frame": "authored-candidate"
+          },
+          "value_type": "string_set"
+        }
+      }
+    }
+  ]
+}

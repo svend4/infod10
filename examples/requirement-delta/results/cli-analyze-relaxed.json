@@ -1,0 +1,63 @@
+{
+  "path": "examples/requirement-delta/results/cli-relation-relaxed-delta.json",
+  "report_id": "rqd_9a120d9b984f5ebf1dd7fc69352470c1d965f1ba0055aa092eab17e68b7ae728",
+  "report_digest": "9a120d9b984f5ebf1dd7fc69352470c1d965f1ba0055aa092eab17e68b7ae728",
+  "source_amendment_id": "amd_f0e00b56e8ba8e5da7feef4b2f6888bcc18c4fb8f8e8d62defeb4a0558cbf59a",
+  "source_amendment_digest": "f0e00b56e8ba8e5da7feef4b2f6888bcc18c4fb8f8e8d62defeb4a0558cbf59a",
+  "state": "current_for_human_review",
+  "attention_state": "attention_required",
+  "counts": {
+    "total": 2,
+    "requirements_unchanged": 1,
+    "declared_relations_relaxed": 1,
+    "declared_relations_strengthened": 0,
+    "structural_changes": 0,
+    "selected_value_changed_promises": 0,
+    "attention_promises": 1
+  },
+  "results": [
+    {
+      "id": "retry-default-methods-promise",
+      "action": "revise",
+      "amendment_outcome": "ready_for_human_review",
+      "requirement_change": "declared_relation_relaxed",
+      "document_value_change": "unchanged",
+      "code_value_change": "unchanged",
+      "attention_reasons": [
+        {
+          "code": "declared_relation_relaxed"
+        },
+        {
+          "code": "description_changed"
+        }
+      ]
+    },
+    {
+      "id": "retry-default-total-promise",
+      "action": "retain",
+      "amendment_outcome": "ready_for_human_review",
+      "requirement_change": "unchanged",
+      "document_value_change": "unchanged",
+      "code_value_change": "unchanged",
+      "attention_reasons": []
+    }
+  ],
+  "review_attention": [
+    {
+      "id": "retry-default-methods-promise",
+      "reasons": [
+        {
+          "code": "declared_relation_relaxed"
+        },
+        {
+          "code": "description_changed"
+        }
+      ]
+    }
+  ],
+  "blockers": [],
+  "requires_human_review": true,
+  "auto_accept": false,
+  "live_state_checked": false,
+  "atomic_capture": false
+}

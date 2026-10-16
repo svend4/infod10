@@ -1,0 +1,95 @@
+{
+  "report_id": "rqd_dcbbec1ac3f0b06c10aa4735ebcf747c8790fa1ba8633f753562519573457a14",
+  "report_digest": "dcbbec1ac3f0b06c10aa4735ebcf747c8790fa1ba8633f753562519573457a14",
+  "source_amendment_id": "amd_ef907894cf1d31be4f4a90e8f72e8ecb9b08dbd6010274928a7c9cf8917d0d4c",
+  "source_amendment_digest": "ef907894cf1d31be4f4a90e8f72e8ecb9b08dbd6010274928a7c9cf8917d0d4c",
+  "state": "blocked",
+  "attention_state": "attention_required",
+  "counts": {
+    "attention_promises": 2,
+    "declared_relations_relaxed": 0,
+    "declared_relations_strengthened": 0,
+    "requirements_unchanged": 2,
+    "selected_value_changed_promises": 0,
+    "structural_changes": 0,
+    "total": 2
+  },
+  "results": [
+    {
+      "id": "allowed-methods-promise",
+      "action": "reaffirm",
+      "amendment_outcome": "ready_for_human_review",
+      "requirement_change": "unchanged",
+      "document_value_change": "unchanged",
+      "code_value_change": "unchanged",
+      "attention_reasons": [
+        {
+          "code": "render_dependencies_changed",
+          "endpoint": "document"
+        },
+        {
+          "code": "render_dependencies_changed",
+          "endpoint": "code"
+        }
+      ]
+    },
+    {
+      "id": "attempt-limit-promise",
+      "action": "reaffirm",
+      "amendment_outcome": "ready_for_human_review",
+      "requirement_change": "unchanged",
+      "document_value_change": "unchanged",
+      "code_value_change": "unchanged",
+      "attention_reasons": [
+        {
+          "code": "render_dependencies_changed",
+          "endpoint": "document"
+        },
+        {
+          "code": "render_dependencies_changed",
+          "endpoint": "code"
+        }
+      ]
+    }
+  ],
+  "review_attention": [
+    {
+      "id": "allowed-methods-promise",
+      "reasons": [
+        {
+          "code": "render_dependencies_changed",
+          "endpoint": "document"
+        },
+        {
+          "code": "render_dependencies_changed",
+          "endpoint": "code"
+        }
+      ]
+    },
+    {
+      "id": "attempt-limit-promise",
+      "reasons": [
+        {
+          "code": "render_dependencies_changed",
+          "endpoint": "document"
+        },
+        {
+          "code": "render_dependencies_changed",
+          "endpoint": "code"
+        }
+      ]
+    }
+  ],
+  "blockers": [
+    {
+      "actual": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d",
+      "code": "stale_read",
+      "expected": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+      "id": "api.timeout_seconds"
+    }
+  ],
+  "requires_human_review": true,
+  "auto_accept": false,
+  "live_state_checked": false,
+  "atomic_capture": false
+}

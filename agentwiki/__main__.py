@@ -21,6 +21,7 @@ from .obligations_cli import register_obligations_parser, run_obligations_comman
 from .coverage_cli import register_coverage_parser, run_coverage_command
 from .inventory_rebase_cli import register_rebase_parser, run_rebase_command
 from .inventory_amendment_cli import register_amendment_parser, run_amendment_command
+from .requirement_delta_cli import register_delta_parser, run_delta_command
 
 
 def _workers(value: str) -> int:
@@ -148,6 +149,7 @@ def main(argv: list[str] | None = None) -> int:
     register_coverage_parser(commands)
     register_rebase_parser(commands)
     register_amendment_parser(commands)
+    register_delta_parser(commands)
     editorial_demo = commands.add_parser("editorial-demo", help="Показать историю решений программных проверяющих и устаревание оснований.")
     editorial_demo.add_argument("--workspace", type=Path, required=True)
     editorial_demo.add_argument("--workers", default=3, type=_workers)
@@ -169,6 +171,9 @@ def main(argv: list[str] | None = None) -> int:
     amendment_demo = commands.add_parser("inventory-amendment-demo", help="Оформить явный пересмотр обещаний на авторском адаптере urllib3.")
     amendment_demo.add_argument("--workspace", type=Path, required=True)
     amendment_demo.add_argument("--workers", default=3, type=_workers)
+    delta_demo = commands.add_parser("requirement-delta-demo", help="Разобрать изменения требований и выбранных значений после пересмотра описи.")
+    delta_demo.add_argument("--workspace", type=Path, required=True)
+    delta_demo.add_argument("--workers", default=3, type=_workers)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -224,6 +229,13 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(run_rebase_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "inventory-amendment":
             print(json.dumps(run_amendment_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "requirement-delta":
+            print(json.dumps(run_delta_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "requirement-delta-demo":
+            from .requirement_delta_demo import run_requirement_delta_demo
+
+            report = run_requirement_delta_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "report.md"), "summary": report["counts"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "inventory-amendment-demo":
             from .inventory_amendment_demo import run_amendment_demo
 

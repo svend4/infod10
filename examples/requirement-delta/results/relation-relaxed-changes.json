@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "rebase_report_id": "reb_4343f219745901f1fe839616f30706e144bdbd4b847cf191fe585f4cc77180a3",
+  "rebase_report_digest": "4343f219745901f1fe839616f30706e144bdbd4b847cf191fe585f4cc77180a3",
+  "actions": [
+    {
+      "promise_id": "retry-default-methods-promise",
+      "action": "revise",
+      "rationale": "Author explicitly changes only the declared set relation and its description; no direction of a prose or program guarantee is established.",
+      "descriptor": {
+        "anchor": {
+          "artifact_id": "docs/urllib3-retry.md",
+          "quote": "Набор Retry.DEFAULT_ALLOWED_METHODS содержит HEAD, GET, PUT, DELETE, OPTIONS и TRACE; POST в нём отсутствует."
+        },
+        "description": "Authored requirement permits the selected code method set to be a subset of the document set; captured literals and quote remain unchanged.",
+        "id": "retry-default-methods-promise",
+        "obligation_ids": [
+          "retry-default-methods"
+        ],
+        "requirement": {
+          "code": {
+            "artifact_id": "code/urllib3_retry_defaults.py",
+            "symbol": "DEFAULT_ALLOWED_METHODS"
+          },
+          "document": {
+            "artifact_id": "docs/urllib3-retry.md",
+            "fence_id": "retry-defaults",
+            "path": [
+              "default_allowed_methods"
+            ]
+          },
+          "relation": "code_subset_of_document",
+          "scope": {
+            "library": "urllib3",
+            "setting": "Retry-default-allowed-methods",
+            "version": "2.5.0"
+          },
+          "value_type": "string_set"
+        }
+      }
+    }
+  ]
+}
