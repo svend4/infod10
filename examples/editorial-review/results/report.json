@@ -1,0 +1,1028 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T13:31:34.035782+02:00",
+  "report_timezone": "Europe/Berlin",
+  "workspace": "/tmp/infod10-editorial-development-01",
+  "case_id": "units-equivalent-seconds-milliseconds",
+  "uses_llm": false,
+  "fictional_sources": true,
+  "executes_proposed_code": false,
+  "calls_store_accept": false,
+  "requires_human_review": true,
+  "human_review_recorded": false,
+  "auto_accept": false,
+  "execution": {
+    "requested_pool_workers": 3,
+    "submitted_parallel_review_jobs": 2,
+    "observed_worker_threads": [
+      "editorial-review_0",
+      "editorial-review_1"
+    ],
+    "distinct_reviewer_ids": [
+      "review-agent-a",
+      "review-agent-b",
+      "review-agent-c"
+    ],
+    "all_reviewer_actor_kinds": [
+      "agent"
+    ],
+    "proposer_id": "proposal-agent",
+    "proposer_actor_kind": "agent"
+  },
+  "packets": {
+    "original": {
+      "schema_version": 1,
+      "proposer": {
+        "id": "proposal-agent",
+        "kind": "agent"
+      },
+      "pair": {
+        "after": {
+          "attribution": "вымышленный редактор Альфа",
+          "evidence": {
+            "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "source_id": "fictional-shared"
+          },
+          "kind": "specification",
+          "modality": "asserted",
+          "polarity": "positive",
+          "property": "request-timeout",
+          "scope": {
+            "version": "1.0"
+          },
+          "subject": "fictional-api",
+          "text": "Тайм-аут равен 30000 миллисекундам.",
+          "value": {
+            "amount": "30000",
+            "type": "quantity",
+            "unit": "ms"
+          }
+        },
+        "before": {
+          "attribution": "вымышленный редактор Альфа",
+          "evidence": {
+            "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "source_id": "fictional-shared"
+          },
+          "kind": "specification",
+          "modality": "asserted",
+          "polarity": "positive",
+          "property": "request-timeout",
+          "scope": {
+            "version": "1.0"
+          },
+          "subject": "fictional-api",
+          "text": "Тайм-аут равен 30 секундам.",
+          "value": {
+            "amount": "30",
+            "type": "quantity",
+            "unit": "s"
+          }
+        },
+        "sources": {
+          "fictional-shared": {
+            "sha256": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "text": "ВЫМЫШЛЕННЫЙ ИСТОЧНИК. Учебный снимок условного API, не сведения о реальном продукте.\nТайм-аут равен 30 секундам, то есть 30000 миллисекундам.\n"
+          }
+        }
+      },
+      "analysis": {
+        "schema_version": 1,
+        "rules_version": "semantic-1",
+        "input_digest": "8c63260510157110e5f6afdc5e8a95e2bf101227a89372c722fffcfb81b71bf6",
+        "relation": "structured_equivalent",
+        "review_action": "review_wording_and_evidence",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "findings": [
+          {
+            "code": "wording_changed",
+            "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+          },
+          {
+            "code": "equal_structured_value",
+            "explanation": "Нормализованные значения совпадают точно."
+          },
+          {
+            "code": "units_normalized",
+            "explanation": "Применено явное точное преобразование единиц без округления двоичных чисел.",
+            "before": {
+              "input_unit": "s",
+              "factor_numerator": "1",
+              "factor_denominator": "1"
+            },
+            "after": {
+              "input_unit": "ms",
+              "factor_numerator": "1",
+              "factor_denominator": "1000"
+            }
+          }
+        ],
+        "normalized": {
+          "before": {
+            "supported": true,
+            "canonical": {
+              "type": "quantity",
+              "dimension": "time",
+              "unit": "s",
+              "numerator": "30",
+              "denominator": "1"
+            },
+            "conversion": {
+              "input_unit": "s",
+              "factor_numerator": "1",
+              "factor_denominator": "1"
+            }
+          },
+          "after": {
+            "supported": true,
+            "canonical": {
+              "type": "quantity",
+              "dimension": "time",
+              "unit": "s",
+              "numerator": "30",
+              "denominator": "1"
+            },
+            "conversion": {
+              "input_unit": "ms",
+              "factor_numerator": "1",
+              "factor_denominator": "1000"
+            }
+          }
+        },
+        "evidence": {
+          "before": {
+            "status": "quote_present",
+            "verified": true,
+            "source_id": "fictional-shared",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "check": "Literal quote presence only, not entailment or truth"
+          },
+          "after": {
+            "status": "quote_present",
+            "verified": true,
+            "source_id": "fictional-shared",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "check": "Literal quote presence only, not entailment or truth"
+          }
+        },
+        "limitations": [
+          "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+          "Literal quote presence does not establish entailment, factual truth or source independence.",
+          "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+          "Different scope metadata does not prove scopes are disjoint.",
+          "No corpus annotation is an input to this function; no model or network is used."
+        ]
+      },
+      "input_digest": "8c63260510157110e5f6afdc5e8a95e2bf101227a89372c722fffcfb81b71bf6",
+      "analysis_digest": "d7fb7c52182232ca3ac46bc7511266e63e58d58e1f4cf98defbfb1f4ed707229",
+      "rules_version": "semantic-1",
+      "policy": {
+        "version": "editorial-1",
+        "agent_agreement_min": 2,
+        "requires_human_review": true,
+        "auto_accept": false,
+        "latest_decision_per_reviewer": true,
+        "actor_identity": "self_declared_local"
+      },
+      "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+      "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+      "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+      "created_at": "2026-10-16T11:31:34.009632+00:00"
+    },
+    "replacement": {
+      "schema_version": 1,
+      "proposer": {
+        "id": "proposal-agent",
+        "kind": "agent"
+      },
+      "pair": {
+        "after": {
+          "attribution": "вымышленный редактор Альфа",
+          "evidence": {
+            "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "source_id": "fictional-shared"
+          },
+          "kind": "specification",
+          "modality": "asserted",
+          "polarity": "positive",
+          "property": "request-timeout",
+          "scope": {
+            "version": "1.0"
+          },
+          "subject": "fictional-api",
+          "text": "Тайм-аут равен 30000 миллисекундам. Дополнение для редакционного рассмотрения.",
+          "value": {
+            "amount": "30000",
+            "type": "quantity",
+            "unit": "ms"
+          }
+        },
+        "before": {
+          "attribution": "вымышленный редактор Альфа",
+          "evidence": {
+            "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "source_id": "fictional-shared"
+          },
+          "kind": "specification",
+          "modality": "asserted",
+          "polarity": "positive",
+          "property": "request-timeout",
+          "scope": {
+            "version": "1.0"
+          },
+          "subject": "fictional-api",
+          "text": "Тайм-аут равен 30 секундам.",
+          "value": {
+            "amount": "30",
+            "type": "quantity",
+            "unit": "s"
+          }
+        },
+        "sources": {
+          "fictional-shared": {
+            "sha256": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "text": "ВЫМЫШЛЕННЫЙ ИСТОЧНИК. Учебный снимок условного API, не сведения о реальном продукте.\nТайм-аут равен 30 секундам, то есть 30000 миллисекундам.\n"
+          }
+        }
+      },
+      "analysis": {
+        "schema_version": 1,
+        "rules_version": "semantic-1",
+        "input_digest": "943ccc236de208d3f6883ccbc5a6126943d12d2d36ce52033f0083b2a80e0329",
+        "relation": "structured_equivalent",
+        "review_action": "review_wording_and_evidence",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "findings": [
+          {
+            "code": "wording_changed",
+            "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+          },
+          {
+            "code": "equal_structured_value",
+            "explanation": "Нормализованные значения совпадают точно."
+          },
+          {
+            "code": "units_normalized",
+            "explanation": "Применено явное точное преобразование единиц без округления двоичных чисел.",
+            "before": {
+              "input_unit": "s",
+              "factor_numerator": "1",
+              "factor_denominator": "1"
+            },
+            "after": {
+              "input_unit": "ms",
+              "factor_numerator": "1",
+              "factor_denominator": "1000"
+            }
+          }
+        ],
+        "normalized": {
+          "before": {
+            "supported": true,
+            "canonical": {
+              "type": "quantity",
+              "dimension": "time",
+              "unit": "s",
+              "numerator": "30",
+              "denominator": "1"
+            },
+            "conversion": {
+              "input_unit": "s",
+              "factor_numerator": "1",
+              "factor_denominator": "1"
+            }
+          },
+          "after": {
+            "supported": true,
+            "canonical": {
+              "type": "quantity",
+              "dimension": "time",
+              "unit": "s",
+              "numerator": "30",
+              "denominator": "1"
+            },
+            "conversion": {
+              "input_unit": "ms",
+              "factor_numerator": "1",
+              "factor_denominator": "1000"
+            }
+          }
+        },
+        "evidence": {
+          "before": {
+            "status": "quote_present",
+            "verified": true,
+            "source_id": "fictional-shared",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "check": "Literal quote presence only, not entailment or truth"
+          },
+          "after": {
+            "status": "quote_present",
+            "verified": true,
+            "source_id": "fictional-shared",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "check": "Literal quote presence only, not entailment or truth"
+          }
+        },
+        "limitations": [
+          "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+          "Literal quote presence does not establish entailment, factual truth or source independence.",
+          "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+          "Different scope metadata does not prove scopes are disjoint.",
+          "No corpus annotation is an input to this function; no model or network is used."
+        ]
+      },
+      "input_digest": "943ccc236de208d3f6883ccbc5a6126943d12d2d36ce52033f0083b2a80e0329",
+      "analysis_digest": "de3bc90c0d779aa6550f5ab608160722adad81d02a626cd601368b01d5e530c8",
+      "rules_version": "semantic-1",
+      "policy": {
+        "version": "editorial-1",
+        "agent_agreement_min": 2,
+        "requires_human_review": true,
+        "auto_accept": false,
+        "latest_decision_per_reviewer": true,
+        "actor_identity": "self_declared_local"
+      },
+      "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+      "packet_id": "pkt_4f2b4f584f34eacfb7b52ca20e45cfb85844a32520b72c4d5abe7faaf6632be0",
+      "packet_digest": "4f2b4f584f34eacfb7b52ca20e45cfb85844a32520b72c4d5abe7faaf6632be0",
+      "created_at": "2026-10-16T11:31:34.024000+00:00"
+    }
+  },
+  "parallel_reviews": [
+    {
+      "reviewer": "review-agent-a",
+      "thread": "editorial-review_0",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+        "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+        "reviewer": "review-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+        "operation_id": "review-a-1",
+        "supersedes": null,
+        "decision_id": "dec_67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+        "request_digest": "67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+        "recorded_at": "2026-10-16T11:31:34.016076+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "reviewer": "review-agent-b",
+      "thread": "editorial-review_1",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+        "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+        "reviewer": "review-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+        "operation_id": "review-b-1",
+        "supersedes": null,
+        "decision_id": "dec_6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+        "request_digest": "6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+        "recorded_at": "2026-10-16T11:31:34.015177+00:00",
+        "replayed": false
+      }
+    }
+  ],
+  "objection": {
+    "schema_version": 1,
+    "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+    "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+    "reviewer": "review-agent-c",
+    "actor_kind": "agent",
+    "verdict": "request_changes",
+    "rationale": "The equal quantities do not show whether the supplied wording and source support the intended claim. Keep that question visible for a human editor.",
+    "operation_id": "review-c-1",
+    "supersedes": null,
+    "decision_id": "dec_479b674f4c91af6625a18ba94ade51ba17bbdfdde53002f3526c9d14223b362e",
+    "request_digest": "479b674f4c91af6625a18ba94ade51ba17bbdfdde53002f3526c9d14223b362e",
+    "recorded_at": "2026-10-16T11:31:34.018288+00:00",
+    "replayed": false
+  },
+  "revised_decision": {
+    "schema_version": 1,
+    "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+    "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+    "reviewer": "review-agent-c",
+    "actor_kind": "agent",
+    "verdict": "approve",
+    "rationale": "The limited packet explicitly compares declared structured fields and keeps human review mandatory. I support that limited comparison; the source and full wording still need human assessment.",
+    "operation_id": "review-c-2",
+    "supersedes": "dec_479b674f4c91af6625a18ba94ade51ba17bbdfdde53002f3526c9d14223b362e",
+    "decision_id": "dec_b962d29303cbe6dec846c3bbe834aad139b945018e48e26690ca1f47e6e05793",
+    "request_digest": "b962d29303cbe6dec846c3bbe834aad139b945018e48e26690ca1f47e6e05793",
+    "recorded_at": "2026-10-16T11:31:34.019903+00:00",
+    "replayed": false
+  },
+  "replay": {
+    "response": {
+      "actor_kind": "agent",
+      "decision_id": "dec_b962d29303cbe6dec846c3bbe834aad139b945018e48e26690ca1f47e6e05793",
+      "operation_id": "review-c-2",
+      "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+      "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+      "rationale": "The limited packet explicitly compares declared structured fields and keeps human review mandatory. I support that limited comparison; the source and full wording still need human assessment.",
+      "recorded_at": "2026-10-16T11:31:34.019903+00:00",
+      "request_digest": "b962d29303cbe6dec846c3bbe834aad139b945018e48e26690ca1f47e6e05793",
+      "reviewer": "review-agent-c",
+      "schema_version": 1,
+      "supersedes": "dec_479b674f4c91af6625a18ba94ade51ba17bbdfdde53002f3526c9d14223b362e",
+      "verdict": "approve",
+      "replayed": true
+    },
+    "history_count_before": 4,
+    "history_count_after": 4
+  },
+  "obsolete_predecessor": {
+    "code": "decision_conflict",
+    "message": "Latest decision changed; supply its ID as supersedes"
+  },
+  "stages": [
+    {
+      "name": "initial",
+      "assessment": {
+        "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+        "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+        "input_digest": "8c63260510157110e5f6afdc5e8a95e2bf101227a89372c722fffcfb81b71bf6",
+        "current_input_digest": "8c63260510157110e5f6afdc5e8a95e2bf101227a89372c722fffcfb81b71bf6",
+        "freshness": "current",
+        "is_current": true,
+        "current_input_provided": true,
+        "current_input_checked": true,
+        "review_state": "awaiting_reviews",
+        "latest_decisions": [],
+        "current_basis_decisions": [],
+        "history_count": 0,
+        "reviewer_count": 0,
+        "human_review_recorded": false,
+        "requires_human_review": true,
+        "current_human_review_recorded": false,
+        "auto_accept": false,
+        "blockers": [
+          "human_review_not_recorded"
+        ],
+        "counts": {
+          "approve": 0,
+          "request_changes": 0,
+          "abstain": 0
+        },
+        "limits": [
+          "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+          "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+          "No state records factual truth or grants Store.accept/publication rights.",
+          "Human-review requirement remains true even when a caller records an actor labelled human."
+        ]
+      }
+    },
+    {
+      "name": "two_agent_approvals",
+      "assessment": {
+        "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+        "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+        "input_digest": "8c63260510157110e5f6afdc5e8a95e2bf101227a89372c722fffcfb81b71bf6",
+        "current_input_digest": "8c63260510157110e5f6afdc5e8a95e2bf101227a89372c722fffcfb81b71bf6",
+        "freshness": "current",
+        "is_current": true,
+        "current_input_provided": true,
+        "current_input_checked": true,
+        "review_state": "agent_agreement",
+        "latest_decisions": [
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+            "operation_id": "review-a-1",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+            "recorded_at": "2026-10-16T11:31:34.016076+00:00",
+            "request_digest": "67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+            "reviewer": "review-agent-a",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "approve"
+          },
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+            "operation_id": "review-b-1",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+            "recorded_at": "2026-10-16T11:31:34.015177+00:00",
+            "request_digest": "6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+            "reviewer": "review-agent-b",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "approve"
+          }
+        ],
+        "current_basis_decisions": [
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+            "operation_id": "review-a-1",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+            "recorded_at": "2026-10-16T11:31:34.016076+00:00",
+            "request_digest": "67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+            "reviewer": "review-agent-a",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "approve"
+          },
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+            "operation_id": "review-b-1",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+            "recorded_at": "2026-10-16T11:31:34.015177+00:00",
+            "request_digest": "6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+            "reviewer": "review-agent-b",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "approve"
+          }
+        ],
+        "history_count": 2,
+        "reviewer_count": 2,
+        "human_review_recorded": false,
+        "requires_human_review": true,
+        "current_human_review_recorded": false,
+        "auto_accept": false,
+        "blockers": [
+          "human_review_not_recorded"
+        ],
+        "counts": {
+          "approve": 2,
+          "request_changes": 0,
+          "abstain": 0
+        },
+        "limits": [
+          "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+          "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+          "No state records factual truth or grants Store.accept/publication rights.",
+          "Human-review requirement remains true even when a caller records an actor labelled human."
+        ]
+      }
+    },
+    {
+      "name": "third_agent_objection",
+      "assessment": {
+        "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+        "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+        "input_digest": "8c63260510157110e5f6afdc5e8a95e2bf101227a89372c722fffcfb81b71bf6",
+        "current_input_digest": "8c63260510157110e5f6afdc5e8a95e2bf101227a89372c722fffcfb81b71bf6",
+        "freshness": "current",
+        "is_current": true,
+        "current_input_provided": true,
+        "current_input_checked": true,
+        "review_state": "disagreement",
+        "latest_decisions": [
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+            "operation_id": "review-a-1",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+            "recorded_at": "2026-10-16T11:31:34.016076+00:00",
+            "request_digest": "67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+            "reviewer": "review-agent-a",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "approve"
+          },
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+            "operation_id": "review-b-1",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+            "recorded_at": "2026-10-16T11:31:34.015177+00:00",
+            "request_digest": "6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+            "reviewer": "review-agent-b",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "approve"
+          },
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_479b674f4c91af6625a18ba94ade51ba17bbdfdde53002f3526c9d14223b362e",
+            "operation_id": "review-c-1",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The equal quantities do not show whether the supplied wording and source support the intended claim. Keep that question visible for a human editor.",
+            "recorded_at": "2026-10-16T11:31:34.018288+00:00",
+            "request_digest": "479b674f4c91af6625a18ba94ade51ba17bbdfdde53002f3526c9d14223b362e",
+            "reviewer": "review-agent-c",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "request_changes"
+          }
+        ],
+        "current_basis_decisions": [
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+            "operation_id": "review-a-1",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+            "recorded_at": "2026-10-16T11:31:34.016076+00:00",
+            "request_digest": "67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+            "reviewer": "review-agent-a",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "approve"
+          },
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+            "operation_id": "review-b-1",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+            "recorded_at": "2026-10-16T11:31:34.015177+00:00",
+            "request_digest": "6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+            "reviewer": "review-agent-b",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "approve"
+          },
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_479b674f4c91af6625a18ba94ade51ba17bbdfdde53002f3526c9d14223b362e",
+            "operation_id": "review-c-1",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The equal quantities do not show whether the supplied wording and source support the intended claim. Keep that question visible for a human editor.",
+            "recorded_at": "2026-10-16T11:31:34.018288+00:00",
+            "request_digest": "479b674f4c91af6625a18ba94ade51ba17bbdfdde53002f3526c9d14223b362e",
+            "reviewer": "review-agent-c",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "request_changes"
+          }
+        ],
+        "history_count": 3,
+        "reviewer_count": 3,
+        "human_review_recorded": false,
+        "requires_human_review": true,
+        "current_human_review_recorded": false,
+        "auto_accept": false,
+        "blockers": [
+          "human_review_not_recorded",
+          "unresolved_changes_requested"
+        ],
+        "counts": {
+          "approve": 2,
+          "request_changes": 1,
+          "abstain": 0
+        },
+        "limits": [
+          "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+          "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+          "No state records factual truth or grants Store.accept/publication rights.",
+          "Human-review requirement remains true even when a caller records an actor labelled human."
+        ]
+      }
+    },
+    {
+      "name": "third_agent_revised_decision",
+      "assessment": {
+        "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+        "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+        "input_digest": "8c63260510157110e5f6afdc5e8a95e2bf101227a89372c722fffcfb81b71bf6",
+        "current_input_digest": "8c63260510157110e5f6afdc5e8a95e2bf101227a89372c722fffcfb81b71bf6",
+        "freshness": "current",
+        "is_current": true,
+        "current_input_provided": true,
+        "current_input_checked": true,
+        "review_state": "agent_agreement",
+        "latest_decisions": [
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+            "operation_id": "review-a-1",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+            "recorded_at": "2026-10-16T11:31:34.016076+00:00",
+            "request_digest": "67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+            "reviewer": "review-agent-a",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "approve"
+          },
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+            "operation_id": "review-b-1",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+            "recorded_at": "2026-10-16T11:31:34.015177+00:00",
+            "request_digest": "6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+            "reviewer": "review-agent-b",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "approve"
+          },
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_b962d29303cbe6dec846c3bbe834aad139b945018e48e26690ca1f47e6e05793",
+            "operation_id": "review-c-2",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The limited packet explicitly compares declared structured fields and keeps human review mandatory. I support that limited comparison; the source and full wording still need human assessment.",
+            "recorded_at": "2026-10-16T11:31:34.019903+00:00",
+            "request_digest": "b962d29303cbe6dec846c3bbe834aad139b945018e48e26690ca1f47e6e05793",
+            "reviewer": "review-agent-c",
+            "schema_version": 1,
+            "supersedes": "dec_479b674f4c91af6625a18ba94ade51ba17bbdfdde53002f3526c9d14223b362e",
+            "verdict": "approve"
+          }
+        ],
+        "current_basis_decisions": [
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+            "operation_id": "review-a-1",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+            "recorded_at": "2026-10-16T11:31:34.016076+00:00",
+            "request_digest": "67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+            "reviewer": "review-agent-a",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "approve"
+          },
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+            "operation_id": "review-b-1",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+            "recorded_at": "2026-10-16T11:31:34.015177+00:00",
+            "request_digest": "6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+            "reviewer": "review-agent-b",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "approve"
+          },
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_b962d29303cbe6dec846c3bbe834aad139b945018e48e26690ca1f47e6e05793",
+            "operation_id": "review-c-2",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The limited packet explicitly compares declared structured fields and keeps human review mandatory. I support that limited comparison; the source and full wording still need human assessment.",
+            "recorded_at": "2026-10-16T11:31:34.019903+00:00",
+            "request_digest": "b962d29303cbe6dec846c3bbe834aad139b945018e48e26690ca1f47e6e05793",
+            "reviewer": "review-agent-c",
+            "schema_version": 1,
+            "supersedes": "dec_479b674f4c91af6625a18ba94ade51ba17bbdfdde53002f3526c9d14223b362e",
+            "verdict": "approve"
+          }
+        ],
+        "history_count": 4,
+        "reviewer_count": 3,
+        "human_review_recorded": false,
+        "requires_human_review": true,
+        "current_human_review_recorded": false,
+        "auto_accept": false,
+        "blockers": [
+          "human_review_not_recorded"
+        ],
+        "counts": {
+          "approve": 3,
+          "request_changes": 0,
+          "abstain": 0
+        },
+        "limits": [
+          "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+          "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+          "No state records factual truth or grants Store.accept/publication rights.",
+          "Human-review requirement remains true even when a caller records an actor labelled human."
+        ]
+      }
+    },
+    {
+      "name": "old_packet_with_changed_input",
+      "assessment": {
+        "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+        "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+        "input_digest": "8c63260510157110e5f6afdc5e8a95e2bf101227a89372c722fffcfb81b71bf6",
+        "current_input_digest": "943ccc236de208d3f6883ccbc5a6126943d12d2d36ce52033f0083b2a80e0329",
+        "freshness": "stale_input",
+        "is_current": false,
+        "current_input_provided": true,
+        "current_input_checked": true,
+        "review_state": "agent_agreement",
+        "latest_decisions": [
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+            "operation_id": "review-a-1",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+            "recorded_at": "2026-10-16T11:31:34.016076+00:00",
+            "request_digest": "67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+            "reviewer": "review-agent-a",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "approve"
+          },
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+            "operation_id": "review-b-1",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+            "recorded_at": "2026-10-16T11:31:34.015177+00:00",
+            "request_digest": "6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+            "reviewer": "review-agent-b",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "approve"
+          },
+          {
+            "actor_kind": "agent",
+            "decision_id": "dec_b962d29303cbe6dec846c3bbe834aad139b945018e48e26690ca1f47e6e05793",
+            "operation_id": "review-c-2",
+            "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+            "rationale": "The limited packet explicitly compares declared structured fields and keeps human review mandatory. I support that limited comparison; the source and full wording still need human assessment.",
+            "recorded_at": "2026-10-16T11:31:34.019903+00:00",
+            "request_digest": "b962d29303cbe6dec846c3bbe834aad139b945018e48e26690ca1f47e6e05793",
+            "reviewer": "review-agent-c",
+            "schema_version": 1,
+            "supersedes": "dec_479b674f4c91af6625a18ba94ade51ba17bbdfdde53002f3526c9d14223b362e",
+            "verdict": "approve"
+          }
+        ],
+        "current_basis_decisions": [],
+        "history_count": 4,
+        "reviewer_count": 3,
+        "human_review_recorded": false,
+        "requires_human_review": true,
+        "current_human_review_recorded": false,
+        "auto_accept": false,
+        "blockers": [
+          "stale_input",
+          "human_review_not_recorded"
+        ],
+        "counts": {
+          "approve": 3,
+          "request_changes": 0,
+          "abstain": 0
+        },
+        "limits": [
+          "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+          "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+          "No state records factual truth or grants Store.accept/publication rights.",
+          "Human-review requirement remains true even when a caller records an actor labelled human."
+        ]
+      }
+    },
+    {
+      "name": "replacement_packet",
+      "assessment": {
+        "packet_id": "pkt_4f2b4f584f34eacfb7b52ca20e45cfb85844a32520b72c4d5abe7faaf6632be0",
+        "packet_digest": "4f2b4f584f34eacfb7b52ca20e45cfb85844a32520b72c4d5abe7faaf6632be0",
+        "input_digest": "943ccc236de208d3f6883ccbc5a6126943d12d2d36ce52033f0083b2a80e0329",
+        "current_input_digest": "943ccc236de208d3f6883ccbc5a6126943d12d2d36ce52033f0083b2a80e0329",
+        "freshness": "current",
+        "is_current": true,
+        "current_input_provided": true,
+        "current_input_checked": true,
+        "review_state": "awaiting_reviews",
+        "latest_decisions": [],
+        "current_basis_decisions": [],
+        "history_count": 0,
+        "reviewer_count": 0,
+        "human_review_recorded": false,
+        "requires_human_review": true,
+        "current_human_review_recorded": false,
+        "auto_accept": false,
+        "blockers": [
+          "human_review_not_recorded"
+        ],
+        "counts": {
+          "approve": 0,
+          "request_changes": 0,
+          "abstain": 0
+        },
+        "limits": [
+          "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+          "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+          "No state records factual truth or grants Store.accept/publication rights.",
+          "Human-review requirement remains true even when a caller records an actor labelled human."
+        ]
+      }
+    }
+  ],
+  "original_packet_history": [
+    {
+      "actor_kind": "agent",
+      "decision_id": "dec_6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+      "operation_id": "review-b-1",
+      "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+      "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+      "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+      "recorded_at": "2026-10-16T11:31:34.015177+00:00",
+      "request_digest": "6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+      "reviewer": "review-agent-b",
+      "schema_version": 1,
+      "supersedes": null,
+      "verdict": "approve"
+    },
+    {
+      "actor_kind": "agent",
+      "decision_id": "dec_67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+      "operation_id": "review-a-1",
+      "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+      "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+      "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+      "recorded_at": "2026-10-16T11:31:34.016076+00:00",
+      "request_digest": "67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+      "reviewer": "review-agent-a",
+      "schema_version": 1,
+      "supersedes": null,
+      "verdict": "approve"
+    },
+    {
+      "actor_kind": "agent",
+      "decision_id": "dec_479b674f4c91af6625a18ba94ade51ba17bbdfdde53002f3526c9d14223b362e",
+      "operation_id": "review-c-1",
+      "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+      "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+      "rationale": "The equal quantities do not show whether the supplied wording and source support the intended claim. Keep that question visible for a human editor.",
+      "recorded_at": "2026-10-16T11:31:34.018288+00:00",
+      "request_digest": "479b674f4c91af6625a18ba94ade51ba17bbdfdde53002f3526c9d14223b362e",
+      "reviewer": "review-agent-c",
+      "schema_version": 1,
+      "supersedes": null,
+      "verdict": "request_changes"
+    },
+    {
+      "actor_kind": "agent",
+      "decision_id": "dec_b962d29303cbe6dec846c3bbe834aad139b945018e48e26690ca1f47e6e05793",
+      "operation_id": "review-c-2",
+      "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+      "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+      "rationale": "The limited packet explicitly compares declared structured fields and keeps human review mandatory. I support that limited comparison; the source and full wording still need human assessment.",
+      "recorded_at": "2026-10-16T11:31:34.019903+00:00",
+      "request_digest": "b962d29303cbe6dec846c3bbe834aad139b945018e48e26690ca1f47e6e05793",
+      "reviewer": "review-agent-c",
+      "schema_version": 1,
+      "supersedes": "dec_479b674f4c91af6625a18ba94ade51ba17bbdfdde53002f3526c9d14223b362e",
+      "verdict": "approve"
+    }
+  ],
+  "replacement_packet_history": [],
+  "summary": {
+    "packet_count": 2,
+    "original_packet_decision_count": 4,
+    "replacement_packet_decision_count": 0,
+    "journal_event_count": 10,
+    "replayed_operation_added_decision": false,
+    "obsolete_predecessor_rejected": true,
+    "changed_input_requires_new_reviews": true,
+    "human_review_recorded": false,
+    "auto_accept": false
+  },
+  "files": {
+    "journal": "journal.json",
+    "report": "report.json",
+    "readable_report": "report.md",
+    "database": "editorial.sqlite3"
+  },
+  "limitations": [
+    "Programmed reviewers share a scripted rationale; agreement is not independent evidence.",
+    "Actor identities and actor kinds are local labels, not authenticated human identities.",
+    "Exact input digests detect a wording change; they do not interpret its meaning.",
+    "The journal is separate from Store acceptance and does not publish a knowledge release.",
+    "The event hash chain shows local record consistency, not external attestation.",
+    "This is one editorial scenario, not a quality evaluation or load measurement."
+  ]
+}

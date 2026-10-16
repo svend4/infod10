@@ -253,8 +253,8 @@ def compare_statements(before: dict[str, Any], after: dict[str, Any], sources: d
     }
 
 
-def analyze_pair_file(path: str | Path) -> dict[str, Any]:
-    """Read an explicit pair file, rejecting ambiguous JSON and oversized input."""
+def load_pair_file(path: str | Path) -> dict[str, Any]:
+    """Capture and validate one explicit pair without changing its contents."""
     def pairs(items: list[tuple[str, Any]]) -> dict[str, Any]:
         result = {}
         for key, value in items:
@@ -273,4 +273,13 @@ def analyze_pair_file(path: str | Path) -> dict[str, Any]:
     except (UnicodeError, ValueError, RecursionError) as error:
         raise WorkbenchError("invalid_semantic_input", "Invalid pair JSON") from error
     _require(isinstance(value, dict) and set(value) == {"before", "after", "sources"}, "Pair file needs exactly before, after and sources")
+    validate_statement(value["before"])
+    validate_statement(value["after"])
+    validate_sources(value["sources"])
+    return value
+
+
+def analyze_pair_file(path: str | Path) -> dict[str, Any]:
+    """Read an explicit pair file, rejecting ambiguous JSON and oversized input."""
+    value = load_pair_file(path)
     return compare_statements(value["before"], value["after"], value["sources"])

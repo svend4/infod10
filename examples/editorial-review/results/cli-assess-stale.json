@@ -1,0 +1,77 @@
+{
+  "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+  "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+  "input_digest": "8c63260510157110e5f6afdc5e8a95e2bf101227a89372c722fffcfb81b71bf6",
+  "current_input_digest": "943ccc236de208d3f6883ccbc5a6126943d12d2d36ce52033f0083b2a80e0329",
+  "freshness": "stale_input",
+  "is_current": false,
+  "current_input_provided": true,
+  "current_input_checked": true,
+  "review_state": "agent_agreement",
+  "latest_decisions": [
+    {
+      "actor_kind": "agent",
+      "decision_id": "dec_67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+      "operation_id": "review-a-1",
+      "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+      "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+      "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+      "recorded_at": "2026-10-16T11:31:34.016076+00:00",
+      "request_digest": "67af56d78718947ac354cb37c8875d8b7dd915bd1d5c71b8cf531cb88cf68533",
+      "reviewer": "review-agent-a",
+      "schema_version": 1,
+      "supersedes": null,
+      "verdict": "approve"
+    },
+    {
+      "actor_kind": "agent",
+      "decision_id": "dec_6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+      "operation_id": "review-b-1",
+      "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+      "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+      "rationale": "The declared values 30 seconds and 30000 milliseconds agree after exact conversion. This programmed decision does not establish source truth or the adequacy of the wording; human editorial review remains necessary.",
+      "recorded_at": "2026-10-16T11:31:34.015177+00:00",
+      "request_digest": "6d24e96f29623823e113583d1202c0542b14311dbe325b7496ae45f10a78353e",
+      "reviewer": "review-agent-b",
+      "schema_version": 1,
+      "supersedes": null,
+      "verdict": "approve"
+    },
+    {
+      "actor_kind": "agent",
+      "decision_id": "dec_b962d29303cbe6dec846c3bbe834aad139b945018e48e26690ca1f47e6e05793",
+      "operation_id": "review-c-2",
+      "packet_digest": "83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+      "packet_id": "pkt_83fc58db20ddf50071fba3dff40682479fe1aefe1ac5151f58512cc363fa774b",
+      "rationale": "The limited packet explicitly compares declared structured fields and keeps human review mandatory. I support that limited comparison; the source and full wording still need human assessment.",
+      "recorded_at": "2026-10-16T11:31:34.019903+00:00",
+      "request_digest": "b962d29303cbe6dec846c3bbe834aad139b945018e48e26690ca1f47e6e05793",
+      "reviewer": "review-agent-c",
+      "schema_version": 1,
+      "supersedes": "dec_479b674f4c91af6625a18ba94ade51ba17bbdfdde53002f3526c9d14223b362e",
+      "verdict": "approve"
+    }
+  ],
+  "current_basis_decisions": [],
+  "history_count": 4,
+  "reviewer_count": 3,
+  "human_review_recorded": false,
+  "requires_human_review": true,
+  "current_human_review_recorded": false,
+  "auto_accept": false,
+  "blockers": [
+    "stale_input",
+    "human_review_not_recorded"
+  ],
+  "counts": {
+    "approve": 3,
+    "request_changes": 0,
+    "abstain": 0
+  },
+  "limits": [
+    "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+    "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+    "No state records factual truth or grants Store.accept/publication rights.",
+    "Human-review requirement remains true even when a caller records an actor labelled human."
+  ]
+}
