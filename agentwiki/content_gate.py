@@ -75,8 +75,8 @@ def _rules() -> None:
         raise WorkbenchError("content_rules_unsupported", "Content gate requires frozen obligations-1 and coverage-1 rules")
 
 
-def _policy(value: Any) -> dict[str, Any]:
-    """Validate a complete, bounded mapping rather than accepting loose IDs."""
+def _policy_v1(value: Any) -> dict[str, Any]:
+    """Validate the frozen schema 1 bundle policy."""
     _rules()
     try:
         obligations._shape(value)
@@ -129,6 +129,14 @@ def _policy(value: Any) -> dict[str, Any]:
         raise WorkbenchError("invalid_content_policy", str(error)) from error
     except (KeyError, TypeError, ValueError, AttributeError, OverflowError, RecursionError, UnicodeError) as error:
         raise WorkbenchError("invalid_content_policy", "Expected a bounded, complete content policy") from error
+
+
+def _policy(value: Any) -> dict[str, Any]:
+    """Dispatch only an exact schema 2 policy to the routing implementation."""
+    if isinstance(value, dict) and type(value.get("schema_version")) is int and value["schema_version"] == 2:
+        from . import content_routing
+        return content_routing.validate_policy(value)
+    return _policy_v1(value)
 
 
 def enabled(connection: sqlite3.Connection) -> bool:
@@ -229,6 +237,62 @@ def _relation(item: dict[str, Any], candidate: dict[str, Any],
             "document": document, "code": code}
 
 
+def evaluate_bundle(descriptor: dict[str, Any], candidate: dict[str, Any],
+                    writes: dict[str, Any], readset: dict[str, Any]) -> dict[str, Any]:
+    """Compare one validated bundle using captured artifacts and no live reads.
+
+    The caller supplies write-set and basis checks. This helper preserves the
+    frozen order and shapes of relation, promise and dependency observations.
+    """
+    reasons = []
+    relations = [_relation(item, candidate, writes) for item in descriptor["spec"]["obligations"]]
+    by_id = {item["id"]: item for item in relations}
+    specifications = {item["id"]: item for item in descriptor["spec"]["obligations"]}
+    for result in relations:
+        if result["status"] != "match":
+            reasons.append(reason("content_relation_" + result["status"], obligation_id=result["id"]))
+    promises = []
+    dependencies = {}
+    for item in descriptor["inventory"]["promises"]:
+        requirement = item["requirement"]
+        anchor = coverage._anchor_v1(item["anchor"], candidate, writes)
+        document = obligations._endpoint(requirement["document"], "document",
+                                         requirement["value_type"], candidate, writes)
+        mappings = [{
+            "obligation_id": identifier,
+            "requirement_digest": digest(coverage._requirement(specifications[identifier])),
+            "valid": canonical(coverage._requirement(specifications[identifier])) == canonical(requirement),
+            "comparison_status": by_id[identifier]["status"],
+        } for identifier in item["obligation_ids"]]
+        resolved = anchor["resolved"] and document["resolved"]
+        matches = bool(mappings) and all(mapping["valid"] and mapping["comparison_status"] == "match"
+                                        for mapping in mappings)
+        promise_reasons = [{"endpoint": "quote_anchor", **value} for value in anchor["reasons"]]
+        promise_reasons.extend({"endpoint": "document_field", **value} for value in document["reasons"])
+        if not resolved:
+            reasons.append(reason("content_promise_unresolved", promise_id=item["id"]))
+        if not matches:
+            reasons.append(reason("content_promise_mismatch", promise_id=item["id"]))
+        promises.append({"id": item["id"], "requirement_digest": digest(requirement),
+                         "anchor": anchor, "document": document, "mappings": mappings,
+                         "anchor_verified": resolved, "eligible": resolved and matches,
+                         "reasons": promise_reasons})
+    endpoints = [endpoint for result in relations for endpoint in (result["document"], result["code"])]
+    endpoints.extend(endpoint for promise in promises for endpoint in (promise["anchor"], promise["document"]))
+    for endpoint in endpoints:
+        for identifier, address in endpoint["dependencies"].items():
+            if identifier in dependencies and dependencies[identifier] != address:
+                raise WorkbenchError("content_proposal_invalid", "Conflicting candidate dependency addresses")
+            dependencies[identifier] = address
+            if identifier not in readset:
+                missing = reason("content_dependency_untracked", artifact_id=identifier)
+                if missing not in reasons:
+                    reasons.append(missing)
+    return {"relations": relations, "promises": promises,
+            "dependencies": dict(sorted(dependencies.items())),
+            "eligible": not reasons, "reasons": reasons}
+
+
 def build_packet(connection: sqlite3.Connection, proposal: sqlite3.Row) -> dict[str, Any]:
     """Capture current declared content without clocks or review decisions.
 
@@ -238,6 +302,9 @@ def build_packet(connection: sqlite3.Connection, proposal: sqlite3.Row) -> dict[
     _rules()
     try:
         policy = current_policy(connection)
+        if policy["policy"]["schema_version"] == 2:
+            from . import content_routing
+            return content_routing.build_packet(connection, proposal, policy)
         governance_policy = governance.current_policy(connection)
         payload = obligations._strict_json(proposal["payload"])
         if digest(payload) != proposal["digest"]:
@@ -267,49 +334,8 @@ def build_packet(connection: sqlite3.Connection, proposal: sqlite3.Row) -> dict[
         for scope, values in queries.items():
             if values["expected"] != values["actual"]:
                 reasons.append(reason("content_query_changed", scope=scope, **values))
-        relations = [_relation(item, candidate, writes) for item in descriptor["spec"]["obligations"]]
-        by_id = {item["id"]: item for item in relations}
-        specifications = {item["id"]: item for item in descriptor["spec"]["obligations"]}
-        for result in relations:
-            if result["status"] != "match":
-                reasons.append(reason("content_relation_" + result["status"], obligation_id=result["id"]))
-        promises = []
-        dependencies = {}
-        for item in descriptor["inventory"]["promises"]:
-            requirement = item["requirement"]
-            anchor = coverage._anchor_v1(item["anchor"], candidate, writes)
-            document = obligations._endpoint(requirement["document"], "document",
-                                             requirement["value_type"], candidate, writes)
-            mappings = [{
-                "obligation_id": identifier,
-                "requirement_digest": digest(coverage._requirement(specifications[identifier])),
-                "valid": canonical(coverage._requirement(specifications[identifier])) == canonical(requirement),
-                "comparison_status": by_id[identifier]["status"],
-            } for identifier in item["obligation_ids"]]
-            resolved = anchor["resolved"] and document["resolved"]
-            matches = bool(mappings) and all(mapping["valid"] and mapping["comparison_status"] == "match"
-                                            for mapping in mappings)
-            promise_reasons = [{"endpoint": "quote_anchor", **value} for value in anchor["reasons"]]
-            promise_reasons.extend({"endpoint": "document_field", **value} for value in document["reasons"])
-            if not resolved:
-                reasons.append(reason("content_promise_unresolved", promise_id=item["id"]))
-            if not matches:
-                reasons.append(reason("content_promise_mismatch", promise_id=item["id"]))
-            promises.append({"id": item["id"], "requirement_digest": digest(requirement),
-                             "anchor": anchor, "document": document, "mappings": mappings,
-                             "anchor_verified": resolved, "eligible": resolved and matches,
-                             "reasons": promise_reasons})
-        endpoints = [endpoint for result in relations for endpoint in (result["document"], result["code"])]
-        endpoints.extend(endpoint for promise in promises for endpoint in (promise["anchor"], promise["document"]))
-        for endpoint in endpoints:
-            for identifier, address in endpoint["dependencies"].items():
-                if identifier in dependencies and dependencies[identifier] != address:
-                    raise WorkbenchError("content_proposal_invalid", "Conflicting candidate dependency addresses")
-                dependencies[identifier] = address
-                if identifier not in payload["readset"]:
-                    missing = reason("content_dependency_untracked", artifact_id=identifier)
-                    if missing not in reasons:
-                        reasons.append(missing)
+        observed = evaluate_bundle(descriptor, candidate, writes, payload["readset"])
+        reasons.extend(observed["reasons"])
         body = {
             "schema_version": 1, "content_rules_version": RULES_VERSION,
             "obligation_rules_version": "obligations-1", "coverage_rules_version": "coverage-1",
@@ -319,8 +345,8 @@ def build_packet(connection: sqlite3.Connection, proposal: sqlite3.Row) -> dict[
             "proposal_id": proposal["id"], "proposal_digest": proposal["digest"],
             "read_set": read_set, "queries": queries,
             "write_ids": write_ids, "required_write_ids": descriptor["artifact_ids"],
-            "relations": relations, "promises": promises, "dependencies": dict(sorted(dependencies.items())),
-            "eligible": not reasons, "reasons": reasons, "limits": list(LIMITS),
+            "relations": observed["relations"], "promises": observed["promises"],
+            "dependencies": observed["dependencies"], "eligible": not reasons, "reasons": reasons, "limits": list(LIMITS),
         }
         obligations._shape(body)
         if len(canonical(body).encode("utf-8")) > MAX_PACKET_BYTES:
@@ -336,11 +362,62 @@ def build_packet(connection: sqlite3.Connection, proposal: sqlite3.Row) -> dict[
         raise WorkbenchError("content_proposal_invalid", "Cannot build a bounded content packet") from error
 
 
+def _routed(packet: Any) -> bool:
+    return (isinstance(packet, dict) and type(packet.get("schema_version")) is int
+            and packet["schema_version"] == 2)
+
+
+def _validate_routed_history(connection: sqlite3.Connection, packet: dict[str, Any]) -> None:
+    """Validate schema 2 against immutable references, never current artifacts."""
+    from . import content_routing
+
+    if not isinstance(packet["proposal_id"], str) or not re.fullmatch(r"p_[0-9a-f]{24}", packet["proposal_id"]):
+        raise WorkbenchError("content_packet_invalid", "Invalid historical proposal ID")
+    for field in ("content_policy_generation", "governance_policy_generation"):
+        if type(packet[field]) is not int or not 1 <= packet[field] < 2**63:
+            raise WorkbenchError("content_packet_invalid", "Invalid historical policy generation")
+    for field in ("proposal_digest", "content_policy_digest", "governance_policy_digest"):
+        if not isinstance(packet[field], str) or not obligations.HASH.fullmatch(packet[field]):
+            raise WorkbenchError("content_packet_invalid", "Invalid historical reference digest")
+
+    size = connection.execute("SELECT length(CAST(payload AS BLOB)),typeof(payload),digest FROM proposals WHERE id=?",
+                              (packet["proposal_id"],)).fetchone()
+    if (size is None or size[1] != "text" or size[0] > MAX_POLICY_BYTES
+            or size[2] != packet["proposal_digest"]):
+        raise WorkbenchError("content_packet_invalid", "Historical proposal reference is missing or too large")
+    proposal = connection.execute("SELECT payload FROM proposals WHERE id=?", (packet["proposal_id"],)).fetchone()
+    payload = obligations._strict_json(proposal["payload"])
+    if canonical(payload) != proposal["payload"] or digest(payload) != packet["proposal_digest"]:
+        raise WorkbenchError("content_packet_invalid", "Historical proposal address differs from its body")
+
+    policy_descriptor = None
+    for table, generation_field, digest_field in (
+        ("content_policies", "content_policy_generation", "content_policy_digest"),
+        ("governance_policies", "governance_policy_generation", "governance_policy_digest"),
+    ):
+        # These table names are fixed application schema names, never user input.
+        size = connection.execute("SELECT length(CAST(body AS BLOB)),typeof(body),digest FROM " + table + " WHERE generation=?",
+                                  (packet[generation_field],)).fetchone()
+        if (size is None or size[1] != "text" or size[0] > MAX_POLICY_BYTES
+                or size[2] != packet[digest_field]):
+            raise WorkbenchError("content_packet_invalid", "Historical policy reference is missing or too large")
+        policy = connection.execute("SELECT body FROM " + table + " WHERE generation=?",
+                                    (packet[generation_field],)).fetchone()
+        descriptor = obligations._strict_json(policy["body"])
+        normalized = _policy(descriptor) if table == "content_policies" else governance._policy(descriptor)
+        if canonical(normalized) != policy["body"] or digest(normalized) != packet[digest_field]:
+            raise WorkbenchError("content_packet_invalid", "Historical policy address differs from its body")
+        if table == "content_policies":
+            policy_descriptor = normalized
+    content_routing.validate_packet(packet, policy_descriptor, payload)
+
+
 def save_packet(connection: sqlite3.Connection, packet: dict[str, Any]) -> dict[str, Any]:
     """Append one internally addressed packet, or return its identical record."""
+    routed = _routed(packet)
     try:
         obligations._shape(packet)
-        if not isinstance(packet, dict) or set(packet) != _PACKET_FIELDS:
+        if not isinstance(packet, dict) or (not routed and set(packet) != _PACKET_FIELDS):
             raise WorkbenchError("content_packet_invalid", "Unexpected packet fields")
         encoded = canonical(packet)
         if len(encoded.encode("utf-8")) > MAX_PACKET_BYTES:
@@ -356,7 +433,12 @@ def save_packet(connection: sqlite3.Connection, packet: dict[str, Any]) -> dict[
                     or existing["proposal_id"] != packet["proposal_id"]
                     or existing["content_policy_generation"] != packet["content_policy_generation"]):
                 raise WorkbenchError("content_packet_invalid", "Existing packet address names different data")
-            return {"packet_id": packet["packet_id"], "packet_digest": address, "replayed": True}
+            if not routed:
+                return {"packet_id": packet["packet_id"], "packet_digest": address, "replayed": True}
+        if routed:
+            _validate_routed_history(connection, packet)
+            if existing is not None:
+                return {"packet_id": packet["packet_id"], "packet_digest": address, "replayed": True}
         proposal = Store._find_proposal(connection, packet["proposal_id"])
         if proposal["digest"] != packet["proposal_digest"]:
             raise WorkbenchError("content_packet_invalid", "Packet pins a different proposal")
@@ -372,9 +454,11 @@ def save_packet(connection: sqlite3.Connection, packet: dict[str, Any]) -> dict[
                            (packet["packet_id"], address, packet["proposal_id"],
                             packet["content_policy_generation"], encoded))
         return {"packet_id": packet["packet_id"], "packet_digest": address, "replayed": False}
-    except WorkbenchError:
+    except WorkbenchError as error:
+        if routed and error.code not in {"content_packet_invalid", "content_packet_too_large"}:
+            raise WorkbenchError("content_packet_invalid", "Packet or historical reference is malformed") from error
         raise
-    except (KeyError, TypeError, ValueError, RecursionError, UnicodeError) as error:
+    except (KeyError, TypeError, ValueError, AttributeError, OverflowError, RecursionError, UnicodeError) as error:
         raise WorkbenchError("content_packet_invalid", "Expected a bounded, internally addressed content packet") from error
 
 
@@ -395,7 +479,8 @@ def load_packet(connection: sqlite3.Connection, packet_id: Any) -> dict[str, Any
     try:
         row = connection.execute("SELECT * FROM content_packets WHERE packet_id=?", (packet_id,)).fetchone()
         packet = obligations._strict_json(row["body"])
-        if not isinstance(packet, dict) or set(packet) != _PACKET_FIELDS:
+        routed = _routed(packet)
+        if not isinstance(packet, dict) or (not routed and set(packet) != _PACKET_FIELDS):
             raise WorkbenchError("content_packet_invalid", "Unexpected recorded packet fields")
         body = {key: value for key, value in packet.items() if key not in {"packet_id", "packet_digest"}}
         address = digest(body)
@@ -404,6 +489,9 @@ def load_packet(connection: sqlite3.Connection, packet_id: Any) -> dict[str, Any
                 or row["digest"] != address or row["proposal_id"] != packet["proposal_id"]
                 or row["content_policy_generation"] != packet["content_policy_generation"]):
             raise WorkbenchError("content_packet_invalid", "Recorded packet address or row pins differ from its body")
+        if routed:
+            _validate_routed_history(connection, packet)
+            return packet
         if (type(packet["schema_version"]) is not int or packet["schema_version"] != 1
                 or packet["content_rules_version"] != "content-gate-1"
                 or packet["obligation_rules_version"] != "obligations-1"

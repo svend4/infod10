@@ -1,0 +1,431 @@
+{
+  "content_policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+  "content_policy_generation": 2,
+  "content_rules_version": "content-routing-1",
+  "coverage_rules_version": "coverage-1",
+  "dependencies": {},
+  "eligible": true,
+  "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+  "governance_policy_generation": 4,
+  "limits": [
+    "Routing covers only administrator-declared sections; completeness over other text or project requirements is not established.",
+    "Every touched section and its complete transitive overlap component is required; disjoint sections remain separate bundles.",
+    "Exact unique quotations and resolved fields pin declared locations; correspondence between prose and those fields is not inferred or verified.",
+    "Literal Python declarations do not establish program behavior; proposed code is parsed with bounded AST rules and is never executed.",
+    "Matches do not establish prose truth, external evidence, human identity, independent people or independent models.",
+    "A standalone packet does not authorize acceptance; formal review, current runtime bases, authorship and governance remain separate requirements.",
+    "The SQLite owner and application implementation remain trusted; hashes provide internal consistency rather than external certification."
+  ],
+  "obligation_rules_version": "obligations-1",
+  "packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+  "packet_id": "cgp_6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+  "proposal_digest": "2150ee2585e92957105f62ef453eb40a43063e7841647933dad4c3e7f573a54f",
+  "proposal_id": "p_f9054d129cf929c0bb4eb287",
+  "queries": {},
+  "read_set": {
+    "code/routing_c.py": {
+      "actual": "bcc5b81dd41fd399ccf2c902d5694ae2ece6b8ac7adfc66cc73023f3452d35ec",
+      "expected": "bcc5b81dd41fd399ccf2c902d5694ae2ece6b8ac7adfc66cc73023f3452d35ec"
+    },
+    "code/routing_shared.py": {
+      "actual": "d489864e1b26896e10e31493ec592532d1fad364fba0074488463ee58beb0ed8",
+      "expected": "d489864e1b26896e10e31493ec592532d1fad364fba0074488463ee58beb0ed8"
+    },
+    "docs/routing-a.md": {
+      "actual": "fc21fd723a97f215fbd1305c04cd38bbac5b620c6a82a376729107c7571d1c79",
+      "expected": "fc21fd723a97f215fbd1305c04cd38bbac5b620c6a82a376729107c7571d1c79"
+    },
+    "docs/routing-b.md": {
+      "actual": "067c0b7d16d26b305351467a36249c306deb8294ba0b80d8e948325a80203a99",
+      "expected": "067c0b7d16d26b305351467a36249c306deb8294ba0b80d8e948325a80203a99"
+    }
+  },
+  "reasons": [],
+  "required_write_ids": [
+    "code/routing_c.py",
+    "code/routing_shared.py",
+    "docs/routing-a.md",
+    "docs/routing-b.md"
+  ],
+  "routing": {
+    "extra_write_ids": [],
+    "initial_section_ids": [
+      "section-a",
+      "section-b",
+      "section-c"
+    ],
+    "missing_write_ids": [],
+    "selected_section_ids": [
+      "section-a",
+      "section-b",
+      "section-c"
+    ],
+    "uncovered_write_ids": []
+  },
+  "schema_version": 2,
+  "sections": [
+    {
+      "artifact_ids": [
+        "code/routing_shared.py",
+        "docs/routing-a.md"
+      ],
+      "dependencies": {},
+      "eligible": true,
+      "promises": [
+        {
+          "anchor": {
+            "artifact_digest": "cb89488d6d429d54c8f59216b8f67c0398232f2d88cfd2ae5ea7a24ac4ffd7d8",
+            "artifact_id": "docs/routing-a.md",
+            "dependencies": {},
+            "location": {
+              "end_line": 3,
+              "end_offset": 72,
+              "start_line": 3,
+              "start_offset": 27
+            },
+            "quote": "The fictional sample limit is declared below.",
+            "quote_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707",
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims",
+            "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+            "resolved": true,
+            "snippet": "The fictional sample limit is declared below.",
+            "snippet_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707"
+          },
+          "anchor_verified": true,
+          "document": {
+            "artifact_digest": "cb89488d6d429d54c8f59216b8f67c0398232f2d88cfd2ae5ea7a24ac4ffd7d8",
+            "artifact_id": "docs/routing-a.md",
+            "dependencies": {},
+            "kind": "document",
+            "location": {
+              "end_line": 6,
+              "end_offset": 113,
+              "start_line": 6,
+              "start_offset": 101
+            },
+            "normalized_value": 4,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims",
+            "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+            "resolved": true,
+            "snippet": "{\"limit\":4}\n",
+            "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+            "value": 4
+          },
+          "eligible": true,
+          "id": "sample-promise",
+          "mappings": [
+            {
+              "comparison_status": "match",
+              "obligation_id": "sample-limit",
+              "requirement_digest": "a0357844480db97114a8f172565137d440c61912a73a92842dd0461933fafbfd",
+              "valid": true
+            }
+          ],
+          "reasons": [],
+          "requirement_digest": "a0357844480db97114a8f172565137d440c61912a73a92842dd0461933fafbfd"
+        }
+      ],
+      "reasons": [],
+      "relations": [
+        {
+          "code": {
+            "artifact_digest": "b0969491d3f699a3acb63fc9bc2124eb5c51b3bbe633b534293b9f8d96b4ab74",
+            "artifact_id": "code/routing_shared.py",
+            "dependencies": {},
+            "kind": "code",
+            "location": {
+              "end_line": 1,
+              "end_offset": 16,
+              "start_line": 1,
+              "start_offset": 0
+            },
+            "normalized_value": 4,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims",
+            "rendered_digest": "f3830f6870fbcf0a943b72115f9f59809306bc510f1c2791a75665b7b748d95f",
+            "resolved": true,
+            "snippet": "SAMPLE_LIMIT = 4",
+            "snippet_digest": "e009b688616b03b16c11a52916b1dcaebd07561bd905a06731a68eaa2e8a2085",
+            "value": 4
+          },
+          "document": {
+            "artifact_digest": "cb89488d6d429d54c8f59216b8f67c0398232f2d88cfd2ae5ea7a24ac4ffd7d8",
+            "artifact_id": "docs/routing-a.md",
+            "dependencies": {},
+            "kind": "document",
+            "location": {
+              "end_line": 6,
+              "end_offset": 113,
+              "start_line": 6,
+              "start_offset": 101
+            },
+            "normalized_value": 4,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims",
+            "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+            "resolved": true,
+            "snippet": "{\"limit\":4}\n",
+            "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+            "value": 4
+          },
+          "id": "sample-limit",
+          "reasons": [],
+          "relation": "equals",
+          "scope": {
+            "sample": "routing-v1"
+          },
+          "status": "match",
+          "value_type": "integer"
+        }
+      ],
+      "section_id": "section-a",
+      "section_policy_digest": "e5708555d9a3a98b98629e518aafebd910e6013e3f37d40e3a113a6f9214c97a"
+    },
+    {
+      "artifact_ids": [
+        "code/routing_shared.py",
+        "docs/routing-b.md"
+      ],
+      "dependencies": {},
+      "eligible": true,
+      "promises": [
+        {
+          "anchor": {
+            "artifact_digest": "cbec7d33616d1caa7dafa0d43c1e370230a4896edeaf9c10d6fa64adc861f628",
+            "artifact_id": "docs/routing-b.md",
+            "dependencies": {},
+            "location": {
+              "end_line": 3,
+              "end_offset": 72,
+              "start_line": 3,
+              "start_offset": 27
+            },
+            "quote": "The fictional sample limit is declared below.",
+            "quote_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707",
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims",
+            "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+            "resolved": true,
+            "snippet": "The fictional sample limit is declared below.",
+            "snippet_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707"
+          },
+          "anchor_verified": true,
+          "document": {
+            "artifact_digest": "cbec7d33616d1caa7dafa0d43c1e370230a4896edeaf9c10d6fa64adc861f628",
+            "artifact_id": "docs/routing-b.md",
+            "dependencies": {},
+            "kind": "document",
+            "location": {
+              "end_line": 6,
+              "end_offset": 113,
+              "start_line": 6,
+              "start_offset": 101
+            },
+            "normalized_value": 4,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims",
+            "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+            "resolved": true,
+            "snippet": "{\"limit\":4}\n",
+            "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+            "value": 4
+          },
+          "eligible": true,
+          "id": "sample-promise",
+          "mappings": [
+            {
+              "comparison_status": "match",
+              "obligation_id": "sample-limit",
+              "requirement_digest": "4c24a010a5446d65ae25d9aeeee739ec6f75084d4efd3536ca38ea7f4047e56f",
+              "valid": true
+            }
+          ],
+          "reasons": [],
+          "requirement_digest": "4c24a010a5446d65ae25d9aeeee739ec6f75084d4efd3536ca38ea7f4047e56f"
+        }
+      ],
+      "reasons": [],
+      "relations": [
+        {
+          "code": {
+            "artifact_digest": "b0969491d3f699a3acb63fc9bc2124eb5c51b3bbe633b534293b9f8d96b4ab74",
+            "artifact_id": "code/routing_shared.py",
+            "dependencies": {},
+            "kind": "code",
+            "location": {
+              "end_line": 1,
+              "end_offset": 16,
+              "start_line": 1,
+              "start_offset": 0
+            },
+            "normalized_value": 4,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims",
+            "rendered_digest": "f3830f6870fbcf0a943b72115f9f59809306bc510f1c2791a75665b7b748d95f",
+            "resolved": true,
+            "snippet": "SAMPLE_LIMIT = 4",
+            "snippet_digest": "e009b688616b03b16c11a52916b1dcaebd07561bd905a06731a68eaa2e8a2085",
+            "value": 4
+          },
+          "document": {
+            "artifact_digest": "cbec7d33616d1caa7dafa0d43c1e370230a4896edeaf9c10d6fa64adc861f628",
+            "artifact_id": "docs/routing-b.md",
+            "dependencies": {},
+            "kind": "document",
+            "location": {
+              "end_line": 6,
+              "end_offset": 113,
+              "start_line": 6,
+              "start_offset": 101
+            },
+            "normalized_value": 4,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims",
+            "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+            "resolved": true,
+            "snippet": "{\"limit\":4}\n",
+            "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+            "value": 4
+          },
+          "id": "sample-limit",
+          "reasons": [],
+          "relation": "equals",
+          "scope": {
+            "sample": "routing-v1"
+          },
+          "status": "match",
+          "value_type": "integer"
+        }
+      ],
+      "section_id": "section-b",
+      "section_policy_digest": "a8d74894ff7873d407fa119f01b085b3b5752e2ec153949f21160aaef56f536a"
+    },
+    {
+      "artifact_ids": [
+        "code/routing_c.py",
+        "docs/routing-b.md"
+      ],
+      "dependencies": {},
+      "eligible": true,
+      "promises": [
+        {
+          "anchor": {
+            "artifact_digest": "cbec7d33616d1caa7dafa0d43c1e370230a4896edeaf9c10d6fa64adc861f628",
+            "artifact_id": "docs/routing-b.md",
+            "dependencies": {},
+            "location": {
+              "end_line": 3,
+              "end_offset": 72,
+              "start_line": 3,
+              "start_offset": 27
+            },
+            "quote": "The fictional sample limit is declared below.",
+            "quote_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707",
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims",
+            "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+            "resolved": true,
+            "snippet": "The fictional sample limit is declared below.",
+            "snippet_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707"
+          },
+          "anchor_verified": true,
+          "document": {
+            "artifact_digest": "cbec7d33616d1caa7dafa0d43c1e370230a4896edeaf9c10d6fa64adc861f628",
+            "artifact_id": "docs/routing-b.md",
+            "dependencies": {},
+            "kind": "document",
+            "location": {
+              "end_line": 6,
+              "end_offset": 113,
+              "start_line": 6,
+              "start_offset": 101
+            },
+            "normalized_value": 4,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims",
+            "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+            "resolved": true,
+            "snippet": "{\"limit\":4}\n",
+            "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+            "value": 4
+          },
+          "eligible": true,
+          "id": "sample-promise",
+          "mappings": [
+            {
+              "comparison_status": "match",
+              "obligation_id": "sample-limit",
+              "requirement_digest": "2a218010dc4d4bf5b8516b7a2f37696dc165486a562072a4fc17a6f808718209",
+              "valid": true
+            }
+          ],
+          "reasons": [],
+          "requirement_digest": "2a218010dc4d4bf5b8516b7a2f37696dc165486a562072a4fc17a6f808718209"
+        }
+      ],
+      "reasons": [],
+      "relations": [
+        {
+          "code": {
+            "artifact_digest": "f3e09559ccd3bf9eab3dcc5928e95a865392a74669abe44498f689c15502c118",
+            "artifact_id": "code/routing_c.py",
+            "dependencies": {},
+            "kind": "code",
+            "location": {
+              "end_line": 1,
+              "end_offset": 16,
+              "start_line": 1,
+              "start_offset": 0
+            },
+            "normalized_value": 4,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims",
+            "rendered_digest": "f3830f6870fbcf0a943b72115f9f59809306bc510f1c2791a75665b7b748d95f",
+            "resolved": true,
+            "snippet": "SAMPLE_LIMIT = 4",
+            "snippet_digest": "e009b688616b03b16c11a52916b1dcaebd07561bd905a06731a68eaa2e8a2085",
+            "value": 4
+          },
+          "document": {
+            "artifact_digest": "cbec7d33616d1caa7dafa0d43c1e370230a4896edeaf9c10d6fa64adc861f628",
+            "artifact_id": "docs/routing-b.md",
+            "dependencies": {},
+            "kind": "document",
+            "location": {
+              "end_line": 6,
+              "end_offset": 113,
+              "start_line": 6,
+              "start_offset": 101
+            },
+            "normalized_value": 4,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims",
+            "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+            "resolved": true,
+            "snippet": "{\"limit\":4}\n",
+            "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+            "value": 4
+          },
+          "id": "sample-limit",
+          "reasons": [],
+          "relation": "equals",
+          "scope": {
+            "sample": "routing-v1"
+          },
+          "status": "match",
+          "value_type": "integer"
+        }
+      ],
+      "section_id": "section-c",
+      "section_policy_digest": "0c4b9c3055fca6d15e05a63a5480edabedff77f186269001498c4516fc9789dd"
+    }
+  ],
+  "write_ids": [
+    "code/routing_c.py",
+    "code/routing_shared.py",
+    "docs/routing-a.md",
+    "docs/routing-b.md"
+  ]
+}

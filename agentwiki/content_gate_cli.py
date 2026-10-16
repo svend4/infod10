@@ -29,7 +29,7 @@ def _policy_arguments(parser: argparse.ArgumentParser) -> None:
     _credential_argument(parser)
     parser.add_argument(
         "--policy", required=True, type=Path,
-        help="Файл ограниченного строгого JSON с политикой рассмотрения содержания.",
+        help="Ограниченный строгий JSON: политика одного комплекта schema 1 или каталог разделов schema 2.",
     )
     parser.add_argument("--expected-policy-generation", required=True, type=_positive_generation)
 

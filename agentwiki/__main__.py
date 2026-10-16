@@ -189,6 +189,9 @@ def main(argv: list[str] | None = None) -> int:
     content_demo = commands.add_parser("content-demo", help="Показать обязательную проверку объявленных связей документации и кода.")
     content_demo.add_argument("--workspace", type=Path, required=True)
     content_demo.add_argument("--workers", default=3, type=_workers)
+    routing_demo = commands.add_parser("routing-demo", help="Показать маршрутизацию проверок по разделам и их пересечениям.")
+    routing_demo.add_argument("--workspace", type=Path, required=True)
+    routing_demo.add_argument("--workers", default=3, type=_workers)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -252,6 +255,11 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(run_authorship_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "content":
             print(json.dumps(run_content_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "routing-demo":
+            from .content_routing_demo import run_routing_demo
+
+            report = run_routing_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "content-demo":
             from .content_gate_demo import run_content_demo
 

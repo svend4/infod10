@@ -1,0 +1,690 @@
+{
+  "enabled": true,
+  "rules_version": "governance-1",
+  "observed_at": 1792170100.498383,
+  "enabled_at": 1792170099.7646692,
+  "activation_revision": 1,
+  "administrator_id": "routing-administrator",
+  "policy_generation": 4,
+  "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+  "policy": {
+    "minimum_reviewers": 2,
+    "schema_version": 1,
+    "separate_coordinator": true
+  },
+  "policy_history": [
+    {
+      "generation": 1,
+      "policy": {
+        "minimum_reviewers": 2,
+        "schema_version": 1,
+        "separate_coordinator": true
+      },
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "created_at": 1792170099.7646692,
+      "administrator_grant_id": "gvg_ba88fd9d90bf121302d850ddcbd028fe"
+    },
+    {
+      "generation": 2,
+      "policy": {
+        "minimum_reviewers": 2,
+        "schema_version": 1,
+        "separate_coordinator": true
+      },
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "created_at": 1792170099.7752225,
+      "administrator_grant_id": "gvg_ba88fd9d90bf121302d850ddcbd028fe"
+    },
+    {
+      "generation": 3,
+      "policy": {
+        "minimum_reviewers": 2,
+        "schema_version": 1,
+        "separate_coordinator": true
+      },
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "created_at": 1792170099.8494697,
+      "administrator_grant_id": "gvg_ba88fd9d90bf121302d850ddcbd028fe"
+    },
+    {
+      "generation": 4,
+      "policy": {
+        "minimum_reviewers": 2,
+        "schema_version": 1,
+        "separate_coordinator": true
+      },
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "created_at": 1792170099.89187,
+      "administrator_grant_id": "gvg_ba88fd9d90bf121302d850ddcbd028fe"
+    }
+  ],
+  "grants": [
+    {
+      "grant_id": "gvg_ba88fd9d90bf121302d850ddcbd028fe",
+      "principal_id": "routing-administrator",
+      "role": "administrator",
+      "artifact_ids": [],
+      "expires_at": null,
+      "created_at": 1792170099.7646692,
+      "issuer_grant_id": null,
+      "operation_id": null,
+      "revoked": false,
+      "revoked_at": null,
+      "expired": false
+    },
+    {
+      "grant_id": "gvg_cdff351e61ae318b4802b5504c6e1c65",
+      "principal_id": "routing-document-author",
+      "role": "doc_author",
+      "artifact_ids": [
+        "docs/routing-a.md",
+        "docs/routing-b.md",
+        "docs/routing-d.md",
+        "docs/routing-outside.md"
+      ],
+      "expires_at": 1792173699.764999,
+      "created_at": 1792170099.7653358,
+      "issuer_grant_id": "gvg_ba88fd9d90bf121302d850ddcbd028fe",
+      "operation_id": "routing-grant-document-author",
+      "revoked": false,
+      "revoked_at": null,
+      "expired": false
+    },
+    {
+      "grant_id": "gvg_89f9891b51ed5f9f7757011fa01c14ee",
+      "principal_id": "routing-code-author",
+      "role": "code_author",
+      "artifact_ids": [
+        "code/routing_c.py",
+        "code/routing_d.py",
+        "code/routing_shared.py"
+      ],
+      "expires_at": 1792173699.764999,
+      "created_at": 1792170099.7694247,
+      "issuer_grant_id": "gvg_ba88fd9d90bf121302d850ddcbd028fe",
+      "operation_id": "routing-grant-code-author",
+      "revoked": false,
+      "revoked_at": null,
+      "expired": false
+    },
+    {
+      "grant_id": "gvg_85280ae22a31a57abf047779bd94864c",
+      "principal_id": "routing-integrator",
+      "role": "integrator",
+      "artifact_ids": [
+        "code/routing_c.py",
+        "code/routing_d.py",
+        "code/routing_shared.py",
+        "docs/routing-a.md",
+        "docs/routing-b.md",
+        "docs/routing-d.md",
+        "docs/routing-outside.md"
+      ],
+      "expires_at": 1792173699.764999,
+      "created_at": 1792170099.770624,
+      "issuer_grant_id": "gvg_ba88fd9d90bf121302d850ddcbd028fe",
+      "operation_id": "routing-grant-integrator",
+      "revoked": false,
+      "revoked_at": null,
+      "expired": false
+    },
+    {
+      "grant_id": "gvg_b14bb7cf3a9fdace570ecf0b5661aff2",
+      "principal_id": "routing-reviewer-a",
+      "role": "reviewer",
+      "artifact_ids": [
+        "code/routing_c.py",
+        "code/routing_d.py",
+        "code/routing_shared.py",
+        "docs/routing-a.md",
+        "docs/routing-b.md",
+        "docs/routing-d.md",
+        "docs/routing-outside.md"
+      ],
+      "expires_at": 1792173699.764999,
+      "created_at": 1792170099.7714298,
+      "issuer_grant_id": "gvg_ba88fd9d90bf121302d850ddcbd028fe",
+      "operation_id": "routing-grant-reviewer-a",
+      "revoked": false,
+      "revoked_at": null,
+      "expired": false
+    },
+    {
+      "grant_id": "gvg_574359c8ae17b7160f06f06d531c4447",
+      "principal_id": "routing-reviewer-b",
+      "role": "reviewer",
+      "artifact_ids": [
+        "code/routing_c.py",
+        "code/routing_d.py",
+        "code/routing_shared.py",
+        "docs/routing-a.md",
+        "docs/routing-b.md",
+        "docs/routing-d.md",
+        "docs/routing-outside.md"
+      ],
+      "expires_at": 1792173699.764999,
+      "created_at": 1792170099.7729836,
+      "issuer_grant_id": "gvg_ba88fd9d90bf121302d850ddcbd028fe",
+      "operation_id": "routing-grant-reviewer-b",
+      "revoked": false,
+      "revoked_at": null,
+      "expired": false
+    },
+    {
+      "grant_id": "gvg_ec87559ec1161d474ecfa3b1156f6b75",
+      "principal_id": "routing-coordinator",
+      "role": "coordinator",
+      "artifact_ids": [
+        "code/routing_c.py",
+        "code/routing_d.py",
+        "code/routing_shared.py",
+        "docs/routing-a.md",
+        "docs/routing-b.md",
+        "docs/routing-d.md",
+        "docs/routing-outside.md"
+      ],
+      "expires_at": 1792173699.764999,
+      "created_at": 1792170099.7741299,
+      "issuer_grant_id": "gvg_ba88fd9d90bf121302d850ddcbd028fe",
+      "operation_id": "routing-grant-coordinator",
+      "revoked": false,
+      "revoked_at": null,
+      "expired": false
+    }
+  ],
+  "revocations": [],
+  "decisions": [
+    {
+      "artifact_id": "code/routing_d.py",
+      "content_packet": {
+        "content_policy_digest": "e69954c074cbe36486c424707c1308cc8a33809a79ed1b517b153578885fbf30",
+        "content_policy_generation": 1,
+        "packet_digest": "5cbcd45c79bc884155226668126abf1c3a896e989549e37877d5cfff3325bf7f",
+        "packet_id": "cgp_5cbcd45c79bc884155226668126abf1c3a896e989549e37877d5cfff3325bf7f"
+      },
+      "content_packet_digest": "5cbcd45c79bc884155226668126abf1c3a896e989549e37877d5cfff3325bf7f",
+      "created_at": 1792170099.8633626,
+      "decision_id": "gvd_de670f16a89c414e7b4d8c1889e1ce843d7923b721989047d8ff89a4449b6f2f",
+      "grant_id": "gvg_b14bb7cf3a9fdace570ecf0b5661aff2",
+      "operation_id": "routing-decision-legacy-d-a-1",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 3,
+      "previous_decision_id": null,
+      "principal_id": "routing-reviewer-a",
+      "proposal_digest": "b1811e66ca6a927fda79f72c2dec8fe6407aa7fd568d5b9ccfc3e99fc3422ec4",
+      "proposal_id": "p_9119abb15a6a7ab247580b2c",
+      "rationale": "Programmed consideration of the declared section fields for legacy-d-a-1; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 2,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "docs/routing-d.md",
+      "content_packet": {
+        "content_policy_digest": "e69954c074cbe36486c424707c1308cc8a33809a79ed1b517b153578885fbf30",
+        "content_policy_generation": 1,
+        "packet_digest": "5cbcd45c79bc884155226668126abf1c3a896e989549e37877d5cfff3325bf7f",
+        "packet_id": "cgp_5cbcd45c79bc884155226668126abf1c3a896e989549e37877d5cfff3325bf7f"
+      },
+      "content_packet_digest": "5cbcd45c79bc884155226668126abf1c3a896e989549e37877d5cfff3325bf7f",
+      "created_at": 1792170099.8663456,
+      "decision_id": "gvd_d900b476739e85c8506f676399399bfc5244125d69df4b9a590ca98439d5d3f2",
+      "grant_id": "gvg_b14bb7cf3a9fdace570ecf0b5661aff2",
+      "operation_id": "routing-decision-legacy-d-a-2",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 3,
+      "previous_decision_id": null,
+      "principal_id": "routing-reviewer-a",
+      "proposal_digest": "b1811e66ca6a927fda79f72c2dec8fe6407aa7fd568d5b9ccfc3e99fc3422ec4",
+      "proposal_id": "p_9119abb15a6a7ab247580b2c",
+      "rationale": "Programmed consideration of the declared section fields for legacy-d-a-2; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 2,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "code/routing_d.py",
+      "content_packet": {
+        "content_policy_digest": "e69954c074cbe36486c424707c1308cc8a33809a79ed1b517b153578885fbf30",
+        "content_policy_generation": 1,
+        "packet_digest": "5cbcd45c79bc884155226668126abf1c3a896e989549e37877d5cfff3325bf7f",
+        "packet_id": "cgp_5cbcd45c79bc884155226668126abf1c3a896e989549e37877d5cfff3325bf7f"
+      },
+      "content_packet_digest": "5cbcd45c79bc884155226668126abf1c3a896e989549e37877d5cfff3325bf7f",
+      "created_at": 1792170099.8695843,
+      "decision_id": "gvd_b5164a8bce553e0b40938f5af43d66e7772b71fbab6fe4878219d41173d33a52",
+      "grant_id": "gvg_574359c8ae17b7160f06f06d531c4447",
+      "operation_id": "routing-decision-legacy-d-b-1",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 3,
+      "previous_decision_id": null,
+      "principal_id": "routing-reviewer-b",
+      "proposal_digest": "b1811e66ca6a927fda79f72c2dec8fe6407aa7fd568d5b9ccfc3e99fc3422ec4",
+      "proposal_id": "p_9119abb15a6a7ab247580b2c",
+      "rationale": "Programmed consideration of the declared section fields for legacy-d-b-1; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 2,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "docs/routing-d.md",
+      "content_packet": {
+        "content_policy_digest": "e69954c074cbe36486c424707c1308cc8a33809a79ed1b517b153578885fbf30",
+        "content_policy_generation": 1,
+        "packet_digest": "5cbcd45c79bc884155226668126abf1c3a896e989549e37877d5cfff3325bf7f",
+        "packet_id": "cgp_5cbcd45c79bc884155226668126abf1c3a896e989549e37877d5cfff3325bf7f"
+      },
+      "content_packet_digest": "5cbcd45c79bc884155226668126abf1c3a896e989549e37877d5cfff3325bf7f",
+      "created_at": 1792170099.873557,
+      "decision_id": "gvd_6d5b32aeb6d5a6be930b203e6201940410b6973ba6e316a85c5a497c2cb8b026",
+      "grant_id": "gvg_574359c8ae17b7160f06f06d531c4447",
+      "operation_id": "routing-decision-legacy-d-b-2",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 3,
+      "previous_decision_id": null,
+      "principal_id": "routing-reviewer-b",
+      "proposal_digest": "b1811e66ca6a927fda79f72c2dec8fe6407aa7fd568d5b9ccfc3e99fc3422ec4",
+      "proposal_id": "p_9119abb15a6a7ab247580b2c",
+      "rationale": "Programmed consideration of the declared section fields for legacy-d-b-2; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 2,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "code/routing_d.py",
+      "content_packet": {
+        "content_policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+        "content_policy_generation": 2,
+        "packet_digest": "5989014be0c2d345213777aa8ccc04a6933f6ef02b3d9013e6b9be1c4a2b1f49",
+        "packet_id": "cgp_5989014be0c2d345213777aa8ccc04a6933f6ef02b3d9013e6b9be1c4a2b1f49"
+      },
+      "content_packet_digest": "5989014be0c2d345213777aa8ccc04a6933f6ef02b3d9013e6b9be1c4a2b1f49",
+      "created_at": 1792170100.1336696,
+      "decision_id": "gvd_1a46eb5b6e58f9cc87742e076fcabb3ff6b198952b7c55ab9e7c466788022b9f",
+      "grant_id": "gvg_b14bb7cf3a9fdace570ecf0b5661aff2",
+      "operation_id": "routing-decision-catalog-d-a-1",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "previous_decision_id": "gvd_de670f16a89c414e7b4d8c1889e1ce843d7923b721989047d8ff89a4449b6f2f",
+      "principal_id": "routing-reviewer-a",
+      "proposal_digest": "b1811e66ca6a927fda79f72c2dec8fe6407aa7fd568d5b9ccfc3e99fc3422ec4",
+      "proposal_id": "p_9119abb15a6a7ab247580b2c",
+      "rationale": "Programmed consideration of the declared section fields for catalog-d-a-1; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 2,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "docs/routing-d.md",
+      "content_packet": {
+        "content_policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+        "content_policy_generation": 2,
+        "packet_digest": "5989014be0c2d345213777aa8ccc04a6933f6ef02b3d9013e6b9be1c4a2b1f49",
+        "packet_id": "cgp_5989014be0c2d345213777aa8ccc04a6933f6ef02b3d9013e6b9be1c4a2b1f49"
+      },
+      "content_packet_digest": "5989014be0c2d345213777aa8ccc04a6933f6ef02b3d9013e6b9be1c4a2b1f49",
+      "created_at": 1792170100.1445713,
+      "decision_id": "gvd_9e67a1137cdd1b8a2000dcc5b98a125b621011d49605a302e40bf12c2d59e7e4",
+      "grant_id": "gvg_b14bb7cf3a9fdace570ecf0b5661aff2",
+      "operation_id": "routing-decision-catalog-d-a-2",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "previous_decision_id": "gvd_d900b476739e85c8506f676399399bfc5244125d69df4b9a590ca98439d5d3f2",
+      "principal_id": "routing-reviewer-a",
+      "proposal_digest": "b1811e66ca6a927fda79f72c2dec8fe6407aa7fd568d5b9ccfc3e99fc3422ec4",
+      "proposal_id": "p_9119abb15a6a7ab247580b2c",
+      "rationale": "Programmed consideration of the declared section fields for catalog-d-a-2; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 2,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "code/routing_d.py",
+      "content_packet": {
+        "content_policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+        "content_policy_generation": 2,
+        "packet_digest": "5989014be0c2d345213777aa8ccc04a6933f6ef02b3d9013e6b9be1c4a2b1f49",
+        "packet_id": "cgp_5989014be0c2d345213777aa8ccc04a6933f6ef02b3d9013e6b9be1c4a2b1f49"
+      },
+      "content_packet_digest": "5989014be0c2d345213777aa8ccc04a6933f6ef02b3d9013e6b9be1c4a2b1f49",
+      "created_at": 1792170100.1575785,
+      "decision_id": "gvd_08e33f2ba3c15d4e32823ad5127a75656ac0148af5e2788a3d8fe1d7790bbb9f",
+      "grant_id": "gvg_574359c8ae17b7160f06f06d531c4447",
+      "operation_id": "routing-decision-catalog-d-b-1",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "previous_decision_id": "gvd_b5164a8bce553e0b40938f5af43d66e7772b71fbab6fe4878219d41173d33a52",
+      "principal_id": "routing-reviewer-b",
+      "proposal_digest": "b1811e66ca6a927fda79f72c2dec8fe6407aa7fd568d5b9ccfc3e99fc3422ec4",
+      "proposal_id": "p_9119abb15a6a7ab247580b2c",
+      "rationale": "Programmed consideration of the declared section fields for catalog-d-b-1; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 2,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "docs/routing-d.md",
+      "content_packet": {
+        "content_policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+        "content_policy_generation": 2,
+        "packet_digest": "5989014be0c2d345213777aa8ccc04a6933f6ef02b3d9013e6b9be1c4a2b1f49",
+        "packet_id": "cgp_5989014be0c2d345213777aa8ccc04a6933f6ef02b3d9013e6b9be1c4a2b1f49"
+      },
+      "content_packet_digest": "5989014be0c2d345213777aa8ccc04a6933f6ef02b3d9013e6b9be1c4a2b1f49",
+      "created_at": 1792170100.1722176,
+      "decision_id": "gvd_63c1b65d82ed50020ce17e8c8ea81754e4135ee65f22e049eb228c1e7a6b2577",
+      "grant_id": "gvg_574359c8ae17b7160f06f06d531c4447",
+      "operation_id": "routing-decision-catalog-d-b-2",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "previous_decision_id": "gvd_6d5b32aeb6d5a6be930b203e6201940410b6973ba6e316a85c5a497c2cb8b026",
+      "principal_id": "routing-reviewer-b",
+      "proposal_digest": "b1811e66ca6a927fda79f72c2dec8fe6407aa7fd568d5b9ccfc3e99fc3422ec4",
+      "proposal_id": "p_9119abb15a6a7ab247580b2c",
+      "rationale": "Programmed consideration of the declared section fields for catalog-d-b-2; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 2,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "code/routing_c.py",
+      "content_packet": {
+        "content_policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+        "content_policy_generation": 2,
+        "packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+        "packet_id": "cgp_6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e"
+      },
+      "content_packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+      "created_at": 1792170100.1821136,
+      "decision_id": "gvd_cf7cef0cdb8808ebdbb576d1a7d422364d75e03bda6f562cca95b9f0fad954d7",
+      "grant_id": "gvg_b14bb7cf3a9fdace570ecf0b5661aff2",
+      "operation_id": "routing-decision-catalog-overlap-a-1",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "previous_decision_id": null,
+      "principal_id": "routing-reviewer-a",
+      "proposal_digest": "2150ee2585e92957105f62ef453eb40a43063e7841647933dad4c3e7f573a54f",
+      "proposal_id": "p_f9054d129cf929c0bb4eb287",
+      "rationale": "Programmed consideration of the declared section fields for catalog-overlap-a-1; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 2,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "code/routing_shared.py",
+      "content_packet": {
+        "content_policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+        "content_policy_generation": 2,
+        "packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+        "packet_id": "cgp_6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e"
+      },
+      "content_packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+      "created_at": 1792170100.1927023,
+      "decision_id": "gvd_d9d9179c8bec08964d1c2108e430c3a9ca9028aee1c6343601674b02476c3c04",
+      "grant_id": "gvg_b14bb7cf3a9fdace570ecf0b5661aff2",
+      "operation_id": "routing-decision-catalog-overlap-a-2",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "previous_decision_id": null,
+      "principal_id": "routing-reviewer-a",
+      "proposal_digest": "2150ee2585e92957105f62ef453eb40a43063e7841647933dad4c3e7f573a54f",
+      "proposal_id": "p_f9054d129cf929c0bb4eb287",
+      "rationale": "Programmed consideration of the declared section fields for catalog-overlap-a-2; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 2,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "docs/routing-a.md",
+      "content_packet": {
+        "content_policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+        "content_policy_generation": 2,
+        "packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+        "packet_id": "cgp_6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e"
+      },
+      "content_packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+      "created_at": 1792170100.2049348,
+      "decision_id": "gvd_c541206b378016c20de409efb6b0ecaaf8265cc236de482b57cb1ea9b4c1c0dc",
+      "grant_id": "gvg_b14bb7cf3a9fdace570ecf0b5661aff2",
+      "operation_id": "routing-decision-catalog-overlap-a-3",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "previous_decision_id": null,
+      "principal_id": "routing-reviewer-a",
+      "proposal_digest": "2150ee2585e92957105f62ef453eb40a43063e7841647933dad4c3e7f573a54f",
+      "proposal_id": "p_f9054d129cf929c0bb4eb287",
+      "rationale": "Programmed consideration of the declared section fields for catalog-overlap-a-3; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 2,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "docs/routing-b.md",
+      "content_packet": {
+        "content_policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+        "content_policy_generation": 2,
+        "packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+        "packet_id": "cgp_6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e"
+      },
+      "content_packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+      "created_at": 1792170100.21633,
+      "decision_id": "gvd_98df088aeac2f07b0a54ec130335dba3446858b37c4fd0457c2df531b081b12b",
+      "grant_id": "gvg_b14bb7cf3a9fdace570ecf0b5661aff2",
+      "operation_id": "routing-decision-catalog-overlap-a-4",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "previous_decision_id": null,
+      "principal_id": "routing-reviewer-a",
+      "proposal_digest": "2150ee2585e92957105f62ef453eb40a43063e7841647933dad4c3e7f573a54f",
+      "proposal_id": "p_f9054d129cf929c0bb4eb287",
+      "rationale": "Programmed consideration of the declared section fields for catalog-overlap-a-4; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 2,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "code/routing_c.py",
+      "content_packet": {
+        "content_policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+        "content_policy_generation": 2,
+        "packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+        "packet_id": "cgp_6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e"
+      },
+      "content_packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+      "created_at": 1792170100.2321968,
+      "decision_id": "gvd_9557a92483621db0069bb167a9a046ade6fabb95db2bec781f0414df4b4d980a",
+      "grant_id": "gvg_574359c8ae17b7160f06f06d531c4447",
+      "operation_id": "routing-decision-catalog-overlap-b-1",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "previous_decision_id": null,
+      "principal_id": "routing-reviewer-b",
+      "proposal_digest": "2150ee2585e92957105f62ef453eb40a43063e7841647933dad4c3e7f573a54f",
+      "proposal_id": "p_f9054d129cf929c0bb4eb287",
+      "rationale": "Programmed consideration of the declared section fields for catalog-overlap-b-1; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 2,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "code/routing_shared.py",
+      "content_packet": {
+        "content_policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+        "content_policy_generation": 2,
+        "packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+        "packet_id": "cgp_6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e"
+      },
+      "content_packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+      "created_at": 1792170100.2428198,
+      "decision_id": "gvd_0df5d0f0dd10d4b3960a2dde42a485439fb7ac11e9d646fe73bc72edcb08b2d4",
+      "grant_id": "gvg_574359c8ae17b7160f06f06d531c4447",
+      "operation_id": "routing-decision-catalog-overlap-b-2",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "previous_decision_id": null,
+      "principal_id": "routing-reviewer-b",
+      "proposal_digest": "2150ee2585e92957105f62ef453eb40a43063e7841647933dad4c3e7f573a54f",
+      "proposal_id": "p_f9054d129cf929c0bb4eb287",
+      "rationale": "Programmed consideration of the declared section fields for catalog-overlap-b-2; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 2,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "docs/routing-a.md",
+      "content_packet": {
+        "content_policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+        "content_policy_generation": 2,
+        "packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+        "packet_id": "cgp_6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e"
+      },
+      "content_packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+      "created_at": 1792170100.2527173,
+      "decision_id": "gvd_3b931f9f73df18c25f6453cf8e39d0503efedbda8015641989a1d9138b3b8c99",
+      "grant_id": "gvg_574359c8ae17b7160f06f06d531c4447",
+      "operation_id": "routing-decision-catalog-overlap-b-3",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "previous_decision_id": null,
+      "principal_id": "routing-reviewer-b",
+      "proposal_digest": "2150ee2585e92957105f62ef453eb40a43063e7841647933dad4c3e7f573a54f",
+      "proposal_id": "p_f9054d129cf929c0bb4eb287",
+      "rationale": "Programmed consideration of the declared section fields for catalog-overlap-b-3; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 2,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "docs/routing-b.md",
+      "content_packet": {
+        "content_policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+        "content_policy_generation": 2,
+        "packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+        "packet_id": "cgp_6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e"
+      },
+      "content_packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+      "created_at": 1792170100.271713,
+      "decision_id": "gvd_c777c22b846bc8e2c5dff20951d74f6b01ed9885211e782e923c69a02ff70b1d",
+      "grant_id": "gvg_574359c8ae17b7160f06f06d531c4447",
+      "operation_id": "routing-decision-catalog-overlap-b-4",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "previous_decision_id": null,
+      "principal_id": "routing-reviewer-b",
+      "proposal_digest": "2150ee2585e92957105f62ef453eb40a43063e7841647933dad4c3e7f573a54f",
+      "proposal_id": "p_f9054d129cf929c0bb4eb287",
+      "rationale": "Programmed consideration of the declared section fields for catalog-overlap-b-4; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 2,
+      "verdict": "approve"
+    }
+  ],
+  "receipts": [
+    {
+      "accepted_at": 1792170100.3252916,
+      "authorization_time": 1792170100.3252916,
+      "authorship": {
+        "authorship_digest": "fb9eca4317e5ed6981c7ea308eab8545328422d30dd99a6579921e1ddabeb94f",
+        "authorship_id": "awp_fb9eca4317e5ed6981c7ea308eab8545328422d30dd99a6579921e1ddabeb94f",
+        "contributor_principals": [
+          "routing-code-author",
+          "routing-document-author",
+          "routing-integrator"
+        ],
+        "principal_id": "routing-integrator",
+        "write_ids": [
+          "code/routing_d.py",
+          "docs/routing-d.md"
+        ]
+      },
+      "content_packet": {
+        "content_policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+        "content_policy_generation": 2,
+        "packet_digest": "5989014be0c2d345213777aa8ccc04a6933f6ef02b3d9013e6b9be1c4a2b1f49",
+        "packet_id": "cgp_5989014be0c2d345213777aa8ccc04a6933f6ef02b3d9013e6b9be1c4a2b1f49"
+      },
+      "coordinator": {
+        "grant_id": "gvg_ec87559ec1161d474ecfa3b1156f6b75",
+        "principal_id": "routing-coordinator"
+      },
+      "decisions": {
+        "code/routing_d.py": [
+          "gvd_1a46eb5b6e58f9cc87742e076fcabb3ff6b198952b7c55ab9e7c466788022b9f",
+          "gvd_08e33f2ba3c15d4e32823ad5127a75656ac0148af5e2788a3d8fe1d7790bbb9f"
+        ],
+        "docs/routing-d.md": [
+          "gvd_9e67a1137cdd1b8a2000dcc5b98a125b621011d49605a302e40bf12c2d59e7e4",
+          "gvd_63c1b65d82ed50020ce17e8c8ea81754e4135ee65f22e049eb228c1e7a6b2577"
+        ]
+      },
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "proposal_digest": "b1811e66ca6a927fda79f72c2dec8fe6407aa7fd568d5b9ccfc3e99fc3422ec4",
+      "proposal_id": "p_9119abb15a6a7ab247580b2c",
+      "receipt_id": "gvr_3e69827472bee0755ff0ce424821859d01a3845634380a4253c88082162d3bcb",
+      "revision": 2,
+      "rules_version": "governance-1",
+      "schema_version": 3
+    },
+    {
+      "accepted_at": 1792170100.4046218,
+      "authorization_time": 1792170100.4046218,
+      "authorship": {
+        "authorship_digest": "afbacb57350ec3df466286024554433145382e6d47c6fa831bba51809a1a8eba",
+        "authorship_id": "awp_afbacb57350ec3df466286024554433145382e6d47c6fa831bba51809a1a8eba",
+        "contributor_principals": [
+          "routing-code-author",
+          "routing-document-author",
+          "routing-integrator"
+        ],
+        "principal_id": "routing-integrator",
+        "write_ids": [
+          "code/routing_c.py",
+          "code/routing_shared.py",
+          "docs/routing-a.md",
+          "docs/routing-b.md"
+        ]
+      },
+      "content_packet": {
+        "content_policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+        "content_policy_generation": 2,
+        "packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+        "packet_id": "cgp_6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e"
+      },
+      "coordinator": {
+        "grant_id": "gvg_ec87559ec1161d474ecfa3b1156f6b75",
+        "principal_id": "routing-coordinator"
+      },
+      "decisions": {
+        "code/routing_c.py": [
+          "gvd_cf7cef0cdb8808ebdbb576d1a7d422364d75e03bda6f562cca95b9f0fad954d7",
+          "gvd_9557a92483621db0069bb167a9a046ade6fabb95db2bec781f0414df4b4d980a"
+        ],
+        "code/routing_shared.py": [
+          "gvd_d9d9179c8bec08964d1c2108e430c3a9ca9028aee1c6343601674b02476c3c04",
+          "gvd_0df5d0f0dd10d4b3960a2dde42a485439fb7ac11e9d646fe73bc72edcb08b2d4"
+        ],
+        "docs/routing-a.md": [
+          "gvd_c541206b378016c20de409efb6b0ecaaf8265cc236de482b57cb1ea9b4c1c0dc",
+          "gvd_3b931f9f73df18c25f6453cf8e39d0503efedbda8015641989a1d9138b3b8c99"
+        ],
+        "docs/routing-b.md": [
+          "gvd_98df088aeac2f07b0a54ec130335dba3446858b37c4fd0457c2df531b081b12b",
+          "gvd_c777c22b846bc8e2c5dff20951d74f6b01ed9885211e782e923c69a02ff70b1d"
+        ]
+      },
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "proposal_digest": "2150ee2585e92957105f62ef453eb40a43063e7841647933dad4c3e7f573a54f",
+      "proposal_id": "p_f9054d129cf929c0bb4eb287",
+      "receipt_id": "gvr_1cdb6cfe4b39b9bd3d115b1a3b146b1d5e164b9b239f88059e5ca0d00c4da204",
+      "revision": 3,
+      "rules_version": "governance-1",
+      "schema_version": 3
+    }
+  ],
+  "credential_mode": "local_bearer",
+  "author_identity_authenticated": false,
+  "human_identity_authenticated": false,
+  "trusted_database_owner_can_bypass": true
+}

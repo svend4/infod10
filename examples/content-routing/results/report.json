@@ -1,0 +1,470 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T19:01:40.599621+02:00",
+  "created_at_utc": "2026-10-16T17:01:40.599688+00:00",
+  "kind": "declared_content_section_routing_product_example",
+  "workers": 3,
+  "actors": {
+    "authenticated_local_capability_principals": true,
+    "persons_authenticated": false,
+    "human_review_recorded": false,
+    "independent_people_or_models_established": false,
+    "external_llm_used": false,
+    "proposed_code_executed": false
+  },
+  "editorial_policy": {
+    "schema_version": 1,
+    "minimum_reviewers": 2,
+    "separate_coordinator": true
+  },
+  "content_policy": {
+    "schema_version": 2,
+    "sections": [
+      {
+        "id": "section-a",
+        "policy": {
+          "schema_version": 1,
+          "artifact_ids": [
+            "docs/routing-a.md",
+            "code/routing_shared.py"
+          ],
+          "spec": {
+            "schema_version": 1,
+            "obligations": [
+              {
+                "id": "sample-limit",
+                "description": "The fictional literal sample limit must match.",
+                "scope": {
+                  "sample": "routing-v1"
+                },
+                "relation": "equals",
+                "value_type": "integer",
+                "document": {
+                  "artifact_id": "docs/routing-a.md",
+                  "fence_id": "contract",
+                  "path": [
+                    "limit"
+                  ]
+                },
+                "code": {
+                  "artifact_id": "code/routing_shared.py",
+                  "symbol": "SAMPLE_LIMIT"
+                }
+              }
+            ]
+          },
+          "inventory": {
+            "schema_version": 1,
+            "promises": [
+              {
+                "id": "sample-promise",
+                "description": "The declared fictional sample limit.",
+                "anchor": {
+                  "artifact_id": "docs/routing-a.md",
+                  "quote": "The fictional sample limit is declared below."
+                },
+                "requirement": {
+                  "scope": {
+                    "sample": "routing-v1"
+                  },
+                  "relation": "equals",
+                  "value_type": "integer",
+                  "document": {
+                    "artifact_id": "docs/routing-a.md",
+                    "fence_id": "contract",
+                    "path": [
+                      "limit"
+                    ]
+                  },
+                  "code": {
+                    "artifact_id": "code/routing_shared.py",
+                    "symbol": "SAMPLE_LIMIT"
+                  }
+                },
+                "obligation_ids": [
+                  "sample-limit"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "section-b",
+        "policy": {
+          "schema_version": 1,
+          "artifact_ids": [
+            "docs/routing-b.md",
+            "code/routing_shared.py"
+          ],
+          "spec": {
+            "schema_version": 1,
+            "obligations": [
+              {
+                "id": "sample-limit",
+                "description": "The fictional literal sample limit must match.",
+                "scope": {
+                  "sample": "routing-v1"
+                },
+                "relation": "equals",
+                "value_type": "integer",
+                "document": {
+                  "artifact_id": "docs/routing-b.md",
+                  "fence_id": "contract",
+                  "path": [
+                    "limit"
+                  ]
+                },
+                "code": {
+                  "artifact_id": "code/routing_shared.py",
+                  "symbol": "SAMPLE_LIMIT"
+                }
+              }
+            ]
+          },
+          "inventory": {
+            "schema_version": 1,
+            "promises": [
+              {
+                "id": "sample-promise",
+                "description": "The declared fictional sample limit.",
+                "anchor": {
+                  "artifact_id": "docs/routing-b.md",
+                  "quote": "The fictional sample limit is declared below."
+                },
+                "requirement": {
+                  "scope": {
+                    "sample": "routing-v1"
+                  },
+                  "relation": "equals",
+                  "value_type": "integer",
+                  "document": {
+                    "artifact_id": "docs/routing-b.md",
+                    "fence_id": "contract",
+                    "path": [
+                      "limit"
+                    ]
+                  },
+                  "code": {
+                    "artifact_id": "code/routing_shared.py",
+                    "symbol": "SAMPLE_LIMIT"
+                  }
+                },
+                "obligation_ids": [
+                  "sample-limit"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "section-c",
+        "policy": {
+          "schema_version": 1,
+          "artifact_ids": [
+            "docs/routing-b.md",
+            "code/routing_c.py"
+          ],
+          "spec": {
+            "schema_version": 1,
+            "obligations": [
+              {
+                "id": "sample-limit",
+                "description": "The fictional literal sample limit must match.",
+                "scope": {
+                  "sample": "routing-v1"
+                },
+                "relation": "equals",
+                "value_type": "integer",
+                "document": {
+                  "artifact_id": "docs/routing-b.md",
+                  "fence_id": "contract",
+                  "path": [
+                    "limit"
+                  ]
+                },
+                "code": {
+                  "artifact_id": "code/routing_c.py",
+                  "symbol": "SAMPLE_LIMIT"
+                }
+              }
+            ]
+          },
+          "inventory": {
+            "schema_version": 1,
+            "promises": [
+              {
+                "id": "sample-promise",
+                "description": "The declared fictional sample limit.",
+                "anchor": {
+                  "artifact_id": "docs/routing-b.md",
+                  "quote": "The fictional sample limit is declared below."
+                },
+                "requirement": {
+                  "scope": {
+                    "sample": "routing-v1"
+                  },
+                  "relation": "equals",
+                  "value_type": "integer",
+                  "document": {
+                    "artifact_id": "docs/routing-b.md",
+                    "fence_id": "contract",
+                    "path": [
+                      "limit"
+                    ]
+                  },
+                  "code": {
+                    "artifact_id": "code/routing_c.py",
+                    "symbol": "SAMPLE_LIMIT"
+                  }
+                },
+                "obligation_ids": [
+                  "sample-limit"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "section-d",
+        "policy": {
+          "schema_version": 1,
+          "artifact_ids": [
+            "docs/routing-d.md",
+            "code/routing_d.py"
+          ],
+          "spec": {
+            "schema_version": 1,
+            "obligations": [
+              {
+                "id": "sample-limit",
+                "description": "The fictional literal sample limit must match.",
+                "scope": {
+                  "sample": "routing-v1"
+                },
+                "relation": "equals",
+                "value_type": "integer",
+                "document": {
+                  "artifact_id": "docs/routing-d.md",
+                  "fence_id": "contract",
+                  "path": [
+                    "limit"
+                  ]
+                },
+                "code": {
+                  "artifact_id": "code/routing_d.py",
+                  "symbol": "SAMPLE_LIMIT"
+                }
+              }
+            ]
+          },
+          "inventory": {
+            "schema_version": 1,
+            "promises": [
+              {
+                "id": "sample-promise",
+                "description": "The declared fictional sample limit.",
+                "anchor": {
+                  "artifact_id": "docs/routing-d.md",
+                  "quote": "The fictional sample limit is declared below."
+                },
+                "requirement": {
+                  "scope": {
+                    "sample": "routing-v1"
+                  },
+                  "relation": "equals",
+                  "value_type": "integer",
+                  "document": {
+                    "artifact_id": "docs/routing-d.md",
+                    "fence_id": "contract",
+                    "path": [
+                      "limit"
+                    ]
+                  },
+                  "code": {
+                    "artifact_id": "code/routing_d.py",
+                    "symbol": "SAMPLE_LIMIT"
+                  }
+                },
+                "obligation_ids": [
+                  "sample-limit"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "governance_policy_generation": 4,
+  "content_policy_generation": 2,
+  "main_proposal_id": "p_f9054d129cf929c0bb4eb287",
+  "disjoint_proposal_id": "p_9119abb15a6a7ab247580b2c",
+  "historical_schema_one_packet_id": "cgp_5cbcd45c79bc884155226668126abf1c3a896e989549e37877d5cfff3325bf7f",
+  "accepted_root_packet_id": "cgp_6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e",
+  "accepted_disjoint_packet_id": "cgp_5989014be0c2d345213777aa8ccc04a6933f6ef02b3d9013e6b9be1c4a2b1f49",
+  "stages": [
+    {
+      "label": "authenticated-candidates",
+      "explanation": "Eight author jobs and five compositions retain local provenance; all share runtime revision 1.",
+      "artifact": "stage-01-authenticated-candidates.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "schema-one-policy-enabled",
+      "explanation": "The existing schema-one content gate covers exactly D; its packet keeps the original schema and rules.",
+      "artifact": "stage-02-schema-one-policy-enabled.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "schema-one-packet-pinned",
+      "explanation": "Two registered reviewers each pin both D writes to the exact stored schema-one packet; D is not accepted yet.",
+      "artifact": "stage-03-schema-one-packet-pinned.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "section-catalog-upgrade",
+      "explanation": "A/B/C form one overlap closure; D is separate. Repeated local promise and obligation IDs remain inside section namespaces.",
+      "artifact": "stage-04-section-catalog-upgrade.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "historical-schema-one-replay",
+      "explanation": "Historical schema-one packet bytes and decision pins survive the schema-two upgrade; replay returns the old operation.",
+      "artifact": "stage-05-historical-schema-one-replay.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "formal-review-and-exact-pins",
+      "explanation": "Every inspected candidate passes formal runtime review. Missing and wrong packet pins still reject new content decisions.",
+      "artifact": "stage-06-formal-review-and-exact-pins.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "transitive-routing-closure",
+      "explanation": "Writing doc A initially selects only A. Shared code adds B, then shared doc B adds C; missing writes block the complete closure.",
+      "artifact": "stage-07-transitive-routing-closure.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "locally-complete-section-is-incomplete",
+      "explanation": "A has both of its writes, but its connected B/C requirements also require doc B and code C.",
+      "artifact": "stage-08-locally-complete-section-is-incomplete.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "one-passing-section-is-insufficient",
+      "explanation": "A matches at 4 while doc B declares 5 against code values 4. B and C fail under the same atomic candidate.",
+      "artifact": "stage-09-one-passing-section-is-insufficient.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "uncovered-writes-remain-blocked",
+      "explanation": "A write outside the catalog blocks both an outside-only proposal and an otherwise complete D proposal.",
+      "artifact": "stage-10-uncovered-writes-remain-blocked.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "new-policy-requires-fresh-votes",
+      "explanation": "The catalog upgrade changes global policy generation; old D opinions remain historical and cannot authorize its new packet.",
+      "artifact": "stage-11-new-policy-requires-fresh-votes.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "independent-candidates-approved",
+      "explanation": "Both reviewers pin every write of D and A/B/C before either candidate is accepted; opinions themselves do not change packet identity.",
+      "artifact": "stage-12-independent-candidates-approved.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "disjoint-acceptance-preserves-other-packet",
+      "explanation": "D advances runtime revision to 2. A/B/C read/query bases, exact packet and existing votes remain current without another decision.",
+      "artifact": "stage-13-disjoint-acceptance-preserves-other-packet.json",
+      "runtime_revision": 2
+    },
+    {
+      "label": "overlap-accepted-from-earlier-revision",
+      "explanation": "The A/B/C candidate captured at revision 1 accepts at revision 3 using its unchanged packet and the votes recorded before D acceptance.",
+      "artifact": "stage-14-overlap-accepted-from-earlier-revision.json",
+      "runtime_revision": 3
+    },
+    {
+      "label": "accepted-replays-preserve-history",
+      "explanation": "Authorized replays return both stored receipts without new events. Old schema-one and accepted schema-two packet bodies remain exact history.",
+      "artifact": "stage-15-accepted-replays-preserve-history.json",
+      "runtime_revision": 3
+    },
+    {
+      "label": "catalog-validation-preserves-active-policy",
+      "explanation": "Duplicate section IDs and an empty catalog are rejected; failed administration does not advance either policy generation.",
+      "artifact": "stage-16-catalog-validation-preserves-active-policy.json",
+      "runtime_revision": 3
+    }
+  ],
+  "initial_runtime_revision": 1,
+  "final_runtime_status": {
+    "revision": 3,
+    "artifacts": 6,
+    "sources": 0,
+    "tasks": {
+      "done": 13
+    },
+    "proposals": {
+      "accepted": 2,
+      "proposed": 11
+    },
+    "events": 97,
+    "rules_version": "mvp-1"
+  },
+  "summary": {
+    "author_job_count": 8,
+    "composite_proposal_count": 5,
+    "registered_author_principal_count": 2,
+    "root_contributor_count": 3,
+    "catalog_section_count": 4,
+    "root_selected_section_count": 3,
+    "disjoint_selected_section_count": 1,
+    "decision_count": 16,
+    "stage_count": 16,
+    "expected_api_rejection_count": 6,
+    "blocked_acceptance_count": 6,
+    "runtime_event_count": 97,
+    "accepted_proposal_count": 2,
+    "acceptance_receipt_schema": 3,
+    "accepted_content_packet_schema": 2,
+    "historical_content_packet_schema": 1,
+    "root_packet_unchanged_after_disjoint_acceptance": true,
+    "root_approved_before_disjoint_acceptance": true,
+    "root_still_eligible_after_disjoint_acceptance": true,
+    "historical_schema_one_packet_bytes_unchanged": true,
+    "release_created": false,
+    "credential_material_exported": false,
+    "measured_capacity": false,
+    "semantic_equivalence_proved": false,
+    "accepted_content_packet_digest": "6c19e825d69215795ff9edfcdc7eb09736cdef4e801fac5ff6468dae93d0822e"
+  },
+  "credential_file_layout": {
+    "administrator": "private/admin.credential",
+    "active_document_author": "private/document-author.credential",
+    "active_code_author": "private/code-author.credential",
+    "active_integrator": "private/integrator.credential",
+    "active_reviewer_a": "private/reviewer-a.credential",
+    "active_reviewer_b": "private/reviewer-b.credential",
+    "active_coordinator": "private/coordinator.credential",
+    "private_database": "private/state.sqlite3"
+  },
+  "limitations": [
+    "The catalog is administrator-declared; completeness over undeclared requirements and files is not established.",
+    "Overlap closure requires every write of each selected section and every selected section must pass.",
+    "Only actual read/query bases invalidate a packet after runtime changes; policy generations still invalidate opinions globally.",
+    "Exact quotes and selected JSON/AST fields do not prove natural-language entailment, prose truth or application behavior.",
+    "Programmed local principals do not establish people, models, expertise, independent reviewers or human understanding.",
+    "The SQLite owner, application and local clock are trusted; internal hashes are not external attestations.",
+    "Historical packets and replays preserve recorded facts without reviving old votes for current policy.",
+    "Configured workers and this bounded run do not measure service capacity, throughput or supported external agents.",
+    "No external LLM, candidate-code execution, release or Git publication is performed by this command.",
+    "Credentials, their hashes and SQLite remain in private files outside the public artifacts."
+  ]
+}

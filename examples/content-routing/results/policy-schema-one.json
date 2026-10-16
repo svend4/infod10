@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "artifact_ids": [
+    "docs/routing-d.md",
+    "code/routing_d.py"
+  ],
+  "spec": {
+    "schema_version": 1,
+    "obligations": [
+      {
+        "id": "sample-limit",
+        "description": "The fictional literal sample limit must match.",
+        "scope": {
+          "sample": "routing-v1"
+        },
+        "relation": "equals",
+        "value_type": "integer",
+        "document": {
+          "artifact_id": "docs/routing-d.md",
+          "fence_id": "contract",
+          "path": [
+            "limit"
+          ]
+        },
+        "code": {
+          "artifact_id": "code/routing_d.py",
+          "symbol": "SAMPLE_LIMIT"
+        }
+      }
+    ]
+  },
+  "inventory": {
+    "schema_version": 1,
+    "promises": [
+      {
+        "id": "sample-promise",
+        "description": "The declared fictional sample limit.",
+        "anchor": {
+          "artifact_id": "docs/routing-d.md",
+          "quote": "The fictional sample limit is declared below."
+        },
+        "requirement": {
+          "scope": {
+            "sample": "routing-v1"
+          },
+          "relation": "equals",
+          "value_type": "integer",
+          "document": {
+            "artifact_id": "docs/routing-d.md",
+            "fence_id": "contract",
+            "path": [
+              "limit"
+            ]
+          },
+          "code": {
+            "artifact_id": "code/routing_d.py",
+            "symbol": "SAMPLE_LIMIT"
+          }
+        },
+        "obligation_ids": [
+          "sample-limit"
+        ]
+      }
+    ]
+  }
+}

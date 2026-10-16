@@ -1,0 +1,724 @@
+{
+  "enabled": true,
+  "rules_version": "authorship-1",
+  "activation": {
+    "rules_version": "authorship-1",
+    "epoch": 1,
+    "enabled_at": 1792170099.775257,
+    "activation_revision": 1,
+    "policy_generation": 2,
+    "administrator_grant_id": "gvg_ba88fd9d90bf121302d850ddcbd028fe"
+  },
+  "credential_mode": "local_bearer",
+  "human_identity_authenticated": false,
+  "trusted_database_owner_can_bypass": true,
+  "leases": [
+    {
+      "task_id": "routing-author-document-a",
+      "token": 1,
+      "principal_id": "routing-document-author",
+      "grant_id": "gvg_cdff351e61ae318b4802b5504c6e1c65",
+      "role": "doc_author",
+      "claimed_at": 1792170099.7857854
+    },
+    {
+      "task_id": "routing-author-document-b",
+      "token": 1,
+      "principal_id": "routing-document-author",
+      "grant_id": "gvg_cdff351e61ae318b4802b5504c6e1c65",
+      "role": "doc_author",
+      "claimed_at": 1792170099.786687
+    },
+    {
+      "task_id": "routing-author-code-shared",
+      "token": 1,
+      "principal_id": "routing-code-author",
+      "grant_id": "gvg_89f9891b51ed5f9f7757011fa01c14ee",
+      "role": "code_author",
+      "claimed_at": 1792170099.7890944
+    },
+    {
+      "task_id": "routing-author-document-b-mismatch",
+      "token": 1,
+      "principal_id": "routing-document-author",
+      "grant_id": "gvg_cdff351e61ae318b4802b5504c6e1c65",
+      "role": "doc_author",
+      "claimed_at": 1792170099.7902339
+    },
+    {
+      "task_id": "routing-author-code-c",
+      "token": 1,
+      "principal_id": "routing-code-author",
+      "grant_id": "gvg_89f9891b51ed5f9f7757011fa01c14ee",
+      "role": "code_author",
+      "claimed_at": 1792170099.7922385
+    },
+    {
+      "task_id": "routing-author-document-d",
+      "token": 1,
+      "principal_id": "routing-document-author",
+      "grant_id": "gvg_cdff351e61ae318b4802b5504c6e1c65",
+      "role": "doc_author",
+      "claimed_at": 1792170099.7952025
+    },
+    {
+      "task_id": "routing-author-code-d",
+      "token": 1,
+      "principal_id": "routing-code-author",
+      "grant_id": "gvg_89f9891b51ed5f9f7757011fa01c14ee",
+      "role": "code_author",
+      "claimed_at": 1792170099.79949
+    },
+    {
+      "task_id": "routing-author-outside",
+      "token": 1,
+      "principal_id": "routing-document-author",
+      "grant_id": "gvg_cdff351e61ae318b4802b5504c6e1c65",
+      "role": "doc_author",
+      "claimed_at": 1792170099.8025475
+    },
+    {
+      "task_id": "routing-compose-incomplete-a",
+      "token": 1,
+      "principal_id": "routing-integrator",
+      "grant_id": "gvg_85280ae22a31a57abf047779bd94864c",
+      "role": "integrator",
+      "claimed_at": 1792170099.8181796
+    },
+    {
+      "task_id": "routing-compose-overlap-complete",
+      "token": 1,
+      "principal_id": "routing-integrator",
+      "grant_id": "gvg_85280ae22a31a57abf047779bd94864c",
+      "role": "integrator",
+      "claimed_at": 1792170099.824888
+    },
+    {
+      "task_id": "routing-compose-overlap-mismatch",
+      "token": 1,
+      "principal_id": "routing-integrator",
+      "grant_id": "gvg_85280ae22a31a57abf047779bd94864c",
+      "role": "integrator",
+      "claimed_at": 1792170099.8312194
+    },
+    {
+      "task_id": "routing-compose-disjoint-d",
+      "token": 1,
+      "principal_id": "routing-integrator",
+      "grant_id": "gvg_85280ae22a31a57abf047779bd94864c",
+      "role": "integrator",
+      "claimed_at": 1792170099.8380556
+    },
+    {
+      "task_id": "routing-compose-disjoint-plus-outside",
+      "token": 1,
+      "principal_id": "routing-integrator",
+      "grant_id": "gvg_85280ae22a31a57abf047779bd94864c",
+      "role": "integrator",
+      "claimed_at": 1792170099.8423374
+    }
+  ],
+  "records": [
+    {
+      "proposal_id": "p_14b1d8c9e6b9ef9a779fc865",
+      "integrity_valid": true,
+      "reasons": [],
+      "record": {
+        "authorization_time": 1792170099.7879307,
+        "components": [],
+        "contributor_principals": [
+          "routing-document-author"
+        ],
+        "epoch": 1,
+        "fencing_token": 1,
+        "grant_id": "gvg_cdff351e61ae318b4802b5504c6e1c65",
+        "lease_claimed_at": 1792170099.786687,
+        "principal_id": "routing-document-author",
+        "proposal_digest": "b8ee5f60cedf632d981d6c6449c02c695a41d8703a514f527b5ffaaab05c6e91",
+        "proposal_id": "p_14b1d8c9e6b9ef9a779fc865",
+        "role": "doc_author",
+        "rules_version": "authorship-1",
+        "schema_version": 1,
+        "task_id": "routing-author-document-b",
+        "write_ids": [
+          "docs/routing-b.md"
+        ],
+        "authorship_id": "awp_08626b0f72906a6d9de80d0639f90016fea0a37b64876344a3073e4df54537ae",
+        "authorship_digest": "08626b0f72906a6d9de80d0639f90016fea0a37b64876344a3073e4df54537ae"
+      },
+      "contributor_principals": [
+        "routing-document-author"
+      ],
+      "validated_proposals": 1
+    },
+    {
+      "proposal_id": "p_bd81e2523eeb5ddfedb97e5c",
+      "integrity_valid": true,
+      "reasons": [],
+      "record": {
+        "authorization_time": 1792170099.7913833,
+        "components": [],
+        "contributor_principals": [
+          "routing-document-author"
+        ],
+        "epoch": 1,
+        "fencing_token": 1,
+        "grant_id": "gvg_cdff351e61ae318b4802b5504c6e1c65",
+        "lease_claimed_at": 1792170099.7902339,
+        "principal_id": "routing-document-author",
+        "proposal_digest": "cb27e025697357384bafd756b582278174ba40a569b45ba4b757a93a8f08c3a7",
+        "proposal_id": "p_bd81e2523eeb5ddfedb97e5c",
+        "role": "doc_author",
+        "rules_version": "authorship-1",
+        "schema_version": 1,
+        "task_id": "routing-author-document-b-mismatch",
+        "write_ids": [
+          "docs/routing-b.md"
+        ],
+        "authorship_id": "awp_52a84061571e4eb3606129bb5acaabfba521ab0ede55ff7160b1e1987c49ce8a",
+        "authorship_digest": "52a84061571e4eb3606129bb5acaabfba521ab0ede55ff7160b1e1987c49ce8a"
+      },
+      "contributor_principals": [
+        "routing-document-author"
+      ],
+      "validated_proposals": 1
+    },
+    {
+      "proposal_id": "p_adaa07a3886d388c12534508",
+      "integrity_valid": true,
+      "reasons": [],
+      "record": {
+        "authorization_time": 1792170099.7931356,
+        "components": [],
+        "contributor_principals": [
+          "routing-code-author"
+        ],
+        "epoch": 1,
+        "fencing_token": 1,
+        "grant_id": "gvg_89f9891b51ed5f9f7757011fa01c14ee",
+        "lease_claimed_at": 1792170099.7922385,
+        "principal_id": "routing-code-author",
+        "proposal_digest": "f79d9432f72d3440989cd2441cfc6e4ea33152541c3bc5efc43e40c802f6fdd7",
+        "proposal_id": "p_adaa07a3886d388c12534508",
+        "role": "code_author",
+        "rules_version": "authorship-1",
+        "schema_version": 1,
+        "task_id": "routing-author-code-c",
+        "write_ids": [
+          "code/routing_c.py"
+        ],
+        "authorship_id": "awp_c26a212796fa4b5465a66a58bdb8a16b1533d0f1f28cffaf3c3921935c636875",
+        "authorship_digest": "c26a212796fa4b5465a66a58bdb8a16b1533d0f1f28cffaf3c3921935c636875"
+      },
+      "contributor_principals": [
+        "routing-code-author"
+      ],
+      "validated_proposals": 1
+    },
+    {
+      "proposal_id": "p_2320018b63eeab8507c72846",
+      "integrity_valid": true,
+      "reasons": [],
+      "record": {
+        "authorization_time": 1792170099.7941325,
+        "components": [],
+        "contributor_principals": [
+          "routing-code-author"
+        ],
+        "epoch": 1,
+        "fencing_token": 1,
+        "grant_id": "gvg_89f9891b51ed5f9f7757011fa01c14ee",
+        "lease_claimed_at": 1792170099.7890944,
+        "principal_id": "routing-code-author",
+        "proposal_digest": "412259ce13773f3379f3602ab636021157196414e3212825e84257df97f9ecc5",
+        "proposal_id": "p_2320018b63eeab8507c72846",
+        "role": "code_author",
+        "rules_version": "authorship-1",
+        "schema_version": 1,
+        "task_id": "routing-author-code-shared",
+        "write_ids": [
+          "code/routing_shared.py"
+        ],
+        "authorship_id": "awp_c0ab4f6d5cf27754316390b93bf2250f1fe7b9104ae337da4c45155591d9c5ac",
+        "authorship_digest": "c0ab4f6d5cf27754316390b93bf2250f1fe7b9104ae337da4c45155591d9c5ac"
+      },
+      "contributor_principals": [
+        "routing-code-author"
+      ],
+      "validated_proposals": 1
+    },
+    {
+      "proposal_id": "p_bcaf2866999c1819aa2695bf",
+      "integrity_valid": true,
+      "reasons": [],
+      "record": {
+        "authorization_time": 1792170099.7976005,
+        "components": [],
+        "contributor_principals": [
+          "routing-document-author"
+        ],
+        "epoch": 1,
+        "fencing_token": 1,
+        "grant_id": "gvg_cdff351e61ae318b4802b5504c6e1c65",
+        "lease_claimed_at": 1792170099.7857854,
+        "principal_id": "routing-document-author",
+        "proposal_digest": "a34632044b361fad2cc1b82917d8aa9aa756a49774bca5c91615f9cec84b73ae",
+        "proposal_id": "p_bcaf2866999c1819aa2695bf",
+        "role": "doc_author",
+        "rules_version": "authorship-1",
+        "schema_version": 1,
+        "task_id": "routing-author-document-a",
+        "write_ids": [
+          "docs/routing-a.md"
+        ],
+        "authorship_id": "awp_848bb52134f1ad7cbaab7b8af621a6b4d1b78bdbd31988186cb17b66d199678c",
+        "authorship_digest": "848bb52134f1ad7cbaab7b8af621a6b4d1b78bdbd31988186cb17b66d199678c"
+      },
+      "contributor_principals": [
+        "routing-document-author"
+      ],
+      "validated_proposals": 1
+    },
+    {
+      "proposal_id": "p_67670be14af4a125c101e9d4",
+      "integrity_valid": true,
+      "reasons": [],
+      "record": {
+        "authorization_time": 1792170099.8002627,
+        "components": [],
+        "contributor_principals": [
+          "routing-code-author"
+        ],
+        "epoch": 1,
+        "fencing_token": 1,
+        "grant_id": "gvg_89f9891b51ed5f9f7757011fa01c14ee",
+        "lease_claimed_at": 1792170099.79949,
+        "principal_id": "routing-code-author",
+        "proposal_digest": "ccbbe3f2088910f3e93b9638e0a62753f9a20a6e46272e3a9ff8df5de47cf85a",
+        "proposal_id": "p_67670be14af4a125c101e9d4",
+        "role": "code_author",
+        "rules_version": "authorship-1",
+        "schema_version": 1,
+        "task_id": "routing-author-code-d",
+        "write_ids": [
+          "code/routing_d.py"
+        ],
+        "authorship_id": "awp_332eca76d61f2211fb89c0d99fd6ae0cda3072825471d344f6031a30dc6b9511",
+        "authorship_digest": "332eca76d61f2211fb89c0d99fd6ae0cda3072825471d344f6031a30dc6b9511"
+      },
+      "contributor_principals": [
+        "routing-code-author"
+      ],
+      "validated_proposals": 1
+    },
+    {
+      "proposal_id": "p_8aa4dcf24ad09398b778434e",
+      "integrity_valid": true,
+      "reasons": [],
+      "record": {
+        "authorization_time": 1792170099.8044047,
+        "components": [],
+        "contributor_principals": [
+          "routing-document-author"
+        ],
+        "epoch": 1,
+        "fencing_token": 1,
+        "grant_id": "gvg_cdff351e61ae318b4802b5504c6e1c65",
+        "lease_claimed_at": 1792170099.8025475,
+        "principal_id": "routing-document-author",
+        "proposal_digest": "b06b518cbee36c4c82ccf82c55b97687519b5263ef884eeff18835c3e16e9df3",
+        "proposal_id": "p_8aa4dcf24ad09398b778434e",
+        "role": "doc_author",
+        "rules_version": "authorship-1",
+        "schema_version": 1,
+        "task_id": "routing-author-outside",
+        "write_ids": [
+          "docs/routing-outside.md"
+        ],
+        "authorship_id": "awp_6d44ce5ade931c70c3032f931f4d16db50cac527fb0d9f1653080d9aa0a56d6b",
+        "authorship_digest": "6d44ce5ade931c70c3032f931f4d16db50cac527fb0d9f1653080d9aa0a56d6b"
+      },
+      "contributor_principals": [
+        "routing-document-author"
+      ],
+      "validated_proposals": 1
+    },
+    {
+      "proposal_id": "p_cddc8562999f590cc486b98d",
+      "integrity_valid": true,
+      "reasons": [],
+      "record": {
+        "authorization_time": 1792170099.8149018,
+        "components": [],
+        "contributor_principals": [
+          "routing-document-author"
+        ],
+        "epoch": 1,
+        "fencing_token": 1,
+        "grant_id": "gvg_cdff351e61ae318b4802b5504c6e1c65",
+        "lease_claimed_at": 1792170099.7952025,
+        "principal_id": "routing-document-author",
+        "proposal_digest": "d751d820165c49df3fdd31cc5484965385fb7eef4680ae78859bbb418ca78fbb",
+        "proposal_id": "p_cddc8562999f590cc486b98d",
+        "role": "doc_author",
+        "rules_version": "authorship-1",
+        "schema_version": 1,
+        "task_id": "routing-author-document-d",
+        "write_ids": [
+          "docs/routing-d.md"
+        ],
+        "authorship_id": "awp_66bdb86f9bd0485762681bc5255a7fd0763d28b25f8c744597ace165715e2d5b",
+        "authorship_digest": "66bdb86f9bd0485762681bc5255a7fd0763d28b25f8c744597ace165715e2d5b"
+      },
+      "contributor_principals": [
+        "routing-document-author"
+      ],
+      "validated_proposals": 1
+    },
+    {
+      "proposal_id": "p_cdf10864297692dce6f80235",
+      "integrity_valid": true,
+      "reasons": [],
+      "record": {
+        "authorization_time": 1792170099.822166,
+        "components": [
+          {
+            "authorship_digest": "848bb52134f1ad7cbaab7b8af621a6b4d1b78bdbd31988186cb17b66d199678c",
+            "authorship_id": "awp_848bb52134f1ad7cbaab7b8af621a6b4d1b78bdbd31988186cb17b66d199678c",
+            "position": 1,
+            "proposal_digest": "a34632044b361fad2cc1b82917d8aa9aa756a49774bca5c91615f9cec84b73ae",
+            "proposal_id": "p_bcaf2866999c1819aa2695bf",
+            "write_ids": [
+              "docs/routing-a.md"
+            ]
+          },
+          {
+            "authorship_digest": "c0ab4f6d5cf27754316390b93bf2250f1fe7b9104ae337da4c45155591d9c5ac",
+            "authorship_id": "awp_c0ab4f6d5cf27754316390b93bf2250f1fe7b9104ae337da4c45155591d9c5ac",
+            "position": 2,
+            "proposal_digest": "412259ce13773f3379f3602ab636021157196414e3212825e84257df97f9ecc5",
+            "proposal_id": "p_2320018b63eeab8507c72846",
+            "write_ids": [
+              "code/routing_shared.py"
+            ]
+          }
+        ],
+        "contributor_principals": [
+          "routing-code-author",
+          "routing-document-author",
+          "routing-integrator"
+        ],
+        "epoch": 1,
+        "fencing_token": 1,
+        "grant_id": "gvg_85280ae22a31a57abf047779bd94864c",
+        "lease_claimed_at": 1792170099.8181796,
+        "principal_id": "routing-integrator",
+        "proposal_digest": "c69dbfad5278b36faf07644b49ed535612c62682342275bab6b701222345b932",
+        "proposal_id": "p_cdf10864297692dce6f80235",
+        "role": "integrator",
+        "rules_version": "authorship-1",
+        "schema_version": 1,
+        "task_id": "routing-compose-incomplete-a",
+        "write_ids": [
+          "code/routing_shared.py",
+          "docs/routing-a.md"
+        ],
+        "authorship_id": "awp_2b78f7cfea02aae91c22c4a45986a6335890dc975fcbf3c386153a5065eea553",
+        "authorship_digest": "2b78f7cfea02aae91c22c4a45986a6335890dc975fcbf3c386153a5065eea553"
+      },
+      "contributor_principals": [
+        "routing-code-author",
+        "routing-document-author",
+        "routing-integrator"
+      ],
+      "validated_proposals": 3
+    },
+    {
+      "proposal_id": "p_f9054d129cf929c0bb4eb287",
+      "integrity_valid": true,
+      "reasons": [],
+      "record": {
+        "authorization_time": 1792170099.828269,
+        "components": [
+          {
+            "authorship_digest": "848bb52134f1ad7cbaab7b8af621a6b4d1b78bdbd31988186cb17b66d199678c",
+            "authorship_id": "awp_848bb52134f1ad7cbaab7b8af621a6b4d1b78bdbd31988186cb17b66d199678c",
+            "position": 1,
+            "proposal_digest": "a34632044b361fad2cc1b82917d8aa9aa756a49774bca5c91615f9cec84b73ae",
+            "proposal_id": "p_bcaf2866999c1819aa2695bf",
+            "write_ids": [
+              "docs/routing-a.md"
+            ]
+          },
+          {
+            "authorship_digest": "08626b0f72906a6d9de80d0639f90016fea0a37b64876344a3073e4df54537ae",
+            "authorship_id": "awp_08626b0f72906a6d9de80d0639f90016fea0a37b64876344a3073e4df54537ae",
+            "position": 2,
+            "proposal_digest": "b8ee5f60cedf632d981d6c6449c02c695a41d8703a514f527b5ffaaab05c6e91",
+            "proposal_id": "p_14b1d8c9e6b9ef9a779fc865",
+            "write_ids": [
+              "docs/routing-b.md"
+            ]
+          },
+          {
+            "authorship_digest": "c0ab4f6d5cf27754316390b93bf2250f1fe7b9104ae337da4c45155591d9c5ac",
+            "authorship_id": "awp_c0ab4f6d5cf27754316390b93bf2250f1fe7b9104ae337da4c45155591d9c5ac",
+            "position": 3,
+            "proposal_digest": "412259ce13773f3379f3602ab636021157196414e3212825e84257df97f9ecc5",
+            "proposal_id": "p_2320018b63eeab8507c72846",
+            "write_ids": [
+              "code/routing_shared.py"
+            ]
+          },
+          {
+            "authorship_digest": "c26a212796fa4b5465a66a58bdb8a16b1533d0f1f28cffaf3c3921935c636875",
+            "authorship_id": "awp_c26a212796fa4b5465a66a58bdb8a16b1533d0f1f28cffaf3c3921935c636875",
+            "position": 4,
+            "proposal_digest": "f79d9432f72d3440989cd2441cfc6e4ea33152541c3bc5efc43e40c802f6fdd7",
+            "proposal_id": "p_adaa07a3886d388c12534508",
+            "write_ids": [
+              "code/routing_c.py"
+            ]
+          }
+        ],
+        "contributor_principals": [
+          "routing-code-author",
+          "routing-document-author",
+          "routing-integrator"
+        ],
+        "epoch": 1,
+        "fencing_token": 1,
+        "grant_id": "gvg_85280ae22a31a57abf047779bd94864c",
+        "lease_claimed_at": 1792170099.824888,
+        "principal_id": "routing-integrator",
+        "proposal_digest": "2150ee2585e92957105f62ef453eb40a43063e7841647933dad4c3e7f573a54f",
+        "proposal_id": "p_f9054d129cf929c0bb4eb287",
+        "role": "integrator",
+        "rules_version": "authorship-1",
+        "schema_version": 1,
+        "task_id": "routing-compose-overlap-complete",
+        "write_ids": [
+          "code/routing_c.py",
+          "code/routing_shared.py",
+          "docs/routing-a.md",
+          "docs/routing-b.md"
+        ],
+        "authorship_id": "awp_afbacb57350ec3df466286024554433145382e6d47c6fa831bba51809a1a8eba",
+        "authorship_digest": "afbacb57350ec3df466286024554433145382e6d47c6fa831bba51809a1a8eba"
+      },
+      "contributor_principals": [
+        "routing-code-author",
+        "routing-document-author",
+        "routing-integrator"
+      ],
+      "validated_proposals": 5
+    },
+    {
+      "proposal_id": "p_79885f5b9e8328e822fe93dd",
+      "integrity_valid": true,
+      "reasons": [],
+      "record": {
+        "authorization_time": 1792170099.8346004,
+        "components": [
+          {
+            "authorship_digest": "848bb52134f1ad7cbaab7b8af621a6b4d1b78bdbd31988186cb17b66d199678c",
+            "authorship_id": "awp_848bb52134f1ad7cbaab7b8af621a6b4d1b78bdbd31988186cb17b66d199678c",
+            "position": 1,
+            "proposal_digest": "a34632044b361fad2cc1b82917d8aa9aa756a49774bca5c91615f9cec84b73ae",
+            "proposal_id": "p_bcaf2866999c1819aa2695bf",
+            "write_ids": [
+              "docs/routing-a.md"
+            ]
+          },
+          {
+            "authorship_digest": "52a84061571e4eb3606129bb5acaabfba521ab0ede55ff7160b1e1987c49ce8a",
+            "authorship_id": "awp_52a84061571e4eb3606129bb5acaabfba521ab0ede55ff7160b1e1987c49ce8a",
+            "position": 2,
+            "proposal_digest": "cb27e025697357384bafd756b582278174ba40a569b45ba4b757a93a8f08c3a7",
+            "proposal_id": "p_bd81e2523eeb5ddfedb97e5c",
+            "write_ids": [
+              "docs/routing-b.md"
+            ]
+          },
+          {
+            "authorship_digest": "c0ab4f6d5cf27754316390b93bf2250f1fe7b9104ae337da4c45155591d9c5ac",
+            "authorship_id": "awp_c0ab4f6d5cf27754316390b93bf2250f1fe7b9104ae337da4c45155591d9c5ac",
+            "position": 3,
+            "proposal_digest": "412259ce13773f3379f3602ab636021157196414e3212825e84257df97f9ecc5",
+            "proposal_id": "p_2320018b63eeab8507c72846",
+            "write_ids": [
+              "code/routing_shared.py"
+            ]
+          },
+          {
+            "authorship_digest": "c26a212796fa4b5465a66a58bdb8a16b1533d0f1f28cffaf3c3921935c636875",
+            "authorship_id": "awp_c26a212796fa4b5465a66a58bdb8a16b1533d0f1f28cffaf3c3921935c636875",
+            "position": 4,
+            "proposal_digest": "f79d9432f72d3440989cd2441cfc6e4ea33152541c3bc5efc43e40c802f6fdd7",
+            "proposal_id": "p_adaa07a3886d388c12534508",
+            "write_ids": [
+              "code/routing_c.py"
+            ]
+          }
+        ],
+        "contributor_principals": [
+          "routing-code-author",
+          "routing-document-author",
+          "routing-integrator"
+        ],
+        "epoch": 1,
+        "fencing_token": 1,
+        "grant_id": "gvg_85280ae22a31a57abf047779bd94864c",
+        "lease_claimed_at": 1792170099.8312194,
+        "principal_id": "routing-integrator",
+        "proposal_digest": "1ca5a07c1d9fbb22a897344c938d4548e3b1d27ead8ab947ad305a460fdfd219",
+        "proposal_id": "p_79885f5b9e8328e822fe93dd",
+        "role": "integrator",
+        "rules_version": "authorship-1",
+        "schema_version": 1,
+        "task_id": "routing-compose-overlap-mismatch",
+        "write_ids": [
+          "code/routing_c.py",
+          "code/routing_shared.py",
+          "docs/routing-a.md",
+          "docs/routing-b.md"
+        ],
+        "authorship_id": "awp_a6da23203d3bb1bbae37b4bd5486438a00dc727a9c6a609dbbf05b79c3f8f5ab",
+        "authorship_digest": "a6da23203d3bb1bbae37b4bd5486438a00dc727a9c6a609dbbf05b79c3f8f5ab"
+      },
+      "contributor_principals": [
+        "routing-code-author",
+        "routing-document-author",
+        "routing-integrator"
+      ],
+      "validated_proposals": 5
+    },
+    {
+      "proposal_id": "p_9119abb15a6a7ab247580b2c",
+      "integrity_valid": true,
+      "reasons": [],
+      "record": {
+        "authorization_time": 1792170099.8402789,
+        "components": [
+          {
+            "authorship_digest": "66bdb86f9bd0485762681bc5255a7fd0763d28b25f8c744597ace165715e2d5b",
+            "authorship_id": "awp_66bdb86f9bd0485762681bc5255a7fd0763d28b25f8c744597ace165715e2d5b",
+            "position": 1,
+            "proposal_digest": "d751d820165c49df3fdd31cc5484965385fb7eef4680ae78859bbb418ca78fbb",
+            "proposal_id": "p_cddc8562999f590cc486b98d",
+            "write_ids": [
+              "docs/routing-d.md"
+            ]
+          },
+          {
+            "authorship_digest": "332eca76d61f2211fb89c0d99fd6ae0cda3072825471d344f6031a30dc6b9511",
+            "authorship_id": "awp_332eca76d61f2211fb89c0d99fd6ae0cda3072825471d344f6031a30dc6b9511",
+            "position": 2,
+            "proposal_digest": "ccbbe3f2088910f3e93b9638e0a62753f9a20a6e46272e3a9ff8df5de47cf85a",
+            "proposal_id": "p_67670be14af4a125c101e9d4",
+            "write_ids": [
+              "code/routing_d.py"
+            ]
+          }
+        ],
+        "contributor_principals": [
+          "routing-code-author",
+          "routing-document-author",
+          "routing-integrator"
+        ],
+        "epoch": 1,
+        "fencing_token": 1,
+        "grant_id": "gvg_85280ae22a31a57abf047779bd94864c",
+        "lease_claimed_at": 1792170099.8380556,
+        "principal_id": "routing-integrator",
+        "proposal_digest": "b1811e66ca6a927fda79f72c2dec8fe6407aa7fd568d5b9ccfc3e99fc3422ec4",
+        "proposal_id": "p_9119abb15a6a7ab247580b2c",
+        "role": "integrator",
+        "rules_version": "authorship-1",
+        "schema_version": 1,
+        "task_id": "routing-compose-disjoint-d",
+        "write_ids": [
+          "code/routing_d.py",
+          "docs/routing-d.md"
+        ],
+        "authorship_id": "awp_fb9eca4317e5ed6981c7ea308eab8545328422d30dd99a6579921e1ddabeb94f",
+        "authorship_digest": "fb9eca4317e5ed6981c7ea308eab8545328422d30dd99a6579921e1ddabeb94f"
+      },
+      "contributor_principals": [
+        "routing-code-author",
+        "routing-document-author",
+        "routing-integrator"
+      ],
+      "validated_proposals": 3
+    },
+    {
+      "proposal_id": "p_fcbd0de09a634872f645aa30",
+      "integrity_valid": true,
+      "reasons": [],
+      "record": {
+        "authorization_time": 1792170099.8452191,
+        "components": [
+          {
+            "authorship_digest": "66bdb86f9bd0485762681bc5255a7fd0763d28b25f8c744597ace165715e2d5b",
+            "authorship_id": "awp_66bdb86f9bd0485762681bc5255a7fd0763d28b25f8c744597ace165715e2d5b",
+            "position": 1,
+            "proposal_digest": "d751d820165c49df3fdd31cc5484965385fb7eef4680ae78859bbb418ca78fbb",
+            "proposal_id": "p_cddc8562999f590cc486b98d",
+            "write_ids": [
+              "docs/routing-d.md"
+            ]
+          },
+          {
+            "authorship_digest": "332eca76d61f2211fb89c0d99fd6ae0cda3072825471d344f6031a30dc6b9511",
+            "authorship_id": "awp_332eca76d61f2211fb89c0d99fd6ae0cda3072825471d344f6031a30dc6b9511",
+            "position": 2,
+            "proposal_digest": "ccbbe3f2088910f3e93b9638e0a62753f9a20a6e46272e3a9ff8df5de47cf85a",
+            "proposal_id": "p_67670be14af4a125c101e9d4",
+            "write_ids": [
+              "code/routing_d.py"
+            ]
+          },
+          {
+            "authorship_digest": "6d44ce5ade931c70c3032f931f4d16db50cac527fb0d9f1653080d9aa0a56d6b",
+            "authorship_id": "awp_6d44ce5ade931c70c3032f931f4d16db50cac527fb0d9f1653080d9aa0a56d6b",
+            "position": 3,
+            "proposal_digest": "b06b518cbee36c4c82ccf82c55b97687519b5263ef884eeff18835c3e16e9df3",
+            "proposal_id": "p_8aa4dcf24ad09398b778434e",
+            "write_ids": [
+              "docs/routing-outside.md"
+            ]
+          }
+        ],
+        "contributor_principals": [
+          "routing-code-author",
+          "routing-document-author",
+          "routing-integrator"
+        ],
+        "epoch": 1,
+        "fencing_token": 1,
+        "grant_id": "gvg_85280ae22a31a57abf047779bd94864c",
+        "lease_claimed_at": 1792170099.8423374,
+        "principal_id": "routing-integrator",
+        "proposal_digest": "58cf3495e78a53e351092a916749817124f6b1996f98e1099c6109cbf63f03ab",
+        "proposal_id": "p_fcbd0de09a634872f645aa30",
+        "role": "integrator",
+        "rules_version": "authorship-1",
+        "schema_version": 1,
+        "task_id": "routing-compose-disjoint-plus-outside",
+        "write_ids": [
+          "code/routing_d.py",
+          "docs/routing-d.md",
+          "docs/routing-outside.md"
+        ],
+        "authorship_id": "awp_5eac8f84e17d85203f15d3deba7a0b02e25e92b313113dc858de19e35ddd2a28",
+        "authorship_digest": "5eac8f84e17d85203f15d3deba7a0b02e25e92b313113dc858de19e35ddd2a28"
+      },
+      "contributor_principals": [
+        "routing-code-author",
+        "routing-document-author",
+        "routing-integrator"
+      ],
+      "validated_proposals": 4
+    }
+  ]
+}

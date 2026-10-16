@@ -1,0 +1,152 @@
+{
+  "content_policy_digest": "e69954c074cbe36486c424707c1308cc8a33809a79ed1b517b153578885fbf30",
+  "content_policy_generation": 1,
+  "content_rules_version": "content-gate-1",
+  "coverage_rules_version": "coverage-1",
+  "dependencies": {},
+  "eligible": true,
+  "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+  "governance_policy_generation": 3,
+  "limits": [
+    "Only the administrator-declared inventory and its exact artifact bundle are covered; completeness over other text or project requirements is not established.",
+    "Exact unique quotations and resolved fields pin declared locations; correspondence between prose and those fields is not inferred or verified.",
+    "Literal Python declarations do not establish program behavior; proposed code is parsed with bounded AST rules and is never executed.",
+    "Matches do not establish prose truth, external evidence, human identity, independent people or independent models.",
+    "A standalone packet does not authorize acceptance; formal review, current runtime bases, authorship and governance remain separate requirements.",
+    "The SQLite owner and application implementation remain trusted; hashes provide internal consistency rather than external certification."
+  ],
+  "obligation_rules_version": "obligations-1",
+  "packet_digest": "5cbcd45c79bc884155226668126abf1c3a896e989549e37877d5cfff3325bf7f",
+  "packet_id": "cgp_5cbcd45c79bc884155226668126abf1c3a896e989549e37877d5cfff3325bf7f",
+  "promises": [
+    {
+      "anchor": {
+        "artifact_digest": "db86aab1b15a3f037d31f0175175256b052e027e325d1e7bec59557d81c2ad74",
+        "artifact_id": "docs/routing-d.md",
+        "dependencies": {},
+        "location": {
+          "end_line": 3,
+          "end_offset": 72,
+          "start_line": 3,
+          "start_offset": 27
+        },
+        "quote": "The fictional sample limit is declared below.",
+        "quote_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707",
+        "reasons": [],
+        "render_basis": "captured_candidate_current_claims",
+        "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+        "resolved": true,
+        "snippet": "The fictional sample limit is declared below.",
+        "snippet_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707"
+      },
+      "anchor_verified": true,
+      "document": {
+        "artifact_digest": "db86aab1b15a3f037d31f0175175256b052e027e325d1e7bec59557d81c2ad74",
+        "artifact_id": "docs/routing-d.md",
+        "dependencies": {},
+        "kind": "document",
+        "location": {
+          "end_line": 6,
+          "end_offset": 113,
+          "start_line": 6,
+          "start_offset": 101
+        },
+        "normalized_value": 4,
+        "reasons": [],
+        "render_basis": "captured_candidate_current_claims",
+        "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+        "resolved": true,
+        "snippet": "{\"limit\":4}\n",
+        "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+        "value": 4
+      },
+      "eligible": true,
+      "id": "sample-promise",
+      "mappings": [
+        {
+          "comparison_status": "match",
+          "obligation_id": "sample-limit",
+          "requirement_digest": "b814b80495188c06d6870f8ce6e63dfa159486c4ed11b1c6980840fa066b7187",
+          "valid": true
+        }
+      ],
+      "reasons": [],
+      "requirement_digest": "b814b80495188c06d6870f8ce6e63dfa159486c4ed11b1c6980840fa066b7187"
+    }
+  ],
+  "proposal_digest": "b1811e66ca6a927fda79f72c2dec8fe6407aa7fd568d5b9ccfc3e99fc3422ec4",
+  "proposal_id": "p_9119abb15a6a7ab247580b2c",
+  "queries": {},
+  "read_set": {
+    "code/routing_d.py": {
+      "actual": "e3535236c547202d96e4766740b53fe203750bebf51c3a6a9327c90c3524e602",
+      "expected": "e3535236c547202d96e4766740b53fe203750bebf51c3a6a9327c90c3524e602"
+    },
+    "docs/routing-d.md": {
+      "actual": "d13992a189b6c3b15c2c570d064601cc46f5a234254b89d85b88877be924a214",
+      "expected": "d13992a189b6c3b15c2c570d064601cc46f5a234254b89d85b88877be924a214"
+    }
+  },
+  "reasons": [],
+  "relations": [
+    {
+      "code": {
+        "artifact_digest": "ee96c21867dad5a2fea96cd095002c769b283dad23a0d1eac31fa9cc5cf255c9",
+        "artifact_id": "code/routing_d.py",
+        "dependencies": {},
+        "kind": "code",
+        "location": {
+          "end_line": 1,
+          "end_offset": 16,
+          "start_line": 1,
+          "start_offset": 0
+        },
+        "normalized_value": 4,
+        "reasons": [],
+        "render_basis": "captured_candidate_current_claims",
+        "rendered_digest": "f3830f6870fbcf0a943b72115f9f59809306bc510f1c2791a75665b7b748d95f",
+        "resolved": true,
+        "snippet": "SAMPLE_LIMIT = 4",
+        "snippet_digest": "e009b688616b03b16c11a52916b1dcaebd07561bd905a06731a68eaa2e8a2085",
+        "value": 4
+      },
+      "document": {
+        "artifact_digest": "db86aab1b15a3f037d31f0175175256b052e027e325d1e7bec59557d81c2ad74",
+        "artifact_id": "docs/routing-d.md",
+        "dependencies": {},
+        "kind": "document",
+        "location": {
+          "end_line": 6,
+          "end_offset": 113,
+          "start_line": 6,
+          "start_offset": 101
+        },
+        "normalized_value": 4,
+        "reasons": [],
+        "render_basis": "captured_candidate_current_claims",
+        "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+        "resolved": true,
+        "snippet": "{\"limit\":4}\n",
+        "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+        "value": 4
+      },
+      "id": "sample-limit",
+      "reasons": [],
+      "relation": "equals",
+      "scope": {
+        "sample": "routing-v1"
+      },
+      "status": "match",
+      "value_type": "integer"
+    }
+  ],
+  "required_write_ids": [
+    "code/routing_d.py",
+    "docs/routing-d.md"
+  ],
+  "schema_version": 1,
+  "write_ids": [
+    "code/routing_d.py",
+    "docs/routing-d.md"
+  ]
+}

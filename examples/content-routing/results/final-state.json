@@ -1,0 +1,151 @@
+{
+  "revision": 3,
+  "artifacts": {
+    "code/routing_c.py": {
+      "bindings": [],
+      "id": "code/routing_c.py",
+      "kind": "code",
+      "template": "SAMPLE_LIMIT = 4\n"
+    },
+    "code/routing_d.py": {
+      "bindings": [],
+      "id": "code/routing_d.py",
+      "kind": "code",
+      "template": "SAMPLE_LIMIT = 4\n"
+    },
+    "code/routing_shared.py": {
+      "bindings": [],
+      "id": "code/routing_shared.py",
+      "kind": "code",
+      "template": "SAMPLE_LIMIT = 4\n"
+    },
+    "docs/routing-a.md": {
+      "bindings": [],
+      "id": "docs/routing-a.md",
+      "kind": "document",
+      "template": "# Fictional routed sample\n\nThe fictional sample limit is declared below.\n\n```json agentwiki:contract\n{\"limit\":4}\n```\n"
+    },
+    "docs/routing-b.md": {
+      "bindings": [],
+      "id": "docs/routing-b.md",
+      "kind": "document",
+      "template": "# Fictional routed sample\n\nThe fictional sample limit is declared below.\n\n```json agentwiki:contract\n{\"limit\":4}\n```\n"
+    },
+    "docs/routing-d.md": {
+      "bindings": [],
+      "id": "docs/routing-d.md",
+      "kind": "document",
+      "template": "# Fictional routed sample\n\nThe fictional sample limit is declared below.\n\n```json agentwiki:contract\n{\"limit\":4}\n```\n"
+    }
+  },
+  "digests": {
+    "code/routing_c.py": "f3e09559ccd3bf9eab3dcc5928e95a865392a74669abe44498f689c15502c118",
+    "code/routing_d.py": "ee96c21867dad5a2fea96cd095002c769b283dad23a0d1eac31fa9cc5cf255c9",
+    "code/routing_shared.py": "b0969491d3f699a3acb63fc9bc2124eb5c51b3bbe633b534293b9f8d96b4ab74",
+    "docs/routing-a.md": "cb89488d6d429d54c8f59216b8f67c0398232f2d88cfd2ae5ea7a24ac4ffd7d8",
+    "docs/routing-b.md": "cbec7d33616d1caa7dafa0d43c1e370230a4896edeaf9c10d6fa64adc861f628",
+    "docs/routing-d.md": "db86aab1b15a3f037d31f0175175256b052e027e325d1e7bec59557d81c2ad74"
+  },
+  "queries": {
+    "api:v1": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "platforms:api-v1": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+  },
+  "dependencies": {
+    "code/routing_c.py": {
+      "proposal_id": "p_f9054d129cf929c0bb4eb287",
+      "baseline_revision": 3,
+      "readset": {
+        "code/routing_c.py": "f3e09559ccd3bf9eab3dcc5928e95a865392a74669abe44498f689c15502c118",
+        "code/routing_shared.py": "b0969491d3f699a3acb63fc9bc2124eb5c51b3bbe633b534293b9f8d96b4ab74",
+        "docs/routing-a.md": "cb89488d6d429d54c8f59216b8f67c0398232f2d88cfd2ae5ea7a24ac4ffd7d8",
+        "docs/routing-b.md": "cbec7d33616d1caa7dafa0d43c1e370230a4896edeaf9c10d6fa64adc861f628"
+      },
+      "queries": {},
+      "write_ids": [
+        "code/routing_c.py",
+        "code/routing_shared.py",
+        "docs/routing-a.md",
+        "docs/routing-b.md"
+      ]
+    },
+    "code/routing_d.py": {
+      "proposal_id": "p_9119abb15a6a7ab247580b2c",
+      "baseline_revision": 2,
+      "readset": {
+        "code/routing_d.py": "ee96c21867dad5a2fea96cd095002c769b283dad23a0d1eac31fa9cc5cf255c9",
+        "docs/routing-d.md": "db86aab1b15a3f037d31f0175175256b052e027e325d1e7bec59557d81c2ad74"
+      },
+      "queries": {},
+      "write_ids": [
+        "code/routing_d.py",
+        "docs/routing-d.md"
+      ]
+    },
+    "code/routing_shared.py": {
+      "proposal_id": "p_f9054d129cf929c0bb4eb287",
+      "baseline_revision": 3,
+      "readset": {
+        "code/routing_c.py": "f3e09559ccd3bf9eab3dcc5928e95a865392a74669abe44498f689c15502c118",
+        "code/routing_shared.py": "b0969491d3f699a3acb63fc9bc2124eb5c51b3bbe633b534293b9f8d96b4ab74",
+        "docs/routing-a.md": "cb89488d6d429d54c8f59216b8f67c0398232f2d88cfd2ae5ea7a24ac4ffd7d8",
+        "docs/routing-b.md": "cbec7d33616d1caa7dafa0d43c1e370230a4896edeaf9c10d6fa64adc861f628"
+      },
+      "queries": {},
+      "write_ids": [
+        "code/routing_c.py",
+        "code/routing_shared.py",
+        "docs/routing-a.md",
+        "docs/routing-b.md"
+      ]
+    },
+    "docs/routing-a.md": {
+      "proposal_id": "p_f9054d129cf929c0bb4eb287",
+      "baseline_revision": 3,
+      "readset": {
+        "code/routing_c.py": "f3e09559ccd3bf9eab3dcc5928e95a865392a74669abe44498f689c15502c118",
+        "code/routing_shared.py": "b0969491d3f699a3acb63fc9bc2124eb5c51b3bbe633b534293b9f8d96b4ab74",
+        "docs/routing-a.md": "cb89488d6d429d54c8f59216b8f67c0398232f2d88cfd2ae5ea7a24ac4ffd7d8",
+        "docs/routing-b.md": "cbec7d33616d1caa7dafa0d43c1e370230a4896edeaf9c10d6fa64adc861f628"
+      },
+      "queries": {},
+      "write_ids": [
+        "code/routing_c.py",
+        "code/routing_shared.py",
+        "docs/routing-a.md",
+        "docs/routing-b.md"
+      ]
+    },
+    "docs/routing-b.md": {
+      "proposal_id": "p_f9054d129cf929c0bb4eb287",
+      "baseline_revision": 3,
+      "readset": {
+        "code/routing_c.py": "f3e09559ccd3bf9eab3dcc5928e95a865392a74669abe44498f689c15502c118",
+        "code/routing_shared.py": "b0969491d3f699a3acb63fc9bc2124eb5c51b3bbe633b534293b9f8d96b4ab74",
+        "docs/routing-a.md": "cb89488d6d429d54c8f59216b8f67c0398232f2d88cfd2ae5ea7a24ac4ffd7d8",
+        "docs/routing-b.md": "cbec7d33616d1caa7dafa0d43c1e370230a4896edeaf9c10d6fa64adc861f628"
+      },
+      "queries": {},
+      "write_ids": [
+        "code/routing_c.py",
+        "code/routing_shared.py",
+        "docs/routing-a.md",
+        "docs/routing-b.md"
+      ]
+    },
+    "docs/routing-d.md": {
+      "proposal_id": "p_9119abb15a6a7ab247580b2c",
+      "baseline_revision": 2,
+      "readset": {
+        "code/routing_d.py": "ee96c21867dad5a2fea96cd095002c769b283dad23a0d1eac31fa9cc5cf255c9",
+        "docs/routing-d.md": "db86aab1b15a3f037d31f0175175256b052e027e325d1e7bec59557d81c2ad74"
+      },
+      "queries": {},
+      "write_ids": [
+        "code/routing_d.py",
+        "docs/routing-d.md"
+      ]
+    }
+  },
+  "dependency_coverage": "complete",
+  "sources": {}
+}

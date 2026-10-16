@@ -1,0 +1,2042 @@
+{
+  "label": "locally-complete-section-is-incomplete",
+  "explanation": "A has both of its writes, but its connected B/C requirements also require doc B and code C.",
+  "runtime_revision": 1,
+  "content": {
+    "enabled": true,
+    "rules_version": "content-gate-1",
+    "trusted_database_owner_can_bypass": true,
+    "limits": [
+      "Only the administrator-declared inventory and its exact artifact bundle are covered; completeness over other text or project requirements is not established.",
+      "Exact unique quotations and resolved fields pin declared locations; correspondence between prose and those fields is not inferred or verified.",
+      "Literal Python declarations do not establish program behavior; proposed code is parsed with bounded AST rules and is never executed.",
+      "Matches do not establish prose truth, external evidence, human identity, independent people or independent models.",
+      "A standalone packet does not authorize acceptance; formal review, current runtime bases, authorship and governance remain separate requirements.",
+      "The SQLite owner and application implementation remain trusted; hashes provide internal consistency rather than external certification."
+    ],
+    "current_policy": {
+      "generation": 2,
+      "policy": {
+        "schema_version": 2,
+        "sections": [
+          {
+            "id": "section-a",
+            "policy": {
+              "artifact_ids": [
+                "code/routing_shared.py",
+                "docs/routing-a.md"
+              ],
+              "inventory": {
+                "promises": [
+                  {
+                    "anchor": {
+                      "artifact_id": "docs/routing-a.md",
+                      "quote": "The fictional sample limit is declared below."
+                    },
+                    "description": "The declared fictional sample limit.",
+                    "id": "sample-promise",
+                    "obligation_ids": [
+                      "sample-limit"
+                    ],
+                    "requirement": {
+                      "code": {
+                        "artifact_id": "code/routing_shared.py",
+                        "symbol": "SAMPLE_LIMIT"
+                      },
+                      "document": {
+                        "artifact_id": "docs/routing-a.md",
+                        "fence_id": "contract",
+                        "path": [
+                          "limit"
+                        ]
+                      },
+                      "relation": "equals",
+                      "scope": {
+                        "sample": "routing-v1"
+                      },
+                      "value_type": "integer"
+                    }
+                  }
+                ],
+                "schema_version": 1
+              },
+              "schema_version": 1,
+              "spec": {
+                "obligations": [
+                  {
+                    "code": {
+                      "artifact_id": "code/routing_shared.py",
+                      "symbol": "SAMPLE_LIMIT"
+                    },
+                    "description": "The fictional literal sample limit must match.",
+                    "document": {
+                      "artifact_id": "docs/routing-a.md",
+                      "fence_id": "contract",
+                      "path": [
+                        "limit"
+                      ]
+                    },
+                    "id": "sample-limit",
+                    "relation": "equals",
+                    "scope": {
+                      "sample": "routing-v1"
+                    },
+                    "value_type": "integer"
+                  }
+                ],
+                "schema_version": 1
+              }
+            }
+          },
+          {
+            "id": "section-b",
+            "policy": {
+              "artifact_ids": [
+                "code/routing_shared.py",
+                "docs/routing-b.md"
+              ],
+              "inventory": {
+                "promises": [
+                  {
+                    "anchor": {
+                      "artifact_id": "docs/routing-b.md",
+                      "quote": "The fictional sample limit is declared below."
+                    },
+                    "description": "The declared fictional sample limit.",
+                    "id": "sample-promise",
+                    "obligation_ids": [
+                      "sample-limit"
+                    ],
+                    "requirement": {
+                      "code": {
+                        "artifact_id": "code/routing_shared.py",
+                        "symbol": "SAMPLE_LIMIT"
+                      },
+                      "document": {
+                        "artifact_id": "docs/routing-b.md",
+                        "fence_id": "contract",
+                        "path": [
+                          "limit"
+                        ]
+                      },
+                      "relation": "equals",
+                      "scope": {
+                        "sample": "routing-v1"
+                      },
+                      "value_type": "integer"
+                    }
+                  }
+                ],
+                "schema_version": 1
+              },
+              "schema_version": 1,
+              "spec": {
+                "obligations": [
+                  {
+                    "code": {
+                      "artifact_id": "code/routing_shared.py",
+                      "symbol": "SAMPLE_LIMIT"
+                    },
+                    "description": "The fictional literal sample limit must match.",
+                    "document": {
+                      "artifact_id": "docs/routing-b.md",
+                      "fence_id": "contract",
+                      "path": [
+                        "limit"
+                      ]
+                    },
+                    "id": "sample-limit",
+                    "relation": "equals",
+                    "scope": {
+                      "sample": "routing-v1"
+                    },
+                    "value_type": "integer"
+                  }
+                ],
+                "schema_version": 1
+              }
+            }
+          },
+          {
+            "id": "section-c",
+            "policy": {
+              "artifact_ids": [
+                "code/routing_c.py",
+                "docs/routing-b.md"
+              ],
+              "inventory": {
+                "promises": [
+                  {
+                    "anchor": {
+                      "artifact_id": "docs/routing-b.md",
+                      "quote": "The fictional sample limit is declared below."
+                    },
+                    "description": "The declared fictional sample limit.",
+                    "id": "sample-promise",
+                    "obligation_ids": [
+                      "sample-limit"
+                    ],
+                    "requirement": {
+                      "code": {
+                        "artifact_id": "code/routing_c.py",
+                        "symbol": "SAMPLE_LIMIT"
+                      },
+                      "document": {
+                        "artifact_id": "docs/routing-b.md",
+                        "fence_id": "contract",
+                        "path": [
+                          "limit"
+                        ]
+                      },
+                      "relation": "equals",
+                      "scope": {
+                        "sample": "routing-v1"
+                      },
+                      "value_type": "integer"
+                    }
+                  }
+                ],
+                "schema_version": 1
+              },
+              "schema_version": 1,
+              "spec": {
+                "obligations": [
+                  {
+                    "code": {
+                      "artifact_id": "code/routing_c.py",
+                      "symbol": "SAMPLE_LIMIT"
+                    },
+                    "description": "The fictional literal sample limit must match.",
+                    "document": {
+                      "artifact_id": "docs/routing-b.md",
+                      "fence_id": "contract",
+                      "path": [
+                        "limit"
+                      ]
+                    },
+                    "id": "sample-limit",
+                    "relation": "equals",
+                    "scope": {
+                      "sample": "routing-v1"
+                    },
+                    "value_type": "integer"
+                  }
+                ],
+                "schema_version": 1
+              }
+            }
+          },
+          {
+            "id": "section-d",
+            "policy": {
+              "artifact_ids": [
+                "code/routing_d.py",
+                "docs/routing-d.md"
+              ],
+              "inventory": {
+                "promises": [
+                  {
+                    "anchor": {
+                      "artifact_id": "docs/routing-d.md",
+                      "quote": "The fictional sample limit is declared below."
+                    },
+                    "description": "The declared fictional sample limit.",
+                    "id": "sample-promise",
+                    "obligation_ids": [
+                      "sample-limit"
+                    ],
+                    "requirement": {
+                      "code": {
+                        "artifact_id": "code/routing_d.py",
+                        "symbol": "SAMPLE_LIMIT"
+                      },
+                      "document": {
+                        "artifact_id": "docs/routing-d.md",
+                        "fence_id": "contract",
+                        "path": [
+                          "limit"
+                        ]
+                      },
+                      "relation": "equals",
+                      "scope": {
+                        "sample": "routing-v1"
+                      },
+                      "value_type": "integer"
+                    }
+                  }
+                ],
+                "schema_version": 1
+              },
+              "schema_version": 1,
+              "spec": {
+                "obligations": [
+                  {
+                    "code": {
+                      "artifact_id": "code/routing_d.py",
+                      "symbol": "SAMPLE_LIMIT"
+                    },
+                    "description": "The fictional literal sample limit must match.",
+                    "document": {
+                      "artifact_id": "docs/routing-d.md",
+                      "fence_id": "contract",
+                      "path": [
+                        "limit"
+                      ]
+                    },
+                    "id": "sample-limit",
+                    "relation": "equals",
+                    "scope": {
+                      "sample": "routing-v1"
+                    },
+                    "value_type": "integer"
+                  }
+                ],
+                "schema_version": 1
+              }
+            }
+          }
+        ]
+      },
+      "policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+      "created_at": 1792170099.8919878,
+      "governance_policy_generation": 4,
+      "administrator_grant_id": "gvg_ba88fd9d90bf121302d850ddcbd028fe"
+    },
+    "activation": {
+      "rules_version": "content-gate-1",
+      "enabled_at": 1792170099.8495634,
+      "activation_revision": 1,
+      "governance_policy_generation": 3,
+      "administrator_grant_id": "gvg_ba88fd9d90bf121302d850ddcbd028fe"
+    },
+    "stored_packets": [],
+    "stored_packet_count": 0,
+    "stored_packets_truncated": false,
+    "proposal_id": "p_cdf10864297692dce6f80235",
+    "packet": {
+      "schema_version": 2,
+      "content_rules_version": "content-routing-1",
+      "obligation_rules_version": "obligations-1",
+      "coverage_rules_version": "coverage-1",
+      "content_policy_generation": 2,
+      "content_policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+      "governance_policy_generation": 4,
+      "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "proposal_id": "p_cdf10864297692dce6f80235",
+      "proposal_digest": "c69dbfad5278b36faf07644b49ed535612c62682342275bab6b701222345b932",
+      "read_set": {
+        "code/routing_shared.py": {
+          "expected": "d489864e1b26896e10e31493ec592532d1fad364fba0074488463ee58beb0ed8",
+          "actual": "d489864e1b26896e10e31493ec592532d1fad364fba0074488463ee58beb0ed8"
+        },
+        "docs/routing-a.md": {
+          "expected": "fc21fd723a97f215fbd1305c04cd38bbac5b620c6a82a376729107c7571d1c79",
+          "actual": "fc21fd723a97f215fbd1305c04cd38bbac5b620c6a82a376729107c7571d1c79"
+        }
+      },
+      "queries": {},
+      "write_ids": [
+        "code/routing_shared.py",
+        "docs/routing-a.md"
+      ],
+      "required_write_ids": [
+        "code/routing_c.py",
+        "code/routing_shared.py",
+        "docs/routing-a.md",
+        "docs/routing-b.md"
+      ],
+      "sections": [
+        {
+          "section_id": "section-a",
+          "section_policy_digest": "e5708555d9a3a98b98629e518aafebd910e6013e3f37d40e3a113a6f9214c97a",
+          "artifact_ids": [
+            "code/routing_shared.py",
+            "docs/routing-a.md"
+          ],
+          "relations": [
+            {
+              "id": "sample-limit",
+              "scope": {
+                "sample": "routing-v1"
+              },
+              "relation": "equals",
+              "value_type": "integer",
+              "status": "match",
+              "reasons": [],
+              "document": {
+                "artifact_id": "docs/routing-a.md",
+                "kind": "document",
+                "artifact_digest": "cb89488d6d429d54c8f59216b8f67c0398232f2d88cfd2ae5ea7a24ac4ffd7d8",
+                "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+                "dependencies": {},
+                "snippet": "{\"limit\":4}\n",
+                "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+                "location": {
+                  "start_offset": 101,
+                  "end_offset": 113,
+                  "start_line": 6,
+                  "end_line": 6
+                },
+                "resolved": true,
+                "value": 4,
+                "normalized_value": 4,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "code": {
+                "artifact_id": "code/routing_shared.py",
+                "kind": "code",
+                "artifact_digest": "b0969491d3f699a3acb63fc9bc2124eb5c51b3bbe633b534293b9f8d96b4ab74",
+                "rendered_digest": "f3830f6870fbcf0a943b72115f9f59809306bc510f1c2791a75665b7b748d95f",
+                "dependencies": {},
+                "snippet": "SAMPLE_LIMIT = 4",
+                "snippet_digest": "e009b688616b03b16c11a52916b1dcaebd07561bd905a06731a68eaa2e8a2085",
+                "location": {
+                  "start_offset": 0,
+                  "end_offset": 16,
+                  "start_line": 1,
+                  "end_line": 1
+                },
+                "resolved": true,
+                "value": 4,
+                "normalized_value": 4,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              }
+            }
+          ],
+          "promises": [
+            {
+              "id": "sample-promise",
+              "requirement_digest": "a0357844480db97114a8f172565137d440c61912a73a92842dd0461933fafbfd",
+              "anchor": {
+                "artifact_id": "docs/routing-a.md",
+                "artifact_digest": "cb89488d6d429d54c8f59216b8f67c0398232f2d88cfd2ae5ea7a24ac4ffd7d8",
+                "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+                "dependencies": {},
+                "quote": "The fictional sample limit is declared below.",
+                "quote_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707",
+                "snippet": "The fictional sample limit is declared below.",
+                "snippet_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707",
+                "location": {
+                  "start_offset": 27,
+                  "end_offset": 72,
+                  "start_line": 3,
+                  "end_line": 3
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "document": {
+                "artifact_id": "docs/routing-a.md",
+                "kind": "document",
+                "artifact_digest": "cb89488d6d429d54c8f59216b8f67c0398232f2d88cfd2ae5ea7a24ac4ffd7d8",
+                "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+                "dependencies": {},
+                "snippet": "{\"limit\":4}\n",
+                "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+                "location": {
+                  "start_offset": 101,
+                  "end_offset": 113,
+                  "start_line": 6,
+                  "end_line": 6
+                },
+                "resolved": true,
+                "value": 4,
+                "normalized_value": 4,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "mappings": [
+                {
+                  "obligation_id": "sample-limit",
+                  "requirement_digest": "a0357844480db97114a8f172565137d440c61912a73a92842dd0461933fafbfd",
+                  "valid": true,
+                  "comparison_status": "match"
+                }
+              ],
+              "anchor_verified": true,
+              "eligible": true,
+              "reasons": []
+            }
+          ],
+          "dependencies": {},
+          "eligible": true,
+          "reasons": []
+        },
+        {
+          "section_id": "section-b",
+          "section_policy_digest": "a8d74894ff7873d407fa119f01b085b3b5752e2ec153949f21160aaef56f536a",
+          "artifact_ids": [
+            "code/routing_shared.py",
+            "docs/routing-b.md"
+          ],
+          "relations": [
+            {
+              "id": "sample-limit",
+              "scope": {
+                "sample": "routing-v1"
+              },
+              "relation": "equals",
+              "value_type": "integer",
+              "status": "unresolved",
+              "reasons": [
+                {
+                  "endpoint": "document",
+                  "code": "endpoint_not_proposal_write"
+                }
+              ],
+              "document": {
+                "artifact_id": "docs/routing-b.md",
+                "kind": "document",
+                "artifact_digest": null,
+                "rendered_digest": null,
+                "dependencies": {},
+                "snippet": null,
+                "snippet_digest": null,
+                "location": null,
+                "resolved": false,
+                "value": null,
+                "normalized_value": null,
+                "reasons": [
+                  {
+                    "code": "endpoint_not_proposal_write"
+                  }
+                ],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "code": {
+                "artifact_id": "code/routing_shared.py",
+                "kind": "code",
+                "artifact_digest": "b0969491d3f699a3acb63fc9bc2124eb5c51b3bbe633b534293b9f8d96b4ab74",
+                "rendered_digest": "f3830f6870fbcf0a943b72115f9f59809306bc510f1c2791a75665b7b748d95f",
+                "dependencies": {},
+                "snippet": "SAMPLE_LIMIT = 4",
+                "snippet_digest": "e009b688616b03b16c11a52916b1dcaebd07561bd905a06731a68eaa2e8a2085",
+                "location": {
+                  "start_offset": 0,
+                  "end_offset": 16,
+                  "start_line": 1,
+                  "end_line": 1
+                },
+                "resolved": true,
+                "value": 4,
+                "normalized_value": 4,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              }
+            }
+          ],
+          "promises": [
+            {
+              "id": "sample-promise",
+              "requirement_digest": "4c24a010a5446d65ae25d9aeeee739ec6f75084d4efd3536ca38ea7f4047e56f",
+              "anchor": {
+                "artifact_id": "docs/routing-b.md",
+                "artifact_digest": null,
+                "rendered_digest": null,
+                "dependencies": {},
+                "quote": "The fictional sample limit is declared below.",
+                "quote_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707",
+                "snippet": null,
+                "snippet_digest": null,
+                "location": null,
+                "resolved": false,
+                "reasons": [
+                  {
+                    "code": "anchor_not_proposal_write"
+                  }
+                ],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "document": {
+                "artifact_id": "docs/routing-b.md",
+                "kind": "document",
+                "artifact_digest": null,
+                "rendered_digest": null,
+                "dependencies": {},
+                "snippet": null,
+                "snippet_digest": null,
+                "location": null,
+                "resolved": false,
+                "value": null,
+                "normalized_value": null,
+                "reasons": [
+                  {
+                    "code": "endpoint_not_proposal_write"
+                  }
+                ],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "mappings": [
+                {
+                  "obligation_id": "sample-limit",
+                  "requirement_digest": "4c24a010a5446d65ae25d9aeeee739ec6f75084d4efd3536ca38ea7f4047e56f",
+                  "valid": true,
+                  "comparison_status": "unresolved"
+                }
+              ],
+              "anchor_verified": false,
+              "eligible": false,
+              "reasons": [
+                {
+                  "endpoint": "quote_anchor",
+                  "code": "anchor_not_proposal_write"
+                },
+                {
+                  "endpoint": "document_field",
+                  "code": "endpoint_not_proposal_write"
+                }
+              ]
+            }
+          ],
+          "dependencies": {},
+          "eligible": false,
+          "reasons": [
+            {
+              "code": "content_relation_unresolved",
+              "obligation_id": "sample-limit"
+            },
+            {
+              "code": "content_promise_unresolved",
+              "promise_id": "sample-promise"
+            },
+            {
+              "code": "content_promise_mismatch",
+              "promise_id": "sample-promise"
+            }
+          ]
+        },
+        {
+          "section_id": "section-c",
+          "section_policy_digest": "0c4b9c3055fca6d15e05a63a5480edabedff77f186269001498c4516fc9789dd",
+          "artifact_ids": [
+            "code/routing_c.py",
+            "docs/routing-b.md"
+          ],
+          "relations": [
+            {
+              "id": "sample-limit",
+              "scope": {
+                "sample": "routing-v1"
+              },
+              "relation": "equals",
+              "value_type": "integer",
+              "status": "unresolved",
+              "reasons": [
+                {
+                  "endpoint": "document",
+                  "code": "endpoint_not_proposal_write"
+                },
+                {
+                  "endpoint": "code",
+                  "code": "endpoint_not_proposal_write"
+                }
+              ],
+              "document": {
+                "artifact_id": "docs/routing-b.md",
+                "kind": "document",
+                "artifact_digest": null,
+                "rendered_digest": null,
+                "dependencies": {},
+                "snippet": null,
+                "snippet_digest": null,
+                "location": null,
+                "resolved": false,
+                "value": null,
+                "normalized_value": null,
+                "reasons": [
+                  {
+                    "code": "endpoint_not_proposal_write"
+                  }
+                ],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "code": {
+                "artifact_id": "code/routing_c.py",
+                "kind": "code",
+                "artifact_digest": null,
+                "rendered_digest": null,
+                "dependencies": {},
+                "snippet": null,
+                "snippet_digest": null,
+                "location": null,
+                "resolved": false,
+                "value": null,
+                "normalized_value": null,
+                "reasons": [
+                  {
+                    "code": "endpoint_not_proposal_write"
+                  }
+                ],
+                "render_basis": "captured_candidate_current_claims"
+              }
+            }
+          ],
+          "promises": [
+            {
+              "id": "sample-promise",
+              "requirement_digest": "2a218010dc4d4bf5b8516b7a2f37696dc165486a562072a4fc17a6f808718209",
+              "anchor": {
+                "artifact_id": "docs/routing-b.md",
+                "artifact_digest": null,
+                "rendered_digest": null,
+                "dependencies": {},
+                "quote": "The fictional sample limit is declared below.",
+                "quote_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707",
+                "snippet": null,
+                "snippet_digest": null,
+                "location": null,
+                "resolved": false,
+                "reasons": [
+                  {
+                    "code": "anchor_not_proposal_write"
+                  }
+                ],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "document": {
+                "artifact_id": "docs/routing-b.md",
+                "kind": "document",
+                "artifact_digest": null,
+                "rendered_digest": null,
+                "dependencies": {},
+                "snippet": null,
+                "snippet_digest": null,
+                "location": null,
+                "resolved": false,
+                "value": null,
+                "normalized_value": null,
+                "reasons": [
+                  {
+                    "code": "endpoint_not_proposal_write"
+                  }
+                ],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "mappings": [
+                {
+                  "obligation_id": "sample-limit",
+                  "requirement_digest": "2a218010dc4d4bf5b8516b7a2f37696dc165486a562072a4fc17a6f808718209",
+                  "valid": true,
+                  "comparison_status": "unresolved"
+                }
+              ],
+              "anchor_verified": false,
+              "eligible": false,
+              "reasons": [
+                {
+                  "endpoint": "quote_anchor",
+                  "code": "anchor_not_proposal_write"
+                },
+                {
+                  "endpoint": "document_field",
+                  "code": "endpoint_not_proposal_write"
+                }
+              ]
+            }
+          ],
+          "dependencies": {},
+          "eligible": false,
+          "reasons": [
+            {
+              "code": "content_relation_unresolved",
+              "obligation_id": "sample-limit"
+            },
+            {
+              "code": "content_promise_unresolved",
+              "promise_id": "sample-promise"
+            },
+            {
+              "code": "content_promise_mismatch",
+              "promise_id": "sample-promise"
+            }
+          ]
+        }
+      ],
+      "routing": {
+        "initial_section_ids": [
+          "section-a",
+          "section-b"
+        ],
+        "selected_section_ids": [
+          "section-a",
+          "section-b",
+          "section-c"
+        ],
+        "uncovered_write_ids": [],
+        "missing_write_ids": [
+          "code/routing_c.py",
+          "docs/routing-b.md"
+        ],
+        "extra_write_ids": []
+      },
+      "dependencies": {},
+      "eligible": false,
+      "reasons": [
+        {
+          "code": "content_routing_missing_writes",
+          "artifact_ids": [
+            "code/routing_c.py",
+            "docs/routing-b.md"
+          ]
+        },
+        {
+          "section_id": "section-b",
+          "code": "content_relation_unresolved",
+          "obligation_id": "sample-limit"
+        },
+        {
+          "section_id": "section-b",
+          "code": "content_promise_unresolved",
+          "promise_id": "sample-promise"
+        },
+        {
+          "section_id": "section-b",
+          "code": "content_promise_mismatch",
+          "promise_id": "sample-promise"
+        },
+        {
+          "section_id": "section-c",
+          "code": "content_relation_unresolved",
+          "obligation_id": "sample-limit"
+        },
+        {
+          "section_id": "section-c",
+          "code": "content_promise_unresolved",
+          "promise_id": "sample-promise"
+        },
+        {
+          "section_id": "section-c",
+          "code": "content_promise_mismatch",
+          "promise_id": "sample-promise"
+        }
+      ],
+      "limits": [
+        "Routing covers only administrator-declared sections; completeness over other text or project requirements is not established.",
+        "Every touched section and its complete transitive overlap component is required; disjoint sections remain separate bundles.",
+        "Exact unique quotations and resolved fields pin declared locations; correspondence between prose and those fields is not inferred or verified.",
+        "Literal Python declarations do not establish program behavior; proposed code is parsed with bounded AST rules and is never executed.",
+        "Matches do not establish prose truth, external evidence, human identity, independent people or independent models.",
+        "A standalone packet does not authorize acceptance; formal review, current runtime bases, authorship and governance remain separate requirements.",
+        "The SQLite owner and application implementation remain trusted; hashes provide internal consistency rather than external certification."
+      ],
+      "packet_id": "cgp_f95f8ab8b7902b7d434f45d7e8082c91c15294989fd6587b1910957674286d9a",
+      "packet_digest": "f95f8ab8b7902b7d434f45d7e8082c91c15294989fd6587b1910957674286d9a"
+    },
+    "stored": false
+  },
+  "operation_result": {
+    "packet": {
+      "schema_version": 2,
+      "content_rules_version": "content-routing-1",
+      "obligation_rules_version": "obligations-1",
+      "coverage_rules_version": "coverage-1",
+      "content_policy_generation": 2,
+      "content_policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+      "governance_policy_generation": 4,
+      "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "proposal_id": "p_cdf10864297692dce6f80235",
+      "proposal_digest": "c69dbfad5278b36faf07644b49ed535612c62682342275bab6b701222345b932",
+      "read_set": {
+        "code/routing_shared.py": {
+          "expected": "d489864e1b26896e10e31493ec592532d1fad364fba0074488463ee58beb0ed8",
+          "actual": "d489864e1b26896e10e31493ec592532d1fad364fba0074488463ee58beb0ed8"
+        },
+        "docs/routing-a.md": {
+          "expected": "fc21fd723a97f215fbd1305c04cd38bbac5b620c6a82a376729107c7571d1c79",
+          "actual": "fc21fd723a97f215fbd1305c04cd38bbac5b620c6a82a376729107c7571d1c79"
+        }
+      },
+      "queries": {},
+      "write_ids": [
+        "code/routing_shared.py",
+        "docs/routing-a.md"
+      ],
+      "required_write_ids": [
+        "code/routing_c.py",
+        "code/routing_shared.py",
+        "docs/routing-a.md",
+        "docs/routing-b.md"
+      ],
+      "sections": [
+        {
+          "section_id": "section-a",
+          "section_policy_digest": "e5708555d9a3a98b98629e518aafebd910e6013e3f37d40e3a113a6f9214c97a",
+          "artifact_ids": [
+            "code/routing_shared.py",
+            "docs/routing-a.md"
+          ],
+          "relations": [
+            {
+              "id": "sample-limit",
+              "scope": {
+                "sample": "routing-v1"
+              },
+              "relation": "equals",
+              "value_type": "integer",
+              "status": "match",
+              "reasons": [],
+              "document": {
+                "artifact_id": "docs/routing-a.md",
+                "kind": "document",
+                "artifact_digest": "cb89488d6d429d54c8f59216b8f67c0398232f2d88cfd2ae5ea7a24ac4ffd7d8",
+                "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+                "dependencies": {},
+                "snippet": "{\"limit\":4}\n",
+                "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+                "location": {
+                  "start_offset": 101,
+                  "end_offset": 113,
+                  "start_line": 6,
+                  "end_line": 6
+                },
+                "resolved": true,
+                "value": 4,
+                "normalized_value": 4,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "code": {
+                "artifact_id": "code/routing_shared.py",
+                "kind": "code",
+                "artifact_digest": "b0969491d3f699a3acb63fc9bc2124eb5c51b3bbe633b534293b9f8d96b4ab74",
+                "rendered_digest": "f3830f6870fbcf0a943b72115f9f59809306bc510f1c2791a75665b7b748d95f",
+                "dependencies": {},
+                "snippet": "SAMPLE_LIMIT = 4",
+                "snippet_digest": "e009b688616b03b16c11a52916b1dcaebd07561bd905a06731a68eaa2e8a2085",
+                "location": {
+                  "start_offset": 0,
+                  "end_offset": 16,
+                  "start_line": 1,
+                  "end_line": 1
+                },
+                "resolved": true,
+                "value": 4,
+                "normalized_value": 4,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              }
+            }
+          ],
+          "promises": [
+            {
+              "id": "sample-promise",
+              "requirement_digest": "a0357844480db97114a8f172565137d440c61912a73a92842dd0461933fafbfd",
+              "anchor": {
+                "artifact_id": "docs/routing-a.md",
+                "artifact_digest": "cb89488d6d429d54c8f59216b8f67c0398232f2d88cfd2ae5ea7a24ac4ffd7d8",
+                "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+                "dependencies": {},
+                "quote": "The fictional sample limit is declared below.",
+                "quote_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707",
+                "snippet": "The fictional sample limit is declared below.",
+                "snippet_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707",
+                "location": {
+                  "start_offset": 27,
+                  "end_offset": 72,
+                  "start_line": 3,
+                  "end_line": 3
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "document": {
+                "artifact_id": "docs/routing-a.md",
+                "kind": "document",
+                "artifact_digest": "cb89488d6d429d54c8f59216b8f67c0398232f2d88cfd2ae5ea7a24ac4ffd7d8",
+                "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+                "dependencies": {},
+                "snippet": "{\"limit\":4}\n",
+                "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+                "location": {
+                  "start_offset": 101,
+                  "end_offset": 113,
+                  "start_line": 6,
+                  "end_line": 6
+                },
+                "resolved": true,
+                "value": 4,
+                "normalized_value": 4,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "mappings": [
+                {
+                  "obligation_id": "sample-limit",
+                  "requirement_digest": "a0357844480db97114a8f172565137d440c61912a73a92842dd0461933fafbfd",
+                  "valid": true,
+                  "comparison_status": "match"
+                }
+              ],
+              "anchor_verified": true,
+              "eligible": true,
+              "reasons": []
+            }
+          ],
+          "dependencies": {},
+          "eligible": true,
+          "reasons": []
+        },
+        {
+          "section_id": "section-b",
+          "section_policy_digest": "a8d74894ff7873d407fa119f01b085b3b5752e2ec153949f21160aaef56f536a",
+          "artifact_ids": [
+            "code/routing_shared.py",
+            "docs/routing-b.md"
+          ],
+          "relations": [
+            {
+              "id": "sample-limit",
+              "scope": {
+                "sample": "routing-v1"
+              },
+              "relation": "equals",
+              "value_type": "integer",
+              "status": "unresolved",
+              "reasons": [
+                {
+                  "endpoint": "document",
+                  "code": "endpoint_not_proposal_write"
+                }
+              ],
+              "document": {
+                "artifact_id": "docs/routing-b.md",
+                "kind": "document",
+                "artifact_digest": null,
+                "rendered_digest": null,
+                "dependencies": {},
+                "snippet": null,
+                "snippet_digest": null,
+                "location": null,
+                "resolved": false,
+                "value": null,
+                "normalized_value": null,
+                "reasons": [
+                  {
+                    "code": "endpoint_not_proposal_write"
+                  }
+                ],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "code": {
+                "artifact_id": "code/routing_shared.py",
+                "kind": "code",
+                "artifact_digest": "b0969491d3f699a3acb63fc9bc2124eb5c51b3bbe633b534293b9f8d96b4ab74",
+                "rendered_digest": "f3830f6870fbcf0a943b72115f9f59809306bc510f1c2791a75665b7b748d95f",
+                "dependencies": {},
+                "snippet": "SAMPLE_LIMIT = 4",
+                "snippet_digest": "e009b688616b03b16c11a52916b1dcaebd07561bd905a06731a68eaa2e8a2085",
+                "location": {
+                  "start_offset": 0,
+                  "end_offset": 16,
+                  "start_line": 1,
+                  "end_line": 1
+                },
+                "resolved": true,
+                "value": 4,
+                "normalized_value": 4,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              }
+            }
+          ],
+          "promises": [
+            {
+              "id": "sample-promise",
+              "requirement_digest": "4c24a010a5446d65ae25d9aeeee739ec6f75084d4efd3536ca38ea7f4047e56f",
+              "anchor": {
+                "artifact_id": "docs/routing-b.md",
+                "artifact_digest": null,
+                "rendered_digest": null,
+                "dependencies": {},
+                "quote": "The fictional sample limit is declared below.",
+                "quote_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707",
+                "snippet": null,
+                "snippet_digest": null,
+                "location": null,
+                "resolved": false,
+                "reasons": [
+                  {
+                    "code": "anchor_not_proposal_write"
+                  }
+                ],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "document": {
+                "artifact_id": "docs/routing-b.md",
+                "kind": "document",
+                "artifact_digest": null,
+                "rendered_digest": null,
+                "dependencies": {},
+                "snippet": null,
+                "snippet_digest": null,
+                "location": null,
+                "resolved": false,
+                "value": null,
+                "normalized_value": null,
+                "reasons": [
+                  {
+                    "code": "endpoint_not_proposal_write"
+                  }
+                ],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "mappings": [
+                {
+                  "obligation_id": "sample-limit",
+                  "requirement_digest": "4c24a010a5446d65ae25d9aeeee739ec6f75084d4efd3536ca38ea7f4047e56f",
+                  "valid": true,
+                  "comparison_status": "unresolved"
+                }
+              ],
+              "anchor_verified": false,
+              "eligible": false,
+              "reasons": [
+                {
+                  "endpoint": "quote_anchor",
+                  "code": "anchor_not_proposal_write"
+                },
+                {
+                  "endpoint": "document_field",
+                  "code": "endpoint_not_proposal_write"
+                }
+              ]
+            }
+          ],
+          "dependencies": {},
+          "eligible": false,
+          "reasons": [
+            {
+              "code": "content_relation_unresolved",
+              "obligation_id": "sample-limit"
+            },
+            {
+              "code": "content_promise_unresolved",
+              "promise_id": "sample-promise"
+            },
+            {
+              "code": "content_promise_mismatch",
+              "promise_id": "sample-promise"
+            }
+          ]
+        },
+        {
+          "section_id": "section-c",
+          "section_policy_digest": "0c4b9c3055fca6d15e05a63a5480edabedff77f186269001498c4516fc9789dd",
+          "artifact_ids": [
+            "code/routing_c.py",
+            "docs/routing-b.md"
+          ],
+          "relations": [
+            {
+              "id": "sample-limit",
+              "scope": {
+                "sample": "routing-v1"
+              },
+              "relation": "equals",
+              "value_type": "integer",
+              "status": "unresolved",
+              "reasons": [
+                {
+                  "endpoint": "document",
+                  "code": "endpoint_not_proposal_write"
+                },
+                {
+                  "endpoint": "code",
+                  "code": "endpoint_not_proposal_write"
+                }
+              ],
+              "document": {
+                "artifact_id": "docs/routing-b.md",
+                "kind": "document",
+                "artifact_digest": null,
+                "rendered_digest": null,
+                "dependencies": {},
+                "snippet": null,
+                "snippet_digest": null,
+                "location": null,
+                "resolved": false,
+                "value": null,
+                "normalized_value": null,
+                "reasons": [
+                  {
+                    "code": "endpoint_not_proposal_write"
+                  }
+                ],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "code": {
+                "artifact_id": "code/routing_c.py",
+                "kind": "code",
+                "artifact_digest": null,
+                "rendered_digest": null,
+                "dependencies": {},
+                "snippet": null,
+                "snippet_digest": null,
+                "location": null,
+                "resolved": false,
+                "value": null,
+                "normalized_value": null,
+                "reasons": [
+                  {
+                    "code": "endpoint_not_proposal_write"
+                  }
+                ],
+                "render_basis": "captured_candidate_current_claims"
+              }
+            }
+          ],
+          "promises": [
+            {
+              "id": "sample-promise",
+              "requirement_digest": "2a218010dc4d4bf5b8516b7a2f37696dc165486a562072a4fc17a6f808718209",
+              "anchor": {
+                "artifact_id": "docs/routing-b.md",
+                "artifact_digest": null,
+                "rendered_digest": null,
+                "dependencies": {},
+                "quote": "The fictional sample limit is declared below.",
+                "quote_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707",
+                "snippet": null,
+                "snippet_digest": null,
+                "location": null,
+                "resolved": false,
+                "reasons": [
+                  {
+                    "code": "anchor_not_proposal_write"
+                  }
+                ],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "document": {
+                "artifact_id": "docs/routing-b.md",
+                "kind": "document",
+                "artifact_digest": null,
+                "rendered_digest": null,
+                "dependencies": {},
+                "snippet": null,
+                "snippet_digest": null,
+                "location": null,
+                "resolved": false,
+                "value": null,
+                "normalized_value": null,
+                "reasons": [
+                  {
+                    "code": "endpoint_not_proposal_write"
+                  }
+                ],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "mappings": [
+                {
+                  "obligation_id": "sample-limit",
+                  "requirement_digest": "2a218010dc4d4bf5b8516b7a2f37696dc165486a562072a4fc17a6f808718209",
+                  "valid": true,
+                  "comparison_status": "unresolved"
+                }
+              ],
+              "anchor_verified": false,
+              "eligible": false,
+              "reasons": [
+                {
+                  "endpoint": "quote_anchor",
+                  "code": "anchor_not_proposal_write"
+                },
+                {
+                  "endpoint": "document_field",
+                  "code": "endpoint_not_proposal_write"
+                }
+              ]
+            }
+          ],
+          "dependencies": {},
+          "eligible": false,
+          "reasons": [
+            {
+              "code": "content_relation_unresolved",
+              "obligation_id": "sample-limit"
+            },
+            {
+              "code": "content_promise_unresolved",
+              "promise_id": "sample-promise"
+            },
+            {
+              "code": "content_promise_mismatch",
+              "promise_id": "sample-promise"
+            }
+          ]
+        }
+      ],
+      "routing": {
+        "initial_section_ids": [
+          "section-a",
+          "section-b"
+        ],
+        "selected_section_ids": [
+          "section-a",
+          "section-b",
+          "section-c"
+        ],
+        "uncovered_write_ids": [],
+        "missing_write_ids": [
+          "code/routing_c.py",
+          "docs/routing-b.md"
+        ],
+        "extra_write_ids": []
+      },
+      "dependencies": {},
+      "eligible": false,
+      "reasons": [
+        {
+          "code": "content_routing_missing_writes",
+          "artifact_ids": [
+            "code/routing_c.py",
+            "docs/routing-b.md"
+          ]
+        },
+        {
+          "section_id": "section-b",
+          "code": "content_relation_unresolved",
+          "obligation_id": "sample-limit"
+        },
+        {
+          "section_id": "section-b",
+          "code": "content_promise_unresolved",
+          "promise_id": "sample-promise"
+        },
+        {
+          "section_id": "section-b",
+          "code": "content_promise_mismatch",
+          "promise_id": "sample-promise"
+        },
+        {
+          "section_id": "section-c",
+          "code": "content_relation_unresolved",
+          "obligation_id": "sample-limit"
+        },
+        {
+          "section_id": "section-c",
+          "code": "content_promise_unresolved",
+          "promise_id": "sample-promise"
+        },
+        {
+          "section_id": "section-c",
+          "code": "content_promise_mismatch",
+          "promise_id": "sample-promise"
+        }
+      ],
+      "limits": [
+        "Routing covers only administrator-declared sections; completeness over other text or project requirements is not established.",
+        "Every touched section and its complete transitive overlap component is required; disjoint sections remain separate bundles.",
+        "Exact unique quotations and resolved fields pin declared locations; correspondence between prose and those fields is not inferred or verified.",
+        "Literal Python declarations do not establish program behavior; proposed code is parsed with bounded AST rules and is never executed.",
+        "Matches do not establish prose truth, external evidence, human identity, independent people or independent models.",
+        "A standalone packet does not authorize acceptance; formal review, current runtime bases, authorship and governance remain separate requirements.",
+        "The SQLite owner and application implementation remain trusted; hashes provide internal consistency rather than external certification."
+      ],
+      "packet_id": "cgp_f95f8ab8b7902b7d434f45d7e8082c91c15294989fd6587b1910957674286d9a",
+      "packet_digest": "f95f8ab8b7902b7d434f45d7e8082c91c15294989fd6587b1910957674286d9a"
+    },
+    "acceptance": {
+      "accepted": false,
+      "proposal_id": "p_cdf10864297692dce6f80235",
+      "revision": 1,
+      "replayed": false,
+      "reasons": [
+        {
+          "code": "content_packet_blocked",
+          "packet_id": "cgp_f95f8ab8b7902b7d434f45d7e8082c91c15294989fd6587b1910957674286d9a"
+        },
+        {
+          "code": "content_routing_missing_writes",
+          "artifact_ids": [
+            "code/routing_c.py",
+            "docs/routing-b.md"
+          ]
+        },
+        {
+          "section_id": "section-b",
+          "code": "content_relation_unresolved",
+          "obligation_id": "sample-limit"
+        },
+        {
+          "section_id": "section-b",
+          "code": "content_promise_unresolved",
+          "promise_id": "sample-promise"
+        },
+        {
+          "section_id": "section-b",
+          "code": "content_promise_mismatch",
+          "promise_id": "sample-promise"
+        },
+        {
+          "section_id": "section-c",
+          "code": "content_relation_unresolved",
+          "obligation_id": "sample-limit"
+        },
+        {
+          "section_id": "section-c",
+          "code": "content_promise_unresolved",
+          "promise_id": "sample-promise"
+        },
+        {
+          "section_id": "section-c",
+          "code": "content_promise_mismatch",
+          "promise_id": "sample-promise"
+        },
+        {
+          "code": "governance_quorum_missing",
+          "artifact_id": "code/routing_shared.py",
+          "required": 2,
+          "actual": 0
+        },
+        {
+          "code": "governance_quorum_missing",
+          "artifact_id": "docs/routing-a.md",
+          "required": 2,
+          "actual": 0
+        }
+      ],
+      "governance": {
+        "schema_version": 1,
+        "rules_version": "governance-1",
+        "enabled": true,
+        "proposal_id": "p_cdf10864297692dce6f80235",
+        "proposal_digest": "c69dbfad5278b36faf07644b49ed535612c62682342275bab6b701222345b932",
+        "proposal_status": "proposed",
+        "policy_generation": 4,
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy": {
+          "minimum_reviewers": 2,
+          "schema_version": 1,
+          "separate_coordinator": true
+        },
+        "coordinator": {
+          "principal_id": "routing-coordinator",
+          "grant_id": "gvg_ec87559ec1161d474ecfa3b1156f6b75"
+        },
+        "observed_at": 1792170100.0121088,
+        "valid_until": 1792173699.764999,
+        "writes": [
+          {
+            "artifact_id": "code/routing_shared.py",
+            "required_reviewers": 2,
+            "approval_principals": [],
+            "approval_decision_ids": [],
+            "used_decision_ids": [],
+            "veto_decision_ids": [],
+            "eligible": false
+          },
+          {
+            "artifact_id": "docs/routing-a.md",
+            "required_reviewers": 2,
+            "approval_principals": [],
+            "approval_decision_ids": [],
+            "used_decision_ids": [],
+            "veto_decision_ids": [],
+            "eligible": false
+          }
+        ],
+        "decisions": [],
+        "eligible": false,
+        "reasons": [
+          {
+            "code": "content_packet_blocked",
+            "packet_id": "cgp_f95f8ab8b7902b7d434f45d7e8082c91c15294989fd6587b1910957674286d9a"
+          },
+          {
+            "code": "content_routing_missing_writes",
+            "artifact_ids": [
+              "code/routing_c.py",
+              "docs/routing-b.md"
+            ]
+          },
+          {
+            "section_id": "section-b",
+            "code": "content_relation_unresolved",
+            "obligation_id": "sample-limit"
+          },
+          {
+            "section_id": "section-b",
+            "code": "content_promise_unresolved",
+            "promise_id": "sample-promise"
+          },
+          {
+            "section_id": "section-b",
+            "code": "content_promise_mismatch",
+            "promise_id": "sample-promise"
+          },
+          {
+            "section_id": "section-c",
+            "code": "content_relation_unresolved",
+            "obligation_id": "sample-limit"
+          },
+          {
+            "section_id": "section-c",
+            "code": "content_promise_unresolved",
+            "promise_id": "sample-promise"
+          },
+          {
+            "section_id": "section-c",
+            "code": "content_promise_mismatch",
+            "promise_id": "sample-promise"
+          },
+          {
+            "code": "governance_quorum_missing",
+            "artifact_id": "code/routing_shared.py",
+            "required": 2,
+            "actual": 0
+          },
+          {
+            "code": "governance_quorum_missing",
+            "artifact_id": "docs/routing-a.md",
+            "required": 2,
+            "actual": 0
+          }
+        ],
+        "advisory_only": true,
+        "author_identity_authenticated": false,
+        "human_identity_authenticated": false,
+        "authorship": {
+          "rules_version": "authorship-1",
+          "integrity_valid": true,
+          "reasons": [],
+          "proof": {
+            "authorship_id": "awp_2b78f7cfea02aae91c22c4a45986a6335890dc975fcbf3c386153a5065eea553",
+            "authorship_digest": "2b78f7cfea02aae91c22c4a45986a6335890dc975fcbf3c386153a5065eea553",
+            "principal_id": "routing-integrator",
+            "contributor_principals": [
+              "routing-code-author",
+              "routing-document-author",
+              "routing-integrator"
+            ],
+            "write_ids": [
+              "code/routing_shared.py",
+              "docs/routing-a.md"
+            ]
+          },
+          "contributor_principals": [
+            "routing-code-author",
+            "routing-document-author",
+            "routing-integrator"
+          ]
+        },
+        "content": {
+          "schema_version": 2,
+          "content_rules_version": "content-routing-1",
+          "obligation_rules_version": "obligations-1",
+          "coverage_rules_version": "coverage-1",
+          "content_policy_generation": 2,
+          "content_policy_digest": "e6f166c87ae13f6d09f9f4cf5246f95561ec410fe3fdd320442b1d8f24ee87f5",
+          "governance_policy_generation": 4,
+          "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+          "proposal_id": "p_cdf10864297692dce6f80235",
+          "proposal_digest": "c69dbfad5278b36faf07644b49ed535612c62682342275bab6b701222345b932",
+          "read_set": {
+            "code/routing_shared.py": {
+              "expected": "d489864e1b26896e10e31493ec592532d1fad364fba0074488463ee58beb0ed8",
+              "actual": "d489864e1b26896e10e31493ec592532d1fad364fba0074488463ee58beb0ed8"
+            },
+            "docs/routing-a.md": {
+              "expected": "fc21fd723a97f215fbd1305c04cd38bbac5b620c6a82a376729107c7571d1c79",
+              "actual": "fc21fd723a97f215fbd1305c04cd38bbac5b620c6a82a376729107c7571d1c79"
+            }
+          },
+          "queries": {},
+          "write_ids": [
+            "code/routing_shared.py",
+            "docs/routing-a.md"
+          ],
+          "required_write_ids": [
+            "code/routing_c.py",
+            "code/routing_shared.py",
+            "docs/routing-a.md",
+            "docs/routing-b.md"
+          ],
+          "sections": [
+            {
+              "section_id": "section-a",
+              "section_policy_digest": "e5708555d9a3a98b98629e518aafebd910e6013e3f37d40e3a113a6f9214c97a",
+              "artifact_ids": [
+                "code/routing_shared.py",
+                "docs/routing-a.md"
+              ],
+              "relations": [
+                {
+                  "id": "sample-limit",
+                  "scope": {
+                    "sample": "routing-v1"
+                  },
+                  "relation": "equals",
+                  "value_type": "integer",
+                  "status": "match",
+                  "reasons": [],
+                  "document": {
+                    "artifact_id": "docs/routing-a.md",
+                    "kind": "document",
+                    "artifact_digest": "cb89488d6d429d54c8f59216b8f67c0398232f2d88cfd2ae5ea7a24ac4ffd7d8",
+                    "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+                    "dependencies": {},
+                    "snippet": "{\"limit\":4}\n",
+                    "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+                    "location": {
+                      "start_offset": 101,
+                      "end_offset": 113,
+                      "start_line": 6,
+                      "end_line": 6
+                    },
+                    "resolved": true,
+                    "value": 4,
+                    "normalized_value": 4,
+                    "reasons": [],
+                    "render_basis": "captured_candidate_current_claims"
+                  },
+                  "code": {
+                    "artifact_id": "code/routing_shared.py",
+                    "kind": "code",
+                    "artifact_digest": "b0969491d3f699a3acb63fc9bc2124eb5c51b3bbe633b534293b9f8d96b4ab74",
+                    "rendered_digest": "f3830f6870fbcf0a943b72115f9f59809306bc510f1c2791a75665b7b748d95f",
+                    "dependencies": {},
+                    "snippet": "SAMPLE_LIMIT = 4",
+                    "snippet_digest": "e009b688616b03b16c11a52916b1dcaebd07561bd905a06731a68eaa2e8a2085",
+                    "location": {
+                      "start_offset": 0,
+                      "end_offset": 16,
+                      "start_line": 1,
+                      "end_line": 1
+                    },
+                    "resolved": true,
+                    "value": 4,
+                    "normalized_value": 4,
+                    "reasons": [],
+                    "render_basis": "captured_candidate_current_claims"
+                  }
+                }
+              ],
+              "promises": [
+                {
+                  "id": "sample-promise",
+                  "requirement_digest": "a0357844480db97114a8f172565137d440c61912a73a92842dd0461933fafbfd",
+                  "anchor": {
+                    "artifact_id": "docs/routing-a.md",
+                    "artifact_digest": "cb89488d6d429d54c8f59216b8f67c0398232f2d88cfd2ae5ea7a24ac4ffd7d8",
+                    "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+                    "dependencies": {},
+                    "quote": "The fictional sample limit is declared below.",
+                    "quote_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707",
+                    "snippet": "The fictional sample limit is declared below.",
+                    "snippet_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707",
+                    "location": {
+                      "start_offset": 27,
+                      "end_offset": 72,
+                      "start_line": 3,
+                      "end_line": 3
+                    },
+                    "resolved": true,
+                    "reasons": [],
+                    "render_basis": "captured_candidate_current_claims"
+                  },
+                  "document": {
+                    "artifact_id": "docs/routing-a.md",
+                    "kind": "document",
+                    "artifact_digest": "cb89488d6d429d54c8f59216b8f67c0398232f2d88cfd2ae5ea7a24ac4ffd7d8",
+                    "rendered_digest": "8a43698ed07cc8c4d9a0db54536ec8232e292f303bedf9ee4a1d882435cb1cb1",
+                    "dependencies": {},
+                    "snippet": "{\"limit\":4}\n",
+                    "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+                    "location": {
+                      "start_offset": 101,
+                      "end_offset": 113,
+                      "start_line": 6,
+                      "end_line": 6
+                    },
+                    "resolved": true,
+                    "value": 4,
+                    "normalized_value": 4,
+                    "reasons": [],
+                    "render_basis": "captured_candidate_current_claims"
+                  },
+                  "mappings": [
+                    {
+                      "obligation_id": "sample-limit",
+                      "requirement_digest": "a0357844480db97114a8f172565137d440c61912a73a92842dd0461933fafbfd",
+                      "valid": true,
+                      "comparison_status": "match"
+                    }
+                  ],
+                  "anchor_verified": true,
+                  "eligible": true,
+                  "reasons": []
+                }
+              ],
+              "dependencies": {},
+              "eligible": true,
+              "reasons": []
+            },
+            {
+              "section_id": "section-b",
+              "section_policy_digest": "a8d74894ff7873d407fa119f01b085b3b5752e2ec153949f21160aaef56f536a",
+              "artifact_ids": [
+                "code/routing_shared.py",
+                "docs/routing-b.md"
+              ],
+              "relations": [
+                {
+                  "id": "sample-limit",
+                  "scope": {
+                    "sample": "routing-v1"
+                  },
+                  "relation": "equals",
+                  "value_type": "integer",
+                  "status": "unresolved",
+                  "reasons": [
+                    {
+                      "endpoint": "document",
+                      "code": "endpoint_not_proposal_write"
+                    }
+                  ],
+                  "document": {
+                    "artifact_id": "docs/routing-b.md",
+                    "kind": "document",
+                    "artifact_digest": null,
+                    "rendered_digest": null,
+                    "dependencies": {},
+                    "snippet": null,
+                    "snippet_digest": null,
+                    "location": null,
+                    "resolved": false,
+                    "value": null,
+                    "normalized_value": null,
+                    "reasons": [
+                      {
+                        "code": "endpoint_not_proposal_write"
+                      }
+                    ],
+                    "render_basis": "captured_candidate_current_claims"
+                  },
+                  "code": {
+                    "artifact_id": "code/routing_shared.py",
+                    "kind": "code",
+                    "artifact_digest": "b0969491d3f699a3acb63fc9bc2124eb5c51b3bbe633b534293b9f8d96b4ab74",
+                    "rendered_digest": "f3830f6870fbcf0a943b72115f9f59809306bc510f1c2791a75665b7b748d95f",
+                    "dependencies": {},
+                    "snippet": "SAMPLE_LIMIT = 4",
+                    "snippet_digest": "e009b688616b03b16c11a52916b1dcaebd07561bd905a06731a68eaa2e8a2085",
+                    "location": {
+                      "start_offset": 0,
+                      "end_offset": 16,
+                      "start_line": 1,
+                      "end_line": 1
+                    },
+                    "resolved": true,
+                    "value": 4,
+                    "normalized_value": 4,
+                    "reasons": [],
+                    "render_basis": "captured_candidate_current_claims"
+                  }
+                }
+              ],
+              "promises": [
+                {
+                  "id": "sample-promise",
+                  "requirement_digest": "4c24a010a5446d65ae25d9aeeee739ec6f75084d4efd3536ca38ea7f4047e56f",
+                  "anchor": {
+                    "artifact_id": "docs/routing-b.md",
+                    "artifact_digest": null,
+                    "rendered_digest": null,
+                    "dependencies": {},
+                    "quote": "The fictional sample limit is declared below.",
+                    "quote_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707",
+                    "snippet": null,
+                    "snippet_digest": null,
+                    "location": null,
+                    "resolved": false,
+                    "reasons": [
+                      {
+                        "code": "anchor_not_proposal_write"
+                      }
+                    ],
+                    "render_basis": "captured_candidate_current_claims"
+                  },
+                  "document": {
+                    "artifact_id": "docs/routing-b.md",
+                    "kind": "document",
+                    "artifact_digest": null,
+                    "rendered_digest": null,
+                    "dependencies": {},
+                    "snippet": null,
+                    "snippet_digest": null,
+                    "location": null,
+                    "resolved": false,
+                    "value": null,
+                    "normalized_value": null,
+                    "reasons": [
+                      {
+                        "code": "endpoint_not_proposal_write"
+                      }
+                    ],
+                    "render_basis": "captured_candidate_current_claims"
+                  },
+                  "mappings": [
+                    {
+                      "obligation_id": "sample-limit",
+                      "requirement_digest": "4c24a010a5446d65ae25d9aeeee739ec6f75084d4efd3536ca38ea7f4047e56f",
+                      "valid": true,
+                      "comparison_status": "unresolved"
+                    }
+                  ],
+                  "anchor_verified": false,
+                  "eligible": false,
+                  "reasons": [
+                    {
+                      "endpoint": "quote_anchor",
+                      "code": "anchor_not_proposal_write"
+                    },
+                    {
+                      "endpoint": "document_field",
+                      "code": "endpoint_not_proposal_write"
+                    }
+                  ]
+                }
+              ],
+              "dependencies": {},
+              "eligible": false,
+              "reasons": [
+                {
+                  "code": "content_relation_unresolved",
+                  "obligation_id": "sample-limit"
+                },
+                {
+                  "code": "content_promise_unresolved",
+                  "promise_id": "sample-promise"
+                },
+                {
+                  "code": "content_promise_mismatch",
+                  "promise_id": "sample-promise"
+                }
+              ]
+            },
+            {
+              "section_id": "section-c",
+              "section_policy_digest": "0c4b9c3055fca6d15e05a63a5480edabedff77f186269001498c4516fc9789dd",
+              "artifact_ids": [
+                "code/routing_c.py",
+                "docs/routing-b.md"
+              ],
+              "relations": [
+                {
+                  "id": "sample-limit",
+                  "scope": {
+                    "sample": "routing-v1"
+                  },
+                  "relation": "equals",
+                  "value_type": "integer",
+                  "status": "unresolved",
+                  "reasons": [
+                    {
+                      "endpoint": "document",
+                      "code": "endpoint_not_proposal_write"
+                    },
+                    {
+                      "endpoint": "code",
+                      "code": "endpoint_not_proposal_write"
+                    }
+                  ],
+                  "document": {
+                    "artifact_id": "docs/routing-b.md",
+                    "kind": "document",
+                    "artifact_digest": null,
+                    "rendered_digest": null,
+                    "dependencies": {},
+                    "snippet": null,
+                    "snippet_digest": null,
+                    "location": null,
+                    "resolved": false,
+                    "value": null,
+                    "normalized_value": null,
+                    "reasons": [
+                      {
+                        "code": "endpoint_not_proposal_write"
+                      }
+                    ],
+                    "render_basis": "captured_candidate_current_claims"
+                  },
+                  "code": {
+                    "artifact_id": "code/routing_c.py",
+                    "kind": "code",
+                    "artifact_digest": null,
+                    "rendered_digest": null,
+                    "dependencies": {},
+                    "snippet": null,
+                    "snippet_digest": null,
+                    "location": null,
+                    "resolved": false,
+                    "value": null,
+                    "normalized_value": null,
+                    "reasons": [
+                      {
+                        "code": "endpoint_not_proposal_write"
+                      }
+                    ],
+                    "render_basis": "captured_candidate_current_claims"
+                  }
+                }
+              ],
+              "promises": [
+                {
+                  "id": "sample-promise",
+                  "requirement_digest": "2a218010dc4d4bf5b8516b7a2f37696dc165486a562072a4fc17a6f808718209",
+                  "anchor": {
+                    "artifact_id": "docs/routing-b.md",
+                    "artifact_digest": null,
+                    "rendered_digest": null,
+                    "dependencies": {},
+                    "quote": "The fictional sample limit is declared below.",
+                    "quote_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707",
+                    "snippet": null,
+                    "snippet_digest": null,
+                    "location": null,
+                    "resolved": false,
+                    "reasons": [
+                      {
+                        "code": "anchor_not_proposal_write"
+                      }
+                    ],
+                    "render_basis": "captured_candidate_current_claims"
+                  },
+                  "document": {
+                    "artifact_id": "docs/routing-b.md",
+                    "kind": "document",
+                    "artifact_digest": null,
+                    "rendered_digest": null,
+                    "dependencies": {},
+                    "snippet": null,
+                    "snippet_digest": null,
+                    "location": null,
+                    "resolved": false,
+                    "value": null,
+                    "normalized_value": null,
+                    "reasons": [
+                      {
+                        "code": "endpoint_not_proposal_write"
+                      }
+                    ],
+                    "render_basis": "captured_candidate_current_claims"
+                  },
+                  "mappings": [
+                    {
+                      "obligation_id": "sample-limit",
+                      "requirement_digest": "2a218010dc4d4bf5b8516b7a2f37696dc165486a562072a4fc17a6f808718209",
+                      "valid": true,
+                      "comparison_status": "unresolved"
+                    }
+                  ],
+                  "anchor_verified": false,
+                  "eligible": false,
+                  "reasons": [
+                    {
+                      "endpoint": "quote_anchor",
+                      "code": "anchor_not_proposal_write"
+                    },
+                    {
+                      "endpoint": "document_field",
+                      "code": "endpoint_not_proposal_write"
+                    }
+                  ]
+                }
+              ],
+              "dependencies": {},
+              "eligible": false,
+              "reasons": [
+                {
+                  "code": "content_relation_unresolved",
+                  "obligation_id": "sample-limit"
+                },
+                {
+                  "code": "content_promise_unresolved",
+                  "promise_id": "sample-promise"
+                },
+                {
+                  "code": "content_promise_mismatch",
+                  "promise_id": "sample-promise"
+                }
+              ]
+            }
+          ],
+          "routing": {
+            "initial_section_ids": [
+              "section-a",
+              "section-b"
+            ],
+            "selected_section_ids": [
+              "section-a",
+              "section-b",
+              "section-c"
+            ],
+            "uncovered_write_ids": [],
+            "missing_write_ids": [
+              "code/routing_c.py",
+              "docs/routing-b.md"
+            ],
+            "extra_write_ids": []
+          },
+          "dependencies": {},
+          "eligible": false,
+          "reasons": [
+            {
+              "code": "content_routing_missing_writes",
+              "artifact_ids": [
+                "code/routing_c.py",
+                "docs/routing-b.md"
+              ]
+            },
+            {
+              "section_id": "section-b",
+              "code": "content_relation_unresolved",
+              "obligation_id": "sample-limit"
+            },
+            {
+              "section_id": "section-b",
+              "code": "content_promise_unresolved",
+              "promise_id": "sample-promise"
+            },
+            {
+              "section_id": "section-b",
+              "code": "content_promise_mismatch",
+              "promise_id": "sample-promise"
+            },
+            {
+              "section_id": "section-c",
+              "code": "content_relation_unresolved",
+              "obligation_id": "sample-limit"
+            },
+            {
+              "section_id": "section-c",
+              "code": "content_promise_unresolved",
+              "promise_id": "sample-promise"
+            },
+            {
+              "section_id": "section-c",
+              "code": "content_promise_mismatch",
+              "promise_id": "sample-promise"
+            }
+          ],
+          "limits": [
+            "Routing covers only administrator-declared sections; completeness over other text or project requirements is not established.",
+            "Every touched section and its complete transitive overlap component is required; disjoint sections remain separate bundles.",
+            "Exact unique quotations and resolved fields pin declared locations; correspondence between prose and those fields is not inferred or verified.",
+            "Literal Python declarations do not establish program behavior; proposed code is parsed with bounded AST rules and is never executed.",
+            "Matches do not establish prose truth, external evidence, human identity, independent people or independent models.",
+            "A standalone packet does not authorize acceptance; formal review, current runtime bases, authorship and governance remain separate requirements.",
+            "The SQLite owner and application implementation remain trusted; hashes provide internal consistency rather than external certification."
+          ],
+          "packet_id": "cgp_f95f8ab8b7902b7d434f45d7e8082c91c15294989fd6587b1910957674286d9a",
+          "packet_digest": "f95f8ab8b7902b7d434f45d7e8082c91c15294989fd6587b1910957674286d9a"
+        }
+      }
+    }
+  }
+}
