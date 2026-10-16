@@ -1,0 +1,59 @@
+{
+  "before": {
+    "subject": "fictional-api-client",
+    "property": "declared-retry-methods",
+    "scope": {
+      "version": "v1",
+      "policy": "retry-methods"
+    },
+    "kind": "specification",
+    "modality": "asserted",
+    "polarity": "positive",
+    "value": {
+      "type": "set",
+      "members": [
+        "GET"
+      ],
+      "complete": true
+    },
+    "attribution": "programmed scenario author",
+    "evidence": {
+      "source_id": "fictional-inventory-policy",
+      "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+      "quote": "The baseline declared retry methods are GET."
+    },
+    "text": "\"\"\"Fictional client configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\"}\nMAX_ATTEMPTS = 3\n"
+  },
+  "after": {
+    "subject": "fictional-api-client",
+    "property": "declared-retry-methods",
+    "scope": {
+      "version": "v1",
+      "policy": "retry-methods"
+    },
+    "kind": "specification",
+    "modality": "asserted",
+    "polarity": "positive",
+    "value": {
+      "type": "set",
+      "members": [
+        "GET",
+        "HEAD"
+      ],
+      "complete": true
+    },
+    "attribution": "programmed scenario author",
+    "evidence": {
+      "source_id": "fictional-inventory-policy",
+      "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+      "quote": "The proposed declared retry methods are GET and HEAD."
+    },
+    "text": "\"\"\"Fictional proposed configuration; not executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 3\n"
+  },
+  "sources": {
+    "fictional-inventory-policy": {
+      "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n",
+      "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864"
+    }
+  }
+}

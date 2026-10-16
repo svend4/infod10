@@ -1,0 +1,1365 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T15:46:26.488219+02:00",
+  "report_timezone": "Europe/Berlin",
+  "workspace": "/tmp/infod10-coverage-development-01",
+  "concurrency": {
+    "worker_pool_size": 3,
+    "submitted_author_jobs": 3,
+    "submitted_editorial_review_jobs": 6,
+    "author_ids": [
+      "coverage-changed-author",
+      "coverage-document-author",
+      "coverage-fixed-author"
+    ],
+    "observed_author_threads": [
+      "coverage-author_0",
+      "coverage-author_1",
+      "coverage-author_2"
+    ],
+    "observed_editorial_threads": [
+      "coverage-review_0",
+      "coverage-review_1",
+      "coverage-review_2"
+    ],
+    "integrator_id": "coverage-integrator",
+    "component_formal_reviewer_id": "component-formal-agent",
+    "composite_formal_reviewer_id": "composite-formal-agent",
+    "all_actor_kinds": [
+      "agent"
+    ]
+  },
+  "authors": {
+    "document": {
+      "label": "document",
+      "author": "coverage-document-author",
+      "thread": "coverage-author_0",
+      "task_id": "coverage-document",
+      "proposal_id": "p_acb1c5b39c206002f55d692d",
+      "digest": "68587734ddff73ebe884849bf55d54f0fa83aa8ca0b6f79457a4288e959a323f",
+      "replayed": false
+    },
+    "fixed": {
+      "label": "fixed",
+      "author": "coverage-fixed-author",
+      "thread": "coverage-author_1",
+      "task_id": "coverage-fixed",
+      "proposal_id": "p_c7cfb50a4e310d98afc1f589",
+      "digest": "95aae6e777b4fae4c677043cddb5124f654567858259d6634fc57926bc76894d",
+      "replayed": false
+    },
+    "changed": {
+      "label": "changed",
+      "author": "coverage-changed-author",
+      "thread": "coverage-author_2",
+      "task_id": "coverage-changed",
+      "proposal_id": "p_7c25a5c62c342ed71d06c57a",
+      "digest": "37c13fe57490e9071089c4205c44d37fe358a25081c2aa6ae446e590150ccada",
+      "replayed": false
+    }
+  },
+  "component_reviews": {
+    "document": {
+      "proposal_id": "p_acb1c5b39c206002f55d692d",
+      "proposal_digest": "68587734ddff73ebe884849bf55d54f0fa83aa8ca0b6f79457a4288e959a323f",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 1
+    },
+    "fixed": {
+      "proposal_id": "p_c7cfb50a4e310d98afc1f589",
+      "proposal_digest": "95aae6e777b4fae4c677043cddb5124f654567858259d6634fc57926bc76894d",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 2
+    },
+    "changed": {
+      "proposal_id": "p_7c25a5c62c342ed71d06c57a",
+      "proposal_digest": "37c13fe57490e9071089c4205c44d37fe358a25081c2aa6ae446e590150ccada",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 3
+    }
+  },
+  "compositions": {
+    "fixed": {
+      "proposal_id": "p_3c870a8fbcab179b7be87aae",
+      "digest": "cace6f5653c5f716c3981af1f0ae365be523d790364d55b82e2abe41150e0896",
+      "replayed": false,
+      "components": [
+        {
+          "position": 1,
+          "proposal_id": "p_acb1c5b39c206002f55d692d",
+          "digest": "68587734ddff73ebe884849bf55d54f0fa83aa8ca0b6f79457a4288e959a323f",
+          "write_ids": [
+            "docs/reference.md"
+          ]
+        },
+        {
+          "position": 2,
+          "proposal_id": "p_c7cfb50a4e310d98afc1f589",
+          "digest": "95aae6e777b4fae4c677043cddb5124f654567858259d6634fc57926bc76894d",
+          "write_ids": [
+            "code/client_config.py"
+          ]
+        }
+      ]
+    },
+    "changed": {
+      "proposal_id": "p_2afc828cc7161b31c5415332",
+      "digest": "6a51f85af94775ea695145fcb211d7ed41fb7c0033b212e70f90138d1bf561fb",
+      "replayed": false,
+      "components": [
+        {
+          "position": 1,
+          "proposal_id": "p_acb1c5b39c206002f55d692d",
+          "digest": "68587734ddff73ebe884849bf55d54f0fa83aa8ca0b6f79457a4288e959a323f",
+          "write_ids": [
+            "docs/reference.md"
+          ]
+        },
+        {
+          "position": 2,
+          "proposal_id": "p_7c25a5c62c342ed71d06c57a",
+          "digest": "37c13fe57490e9071089c4205c44d37fe358a25081c2aa6ae446e590150ccada",
+          "write_ids": [
+            "code/client_config.py"
+          ]
+        }
+      ]
+    }
+  },
+  "composite_reviews": {
+    "fixed": {
+      "proposal_id": "p_3c870a8fbcab179b7be87aae",
+      "proposal_digest": "cace6f5653c5f716c3981af1f0ae365be523d790364d55b82e2abe41150e0896",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "composite-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 4
+    },
+    "changed": {
+      "proposal_id": "p_2afc828cc7161b31c5415332",
+      "proposal_digest": "6a51f85af94775ea695145fcb211d7ed41fb7c0033b212e70f90138d1bf561fb",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "composite-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 5
+    }
+  },
+  "editorial_reviews": [
+    {
+      "label": "document",
+      "reviewer": "editorial-agent-a",
+      "thread": "coverage-review_0",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_620f31966307c1c4b650575fa83927289302041a3211b0d7beabd5c430b329ab",
+        "packet_digest": "620f31966307c1c4b650575fa83927289302041a3211b0d7beabd5c430b329ab",
+        "reviewer": "editorial-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed consideration of authored fictional retry-method metadata. This does not establish attempt-limit compliance, complete prose, code behavior or truth. The promise inventory is separately authored and analyzed; human review remains required.",
+        "operation_id": "document-editorial-agent-a-1",
+        "supersedes": null,
+        "decision_id": "dec_066df15dd9185670670b41e69b3d6f5760ec565efb1320964168d3db337e9f5a",
+        "request_digest": "066df15dd9185670670b41e69b3d6f5760ec565efb1320964168d3db337e9f5a",
+        "recorded_at": "2026-10-16T13:46:25.856223+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "document",
+      "reviewer": "editorial-agent-b",
+      "thread": "coverage-review_1",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_620f31966307c1c4b650575fa83927289302041a3211b0d7beabd5c430b329ab",
+        "packet_digest": "620f31966307c1c4b650575fa83927289302041a3211b0d7beabd5c430b329ab",
+        "reviewer": "editorial-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed consideration of authored fictional retry-method metadata. This does not establish attempt-limit compliance, complete prose, code behavior or truth. The promise inventory is separately authored and analyzed; human review remains required.",
+        "operation_id": "document-editorial-agent-b-1",
+        "supersedes": null,
+        "decision_id": "dec_aa0384a3ad85b3be1eb1b55354ff3a2b90ea681db1b5274f2166934a88287603",
+        "request_digest": "aa0384a3ad85b3be1eb1b55354ff3a2b90ea681db1b5274f2166934a88287603",
+        "recorded_at": "2026-10-16T13:46:25.863443+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "fixed",
+      "reviewer": "editorial-agent-a",
+      "thread": "coverage-review_2",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_5ccbd5611d515c528498e6d6f6d5292f235acff2550bd9e4019df74cb5ee8809",
+        "packet_digest": "5ccbd5611d515c528498e6d6f6d5292f235acff2550bd9e4019df74cb5ee8809",
+        "reviewer": "editorial-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed consideration of authored fictional retry-method metadata. This does not establish attempt-limit compliance, complete prose, code behavior or truth. The promise inventory is separately authored and analyzed; human review remains required.",
+        "operation_id": "fixed-editorial-agent-a-1",
+        "supersedes": null,
+        "decision_id": "dec_1632eb0babf8c34e0eacc40f67f4f8fa39daf72c6761f37c3eb5d4da74a45275",
+        "request_digest": "1632eb0babf8c34e0eacc40f67f4f8fa39daf72c6761f37c3eb5d4da74a45275",
+        "recorded_at": "2026-10-16T13:46:25.854787+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "fixed",
+      "reviewer": "editorial-agent-b",
+      "thread": "coverage-review_2",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_5ccbd5611d515c528498e6d6f6d5292f235acff2550bd9e4019df74cb5ee8809",
+        "packet_digest": "5ccbd5611d515c528498e6d6f6d5292f235acff2550bd9e4019df74cb5ee8809",
+        "reviewer": "editorial-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed consideration of authored fictional retry-method metadata. This does not establish attempt-limit compliance, complete prose, code behavior or truth. The promise inventory is separately authored and analyzed; human review remains required.",
+        "operation_id": "fixed-editorial-agent-b-1",
+        "supersedes": null,
+        "decision_id": "dec_3f70a78c5f4007591ae96ad6490f1575372bd21f78f60a704043dcb7be03d7d5",
+        "request_digest": "3f70a78c5f4007591ae96ad6490f1575372bd21f78f60a704043dcb7be03d7d5",
+        "recorded_at": "2026-10-16T13:46:25.874520+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "changed",
+      "reviewer": "editorial-agent-a",
+      "thread": "coverage-review_0",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_8bf1e7e29b7fa5cb96bd70a54c4d63df46cf8a88ea3623945314d35559e6e56d",
+        "packet_digest": "8bf1e7e29b7fa5cb96bd70a54c4d63df46cf8a88ea3623945314d35559e6e56d",
+        "reviewer": "editorial-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed consideration of authored fictional retry-method metadata. This does not establish attempt-limit compliance, complete prose, code behavior or truth. The promise inventory is separately authored and analyzed; human review remains required.",
+        "operation_id": "changed-editorial-agent-a-1",
+        "supersedes": null,
+        "decision_id": "dec_5f10047f9cfd31bb476771e981a84cf7a486ae5072f084ac66e9cd7e498e7fb7",
+        "request_digest": "5f10047f9cfd31bb476771e981a84cf7a486ae5072f084ac66e9cd7e498e7fb7",
+        "recorded_at": "2026-10-16T13:46:25.858296+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "changed",
+      "reviewer": "editorial-agent-b",
+      "thread": "coverage-review_0",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_8bf1e7e29b7fa5cb96bd70a54c4d63df46cf8a88ea3623945314d35559e6e56d",
+        "packet_digest": "8bf1e7e29b7fa5cb96bd70a54c4d63df46cf8a88ea3623945314d35559e6e56d",
+        "reviewer": "editorial-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed consideration of authored fictional retry-method metadata. This does not establish attempt-limit compliance, complete prose, code behavior or truth. The promise inventory is separately authored and analyzed; human review remains required.",
+        "operation_id": "changed-editorial-agent-b-1",
+        "supersedes": null,
+        "decision_id": "dec_5de7176e5cec48b95a0f79e237d025544cfd63dc9f5c6e1ea1a90f9fb57d601d",
+        "request_digest": "5de7176e5cec48b95a0f79e237d025544cfd63dc9f5c6e1ea1a90f9fb57d601d",
+        "recorded_at": "2026-10-16T13:46:25.859721+00:00",
+        "replayed": false
+      }
+    }
+  ],
+  "dependency_change": {
+    "submitted": {
+      "proposal_id": "p_f33c403ea47d1e7e2f318e90",
+      "digest": "568d3b117416d475ee45f7e47399da7586e810f49d7e4701ef4c1108fb801ea8",
+      "replayed": false
+    },
+    "review": {
+      "proposal_id": "p_f33c403ea47d1e7e2f318e90",
+      "proposal_digest": "568d3b117416d475ee45f7e47399da7586e810f49d7e4701ef4c1108fb801ea8",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "background-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {
+        "dossier-fixture": "0bd0cb015a3ee3bdb80f601c3988124beb330e73a742c7c502a5e26772c1ddc3"
+      },
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 6
+    },
+    "acceptance": {
+      "accepted": true,
+      "proposal_id": "p_f33c403ea47d1e7e2f318e90",
+      "revision": 2,
+      "replayed": false,
+      "reasons": [],
+      "review_id": 6,
+      "coordinator": "background-coordinator"
+    }
+  },
+  "stages": {
+    "partial": {
+      "report_id": "cov_9d4612b937a9ec32a4c7b97bf688f3ad44eb41ab133a116d5eb4ebd45ae71621",
+      "observation": {
+        "source_obligation_report_id": "obl_7118d28de3dc095d523bb378c113e559e5d7e39a18818aa55fdc8092da547140",
+        "source_obligation_report_digest": "7118d28de3dc095d523bb378c113e559e5d7e39a18818aa55fdc8092da547140",
+        "source_review_set_id": "rset_e2854acf77ce33318ba2d7b30c3e5da3dae48617c156fdd6b078686e2301e4a4",
+        "proposal_id": "p_3c870a8fbcab179b7be87aae",
+        "proposal_digest": "cace6f5653c5f716c3981af1f0ae365be523d790364d55b82e2abe41150e0896",
+        "upstream_state": "current_for_human_review",
+        "upstream_blockers": [],
+        "coverage_state": "declared_coverage_incomplete",
+        "counts": {
+          "total": 2,
+          "assigned": 1,
+          "mapped": 1,
+          "anchor_verified": 2,
+          "covered": 1,
+          "matching": 1,
+          "mismatch": 0,
+          "unresolved": 0,
+          "uncovered": 1,
+          "invalid_mapping": 0,
+          "unresolved_anchor": 0,
+          "unique_requirements": 2,
+          "covered_unique_requirements": 1,
+          "assigned_obligation_ids": 1,
+          "mapped_obligation_ids": 1
+        },
+        "coverage_fraction": {
+          "numerator": 1,
+          "denominator": 2
+        },
+        "unique_requirement_fraction": {
+          "numerator": 1,
+          "denominator": 2
+        },
+        "results": [
+          {
+            "id": "allowed-methods-promise",
+            "requirement_digest": "6f902382ea655c17786ba1d10fc018bcee1e37ee414ac466dd4591eacd570f3b",
+            "anchor": {
+              "artifact_id": "docs/reference.md",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "quote": "Клиент повторяет только методы GET и HEAD.",
+              "quote_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+              "snippet": "Клиент повторяет только методы GET и HEAD.",
+              "snippet_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+              "location": {
+                "start_offset": 48,
+                "end_offset": 90,
+                "start_line": 5,
+                "end_line": 5
+              },
+              "resolved": true,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "document": {
+              "artifact_id": "docs/reference.md",
+              "kind": "document",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n",
+              "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+              "location": {
+                "start_offset": 158,
+                "end_offset": 210,
+                "start_line": 10,
+                "end_line": 10
+              },
+              "resolved": true,
+              "value": [
+                "GET",
+                "HEAD"
+              ],
+              "normalized_value": [
+                "GET",
+                "HEAD"
+              ],
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "anchor_verified": true,
+            "mapping_state": "mapped",
+            "satisfaction_state": "match",
+            "mappings": [
+              {
+                "obligation_id": "retry-methods",
+                "valid": true,
+                "comparison_status": "match",
+                "requirement_digest": "6f902382ea655c17786ba1d10fc018bcee1e37ee414ac466dd4591eacd570f3b",
+                "reasons": []
+              }
+            ],
+            "reasons": []
+          },
+          {
+            "id": "attempt-limit-promise",
+            "requirement_digest": "a1f74887a5747433e39bd0d841e551bbbb7fd2496a2aa86b8690ac7c102fe5c9",
+            "anchor": {
+              "artifact_id": "docs/reference.md",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "quote": "Клиент делает не более 3 попыток.",
+              "quote_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+              "snippet": "Клиент делает не более 3 попыток.",
+              "snippet_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+              "location": {
+                "start_offset": 92,
+                "end_offset": 125,
+                "start_line": 7,
+                "end_line": 7
+              },
+              "resolved": true,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "document": {
+              "artifact_id": "docs/reference.md",
+              "kind": "document",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n",
+              "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+              "location": {
+                "start_offset": 158,
+                "end_offset": 210,
+                "start_line": 10,
+                "end_line": 10
+              },
+              "resolved": true,
+              "value": 3,
+              "normalized_value": 3,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "anchor_verified": true,
+            "mapping_state": "uncovered",
+            "satisfaction_state": "not_evaluated",
+            "mappings": [],
+            "reasons": [
+              {
+                "code": "no_assigned_obligations"
+              }
+            ]
+          }
+        ],
+        "shared_obligations": [],
+        "duplicate_requirements": [],
+        "unmapped_obligation_ids": [],
+        "unknown_obligation_ids": [],
+        "blockers": [
+          {
+            "code": "promise_uncovered",
+            "promise_id": "attempt-limit-promise"
+          }
+        ],
+        "state": "blocked",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "live_state_checked": false,
+        "atomic_capture": false,
+        "limits": [
+          "The denominator contains only caller-declared promises; completeness over the document or project is not established.",
+          "A unique exact quote and a resolved document field pin declared locations; their semantic correspondence is not inferred or verified.",
+          "Coverage requires exact declared requirement metadata and references; coverage and comparison satisfaction are separate observations.",
+          "Several promises may share an obligation or repeat a requirement; they are not independent checks or independent evidence.",
+          "Only the embedded obligations-1 report and its captured candidate are examined; no live state or cross-database transaction is checked.",
+          "A matched configuration declaration does not establish program behavior, prose truth, authorship, or permission to accept or publish.",
+          "Coverage does not remove upstream blockers or record human review; content hashes establish internal consistency only."
+        ]
+      }
+    },
+    "full": {
+      "report_id": "cov_cbc11f87fdefdd148872374b21fa5056b5d575cb0711fb689b32ec4a82b697a1",
+      "observation": {
+        "source_obligation_report_id": "obl_ef601eb2b6a90e268ed09ed4199adbe362fde986459e2ffda5b00f7c815c9625",
+        "source_obligation_report_digest": "ef601eb2b6a90e268ed09ed4199adbe362fde986459e2ffda5b00f7c815c9625",
+        "source_review_set_id": "rset_e2854acf77ce33318ba2d7b30c3e5da3dae48617c156fdd6b078686e2301e4a4",
+        "proposal_id": "p_3c870a8fbcab179b7be87aae",
+        "proposal_digest": "cace6f5653c5f716c3981af1f0ae365be523d790364d55b82e2abe41150e0896",
+        "upstream_state": "current_for_human_review",
+        "upstream_blockers": [],
+        "coverage_state": "declared_promises_covered",
+        "counts": {
+          "total": 2,
+          "assigned": 2,
+          "mapped": 2,
+          "anchor_verified": 2,
+          "covered": 2,
+          "matching": 2,
+          "mismatch": 0,
+          "unresolved": 0,
+          "uncovered": 0,
+          "invalid_mapping": 0,
+          "unresolved_anchor": 0,
+          "unique_requirements": 2,
+          "covered_unique_requirements": 2,
+          "assigned_obligation_ids": 2,
+          "mapped_obligation_ids": 2
+        },
+        "coverage_fraction": {
+          "numerator": 2,
+          "denominator": 2
+        },
+        "unique_requirement_fraction": {
+          "numerator": 2,
+          "denominator": 2
+        },
+        "results": [
+          {
+            "id": "allowed-methods-promise",
+            "requirement_digest": "6f902382ea655c17786ba1d10fc018bcee1e37ee414ac466dd4591eacd570f3b",
+            "anchor": {
+              "artifact_id": "docs/reference.md",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "quote": "Клиент повторяет только методы GET и HEAD.",
+              "quote_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+              "snippet": "Клиент повторяет только методы GET и HEAD.",
+              "snippet_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+              "location": {
+                "start_offset": 48,
+                "end_offset": 90,
+                "start_line": 5,
+                "end_line": 5
+              },
+              "resolved": true,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "document": {
+              "artifact_id": "docs/reference.md",
+              "kind": "document",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n",
+              "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+              "location": {
+                "start_offset": 158,
+                "end_offset": 210,
+                "start_line": 10,
+                "end_line": 10
+              },
+              "resolved": true,
+              "value": [
+                "GET",
+                "HEAD"
+              ],
+              "normalized_value": [
+                "GET",
+                "HEAD"
+              ],
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "anchor_verified": true,
+            "mapping_state": "mapped",
+            "satisfaction_state": "match",
+            "mappings": [
+              {
+                "obligation_id": "retry-methods",
+                "valid": true,
+                "comparison_status": "match",
+                "requirement_digest": "6f902382ea655c17786ba1d10fc018bcee1e37ee414ac466dd4591eacd570f3b",
+                "reasons": []
+              }
+            ],
+            "reasons": []
+          },
+          {
+            "id": "attempt-limit-promise",
+            "requirement_digest": "a1f74887a5747433e39bd0d841e551bbbb7fd2496a2aa86b8690ac7c102fe5c9",
+            "anchor": {
+              "artifact_id": "docs/reference.md",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "quote": "Клиент делает не более 3 попыток.",
+              "quote_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+              "snippet": "Клиент делает не более 3 попыток.",
+              "snippet_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+              "location": {
+                "start_offset": 92,
+                "end_offset": 125,
+                "start_line": 7,
+                "end_line": 7
+              },
+              "resolved": true,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "document": {
+              "artifact_id": "docs/reference.md",
+              "kind": "document",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n",
+              "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+              "location": {
+                "start_offset": 158,
+                "end_offset": 210,
+                "start_line": 10,
+                "end_line": 10
+              },
+              "resolved": true,
+              "value": 3,
+              "normalized_value": 3,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "anchor_verified": true,
+            "mapping_state": "mapped",
+            "satisfaction_state": "match",
+            "mappings": [
+              {
+                "obligation_id": "retry-attempts",
+                "valid": true,
+                "comparison_status": "match",
+                "requirement_digest": "a1f74887a5747433e39bd0d841e551bbbb7fd2496a2aa86b8690ac7c102fe5c9",
+                "reasons": []
+              }
+            ],
+            "reasons": []
+          }
+        ],
+        "shared_obligations": [],
+        "duplicate_requirements": [],
+        "unmapped_obligation_ids": [],
+        "unknown_obligation_ids": [],
+        "blockers": [],
+        "state": "current_for_human_review",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "live_state_checked": false,
+        "atomic_capture": false,
+        "limits": [
+          "The denominator contains only caller-declared promises; completeness over the document or project is not established.",
+          "A unique exact quote and a resolved document field pin declared locations; their semantic correspondence is not inferred or verified.",
+          "Coverage requires exact declared requirement metadata and references; coverage and comparison satisfaction are separate observations.",
+          "Several promises may share an obligation or repeat a requirement; they are not independent checks or independent evidence.",
+          "Only the embedded obligations-1 report and its captured candidate are examined; no live state or cross-database transaction is checked.",
+          "A matched configuration declaration does not establish program behavior, prose truth, authorship, or permission to accept or publish.",
+          "Coverage does not remove upstream blockers or record human review; content hashes establish internal consistency only."
+        ]
+      }
+    },
+    "wrong-mapping": {
+      "report_id": "cov_59691826ac627208e5674f2fd4c2877486a3bd779950e9ae126429dfba4d0e05",
+      "observation": {
+        "source_obligation_report_id": "obl_ef601eb2b6a90e268ed09ed4199adbe362fde986459e2ffda5b00f7c815c9625",
+        "source_obligation_report_digest": "ef601eb2b6a90e268ed09ed4199adbe362fde986459e2ffda5b00f7c815c9625",
+        "source_review_set_id": "rset_e2854acf77ce33318ba2d7b30c3e5da3dae48617c156fdd6b078686e2301e4a4",
+        "proposal_id": "p_3c870a8fbcab179b7be87aae",
+        "proposal_digest": "cace6f5653c5f716c3981af1f0ae365be523d790364d55b82e2abe41150e0896",
+        "upstream_state": "current_for_human_review",
+        "upstream_blockers": [],
+        "coverage_state": "declared_coverage_incomplete",
+        "counts": {
+          "total": 2,
+          "assigned": 2,
+          "mapped": 1,
+          "anchor_verified": 2,
+          "covered": 1,
+          "matching": 1,
+          "mismatch": 0,
+          "unresolved": 0,
+          "uncovered": 0,
+          "invalid_mapping": 1,
+          "unresolved_anchor": 0,
+          "unique_requirements": 2,
+          "covered_unique_requirements": 1,
+          "assigned_obligation_ids": 1,
+          "mapped_obligation_ids": 1
+        },
+        "coverage_fraction": {
+          "numerator": 1,
+          "denominator": 2
+        },
+        "unique_requirement_fraction": {
+          "numerator": 1,
+          "denominator": 2
+        },
+        "results": [
+          {
+            "id": "allowed-methods-promise",
+            "requirement_digest": "6f902382ea655c17786ba1d10fc018bcee1e37ee414ac466dd4591eacd570f3b",
+            "anchor": {
+              "artifact_id": "docs/reference.md",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "quote": "Клиент повторяет только методы GET и HEAD.",
+              "quote_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+              "snippet": "Клиент повторяет только методы GET и HEAD.",
+              "snippet_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+              "location": {
+                "start_offset": 48,
+                "end_offset": 90,
+                "start_line": 5,
+                "end_line": 5
+              },
+              "resolved": true,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "document": {
+              "artifact_id": "docs/reference.md",
+              "kind": "document",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n",
+              "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+              "location": {
+                "start_offset": 158,
+                "end_offset": 210,
+                "start_line": 10,
+                "end_line": 10
+              },
+              "resolved": true,
+              "value": [
+                "GET",
+                "HEAD"
+              ],
+              "normalized_value": [
+                "GET",
+                "HEAD"
+              ],
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "anchor_verified": true,
+            "mapping_state": "mapped",
+            "satisfaction_state": "match",
+            "mappings": [
+              {
+                "obligation_id": "retry-methods",
+                "valid": true,
+                "comparison_status": "match",
+                "requirement_digest": "6f902382ea655c17786ba1d10fc018bcee1e37ee414ac466dd4591eacd570f3b",
+                "reasons": []
+              }
+            ],
+            "reasons": []
+          },
+          {
+            "id": "attempt-limit-promise",
+            "requirement_digest": "a1f74887a5747433e39bd0d841e551bbbb7fd2496a2aa86b8690ac7c102fe5c9",
+            "anchor": {
+              "artifact_id": "docs/reference.md",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "quote": "Клиент делает не более 3 попыток.",
+              "quote_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+              "snippet": "Клиент делает не более 3 попыток.",
+              "snippet_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+              "location": {
+                "start_offset": 92,
+                "end_offset": 125,
+                "start_line": 7,
+                "end_line": 7
+              },
+              "resolved": true,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "document": {
+              "artifact_id": "docs/reference.md",
+              "kind": "document",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n",
+              "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+              "location": {
+                "start_offset": 158,
+                "end_offset": 210,
+                "start_line": 10,
+                "end_line": 10
+              },
+              "resolved": true,
+              "value": 3,
+              "normalized_value": 3,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "anchor_verified": true,
+            "mapping_state": "invalid_mapping",
+            "satisfaction_state": "not_evaluated",
+            "mappings": [
+              {
+                "obligation_id": "retry-methods",
+                "valid": false,
+                "comparison_status": "match",
+                "requirement_digest": "6f902382ea655c17786ba1d10fc018bcee1e37ee414ac466dd4591eacd570f3b",
+                "reasons": [
+                  {
+                    "code": "obligation_requirement_mismatch",
+                    "fields": [
+                      "code",
+                      "document",
+                      "relation",
+                      "scope",
+                      "value_type"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "reasons": [
+              {
+                "obligation_id": "retry-methods",
+                "code": "obligation_requirement_mismatch",
+                "fields": [
+                  "code",
+                  "document",
+                  "relation",
+                  "scope",
+                  "value_type"
+                ]
+              }
+            ]
+          }
+        ],
+        "shared_obligations": [
+          {
+            "obligation_id": "retry-methods",
+            "promise_ids": [
+              "allowed-methods-promise",
+              "attempt-limit-promise"
+            ],
+            "valid_promise_ids": [
+              "allowed-methods-promise"
+            ]
+          }
+        ],
+        "duplicate_requirements": [],
+        "unmapped_obligation_ids": [
+          "retry-attempts"
+        ],
+        "unknown_obligation_ids": [],
+        "blockers": [
+          {
+            "code": "promise_invalid_mapping",
+            "promise_id": "attempt-limit-promise"
+          }
+        ],
+        "state": "blocked",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "live_state_checked": false,
+        "atomic_capture": false,
+        "limits": [
+          "The denominator contains only caller-declared promises; completeness over the document or project is not established.",
+          "A unique exact quote and a resolved document field pin declared locations; their semantic correspondence is not inferred or verified.",
+          "Coverage requires exact declared requirement metadata and references; coverage and comparison satisfaction are separate observations.",
+          "Several promises may share an obligation or repeat a requirement; they are not independent checks or independent evidence.",
+          "Only the embedded obligations-1 report and its captured candidate are examined; no live state or cross-database transaction is checked.",
+          "A matched configuration declaration does not establish program behavior, prose truth, authorship, or permission to accept or publish.",
+          "Coverage does not remove upstream blockers or record human review; content hashes establish internal consistency only."
+        ]
+      }
+    },
+    "changed-value": {
+      "report_id": "cov_4001ecebe785476775d18db4470d6cf58c99a2b331b1afe5609f9c4aa6098be6",
+      "observation": {
+        "source_obligation_report_id": "obl_d75bef9ff63c7bbbe29f9758e1b5ef3bb11930bd184c98b6429e88799bf94e06",
+        "source_obligation_report_digest": "d75bef9ff63c7bbbe29f9758e1b5ef3bb11930bd184c98b6429e88799bf94e06",
+        "source_review_set_id": "rset_fd97a03ee02c140df035c441b1d1404eebe63257b349e115285238f947eecb80",
+        "proposal_id": "p_2afc828cc7161b31c5415332",
+        "proposal_digest": "6a51f85af94775ea695145fcb211d7ed41fb7c0033b212e70f90138d1bf561fb",
+        "upstream_state": "blocked",
+        "upstream_blockers": [
+          {
+            "code": "obligation_mismatch",
+            "obligation_id": "retry-attempts"
+          }
+        ],
+        "coverage_state": "declared_promises_covered",
+        "counts": {
+          "total": 2,
+          "assigned": 2,
+          "mapped": 2,
+          "anchor_verified": 2,
+          "covered": 2,
+          "matching": 1,
+          "mismatch": 1,
+          "unresolved": 0,
+          "uncovered": 0,
+          "invalid_mapping": 0,
+          "unresolved_anchor": 0,
+          "unique_requirements": 2,
+          "covered_unique_requirements": 2,
+          "assigned_obligation_ids": 2,
+          "mapped_obligation_ids": 2
+        },
+        "coverage_fraction": {
+          "numerator": 2,
+          "denominator": 2
+        },
+        "unique_requirement_fraction": {
+          "numerator": 2,
+          "denominator": 2
+        },
+        "results": [
+          {
+            "id": "allowed-methods-promise",
+            "requirement_digest": "6f902382ea655c17786ba1d10fc018bcee1e37ee414ac466dd4591eacd570f3b",
+            "anchor": {
+              "artifact_id": "docs/reference.md",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "quote": "Клиент повторяет только методы GET и HEAD.",
+              "quote_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+              "snippet": "Клиент повторяет только методы GET и HEAD.",
+              "snippet_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+              "location": {
+                "start_offset": 48,
+                "end_offset": 90,
+                "start_line": 5,
+                "end_line": 5
+              },
+              "resolved": true,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "document": {
+              "artifact_id": "docs/reference.md",
+              "kind": "document",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n",
+              "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+              "location": {
+                "start_offset": 158,
+                "end_offset": 210,
+                "start_line": 10,
+                "end_line": 10
+              },
+              "resolved": true,
+              "value": [
+                "GET",
+                "HEAD"
+              ],
+              "normalized_value": [
+                "GET",
+                "HEAD"
+              ],
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "anchor_verified": true,
+            "mapping_state": "mapped",
+            "satisfaction_state": "match",
+            "mappings": [
+              {
+                "obligation_id": "retry-methods",
+                "valid": true,
+                "comparison_status": "match",
+                "requirement_digest": "6f902382ea655c17786ba1d10fc018bcee1e37ee414ac466dd4591eacd570f3b",
+                "reasons": []
+              }
+            ],
+            "reasons": []
+          },
+          {
+            "id": "attempt-limit-promise",
+            "requirement_digest": "a1f74887a5747433e39bd0d841e551bbbb7fd2496a2aa86b8690ac7c102fe5c9",
+            "anchor": {
+              "artifact_id": "docs/reference.md",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "quote": "Клиент делает не более 3 попыток.",
+              "quote_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+              "snippet": "Клиент делает не более 3 попыток.",
+              "snippet_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+              "location": {
+                "start_offset": 92,
+                "end_offset": 125,
+                "start_line": 7,
+                "end_line": 7
+              },
+              "resolved": true,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "document": {
+              "artifact_id": "docs/reference.md",
+              "kind": "document",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n",
+              "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+              "location": {
+                "start_offset": 158,
+                "end_offset": 210,
+                "start_line": 10,
+                "end_line": 10
+              },
+              "resolved": true,
+              "value": 3,
+              "normalized_value": 3,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "anchor_verified": true,
+            "mapping_state": "mapped",
+            "satisfaction_state": "mismatch",
+            "mappings": [
+              {
+                "obligation_id": "retry-attempts",
+                "valid": true,
+                "comparison_status": "mismatch",
+                "requirement_digest": "a1f74887a5747433e39bd0d841e551bbbb7fd2496a2aa86b8690ac7c102fe5c9",
+                "reasons": []
+              }
+            ],
+            "reasons": []
+          }
+        ],
+        "shared_obligations": [],
+        "duplicate_requirements": [],
+        "unmapped_obligation_ids": [],
+        "unknown_obligation_ids": [],
+        "blockers": [
+          {
+            "code": "obligation_mismatch",
+            "obligation_id": "retry-attempts"
+          },
+          {
+            "code": "promise_obligation_mismatch",
+            "promise_id": "attempt-limit-promise"
+          }
+        ],
+        "state": "blocked",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "live_state_checked": false,
+        "atomic_capture": false,
+        "limits": [
+          "The denominator contains only caller-declared promises; completeness over the document or project is not established.",
+          "A unique exact quote and a resolved document field pin declared locations; their semantic correspondence is not inferred or verified.",
+          "Coverage requires exact declared requirement metadata and references; coverage and comparison satisfaction are separate observations.",
+          "Several promises may share an obligation or repeat a requirement; they are not independent checks or independent evidence.",
+          "Only the embedded obligations-1 report and its captured candidate are examined; no live state or cross-database transaction is checked.",
+          "A matched configuration declaration does not establish program behavior, prose truth, authorship, or permission to accept or publish.",
+          "Coverage does not remove upstream blockers or record human review; content hashes establish internal consistency only."
+        ]
+      }
+    },
+    "stale": {
+      "report_id": "cov_ca9780fd3617eca54a9e33863e7cb63e1781caf17deb470e865de738c9b4bdce",
+      "observation": {
+        "source_obligation_report_id": "obl_f48739441d593b8eeae0b878d76f6e7f15ec6f64f1b582b9409c5da139b36e3a",
+        "source_obligation_report_digest": "f48739441d593b8eeae0b878d76f6e7f15ec6f64f1b582b9409c5da139b36e3a",
+        "source_review_set_id": "rset_6bc7007ac560f6a558a8f2ef4b830f193e9ebf8b2a48f54d82fe496ea647a837",
+        "proposal_id": "p_3c870a8fbcab179b7be87aae",
+        "proposal_digest": "cace6f5653c5f716c3981af1f0ae365be523d790364d55b82e2abe41150e0896",
+        "upstream_state": "blocked",
+        "upstream_blockers": [
+          {
+            "actual": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d",
+            "code": "stale_read",
+            "expected": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+            "id": "api.timeout_seconds"
+          }
+        ],
+        "coverage_state": "declared_promises_covered",
+        "counts": {
+          "total": 2,
+          "assigned": 2,
+          "mapped": 2,
+          "anchor_verified": 2,
+          "covered": 2,
+          "matching": 2,
+          "mismatch": 0,
+          "unresolved": 0,
+          "uncovered": 0,
+          "invalid_mapping": 0,
+          "unresolved_anchor": 0,
+          "unique_requirements": 2,
+          "covered_unique_requirements": 2,
+          "assigned_obligation_ids": 2,
+          "mapped_obligation_ids": 2
+        },
+        "coverage_fraction": {
+          "numerator": 2,
+          "denominator": 2
+        },
+        "unique_requirement_fraction": {
+          "numerator": 2,
+          "denominator": 2
+        },
+        "results": [
+          {
+            "id": "allowed-methods-promise",
+            "requirement_digest": "6f902382ea655c17786ba1d10fc018bcee1e37ee414ac466dd4591eacd570f3b",
+            "anchor": {
+              "artifact_id": "docs/reference.md",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "3205a00197847fe13afe58fe5d8ee5961fdb573855c1d417b02acf64c3f51e83",
+              "dependencies": {
+                "api.timeout_seconds": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+              },
+              "quote": "Клиент повторяет только методы GET и HEAD.",
+              "quote_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+              "snippet": "Клиент повторяет только методы GET и HEAD.",
+              "snippet_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+              "location": {
+                "start_offset": 48,
+                "end_offset": 90,
+                "start_line": 5,
+                "end_line": 5
+              },
+              "resolved": true,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "document": {
+              "artifact_id": "docs/reference.md",
+              "kind": "document",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "3205a00197847fe13afe58fe5d8ee5961fdb573855c1d417b02acf64c3f51e83",
+              "dependencies": {
+                "api.timeout_seconds": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+              },
+              "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n",
+              "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+              "location": {
+                "start_offset": 158,
+                "end_offset": 210,
+                "start_line": 10,
+                "end_line": 10
+              },
+              "resolved": true,
+              "value": [
+                "GET",
+                "HEAD"
+              ],
+              "normalized_value": [
+                "GET",
+                "HEAD"
+              ],
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "anchor_verified": true,
+            "mapping_state": "mapped",
+            "satisfaction_state": "match",
+            "mappings": [
+              {
+                "obligation_id": "retry-methods",
+                "valid": true,
+                "comparison_status": "match",
+                "requirement_digest": "6f902382ea655c17786ba1d10fc018bcee1e37ee414ac466dd4591eacd570f3b",
+                "reasons": []
+              }
+            ],
+            "reasons": []
+          },
+          {
+            "id": "attempt-limit-promise",
+            "requirement_digest": "a1f74887a5747433e39bd0d841e551bbbb7fd2496a2aa86b8690ac7c102fe5c9",
+            "anchor": {
+              "artifact_id": "docs/reference.md",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "3205a00197847fe13afe58fe5d8ee5961fdb573855c1d417b02acf64c3f51e83",
+              "dependencies": {
+                "api.timeout_seconds": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+              },
+              "quote": "Клиент делает не более 3 попыток.",
+              "quote_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+              "snippet": "Клиент делает не более 3 попыток.",
+              "snippet_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+              "location": {
+                "start_offset": 92,
+                "end_offset": 125,
+                "start_line": 7,
+                "end_line": 7
+              },
+              "resolved": true,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "document": {
+              "artifact_id": "docs/reference.md",
+              "kind": "document",
+              "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+              "rendered_digest": "3205a00197847fe13afe58fe5d8ee5961fdb573855c1d417b02acf64c3f51e83",
+              "dependencies": {
+                "api.timeout_seconds": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+              },
+              "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n",
+              "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+              "location": {
+                "start_offset": 158,
+                "end_offset": 210,
+                "start_line": 10,
+                "end_line": 10
+              },
+              "resolved": true,
+              "value": 3,
+              "normalized_value": 3,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "anchor_verified": true,
+            "mapping_state": "mapped",
+            "satisfaction_state": "match",
+            "mappings": [
+              {
+                "obligation_id": "retry-attempts",
+                "valid": true,
+                "comparison_status": "match",
+                "requirement_digest": "a1f74887a5747433e39bd0d841e551bbbb7fd2496a2aa86b8690ac7c102fe5c9",
+                "reasons": []
+              }
+            ],
+            "reasons": []
+          }
+        ],
+        "shared_obligations": [],
+        "duplicate_requirements": [],
+        "unmapped_obligation_ids": [],
+        "unknown_obligation_ids": [],
+        "blockers": [
+          {
+            "actual": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d",
+            "code": "stale_read",
+            "expected": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+            "id": "api.timeout_seconds"
+          }
+        ],
+        "state": "blocked",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "live_state_checked": false,
+        "atomic_capture": false,
+        "limits": [
+          "The denominator contains only caller-declared promises; completeness over the document or project is not established.",
+          "A unique exact quote and a resolved document field pin declared locations; their semantic correspondence is not inferred or verified.",
+          "Coverage requires exact declared requirement metadata and references; coverage and comparison satisfaction are separate observations.",
+          "Several promises may share an obligation or repeat a requirement; they are not independent checks or independent evidence.",
+          "Only the embedded obligations-1 report and its captured candidate are examined; no live state or cross-database transaction is checked.",
+          "A matched configuration declaration does not establish program behavior, prose truth, authorship, or permission to accept or publish.",
+          "Coverage does not remove upstream blockers or record human review; content hashes establish internal consistency only."
+        ]
+      }
+    }
+  },
+  "final_runtime_status": {
+    "revision": 2,
+    "artifacts": 5,
+    "sources": 1,
+    "tasks": {
+      "done": 6
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 5
+    },
+    "events": 27,
+    "rules_version": "mvp-1"
+  },
+  "summary": {
+    "component_proposal_count": 3,
+    "composite_proposal_count": 2,
+    "review_set_count": 3,
+    "obligation_report_count": 4,
+    "coverage_report_count": 5,
+    "listed_promise_count": 2,
+    "packet_count": 3,
+    "decision_count": 6,
+    "journal_event_count": 14,
+    "uncovered_listed_promise_exposed": true,
+    "complete_declared_mapping_matches": true,
+    "wrong_mapping_blocked": true,
+    "changed_value_remains_blocked": true,
+    "matching_values_do_not_hide_stale_basis": true,
+    "file_proposals_remain_unaccepted": true,
+    "human_review_recorded": false,
+    "auto_accept": false
+  },
+  "limitations": [
+    "The inventory is manually authored and lists two promises; it does not prove completeness of the page.",
+    "Exact unique anchors attach inventory records to captured rendered text bytes, not to inferred or certified meaning.",
+    "Requirement metadata and scope are caller-authored; exact mapping does not establish prose entailment.",
+    "The equality requirement is a declared configuration policy, not a proof of runtime attempt behavior.",
+    "Only captured inputs are read; no live-state check or shared database transaction occurs.",
+    "Authors and reviewers are programmed workers with self-declared identities, not LLMs or independent experts.",
+    "Fictional set metadata covers methods only; it does not assess all wording or attempt-limit compliance.",
+    "The scenario is not a quality benchmark, load measurement or execution of proposed Python code."
+  ]
+}

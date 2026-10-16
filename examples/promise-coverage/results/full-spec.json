@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "obligations": [
+    {
+      "id": "retry-methods",
+      "description": "Declared configured methods must be allowed by the document.",
+      "scope": {
+        "api_version": "v1",
+        "policy": "retry-methods"
+      },
+      "relation": "code_subset_of_document",
+      "value_type": "string_set",
+      "document": {
+        "artifact_id": "docs/reference.md",
+        "fence_id": "retry-policy",
+        "path": [
+          "allowed_methods"
+        ]
+      },
+      "code": {
+        "artifact_id": "code/client_config.py",
+        "symbol": "ALLOWED_METHODS"
+      }
+    },
+    {
+      "id": "retry-attempts",
+      "description": "The declared configuration attempt limit equals the document value.",
+      "scope": {
+        "api_version": "v1",
+        "policy": "retry-limit"
+      },
+      "relation": "equals",
+      "value_type": "integer",
+      "document": {
+        "artifact_id": "docs/reference.md",
+        "fence_id": "retry-policy",
+        "path": [
+          "max_attempts"
+        ]
+      },
+      "code": {
+        "artifact_id": "code/client_config.py",
+        "symbol": "MAX_ATTEMPTS"
+      }
+    }
+  ]
+}

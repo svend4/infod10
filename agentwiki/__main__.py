@@ -18,6 +18,7 @@ from .editorial_cli import register_editorial_parser, run_editorial_command
 from .dossier_cli import register_dossier_parser, run_dossier_command
 from .review_set_cli import register_review_set_parser, run_review_set_command
 from .obligations_cli import register_obligations_parser, run_obligations_command
+from .coverage_cli import register_coverage_parser, run_coverage_command
 
 
 def _workers(value: str) -> int:
@@ -142,6 +143,7 @@ def main(argv: list[str] | None = None) -> int:
     register_dossier_parser(commands)
     register_review_set_parser(commands)
     register_obligations_parser(commands)
+    register_coverage_parser(commands)
     editorial_demo = commands.add_parser("editorial-demo", help="Показать историю решений программных проверяющих и устаревание оснований.")
     editorial_demo.add_argument("--workspace", type=Path, required=True)
     editorial_demo.add_argument("--workers", default=3, type=_workers)
@@ -154,6 +156,9 @@ def main(argv: list[str] | None = None) -> int:
     obligations_demo = commands.add_parser("obligations-demo", help="Сопоставить явные обязательства документации и конфигурации кода.")
     obligations_demo.add_argument("--workspace", type=Path, required=True)
     obligations_demo.add_argument("--workers", default=3, type=_workers)
+    coverage_demo = commands.add_parser("coverage-demo", help="Показать покрытие заявленных обещаний документации обязательствами.")
+    coverage_demo.add_argument("--workspace", type=Path, required=True)
+    coverage_demo.add_argument("--workers", default=3, type=_workers)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -203,6 +208,13 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(run_review_set_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "obligations":
             print(json.dumps(run_obligations_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "coverage":
+            print(json.dumps(run_coverage_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "coverage-demo":
+            from .coverage_demo import run_coverage_demo
+
+            report = run_coverage_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "obligations-demo":
             from .obligations_demo import run_obligations_demo
 

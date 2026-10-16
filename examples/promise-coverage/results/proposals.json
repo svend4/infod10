@@ -1,0 +1,155 @@
+{
+  "document": {
+    "id": "p_acb1c5b39c206002f55d692d",
+    "task_id": "coverage-document",
+    "author": "coverage-document-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Author an explicit fictional retry-policy contribution.",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "docs/reference.md": "1b56fdd00729aeea5f63fdfa841c5f4891350ba3a7d884e76447f38e72ccbfcd"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "docs/reference.md",
+          "kind": "document",
+          "template": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 3 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n```\n"
+        }
+      ]
+    },
+    "digest": "68587734ddff73ebe884849bf55d54f0fa83aa8ca0b6f79457a4288e959a323f",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "fixed": {
+    "id": "p_c7cfb50a4e310d98afc1f589",
+    "task_id": "coverage-fixed",
+    "author": "coverage-fixed-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Author an explicit fictional retry-policy contribution.",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config.py": "ead3e64abe18e0ca55ee5690a0e140fc42d5ef8bb9829c3733c09d5ec6788ca7"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional proposed configuration; not executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 3\n"
+        }
+      ]
+    },
+    "digest": "95aae6e777b4fae4c677043cddb5124f654567858259d6634fc57926bc76894d",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "changed": {
+    "id": "p_7c25a5c62c342ed71d06c57a",
+    "task_id": "coverage-changed",
+    "author": "coverage-changed-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Author an explicit fictional retry-policy contribution.",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config.py": "ead3e64abe18e0ca55ee5690a0e140fc42d5ef8bb9829c3733c09d5ec6788ca7"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional proposed configuration; not executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 4\n"
+        }
+      ]
+    },
+    "digest": "37c13fe57490e9071089c4205c44d37fe358a25081c2aa6ae446e590150ccada",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "composite-fixed": {
+    "id": "p_3c870a8fbcab179b7be87aae",
+    "task_id": "coverage-compose-fixed",
+    "author": "coverage-integrator",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "{\"components\":[{\"digest\":\"68587734ddff73ebe884849bf55d54f0fa83aa8ca0b6f79457a4288e959a323f\",\"proposal_id\":\"p_acb1c5b39c206002f55d692d\",\"write_ids\":[\"docs/reference.md\"]},{\"digest\":\"95aae6e777b4fae4c677043cddb5124f654567858259d6634fc57926bc76894d\",\"proposal_id\":\"p_c7cfb50a4e310d98afc1f589\",\"write_ids\":[\"code/client_config.py\"]}],\"text\":\"Compose the document and the fixed literal configuration for inventory review.\"}",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config.py": "ead3e64abe18e0ca55ee5690a0e140fc42d5ef8bb9829c3733c09d5ec6788ca7",
+        "docs/reference.md": "1b56fdd00729aeea5f63fdfa841c5f4891350ba3a7d884e76447f38e72ccbfcd"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional proposed configuration; not executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 3\n"
+        },
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "docs/reference.md",
+          "kind": "document",
+          "template": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 3 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n```\n"
+        }
+      ]
+    },
+    "digest": "cace6f5653c5f716c3981af1f0ae365be523d790364d55b82e2abe41150e0896",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "composite-changed": {
+    "id": "p_2afc828cc7161b31c5415332",
+    "task_id": "coverage-compose-changed",
+    "author": "coverage-integrator",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "{\"components\":[{\"digest\":\"68587734ddff73ebe884849bf55d54f0fa83aa8ca0b6f79457a4288e959a323f\",\"proposal_id\":\"p_acb1c5b39c206002f55d692d\",\"write_ids\":[\"docs/reference.md\"]},{\"digest\":\"37c13fe57490e9071089c4205c44d37fe358a25081c2aa6ae446e590150ccada\",\"proposal_id\":\"p_7c25a5c62c342ed71d06c57a\",\"write_ids\":[\"code/client_config.py\"]}],\"text\":\"Compose the document and the changed literal configuration for inventory review.\"}",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config.py": "ead3e64abe18e0ca55ee5690a0e140fc42d5ef8bb9829c3733c09d5ec6788ca7",
+        "docs/reference.md": "1b56fdd00729aeea5f63fdfa841c5f4891350ba3a7d884e76447f38e72ccbfcd"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional proposed configuration; not executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 4\n"
+        },
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "docs/reference.md",
+          "kind": "document",
+          "template": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 3 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n```\n"
+        }
+      ]
+    },
+    "digest": "6a51f85af94775ea695145fcb211d7ed41fb7c0033b212e70f90138d1bf561fb",
+    "status": "proposed",
+    "accepted_revision": null
+  }
+}
