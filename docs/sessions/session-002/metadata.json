@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "session_id": "session-002",
+  "language": "ru",
+  "archive_method": "manual_transcription_from_available_conversation_context",
+  "scope": "User messages and user-facing assistant commentary/final responses",
+  "previous_session": "session-001",
+  "coverage_start": "Первое пояснение ассистента после запроса сохранить всю сессию, завершившего session-001",
+  "coverage_end": "Следующий пользовательский запрос «Продолжение» после публикации и проверки архива на GitHub включительно",
+  "rendered_coverage": "этап сохранения и проверки GitHub, до следующего запроса «Продолжение» включительно.",
+  "message_timestamps_available": false,
+  "message_ids": "Locally assigned chronological IDs scoped to this session; not platform message IDs",
+  "channel_convention": "Assistant commentary/final distinguishes visible progress from final responses; user records use final by archive convention",
+  "integrity_scope": "SHA-256 detects changes relative to this saved snapshot; it does not authenticate a platform export or verify external claims",
+  "repository": {
+    "name": "svend4/infod10",
+    "archive_branch": "archive/session-001",
+    "previous_verified_remote_commit": "20bfde1f7a32ca2ce23ce7ced1535ce4dae65c5a",
+    "earlier_local_archive_commit": "4678adac7091588f7bed146225f9fdd0b51ebcd7"
+  },
+  "expected_message_count": 10,
+  "expected_role_counts": {
+    "assistant": 8,
+    "user": 2
+  },
+  "expected_assistant_channel_counts": {
+    "commentary": 6,
+    "final": 2
+  },
+  "parts": [
+    {
+      "part": 1,
+      "title": "Сохранение первого снимка и локальный коммит",
+      "expected_message_count": 5
+    },
+    {
+      "part": 2,
+      "title": "Запрос прямой ссылки, публикация и проверка GitHub",
+      "expected_message_count": 4
+    },
+    {
+      "part": 3,
+      "title": "Запрос продолжения",
+      "expected_message_count": 1
+    }
+  ],
+  "excluded": [
+    "Messages already preserved in session-001",
+    "Current archive-extension work after the final included user message",
+    "Other chats not available in this conversation context",
+    "Hidden system/developer instructions and internal reasoning",
+    "Subagent communications",
+    "Raw tool arguments and results",
+    "Automatic runtime/UI metadata as conversation messages"
+  ],
+  "limitations": [
+    "Not a platform/API export; fidelity is bounded by the available conversation context.",
+    "No invented per-message timestamps.",
+    "Original absolute workspace links are preserved verbatim; GitHub readers should use the relative links in README.md.",
+    "The earlier local commit and the later published commit differ because the archive was cherry-picked onto updated main before publication.",
+    "Statements about verification in archived messages describe the historical checks at that point in the conversation."
+  ]
+}

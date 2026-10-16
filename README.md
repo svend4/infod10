@@ -1,13 +1,13 @@
 # infod10
 
-Архив рабочей сессии и технические материалы о контроле версий, Scion и многоагентных системах документации.
+Архив рабочей сессии и технические материалы о контроле версий, Scion и многоагентных системах документации. Переписка сохранена в двух последовательных частях: 44 сообщения.
 
 ## Начать чтение
 
-- [Вся доступная переписка — Markdown](docs/sessions/session-001/transcript.md).
-- [Та же переписка — JSONL](docs/sessions/session-001/transcript.jsonl).
-- [Границы и состав архива](docs/sessions/session-001/README.md).
-- [Машиночитаемый указатель ссылок из переписки](docs/sessions/session-001/links.json).
+- [Каталог всех частей переписки и форматов](docs/sessions/README.md).
+- [Часть 1: настройка, новости ИИ, Scion и многоагентные вики — 34 сообщения](docs/sessions/session-001/transcript.md).
+- [Часть 2: сохранение, публикация и проверка GitHub — 10 сообщений](docs/sessions/session-002/transcript.md).
+- [Границы первого снимка](docs/sessions/session-001/README.md) и [продолжения](docs/sessions/session-002/README.md).
 - [Тематическая база знаний](docs/knowledge/README.md).
 - [Источники и ограничения утверждений](docs/knowledge/sources.md).
 - [Решения, предложения и открытые вопросы](docs/knowledge/decisions.md).
@@ -28,13 +28,13 @@
 Из корня репозитория:
 
 ~~~sh
-python3 scripts/build_session_archive.py --check
+python3 scripts/build_session_archive.py --all --check
 ~~~
 
-Для повторной сборки производных файлов после намеренного изменения JSONL:
+Для повторной сборки производных файлов конкретной части после намеренного изменения JSONL:
 
 ~~~sh
-python3 scripts/build_session_archive.py
+python3 scripts/build_session_archive.py --session docs/sessions/session-002
 ~~~
 
-Скрипт использует только стандартную библиотеку Python и не обращается в сеть.
+Скрипт использует только стандартную библиотеку Python и не обращается в сеть. Без --session или --all сохраняется прежний выбор session-001; --all обрабатывает все части.

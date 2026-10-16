@@ -83,7 +83,9 @@ def render(records: list[dict[str, Any]], metadata: dict[str, Any]) -> bytes:
         f"# Переписка — {metadata['session_id']}",
         "",
         "Полные доступные сообщения пользователя и видимые ответы ассистента.",
-        "Граница снимка: пользовательский запрос сохранить сессию включительно.",
+        "Граница снимка: " + metadata.get(
+            "rendered_coverage", "пользовательский запрос сохранить сессию включительно."
+        ),
         "Точные временные метки сообщений недоступны.",
         "",
         f"Сообщений: {len(records)}; пользователь: {roles['user']}; "
@@ -178,14 +180,8 @@ def extract_links(records: list[dict[str, Any]], session_id: str) -> bytes:
     )
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--session", type=Path, default=DEFAULT_SESSION)
-    parser.add_argument(
-        "--check", action="store_true", help="Check generated files without changing them"
-    )
-    args = parser.parse_args()
-    session = args.session.resolve()
+def build_session(session: Path, check: bool) -> None:
+    session = session.resolve()
     transcript_path = session / "transcript.jsonl"
     metadata_path = session / "metadata.json"
     records = read_records(transcript_path)
@@ -210,16 +206,37 @@ def main() -> None:
     }
     for name, data in generated.items():
         path = session / name
-        if args.check:
+        if check:
             if not path.exists() or path.read_bytes() != data:
                 raise SystemExit(f"OUTDATED: {path}; rerun this script without --check")
         else:
             path.write_bytes(data)
     print(
-        f"{'Verified' if args.check else 'Built'} {metadata['session_id']}: "
+        f"{'Verified' if check else 'Built'} {metadata['session_id']}: "
         f"{len(records)} messages; "
         f"{sum(len(record['content']) for record in records)} content characters"
     )
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    selection = parser.add_mutually_exclusive_group()
+    selection.add_argument("--session", type=Path, help="Select a session directory")
+    selection.add_argument("--all", action="store_true", help="Process every session")
+    parser.add_argument(
+        "--check", action="store_true", help="Check generated files without changing them"
+    )
+    args = parser.parse_args()
+    if args.all:
+        sessions = sorted(
+            path for path in DEFAULT_SESSION.parent.glob("session-*") if path.is_dir()
+        )
+        if not sessions:
+            raise SystemExit("No session directories found")
+    else:
+        sessions = [args.session or DEFAULT_SESSION]
+    for session in sessions:
+        build_session(session, args.check)
 
 
 if __name__ == "__main__":
