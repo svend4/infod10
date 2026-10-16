@@ -1,0 +1,105 @@
+{
+  "competing-document": {
+    "id": "p_4676e272193f8adf9ab81011",
+    "task_id": "governance-competing-document",
+    "author": "programmed-document-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Programmed local governance example; proposed code is never executed.",
+      "readset": {
+        "docs/local-governance.md": "2096e34fbf03d36089b017f33898766b1f3957ea410be9ba43294b0d724a04a9"
+      },
+      "writes": [
+        {
+          "bindings": [],
+          "id": "docs/local-governance.md",
+          "kind": "document",
+          "template": "# Fictional competing contract\n\nThe configured sample limit is 5.\n"
+        }
+      ]
+    },
+    "digest": "8d27fb09de13976abc677309649e6761b92652e58ccb4f4f4b4ea4640dd6925b",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "code": {
+    "id": "p_f40d7bd700f6912a35899d48",
+    "task_id": "governance-code",
+    "author": "programmed-code-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Programmed local governance example; proposed code is never executed.",
+      "readset": {
+        "code/local_governance.py": "5d0170912e54a47e5938e5760de290faf8a8e11e229cdf7ad12b20890b578fe9"
+      },
+      "writes": [
+        {
+          "bindings": [],
+          "id": "code/local_governance.py",
+          "kind": "code",
+          "template": "# Fictional local configuration, stored as data.\nSAMPLE_LIMIT = 4\n"
+        }
+      ]
+    },
+    "digest": "bc975f7c31fd6c662adb61c59d1f10041cb0c69dbcc95dfb6ebd832c0df5271d",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "document": {
+    "id": "p_f1c79e7c31b53fd080bb1848",
+    "task_id": "governance-document",
+    "author": "programmed-document-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Programmed local governance example; proposed code is never executed.",
+      "readset": {
+        "docs/local-governance.md": "2096e34fbf03d36089b017f33898766b1f3957ea410be9ba43294b0d724a04a9"
+      },
+      "writes": [
+        {
+          "bindings": [],
+          "id": "docs/local-governance.md",
+          "kind": "document",
+          "template": "# Fictional local contract\n\nThe configured sample limit is 4.\n"
+        }
+      ]
+    },
+    "digest": "85729d5ea7641fca7f37b0332f3d5d03123ec73e0475c778a3f747aa330eab9f",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "composite": {
+    "id": "p_db63e7902e853fe6037b8572",
+    "task_id": "governance-compose",
+    "author": "programmed-integrator",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "{\"components\":[{\"digest\":\"85729d5ea7641fca7f37b0332f3d5d03123ec73e0475c778a3f747aa330eab9f\",\"proposal_id\":\"p_f1c79e7c31b53fd080bb1848\",\"write_ids\":[\"docs/local-governance.md\"]},{\"digest\":\"bc975f7c31fd6c662adb61c59d1f10041cb0c69dbcc95dfb6ebd832c0df5271d\",\"proposal_id\":\"p_f40d7bd700f6912a35899d48\",\"write_ids\":[\"code/local_governance.py\"]}],\"text\":\"Compose the exact fictional document and code candidates for local authority review.\"}",
+      "readset": {
+        "code/local_governance.py": "5d0170912e54a47e5938e5760de290faf8a8e11e229cdf7ad12b20890b578fe9",
+        "docs/local-governance.md": "2096e34fbf03d36089b017f33898766b1f3957ea410be9ba43294b0d724a04a9"
+      },
+      "writes": [
+        {
+          "bindings": [],
+          "id": "code/local_governance.py",
+          "kind": "code",
+          "template": "# Fictional local configuration, stored as data.\nSAMPLE_LIMIT = 4\n"
+        },
+        {
+          "bindings": [],
+          "id": "docs/local-governance.md",
+          "kind": "document",
+          "template": "# Fictional local contract\n\nThe configured sample limit is 4.\n"
+        }
+      ]
+    },
+    "digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+    "status": "accepted",
+    "accepted_revision": 2
+  }
+}

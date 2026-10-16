@@ -22,6 +22,7 @@ from .coverage_cli import register_coverage_parser, run_coverage_command
 from .inventory_rebase_cli import register_rebase_parser, run_rebase_command
 from .inventory_amendment_cli import register_amendment_parser, run_amendment_command
 from .requirement_delta_cli import register_delta_parser, run_delta_command
+from .governance_cli import register_governance_parser, run_governance_command
 
 
 def _workers(value: str) -> int:
@@ -150,6 +151,7 @@ def main(argv: list[str] | None = None) -> int:
     register_rebase_parser(commands)
     register_amendment_parser(commands)
     register_delta_parser(commands)
+    register_governance_parser(commands)
     editorial_demo = commands.add_parser("editorial-demo", help="Показать историю решений программных проверяющих и устаревание оснований.")
     editorial_demo.add_argument("--workspace", type=Path, required=True)
     editorial_demo.add_argument("--workers", default=3, type=_workers)
@@ -174,6 +176,9 @@ def main(argv: list[str] | None = None) -> int:
     delta_demo = commands.add_parser("requirement-delta-demo", help="Разобрать изменения требований и выбранных значений после пересмотра описи.")
     delta_demo.add_argument("--workspace", type=Path, required=True)
     delta_demo.add_argument("--workers", default=3, type=_workers)
+    governance_demo = commands.add_parser("governance-demo", help="Показать локальные полномочия и обязательную политику принятия.")
+    governance_demo.add_argument("--workspace", type=Path, required=True)
+    governance_demo.add_argument("--workers", default=3, type=_workers)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -231,6 +236,13 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(run_amendment_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "requirement-delta":
             print(json.dumps(run_delta_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "governance":
+            print(json.dumps(run_governance_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "governance-demo":
+            from .governance_demo import run_governance_demo
+
+            report = run_governance_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "requirement-delta-demo":
             from .requirement_delta_demo import run_requirement_delta_demo
 

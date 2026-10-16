@@ -1,0 +1,2914 @@
+[
+  {
+    "seq": 1,
+    "type": "bootstrapped",
+    "data": {
+      "artifacts": 2,
+      "revision": 1
+    }
+  },
+  {
+    "seq": 2,
+    "type": "task_enqueued",
+    "data": {
+      "role": "doc_author",
+      "task_id": "governance-document"
+    }
+  },
+  {
+    "seq": 3,
+    "type": "task_enqueued",
+    "data": {
+      "role": "code_author",
+      "task_id": "governance-code"
+    }
+  },
+  {
+    "seq": 4,
+    "type": "task_enqueued",
+    "data": {
+      "role": "doc_author",
+      "task_id": "governance-competing-document"
+    }
+  },
+  {
+    "seq": 5,
+    "type": "task_leased",
+    "data": {
+      "reclaimed": false,
+      "task_id": "governance-document",
+      "token": 1,
+      "worker": "programmed-document-author"
+    }
+  },
+  {
+    "seq": 6,
+    "type": "task_leased",
+    "data": {
+      "reclaimed": false,
+      "task_id": "governance-competing-document",
+      "token": 1,
+      "worker": "programmed-document-author"
+    }
+  },
+  {
+    "seq": 7,
+    "type": "proposal_submitted",
+    "data": {
+      "digest": "8d27fb09de13976abc677309649e6761b92652e58ccb4f4f4b4ea4640dd6925b",
+      "proposal_id": "p_4676e272193f8adf9ab81011",
+      "task_id": "governance-competing-document",
+      "token": 1,
+      "worker": "programmed-document-author"
+    }
+  },
+  {
+    "seq": 8,
+    "type": "proposal_submitted",
+    "data": {
+      "digest": "85729d5ea7641fca7f37b0332f3d5d03123ec73e0475c778a3f747aa330eab9f",
+      "proposal_id": "p_f1c79e7c31b53fd080bb1848",
+      "task_id": "governance-document",
+      "token": 1,
+      "worker": "programmed-document-author"
+    }
+  },
+  {
+    "seq": 9,
+    "type": "task_leased",
+    "data": {
+      "reclaimed": false,
+      "task_id": "governance-code",
+      "token": 1,
+      "worker": "programmed-code-author"
+    }
+  },
+  {
+    "seq": 10,
+    "type": "proposal_submitted",
+    "data": {
+      "digest": "bc975f7c31fd6c662adb61c59d1f10041cb0c69dbcc95dfb6ebd832c0df5271d",
+      "proposal_id": "p_f40d7bd700f6912a35899d48",
+      "task_id": "governance-code",
+      "token": 1,
+      "worker": "programmed-code-author"
+    }
+  },
+  {
+    "seq": 11,
+    "type": "task_enqueued",
+    "data": {
+      "role": "integrator",
+      "task_id": "governance-compose"
+    }
+  },
+  {
+    "seq": 12,
+    "type": "task_leased",
+    "data": {
+      "reclaimed": false,
+      "task_id": "governance-compose",
+      "token": 1,
+      "worker": "programmed-integrator"
+    }
+  },
+  {
+    "seq": 13,
+    "type": "proposal_composed",
+    "data": {
+      "components": [
+        {
+          "digest": "85729d5ea7641fca7f37b0332f3d5d03123ec73e0475c778a3f747aa330eab9f",
+          "position": 1,
+          "proposal_id": "p_f1c79e7c31b53fd080bb1848",
+          "write_ids": [
+            "docs/local-governance.md"
+          ]
+        },
+        {
+          "digest": "bc975f7c31fd6c662adb61c59d1f10041cb0c69dbcc95dfb6ebd832c0df5271d",
+          "position": 2,
+          "proposal_id": "p_f40d7bd700f6912a35899d48",
+          "write_ids": [
+            "code/local_governance.py"
+          ]
+        }
+      ],
+      "digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "task_id": "governance-compose",
+      "token": 1,
+      "worker": "programmed-integrator"
+    }
+  },
+  {
+    "seq": 14,
+    "type": "proposal_reviewed",
+    "data": {
+      "approved": true,
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "observed_revision": 1,
+      "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "reasons": [],
+      "review_id": 1,
+      "reviewer": "pre-policy-formal-agent",
+      "rules_version": "mvp-1",
+      "source_digests": {}
+    }
+  },
+  {
+    "seq": 15,
+    "type": "proposal_reviewed",
+    "data": {
+      "approved": true,
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "observed_revision": 1,
+      "proposal_digest": "8d27fb09de13976abc677309649e6761b92652e58ccb4f4f4b4ea4640dd6925b",
+      "proposal_id": "p_4676e272193f8adf9ab81011",
+      "reasons": [],
+      "review_id": 2,
+      "reviewer": "pre-policy-formal-agent",
+      "rules_version": "mvp-1",
+      "source_digests": {}
+    }
+  },
+  {
+    "seq": 16,
+    "type": "governance_enabled",
+    "data": {
+      "activation_revision": 1,
+      "administrator": {
+        "artifact_ids": [],
+        "created_at": 1792164518.3946934,
+        "expired": false,
+        "expires_at": null,
+        "grant_id": "gvg_e085dc99d7176ee63fcc2b0310c1e946",
+        "issuer_grant_id": null,
+        "operation_id": null,
+        "principal_id": "programmed-administrator",
+        "revoked": false,
+        "revoked_at": null,
+        "role": "administrator"
+      },
+      "enabled": true,
+      "enabled_at": 1792164518.3946934,
+      "policy": {
+        "minimum_reviewers": 2,
+        "schema_version": 1,
+        "separate_coordinator": true
+      },
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 1,
+      "rules_version": "governance-1"
+    }
+  },
+  {
+    "seq": 17,
+    "type": "governance_grant_issued",
+    "data": {
+      "artifact_ids": [
+        "code/local_governance.py",
+        "docs/local-governance.md"
+      ],
+      "created_at": 1792164518.3970244,
+      "expired": false,
+      "expires_at": 1792168118.3963897,
+      "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+      "issuer_grant_id": "gvg_e085dc99d7176ee63fcc2b0310c1e946",
+      "operation_id": "grant-reviewer-a",
+      "principal_id": "programmed-reviewer-a",
+      "replayed": false,
+      "revoked": false,
+      "revoked_at": null,
+      "role": "reviewer"
+    }
+  },
+  {
+    "seq": 18,
+    "type": "governance_grant_issued",
+    "data": {
+      "artifact_ids": [
+        "code/local_governance.py",
+        "docs/local-governance.md"
+      ],
+      "created_at": 1792164518.4006066,
+      "expired": false,
+      "expires_at": 1792168118.3963897,
+      "grant_id": "gvg_dba5883378e35659d2e22840dc3c2db7",
+      "issuer_grant_id": "gvg_e085dc99d7176ee63fcc2b0310c1e946",
+      "operation_id": "grant-reviewer-a-extra",
+      "principal_id": "programmed-reviewer-a",
+      "replayed": false,
+      "revoked": false,
+      "revoked_at": null,
+      "role": "reviewer"
+    }
+  },
+  {
+    "seq": 19,
+    "type": "governance_grant_issued",
+    "data": {
+      "artifact_ids": [
+        "code/local_governance.py",
+        "docs/local-governance.md"
+      ],
+      "created_at": 1792164518.4050963,
+      "expired": false,
+      "expires_at": 1792168118.3963897,
+      "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+      "issuer_grant_id": "gvg_e085dc99d7176ee63fcc2b0310c1e946",
+      "operation_id": "grant-reviewer-b",
+      "principal_id": "programmed-reviewer-b",
+      "replayed": false,
+      "revoked": false,
+      "revoked_at": null,
+      "role": "reviewer"
+    }
+  },
+  {
+    "seq": 20,
+    "type": "governance_grant_issued",
+    "data": {
+      "artifact_ids": [
+        "code/local_governance.py",
+        "docs/local-governance.md"
+      ],
+      "created_at": 1792164518.4084167,
+      "expired": false,
+      "expires_at": 1792168118.3963897,
+      "grant_id": "gvg_18beb063a6d8609b505e106e3790bb5b",
+      "issuer_grant_id": "gvg_e085dc99d7176ee63fcc2b0310c1e946",
+      "operation_id": "grant-coordinator",
+      "principal_id": "programmed-coordinator",
+      "replayed": false,
+      "revoked": false,
+      "revoked_at": null,
+      "role": "coordinator"
+    }
+  },
+  {
+    "seq": 21,
+    "type": "governance_grant_issued",
+    "data": {
+      "artifact_ids": [
+        "docs/local-governance.md"
+      ],
+      "created_at": 1792164518.4129639,
+      "expired": false,
+      "expires_at": 1792168118.3963897,
+      "grant_id": "gvg_1ccc6c727ac029cfbb34f51e77f42eb5",
+      "issuer_grant_id": "gvg_e085dc99d7176ee63fcc2b0310c1e946",
+      "operation_id": "grant-document-only",
+      "principal_id": "programmed-document-only-reviewer",
+      "replayed": false,
+      "revoked": false,
+      "revoked_at": null,
+      "role": "reviewer"
+    }
+  },
+  {
+    "seq": 22,
+    "type": "proposal_reviewed",
+    "data": {
+      "approved": true,
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "observed_revision": 1,
+      "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "reasons": [],
+      "review_id": 3,
+      "reviewer": "programmed-reviewer-a",
+      "rules_version": "mvp-1",
+      "source_digests": {}
+    }
+  },
+  {
+    "seq": 23,
+    "type": "accept_blocked",
+    "data": {
+      "accepted": false,
+      "governance": {
+        "advisory_only": true,
+        "author_identity_authenticated": false,
+        "coordinator": {
+          "grant_id": "gvg_18beb063a6d8609b505e106e3790bb5b",
+          "principal_id": "programmed-coordinator"
+        },
+        "decisions": [],
+        "eligible": false,
+        "enabled": true,
+        "human_identity_authenticated": false,
+        "observed_at": 1792164518.4184775,
+        "policy": {
+          "minimum_reviewers": 2,
+          "schema_version": 1,
+          "separate_coordinator": true
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy_generation": 1,
+        "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+        "proposal_id": "p_db63e7902e853fe6037b8572",
+        "proposal_status": "proposed",
+        "reasons": [
+          {
+            "actual": 0,
+            "artifact_id": "code/local_governance.py",
+            "code": "governance_quorum_missing",
+            "required": 2
+          },
+          {
+            "actual": 0,
+            "artifact_id": "docs/local-governance.md",
+            "code": "governance_quorum_missing",
+            "required": 2
+          }
+        ],
+        "rules_version": "governance-1",
+        "schema_version": 1,
+        "valid_until": 1792168118.3963897,
+        "writes": [
+          {
+            "approval_decision_ids": [],
+            "approval_principals": [],
+            "artifact_id": "code/local_governance.py",
+            "eligible": false,
+            "required_reviewers": 2,
+            "used_decision_ids": [],
+            "veto_decision_ids": []
+          },
+          {
+            "approval_decision_ids": [],
+            "approval_principals": [],
+            "artifact_id": "docs/local-governance.md",
+            "eligible": false,
+            "required_reviewers": 2,
+            "used_decision_ids": [],
+            "veto_decision_ids": []
+          }
+        ]
+      },
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "reasons": [
+        {
+          "actual": 0,
+          "artifact_id": "code/local_governance.py",
+          "code": "governance_quorum_missing",
+          "required": 2
+        },
+        {
+          "actual": 0,
+          "artifact_id": "docs/local-governance.md",
+          "code": "governance_quorum_missing",
+          "required": 2
+        }
+      ],
+      "replayed": false,
+      "revision": 1
+    }
+  },
+  {
+    "seq": 24,
+    "type": "governance_decision_recorded",
+    "data": {
+      "artifact_id": "docs/local-governance.md",
+      "created_at": 1792164518.4210029,
+      "decision_id": "gvd_96522c47db80a24ed5ffc4150e3678241d26bb2f7f9d05a00453503277035c0b",
+      "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+      "operation_id": "decision-a-initial-doc",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 1,
+      "previous_decision_id": null,
+      "principal_id": "programmed-reviewer-a",
+      "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "rationale": "Programmed local decision for a-initial-doc; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 1,
+      "verdict": "approve"
+    }
+  },
+  {
+    "seq": 25,
+    "type": "governance_decision_recorded",
+    "data": {
+      "artifact_id": "docs/local-governance.md",
+      "created_at": 1792164518.4217334,
+      "decision_id": "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c",
+      "grant_id": "gvg_dba5883378e35659d2e22840dc3c2db7",
+      "operation_id": "decision-a-extra-token-doc",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 1,
+      "previous_decision_id": "gvd_96522c47db80a24ed5ffc4150e3678241d26bb2f7f9d05a00453503277035c0b",
+      "principal_id": "programmed-reviewer-a",
+      "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "rationale": "Programmed local decision for a-extra-token-doc; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 1,
+      "verdict": "approve"
+    }
+  },
+  {
+    "seq": 26,
+    "type": "governance_decision_recorded",
+    "data": {
+      "artifact_id": "code/local_governance.py",
+      "created_at": 1792164518.4224143,
+      "decision_id": "gvd_6216b197f7b86ad0347197f3251e137190f67c825c4aaf0d51ec3e3e3a13ecd9",
+      "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+      "operation_id": "decision-a-initial-code",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 1,
+      "previous_decision_id": null,
+      "principal_id": "programmed-reviewer-a",
+      "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "rationale": "Programmed local decision for a-initial-code; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 1,
+      "verdict": "approve"
+    }
+  },
+  {
+    "seq": 27,
+    "type": "governance_decision_recorded",
+    "data": {
+      "artifact_id": "code/local_governance.py",
+      "created_at": 1792164518.4234703,
+      "decision_id": "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f",
+      "grant_id": "gvg_dba5883378e35659d2e22840dc3c2db7",
+      "operation_id": "decision-a-extra-token-code",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 1,
+      "previous_decision_id": "gvd_6216b197f7b86ad0347197f3251e137190f67c825c4aaf0d51ec3e3e3a13ecd9",
+      "principal_id": "programmed-reviewer-a",
+      "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "rationale": "Programmed local decision for a-extra-token-code; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 1,
+      "verdict": "approve"
+    }
+  },
+  {
+    "seq": 28,
+    "type": "accept_blocked",
+    "data": {
+      "accepted": false,
+      "governance": {
+        "advisory_only": true,
+        "author_identity_authenticated": false,
+        "coordinator": {
+          "grant_id": "gvg_18beb063a6d8609b505e106e3790bb5b",
+          "principal_id": "programmed-coordinator"
+        },
+        "decisions": [
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4210029,
+            "current_head": false,
+            "decision_id": "gvd_96522c47db80a24ed5ffc4150e3678241d26bb2f7f9d05a00453503277035c0b",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+            "invalid_reasons": [
+              "superseded"
+            ],
+            "operation_id": "decision-a-initial-doc",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-initial-doc; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4217334,
+            "current_head": true,
+            "decision_id": "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_dba5883378e35659d2e22840dc3c2db7",
+            "invalid_reasons": [],
+            "operation_id": "decision-a-extra-token-doc",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_96522c47db80a24ed5ffc4150e3678241d26bb2f7f9d05a00453503277035c0b",
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-extra-token-doc; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4224143,
+            "current_head": false,
+            "decision_id": "gvd_6216b197f7b86ad0347197f3251e137190f67c825c4aaf0d51ec3e3e3a13ecd9",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+            "invalid_reasons": [
+              "superseded"
+            ],
+            "operation_id": "decision-a-initial-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-initial-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4234703,
+            "current_head": true,
+            "decision_id": "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_dba5883378e35659d2e22840dc3c2db7",
+            "invalid_reasons": [],
+            "operation_id": "decision-a-extra-token-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_6216b197f7b86ad0347197f3251e137190f67c825c4aaf0d51ec3e3e3a13ecd9",
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-extra-token-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "approve"
+          }
+        ],
+        "eligible": false,
+        "enabled": true,
+        "human_identity_authenticated": false,
+        "observed_at": 1792164518.4243171,
+        "policy": {
+          "minimum_reviewers": 2,
+          "schema_version": 1,
+          "separate_coordinator": true
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy_generation": 1,
+        "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+        "proposal_id": "p_db63e7902e853fe6037b8572",
+        "proposal_status": "proposed",
+        "reasons": [
+          {
+            "actual": 1,
+            "artifact_id": "code/local_governance.py",
+            "code": "governance_quorum_missing",
+            "required": 2
+          },
+          {
+            "actual": 1,
+            "artifact_id": "docs/local-governance.md",
+            "code": "governance_quorum_missing",
+            "required": 2
+          }
+        ],
+        "rules_version": "governance-1",
+        "schema_version": 1,
+        "valid_until": 1792168118.3963897,
+        "writes": [
+          {
+            "approval_decision_ids": [
+              "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f"
+            ],
+            "approval_principals": [
+              "programmed-reviewer-a"
+            ],
+            "artifact_id": "code/local_governance.py",
+            "eligible": false,
+            "required_reviewers": 2,
+            "used_decision_ids": [
+              "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f"
+            ],
+            "veto_decision_ids": []
+          },
+          {
+            "approval_decision_ids": [
+              "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c"
+            ],
+            "approval_principals": [
+              "programmed-reviewer-a"
+            ],
+            "artifact_id": "docs/local-governance.md",
+            "eligible": false,
+            "required_reviewers": 2,
+            "used_decision_ids": [
+              "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c"
+            ],
+            "veto_decision_ids": []
+          }
+        ]
+      },
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "reasons": [
+        {
+          "actual": 1,
+          "artifact_id": "code/local_governance.py",
+          "code": "governance_quorum_missing",
+          "required": 2
+        },
+        {
+          "actual": 1,
+          "artifact_id": "docs/local-governance.md",
+          "code": "governance_quorum_missing",
+          "required": 2
+        }
+      ],
+      "replayed": false,
+      "revision": 1
+    }
+  },
+  {
+    "seq": 29,
+    "type": "governance_decision_recorded",
+    "data": {
+      "artifact_id": "docs/local-governance.md",
+      "created_at": 1792164518.4327743,
+      "decision_id": "gvd_184f3c3d40ca03aa408b913b17c0729acf70252186e4e92817326fbf5d330b60",
+      "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+      "operation_id": "decision-b-document-only",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 1,
+      "previous_decision_id": null,
+      "principal_id": "programmed-reviewer-b",
+      "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "rationale": "Programmed local decision for b-document-only; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 1,
+      "verdict": "approve"
+    }
+  },
+  {
+    "seq": 30,
+    "type": "accept_blocked",
+    "data": {
+      "accepted": false,
+      "governance": {
+        "advisory_only": true,
+        "author_identity_authenticated": false,
+        "coordinator": {
+          "grant_id": "gvg_18beb063a6d8609b505e106e3790bb5b",
+          "principal_id": "programmed-coordinator"
+        },
+        "decisions": [
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4210029,
+            "current_head": false,
+            "decision_id": "gvd_96522c47db80a24ed5ffc4150e3678241d26bb2f7f9d05a00453503277035c0b",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+            "invalid_reasons": [
+              "superseded"
+            ],
+            "operation_id": "decision-a-initial-doc",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-initial-doc; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4217334,
+            "current_head": true,
+            "decision_id": "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_dba5883378e35659d2e22840dc3c2db7",
+            "invalid_reasons": [],
+            "operation_id": "decision-a-extra-token-doc",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_96522c47db80a24ed5ffc4150e3678241d26bb2f7f9d05a00453503277035c0b",
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-extra-token-doc; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4224143,
+            "current_head": false,
+            "decision_id": "gvd_6216b197f7b86ad0347197f3251e137190f67c825c4aaf0d51ec3e3e3a13ecd9",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+            "invalid_reasons": [
+              "superseded"
+            ],
+            "operation_id": "decision-a-initial-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-initial-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4234703,
+            "current_head": true,
+            "decision_id": "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_dba5883378e35659d2e22840dc3c2db7",
+            "invalid_reasons": [],
+            "operation_id": "decision-a-extra-token-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_6216b197f7b86ad0347197f3251e137190f67c825c4aaf0d51ec3e3e3a13ecd9",
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-extra-token-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4327743,
+            "current_head": true,
+            "decision_id": "gvd_184f3c3d40ca03aa408b913b17c0729acf70252186e4e92817326fbf5d330b60",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [],
+            "operation_id": "decision-b-document-only",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-document-only; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "approve"
+          }
+        ],
+        "eligible": false,
+        "enabled": true,
+        "human_identity_authenticated": false,
+        "observed_at": 1792164518.4337842,
+        "policy": {
+          "minimum_reviewers": 2,
+          "schema_version": 1,
+          "separate_coordinator": true
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy_generation": 1,
+        "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+        "proposal_id": "p_db63e7902e853fe6037b8572",
+        "proposal_status": "proposed",
+        "reasons": [
+          {
+            "actual": 1,
+            "artifact_id": "code/local_governance.py",
+            "code": "governance_quorum_missing",
+            "required": 2
+          }
+        ],
+        "rules_version": "governance-1",
+        "schema_version": 1,
+        "valid_until": 1792168118.3963897,
+        "writes": [
+          {
+            "approval_decision_ids": [
+              "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f"
+            ],
+            "approval_principals": [
+              "programmed-reviewer-a"
+            ],
+            "artifact_id": "code/local_governance.py",
+            "eligible": false,
+            "required_reviewers": 2,
+            "used_decision_ids": [
+              "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f"
+            ],
+            "veto_decision_ids": []
+          },
+          {
+            "approval_decision_ids": [
+              "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c",
+              "gvd_184f3c3d40ca03aa408b913b17c0729acf70252186e4e92817326fbf5d330b60"
+            ],
+            "approval_principals": [
+              "programmed-reviewer-a",
+              "programmed-reviewer-b"
+            ],
+            "artifact_id": "docs/local-governance.md",
+            "eligible": true,
+            "required_reviewers": 2,
+            "used_decision_ids": [
+              "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c",
+              "gvd_184f3c3d40ca03aa408b913b17c0729acf70252186e4e92817326fbf5d330b60"
+            ],
+            "veto_decision_ids": []
+          }
+        ]
+      },
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "reasons": [
+        {
+          "actual": 1,
+          "artifact_id": "code/local_governance.py",
+          "code": "governance_quorum_missing",
+          "required": 2
+        }
+      ],
+      "replayed": false,
+      "revision": 1
+    }
+  },
+  {
+    "seq": 31,
+    "type": "governance_decision_recorded",
+    "data": {
+      "artifact_id": "code/local_governance.py",
+      "created_at": 1792164518.437476,
+      "decision_id": "gvd_e76534c2ee85d7f0c6738ef3190c7fda09e111c56cdba8f019f25ad7a8108541",
+      "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+      "operation_id": "decision-b-code-first",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 1,
+      "previous_decision_id": null,
+      "principal_id": "programmed-reviewer-b",
+      "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "rationale": "Programmed local decision for b-code-first; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 1,
+      "verdict": "approve"
+    }
+  },
+  {
+    "seq": 32,
+    "type": "governance_decision_recorded",
+    "data": {
+      "artifact_id": "code/local_governance.py",
+      "created_at": 1792164518.4452567,
+      "decision_id": "gvd_0d9a2a97148079c05b8db0b82551c94c87fd5b3ad616fbab6d43d5e9a404885c",
+      "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+      "operation_id": "decision-b-code-request-changes",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 1,
+      "previous_decision_id": "gvd_e76534c2ee85d7f0c6738ef3190c7fda09e111c56cdba8f019f25ad7a8108541",
+      "principal_id": "programmed-reviewer-b",
+      "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "rationale": "Programmed local decision for b-code-request-changes; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 1,
+      "verdict": "request_changes"
+    }
+  },
+  {
+    "seq": 33,
+    "type": "accept_blocked",
+    "data": {
+      "accepted": false,
+      "governance": {
+        "advisory_only": true,
+        "author_identity_authenticated": false,
+        "coordinator": {
+          "grant_id": "gvg_18beb063a6d8609b505e106e3790bb5b",
+          "principal_id": "programmed-coordinator"
+        },
+        "decisions": [
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4210029,
+            "current_head": false,
+            "decision_id": "gvd_96522c47db80a24ed5ffc4150e3678241d26bb2f7f9d05a00453503277035c0b",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+            "invalid_reasons": [
+              "superseded"
+            ],
+            "operation_id": "decision-a-initial-doc",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-initial-doc; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4217334,
+            "current_head": true,
+            "decision_id": "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_dba5883378e35659d2e22840dc3c2db7",
+            "invalid_reasons": [],
+            "operation_id": "decision-a-extra-token-doc",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_96522c47db80a24ed5ffc4150e3678241d26bb2f7f9d05a00453503277035c0b",
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-extra-token-doc; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4224143,
+            "current_head": false,
+            "decision_id": "gvd_6216b197f7b86ad0347197f3251e137190f67c825c4aaf0d51ec3e3e3a13ecd9",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+            "invalid_reasons": [
+              "superseded"
+            ],
+            "operation_id": "decision-a-initial-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-initial-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4234703,
+            "current_head": true,
+            "decision_id": "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_dba5883378e35659d2e22840dc3c2db7",
+            "invalid_reasons": [],
+            "operation_id": "decision-a-extra-token-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_6216b197f7b86ad0347197f3251e137190f67c825c4aaf0d51ec3e3e3a13ecd9",
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-extra-token-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4327743,
+            "current_head": true,
+            "decision_id": "gvd_184f3c3d40ca03aa408b913b17c0729acf70252186e4e92817326fbf5d330b60",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [],
+            "operation_id": "decision-b-document-only",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-document-only; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.437476,
+            "current_head": false,
+            "decision_id": "gvd_e76534c2ee85d7f0c6738ef3190c7fda09e111c56cdba8f019f25ad7a8108541",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [
+              "superseded"
+            ],
+            "operation_id": "decision-b-code-first",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-code-first; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4452567,
+            "current_head": true,
+            "decision_id": "gvd_0d9a2a97148079c05b8db0b82551c94c87fd5b3ad616fbab6d43d5e9a404885c",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [],
+            "operation_id": "decision-b-code-request-changes",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_e76534c2ee85d7f0c6738ef3190c7fda09e111c56cdba8f019f25ad7a8108541",
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-code-request-changes; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "request_changes"
+          }
+        ],
+        "eligible": false,
+        "enabled": true,
+        "human_identity_authenticated": false,
+        "observed_at": 1792164518.4489343,
+        "policy": {
+          "minimum_reviewers": 2,
+          "schema_version": 1,
+          "separate_coordinator": true
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy_generation": 1,
+        "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+        "proposal_id": "p_db63e7902e853fe6037b8572",
+        "proposal_status": "proposed",
+        "reasons": [
+          {
+            "actual": 1,
+            "artifact_id": "code/local_governance.py",
+            "code": "governance_quorum_missing",
+            "required": 2
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "code": "governance_changes_requested",
+            "decision_ids": [
+              "gvd_0d9a2a97148079c05b8db0b82551c94c87fd5b3ad616fbab6d43d5e9a404885c"
+            ]
+          }
+        ],
+        "rules_version": "governance-1",
+        "schema_version": 1,
+        "valid_until": 1792168118.3963897,
+        "writes": [
+          {
+            "approval_decision_ids": [
+              "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f"
+            ],
+            "approval_principals": [
+              "programmed-reviewer-a"
+            ],
+            "artifact_id": "code/local_governance.py",
+            "eligible": false,
+            "required_reviewers": 2,
+            "used_decision_ids": [
+              "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f"
+            ],
+            "veto_decision_ids": [
+              "gvd_0d9a2a97148079c05b8db0b82551c94c87fd5b3ad616fbab6d43d5e9a404885c"
+            ]
+          },
+          {
+            "approval_decision_ids": [
+              "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c",
+              "gvd_184f3c3d40ca03aa408b913b17c0729acf70252186e4e92817326fbf5d330b60"
+            ],
+            "approval_principals": [
+              "programmed-reviewer-a",
+              "programmed-reviewer-b"
+            ],
+            "artifact_id": "docs/local-governance.md",
+            "eligible": true,
+            "required_reviewers": 2,
+            "used_decision_ids": [
+              "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c",
+              "gvd_184f3c3d40ca03aa408b913b17c0729acf70252186e4e92817326fbf5d330b60"
+            ],
+            "veto_decision_ids": []
+          }
+        ]
+      },
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "reasons": [
+        {
+          "actual": 1,
+          "artifact_id": "code/local_governance.py",
+          "code": "governance_quorum_missing",
+          "required": 2
+        },
+        {
+          "artifact_id": "code/local_governance.py",
+          "code": "governance_changes_requested",
+          "decision_ids": [
+            "gvd_0d9a2a97148079c05b8db0b82551c94c87fd5b3ad616fbab6d43d5e9a404885c"
+          ]
+        }
+      ],
+      "replayed": false,
+      "revision": 1
+    }
+  },
+  {
+    "seq": 34,
+    "type": "governance_decision_recorded",
+    "data": {
+      "artifact_id": "code/local_governance.py",
+      "created_at": 1792164518.4543622,
+      "decision_id": "gvd_b21c82530f0f5ef0fcb1a95893cb1d0b1dbfce5210616354b818b9ecbc163c12",
+      "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+      "operation_id": "decision-b-code-after-veto",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 1,
+      "previous_decision_id": "gvd_0d9a2a97148079c05b8db0b82551c94c87fd5b3ad616fbab6d43d5e9a404885c",
+      "principal_id": "programmed-reviewer-b",
+      "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "rationale": "Programmed local decision for b-code-after-veto; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 1,
+      "verdict": "approve"
+    }
+  },
+  {
+    "seq": 35,
+    "type": "governance_grant_revoked",
+    "data": {
+      "artifact_ids": [
+        "code/local_governance.py",
+        "docs/local-governance.md"
+      ],
+      "created_at": 1792164518.4050963,
+      "expired": false,
+      "expires_at": 1792168118.3963897,
+      "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+      "issuer_grant_id": "gvg_e085dc99d7176ee63fcc2b0310c1e946",
+      "operation_id": "grant-reviewer-b",
+      "principal_id": "programmed-reviewer-b",
+      "replayed": false,
+      "revoked": true,
+      "revoked_at": 1792164518.4643924,
+      "role": "reviewer"
+    }
+  },
+  {
+    "seq": 36,
+    "type": "accept_blocked",
+    "data": {
+      "accepted": false,
+      "governance": {
+        "advisory_only": true,
+        "author_identity_authenticated": false,
+        "coordinator": {
+          "grant_id": "gvg_18beb063a6d8609b505e106e3790bb5b",
+          "principal_id": "programmed-coordinator"
+        },
+        "decisions": [
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4210029,
+            "current_head": false,
+            "decision_id": "gvd_96522c47db80a24ed5ffc4150e3678241d26bb2f7f9d05a00453503277035c0b",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+            "invalid_reasons": [
+              "superseded"
+            ],
+            "operation_id": "decision-a-initial-doc",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-initial-doc; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4217334,
+            "current_head": true,
+            "decision_id": "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_dba5883378e35659d2e22840dc3c2db7",
+            "invalid_reasons": [],
+            "operation_id": "decision-a-extra-token-doc",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_96522c47db80a24ed5ffc4150e3678241d26bb2f7f9d05a00453503277035c0b",
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-extra-token-doc; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4224143,
+            "current_head": false,
+            "decision_id": "gvd_6216b197f7b86ad0347197f3251e137190f67c825c4aaf0d51ec3e3e3a13ecd9",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+            "invalid_reasons": [
+              "superseded"
+            ],
+            "operation_id": "decision-a-initial-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-initial-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4234703,
+            "current_head": true,
+            "decision_id": "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_dba5883378e35659d2e22840dc3c2db7",
+            "invalid_reasons": [],
+            "operation_id": "decision-a-extra-token-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_6216b197f7b86ad0347197f3251e137190f67c825c4aaf0d51ec3e3e3a13ecd9",
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-extra-token-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4327743,
+            "current_head": true,
+            "decision_id": "gvd_184f3c3d40ca03aa408b913b17c0729acf70252186e4e92817326fbf5d330b60",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [
+              "grant_revoked"
+            ],
+            "operation_id": "decision-b-document-only",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-document-only; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.437476,
+            "current_head": false,
+            "decision_id": "gvd_e76534c2ee85d7f0c6738ef3190c7fda09e111c56cdba8f019f25ad7a8108541",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [
+              "superseded",
+              "grant_revoked"
+            ],
+            "operation_id": "decision-b-code-first",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-code-first; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4452567,
+            "current_head": false,
+            "decision_id": "gvd_0d9a2a97148079c05b8db0b82551c94c87fd5b3ad616fbab6d43d5e9a404885c",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [
+              "superseded",
+              "grant_revoked"
+            ],
+            "operation_id": "decision-b-code-request-changes",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_e76534c2ee85d7f0c6738ef3190c7fda09e111c56cdba8f019f25ad7a8108541",
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-code-request-changes; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "request_changes"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4543622,
+            "current_head": true,
+            "decision_id": "gvd_b21c82530f0f5ef0fcb1a95893cb1d0b1dbfce5210616354b818b9ecbc163c12",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [
+              "grant_revoked"
+            ],
+            "operation_id": "decision-b-code-after-veto",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_0d9a2a97148079c05b8db0b82551c94c87fd5b3ad616fbab6d43d5e9a404885c",
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-code-after-veto; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          }
+        ],
+        "eligible": false,
+        "enabled": true,
+        "human_identity_authenticated": false,
+        "observed_at": 1792164518.468185,
+        "policy": {
+          "minimum_reviewers": 2,
+          "schema_version": 1,
+          "separate_coordinator": true
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy_generation": 1,
+        "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+        "proposal_id": "p_db63e7902e853fe6037b8572",
+        "proposal_status": "proposed",
+        "reasons": [
+          {
+            "actual": 1,
+            "artifact_id": "code/local_governance.py",
+            "code": "governance_quorum_missing",
+            "required": 2
+          },
+          {
+            "actual": 1,
+            "artifact_id": "docs/local-governance.md",
+            "code": "governance_quorum_missing",
+            "required": 2
+          }
+        ],
+        "rules_version": "governance-1",
+        "schema_version": 1,
+        "valid_until": 1792168118.3963897,
+        "writes": [
+          {
+            "approval_decision_ids": [
+              "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f"
+            ],
+            "approval_principals": [
+              "programmed-reviewer-a"
+            ],
+            "artifact_id": "code/local_governance.py",
+            "eligible": false,
+            "required_reviewers": 2,
+            "used_decision_ids": [
+              "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f"
+            ],
+            "veto_decision_ids": []
+          },
+          {
+            "approval_decision_ids": [
+              "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c"
+            ],
+            "approval_principals": [
+              "programmed-reviewer-a"
+            ],
+            "artifact_id": "docs/local-governance.md",
+            "eligible": false,
+            "required_reviewers": 2,
+            "used_decision_ids": [
+              "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c"
+            ],
+            "veto_decision_ids": []
+          }
+        ]
+      },
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "reasons": [
+        {
+          "actual": 1,
+          "artifact_id": "code/local_governance.py",
+          "code": "governance_quorum_missing",
+          "required": 2
+        },
+        {
+          "actual": 1,
+          "artifact_id": "docs/local-governance.md",
+          "code": "governance_quorum_missing",
+          "required": 2
+        }
+      ],
+      "replayed": false,
+      "revision": 1
+    }
+  },
+  {
+    "seq": 37,
+    "type": "governance_grant_issued",
+    "data": {
+      "artifact_ids": [
+        "code/local_governance.py",
+        "docs/local-governance.md"
+      ],
+      "created_at": 1792164518.4765184,
+      "expired": false,
+      "expires_at": 1792168118.3963897,
+      "grant_id": "gvg_c39c3212080cb6c4b095e6222564693c",
+      "issuer_grant_id": "gvg_e085dc99d7176ee63fcc2b0310c1e946",
+      "operation_id": "grant-reviewer-b-regrant",
+      "principal_id": "programmed-reviewer-b",
+      "replayed": false,
+      "revoked": false,
+      "revoked_at": null,
+      "role": "reviewer"
+    }
+  },
+  {
+    "seq": 38,
+    "type": "accept_blocked",
+    "data": {
+      "accepted": false,
+      "governance": {
+        "advisory_only": true,
+        "author_identity_authenticated": false,
+        "coordinator": {
+          "grant_id": "gvg_18beb063a6d8609b505e106e3790bb5b",
+          "principal_id": "programmed-coordinator"
+        },
+        "decisions": [
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4210029,
+            "current_head": false,
+            "decision_id": "gvd_96522c47db80a24ed5ffc4150e3678241d26bb2f7f9d05a00453503277035c0b",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+            "invalid_reasons": [
+              "superseded"
+            ],
+            "operation_id": "decision-a-initial-doc",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-initial-doc; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4217334,
+            "current_head": true,
+            "decision_id": "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_dba5883378e35659d2e22840dc3c2db7",
+            "invalid_reasons": [],
+            "operation_id": "decision-a-extra-token-doc",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_96522c47db80a24ed5ffc4150e3678241d26bb2f7f9d05a00453503277035c0b",
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-extra-token-doc; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4224143,
+            "current_head": false,
+            "decision_id": "gvd_6216b197f7b86ad0347197f3251e137190f67c825c4aaf0d51ec3e3e3a13ecd9",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+            "invalid_reasons": [
+              "superseded"
+            ],
+            "operation_id": "decision-a-initial-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-initial-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4234703,
+            "current_head": true,
+            "decision_id": "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_dba5883378e35659d2e22840dc3c2db7",
+            "invalid_reasons": [],
+            "operation_id": "decision-a-extra-token-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_6216b197f7b86ad0347197f3251e137190f67c825c4aaf0d51ec3e3e3a13ecd9",
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-extra-token-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4327743,
+            "current_head": true,
+            "decision_id": "gvd_184f3c3d40ca03aa408b913b17c0729acf70252186e4e92817326fbf5d330b60",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [
+              "grant_revoked"
+            ],
+            "operation_id": "decision-b-document-only",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-document-only; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.437476,
+            "current_head": false,
+            "decision_id": "gvd_e76534c2ee85d7f0c6738ef3190c7fda09e111c56cdba8f019f25ad7a8108541",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [
+              "superseded",
+              "grant_revoked"
+            ],
+            "operation_id": "decision-b-code-first",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-code-first; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4452567,
+            "current_head": false,
+            "decision_id": "gvd_0d9a2a97148079c05b8db0b82551c94c87fd5b3ad616fbab6d43d5e9a404885c",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [
+              "superseded",
+              "grant_revoked"
+            ],
+            "operation_id": "decision-b-code-request-changes",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_e76534c2ee85d7f0c6738ef3190c7fda09e111c56cdba8f019f25ad7a8108541",
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-code-request-changes; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "request_changes"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4543622,
+            "current_head": true,
+            "decision_id": "gvd_b21c82530f0f5ef0fcb1a95893cb1d0b1dbfce5210616354b818b9ecbc163c12",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [
+              "grant_revoked"
+            ],
+            "operation_id": "decision-b-code-after-veto",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_0d9a2a97148079c05b8db0b82551c94c87fd5b3ad616fbab6d43d5e9a404885c",
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-code-after-veto; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          }
+        ],
+        "eligible": false,
+        "enabled": true,
+        "human_identity_authenticated": false,
+        "observed_at": 1792164518.4774451,
+        "policy": {
+          "minimum_reviewers": 2,
+          "schema_version": 1,
+          "separate_coordinator": true
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy_generation": 1,
+        "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+        "proposal_id": "p_db63e7902e853fe6037b8572",
+        "proposal_status": "proposed",
+        "reasons": [
+          {
+            "actual": 1,
+            "artifact_id": "code/local_governance.py",
+            "code": "governance_quorum_missing",
+            "required": 2
+          },
+          {
+            "actual": 1,
+            "artifact_id": "docs/local-governance.md",
+            "code": "governance_quorum_missing",
+            "required": 2
+          }
+        ],
+        "rules_version": "governance-1",
+        "schema_version": 1,
+        "valid_until": 1792168118.3963897,
+        "writes": [
+          {
+            "approval_decision_ids": [
+              "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f"
+            ],
+            "approval_principals": [
+              "programmed-reviewer-a"
+            ],
+            "artifact_id": "code/local_governance.py",
+            "eligible": false,
+            "required_reviewers": 2,
+            "used_decision_ids": [
+              "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f"
+            ],
+            "veto_decision_ids": []
+          },
+          {
+            "approval_decision_ids": [
+              "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c"
+            ],
+            "approval_principals": [
+              "programmed-reviewer-a"
+            ],
+            "artifact_id": "docs/local-governance.md",
+            "eligible": false,
+            "required_reviewers": 2,
+            "used_decision_ids": [
+              "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c"
+            ],
+            "veto_decision_ids": []
+          }
+        ]
+      },
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "reasons": [
+        {
+          "actual": 1,
+          "artifact_id": "code/local_governance.py",
+          "code": "governance_quorum_missing",
+          "required": 2
+        },
+        {
+          "actual": 1,
+          "artifact_id": "docs/local-governance.md",
+          "code": "governance_quorum_missing",
+          "required": 2
+        }
+      ],
+      "replayed": false,
+      "revision": 1
+    }
+  },
+  {
+    "seq": 39,
+    "type": "governance_decision_recorded",
+    "data": {
+      "artifact_id": "docs/local-governance.md",
+      "created_at": 1792164518.4908347,
+      "decision_id": "gvd_a9830fbc5f0d8aed3765f4aa1a9c0ebfa66c581a410eeec727659365f5d937ab",
+      "grant_id": "gvg_c39c3212080cb6c4b095e6222564693c",
+      "operation_id": "decision-b-regrant-fresh-doc",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 1,
+      "previous_decision_id": "gvd_184f3c3d40ca03aa408b913b17c0729acf70252186e4e92817326fbf5d330b60",
+      "principal_id": "programmed-reviewer-b",
+      "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "rationale": "Programmed local decision for b-regrant-fresh-doc; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 1,
+      "verdict": "approve"
+    }
+  },
+  {
+    "seq": 40,
+    "type": "governance_decision_recorded",
+    "data": {
+      "artifact_id": "code/local_governance.py",
+      "created_at": 1792164518.4929225,
+      "decision_id": "gvd_9e118be7d64bf463816672cab1f95c6a27e6e549a19ec9390f664f2cf184640f",
+      "grant_id": "gvg_c39c3212080cb6c4b095e6222564693c",
+      "operation_id": "decision-b-regrant-fresh-code",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 1,
+      "previous_decision_id": "gvd_b21c82530f0f5ef0fcb1a95893cb1d0b1dbfce5210616354b818b9ecbc163c12",
+      "principal_id": "programmed-reviewer-b",
+      "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "rationale": "Programmed local decision for b-regrant-fresh-code; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 1,
+      "verdict": "approve"
+    }
+  },
+  {
+    "seq": 41,
+    "type": "governance_policy_changed",
+    "data": {
+      "administrator_grant_id": "gvg_e085dc99d7176ee63fcc2b0310c1e946",
+      "created_at": 1792164518.5113006,
+      "generation": 2,
+      "policy": {
+        "minimum_reviewers": 2,
+        "schema_version": 1,
+        "separate_coordinator": true
+      },
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 2
+    }
+  },
+  {
+    "seq": 42,
+    "type": "accept_blocked",
+    "data": {
+      "accepted": false,
+      "governance": {
+        "advisory_only": true,
+        "author_identity_authenticated": false,
+        "coordinator": {
+          "grant_id": "gvg_18beb063a6d8609b505e106e3790bb5b",
+          "principal_id": "programmed-coordinator"
+        },
+        "decisions": [
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4210029,
+            "current_head": false,
+            "decision_id": "gvd_96522c47db80a24ed5ffc4150e3678241d26bb2f7f9d05a00453503277035c0b",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+            "invalid_reasons": [
+              "superseded",
+              "policy_generation_changed"
+            ],
+            "operation_id": "decision-a-initial-doc",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-initial-doc; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4217334,
+            "current_head": true,
+            "decision_id": "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_dba5883378e35659d2e22840dc3c2db7",
+            "invalid_reasons": [
+              "policy_generation_changed"
+            ],
+            "operation_id": "decision-a-extra-token-doc",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_96522c47db80a24ed5ffc4150e3678241d26bb2f7f9d05a00453503277035c0b",
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-extra-token-doc; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4224143,
+            "current_head": false,
+            "decision_id": "gvd_6216b197f7b86ad0347197f3251e137190f67c825c4aaf0d51ec3e3e3a13ecd9",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+            "invalid_reasons": [
+              "superseded",
+              "policy_generation_changed"
+            ],
+            "operation_id": "decision-a-initial-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-initial-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4234703,
+            "current_head": true,
+            "decision_id": "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_dba5883378e35659d2e22840dc3c2db7",
+            "invalid_reasons": [
+              "policy_generation_changed"
+            ],
+            "operation_id": "decision-a-extra-token-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_6216b197f7b86ad0347197f3251e137190f67c825c4aaf0d51ec3e3e3a13ecd9",
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-extra-token-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4327743,
+            "current_head": false,
+            "decision_id": "gvd_184f3c3d40ca03aa408b913b17c0729acf70252186e4e92817326fbf5d330b60",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [
+              "superseded",
+              "policy_generation_changed",
+              "grant_revoked"
+            ],
+            "operation_id": "decision-b-document-only",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-document-only; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.437476,
+            "current_head": false,
+            "decision_id": "gvd_e76534c2ee85d7f0c6738ef3190c7fda09e111c56cdba8f019f25ad7a8108541",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [
+              "superseded",
+              "policy_generation_changed",
+              "grant_revoked"
+            ],
+            "operation_id": "decision-b-code-first",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-code-first; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4452567,
+            "current_head": false,
+            "decision_id": "gvd_0d9a2a97148079c05b8db0b82551c94c87fd5b3ad616fbab6d43d5e9a404885c",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [
+              "superseded",
+              "policy_generation_changed",
+              "grant_revoked"
+            ],
+            "operation_id": "decision-b-code-request-changes",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_e76534c2ee85d7f0c6738ef3190c7fda09e111c56cdba8f019f25ad7a8108541",
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-code-request-changes; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "request_changes"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4543622,
+            "current_head": false,
+            "decision_id": "gvd_b21c82530f0f5ef0fcb1a95893cb1d0b1dbfce5210616354b818b9ecbc163c12",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [
+              "superseded",
+              "policy_generation_changed",
+              "grant_revoked"
+            ],
+            "operation_id": "decision-b-code-after-veto",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_0d9a2a97148079c05b8db0b82551c94c87fd5b3ad616fbab6d43d5e9a404885c",
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-code-after-veto; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4908347,
+            "current_head": true,
+            "decision_id": "gvd_a9830fbc5f0d8aed3765f4aa1a9c0ebfa66c581a410eeec727659365f5d937ab",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c39c3212080cb6c4b095e6222564693c",
+            "invalid_reasons": [
+              "policy_generation_changed"
+            ],
+            "operation_id": "decision-b-regrant-fresh-doc",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_184f3c3d40ca03aa408b913b17c0729acf70252186e4e92817326fbf5d330b60",
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-regrant-fresh-doc; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4929225,
+            "current_head": true,
+            "decision_id": "gvd_9e118be7d64bf463816672cab1f95c6a27e6e549a19ec9390f664f2cf184640f",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c39c3212080cb6c4b095e6222564693c",
+            "invalid_reasons": [
+              "policy_generation_changed"
+            ],
+            "operation_id": "decision-b-regrant-fresh-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_b21c82530f0f5ef0fcb1a95893cb1d0b1dbfce5210616354b818b9ecbc163c12",
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-regrant-fresh-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          }
+        ],
+        "eligible": false,
+        "enabled": true,
+        "human_identity_authenticated": false,
+        "observed_at": 1792164518.512792,
+        "policy": {
+          "minimum_reviewers": 2,
+          "schema_version": 1,
+          "separate_coordinator": true
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy_generation": 2,
+        "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+        "proposal_id": "p_db63e7902e853fe6037b8572",
+        "proposal_status": "proposed",
+        "reasons": [
+          {
+            "actual": 0,
+            "artifact_id": "code/local_governance.py",
+            "code": "governance_quorum_missing",
+            "required": 2
+          },
+          {
+            "actual": 0,
+            "artifact_id": "docs/local-governance.md",
+            "code": "governance_quorum_missing",
+            "required": 2
+          }
+        ],
+        "rules_version": "governance-1",
+        "schema_version": 1,
+        "valid_until": 1792168118.3963897,
+        "writes": [
+          {
+            "approval_decision_ids": [],
+            "approval_principals": [],
+            "artifact_id": "code/local_governance.py",
+            "eligible": false,
+            "required_reviewers": 2,
+            "used_decision_ids": [],
+            "veto_decision_ids": []
+          },
+          {
+            "approval_decision_ids": [],
+            "approval_principals": [],
+            "artifact_id": "docs/local-governance.md",
+            "eligible": false,
+            "required_reviewers": 2,
+            "used_decision_ids": [],
+            "veto_decision_ids": []
+          }
+        ]
+      },
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "reasons": [
+        {
+          "actual": 0,
+          "artifact_id": "code/local_governance.py",
+          "code": "governance_quorum_missing",
+          "required": 2
+        },
+        {
+          "actual": 0,
+          "artifact_id": "docs/local-governance.md",
+          "code": "governance_quorum_missing",
+          "required": 2
+        }
+      ],
+      "replayed": false,
+      "revision": 1
+    }
+  },
+  {
+    "seq": 43,
+    "type": "governance_decision_recorded",
+    "data": {
+      "artifact_id": "docs/local-governance.md",
+      "created_at": 1792164518.5232437,
+      "decision_id": "gvd_21225fac721fadcb7143966abe78260f85d4746739df1e0b40d6fce5b22d2282",
+      "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+      "operation_id": "decision-a-generation-two-doc",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 2,
+      "previous_decision_id": "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c",
+      "principal_id": "programmed-reviewer-a",
+      "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "rationale": "Programmed local decision for a-generation-two-doc; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 1,
+      "verdict": "approve"
+    }
+  },
+  {
+    "seq": 44,
+    "type": "governance_decision_recorded",
+    "data": {
+      "artifact_id": "code/local_governance.py",
+      "created_at": 1792164518.52391,
+      "decision_id": "gvd_4088bc073072066285958b61fc14e13bd1dc11cdab6ac502e25917813548c8db",
+      "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+      "operation_id": "decision-a-generation-two-code",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 2,
+      "previous_decision_id": "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f",
+      "principal_id": "programmed-reviewer-a",
+      "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "rationale": "Programmed local decision for a-generation-two-code; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 1,
+      "verdict": "approve"
+    }
+  },
+  {
+    "seq": 45,
+    "type": "governance_decision_recorded",
+    "data": {
+      "artifact_id": "docs/local-governance.md",
+      "created_at": 1792164518.524711,
+      "decision_id": "gvd_3f5c925f7fe1d622f26461c6ba889373a5f1b2eddd23b0f11222a9e9b68e7a89",
+      "grant_id": "gvg_c39c3212080cb6c4b095e6222564693c",
+      "operation_id": "decision-b-generation-two-doc",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 2,
+      "previous_decision_id": "gvd_a9830fbc5f0d8aed3765f4aa1a9c0ebfa66c581a410eeec727659365f5d937ab",
+      "principal_id": "programmed-reviewer-b",
+      "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "rationale": "Programmed local decision for b-generation-two-doc; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 1,
+      "verdict": "approve"
+    }
+  },
+  {
+    "seq": 46,
+    "type": "governance_decision_recorded",
+    "data": {
+      "artifact_id": "code/local_governance.py",
+      "created_at": 1792164518.5257995,
+      "decision_id": "gvd_f0ba2d4fe9bec89b10a1602d86d01c212057aea1c9f0114b959d89ad0e0bc20f",
+      "grant_id": "gvg_c39c3212080cb6c4b095e6222564693c",
+      "operation_id": "decision-b-generation-two-code",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 2,
+      "previous_decision_id": "gvd_9e118be7d64bf463816672cab1f95c6a27e6e549a19ec9390f664f2cf184640f",
+      "principal_id": "programmed-reviewer-b",
+      "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "rationale": "Programmed local decision for b-generation-two-code; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 1,
+      "verdict": "approve"
+    }
+  },
+  {
+    "seq": 47,
+    "type": "proposal_accepted",
+    "data": {
+      "accepted": true,
+      "authorization_time": 1792164518.5359,
+      "coordinator": "programmed-coordinator",
+      "coordinator_grant_id": "gvg_18beb063a6d8609b505e106e3790bb5b",
+      "governance": {
+        "advisory_only": true,
+        "author_identity_authenticated": false,
+        "authorization_reasons": [],
+        "authorization_time": 1792164518.5359,
+        "coordinator": {
+          "grant_id": "gvg_18beb063a6d8609b505e106e3790bb5b",
+          "principal_id": "programmed-coordinator"
+        },
+        "decisions": [
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4210029,
+            "current_head": false,
+            "decision_id": "gvd_96522c47db80a24ed5ffc4150e3678241d26bb2f7f9d05a00453503277035c0b",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+            "invalid_reasons": [
+              "superseded",
+              "policy_generation_changed"
+            ],
+            "operation_id": "decision-a-initial-doc",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-initial-doc; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4217334,
+            "current_head": false,
+            "decision_id": "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_dba5883378e35659d2e22840dc3c2db7",
+            "invalid_reasons": [
+              "superseded",
+              "policy_generation_changed"
+            ],
+            "operation_id": "decision-a-extra-token-doc",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_96522c47db80a24ed5ffc4150e3678241d26bb2f7f9d05a00453503277035c0b",
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-extra-token-doc; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4224143,
+            "current_head": false,
+            "decision_id": "gvd_6216b197f7b86ad0347197f3251e137190f67c825c4aaf0d51ec3e3e3a13ecd9",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+            "invalid_reasons": [
+              "superseded",
+              "policy_generation_changed"
+            ],
+            "operation_id": "decision-a-initial-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-initial-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4234703,
+            "current_head": false,
+            "decision_id": "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_dba5883378e35659d2e22840dc3c2db7",
+            "invalid_reasons": [
+              "superseded",
+              "policy_generation_changed"
+            ],
+            "operation_id": "decision-a-extra-token-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_6216b197f7b86ad0347197f3251e137190f67c825c4aaf0d51ec3e3e3a13ecd9",
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-extra-token-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4327743,
+            "current_head": false,
+            "decision_id": "gvd_184f3c3d40ca03aa408b913b17c0729acf70252186e4e92817326fbf5d330b60",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [
+              "superseded",
+              "policy_generation_changed",
+              "grant_revoked"
+            ],
+            "operation_id": "decision-b-document-only",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-document-only; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.437476,
+            "current_head": false,
+            "decision_id": "gvd_e76534c2ee85d7f0c6738ef3190c7fda09e111c56cdba8f019f25ad7a8108541",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [
+              "superseded",
+              "policy_generation_changed",
+              "grant_revoked"
+            ],
+            "operation_id": "decision-b-code-first",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-code-first; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4452567,
+            "current_head": false,
+            "decision_id": "gvd_0d9a2a97148079c05b8db0b82551c94c87fd5b3ad616fbab6d43d5e9a404885c",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [
+              "superseded",
+              "policy_generation_changed",
+              "grant_revoked"
+            ],
+            "operation_id": "decision-b-code-request-changes",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_e76534c2ee85d7f0c6738ef3190c7fda09e111c56cdba8f019f25ad7a8108541",
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-code-request-changes; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "request_changes"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4543622,
+            "current_head": false,
+            "decision_id": "gvd_b21c82530f0f5ef0fcb1a95893cb1d0b1dbfce5210616354b818b9ecbc163c12",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+            "invalid_reasons": [
+              "superseded",
+              "policy_generation_changed",
+              "grant_revoked"
+            ],
+            "operation_id": "decision-b-code-after-veto",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_0d9a2a97148079c05b8db0b82551c94c87fd5b3ad616fbab6d43d5e9a404885c",
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-code-after-veto; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.4908347,
+            "current_head": false,
+            "decision_id": "gvd_a9830fbc5f0d8aed3765f4aa1a9c0ebfa66c581a410eeec727659365f5d937ab",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c39c3212080cb6c4b095e6222564693c",
+            "invalid_reasons": [
+              "superseded",
+              "policy_generation_changed"
+            ],
+            "operation_id": "decision-b-regrant-fresh-doc",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_184f3c3d40ca03aa408b913b17c0729acf70252186e4e92817326fbf5d330b60",
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-regrant-fresh-doc; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.4929225,
+            "current_head": false,
+            "decision_id": "gvd_9e118be7d64bf463816672cab1f95c6a27e6e549a19ec9390f664f2cf184640f",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c39c3212080cb6c4b095e6222564693c",
+            "invalid_reasons": [
+              "superseded",
+              "policy_generation_changed"
+            ],
+            "operation_id": "decision-b-regrant-fresh-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 1,
+            "previous_decision_id": "gvd_b21c82530f0f5ef0fcb1a95893cb1d0b1dbfce5210616354b818b9ecbc163c12",
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-regrant-fresh-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": false,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.5232437,
+            "current_head": true,
+            "decision_id": "gvd_21225fac721fadcb7143966abe78260f85d4746739df1e0b40d6fce5b22d2282",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+            "invalid_reasons": [],
+            "operation_id": "decision-a-generation-two-doc",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 2,
+            "previous_decision_id": "gvd_a9be794aa8e66005a45c44902eb91cdec1cc76bdb1dec78a9c1ae8a17548413c",
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-generation-two-doc; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.52391,
+            "current_head": true,
+            "decision_id": "gvd_4088bc073072066285958b61fc14e13bd1dc11cdab6ac502e25917813548c8db",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+            "invalid_reasons": [],
+            "operation_id": "decision-a-generation-two-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 2,
+            "previous_decision_id": "gvd_e4abbff01c736ba738778beb8eedb790c763ad4ec3feff73574c4fec50e6140f",
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for a-generation-two-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.524711,
+            "current_head": true,
+            "decision_id": "gvd_3f5c925f7fe1d622f26461c6ba889373a5f1b2eddd23b0f11222a9e9b68e7a89",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c39c3212080cb6c4b095e6222564693c",
+            "invalid_reasons": [],
+            "operation_id": "decision-b-generation-two-doc",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 2,
+            "previous_decision_id": "gvd_a9830fbc5f0d8aed3765f4aa1a9c0ebfa66c581a410eeec727659365f5d937ab",
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-generation-two-doc; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "code/local_governance.py",
+            "created_at": 1792164518.5257995,
+            "current_head": true,
+            "decision_id": "gvd_f0ba2d4fe9bec89b10a1602d86d01c212057aea1c9f0114b959d89ad0e0bc20f",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c39c3212080cb6c4b095e6222564693c",
+            "invalid_reasons": [],
+            "operation_id": "decision-b-generation-two-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 2,
+            "previous_decision_id": "gvd_9e118be7d64bf463816672cab1f95c6a27e6e549a19ec9390f664f2cf184640f",
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+            "proposal_id": "p_db63e7902e853fe6037b8572",
+            "rationale": "Programmed local decision for b-generation-two-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "approve"
+          }
+        ],
+        "eligible": true,
+        "enabled": true,
+        "human_identity_authenticated": false,
+        "observed_at": 1792164518.535345,
+        "policy": {
+          "minimum_reviewers": 2,
+          "schema_version": 1,
+          "separate_coordinator": true
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy_generation": 2,
+        "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+        "proposal_id": "p_db63e7902e853fe6037b8572",
+        "proposal_status": "proposed",
+        "reasons": [],
+        "rules_version": "governance-1",
+        "schema_version": 1,
+        "valid_until": 1792168118.3963897,
+        "writes": [
+          {
+            "approval_decision_ids": [
+              "gvd_4088bc073072066285958b61fc14e13bd1dc11cdab6ac502e25917813548c8db",
+              "gvd_f0ba2d4fe9bec89b10a1602d86d01c212057aea1c9f0114b959d89ad0e0bc20f"
+            ],
+            "approval_principals": [
+              "programmed-reviewer-a",
+              "programmed-reviewer-b"
+            ],
+            "artifact_id": "code/local_governance.py",
+            "eligible": true,
+            "required_reviewers": 2,
+            "used_decision_ids": [
+              "gvd_4088bc073072066285958b61fc14e13bd1dc11cdab6ac502e25917813548c8db",
+              "gvd_f0ba2d4fe9bec89b10a1602d86d01c212057aea1c9f0114b959d89ad0e0bc20f"
+            ],
+            "veto_decision_ids": []
+          },
+          {
+            "approval_decision_ids": [
+              "gvd_21225fac721fadcb7143966abe78260f85d4746739df1e0b40d6fce5b22d2282",
+              "gvd_3f5c925f7fe1d622f26461c6ba889373a5f1b2eddd23b0f11222a9e9b68e7a89"
+            ],
+            "approval_principals": [
+              "programmed-reviewer-a",
+              "programmed-reviewer-b"
+            ],
+            "artifact_id": "docs/local-governance.md",
+            "eligible": true,
+            "required_reviewers": 2,
+            "used_decision_ids": [
+              "gvd_21225fac721fadcb7143966abe78260f85d4746739df1e0b40d6fce5b22d2282",
+              "gvd_3f5c925f7fe1d622f26461c6ba889373a5f1b2eddd23b0f11222a9e9b68e7a89"
+            ],
+            "veto_decision_ids": []
+          }
+        ]
+      },
+      "governance_receipt": {
+        "accepted_at": 1792164518.5359,
+        "authorization_time": 1792164518.5359,
+        "coordinator": {
+          "grant_id": "gvg_18beb063a6d8609b505e106e3790bb5b",
+          "principal_id": "programmed-coordinator"
+        },
+        "decisions": {
+          "code/local_governance.py": [
+            "gvd_4088bc073072066285958b61fc14e13bd1dc11cdab6ac502e25917813548c8db",
+            "gvd_f0ba2d4fe9bec89b10a1602d86d01c212057aea1c9f0114b959d89ad0e0bc20f"
+          ],
+          "docs/local-governance.md": [
+            "gvd_21225fac721fadcb7143966abe78260f85d4746739df1e0b40d6fce5b22d2282",
+            "gvd_3f5c925f7fe1d622f26461c6ba889373a5f1b2eddd23b0f11222a9e9b68e7a89"
+          ]
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy_generation": 2,
+        "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+        "proposal_id": "p_db63e7902e853fe6037b8572",
+        "receipt_id": "gvr_c8d4bfce502a82e471837ac51d765b4611670f1fdbacd6e5c840e282aecc9d2b",
+        "revision": 2,
+        "rules_version": "governance-1",
+        "schema_version": 1
+      },
+      "legacy_acceptance": false,
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "reasons": [],
+      "replayed": false,
+      "review_id": 3,
+      "revision": 2
+    }
+  },
+  {
+    "seq": 48,
+    "type": "governance_grant_revoked",
+    "data": {
+      "artifact_ids": [
+        "code/local_governance.py",
+        "docs/local-governance.md"
+      ],
+      "created_at": 1792164518.4084167,
+      "expired": false,
+      "expires_at": 1792168118.3963897,
+      "grant_id": "gvg_18beb063a6d8609b505e106e3790bb5b",
+      "issuer_grant_id": "gvg_e085dc99d7176ee63fcc2b0310c1e946",
+      "operation_id": "grant-coordinator",
+      "principal_id": "programmed-coordinator",
+      "replayed": false,
+      "revoked": true,
+      "revoked_at": 1792164518.5439706,
+      "role": "coordinator"
+    }
+  },
+  {
+    "seq": 49,
+    "type": "governance_grant_issued",
+    "data": {
+      "artifact_ids": [
+        "code/local_governance.py",
+        "docs/local-governance.md"
+      ],
+      "created_at": 1792164518.544835,
+      "expired": false,
+      "expires_at": 1792168118.3963897,
+      "grant_id": "gvg_ea38970a4c5294d03500a199e6748e15",
+      "issuer_grant_id": "gvg_e085dc99d7176ee63fcc2b0310c1e946",
+      "operation_id": "grant-coordinator-final",
+      "principal_id": "programmed-coordinator",
+      "replayed": false,
+      "revoked": false,
+      "revoked_at": null,
+      "role": "coordinator"
+    }
+  },
+  {
+    "seq": 50,
+    "type": "governance_decision_recorded",
+    "data": {
+      "artifact_id": "docs/local-governance.md",
+      "created_at": 1792164518.5504053,
+      "decision_id": "gvd_280c8ac8c9a431cbac9346bcedf9b1f2d00646f98ca74d9378100d77fb3ca272",
+      "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+      "operation_id": "decision-a-competing-document",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 2,
+      "previous_decision_id": null,
+      "principal_id": "programmed-reviewer-a",
+      "proposal_digest": "8d27fb09de13976abc677309649e6761b92652e58ccb4f4f4b4ea4640dd6925b",
+      "proposal_id": "p_4676e272193f8adf9ab81011",
+      "rationale": "Programmed local decision for a-competing-document; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 1,
+      "verdict": "approve"
+    }
+  },
+  {
+    "seq": 51,
+    "type": "governance_decision_recorded",
+    "data": {
+      "artifact_id": "docs/local-governance.md",
+      "created_at": 1792164518.5527809,
+      "decision_id": "gvd_f318b2b36815f432a8d2fef630f34452fa6dc14464d4132d6cef2f56a472d5fd",
+      "grant_id": "gvg_c39c3212080cb6c4b095e6222564693c",
+      "operation_id": "decision-b-competing-document",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 2,
+      "previous_decision_id": null,
+      "principal_id": "programmed-reviewer-b",
+      "proposal_digest": "8d27fb09de13976abc677309649e6761b92652e58ccb4f4f4b4ea4640dd6925b",
+      "proposal_id": "p_4676e272193f8adf9ab81011",
+      "rationale": "Programmed local decision for b-competing-document; no human review, prose truth or code behavior is asserted.",
+      "rules_version": "governance-1",
+      "schema_version": 1,
+      "verdict": "approve"
+    }
+  },
+  {
+    "seq": 52,
+    "type": "accept_blocked",
+    "data": {
+      "accepted": false,
+      "governance": {
+        "advisory_only": true,
+        "author_identity_authenticated": false,
+        "coordinator": {
+          "grant_id": "gvg_ea38970a4c5294d03500a199e6748e15",
+          "principal_id": "programmed-coordinator"
+        },
+        "decisions": [
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.5504053,
+            "current_head": true,
+            "decision_id": "gvd_280c8ac8c9a431cbac9346bcedf9b1f2d00646f98ca74d9378100d77fb3ca272",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+            "invalid_reasons": [],
+            "operation_id": "decision-a-competing-document",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 2,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-a",
+            "proposal_digest": "8d27fb09de13976abc677309649e6761b92652e58ccb4f4f4b4ea4640dd6925b",
+            "proposal_id": "p_4676e272193f8adf9ab81011",
+            "rationale": "Programmed local decision for a-competing-document; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "approve"
+          },
+          {
+            "artifact_id": "docs/local-governance.md",
+            "created_at": 1792164518.5527809,
+            "current_head": true,
+            "decision_id": "gvd_f318b2b36815f432a8d2fef630f34452fa6dc14464d4132d6cef2f56a472d5fd",
+            "grant_expires_at": 1792168118.3963897,
+            "grant_id": "gvg_c39c3212080cb6c4b095e6222564693c",
+            "invalid_reasons": [],
+            "operation_id": "decision-b-competing-document",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 2,
+            "previous_decision_id": null,
+            "principal_id": "programmed-reviewer-b",
+            "proposal_digest": "8d27fb09de13976abc677309649e6761b92652e58ccb4f4f4b4ea4640dd6925b",
+            "proposal_id": "p_4676e272193f8adf9ab81011",
+            "rationale": "Programmed local decision for b-competing-document; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "valid": true,
+            "verdict": "approve"
+          }
+        ],
+        "eligible": true,
+        "enabled": true,
+        "human_identity_authenticated": false,
+        "observed_at": 1792164518.5557091,
+        "policy": {
+          "minimum_reviewers": 2,
+          "schema_version": 1,
+          "separate_coordinator": true
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy_generation": 2,
+        "proposal_digest": "8d27fb09de13976abc677309649e6761b92652e58ccb4f4f4b4ea4640dd6925b",
+        "proposal_id": "p_4676e272193f8adf9ab81011",
+        "proposal_status": "proposed",
+        "reasons": [],
+        "rules_version": "governance-1",
+        "schema_version": 1,
+        "valid_until": 1792168118.3963897,
+        "writes": [
+          {
+            "approval_decision_ids": [
+              "gvd_280c8ac8c9a431cbac9346bcedf9b1f2d00646f98ca74d9378100d77fb3ca272",
+              "gvd_f318b2b36815f432a8d2fef630f34452fa6dc14464d4132d6cef2f56a472d5fd"
+            ],
+            "approval_principals": [
+              "programmed-reviewer-a",
+              "programmed-reviewer-b"
+            ],
+            "artifact_id": "docs/local-governance.md",
+            "eligible": true,
+            "required_reviewers": 2,
+            "used_decision_ids": [
+              "gvd_280c8ac8c9a431cbac9346bcedf9b1f2d00646f98ca74d9378100d77fb3ca272",
+              "gvd_f318b2b36815f432a8d2fef630f34452fa6dc14464d4132d6cef2f56a472d5fd"
+            ],
+            "veto_decision_ids": []
+          }
+        ]
+      },
+      "proposal_id": "p_4676e272193f8adf9ab81011",
+      "reasons": [
+        {
+          "actual": "4675ff82d36bf8a9604647072c7279725fb5148e8c8d320a425de2081019f491",
+          "code": "stale_read",
+          "expected": "2096e34fbf03d36089b017f33898766b1f3957ea410be9ba43294b0d724a04a9",
+          "id": "docs/local-governance.md"
+        }
+      ],
+      "replayed": false,
+      "revision": 2
+    }
+  }
+]

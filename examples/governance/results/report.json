@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T17:28:38.616444+02:00",
+  "kind": "local_credential_governance_product_example",
+  "workers": 3,
+  "actors": {
+    "author_names_self_declared": true,
+    "authenticated_local_capability_principals": true,
+    "persons_authenticated": false,
+    "human_review_recorded": false,
+    "external_llm_used": false,
+    "proposed_code_executed": false
+  },
+  "policy": {
+    "schema_version": 1,
+    "minimum_reviewers": 2,
+    "separate_coordinator": true
+  },
+  "policy_generation": 2,
+  "stages": [
+    {
+      "label": "no-editorial-approvals",
+      "explanation": "A formal review and management credential do not satisfy the per-write editorial quorum.",
+      "artifact": "stage-01-no-editorial-approvals.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "one-principal-two-credentials",
+      "explanation": "Two credentials for the same principal count as one reviewer per write.",
+      "artifact": "stage-02-one-principal-two-credentials.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "code-missing-second-reviewer",
+      "explanation": "The document has two reviewers; code still lacks its own second approval.",
+      "artifact": "stage-03-code-missing-second-reviewer.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "all-writes-approved",
+      "explanation": "Every write has two distinct active principals; this is an observation, not acceptance.",
+      "artifact": "stage-04-all-writes-approved.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "request-changes-veto",
+      "explanation": "The latest request_changes replaces the earlier approval and blocks acceptance.",
+      "artifact": "stage-05-request-changes-veto.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "veto-explicitly-replaced",
+      "explanation": "Only a replacement naming the current decision clears this principal's veto.",
+      "artifact": "stage-06-veto-explicitly-replaced.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "reviewer-revoked",
+      "explanation": "Revocation invalidates this grant's former approvals before acceptance.",
+      "artifact": "stage-07-reviewer-revoked.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "regrant-does-not-resurrect-decisions",
+      "explanation": "A new credential for the same principal does not reactivate old grant-bound decisions.",
+      "artifact": "stage-08-regrant-does-not-resurrect-decisions.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "fresh-regranted-decisions",
+      "explanation": "New decisions explicitly pin the new grant and the current policy generation.",
+      "artifact": "stage-09-fresh-regranted-decisions.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "policy-generation-changed",
+      "explanation": "A new policy generation invalidates old-generation decisions even when its fields are equal.",
+      "artifact": "stage-10-policy-generation-changed.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "fresh-current-generation",
+      "explanation": "Both reviewers recorded new decisions against policy generation 2.",
+      "artifact": "stage-11-fresh-current-generation.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "accepted",
+      "explanation": "Authorization, quorum, latest decisions and old runtime guards are checked inside acceptance.",
+      "artifact": "stage-12-accepted.json",
+      "runtime_revision": 2
+    },
+    {
+      "label": "authorized-historical-receipt",
+      "explanation": "A revoked coordinator cannot replay; a newly authorized one receives the original accepted revision.",
+      "artifact": "stage-13-authorized-historical-receipt.json",
+      "runtime_revision": 2
+    },
+    {
+      "label": "old-runtime-guards-preserved",
+      "explanation": "Fresh approvals cannot override the competing candidate's stale document read.",
+      "artifact": "stage-14-old-runtime-guards-preserved.json",
+      "runtime_revision": 2
+    }
+  ],
+  "initial_runtime_revision": 1,
+  "final_runtime_status": {
+    "revision": 2,
+    "artifacts": 2,
+    "sources": 0,
+    "tasks": {
+      "done": 4
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 3
+    },
+    "events": 52,
+    "rules_version": "mvp-1"
+  },
+  "summary": {
+    "component_proposal_count": 3,
+    "composite_proposal_count": 1,
+    "decision_count": 16,
+    "stage_count": 14,
+    "expected_api_rejection_count": 6,
+    "runtime_event_count": 52,
+    "accepted_proposal_count": 1,
+    "release_created": false,
+    "credential_material_exported": false,
+    "measured_capacity": false,
+    "semantic_equivalence_proved": false
+  },
+  "credential_file_layout": {
+    "administrator": "private/admin.credential",
+    "active_coordinator": "private/coordinator-final.credential",
+    "active_reviewer_a": "private/reviewer-a.credential",
+    "active_reviewer_b": "private/reviewer-b-regrant.credential",
+    "private_database": "private/state.sqlite3"
+  },
+  "limitations": [
+    "The database owner remains trusted and can bypass the Python API by changing local files.",
+    "A credential proves possession of a local capability, not a person's identity, SSO, model identity or expertise.",
+    "Distinct principal IDs do not establish independent people, models, evidence or organizations.",
+    "Author task names remain self-declared; capability principals authorize reviewer and coordinator operations only.",
+    "All decisions are programmed examples; no human review or external LLM call is claimed.",
+    "The fictional document and code are stored data; the code is parsed by existing formal guards but never executed.",
+    "The policy covers every explicit write; it does not find missing promises, prove natural-language truth or enforce semantic reports.",
+    "Public snapshots are sequential observations, not a common transaction; Store.accept is the atomic authorization boundary.",
+    "The worker pool size is configuration, not measured throughput or service capacity.",
+    "Credential files and the database stay private; published example artifacts contain no bearer secret or credential hash."
+  ]
+}

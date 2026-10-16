@@ -1,0 +1,214 @@
+{
+  "label": "no-editorial-approvals",
+  "explanation": "A formal review and management credential do not satisfy the per-write editorial quorum.",
+  "runtime_revision": 1,
+  "governance": {
+    "enabled": true,
+    "rules_version": "governance-1",
+    "observed_at": 1792164518.4191113,
+    "enabled_at": 1792164518.3946934,
+    "activation_revision": 1,
+    "administrator_id": "programmed-administrator",
+    "policy_generation": 1,
+    "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+    "policy": {
+      "minimum_reviewers": 2,
+      "schema_version": 1,
+      "separate_coordinator": true
+    },
+    "policy_history": [
+      {
+        "generation": 1,
+        "policy": {
+          "minimum_reviewers": 2,
+          "schema_version": 1,
+          "separate_coordinator": true
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "created_at": 1792164518.3946934,
+        "administrator_grant_id": "gvg_e085dc99d7176ee63fcc2b0310c1e946"
+      }
+    ],
+    "grants": [
+      {
+        "grant_id": "gvg_e085dc99d7176ee63fcc2b0310c1e946",
+        "principal_id": "programmed-administrator",
+        "role": "administrator",
+        "artifact_ids": [],
+        "expires_at": null,
+        "created_at": 1792164518.3946934,
+        "issuer_grant_id": null,
+        "operation_id": null,
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_daff78d30ca940b25c32aad424ef76a0",
+        "principal_id": "programmed-reviewer-a",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/local_governance.py",
+          "docs/local-governance.md"
+        ],
+        "expires_at": 1792168118.3963897,
+        "created_at": 1792164518.3970244,
+        "issuer_grant_id": "gvg_e085dc99d7176ee63fcc2b0310c1e946",
+        "operation_id": "grant-reviewer-a",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_dba5883378e35659d2e22840dc3c2db7",
+        "principal_id": "programmed-reviewer-a",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/local_governance.py",
+          "docs/local-governance.md"
+        ],
+        "expires_at": 1792168118.3963897,
+        "created_at": 1792164518.4006066,
+        "issuer_grant_id": "gvg_e085dc99d7176ee63fcc2b0310c1e946",
+        "operation_id": "grant-reviewer-a-extra",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_c8afe34887142027ba46a080f91fe297",
+        "principal_id": "programmed-reviewer-b",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/local_governance.py",
+          "docs/local-governance.md"
+        ],
+        "expires_at": 1792168118.3963897,
+        "created_at": 1792164518.4050963,
+        "issuer_grant_id": "gvg_e085dc99d7176ee63fcc2b0310c1e946",
+        "operation_id": "grant-reviewer-b",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_18beb063a6d8609b505e106e3790bb5b",
+        "principal_id": "programmed-coordinator",
+        "role": "coordinator",
+        "artifact_ids": [
+          "code/local_governance.py",
+          "docs/local-governance.md"
+        ],
+        "expires_at": 1792168118.3963897,
+        "created_at": 1792164518.4084167,
+        "issuer_grant_id": "gvg_e085dc99d7176ee63fcc2b0310c1e946",
+        "operation_id": "grant-coordinator",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_1ccc6c727ac029cfbb34f51e77f42eb5",
+        "principal_id": "programmed-document-only-reviewer",
+        "role": "reviewer",
+        "artifact_ids": [
+          "docs/local-governance.md"
+        ],
+        "expires_at": 1792168118.3963897,
+        "created_at": 1792164518.4129639,
+        "issuer_grant_id": "gvg_e085dc99d7176ee63fcc2b0310c1e946",
+        "operation_id": "grant-document-only",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      }
+    ],
+    "revocations": [],
+    "decisions": [],
+    "receipts": [],
+    "credential_mode": "local_bearer",
+    "author_identity_authenticated": false,
+    "human_identity_authenticated": false,
+    "trusted_database_owner_can_bypass": true
+  },
+  "operation_result": {
+    "accepted": false,
+    "proposal_id": "p_db63e7902e853fe6037b8572",
+    "revision": 1,
+    "replayed": false,
+    "reasons": [
+      {
+        "code": "governance_quorum_missing",
+        "artifact_id": "code/local_governance.py",
+        "required": 2,
+        "actual": 0
+      },
+      {
+        "code": "governance_quorum_missing",
+        "artifact_id": "docs/local-governance.md",
+        "required": 2,
+        "actual": 0
+      }
+    ],
+    "governance": {
+      "schema_version": 1,
+      "rules_version": "governance-1",
+      "enabled": true,
+      "proposal_id": "p_db63e7902e853fe6037b8572",
+      "proposal_digest": "a23c65954a1cd24aceb3e0ccdf46d5f25e3901fff0880ad25c618bf5b0901d80",
+      "proposal_status": "proposed",
+      "policy_generation": 1,
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy": {
+        "minimum_reviewers": 2,
+        "schema_version": 1,
+        "separate_coordinator": true
+      },
+      "coordinator": {
+        "principal_id": "programmed-coordinator",
+        "grant_id": "gvg_18beb063a6d8609b505e106e3790bb5b"
+      },
+      "observed_at": 1792164518.4184775,
+      "valid_until": 1792168118.3963897,
+      "writes": [
+        {
+          "artifact_id": "code/local_governance.py",
+          "required_reviewers": 2,
+          "approval_principals": [],
+          "approval_decision_ids": [],
+          "used_decision_ids": [],
+          "veto_decision_ids": [],
+          "eligible": false
+        },
+        {
+          "artifact_id": "docs/local-governance.md",
+          "required_reviewers": 2,
+          "approval_principals": [],
+          "approval_decision_ids": [],
+          "used_decision_ids": [],
+          "veto_decision_ids": [],
+          "eligible": false
+        }
+      ],
+      "decisions": [],
+      "eligible": false,
+      "reasons": [
+        {
+          "code": "governance_quorum_missing",
+          "artifact_id": "code/local_governance.py",
+          "required": 2,
+          "actual": 0
+        },
+        {
+          "code": "governance_quorum_missing",
+          "artifact_id": "docs/local-governance.md",
+          "required": 2,
+          "actual": 0
+        }
+      ],
+      "advisory_only": true,
+      "author_identity_authenticated": false,
+      "human_identity_authenticated": false
+    }
+  }
+}

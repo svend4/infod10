@@ -124,6 +124,8 @@ class Store:
         try:
             connection.execute("PRAGMA journal_mode=WAL")
             connection.executescript(SCHEMA)
+            from .governance import SCHEMA as governance_schema
+            connection.executescript(governance_schema)
         finally:
             connection.close()
 
@@ -324,6 +326,9 @@ class Store:
 
     def bootstrap(self, artifacts: list[dict[str, Any]]) -> None:
         with self._transaction(write=True) as connection:
+            from . import governance
+            if governance.enabled(connection):
+                raise WorkbenchError("governance_bootstrap_forbidden", "Governance cannot be bypassed through bootstrap")
             if self._revision(connection) != 0 or connection.execute("SELECT 1 FROM artifacts").fetchone():
                 raise WorkbenchError("already_initialized", "Bootstrap requires an empty knowledge store")
             if not isinstance(artifacts, list) or not artifacts:
@@ -617,9 +622,73 @@ class Store:
             raise WorkbenchError("unknown_proposal", proposal_id)
         return row
 
-    def review(self, proposal_id: str, reviewer: str = "reviewer") -> dict[str, Any]:
+    def governance_enable(self, policy: dict[str, Any], administrator_id: str,
+                          new_credential: str) -> dict[str, Any]:
+        from . import governance
+        with self._transaction(write=True) as connection:
+            return governance.enable(connection, policy, administrator_id, new_credential)
+
+    def governance_grant(self, principal_id: str, role: str, artifact_ids: list[str],
+                         expires_at: float, *, credential: str, new_credential: str,
+                         operation_id: str) -> dict[str, Any]:
+        from . import governance
+        with self._transaction(write=True) as connection:
+            return governance.grant(connection, principal_id, role, artifact_ids, expires_at,
+                                    credential=credential, new_credential=new_credential,
+                                    operation_id=operation_id)
+
+    def governance_revoke(self, grant_id: str, *, credential: str) -> dict[str, Any]:
+        from . import governance
+        with self._transaction(write=True) as connection:
+            return governance.revoke(connection, grant_id, credential=credential)
+
+    def governance_set_policy(self, policy: dict[str, Any], *, credential: str,
+                              expected_generation: int) -> dict[str, Any]:
+        from . import governance
+        with self._transaction(write=True) as connection:
+            return governance.set_policy(connection, policy, credential=credential,
+                                         expected_generation=expected_generation)
+
+    def governance_decide(self, proposal_id: str, artifact_id: str, verdict: str,
+                          rationale: str, *, credential: str,
+                          expected_proposal_digest: str, expected_policy_generation: int,
+                          expected_previous_decision: str | None,
+                          operation_id: str) -> dict[str, Any]:
+        from . import governance
+        with self._transaction(write=True) as connection:
+            return governance.decide(connection, self._find_proposal(connection, proposal_id),
+                                     artifact_id, verdict, rationale, credential=credential,
+                                     expected_proposal_digest=expected_proposal_digest,
+                                     expected_policy_generation=expected_policy_generation,
+                                     expected_previous_decision=expected_previous_decision,
+                                     operation_id=operation_id)
+
+    def governance_status(self, proposal_id: str | None = None) -> dict[str, Any]:
+        from . import governance
+        with self._transaction() as connection:
+            if proposal_id is not None:
+                self._find_proposal(connection, proposal_id)
+            return governance.status(connection, proposal_id)
+
+    def governance_observe(self, proposal_id: str, *, credential: str,
+                           expected_policy_generation: int) -> dict[str, Any]:
+        from . import governance
         with self._transaction(write=True) as connection:
             row = self._find_proposal(connection, proposal_id)
+            now = time.time()
+            coordinator = governance.authorize(connection, credential, "coordinator",
+                                                governance.write_ids(row), now=now)
+            return governance.observe(connection, row, coordinator, expected_policy_generation, now=now)
+
+    def review(self, proposal_id: str, reviewer: str = "reviewer", *,
+               credential: str | None = None) -> dict[str, Any]:
+        with self._transaction(write=True) as connection:
+            from . import governance
+            row = self._find_proposal(connection, proposal_id)
+            governed = governance.enabled(connection)
+            if governed:
+                reviewer = governance.authorize(connection, credential, "reviewer",
+                                                governance.write_ids(row))["principal_id"]
             if not isinstance(reviewer, str) or not reviewer or reviewer == row["author"]:
                 raise WorkbenchError("self_review", "Reviewer must be distinct from proposal author")
             errors = self._evaluate(connection, row)
@@ -628,19 +697,50 @@ class Store:
                 if body["kind"] == "claim":
                     source_id = body["evidence"]["source_id"]
                     evidence[source_id] = connection.execute("SELECT digest FROM sources WHERE id=?", (source_id,)).fetchone()[0]
+            if governed:
+                governance.authorize(connection, credential, "reviewer", governance.write_ids(row), now=time.time())
             report = {"proposal_id": proposal_id, "proposal_digest": row["digest"], "rules_version": RULES_VERSION, "approved": not errors, "reasons": errors, "reviewer": reviewer, "observed_revision": self._revision(connection), "source_digests": evidence, "meaning_check": "Exact quote presence only; not an entailment or truth judgment"}
             cursor = connection.execute("INSERT INTO reviews(proposal_id,reviewer,proposal_digest,rules_version,approved,report) VALUES (?,?,?,?,?,?)", (proposal_id, reviewer, row["digest"], RULES_VERSION, int(not errors), canonical(report)))
             report["review_id"] = cursor.lastrowid
             self._event(connection, "proposal_reviewed", report)
             return report
 
-    def accept(self, proposal_id: str, coordinator: str = "coordinator") -> dict[str, Any]:
+    def accept(self, proposal_id: str, coordinator: str = "coordinator", *,
+               credential: str | None = None,
+               expected_policy_generation: int | None = None) -> dict[str, Any]:
         if not isinstance(coordinator, str) or not coordinator:
             raise WorkbenchError("invalid_coordinator", "Coordinator name required")
         with self._transaction(write=True) as connection:
+            from . import governance
             row = self._find_proposal(connection, proposal_id)
+            governed = governance.enabled(connection)
+            authenticated = None
+            if governed:
+                authentication_time = time.time()
+                authenticated = governance.authorize(connection, credential, "coordinator",
+                                                     governance.write_ids(row), now=authentication_time)
+                coordinator = authenticated["principal_id"]
+                policy = governance.current_policy(connection)
+                if (type(expected_policy_generation) is not int
+                        or expected_policy_generation != policy["generation"]):
+                    observation = governance.observe(connection, row, authenticated, expected_policy_generation)
+                    result = {"accepted": False, "proposal_id": proposal_id,
+                              "revision": self._revision(connection), "replayed": False,
+                              "reasons": [reason("governance_policy_generation_mismatch",
+                                                 expected=expected_policy_generation,
+                                                 actual=policy["generation"])],
+                              "governance": observation}
+                    self._event(connection, "accept_blocked", result)
+                    return result
             if row["status"] == "accepted":
-                return {"accepted": True, "proposal_id": proposal_id, "revision": row["accepted_revision"], "replayed": True, "reasons": []}
+                result = {"accepted": True, "proposal_id": proposal_id, "revision": row["accepted_revision"], "replayed": True, "reasons": []}
+                if governed:
+                    result["coordinator"] = authenticated["principal_id"]
+                    result["coordinator_grant_id"] = authenticated["grant_id"]
+                    result["authorization_time"] = authentication_time
+                    result["governance_receipt"] = governance.existing_receipt(connection, proposal_id)
+                    result["legacy_acceptance"] = result["governance_receipt"] is None
+                return result
             review = connection.execute("SELECT * FROM reviews WHERE proposal_id=? ORDER BY id DESC LIMIT 1", (proposal_id,)).fetchone()
             errors = []
             if not review or not review["approved"]:
@@ -648,8 +748,24 @@ class Store:
             elif review["proposal_digest"] != row["digest"] or review["rules_version"] != RULES_VERSION:
                 errors.append(reason("stale_review"))
             errors.extend(self._evaluate(connection, row))
+            observation = None
+            if governed:
+                now = time.time()
+                authenticated = governance.authorize(connection, credential, "coordinator",
+                                                     governance.write_ids(row), now=now)
+                observation = governance.observe(connection, row, authenticated,
+                                                 expected_policy_generation, now=now)
+                errors.extend(observation["reasons"])
+                if not errors:
+                    observation, authenticated = governance.finalize_observation(
+                        connection, row, credential, expected_policy_generation, observation)
+                    errors.extend(observation["reasons"])
             if errors:
                 result = {"accepted": False, "proposal_id": proposal_id, "revision": self._revision(connection), "replayed": False, "reasons": errors}
+                if governed:
+                    result["governance"] = observation
+                    if observation and "authorization_time" in observation:
+                        result["authorization_time"] = observation["authorization_time"]
                 self._event(connection, "accept_blocked", result)
                 return result
             revision = self._revision(connection) + 1
@@ -657,6 +773,12 @@ class Store:
             self._record_revision(connection, proposal_id, revision)
             connection.execute("UPDATE proposals SET status='accepted',accepted_revision=? WHERE id=?", (revision, proposal_id))
             result = {"accepted": True, "proposal_id": proposal_id, "revision": revision, "replayed": False, "reasons": [], "review_id": review["id"], "coordinator": coordinator}
+            if governed:
+                result["governance"] = observation
+                result["governance_receipt"] = governance.receipt(connection, row, revision, observation)
+                result["authorization_time"] = observation["authorization_time"]
+                result["coordinator_grant_id"] = authenticated["grant_id"]
+                result["legacy_acceptance"] = False
             self._event(connection, "proposal_accepted", result)
             return result
 
