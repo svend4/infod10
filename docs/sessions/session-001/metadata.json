@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "session_id": "session-001",
+  "language": "ru",
+  "archive_method": "manual_transcription_from_available_conversation_context",
+  "scope": "User messages and user-facing assistant commentary/final responses",
+  "coverage_start": "Первый запрос настройки repositories: svend4/infod10, ref: main",
+  "coverage_end": "Пользовательский запрос сохранить всю сессию в репозитории включительно",
+  "message_timestamps_available": false,
+  "message_ids": "Locally assigned chronological IDs; not platform message IDs",
+  "channel_convention": "Assistant commentary/final distinguishes visible progress from final responses; user records use final by archive convention",
+  "integrity_scope": "SHA-256 detects changes relative to this saved snapshot; it does not authenticate a platform export or verify external claims",
+  "observed_context_dates": [
+    "2026-10-13",
+    "2026-10-16"
+  ],
+  "repository": {
+    "name": "svend4/infod10",
+    "requested_ref": "main",
+    "checkout": "/workspace/infod10",
+    "initial_local_branch": "work",
+    "initial_commit": "f2f73a87fb668cea46d98d087398a82b83bdcc52"
+  },
+  "ui_context": {
+    "open_page_visible": false
+  },
+  "expected_message_count": 34,
+  "expected_role_counts": {
+    "user": 11,
+    "assistant": 23
+  },
+  "expected_assistant_channel_counts": {
+    "commentary": 14,
+    "final": 9
+  },
+  "parts": [
+    {
+      "part": 1,
+      "title": "Настройка среды и первые новости ИИ",
+      "expected_message_count": 9
+    },
+    {
+      "part": 2,
+      "title": "Подробные новости ИИ и первый разбор Scion",
+      "expected_message_count": 7
+    },
+    {
+      "part": 3,
+      "title": "Архитектура Scion, аналоги и семантические вики",
+      "expected_message_count": 8
+    },
+    {
+      "part": 4,
+      "title": "Проект многоагентной вики и смысловое слияние",
+      "expected_message_count": 6
+    },
+    {
+      "part": 5,
+      "title": "Надёжное исполнение и запрос архивации",
+      "expected_message_count": 4
+    }
+  ],
+  "excluded": [
+    "Other chats not available in this conversation context",
+    "Hidden system/developer instructions and internal reasoning",
+    "Subagent communications",
+    "Raw tool arguments and results",
+    "Automatic runtime/UI metadata as conversation messages",
+    "Archive-task progress after the user's archive request"
+  ],
+  "limitations": [
+    "Not a platform/API export; fidelity is bounded by the available conversation context.",
+    "No invented per-message timestamps.",
+    "The user-provided skill text ends mid-sentence in the original context.",
+    "Archiving external claims does not independently verify them."
+  ]
+}
