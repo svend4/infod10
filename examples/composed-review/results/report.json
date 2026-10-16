@@ -1,0 +1,2984 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T14:06:13.481869+02:00",
+  "report_timezone": "Europe/Berlin",
+  "workspace": "/tmp/infod10-composed-development-01",
+  "uses_llm": false,
+  "fictional_sources": true,
+  "executes_proposed_code": false,
+  "requires_human_review": true,
+  "human_review_recorded": false,
+  "auto_accept": false,
+  "calls_store_accept": true,
+  "store_accept_scope": "Only unrelated Windows and shared-timeout background fixture claims.",
+  "accepts_document_or_code_proposals": false,
+  "publishes_release": false,
+  "execution": {
+    "requested_pool_workers": 3,
+    "submitted_author_jobs": 2,
+    "submitted_editorial_review_jobs": 4,
+    "observed_author_threads": [
+      "review-set-author_0",
+      "review-set-author_1"
+    ],
+    "observed_editorial_threads": [
+      "review-set-review_0",
+      "review-set-review_1",
+      "review-set-review_2"
+    ],
+    "author_ids": [
+      "review-set-document-author",
+      "review-set-code-author"
+    ],
+    "integrator_id": "review-set-integrator",
+    "editorial_reviewer_ids": [
+      "editorial-agent-a",
+      "editorial-agent-b"
+    ],
+    "component_formal_reviewer_id": "component-formal-agent",
+    "composite_formal_reviewer_id": "composite-formal-agent",
+    "all_actor_kinds": [
+      "agent"
+    ]
+  },
+  "initial_runtime_revision": 1,
+  "authors": {
+    "document": {
+      "label": "document",
+      "author": "review-set-document-author",
+      "thread": "review-set-author_0",
+      "task_id": "review-set-document",
+      "proposal_id": "p_2b2fb1fddd0523c0878a69cf",
+      "digest": "06fb3efffd91a7780cfff2d4f6a10c6e3315a3eef4a98d6fc9b16d6d84197fbe",
+      "replayed": false
+    },
+    "code": {
+      "label": "code",
+      "author": "review-set-code-author",
+      "thread": "review-set-author_1",
+      "task_id": "review-set-code",
+      "proposal_id": "p_2675dd81b522b741942d4dce",
+      "digest": "b2ed219183b770631ba12b6d6b46d512ab2e139941e17cf681c26d8301cb6fde",
+      "replayed": false
+    }
+  },
+  "component_reviews": {
+    "document": {
+      "proposal_id": "p_2b2fb1fddd0523c0878a69cf",
+      "proposal_digest": "06fb3efffd91a7780cfff2d4f6a10c6e3315a3eef4a98d6fc9b16d6d84197fbe",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 1
+    },
+    "code": {
+      "proposal_id": "p_2675dd81b522b741942d4dce",
+      "proposal_digest": "b2ed219183b770631ba12b6d6b46d512ab2e139941e17cf681c26d8301cb6fde",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 2
+    }
+  },
+  "composition": {
+    "proposal_id": "p_33e284c171616ad78d211c4f",
+    "digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+    "replayed": false,
+    "components": [
+      {
+        "position": 1,
+        "proposal_id": "p_2b2fb1fddd0523c0878a69cf",
+        "digest": "06fb3efffd91a7780cfff2d4f6a10c6e3315a3eef4a98d6fc9b16d6d84197fbe",
+        "write_ids": [
+          "docs/reference.md"
+        ]
+      },
+      {
+        "position": 2,
+        "proposal_id": "p_2675dd81b522b741942d4dce",
+        "digest": "b2ed219183b770631ba12b6d6b46d512ab2e139941e17cf681c26d8301cb6fde",
+        "write_ids": [
+          "code/client_config.py"
+        ]
+      }
+    ]
+  },
+  "composite_review": {
+    "proposal_id": "p_33e284c171616ad78d211c4f",
+    "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+    "rules_version": "mvp-1",
+    "approved": true,
+    "reasons": [],
+    "reviewer": "composite-formal-agent",
+    "observed_revision": 1,
+    "source_digests": {},
+    "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+    "review_id": 3
+  },
+  "packets": {
+    "document": {
+      "schema_version": 1,
+      "proposer": {
+        "id": "review-set-document-author",
+        "kind": "agent"
+      },
+      "pair": {
+        "after": {
+          "attribution": "вымышленный редактор Альфа",
+          "evidence": {
+            "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "source_id": "fictional-shared"
+          },
+          "kind": "specification",
+          "modality": "asserted",
+          "polarity": "positive",
+          "property": "request-timeout",
+          "scope": {
+            "version": "1.0"
+          },
+          "subject": "fictional-api",
+          "text": "# Настройка API\n\nТайм-аут запроса: {{api.timeout_seconds}} секунд.\n",
+          "value": {
+            "amount": "30000",
+            "type": "quantity",
+            "unit": "ms"
+          }
+        },
+        "before": {
+          "attribution": "вымышленный редактор Альфа",
+          "evidence": {
+            "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "source_id": "fictional-shared"
+          },
+          "kind": "specification",
+          "modality": "asserted",
+          "polarity": "positive",
+          "property": "request-timeout",
+          "scope": {
+            "version": "1.0"
+          },
+          "subject": "fictional-api",
+          "text": "# API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n",
+          "value": {
+            "amount": "30",
+            "type": "quantity",
+            "unit": "s"
+          }
+        },
+        "sources": {
+          "fictional-shared": {
+            "sha256": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "text": "ВЫМЫШЛЕННЫЙ ИСТОЧНИК. Учебный снимок условного API, не сведения о реальном продукте.\nТайм-аут равен 30 секундам, то есть 30000 миллисекундам.\n"
+          }
+        }
+      },
+      "analysis": {
+        "schema_version": 1,
+        "rules_version": "semantic-1",
+        "input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+        "relation": "structured_equivalent",
+        "review_action": "review_wording_and_evidence",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "findings": [
+          {
+            "code": "wording_changed",
+            "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+          },
+          {
+            "code": "equal_structured_value",
+            "explanation": "Нормализованные значения совпадают точно."
+          },
+          {
+            "code": "units_normalized",
+            "explanation": "Применено явное точное преобразование единиц без округления двоичных чисел.",
+            "before": {
+              "input_unit": "s",
+              "factor_numerator": "1",
+              "factor_denominator": "1"
+            },
+            "after": {
+              "input_unit": "ms",
+              "factor_numerator": "1",
+              "factor_denominator": "1000"
+            }
+          }
+        ],
+        "normalized": {
+          "before": {
+            "supported": true,
+            "canonical": {
+              "type": "quantity",
+              "dimension": "time",
+              "unit": "s",
+              "numerator": "30",
+              "denominator": "1"
+            },
+            "conversion": {
+              "input_unit": "s",
+              "factor_numerator": "1",
+              "factor_denominator": "1"
+            }
+          },
+          "after": {
+            "supported": true,
+            "canonical": {
+              "type": "quantity",
+              "dimension": "time",
+              "unit": "s",
+              "numerator": "30",
+              "denominator": "1"
+            },
+            "conversion": {
+              "input_unit": "ms",
+              "factor_numerator": "1",
+              "factor_denominator": "1000"
+            }
+          }
+        },
+        "evidence": {
+          "before": {
+            "status": "quote_present",
+            "verified": true,
+            "source_id": "fictional-shared",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "check": "Literal quote presence only, not entailment or truth"
+          },
+          "after": {
+            "status": "quote_present",
+            "verified": true,
+            "source_id": "fictional-shared",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "check": "Literal quote presence only, not entailment or truth"
+          }
+        },
+        "limitations": [
+          "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+          "Literal quote presence does not establish entailment, factual truth or source independence.",
+          "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+          "Different scope metadata does not prove scopes are disjoint.",
+          "No corpus annotation is an input to this function; no model or network is used."
+        ]
+      },
+      "input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+      "analysis_digest": "a5dd8eec92babe6812c598f62f67a049995fb728ece8af35f5f509cacc0951b7",
+      "rules_version": "semantic-1",
+      "policy": {
+        "version": "editorial-1",
+        "agent_agreement_min": 2,
+        "requires_human_review": true,
+        "auto_accept": false,
+        "latest_decision_per_reviewer": true,
+        "actor_identity": "self_declared_local"
+      },
+      "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+      "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+      "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+      "created_at": "2026-10-16T12:06:13.272092+00:00"
+    },
+    "code": {
+      "schema_version": 1,
+      "proposer": {
+        "id": "review-set-code-author",
+        "kind": "agent"
+      },
+      "pair": {
+        "after": {
+          "attribution": "вымышленный редактор Альфа",
+          "evidence": {
+            "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "source_id": "fictional-shared"
+          },
+          "kind": "specification",
+          "modality": "asserted",
+          "polarity": "positive",
+          "property": "request-timeout",
+          "scope": {
+            "version": "1.0"
+          },
+          "subject": "fictional-api",
+          "text": "\"\"\"Fictional API configuration; editorial review remains required.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\n",
+          "value": {
+            "amount": "30000",
+            "type": "quantity",
+            "unit": "ms"
+          }
+        },
+        "before": {
+          "attribution": "вымышленный редактор Альфа",
+          "evidence": {
+            "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "source_id": "fictional-shared"
+          },
+          "kind": "specification",
+          "modality": "asserted",
+          "polarity": "positive",
+          "property": "request-timeout",
+          "scope": {
+            "version": "1.0"
+          },
+          "subject": "fictional-api",
+          "text": "\"\"\"Fictional API configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\n",
+          "value": {
+            "amount": "30",
+            "type": "quantity",
+            "unit": "s"
+          }
+        },
+        "sources": {
+          "fictional-shared": {
+            "sha256": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "text": "ВЫМЫШЛЕННЫЙ ИСТОЧНИК. Учебный снимок условного API, не сведения о реальном продукте.\nТайм-аут равен 30 секундам, то есть 30000 миллисекундам.\n"
+          }
+        }
+      },
+      "analysis": {
+        "schema_version": 1,
+        "rules_version": "semantic-1",
+        "input_digest": "d8c42d3d84cd5884fc9c768e20de7b4588821eacac244119de529ca3e2cb0b9a",
+        "relation": "structured_equivalent",
+        "review_action": "review_wording_and_evidence",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "findings": [
+          {
+            "code": "wording_changed",
+            "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+          },
+          {
+            "code": "equal_structured_value",
+            "explanation": "Нормализованные значения совпадают точно."
+          },
+          {
+            "code": "units_normalized",
+            "explanation": "Применено явное точное преобразование единиц без округления двоичных чисел.",
+            "before": {
+              "input_unit": "s",
+              "factor_numerator": "1",
+              "factor_denominator": "1"
+            },
+            "after": {
+              "input_unit": "ms",
+              "factor_numerator": "1",
+              "factor_denominator": "1000"
+            }
+          }
+        ],
+        "normalized": {
+          "before": {
+            "supported": true,
+            "canonical": {
+              "type": "quantity",
+              "dimension": "time",
+              "unit": "s",
+              "numerator": "30",
+              "denominator": "1"
+            },
+            "conversion": {
+              "input_unit": "s",
+              "factor_numerator": "1",
+              "factor_denominator": "1"
+            }
+          },
+          "after": {
+            "supported": true,
+            "canonical": {
+              "type": "quantity",
+              "dimension": "time",
+              "unit": "s",
+              "numerator": "30",
+              "denominator": "1"
+            },
+            "conversion": {
+              "input_unit": "ms",
+              "factor_numerator": "1",
+              "factor_denominator": "1000"
+            }
+          }
+        },
+        "evidence": {
+          "before": {
+            "status": "quote_present",
+            "verified": true,
+            "source_id": "fictional-shared",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "check": "Literal quote presence only, not entailment or truth"
+          },
+          "after": {
+            "status": "quote_present",
+            "verified": true,
+            "source_id": "fictional-shared",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "check": "Literal quote presence only, not entailment or truth"
+          }
+        },
+        "limitations": [
+          "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+          "Literal quote presence does not establish entailment, factual truth or source independence.",
+          "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+          "Different scope metadata does not prove scopes are disjoint.",
+          "No corpus annotation is an input to this function; no model or network is used."
+        ]
+      },
+      "input_digest": "d8c42d3d84cd5884fc9c768e20de7b4588821eacac244119de529ca3e2cb0b9a",
+      "analysis_digest": "c998415ab39783c8ced9984798d0bf0811b1c9931f241cc36ff5a409fec2a512",
+      "rules_version": "semantic-1",
+      "policy": {
+        "version": "editorial-1",
+        "agent_agreement_min": 2,
+        "requires_human_review": true,
+        "auto_accept": false,
+        "latest_decision_per_reviewer": true,
+        "actor_identity": "self_declared_local"
+      },
+      "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+      "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+      "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+      "created_at": "2026-10-16T12:06:13.276898+00:00"
+    }
+  },
+  "editorial_reviews": [
+    {
+      "label": "document",
+      "reviewer": "editorial-agent-a",
+      "thread": "review-set-review_0",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+        "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+        "reviewer": "editorial-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+        "operation_id": "document-editorial-agent-a-1",
+        "supersedes": null,
+        "decision_id": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+        "request_digest": "f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+        "recorded_at": "2026-10-16T12:06:13.289704+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "document",
+      "reviewer": "editorial-agent-b",
+      "thread": "review-set-review_1",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+        "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+        "reviewer": "editorial-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+        "operation_id": "document-editorial-agent-b-1",
+        "supersedes": null,
+        "decision_id": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+        "request_digest": "3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+        "recorded_at": "2026-10-16T12:06:13.280959+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "code",
+      "reviewer": "editorial-agent-a",
+      "thread": "review-set-review_2",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+        "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+        "reviewer": "editorial-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+        "operation_id": "code-editorial-agent-a-1",
+        "supersedes": null,
+        "decision_id": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+        "request_digest": "8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+        "recorded_at": "2026-10-16T12:06:13.282251+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "code",
+      "reviewer": "editorial-agent-b",
+      "thread": "review-set-review_1",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+        "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+        "reviewer": "editorial-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+        "operation_id": "code-editorial-agent-b-1",
+        "supersedes": null,
+        "decision_id": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+        "request_digest": "3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+        "recorded_at": "2026-10-16T12:06:13.283958+00:00",
+        "replayed": false
+      }
+    }
+  ],
+  "initial_review_sets": {
+    "before_formal": {
+      "review_set_id": "rset_6ab8bc01599ca4a00aef0e5e4b4a4548bd18e8051c049004eb574412d2d9176b",
+      "review_set_digest": "6ab8bc01599ca4a00aef0e5e4b4a4548bd18e8051c049004eb574412d2d9176b",
+      "observation": {
+        "proposal_id": "p_33e284c171616ad78d211c4f",
+        "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+        "observed_revision": 1,
+        "proposal_status": "proposed",
+        "runtime_basis_digest": "bb0d98f8bf7b4bcf12dd2b77911958db34975ec73a369a78dd6670875e8dea75",
+        "formal_head": null,
+        "component_head": "9ba4f117436997ec1c7cd3f9654880f3605436fa515404d15937cd00c0fe8d31",
+        "entries": [
+          {
+            "proposal_id": "p_33e284c171616ad78d211c4f",
+            "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+            "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+            "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+            "artifact_id": "code/client_config.py",
+            "observed_revision": 1,
+            "proposal_status": "proposed",
+            "runtime_basis_current": true,
+            "runtime_basis_digest": "f4a348a87245604fa16c2cee002f1943b9c0eb45a88ad3f801677a30d00bab5e",
+            "formal_head": null,
+            "decision_heads": {
+              "editorial-agent-a": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+              "editorial-agent-b": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157"
+            },
+            "binding": {
+              "mode": "exact_template",
+              "matches": true,
+              "errors": [],
+              "semantic_mapping": "caller_declared_unverified",
+              "scope": "template_text_only_not_rendered_output_or_all_metadata"
+            },
+            "coverage": {
+              "selected_write_ids": [
+                "code/client_config.py"
+              ],
+              "uncovered_write_ids": [
+                "docs/reference.md"
+              ],
+              "complete": false,
+              "scope": "write_ids_only_not_semantic_coverage"
+            },
+            "actors": {
+              "runtime_author_id": "review-set-integrator",
+              "packet_proposer": {
+                "id": "review-set-code-author",
+                "kind": "agent"
+              },
+              "authenticated": false,
+              "independence_verified": false
+            },
+            "runtime_errors": [],
+            "formal_errors": [
+              {
+                "code": "unapproved"
+              }
+            ],
+            "editorial": {
+              "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+              "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+              "input_digest": "d8c42d3d84cd5884fc9c768e20de7b4588821eacac244119de529ca3e2cb0b9a",
+              "current_input_digest": "d8c42d3d84cd5884fc9c768e20de7b4588821eacac244119de529ca3e2cb0b9a",
+              "freshness": "current",
+              "is_current": true,
+              "current_input_provided": true,
+              "current_input_checked": true,
+              "review_state": "agent_agreement",
+              "latest_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+                  "operation_id": "code-editorial-agent-a-1",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.282251+00:00",
+                  "request_digest": "8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "operation_id": "code-editorial-agent-b-1",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.283958+00:00",
+                  "request_digest": "3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "current_basis_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+                  "operation_id": "code-editorial-agent-a-1",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.282251+00:00",
+                  "request_digest": "8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "operation_id": "code-editorial-agent-b-1",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.283958+00:00",
+                  "request_digest": "3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "history_count": 2,
+              "reviewer_count": 2,
+              "human_review_recorded": false,
+              "requires_human_review": true,
+              "current_human_review_recorded": false,
+              "auto_accept": false,
+              "blockers": [
+                "human_review_not_recorded"
+              ],
+              "counts": {
+                "approve": 2,
+                "request_changes": 0,
+                "abstain": 0
+              },
+              "limits": [
+                "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+                "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+                "No state records factual truth or grants Store.accept/publication rights.",
+                "Human-review requirement remains true even when a caller records an actor labelled human."
+              ]
+            },
+            "blockers": [
+              {
+                "code": "unapproved"
+              },
+              {
+                "code": "uncovered_writes",
+                "artifact_ids": [
+                  "docs/reference.md"
+                ]
+              }
+            ],
+            "state": "blocked",
+            "requires_human_review": true,
+            "auto_accept": false,
+            "atomic_capture": false,
+            "limits": [
+              "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+              "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+              "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+              "No dossier or recheck grants Store.accept or publication rights."
+            ]
+          },
+          {
+            "proposal_id": "p_33e284c171616ad78d211c4f",
+            "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+            "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+            "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+            "artifact_id": "docs/reference.md",
+            "observed_revision": 1,
+            "proposal_status": "proposed",
+            "runtime_basis_current": true,
+            "runtime_basis_digest": "7bab4fbe5e44e2850527a97fdd85001ebd67a9f024a299213d8c3d50dd3403b1",
+            "formal_head": null,
+            "decision_heads": {
+              "editorial-agent-a": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+              "editorial-agent-b": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6"
+            },
+            "binding": {
+              "mode": "exact_template",
+              "matches": true,
+              "errors": [],
+              "semantic_mapping": "caller_declared_unverified",
+              "scope": "template_text_only_not_rendered_output_or_all_metadata"
+            },
+            "coverage": {
+              "selected_write_ids": [
+                "docs/reference.md"
+              ],
+              "uncovered_write_ids": [
+                "code/client_config.py"
+              ],
+              "complete": false,
+              "scope": "write_ids_only_not_semantic_coverage"
+            },
+            "actors": {
+              "runtime_author_id": "review-set-integrator",
+              "packet_proposer": {
+                "id": "review-set-document-author",
+                "kind": "agent"
+              },
+              "authenticated": false,
+              "independence_verified": false
+            },
+            "runtime_errors": [],
+            "formal_errors": [
+              {
+                "code": "unapproved"
+              }
+            ],
+            "editorial": {
+              "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+              "current_input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+              "freshness": "current",
+              "is_current": true,
+              "current_input_provided": true,
+              "current_input_checked": true,
+              "review_state": "agent_agreement",
+              "latest_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "operation_id": "document-editorial-agent-a-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.289704+00:00",
+                  "request_digest": "f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "operation_id": "document-editorial-agent-b-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.280959+00:00",
+                  "request_digest": "3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "current_basis_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "operation_id": "document-editorial-agent-a-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.289704+00:00",
+                  "request_digest": "f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "operation_id": "document-editorial-agent-b-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.280959+00:00",
+                  "request_digest": "3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "history_count": 2,
+              "reviewer_count": 2,
+              "human_review_recorded": false,
+              "requires_human_review": true,
+              "current_human_review_recorded": false,
+              "auto_accept": false,
+              "blockers": [
+                "human_review_not_recorded"
+              ],
+              "counts": {
+                "approve": 2,
+                "request_changes": 0,
+                "abstain": 0
+              },
+              "limits": [
+                "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+                "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+                "No state records factual truth or grants Store.accept/publication rights.",
+                "Human-review requirement remains true even when a caller records an actor labelled human."
+              ]
+            },
+            "blockers": [
+              {
+                "code": "unapproved"
+              },
+              {
+                "code": "uncovered_writes",
+                "artifact_ids": [
+                  "code/client_config.py"
+                ]
+              }
+            ],
+            "state": "blocked",
+            "requires_human_review": true,
+            "auto_accept": false,
+            "atomic_capture": false,
+            "limits": [
+              "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+              "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+              "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+              "No dossier or recheck grants Store.accept or publication rights."
+            ]
+          }
+        ],
+        "entry_summaries": [
+          {
+            "artifact_id": "code/client_config.py",
+            "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+            "state": "blocked",
+            "blockers": [
+              {
+                "code": "unapproved"
+              }
+            ]
+          },
+          {
+            "artifact_id": "docs/reference.md",
+            "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+            "state": "blocked",
+            "blockers": [
+              {
+                "code": "unapproved"
+              }
+            ]
+          }
+        ],
+        "coverage": {
+          "selected_write_ids": [
+            "code/client_config.py",
+            "docs/reference.md"
+          ],
+          "uncovered_write_ids": [],
+          "complete": true,
+          "scope": "write_ids_only_not_semantic_coverage"
+        },
+        "packet_reuse": [],
+        "entry_coverage_scope": "each_entry_is_partial_global_coverage_is_authoritative",
+        "blockers": [
+          {
+            "code": "unapproved"
+          }
+        ],
+        "state": "blocked",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "atomic_capture": false,
+        "limits": [
+          "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+          "Write coverage enumerates proposal write IDs; it does not prove semantic coverage.",
+          "Exact template matching binds bytes; statement fields and their mapping to prose remain caller-declared.",
+          "Only existing document and code templates can obtain a matching binding in this version.",
+          "Actor identities and kinds are self-declared; agreement and reused packets do not prove independence or truth.",
+          "No review set or recheck grants Store.accept or publication rights."
+        ]
+      }
+    },
+    "partial": {
+      "review_set_id": "rset_cfcc26fd8fb020466d8da7d2c78b0e9f28d087225b77a6b633acfe726f63c898",
+      "review_set_digest": "cfcc26fd8fb020466d8da7d2c78b0e9f28d087225b77a6b633acfe726f63c898",
+      "observation": {
+        "proposal_id": "p_33e284c171616ad78d211c4f",
+        "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+        "observed_revision": 1,
+        "proposal_status": "proposed",
+        "runtime_basis_digest": "bb0d98f8bf7b4bcf12dd2b77911958db34975ec73a369a78dd6670875e8dea75",
+        "formal_head": {
+          "review_id": 3,
+          "report_digest": "2e6709fe41687d400a58d0439e674aaa11a41ec2662055753e1436ed5192ee28"
+        },
+        "component_head": "9ba4f117436997ec1c7cd3f9654880f3605436fa515404d15937cd00c0fe8d31",
+        "entries": [
+          {
+            "proposal_id": "p_33e284c171616ad78d211c4f",
+            "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+            "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+            "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+            "artifact_id": "docs/reference.md",
+            "observed_revision": 1,
+            "proposal_status": "proposed",
+            "runtime_basis_current": true,
+            "runtime_basis_digest": "7bab4fbe5e44e2850527a97fdd85001ebd67a9f024a299213d8c3d50dd3403b1",
+            "formal_head": {
+              "review_id": 3,
+              "report_digest": "2e6709fe41687d400a58d0439e674aaa11a41ec2662055753e1436ed5192ee28"
+            },
+            "decision_heads": {
+              "editorial-agent-a": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+              "editorial-agent-b": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6"
+            },
+            "binding": {
+              "mode": "exact_template",
+              "matches": true,
+              "errors": [],
+              "semantic_mapping": "caller_declared_unverified",
+              "scope": "template_text_only_not_rendered_output_or_all_metadata"
+            },
+            "coverage": {
+              "selected_write_ids": [
+                "docs/reference.md"
+              ],
+              "uncovered_write_ids": [
+                "code/client_config.py"
+              ],
+              "complete": false,
+              "scope": "write_ids_only_not_semantic_coverage"
+            },
+            "actors": {
+              "runtime_author_id": "review-set-integrator",
+              "packet_proposer": {
+                "id": "review-set-document-author",
+                "kind": "agent"
+              },
+              "authenticated": false,
+              "independence_verified": false
+            },
+            "runtime_errors": [],
+            "formal_errors": [],
+            "editorial": {
+              "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+              "current_input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+              "freshness": "current",
+              "is_current": true,
+              "current_input_provided": true,
+              "current_input_checked": true,
+              "review_state": "agent_agreement",
+              "latest_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "operation_id": "document-editorial-agent-a-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.289704+00:00",
+                  "request_digest": "f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "operation_id": "document-editorial-agent-b-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.280959+00:00",
+                  "request_digest": "3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "current_basis_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "operation_id": "document-editorial-agent-a-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.289704+00:00",
+                  "request_digest": "f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "operation_id": "document-editorial-agent-b-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.280959+00:00",
+                  "request_digest": "3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "history_count": 2,
+              "reviewer_count": 2,
+              "human_review_recorded": false,
+              "requires_human_review": true,
+              "current_human_review_recorded": false,
+              "auto_accept": false,
+              "blockers": [
+                "human_review_not_recorded"
+              ],
+              "counts": {
+                "approve": 2,
+                "request_changes": 0,
+                "abstain": 0
+              },
+              "limits": [
+                "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+                "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+                "No state records factual truth or grants Store.accept/publication rights.",
+                "Human-review requirement remains true even when a caller records an actor labelled human."
+              ]
+            },
+            "blockers": [
+              {
+                "code": "uncovered_writes",
+                "artifact_ids": [
+                  "code/client_config.py"
+                ]
+              }
+            ],
+            "state": "blocked",
+            "requires_human_review": true,
+            "auto_accept": false,
+            "atomic_capture": false,
+            "limits": [
+              "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+              "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+              "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+              "No dossier or recheck grants Store.accept or publication rights."
+            ]
+          }
+        ],
+        "entry_summaries": [
+          {
+            "artifact_id": "docs/reference.md",
+            "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+            "state": "current_for_human_review",
+            "blockers": []
+          }
+        ],
+        "coverage": {
+          "selected_write_ids": [
+            "docs/reference.md"
+          ],
+          "uncovered_write_ids": [
+            "code/client_config.py"
+          ],
+          "complete": false,
+          "scope": "write_ids_only_not_semantic_coverage"
+        },
+        "packet_reuse": [],
+        "entry_coverage_scope": "each_entry_is_partial_global_coverage_is_authoritative",
+        "blockers": [
+          {
+            "code": "uncovered_writes",
+            "artifact_ids": [
+              "code/client_config.py"
+            ]
+          }
+        ],
+        "state": "blocked",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "atomic_capture": false,
+        "limits": [
+          "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+          "Write coverage enumerates proposal write IDs; it does not prove semantic coverage.",
+          "Exact template matching binds bytes; statement fields and their mapping to prose remain caller-declared.",
+          "Only existing document and code templates can obtain a matching binding in this version.",
+          "Actor identities and kinds are self-declared; agreement and reused packets do not prove independence or truth.",
+          "No review set or recheck grants Store.accept or publication rights."
+        ]
+      }
+    },
+    "complete": {
+      "review_set_id": "rset_703371cd0d50c0369f5dbaf69f5188b2cd9025f7a02b49b225368572084b0250",
+      "review_set_digest": "703371cd0d50c0369f5dbaf69f5188b2cd9025f7a02b49b225368572084b0250",
+      "observation": {
+        "proposal_id": "p_33e284c171616ad78d211c4f",
+        "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+        "observed_revision": 1,
+        "proposal_status": "proposed",
+        "runtime_basis_digest": "bb0d98f8bf7b4bcf12dd2b77911958db34975ec73a369a78dd6670875e8dea75",
+        "formal_head": {
+          "review_id": 3,
+          "report_digest": "2e6709fe41687d400a58d0439e674aaa11a41ec2662055753e1436ed5192ee28"
+        },
+        "component_head": "9ba4f117436997ec1c7cd3f9654880f3605436fa515404d15937cd00c0fe8d31",
+        "entries": [
+          {
+            "proposal_id": "p_33e284c171616ad78d211c4f",
+            "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+            "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+            "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+            "artifact_id": "code/client_config.py",
+            "observed_revision": 1,
+            "proposal_status": "proposed",
+            "runtime_basis_current": true,
+            "runtime_basis_digest": "f4a348a87245604fa16c2cee002f1943b9c0eb45a88ad3f801677a30d00bab5e",
+            "formal_head": {
+              "review_id": 3,
+              "report_digest": "2e6709fe41687d400a58d0439e674aaa11a41ec2662055753e1436ed5192ee28"
+            },
+            "decision_heads": {
+              "editorial-agent-a": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+              "editorial-agent-b": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157"
+            },
+            "binding": {
+              "mode": "exact_template",
+              "matches": true,
+              "errors": [],
+              "semantic_mapping": "caller_declared_unverified",
+              "scope": "template_text_only_not_rendered_output_or_all_metadata"
+            },
+            "coverage": {
+              "selected_write_ids": [
+                "code/client_config.py"
+              ],
+              "uncovered_write_ids": [
+                "docs/reference.md"
+              ],
+              "complete": false,
+              "scope": "write_ids_only_not_semantic_coverage"
+            },
+            "actors": {
+              "runtime_author_id": "review-set-integrator",
+              "packet_proposer": {
+                "id": "review-set-code-author",
+                "kind": "agent"
+              },
+              "authenticated": false,
+              "independence_verified": false
+            },
+            "runtime_errors": [],
+            "formal_errors": [],
+            "editorial": {
+              "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+              "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+              "input_digest": "d8c42d3d84cd5884fc9c768e20de7b4588821eacac244119de529ca3e2cb0b9a",
+              "current_input_digest": "d8c42d3d84cd5884fc9c768e20de7b4588821eacac244119de529ca3e2cb0b9a",
+              "freshness": "current",
+              "is_current": true,
+              "current_input_provided": true,
+              "current_input_checked": true,
+              "review_state": "agent_agreement",
+              "latest_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+                  "operation_id": "code-editorial-agent-a-1",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.282251+00:00",
+                  "request_digest": "8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "operation_id": "code-editorial-agent-b-1",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.283958+00:00",
+                  "request_digest": "3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "current_basis_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+                  "operation_id": "code-editorial-agent-a-1",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.282251+00:00",
+                  "request_digest": "8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "operation_id": "code-editorial-agent-b-1",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.283958+00:00",
+                  "request_digest": "3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "history_count": 2,
+              "reviewer_count": 2,
+              "human_review_recorded": false,
+              "requires_human_review": true,
+              "current_human_review_recorded": false,
+              "auto_accept": false,
+              "blockers": [
+                "human_review_not_recorded"
+              ],
+              "counts": {
+                "approve": 2,
+                "request_changes": 0,
+                "abstain": 0
+              },
+              "limits": [
+                "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+                "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+                "No state records factual truth or grants Store.accept/publication rights.",
+                "Human-review requirement remains true even when a caller records an actor labelled human."
+              ]
+            },
+            "blockers": [
+              {
+                "code": "uncovered_writes",
+                "artifact_ids": [
+                  "docs/reference.md"
+                ]
+              }
+            ],
+            "state": "blocked",
+            "requires_human_review": true,
+            "auto_accept": false,
+            "atomic_capture": false,
+            "limits": [
+              "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+              "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+              "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+              "No dossier or recheck grants Store.accept or publication rights."
+            ]
+          },
+          {
+            "proposal_id": "p_33e284c171616ad78d211c4f",
+            "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+            "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+            "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+            "artifact_id": "docs/reference.md",
+            "observed_revision": 1,
+            "proposal_status": "proposed",
+            "runtime_basis_current": true,
+            "runtime_basis_digest": "7bab4fbe5e44e2850527a97fdd85001ebd67a9f024a299213d8c3d50dd3403b1",
+            "formal_head": {
+              "review_id": 3,
+              "report_digest": "2e6709fe41687d400a58d0439e674aaa11a41ec2662055753e1436ed5192ee28"
+            },
+            "decision_heads": {
+              "editorial-agent-a": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+              "editorial-agent-b": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6"
+            },
+            "binding": {
+              "mode": "exact_template",
+              "matches": true,
+              "errors": [],
+              "semantic_mapping": "caller_declared_unverified",
+              "scope": "template_text_only_not_rendered_output_or_all_metadata"
+            },
+            "coverage": {
+              "selected_write_ids": [
+                "docs/reference.md"
+              ],
+              "uncovered_write_ids": [
+                "code/client_config.py"
+              ],
+              "complete": false,
+              "scope": "write_ids_only_not_semantic_coverage"
+            },
+            "actors": {
+              "runtime_author_id": "review-set-integrator",
+              "packet_proposer": {
+                "id": "review-set-document-author",
+                "kind": "agent"
+              },
+              "authenticated": false,
+              "independence_verified": false
+            },
+            "runtime_errors": [],
+            "formal_errors": [],
+            "editorial": {
+              "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+              "current_input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+              "freshness": "current",
+              "is_current": true,
+              "current_input_provided": true,
+              "current_input_checked": true,
+              "review_state": "agent_agreement",
+              "latest_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "operation_id": "document-editorial-agent-a-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.289704+00:00",
+                  "request_digest": "f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "operation_id": "document-editorial-agent-b-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.280959+00:00",
+                  "request_digest": "3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "current_basis_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "operation_id": "document-editorial-agent-a-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.289704+00:00",
+                  "request_digest": "f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "operation_id": "document-editorial-agent-b-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.280959+00:00",
+                  "request_digest": "3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "history_count": 2,
+              "reviewer_count": 2,
+              "human_review_recorded": false,
+              "requires_human_review": true,
+              "current_human_review_recorded": false,
+              "auto_accept": false,
+              "blockers": [
+                "human_review_not_recorded"
+              ],
+              "counts": {
+                "approve": 2,
+                "request_changes": 0,
+                "abstain": 0
+              },
+              "limits": [
+                "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+                "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+                "No state records factual truth or grants Store.accept/publication rights.",
+                "Human-review requirement remains true even when a caller records an actor labelled human."
+              ]
+            },
+            "blockers": [
+              {
+                "code": "uncovered_writes",
+                "artifact_ids": [
+                  "code/client_config.py"
+                ]
+              }
+            ],
+            "state": "blocked",
+            "requires_human_review": true,
+            "auto_accept": false,
+            "atomic_capture": false,
+            "limits": [
+              "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+              "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+              "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+              "No dossier or recheck grants Store.accept or publication rights."
+            ]
+          }
+        ],
+        "entry_summaries": [
+          {
+            "artifact_id": "code/client_config.py",
+            "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+            "state": "current_for_human_review",
+            "blockers": []
+          },
+          {
+            "artifact_id": "docs/reference.md",
+            "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+            "state": "current_for_human_review",
+            "blockers": []
+          }
+        ],
+        "coverage": {
+          "selected_write_ids": [
+            "code/client_config.py",
+            "docs/reference.md"
+          ],
+          "uncovered_write_ids": [],
+          "complete": true,
+          "scope": "write_ids_only_not_semantic_coverage"
+        },
+        "packet_reuse": [],
+        "entry_coverage_scope": "each_entry_is_partial_global_coverage_is_authoritative",
+        "blockers": [],
+        "state": "current_for_human_review",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "atomic_capture": false,
+        "limits": [
+          "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+          "Write coverage enumerates proposal write IDs; it does not prove semantic coverage.",
+          "Exact template matching binds bytes; statement fields and their mapping to prose remain caller-declared.",
+          "Only existing document and code templates can obtain a matching binding in this version.",
+          "Actor identities and kinds are self-declared; agreement and reused packets do not prove independence or truth.",
+          "No review set or recheck grants Store.accept or publication rights."
+        ]
+      }
+    }
+  },
+  "unrelated_change": {
+    "task_id": "review-set-windows",
+    "submitted": {
+      "proposal_id": "p_11098bc33e5a6d6ca838e5a8",
+      "digest": "2f58d34b9e47c86c5d7461deeeca912093d5d2af4ff2d175cd6a5a10e78aeaa3",
+      "replayed": false
+    },
+    "review": {
+      "proposal_id": "p_11098bc33e5a6d6ca838e5a8",
+      "proposal_digest": "2f58d34b9e47c86c5d7461deeeca912093d5d2af4ff2d175cd6a5a10e78aeaa3",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "background-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {
+        "dossier-fixture": "0bd0cb015a3ee3bdb80f601c3988124beb330e73a742c7c502a5e26772c1ddc3"
+      },
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 4
+    },
+    "acceptance": {
+      "accepted": true,
+      "proposal_id": "p_11098bc33e5a6d6ca838e5a8",
+      "revision": 2,
+      "replayed": false,
+      "reasons": [],
+      "review_id": 4,
+      "coordinator": "background-coordinator"
+    }
+  },
+  "objection": {
+    "schema_version": 1,
+    "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+    "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+    "reviewer": "editorial-agent-a",
+    "actor_kind": "agent",
+    "verdict": "request_changes",
+    "rationale": "The authored quantity comparison does not assess complete code behavior. A human reviewer needs to inspect the full proposed file and its assumptions.",
+    "operation_id": "code-editorial-agent-a-2",
+    "supersedes": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+    "decision_id": "dec_022f79d0c9e57f062db41a0bec37df992c3e861456d8586d5ed1850ff4be1e92",
+    "request_digest": "022f79d0c9e57f062db41a0bec37df992c3e861456d8586d5ed1850ff4be1e92",
+    "recorded_at": "2026-10-16T12:06:13.427360+00:00",
+    "replayed": false
+  },
+  "dependency_change": {
+    "task_id": "review-set-timeout",
+    "submitted": {
+      "proposal_id": "p_a38b7af2fa76677fe19a23e8",
+      "digest": "c9715bc020afc6659402baa44cd6ef3fe88ea1e657c7c45d1869bc823b58b797",
+      "replayed": false
+    },
+    "review": {
+      "proposal_id": "p_a38b7af2fa76677fe19a23e8",
+      "proposal_digest": "c9715bc020afc6659402baa44cd6ef3fe88ea1e657c7c45d1869bc823b58b797",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "background-formal-agent",
+      "observed_revision": 2,
+      "source_digests": {
+        "dossier-fixture": "0bd0cb015a3ee3bdb80f601c3988124beb330e73a742c7c502a5e26772c1ddc3"
+      },
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 5
+    },
+    "acceptance": {
+      "accepted": true,
+      "proposal_id": "p_a38b7af2fa76677fe19a23e8",
+      "revision": 3,
+      "replayed": false,
+      "reasons": [],
+      "review_id": 5,
+      "coordinator": "background-coordinator"
+    }
+  },
+  "rechecks": {
+    "after-unrelated": {
+      "schema_version": 1,
+      "review_set_rules_version": "review-set-1",
+      "review_set_id": "rset_703371cd0d50c0369f5dbaf69f5188b2cd9025f7a02b49b225368572084b0250",
+      "review_set_digest": "703371cd0d50c0369f5dbaf69f5188b2cd9025f7a02b49b225368572084b0250",
+      "freshness": "current",
+      "state": "current_for_human_review",
+      "changes": [],
+      "per_artifact_changes": [
+        {
+          "artifact_id": "code/client_config.py",
+          "changes": []
+        },
+        {
+          "artifact_id": "docs/reference.md",
+          "changes": []
+        }
+      ],
+      "blockers": [],
+      "current_observation": {
+        "proposal_id": "p_33e284c171616ad78d211c4f",
+        "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+        "observed_revision": 2,
+        "proposal_status": "proposed",
+        "runtime_basis_digest": "bb0d98f8bf7b4bcf12dd2b77911958db34975ec73a369a78dd6670875e8dea75",
+        "formal_head": {
+          "review_id": 3,
+          "report_digest": "2e6709fe41687d400a58d0439e674aaa11a41ec2662055753e1436ed5192ee28"
+        },
+        "component_head": "9ba4f117436997ec1c7cd3f9654880f3605436fa515404d15937cd00c0fe8d31",
+        "entries": [
+          {
+            "proposal_id": "p_33e284c171616ad78d211c4f",
+            "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+            "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+            "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+            "artifact_id": "code/client_config.py",
+            "observed_revision": 2,
+            "proposal_status": "proposed",
+            "runtime_basis_current": true,
+            "runtime_basis_digest": "f4a348a87245604fa16c2cee002f1943b9c0eb45a88ad3f801677a30d00bab5e",
+            "formal_head": {
+              "review_id": 3,
+              "report_digest": "2e6709fe41687d400a58d0439e674aaa11a41ec2662055753e1436ed5192ee28"
+            },
+            "decision_heads": {
+              "editorial-agent-a": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+              "editorial-agent-b": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157"
+            },
+            "binding": {
+              "mode": "exact_template",
+              "matches": true,
+              "errors": [],
+              "semantic_mapping": "caller_declared_unverified",
+              "scope": "template_text_only_not_rendered_output_or_all_metadata"
+            },
+            "coverage": {
+              "selected_write_ids": [
+                "code/client_config.py"
+              ],
+              "uncovered_write_ids": [
+                "docs/reference.md"
+              ],
+              "complete": false,
+              "scope": "write_ids_only_not_semantic_coverage"
+            },
+            "actors": {
+              "runtime_author_id": "review-set-integrator",
+              "packet_proposer": {
+                "id": "review-set-code-author",
+                "kind": "agent"
+              },
+              "authenticated": false,
+              "independence_verified": false
+            },
+            "runtime_errors": [],
+            "formal_errors": [],
+            "editorial": {
+              "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+              "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+              "input_digest": "d8c42d3d84cd5884fc9c768e20de7b4588821eacac244119de529ca3e2cb0b9a",
+              "current_input_digest": "d8c42d3d84cd5884fc9c768e20de7b4588821eacac244119de529ca3e2cb0b9a",
+              "freshness": "current",
+              "is_current": true,
+              "current_input_provided": true,
+              "current_input_checked": true,
+              "review_state": "agent_agreement",
+              "latest_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+                  "operation_id": "code-editorial-agent-a-1",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.282251+00:00",
+                  "request_digest": "8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "operation_id": "code-editorial-agent-b-1",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.283958+00:00",
+                  "request_digest": "3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "current_basis_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+                  "operation_id": "code-editorial-agent-a-1",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.282251+00:00",
+                  "request_digest": "8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "operation_id": "code-editorial-agent-b-1",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.283958+00:00",
+                  "request_digest": "3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "history_count": 2,
+              "reviewer_count": 2,
+              "human_review_recorded": false,
+              "requires_human_review": true,
+              "current_human_review_recorded": false,
+              "auto_accept": false,
+              "blockers": [
+                "human_review_not_recorded"
+              ],
+              "counts": {
+                "approve": 2,
+                "request_changes": 0,
+                "abstain": 0
+              },
+              "limits": [
+                "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+                "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+                "No state records factual truth or grants Store.accept/publication rights.",
+                "Human-review requirement remains true even when a caller records an actor labelled human."
+              ]
+            },
+            "blockers": [
+              {
+                "code": "uncovered_writes",
+                "artifact_ids": [
+                  "docs/reference.md"
+                ]
+              }
+            ],
+            "state": "blocked",
+            "requires_human_review": true,
+            "auto_accept": false,
+            "atomic_capture": false,
+            "limits": [
+              "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+              "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+              "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+              "No dossier or recheck grants Store.accept or publication rights."
+            ]
+          },
+          {
+            "proposal_id": "p_33e284c171616ad78d211c4f",
+            "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+            "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+            "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+            "artifact_id": "docs/reference.md",
+            "observed_revision": 2,
+            "proposal_status": "proposed",
+            "runtime_basis_current": true,
+            "runtime_basis_digest": "7bab4fbe5e44e2850527a97fdd85001ebd67a9f024a299213d8c3d50dd3403b1",
+            "formal_head": {
+              "review_id": 3,
+              "report_digest": "2e6709fe41687d400a58d0439e674aaa11a41ec2662055753e1436ed5192ee28"
+            },
+            "decision_heads": {
+              "editorial-agent-a": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+              "editorial-agent-b": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6"
+            },
+            "binding": {
+              "mode": "exact_template",
+              "matches": true,
+              "errors": [],
+              "semantic_mapping": "caller_declared_unverified",
+              "scope": "template_text_only_not_rendered_output_or_all_metadata"
+            },
+            "coverage": {
+              "selected_write_ids": [
+                "docs/reference.md"
+              ],
+              "uncovered_write_ids": [
+                "code/client_config.py"
+              ],
+              "complete": false,
+              "scope": "write_ids_only_not_semantic_coverage"
+            },
+            "actors": {
+              "runtime_author_id": "review-set-integrator",
+              "packet_proposer": {
+                "id": "review-set-document-author",
+                "kind": "agent"
+              },
+              "authenticated": false,
+              "independence_verified": false
+            },
+            "runtime_errors": [],
+            "formal_errors": [],
+            "editorial": {
+              "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+              "current_input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+              "freshness": "current",
+              "is_current": true,
+              "current_input_provided": true,
+              "current_input_checked": true,
+              "review_state": "agent_agreement",
+              "latest_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "operation_id": "document-editorial-agent-a-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.289704+00:00",
+                  "request_digest": "f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "operation_id": "document-editorial-agent-b-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.280959+00:00",
+                  "request_digest": "3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "current_basis_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "operation_id": "document-editorial-agent-a-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.289704+00:00",
+                  "request_digest": "f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "operation_id": "document-editorial-agent-b-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.280959+00:00",
+                  "request_digest": "3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "history_count": 2,
+              "reviewer_count": 2,
+              "human_review_recorded": false,
+              "requires_human_review": true,
+              "current_human_review_recorded": false,
+              "auto_accept": false,
+              "blockers": [
+                "human_review_not_recorded"
+              ],
+              "counts": {
+                "approve": 2,
+                "request_changes": 0,
+                "abstain": 0
+              },
+              "limits": [
+                "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+                "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+                "No state records factual truth or grants Store.accept/publication rights.",
+                "Human-review requirement remains true even when a caller records an actor labelled human."
+              ]
+            },
+            "blockers": [
+              {
+                "code": "uncovered_writes",
+                "artifact_ids": [
+                  "code/client_config.py"
+                ]
+              }
+            ],
+            "state": "blocked",
+            "requires_human_review": true,
+            "auto_accept": false,
+            "atomic_capture": false,
+            "limits": [
+              "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+              "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+              "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+              "No dossier or recheck grants Store.accept or publication rights."
+            ]
+          }
+        ],
+        "entry_summaries": [
+          {
+            "artifact_id": "code/client_config.py",
+            "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+            "state": "current_for_human_review",
+            "blockers": []
+          },
+          {
+            "artifact_id": "docs/reference.md",
+            "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+            "state": "current_for_human_review",
+            "blockers": []
+          }
+        ],
+        "coverage": {
+          "selected_write_ids": [
+            "code/client_config.py",
+            "docs/reference.md"
+          ],
+          "uncovered_write_ids": [],
+          "complete": true,
+          "scope": "write_ids_only_not_semantic_coverage"
+        },
+        "packet_reuse": [],
+        "entry_coverage_scope": "each_entry_is_partial_global_coverage_is_authoritative",
+        "blockers": [],
+        "state": "current_for_human_review",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "atomic_capture": false,
+        "limits": [
+          "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+          "Write coverage enumerates proposal write IDs; it does not prove semantic coverage.",
+          "Exact template matching binds bytes; statement fields and their mapping to prose remain caller-declared.",
+          "Only existing document and code templates can obtain a matching binding in this version.",
+          "Actor identities and kinds are self-declared; agreement and reused packets do not prove independence or truth.",
+          "No review set or recheck grants Store.accept or publication rights."
+        ]
+      },
+      "original_observed_revision": 1,
+      "current_observed_revision": 2,
+      "journal_snapshot_changed": false,
+      "requires_human_review": true,
+      "auto_accept": false,
+      "atomic_capture": false,
+      "limits": [
+        "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+        "Write coverage enumerates proposal write IDs; it does not prove semantic coverage.",
+        "Exact template matching binds bytes; statement fields and their mapping to prose remain caller-declared.",
+        "Only existing document and code templates can obtain a matching binding in this version.",
+        "Actor identities and kinds are self-declared; agreement and reused packets do not prove independence or truth.",
+        "No review set or recheck grants Store.accept or publication rights."
+      ]
+    },
+    "after-objection": {
+      "schema_version": 1,
+      "review_set_rules_version": "review-set-1",
+      "review_set_id": "rset_703371cd0d50c0369f5dbaf69f5188b2cd9025f7a02b49b225368572084b0250",
+      "review_set_digest": "703371cd0d50c0369f5dbaf69f5188b2cd9025f7a02b49b225368572084b0250",
+      "freshness": "stale",
+      "state": "blocked",
+      "changes": [
+        {
+          "code": "artifact_review_changed",
+          "artifact_id": "code/client_config.py"
+        },
+        {
+          "code": "blockers_changed"
+        }
+      ],
+      "per_artifact_changes": [
+        {
+          "artifact_id": "code/client_config.py",
+          "changes": [
+            {
+              "code": "decision_heads_changed"
+            },
+            {
+              "code": "editorial_assessment_changed"
+            },
+            {
+              "code": "blockers_changed"
+            }
+          ]
+        },
+        {
+          "artifact_id": "docs/reference.md",
+          "changes": []
+        }
+      ],
+      "blockers": [
+        {
+          "code": "unresolved_changes_requested",
+          "artifact_id": "code/client_config.py"
+        }
+      ],
+      "current_observation": {
+        "proposal_id": "p_33e284c171616ad78d211c4f",
+        "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+        "observed_revision": 2,
+        "proposal_status": "proposed",
+        "runtime_basis_digest": "bb0d98f8bf7b4bcf12dd2b77911958db34975ec73a369a78dd6670875e8dea75",
+        "formal_head": {
+          "review_id": 3,
+          "report_digest": "2e6709fe41687d400a58d0439e674aaa11a41ec2662055753e1436ed5192ee28"
+        },
+        "component_head": "9ba4f117436997ec1c7cd3f9654880f3605436fa515404d15937cd00c0fe8d31",
+        "entries": [
+          {
+            "proposal_id": "p_33e284c171616ad78d211c4f",
+            "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+            "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+            "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+            "artifact_id": "code/client_config.py",
+            "observed_revision": 2,
+            "proposal_status": "proposed",
+            "runtime_basis_current": true,
+            "runtime_basis_digest": "f4a348a87245604fa16c2cee002f1943b9c0eb45a88ad3f801677a30d00bab5e",
+            "formal_head": {
+              "review_id": 3,
+              "report_digest": "2e6709fe41687d400a58d0439e674aaa11a41ec2662055753e1436ed5192ee28"
+            },
+            "decision_heads": {
+              "editorial-agent-a": "dec_022f79d0c9e57f062db41a0bec37df992c3e861456d8586d5ed1850ff4be1e92",
+              "editorial-agent-b": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157"
+            },
+            "binding": {
+              "mode": "exact_template",
+              "matches": true,
+              "errors": [],
+              "semantic_mapping": "caller_declared_unverified",
+              "scope": "template_text_only_not_rendered_output_or_all_metadata"
+            },
+            "coverage": {
+              "selected_write_ids": [
+                "code/client_config.py"
+              ],
+              "uncovered_write_ids": [
+                "docs/reference.md"
+              ],
+              "complete": false,
+              "scope": "write_ids_only_not_semantic_coverage"
+            },
+            "actors": {
+              "runtime_author_id": "review-set-integrator",
+              "packet_proposer": {
+                "id": "review-set-code-author",
+                "kind": "agent"
+              },
+              "authenticated": false,
+              "independence_verified": false
+            },
+            "runtime_errors": [],
+            "formal_errors": [],
+            "editorial": {
+              "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+              "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+              "input_digest": "d8c42d3d84cd5884fc9c768e20de7b4588821eacac244119de529ca3e2cb0b9a",
+              "current_input_digest": "d8c42d3d84cd5884fc9c768e20de7b4588821eacac244119de529ca3e2cb0b9a",
+              "freshness": "current",
+              "is_current": true,
+              "current_input_provided": true,
+              "current_input_checked": true,
+              "review_state": "disagreement",
+              "latest_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_022f79d0c9e57f062db41a0bec37df992c3e861456d8586d5ed1850ff4be1e92",
+                  "operation_id": "code-editorial-agent-a-2",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity comparison does not assess complete code behavior. A human reviewer needs to inspect the full proposed file and its assumptions.",
+                  "recorded_at": "2026-10-16T12:06:13.427360+00:00",
+                  "request_digest": "022f79d0c9e57f062db41a0bec37df992c3e861456d8586d5ed1850ff4be1e92",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+                  "verdict": "request_changes"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "operation_id": "code-editorial-agent-b-1",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.283958+00:00",
+                  "request_digest": "3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "current_basis_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_022f79d0c9e57f062db41a0bec37df992c3e861456d8586d5ed1850ff4be1e92",
+                  "operation_id": "code-editorial-agent-a-2",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity comparison does not assess complete code behavior. A human reviewer needs to inspect the full proposed file and its assumptions.",
+                  "recorded_at": "2026-10-16T12:06:13.427360+00:00",
+                  "request_digest": "022f79d0c9e57f062db41a0bec37df992c3e861456d8586d5ed1850ff4be1e92",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+                  "verdict": "request_changes"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "operation_id": "code-editorial-agent-b-1",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.283958+00:00",
+                  "request_digest": "3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "history_count": 3,
+              "reviewer_count": 2,
+              "human_review_recorded": false,
+              "requires_human_review": true,
+              "current_human_review_recorded": false,
+              "auto_accept": false,
+              "blockers": [
+                "human_review_not_recorded",
+                "unresolved_changes_requested"
+              ],
+              "counts": {
+                "approve": 1,
+                "request_changes": 1,
+                "abstain": 0
+              },
+              "limits": [
+                "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+                "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+                "No state records factual truth or grants Store.accept/publication rights.",
+                "Human-review requirement remains true even when a caller records an actor labelled human."
+              ]
+            },
+            "blockers": [
+              {
+                "code": "uncovered_writes",
+                "artifact_ids": [
+                  "docs/reference.md"
+                ]
+              },
+              {
+                "code": "unresolved_changes_requested"
+              }
+            ],
+            "state": "blocked",
+            "requires_human_review": true,
+            "auto_accept": false,
+            "atomic_capture": false,
+            "limits": [
+              "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+              "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+              "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+              "No dossier or recheck grants Store.accept or publication rights."
+            ]
+          },
+          {
+            "proposal_id": "p_33e284c171616ad78d211c4f",
+            "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+            "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+            "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+            "artifact_id": "docs/reference.md",
+            "observed_revision": 2,
+            "proposal_status": "proposed",
+            "runtime_basis_current": true,
+            "runtime_basis_digest": "7bab4fbe5e44e2850527a97fdd85001ebd67a9f024a299213d8c3d50dd3403b1",
+            "formal_head": {
+              "review_id": 3,
+              "report_digest": "2e6709fe41687d400a58d0439e674aaa11a41ec2662055753e1436ed5192ee28"
+            },
+            "decision_heads": {
+              "editorial-agent-a": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+              "editorial-agent-b": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6"
+            },
+            "binding": {
+              "mode": "exact_template",
+              "matches": true,
+              "errors": [],
+              "semantic_mapping": "caller_declared_unverified",
+              "scope": "template_text_only_not_rendered_output_or_all_metadata"
+            },
+            "coverage": {
+              "selected_write_ids": [
+                "docs/reference.md"
+              ],
+              "uncovered_write_ids": [
+                "code/client_config.py"
+              ],
+              "complete": false,
+              "scope": "write_ids_only_not_semantic_coverage"
+            },
+            "actors": {
+              "runtime_author_id": "review-set-integrator",
+              "packet_proposer": {
+                "id": "review-set-document-author",
+                "kind": "agent"
+              },
+              "authenticated": false,
+              "independence_verified": false
+            },
+            "runtime_errors": [],
+            "formal_errors": [],
+            "editorial": {
+              "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+              "current_input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+              "freshness": "current",
+              "is_current": true,
+              "current_input_provided": true,
+              "current_input_checked": true,
+              "review_state": "agent_agreement",
+              "latest_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "operation_id": "document-editorial-agent-a-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.289704+00:00",
+                  "request_digest": "f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "operation_id": "document-editorial-agent-b-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.280959+00:00",
+                  "request_digest": "3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "current_basis_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "operation_id": "document-editorial-agent-a-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.289704+00:00",
+                  "request_digest": "f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "operation_id": "document-editorial-agent-b-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.280959+00:00",
+                  "request_digest": "3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "history_count": 2,
+              "reviewer_count": 2,
+              "human_review_recorded": false,
+              "requires_human_review": true,
+              "current_human_review_recorded": false,
+              "auto_accept": false,
+              "blockers": [
+                "human_review_not_recorded"
+              ],
+              "counts": {
+                "approve": 2,
+                "request_changes": 0,
+                "abstain": 0
+              },
+              "limits": [
+                "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+                "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+                "No state records factual truth or grants Store.accept/publication rights.",
+                "Human-review requirement remains true even when a caller records an actor labelled human."
+              ]
+            },
+            "blockers": [
+              {
+                "code": "uncovered_writes",
+                "artifact_ids": [
+                  "code/client_config.py"
+                ]
+              }
+            ],
+            "state": "blocked",
+            "requires_human_review": true,
+            "auto_accept": false,
+            "atomic_capture": false,
+            "limits": [
+              "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+              "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+              "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+              "No dossier or recheck grants Store.accept or publication rights."
+            ]
+          }
+        ],
+        "entry_summaries": [
+          {
+            "artifact_id": "code/client_config.py",
+            "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+            "state": "blocked",
+            "blockers": [
+              {
+                "code": "unresolved_changes_requested"
+              }
+            ]
+          },
+          {
+            "artifact_id": "docs/reference.md",
+            "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+            "state": "current_for_human_review",
+            "blockers": []
+          }
+        ],
+        "coverage": {
+          "selected_write_ids": [
+            "code/client_config.py",
+            "docs/reference.md"
+          ],
+          "uncovered_write_ids": [],
+          "complete": true,
+          "scope": "write_ids_only_not_semantic_coverage"
+        },
+        "packet_reuse": [],
+        "entry_coverage_scope": "each_entry_is_partial_global_coverage_is_authoritative",
+        "blockers": [
+          {
+            "code": "unresolved_changes_requested",
+            "artifact_id": "code/client_config.py"
+          }
+        ],
+        "state": "blocked",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "atomic_capture": false,
+        "limits": [
+          "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+          "Write coverage enumerates proposal write IDs; it does not prove semantic coverage.",
+          "Exact template matching binds bytes; statement fields and their mapping to prose remain caller-declared.",
+          "Only existing document and code templates can obtain a matching binding in this version.",
+          "Actor identities and kinds are self-declared; agreement and reused packets do not prove independence or truth.",
+          "No review set or recheck grants Store.accept or publication rights."
+        ]
+      },
+      "original_observed_revision": 1,
+      "current_observed_revision": 2,
+      "journal_snapshot_changed": true,
+      "requires_human_review": true,
+      "auto_accept": false,
+      "atomic_capture": false,
+      "limits": [
+        "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+        "Write coverage enumerates proposal write IDs; it does not prove semantic coverage.",
+        "Exact template matching binds bytes; statement fields and their mapping to prose remain caller-declared.",
+        "Only existing document and code templates can obtain a matching binding in this version.",
+        "Actor identities and kinds are self-declared; agreement and reused packets do not prove independence or truth.",
+        "No review set or recheck grants Store.accept or publication rights."
+      ]
+    },
+    "after-dependency": {
+      "schema_version": 1,
+      "review_set_rules_version": "review-set-1",
+      "review_set_id": "rset_703371cd0d50c0369f5dbaf69f5188b2cd9025f7a02b49b225368572084b0250",
+      "review_set_digest": "703371cd0d50c0369f5dbaf69f5188b2cd9025f7a02b49b225368572084b0250",
+      "freshness": "stale",
+      "state": "blocked",
+      "changes": [
+        {
+          "code": "runtime_basis_changed"
+        },
+        {
+          "code": "artifact_review_changed",
+          "artifact_id": "code/client_config.py"
+        },
+        {
+          "code": "artifact_review_changed",
+          "artifact_id": "docs/reference.md"
+        },
+        {
+          "code": "blockers_changed"
+        }
+      ],
+      "per_artifact_changes": [
+        {
+          "artifact_id": "code/client_config.py",
+          "changes": [
+            {
+              "code": "runtime_basis_changed"
+            },
+            {
+              "code": "decision_heads_changed"
+            },
+            {
+              "code": "editorial_assessment_changed"
+            },
+            {
+              "code": "blockers_changed"
+            }
+          ]
+        },
+        {
+          "artifact_id": "docs/reference.md",
+          "changes": [
+            {
+              "code": "runtime_basis_changed"
+            },
+            {
+              "code": "blockers_changed"
+            }
+          ]
+        }
+      ],
+      "blockers": [
+        {
+          "code": "stale_read",
+          "id": "api.timeout_seconds",
+          "expected": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+          "actual": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+        },
+        {
+          "code": "unresolved_changes_requested",
+          "artifact_id": "code/client_config.py"
+        }
+      ],
+      "current_observation": {
+        "proposal_id": "p_33e284c171616ad78d211c4f",
+        "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+        "observed_revision": 3,
+        "proposal_status": "proposed",
+        "runtime_basis_digest": "d18d12d9b292ea208f4cb9508f4cc2a2737bb48a297aa2243be836007fac4d58",
+        "formal_head": {
+          "review_id": 3,
+          "report_digest": "2e6709fe41687d400a58d0439e674aaa11a41ec2662055753e1436ed5192ee28"
+        },
+        "component_head": "9ba4f117436997ec1c7cd3f9654880f3605436fa515404d15937cd00c0fe8d31",
+        "entries": [
+          {
+            "proposal_id": "p_33e284c171616ad78d211c4f",
+            "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+            "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+            "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+            "artifact_id": "code/client_config.py",
+            "observed_revision": 3,
+            "proposal_status": "proposed",
+            "runtime_basis_current": false,
+            "runtime_basis_digest": "e989d3325d5dadeca162639dcfef060538f8579d149f0f52e207e406989ce664",
+            "formal_head": {
+              "review_id": 3,
+              "report_digest": "2e6709fe41687d400a58d0439e674aaa11a41ec2662055753e1436ed5192ee28"
+            },
+            "decision_heads": {
+              "editorial-agent-a": "dec_022f79d0c9e57f062db41a0bec37df992c3e861456d8586d5ed1850ff4be1e92",
+              "editorial-agent-b": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157"
+            },
+            "binding": {
+              "mode": "exact_template",
+              "matches": true,
+              "errors": [],
+              "semantic_mapping": "caller_declared_unverified",
+              "scope": "template_text_only_not_rendered_output_or_all_metadata"
+            },
+            "coverage": {
+              "selected_write_ids": [
+                "code/client_config.py"
+              ],
+              "uncovered_write_ids": [
+                "docs/reference.md"
+              ],
+              "complete": false,
+              "scope": "write_ids_only_not_semantic_coverage"
+            },
+            "actors": {
+              "runtime_author_id": "review-set-integrator",
+              "packet_proposer": {
+                "id": "review-set-code-author",
+                "kind": "agent"
+              },
+              "authenticated": false,
+              "independence_verified": false
+            },
+            "runtime_errors": [
+              {
+                "code": "stale_read",
+                "id": "api.timeout_seconds",
+                "expected": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+                "actual": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+              }
+            ],
+            "formal_errors": [],
+            "editorial": {
+              "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+              "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+              "input_digest": "d8c42d3d84cd5884fc9c768e20de7b4588821eacac244119de529ca3e2cb0b9a",
+              "current_input_digest": "d8c42d3d84cd5884fc9c768e20de7b4588821eacac244119de529ca3e2cb0b9a",
+              "freshness": "current",
+              "is_current": true,
+              "current_input_provided": true,
+              "current_input_checked": true,
+              "review_state": "disagreement",
+              "latest_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_022f79d0c9e57f062db41a0bec37df992c3e861456d8586d5ed1850ff4be1e92",
+                  "operation_id": "code-editorial-agent-a-2",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity comparison does not assess complete code behavior. A human reviewer needs to inspect the full proposed file and its assumptions.",
+                  "recorded_at": "2026-10-16T12:06:13.427360+00:00",
+                  "request_digest": "022f79d0c9e57f062db41a0bec37df992c3e861456d8586d5ed1850ff4be1e92",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+                  "verdict": "request_changes"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "operation_id": "code-editorial-agent-b-1",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.283958+00:00",
+                  "request_digest": "3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "current_basis_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_022f79d0c9e57f062db41a0bec37df992c3e861456d8586d5ed1850ff4be1e92",
+                  "operation_id": "code-editorial-agent-a-2",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity comparison does not assess complete code behavior. A human reviewer needs to inspect the full proposed file and its assumptions.",
+                  "recorded_at": "2026-10-16T12:06:13.427360+00:00",
+                  "request_digest": "022f79d0c9e57f062db41a0bec37df992c3e861456d8586d5ed1850ff4be1e92",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+                  "verdict": "request_changes"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "operation_id": "code-editorial-agent-b-1",
+                  "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.283958+00:00",
+                  "request_digest": "3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "history_count": 3,
+              "reviewer_count": 2,
+              "human_review_recorded": false,
+              "requires_human_review": true,
+              "current_human_review_recorded": false,
+              "auto_accept": false,
+              "blockers": [
+                "human_review_not_recorded",
+                "unresolved_changes_requested"
+              ],
+              "counts": {
+                "approve": 1,
+                "request_changes": 1,
+                "abstain": 0
+              },
+              "limits": [
+                "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+                "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+                "No state records factual truth or grants Store.accept/publication rights.",
+                "Human-review requirement remains true even when a caller records an actor labelled human."
+              ]
+            },
+            "blockers": [
+              {
+                "code": "stale_read",
+                "id": "api.timeout_seconds",
+                "expected": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+                "actual": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+              },
+              {
+                "code": "uncovered_writes",
+                "artifact_ids": [
+                  "docs/reference.md"
+                ]
+              },
+              {
+                "code": "unresolved_changes_requested"
+              }
+            ],
+            "state": "blocked",
+            "requires_human_review": true,
+            "auto_accept": false,
+            "atomic_capture": false,
+            "limits": [
+              "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+              "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+              "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+              "No dossier or recheck grants Store.accept or publication rights."
+            ]
+          },
+          {
+            "proposal_id": "p_33e284c171616ad78d211c4f",
+            "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+            "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+            "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+            "artifact_id": "docs/reference.md",
+            "observed_revision": 3,
+            "proposal_status": "proposed",
+            "runtime_basis_current": false,
+            "runtime_basis_digest": "53cd248304ebd5413564a5cbe596cd833a443001e8569a184f4707dab23e5b52",
+            "formal_head": {
+              "review_id": 3,
+              "report_digest": "2e6709fe41687d400a58d0439e674aaa11a41ec2662055753e1436ed5192ee28"
+            },
+            "decision_heads": {
+              "editorial-agent-a": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+              "editorial-agent-b": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6"
+            },
+            "binding": {
+              "mode": "exact_template",
+              "matches": true,
+              "errors": [],
+              "semantic_mapping": "caller_declared_unverified",
+              "scope": "template_text_only_not_rendered_output_or_all_metadata"
+            },
+            "coverage": {
+              "selected_write_ids": [
+                "docs/reference.md"
+              ],
+              "uncovered_write_ids": [
+                "code/client_config.py"
+              ],
+              "complete": false,
+              "scope": "write_ids_only_not_semantic_coverage"
+            },
+            "actors": {
+              "runtime_author_id": "review-set-integrator",
+              "packet_proposer": {
+                "id": "review-set-document-author",
+                "kind": "agent"
+              },
+              "authenticated": false,
+              "independence_verified": false
+            },
+            "runtime_errors": [
+              {
+                "code": "stale_read",
+                "id": "api.timeout_seconds",
+                "expected": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+                "actual": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+              }
+            ],
+            "formal_errors": [],
+            "editorial": {
+              "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+              "current_input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+              "freshness": "current",
+              "is_current": true,
+              "current_input_provided": true,
+              "current_input_checked": true,
+              "review_state": "agent_agreement",
+              "latest_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "operation_id": "document-editorial-agent-a-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.289704+00:00",
+                  "request_digest": "f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "operation_id": "document-editorial-agent-b-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.280959+00:00",
+                  "request_digest": "3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "current_basis_decisions": [
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "operation_id": "document-editorial-agent-a-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.289704+00:00",
+                  "request_digest": "f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+                  "reviewer": "editorial-agent-a",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                },
+                {
+                  "actor_kind": "agent",
+                  "decision_id": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "operation_id": "document-editorial-agent-b-1",
+                  "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+                  "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+                  "recorded_at": "2026-10-16T12:06:13.280959+00:00",
+                  "request_digest": "3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+                  "reviewer": "editorial-agent-b",
+                  "schema_version": 1,
+                  "supersedes": null,
+                  "verdict": "approve"
+                }
+              ],
+              "history_count": 2,
+              "reviewer_count": 2,
+              "human_review_recorded": false,
+              "requires_human_review": true,
+              "current_human_review_recorded": false,
+              "auto_accept": false,
+              "blockers": [
+                "human_review_not_recorded"
+              ],
+              "counts": {
+                "approve": 2,
+                "request_changes": 0,
+                "abstain": 0
+              },
+              "limits": [
+                "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+                "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+                "No state records factual truth or grants Store.accept/publication rights.",
+                "Human-review requirement remains true even when a caller records an actor labelled human."
+              ]
+            },
+            "blockers": [
+              {
+                "code": "stale_read",
+                "id": "api.timeout_seconds",
+                "expected": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+                "actual": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+              },
+              {
+                "code": "uncovered_writes",
+                "artifact_ids": [
+                  "code/client_config.py"
+                ]
+              }
+            ],
+            "state": "blocked",
+            "requires_human_review": true,
+            "auto_accept": false,
+            "atomic_capture": false,
+            "limits": [
+              "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+              "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+              "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+              "No dossier or recheck grants Store.accept or publication rights."
+            ]
+          }
+        ],
+        "entry_summaries": [
+          {
+            "artifact_id": "code/client_config.py",
+            "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+            "state": "blocked",
+            "blockers": [
+              {
+                "code": "stale_read",
+                "id": "api.timeout_seconds",
+                "expected": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+                "actual": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+              },
+              {
+                "code": "unresolved_changes_requested"
+              }
+            ]
+          },
+          {
+            "artifact_id": "docs/reference.md",
+            "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+            "state": "blocked",
+            "blockers": [
+              {
+                "code": "stale_read",
+                "id": "api.timeout_seconds",
+                "expected": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+                "actual": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+              }
+            ]
+          }
+        ],
+        "coverage": {
+          "selected_write_ids": [
+            "code/client_config.py",
+            "docs/reference.md"
+          ],
+          "uncovered_write_ids": [],
+          "complete": true,
+          "scope": "write_ids_only_not_semantic_coverage"
+        },
+        "packet_reuse": [],
+        "entry_coverage_scope": "each_entry_is_partial_global_coverage_is_authoritative",
+        "blockers": [
+          {
+            "code": "stale_read",
+            "id": "api.timeout_seconds",
+            "expected": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+            "actual": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+          },
+          {
+            "code": "unresolved_changes_requested",
+            "artifact_id": "code/client_config.py"
+          }
+        ],
+        "state": "blocked",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "atomic_capture": false,
+        "limits": [
+          "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+          "Write coverage enumerates proposal write IDs; it does not prove semantic coverage.",
+          "Exact template matching binds bytes; statement fields and their mapping to prose remain caller-declared.",
+          "Only existing document and code templates can obtain a matching binding in this version.",
+          "Actor identities and kinds are self-declared; agreement and reused packets do not prove independence or truth.",
+          "No review set or recheck grants Store.accept or publication rights."
+        ]
+      },
+      "original_observed_revision": 1,
+      "current_observed_revision": 3,
+      "journal_snapshot_changed": true,
+      "requires_human_review": true,
+      "auto_accept": false,
+      "atomic_capture": false,
+      "limits": [
+        "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+        "Write coverage enumerates proposal write IDs; it does not prove semantic coverage.",
+        "Exact template matching binds bytes; statement fields and their mapping to prose remain caller-declared.",
+        "Only existing document and code templates can obtain a matching binding in this version.",
+        "Actor identities and kinds are self-declared; agreement and reused packets do not prove independence or truth.",
+        "No review set or recheck grants Store.accept or publication rights."
+      ]
+    }
+  },
+  "composition_replay": {
+    "proposal_id": "p_33e284c171616ad78d211c4f",
+    "digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+    "replayed": true,
+    "components": [
+      {
+        "position": 1,
+        "proposal_id": "p_2b2fb1fddd0523c0878a69cf",
+        "digest": "06fb3efffd91a7780cfff2d4f6a10c6e3315a3eef4a98d6fc9b16d6d84197fbe",
+        "write_ids": [
+          "docs/reference.md"
+        ]
+      },
+      {
+        "position": 2,
+        "proposal_id": "p_2675dd81b522b741942d4dce",
+        "digest": "b2ed219183b770631ba12b6d6b46d512ab2e139941e17cf681c26d8301cb6fde",
+        "write_ids": [
+          "code/client_config.py"
+        ]
+      }
+    ]
+  },
+  "final_runtime_status": {
+    "revision": 3,
+    "artifacts": 6,
+    "sources": 1,
+    "tasks": {
+      "done": 5
+    },
+    "proposals": {
+      "accepted": 2,
+      "proposed": 3
+    },
+    "events": 24,
+    "rules_version": "mvp-1"
+  },
+  "final_proposal_statuses": {
+    "document": "proposed",
+    "code": "proposed",
+    "composite": "proposed"
+  },
+  "summary": {
+    "source_proposal_count": 2,
+    "composite_proposal_count": 1,
+    "review_set_count": 3,
+    "packet_count": 2,
+    "decision_count": 5,
+    "journal_event_count": 11,
+    "component_approvals_not_transferred": true,
+    "uncovered_code_write_visible": true,
+    "unchanged_basis_survives_unrelated_revision": true,
+    "code_objection_localized": true,
+    "shared_dependency_change_blocks_composite": true,
+    "composition_replays_original": true,
+    "file_proposals_remain_unaccepted": true,
+    "human_review_recorded": false,
+    "auto_accept": false
+  },
+  "limitations": [
+    "Authors, integrator and reviewers are programmed local workers, not LLMs or independent experts.",
+    "Write-ID coverage is not semantic coverage; metadata and complete program behavior require separate review.",
+    "Quantity fields are explicitly authored illustration metadata, not extracted from or aligned with the templates.",
+    "The fictional semantic source and runtime fixture source are separate; identity is not inferred.",
+    "Runtime and journal are sequential observations without a shared transaction or reservation of acceptance.",
+    "A current review set still requires human review and grants no acceptance or publication right.",
+    "The scenario is not a quality benchmark, load measurement or execution of proposed code."
+  ]
+}

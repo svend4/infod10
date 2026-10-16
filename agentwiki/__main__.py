@@ -16,6 +16,7 @@ from .corpus import analyze_case, get_case, load_corpus
 from .semantic import analyze_pair_file
 from .editorial_cli import register_editorial_parser, run_editorial_command
 from .dossier_cli import register_dossier_parser, run_dossier_command
+from .review_set_cli import register_review_set_parser, run_review_set_command
 
 
 def _workers(value: str) -> int:
@@ -138,12 +139,21 @@ def main(argv: list[str] | None = None) -> int:
     review_pair.add_argument("--input", type=Path, required=True, help="JSON с before, after и sources.")
     register_editorial_parser(commands)
     register_dossier_parser(commands)
+    register_review_set_parser(commands)
     editorial_demo = commands.add_parser("editorial-demo", help="Показать историю решений программных проверяющих и устаревание оснований.")
     editorial_demo.add_argument("--workspace", type=Path, required=True)
     editorial_demo.add_argument("--workers", default=3, type=_workers)
     dossier_demo = commands.add_parser("dossier-demo", help="Связать рассмотрение с точными предложениями документов и кода.")
     dossier_demo.add_argument("--workspace", type=Path, required=True)
     dossier_demo.add_argument("--workers", default=3, type=_workers)
+    review_set_demo = commands.add_parser("review-set-demo", help="Собрать вклады авторов и рассмотреть все файлы общего предложения.")
+    review_set_demo.add_argument("--workspace", type=Path, required=True)
+    review_set_demo.add_argument("--workers", default=3, type=_workers)
+    compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
+    compose.add_argument("--workspace", type=Path, required=True)
+    compose.add_argument("--task", required=True)
+    compose.add_argument("--worker", required=True)
+    compose.add_argument("--token", type=int, required=True)
     arguments = parser.parse_args(argv)
     try:
         if arguments.command == "demo":
@@ -184,6 +194,15 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(run_editorial_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "dossier":
             print(json.dumps(run_dossier_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "review-set":
+            print(json.dumps(run_review_set_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "review-set-demo":
+            from .review_set_demo import run_review_set_demo
+
+            report = run_review_set_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
+        elif arguments.command == "compose":
+            print(json.dumps(_existing_store(arguments.workspace).compose(arguments.task, arguments.worker, arguments.token), ensure_ascii=False, indent=2))
         elif arguments.command == "dossier-demo":
             from .dossier_demo import run_dossier_demo
 

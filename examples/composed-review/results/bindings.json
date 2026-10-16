@@ -1,0 +1,114 @@
+[
+  {
+    "artifact_id": "docs/reference.md",
+    "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+    "pair": {
+      "before": {
+        "subject": "fictional-api",
+        "property": "request-timeout",
+        "scope": {
+          "version": "1.0"
+        },
+        "kind": "specification",
+        "modality": "asserted",
+        "polarity": "positive",
+        "value": {
+          "type": "quantity",
+          "amount": "30",
+          "unit": "s"
+        },
+        "attribution": "вымышленный редактор Альфа",
+        "evidence": {
+          "source_id": "fictional-shared",
+          "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+          "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам."
+        },
+        "text": "# API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n"
+      },
+      "after": {
+        "subject": "fictional-api",
+        "property": "request-timeout",
+        "scope": {
+          "version": "1.0"
+        },
+        "kind": "specification",
+        "modality": "asserted",
+        "polarity": "positive",
+        "value": {
+          "type": "quantity",
+          "amount": "30000",
+          "unit": "ms"
+        },
+        "attribution": "вымышленный редактор Альфа",
+        "evidence": {
+          "source_id": "fictional-shared",
+          "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+          "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам."
+        },
+        "text": "# Настройка API\n\nТайм-аут запроса: {{api.timeout_seconds}} секунд.\n"
+      },
+      "sources": {
+        "fictional-shared": {
+          "text": "ВЫМЫШЛЕННЫЙ ИСТОЧНИК. Учебный снимок условного API, не сведения о реальном продукте.\nТайм-аут равен 30 секундам, то есть 30000 миллисекундам.\n",
+          "sha256": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1"
+        }
+      }
+    }
+  },
+  {
+    "artifact_id": "code/client_config.py",
+    "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+    "pair": {
+      "before": {
+        "subject": "fictional-api",
+        "property": "request-timeout",
+        "scope": {
+          "version": "1.0"
+        },
+        "kind": "specification",
+        "modality": "asserted",
+        "polarity": "positive",
+        "value": {
+          "type": "quantity",
+          "amount": "30",
+          "unit": "s"
+        },
+        "attribution": "вымышленный редактор Альфа",
+        "evidence": {
+          "source_id": "fictional-shared",
+          "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+          "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам."
+        },
+        "text": "\"\"\"Fictional API configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\n"
+      },
+      "after": {
+        "subject": "fictional-api",
+        "property": "request-timeout",
+        "scope": {
+          "version": "1.0"
+        },
+        "kind": "specification",
+        "modality": "asserted",
+        "polarity": "positive",
+        "value": {
+          "type": "quantity",
+          "amount": "30000",
+          "unit": "ms"
+        },
+        "attribution": "вымышленный редактор Альфа",
+        "evidence": {
+          "source_id": "fictional-shared",
+          "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+          "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам."
+        },
+        "text": "\"\"\"Fictional API configuration; editorial review remains required.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\n"
+      },
+      "sources": {
+        "fictional-shared": {
+          "text": "ВЫМЫШЛЕННЫЙ ИСТОЧНИК. Учебный снимок условного API, не сведения о реальном продукте.\nТайм-аут равен 30 секундам, то есть 30000 миллисекундам.\n",
+          "sha256": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1"
+        }
+      }
+    }
+  }
+]

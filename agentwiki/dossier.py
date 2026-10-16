@@ -66,8 +66,10 @@ def _pair(value: Any) -> None:
 
 def _context(value: Any) -> None:
     """Check the captured context's internal links, without opening a database."""
-    _require(isinstance(value, dict) and set(value) == CONTEXT_KEYS, "Unexpected runtime context fields")
-    _require(type(value["schema_version"]) is int and value["schema_version"] == 1, "Unsupported runtime context schema")
+    _require(isinstance(value, dict), "Runtime context must be an object")
+    version = value.get("schema_version")
+    _require(type(version) is int and version in {1, 2}, "Unsupported runtime context schema")
+    _require(set(value) == CONTEXT_KEYS | ({"components"} if version == 2 else set()), "Unexpected runtime context fields")
     _require(isinstance(value["runtime_rules_version"], str) and bool(value["runtime_rules_version"]), "Missing runtime rules")
     _require(type(value["observed_revision"]) is int and value["observed_revision"] >= 0, "Invalid observed revision")
     proposal = value["proposal"]
@@ -87,6 +89,27 @@ def _context(value: Any) -> None:
     write_ids = [body["id"] for body in writes]
     _require(len(set(write_ids)) == len(write_ids), "Duplicate proposal write")
     _require(set(write_ids) <= set(payload["readset"]), "Proposal writes lack their read bases")
+    if version == 2:
+        components = value["components"]
+        _require(isinstance(components, list) and len(components) <= 32, "Invalid composition components")
+        source_ids, covered_ids, references = [], [], []
+        for position, component in enumerate(components, 1):
+            _require(isinstance(component, dict) and set(component) == {"position", "proposal_id", "digest", "write_ids"}, "Unexpected component fields")
+            _require(type(component["position"]) is int and component["position"] == position, "Component order mismatch")
+            _require(isinstance(component["proposal_id"], str) and component["proposal_id"] and component["proposal_id"] != proposal["id"], "Invalid component identity")
+            _require(isinstance(component["digest"], str) and bool(HASH.fullmatch(component["digest"])), "Invalid component digest")
+            ids = component["write_ids"]
+            _require(isinstance(ids, list) and bool(ids) and all(isinstance(key, str) for key in ids) and ids == sorted(set(ids)), "Invalid component writes")
+            source_ids.append(component["proposal_id"])
+            covered_ids.extend(ids)
+            references.append({"proposal_id": component["proposal_id"], "digest": component["digest"], "write_ids": ids})
+        _require(len(source_ids) == len(set(source_ids)), "Duplicate component identity")
+        if components:
+            _require(len(covered_ids) == len(set(covered_ids)) and set(covered_ids) == set(write_ids), "Composition lineage does not cover writes exactly")
+            rationale = json.loads(payload["rationale"])
+            _require(isinstance(rationale, dict) and set(rationale) == {"text", "components"} and isinstance(rationale["text"], str) and bool(rationale["text"].strip()), "Invalid composition rationale")
+            _require(payload["rationale"] == canonical(rationale), "Composition rationale must use canonical JSON")
+            _require(digest(rationale["components"]) == digest(references), "Composition references differ from proposal digest basis")
     for key in ["artifacts", "actual_readset", "actual_queries", "sources"]:
         _require(isinstance(value[key], dict), "Invalid runtime context map")
     _require(set(value["actual_readset"]) == set(payload["readset"]), "Read observations do not cover readset")
@@ -124,12 +147,15 @@ def _formal_head(context: dict[str, Any]) -> dict[str, Any] | None:
 def _basis(context: dict[str, Any], artifact_id: str) -> dict[str, Any]:
     proposal = context["proposal"]
     after = next((body for body in proposal["payload"]["writes"] if body["id"] == artifact_id), None)
-    return {
+    basis = {
         "runtime_rules_version": context["runtime_rules_version"],
         "proposal_digest": proposal["digest"],
         "actual_readset": context["actual_readset"], "actual_queries": context["actual_queries"],
         "selected_before": context["artifacts"].get(artifact_id), "selected_write": after,
     }
+    if context.get("components"):
+        basis["components"] = context["components"]
+    return basis
 
 
 def _coverage(context: dict[str, Any], artifact_id: str) -> dict[str, Any]:

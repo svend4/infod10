@@ -27,6 +27,7 @@ ROLE_KINDS = {
     "analyst": {"claim"},
     "doc_author": {"document"},
     "code_author": {"code"},
+    "integrator": {"document", "code"},
 }
 CLAIM_ID = re.compile(r"[a-z][a-z0-9_.-]{0,100}\Z")
 PLACEHOLDER = re.compile(r"\{\{([a-z][a-z0-9_.-]{0,100})\}\}")
@@ -87,6 +88,13 @@ CREATE TABLE IF NOT EXISTS proposals (
     author TEXT NOT NULL, token INTEGER NOT NULL, payload TEXT NOT NULL,
     digest TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'proposed',
     accepted_revision INTEGER
+);
+CREATE TABLE IF NOT EXISTS proposal_components (
+    composite_id TEXT NOT NULL REFERENCES proposals(id),
+    position INTEGER NOT NULL CHECK (position >= 1),
+    source_id TEXT NOT NULL REFERENCES proposals(id), source_digest TEXT NOT NULL,
+    writes TEXT NOT NULL,
+    PRIMARY KEY (composite_id, position), UNIQUE (composite_id, source_id)
 );
 CREATE TABLE IF NOT EXISTS reviews (
     id INTEGER PRIMARY KEY AUTOINCREMENT, proposal_id TEXT NOT NULL REFERENCES proposals(id),
@@ -444,6 +452,8 @@ class Store:
         payload_digest = digest(proposal)
         with self._transaction(write=True) as connection:
             task = connection.execute("SELECT * FROM tasks WHERE id=?", (task_id,)).fetchone()
+            if task and task["role"] == "integrator":
+                raise WorkbenchError("composition_required", "Integrator tasks must use compose")
             if task and task["state"] == "done" and task["worker"] == worker and task["token"] == token:
                 previous = connection.execute("SELECT digest FROM proposals WHERE id=?", (task["result_id"],)).fetchone()
                 if previous[0] != payload_digest:
@@ -459,6 +469,126 @@ class Store:
             connection.execute("UPDATE tasks SET state='done',result_id=? WHERE id=?", (proposal_id, task_id))
             self._event(connection, "proposal_submitted", {"proposal_id": proposal_id, "task_id": task_id, "digest": payload_digest, "worker": worker, "token": token})
             return {"proposal_id": proposal_id, "digest": payload_digest, "replayed": False}
+
+    @staticmethod
+    def _components(connection: sqlite3.Connection, proposal_id: str) -> list[dict[str, Any]]:
+        """Return captured lineage in its original, one-based component order."""
+        return [
+            {"position": row["position"], "proposal_id": row["source_id"],
+             "digest": row["source_digest"],
+             "write_ids": sorted(body["id"] for body in json.loads(row["writes"]))}
+            for row in connection.execute(
+                "SELECT position,source_id,source_digest,writes FROM proposal_components "
+                "WHERE composite_id=? ORDER BY position", (proposal_id,),
+            )
+        ]
+
+    def compose(self, task_id: str, worker: str, token: int) -> dict[str, Any]:
+        """Combine exact document/code proposals without accepting any of them.
+
+        The integrator task's immutable payload has exactly ``components``
+        (one to 32 distinct ``{proposal_id, digest}`` references) and a nonempty
+        ``rationale``. The resulting proposal's rationale is a canonical JSON
+        string ``{text, components}``; each embedded component reference also
+        contains sorted ``write_ids``, so its digest pins their source mapping.
+        No formal or editorial approvals are inherited from the components.
+        """
+        with self._transaction(write=True) as connection:
+            task = connection.execute("SELECT * FROM tasks WHERE id=?", (task_id,)).fetchone()
+            if task is None:
+                raise WorkbenchError("lease_lost", "Expired or superseded attempts cannot compose")
+            if task["role"] != "integrator":
+                raise WorkbenchError("invalid_composition", "Composition requires an integrator task")
+            # Replay depends on the completed attempt, not on source proposals
+            # which may have changed status or acquired stale reads since then.
+            if task["state"] == "done" and task["worker"] == worker and task["token"] == token:
+                previous = self._find_proposal(connection, task["result_id"])
+                return {"proposal_id": previous["id"], "digest": previous["digest"],
+                        "replayed": True, "components": self._components(connection, previous["id"])}
+            if not self._valid_lease(task, worker, token):
+                raise WorkbenchError("lease_lost", "Expired or superseded attempts cannot compose")
+            request = json.loads(task["payload"])
+            if (not isinstance(request, dict) or set(request) != {"components", "rationale"}
+                    or not isinstance(request["rationale"], str) or not request["rationale"].strip()
+                    or not isinstance(request["components"], list)
+                    or not 1 <= len(request["components"]) <= 32):
+                raise WorkbenchError("invalid_composition", "Expected 1..32 components and a nonempty rationale")
+            references = request["components"]
+            for reference in references:
+                if (not isinstance(reference, dict) or set(reference) != {"proposal_id", "digest"}
+                        or not isinstance(reference["proposal_id"], str) or not reference["proposal_id"]
+                        or not isinstance(reference["digest"], str) or not HASH.fullmatch(reference["digest"])):
+                    raise WorkbenchError("invalid_composition", "Each component needs a proposal_id and exact digest")
+            if len({reference["proposal_id"] for reference in references}) != len(references):
+                raise WorkbenchError("invalid_composition", "Component proposal IDs must be unique")
+
+            readset: dict[str, Any] = {}
+            queries: dict[str, str] = {}
+            writes: dict[str, Any] = {}
+            captured = []
+            embedded_references = []
+            for position, reference in enumerate(references, 1):
+                source = self._find_proposal(connection, reference["proposal_id"])
+                if source["digest"] != reference["digest"]:
+                    raise WorkbenchError("component_digest_mismatch", reference["proposal_id"])
+                if source["status"] != "proposed":
+                    raise WorkbenchError("component_not_proposed", reference["proposal_id"])
+                source_errors = self._evaluate(connection, source)
+                if source_errors:
+                    raise WorkbenchError("stale_component", canonical({"proposal_id": source["id"], "reasons": source_errors}))
+                payload = json.loads(source["payload"])
+                for body in payload["writes"]:
+                    if body["kind"] not in ROLE_KINDS["integrator"]:
+                        raise WorkbenchError("component_write_kind", "Only document and code writes can be composed")
+                    if body["id"] in writes:
+                        raise WorkbenchError("composition_write_conflict", body["id"])
+                    writes[body["id"]] = body
+                for key, expected in payload["readset"].items():
+                    if key in readset and readset[key] != expected:
+                        raise WorkbenchError("composition_read_conflict", key)
+                    readset[key] = expected
+                for scope, expected in payload["queries"].items():
+                    if scope in queries and queries[scope] != expected:
+                        raise WorkbenchError("composition_query_conflict", scope)
+                    queries[scope] = expected
+                captured.append((position, source["id"], source["digest"], canonical(payload["writes"])))
+                embedded_references.append({
+                    "proposal_id": source["id"], "digest": source["digest"],
+                    "write_ids": sorted(body["id"] for body in payload["writes"]),
+                })
+
+            proposal = {
+                "readset": {key: readset[key] for key in sorted(readset)},
+                "queries": {scope: queries[scope] for scope in sorted(queries)},
+                "writes": [writes[key] for key in sorted(writes)],
+                "rationale": canonical({"text": request["rationale"], "components": embedded_references}),
+            }
+            payload_text = canonical(proposal)
+            if len(payload_text.encode("utf-8")) > 1000000:
+                raise WorkbenchError("proposal_too_large", "Proposal limit is 1 MB")
+            errors = self._payload_errors(proposal, connection, "integrator")
+            if not errors:
+                errors.extend(self._invariant_errors({**self._artifacts(connection), **writes}))
+            if errors:
+                raise WorkbenchError("invalid_proposal", canonical(errors))
+            payload_digest = digest(proposal)
+            proposal_id = "p_" + digest({"task": task_id, "token": token, "payload": payload_digest})[:24]
+            connection.execute(
+                "INSERT INTO proposals(id,task_id,author,token,payload,digest) VALUES (?,?,?,?,?,?)",
+                (proposal_id, task_id, worker, token, payload_text, payload_digest),
+            )
+            connection.executemany(
+                "INSERT INTO proposal_components(composite_id,position,source_id,source_digest,writes) VALUES (?,?,?,?,?)",
+                [(proposal_id, *item) for item in captured],
+            )
+            connection.execute("UPDATE tasks SET state='done',result_id=? WHERE id=?", (proposal_id, task_id))
+            components = self._components(connection, proposal_id)
+            self._event(connection, "proposal_composed", {
+                "proposal_id": proposal_id, "task_id": task_id, "digest": payload_digest,
+                "worker": worker, "token": token, "components": components,
+            })
+            return {"proposal_id": proposal_id, "digest": payload_digest,
+                    "replayed": False, "components": components}
 
     def _evaluate(self, connection: sqlite3.Connection, row: sqlite3.Row) -> list[dict[str, Any]]:
         payload = json.loads(row["payload"])
@@ -562,8 +692,9 @@ class Store:
                 formal_review = {**json.loads(review["report"]), "review_id": review["id"]}
             identifiers = set(payload["readset"]) | {body["id"] for body in payload["writes"]}
             return {
-                "schema_version": 1, "runtime_rules_version": RULES_VERSION,
+                "schema_version": 2, "runtime_rules_version": RULES_VERSION,
                 "observed_revision": self._revision(connection), "proposal": proposal,
+                "components": self._components(connection, proposal_id),
                 "artifacts": {key: current.get(key) for key in sorted(identifiers)},
                 "actual_readset": {
                     key: digest(current[key]) if key in current else None

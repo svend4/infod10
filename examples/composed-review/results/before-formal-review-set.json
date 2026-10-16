@@ -1,0 +1,1498 @@
+{
+  "bindings": [
+    {
+      "artifact_id": "code/client_config.py",
+      "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+      "pair": {
+        "after": {
+          "attribution": "вымышленный редактор Альфа",
+          "evidence": {
+            "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "source_id": "fictional-shared"
+          },
+          "kind": "specification",
+          "modality": "asserted",
+          "polarity": "positive",
+          "property": "request-timeout",
+          "scope": {
+            "version": "1.0"
+          },
+          "subject": "fictional-api",
+          "text": "\"\"\"Fictional API configuration; editorial review remains required.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\n",
+          "value": {
+            "amount": "30000",
+            "type": "quantity",
+            "unit": "ms"
+          }
+        },
+        "before": {
+          "attribution": "вымышленный редактор Альфа",
+          "evidence": {
+            "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "source_id": "fictional-shared"
+          },
+          "kind": "specification",
+          "modality": "asserted",
+          "polarity": "positive",
+          "property": "request-timeout",
+          "scope": {
+            "version": "1.0"
+          },
+          "subject": "fictional-api",
+          "text": "\"\"\"Fictional API configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\n",
+          "value": {
+            "amount": "30",
+            "type": "quantity",
+            "unit": "s"
+          }
+        },
+        "sources": {
+          "fictional-shared": {
+            "sha256": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "text": "ВЫМЫШЛЕННЫЙ ИСТОЧНИК. Учебный снимок условного API, не сведения о реальном продукте.\nТайм-аут равен 30 секундам, то есть 30000 миллисекундам.\n"
+          }
+        }
+      }
+    },
+    {
+      "artifact_id": "docs/reference.md",
+      "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+      "pair": {
+        "after": {
+          "attribution": "вымышленный редактор Альфа",
+          "evidence": {
+            "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "source_id": "fictional-shared"
+          },
+          "kind": "specification",
+          "modality": "asserted",
+          "polarity": "positive",
+          "property": "request-timeout",
+          "scope": {
+            "version": "1.0"
+          },
+          "subject": "fictional-api",
+          "text": "# Настройка API\n\nТайм-аут запроса: {{api.timeout_seconds}} секунд.\n",
+          "value": {
+            "amount": "30000",
+            "type": "quantity",
+            "unit": "ms"
+          }
+        },
+        "before": {
+          "attribution": "вымышленный редактор Альфа",
+          "evidence": {
+            "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+            "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "source_id": "fictional-shared"
+          },
+          "kind": "specification",
+          "modality": "asserted",
+          "polarity": "positive",
+          "property": "request-timeout",
+          "scope": {
+            "version": "1.0"
+          },
+          "subject": "fictional-api",
+          "text": "# API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n",
+          "value": {
+            "amount": "30",
+            "type": "quantity",
+            "unit": "s"
+          }
+        },
+        "sources": {
+          "fictional-shared": {
+            "sha256": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+            "text": "ВЫМЫШЛЕННЫЙ ИСТОЧНИК. Учебный снимок условного API, не сведения о реальном продукте.\nТайм-аут равен 30 секундам, то есть 30000 миллисекундам.\n"
+          }
+        }
+      }
+    }
+  ],
+  "created_at": "2026-10-16T12:06:13.300640+00:00",
+  "dossier_rules_version": "dossier-1",
+  "journal_snapshot": {
+    "actors": [
+      {
+        "id": "editorial-agent-a",
+        "kind": "agent"
+      },
+      {
+        "id": "editorial-agent-b",
+        "kind": "agent"
+      },
+      {
+        "id": "review-set-code-author",
+        "kind": "agent"
+      },
+      {
+        "id": "review-set-document-author",
+        "kind": "agent"
+      }
+    ],
+    "auto_accept": false,
+    "current_policy": {
+      "actor_identity": "self_declared_local",
+      "agent_agreement_min": 2,
+      "auto_accept": false,
+      "latest_decision_per_reviewer": true,
+      "requires_human_review": true,
+      "version": "editorial-1"
+    },
+    "current_rules_version": "semantic-1",
+    "decisions": [
+      {
+        "actor_kind": "agent",
+        "decision_id": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+        "operation_id": "document-editorial-agent-b-1",
+        "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+        "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+        "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+        "recorded_at": "2026-10-16T12:06:13.280959+00:00",
+        "request_digest": "3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+        "reviewer": "editorial-agent-b",
+        "schema_version": 1,
+        "supersedes": null,
+        "verdict": "approve"
+      },
+      {
+        "actor_kind": "agent",
+        "decision_id": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+        "operation_id": "code-editorial-agent-a-1",
+        "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+        "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+        "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+        "recorded_at": "2026-10-16T12:06:13.282251+00:00",
+        "request_digest": "8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+        "reviewer": "editorial-agent-a",
+        "schema_version": 1,
+        "supersedes": null,
+        "verdict": "approve"
+      },
+      {
+        "actor_kind": "agent",
+        "decision_id": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+        "operation_id": "code-editorial-agent-b-1",
+        "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+        "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+        "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+        "recorded_at": "2026-10-16T12:06:13.283958+00:00",
+        "request_digest": "3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+        "reviewer": "editorial-agent-b",
+        "schema_version": 1,
+        "supersedes": null,
+        "verdict": "approve"
+      },
+      {
+        "actor_kind": "agent",
+        "decision_id": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+        "operation_id": "document-editorial-agent-a-1",
+        "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+        "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+        "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+        "recorded_at": "2026-10-16T12:06:13.289704+00:00",
+        "request_digest": "f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+        "reviewer": "editorial-agent-a",
+        "schema_version": 1,
+        "supersedes": null,
+        "verdict": "approve"
+      }
+    ],
+    "events": [
+      {
+        "event_hash": "55075a849af37efc699b8d1611f3d043e685e6c7bf807a4eec84f5a1f9d1b8b9",
+        "payload": {
+          "id": "review-set-document-author",
+          "kind": "agent"
+        },
+        "previous_hash": null,
+        "recorded_at": "2026-10-16T12:06:13.272924+00:00",
+        "seq": 1,
+        "type": "actor_registered"
+      },
+      {
+        "event_hash": "f319341f48cbea95c36b64f0902ddf184143447b5ffb3c3904d7ac6d9e8cf295",
+        "payload": {
+          "analysis": {
+            "auto_accept": false,
+            "evidence": {
+              "after": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+                "source_id": "fictional-shared",
+                "status": "quote_present",
+                "verified": true
+              },
+              "before": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+                "source_id": "fictional-shared",
+                "status": "quote_present",
+                "verified": true
+              }
+            },
+            "findings": [
+              {
+                "code": "wording_changed",
+                "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+              },
+              {
+                "code": "equal_structured_value",
+                "explanation": "Нормализованные значения совпадают точно."
+              },
+              {
+                "after": {
+                  "factor_denominator": "1000",
+                  "factor_numerator": "1",
+                  "input_unit": "ms"
+                },
+                "before": {
+                  "factor_denominator": "1",
+                  "factor_numerator": "1",
+                  "input_unit": "s"
+                },
+                "code": "units_normalized",
+                "explanation": "Применено явное точное преобразование единиц без округления двоичных чисел."
+              }
+            ],
+            "input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+            "limitations": [
+              "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+              "Literal quote presence does not establish entailment, factual truth or source independence.",
+              "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+              "Different scope metadata does not prove scopes are disjoint.",
+              "No corpus annotation is an input to this function; no model or network is used."
+            ],
+            "normalized": {
+              "after": {
+                "canonical": {
+                  "denominator": "1",
+                  "dimension": "time",
+                  "numerator": "30",
+                  "type": "quantity",
+                  "unit": "s"
+                },
+                "conversion": {
+                  "factor_denominator": "1000",
+                  "factor_numerator": "1",
+                  "input_unit": "ms"
+                },
+                "supported": true
+              },
+              "before": {
+                "canonical": {
+                  "denominator": "1",
+                  "dimension": "time",
+                  "numerator": "30",
+                  "type": "quantity",
+                  "unit": "s"
+                },
+                "conversion": {
+                  "factor_denominator": "1",
+                  "factor_numerator": "1",
+                  "input_unit": "s"
+                },
+                "supported": true
+              }
+            },
+            "relation": "structured_equivalent",
+            "requires_human_review": true,
+            "review_action": "review_wording_and_evidence",
+            "rules_version": "semantic-1",
+            "schema_version": 1
+          },
+          "analysis_digest": "a5dd8eec92babe6812c598f62f67a049995fb728ece8af35f5f509cacc0951b7",
+          "created_at": "2026-10-16T12:06:13.272092+00:00",
+          "input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+          "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+          "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+          "pair": {
+            "after": {
+              "attribution": "вымышленный редактор Альфа",
+              "evidence": {
+                "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+                "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+                "source_id": "fictional-shared"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "request-timeout",
+              "scope": {
+                "version": "1.0"
+              },
+              "subject": "fictional-api",
+              "text": "# Настройка API\n\nТайм-аут запроса: {{api.timeout_seconds}} секунд.\n",
+              "value": {
+                "amount": "30000",
+                "type": "quantity",
+                "unit": "ms"
+              }
+            },
+            "before": {
+              "attribution": "вымышленный редактор Альфа",
+              "evidence": {
+                "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+                "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+                "source_id": "fictional-shared"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "request-timeout",
+              "scope": {
+                "version": "1.0"
+              },
+              "subject": "fictional-api",
+              "text": "# API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n",
+              "value": {
+                "amount": "30",
+                "type": "quantity",
+                "unit": "s"
+              }
+            },
+            "sources": {
+              "fictional-shared": {
+                "sha256": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+                "text": "ВЫМЫШЛЕННЫЙ ИСТОЧНИК. Учебный снимок условного API, не сведения о реальном продукте.\nТайм-аут равен 30 секундам, то есть 30000 миллисекундам.\n"
+              }
+            }
+          },
+          "policy": {
+            "actor_identity": "self_declared_local",
+            "agent_agreement_min": 2,
+            "auto_accept": false,
+            "latest_decision_per_reviewer": true,
+            "requires_human_review": true,
+            "version": "editorial-1"
+          },
+          "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+          "proposer": {
+            "id": "review-set-document-author",
+            "kind": "agent"
+          },
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        "previous_hash": "55075a849af37efc699b8d1611f3d043e685e6c7bf807a4eec84f5a1f9d1b8b9",
+        "recorded_at": "2026-10-16T12:06:13.273046+00:00",
+        "seq": 2,
+        "type": "packet_created"
+      },
+      {
+        "event_hash": "ad05522969d043b0ec3307892b2c9bfe92601a1eae1a02dcc17f1482a14053fb",
+        "payload": {
+          "id": "review-set-code-author",
+          "kind": "agent"
+        },
+        "previous_hash": "f319341f48cbea95c36b64f0902ddf184143447b5ffb3c3904d7ac6d9e8cf295",
+        "recorded_at": "2026-10-16T12:06:13.277240+00:00",
+        "seq": 3,
+        "type": "actor_registered"
+      },
+      {
+        "event_hash": "6712d6405be07076f49740008cc99648dfe60719508edbee5b2a2535cdc93b37",
+        "payload": {
+          "analysis": {
+            "auto_accept": false,
+            "evidence": {
+              "after": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+                "source_id": "fictional-shared",
+                "status": "quote_present",
+                "verified": true
+              },
+              "before": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+                "source_id": "fictional-shared",
+                "status": "quote_present",
+                "verified": true
+              }
+            },
+            "findings": [
+              {
+                "code": "wording_changed",
+                "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+              },
+              {
+                "code": "equal_structured_value",
+                "explanation": "Нормализованные значения совпадают точно."
+              },
+              {
+                "after": {
+                  "factor_denominator": "1000",
+                  "factor_numerator": "1",
+                  "input_unit": "ms"
+                },
+                "before": {
+                  "factor_denominator": "1",
+                  "factor_numerator": "1",
+                  "input_unit": "s"
+                },
+                "code": "units_normalized",
+                "explanation": "Применено явное точное преобразование единиц без округления двоичных чисел."
+              }
+            ],
+            "input_digest": "d8c42d3d84cd5884fc9c768e20de7b4588821eacac244119de529ca3e2cb0b9a",
+            "limitations": [
+              "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+              "Literal quote presence does not establish entailment, factual truth or source independence.",
+              "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+              "Different scope metadata does not prove scopes are disjoint.",
+              "No corpus annotation is an input to this function; no model or network is used."
+            ],
+            "normalized": {
+              "after": {
+                "canonical": {
+                  "denominator": "1",
+                  "dimension": "time",
+                  "numerator": "30",
+                  "type": "quantity",
+                  "unit": "s"
+                },
+                "conversion": {
+                  "factor_denominator": "1000",
+                  "factor_numerator": "1",
+                  "input_unit": "ms"
+                },
+                "supported": true
+              },
+              "before": {
+                "canonical": {
+                  "denominator": "1",
+                  "dimension": "time",
+                  "numerator": "30",
+                  "type": "quantity",
+                  "unit": "s"
+                },
+                "conversion": {
+                  "factor_denominator": "1",
+                  "factor_numerator": "1",
+                  "input_unit": "s"
+                },
+                "supported": true
+              }
+            },
+            "relation": "structured_equivalent",
+            "requires_human_review": true,
+            "review_action": "review_wording_and_evidence",
+            "rules_version": "semantic-1",
+            "schema_version": 1
+          },
+          "analysis_digest": "c998415ab39783c8ced9984798d0bf0811b1c9931f241cc36ff5a409fec2a512",
+          "created_at": "2026-10-16T12:06:13.276898+00:00",
+          "input_digest": "d8c42d3d84cd5884fc9c768e20de7b4588821eacac244119de529ca3e2cb0b9a",
+          "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+          "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+          "pair": {
+            "after": {
+              "attribution": "вымышленный редактор Альфа",
+              "evidence": {
+                "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+                "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+                "source_id": "fictional-shared"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "request-timeout",
+              "scope": {
+                "version": "1.0"
+              },
+              "subject": "fictional-api",
+              "text": "\"\"\"Fictional API configuration; editorial review remains required.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\n",
+              "value": {
+                "amount": "30000",
+                "type": "quantity",
+                "unit": "ms"
+              }
+            },
+            "before": {
+              "attribution": "вымышленный редактор Альфа",
+              "evidence": {
+                "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+                "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+                "source_id": "fictional-shared"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "request-timeout",
+              "scope": {
+                "version": "1.0"
+              },
+              "subject": "fictional-api",
+              "text": "\"\"\"Fictional API configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\n",
+              "value": {
+                "amount": "30",
+                "type": "quantity",
+                "unit": "s"
+              }
+            },
+            "sources": {
+              "fictional-shared": {
+                "sha256": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+                "text": "ВЫМЫШЛЕННЫЙ ИСТОЧНИК. Учебный снимок условного API, не сведения о реальном продукте.\nТайм-аут равен 30 секундам, то есть 30000 миллисекундам.\n"
+              }
+            }
+          },
+          "policy": {
+            "actor_identity": "self_declared_local",
+            "agent_agreement_min": 2,
+            "auto_accept": false,
+            "latest_decision_per_reviewer": true,
+            "requires_human_review": true,
+            "version": "editorial-1"
+          },
+          "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+          "proposer": {
+            "id": "review-set-code-author",
+            "kind": "agent"
+          },
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        "previous_hash": "ad05522969d043b0ec3307892b2c9bfe92601a1eae1a02dcc17f1482a14053fb",
+        "recorded_at": "2026-10-16T12:06:13.277497+00:00",
+        "seq": 4,
+        "type": "packet_created"
+      },
+      {
+        "event_hash": "e42cce840dfeb8314e0ceb272a7be330f2555af76ee8bce6af907ccde1dda129",
+        "payload": {
+          "id": "editorial-agent-b",
+          "kind": "agent"
+        },
+        "previous_hash": "6712d6405be07076f49740008cc99648dfe60719508edbee5b2a2535cdc93b37",
+        "recorded_at": "2026-10-16T12:06:13.280927+00:00",
+        "seq": 5,
+        "type": "actor_registered"
+      },
+      {
+        "event_hash": "399ab337c71e4a3769d6c73b322b8994110d078b3ec3d2ae3f014f3600ab3a1d",
+        "payload": {
+          "actor_kind": "agent",
+          "decision_id": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+          "operation_id": "document-editorial-agent-b-1",
+          "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+          "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+          "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+          "recorded_at": "2026-10-16T12:06:13.280959+00:00",
+          "request_digest": "3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+          "reviewer": "editorial-agent-b",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        "previous_hash": "e42cce840dfeb8314e0ceb272a7be330f2555af76ee8bce6af907ccde1dda129",
+        "recorded_at": "2026-10-16T12:06:13.281005+00:00",
+        "seq": 6,
+        "type": "decision_recorded"
+      },
+      {
+        "event_hash": "a343b67444e5b7254de4e89dca9609d63ef11f38cd0b348ba4f9ee93fe77bc9b",
+        "payload": {
+          "id": "editorial-agent-a",
+          "kind": "agent"
+        },
+        "previous_hash": "399ab337c71e4a3769d6c73b322b8994110d078b3ec3d2ae3f014f3600ab3a1d",
+        "recorded_at": "2026-10-16T12:06:13.282197+00:00",
+        "seq": 7,
+        "type": "actor_registered"
+      },
+      {
+        "event_hash": "fe1bd3844f9facac1a8c07db79ae386b18c45ee85e4ecfe95cb2b8859ad1ea8f",
+        "payload": {
+          "actor_kind": "agent",
+          "decision_id": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+          "operation_id": "code-editorial-agent-a-1",
+          "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+          "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+          "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+          "recorded_at": "2026-10-16T12:06:13.282251+00:00",
+          "request_digest": "8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+          "reviewer": "editorial-agent-a",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        "previous_hash": "a343b67444e5b7254de4e89dca9609d63ef11f38cd0b348ba4f9ee93fe77bc9b",
+        "recorded_at": "2026-10-16T12:06:13.282319+00:00",
+        "seq": 8,
+        "type": "decision_recorded"
+      },
+      {
+        "event_hash": "98801a60b665d7e0147f467af960abe203e1f7cc7b3772ef3521c47d3f576fc2",
+        "payload": {
+          "actor_kind": "agent",
+          "decision_id": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+          "operation_id": "code-editorial-agent-b-1",
+          "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+          "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+          "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+          "recorded_at": "2026-10-16T12:06:13.283958+00:00",
+          "request_digest": "3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+          "reviewer": "editorial-agent-b",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        "previous_hash": "fe1bd3844f9facac1a8c07db79ae386b18c45ee85e4ecfe95cb2b8859ad1ea8f",
+        "recorded_at": "2026-10-16T12:06:13.284025+00:00",
+        "seq": 9,
+        "type": "decision_recorded"
+      },
+      {
+        "event_hash": "a71c40a10c94682187a2fc6a81995aacec2e12d31b216c078e1f763a1d928532",
+        "payload": {
+          "actor_kind": "agent",
+          "decision_id": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+          "operation_id": "document-editorial-agent-a-1",
+          "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+          "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+          "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+          "recorded_at": "2026-10-16T12:06:13.289704+00:00",
+          "request_digest": "f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+          "reviewer": "editorial-agent-a",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        "previous_hash": "98801a60b665d7e0147f467af960abe203e1f7cc7b3772ef3521c47d3f576fc2",
+        "recorded_at": "2026-10-16T12:06:13.289818+00:00",
+        "seq": 10,
+        "type": "decision_recorded"
+      }
+    ],
+    "export_digest": "9aac8345df99b9f481fc91e7d25a7e26d556ccb8d77cc4d0497a5a27c9160f65",
+    "integrity_scope": "Internal consistency only; hashes do not authenticate authorship, independence, completeness of an externally truncated history, or truth",
+    "packets": [
+      {
+        "analysis": {
+          "auto_accept": false,
+          "evidence": {
+            "after": {
+              "check": "Literal quote presence only, not entailment or truth",
+              "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+              "source_id": "fictional-shared",
+              "status": "quote_present",
+              "verified": true
+            },
+            "before": {
+              "check": "Literal quote presence only, not entailment or truth",
+              "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+              "source_id": "fictional-shared",
+              "status": "quote_present",
+              "verified": true
+            }
+          },
+          "findings": [
+            {
+              "code": "wording_changed",
+              "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+            },
+            {
+              "code": "equal_structured_value",
+              "explanation": "Нормализованные значения совпадают точно."
+            },
+            {
+              "after": {
+                "factor_denominator": "1000",
+                "factor_numerator": "1",
+                "input_unit": "ms"
+              },
+              "before": {
+                "factor_denominator": "1",
+                "factor_numerator": "1",
+                "input_unit": "s"
+              },
+              "code": "units_normalized",
+              "explanation": "Применено явное точное преобразование единиц без округления двоичных чисел."
+            }
+          ],
+          "input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+          "limitations": [
+            "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+            "Literal quote presence does not establish entailment, factual truth or source independence.",
+            "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+            "Different scope metadata does not prove scopes are disjoint.",
+            "No corpus annotation is an input to this function; no model or network is used."
+          ],
+          "normalized": {
+            "after": {
+              "canonical": {
+                "denominator": "1",
+                "dimension": "time",
+                "numerator": "30",
+                "type": "quantity",
+                "unit": "s"
+              },
+              "conversion": {
+                "factor_denominator": "1000",
+                "factor_numerator": "1",
+                "input_unit": "ms"
+              },
+              "supported": true
+            },
+            "before": {
+              "canonical": {
+                "denominator": "1",
+                "dimension": "time",
+                "numerator": "30",
+                "type": "quantity",
+                "unit": "s"
+              },
+              "conversion": {
+                "factor_denominator": "1",
+                "factor_numerator": "1",
+                "input_unit": "s"
+              },
+              "supported": true
+            }
+          },
+          "relation": "structured_equivalent",
+          "requires_human_review": true,
+          "review_action": "review_wording_and_evidence",
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        "analysis_digest": "a5dd8eec92babe6812c598f62f67a049995fb728ece8af35f5f509cacc0951b7",
+        "created_at": "2026-10-16T12:06:13.272092+00:00",
+        "input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+        "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+        "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+        "pair": {
+          "after": {
+            "attribution": "вымышленный редактор Альфа",
+            "evidence": {
+              "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+              "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+              "source_id": "fictional-shared"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "request-timeout",
+            "scope": {
+              "version": "1.0"
+            },
+            "subject": "fictional-api",
+            "text": "# Настройка API\n\nТайм-аут запроса: {{api.timeout_seconds}} секунд.\n",
+            "value": {
+              "amount": "30000",
+              "type": "quantity",
+              "unit": "ms"
+            }
+          },
+          "before": {
+            "attribution": "вымышленный редактор Альфа",
+            "evidence": {
+              "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+              "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+              "source_id": "fictional-shared"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "request-timeout",
+            "scope": {
+              "version": "1.0"
+            },
+            "subject": "fictional-api",
+            "text": "# API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n",
+            "value": {
+              "amount": "30",
+              "type": "quantity",
+              "unit": "s"
+            }
+          },
+          "sources": {
+            "fictional-shared": {
+              "sha256": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+              "text": "ВЫМЫШЛЕННЫЙ ИСТОЧНИК. Учебный снимок условного API, не сведения о реальном продукте.\nТайм-аут равен 30 секундам, то есть 30000 миллисекундам.\n"
+            }
+          }
+        },
+        "policy": {
+          "actor_identity": "self_declared_local",
+          "agent_agreement_min": 2,
+          "auto_accept": false,
+          "latest_decision_per_reviewer": true,
+          "requires_human_review": true,
+          "version": "editorial-1"
+        },
+        "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+        "proposer": {
+          "id": "review-set-document-author",
+          "kind": "agent"
+        },
+        "rules_version": "semantic-1",
+        "schema_version": 1
+      },
+      {
+        "analysis": {
+          "auto_accept": false,
+          "evidence": {
+            "after": {
+              "check": "Literal quote presence only, not entailment or truth",
+              "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+              "source_id": "fictional-shared",
+              "status": "quote_present",
+              "verified": true
+            },
+            "before": {
+              "check": "Literal quote presence only, not entailment or truth",
+              "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+              "source_id": "fictional-shared",
+              "status": "quote_present",
+              "verified": true
+            }
+          },
+          "findings": [
+            {
+              "code": "wording_changed",
+              "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+            },
+            {
+              "code": "equal_structured_value",
+              "explanation": "Нормализованные значения совпадают точно."
+            },
+            {
+              "after": {
+                "factor_denominator": "1000",
+                "factor_numerator": "1",
+                "input_unit": "ms"
+              },
+              "before": {
+                "factor_denominator": "1",
+                "factor_numerator": "1",
+                "input_unit": "s"
+              },
+              "code": "units_normalized",
+              "explanation": "Применено явное точное преобразование единиц без округления двоичных чисел."
+            }
+          ],
+          "input_digest": "d8c42d3d84cd5884fc9c768e20de7b4588821eacac244119de529ca3e2cb0b9a",
+          "limitations": [
+            "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+            "Literal quote presence does not establish entailment, factual truth or source independence.",
+            "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+            "Different scope metadata does not prove scopes are disjoint.",
+            "No corpus annotation is an input to this function; no model or network is used."
+          ],
+          "normalized": {
+            "after": {
+              "canonical": {
+                "denominator": "1",
+                "dimension": "time",
+                "numerator": "30",
+                "type": "quantity",
+                "unit": "s"
+              },
+              "conversion": {
+                "factor_denominator": "1000",
+                "factor_numerator": "1",
+                "input_unit": "ms"
+              },
+              "supported": true
+            },
+            "before": {
+              "canonical": {
+                "denominator": "1",
+                "dimension": "time",
+                "numerator": "30",
+                "type": "quantity",
+                "unit": "s"
+              },
+              "conversion": {
+                "factor_denominator": "1",
+                "factor_numerator": "1",
+                "input_unit": "s"
+              },
+              "supported": true
+            }
+          },
+          "relation": "structured_equivalent",
+          "requires_human_review": true,
+          "review_action": "review_wording_and_evidence",
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        "analysis_digest": "c998415ab39783c8ced9984798d0bf0811b1c9931f241cc36ff5a409fec2a512",
+        "created_at": "2026-10-16T12:06:13.276898+00:00",
+        "input_digest": "d8c42d3d84cd5884fc9c768e20de7b4588821eacac244119de529ca3e2cb0b9a",
+        "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+        "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+        "pair": {
+          "after": {
+            "attribution": "вымышленный редактор Альфа",
+            "evidence": {
+              "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+              "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+              "source_id": "fictional-shared"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "request-timeout",
+            "scope": {
+              "version": "1.0"
+            },
+            "subject": "fictional-api",
+            "text": "\"\"\"Fictional API configuration; editorial review remains required.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\n",
+            "value": {
+              "amount": "30000",
+              "type": "quantity",
+              "unit": "ms"
+            }
+          },
+          "before": {
+            "attribution": "вымышленный редактор Альфа",
+            "evidence": {
+              "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам.",
+              "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+              "source_id": "fictional-shared"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "request-timeout",
+            "scope": {
+              "version": "1.0"
+            },
+            "subject": "fictional-api",
+            "text": "\"\"\"Fictional API configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\n",
+            "value": {
+              "amount": "30",
+              "type": "quantity",
+              "unit": "s"
+            }
+          },
+          "sources": {
+            "fictional-shared": {
+              "sha256": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+              "text": "ВЫМЫШЛЕННЫЙ ИСТОЧНИК. Учебный снимок условного API, не сведения о реальном продукте.\nТайм-аут равен 30 секундам, то есть 30000 миллисекундам.\n"
+            }
+          }
+        },
+        "policy": {
+          "actor_identity": "self_declared_local",
+          "agent_agreement_min": 2,
+          "auto_accept": false,
+          "latest_decision_per_reviewer": true,
+          "requires_human_review": true,
+          "version": "editorial-1"
+        },
+        "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+        "proposer": {
+          "id": "review-set-code-author",
+          "kind": "agent"
+        },
+        "rules_version": "semantic-1",
+        "schema_version": 1
+      }
+    ],
+    "requires_human_review": true,
+    "schema_version": 1
+  },
+  "observation": {
+    "atomic_capture": false,
+    "auto_accept": false,
+    "blockers": [
+      {
+        "code": "unapproved"
+      }
+    ],
+    "component_head": "9ba4f117436997ec1c7cd3f9654880f3605436fa515404d15937cd00c0fe8d31",
+    "coverage": {
+      "complete": true,
+      "scope": "write_ids_only_not_semantic_coverage",
+      "selected_write_ids": [
+        "code/client_config.py",
+        "docs/reference.md"
+      ],
+      "uncovered_write_ids": []
+    },
+    "entries": [
+      {
+        "actors": {
+          "authenticated": false,
+          "independence_verified": false,
+          "packet_proposer": {
+            "id": "review-set-code-author",
+            "kind": "agent"
+          },
+          "runtime_author_id": "review-set-integrator"
+        },
+        "artifact_id": "code/client_config.py",
+        "atomic_capture": false,
+        "auto_accept": false,
+        "binding": {
+          "errors": [],
+          "matches": true,
+          "mode": "exact_template",
+          "scope": "template_text_only_not_rendered_output_or_all_metadata",
+          "semantic_mapping": "caller_declared_unverified"
+        },
+        "blockers": [
+          {
+            "code": "unapproved"
+          },
+          {
+            "artifact_ids": [
+              "docs/reference.md"
+            ],
+            "code": "uncovered_writes"
+          }
+        ],
+        "coverage": {
+          "complete": false,
+          "scope": "write_ids_only_not_semantic_coverage",
+          "selected_write_ids": [
+            "code/client_config.py"
+          ],
+          "uncovered_write_ids": [
+            "docs/reference.md"
+          ]
+        },
+        "decision_heads": {
+          "editorial-agent-a": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+          "editorial-agent-b": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157"
+        },
+        "editorial": {
+          "auto_accept": false,
+          "blockers": [
+            "human_review_not_recorded"
+          ],
+          "counts": {
+            "abstain": 0,
+            "approve": 2,
+            "request_changes": 0
+          },
+          "current_basis_decisions": [
+            {
+              "actor_kind": "agent",
+              "decision_id": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+              "operation_id": "code-editorial-agent-a-1",
+              "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+              "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+              "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+              "recorded_at": "2026-10-16T12:06:13.282251+00:00",
+              "request_digest": "8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+              "reviewer": "editorial-agent-a",
+              "schema_version": 1,
+              "supersedes": null,
+              "verdict": "approve"
+            },
+            {
+              "actor_kind": "agent",
+              "decision_id": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+              "operation_id": "code-editorial-agent-b-1",
+              "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+              "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+              "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+              "recorded_at": "2026-10-16T12:06:13.283958+00:00",
+              "request_digest": "3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+              "reviewer": "editorial-agent-b",
+              "schema_version": 1,
+              "supersedes": null,
+              "verdict": "approve"
+            }
+          ],
+          "current_human_review_recorded": false,
+          "current_input_checked": true,
+          "current_input_digest": "d8c42d3d84cd5884fc9c768e20de7b4588821eacac244119de529ca3e2cb0b9a",
+          "current_input_provided": true,
+          "freshness": "current",
+          "history_count": 2,
+          "human_review_recorded": false,
+          "input_digest": "d8c42d3d84cd5884fc9c768e20de7b4588821eacac244119de529ca3e2cb0b9a",
+          "is_current": true,
+          "latest_decisions": [
+            {
+              "actor_kind": "agent",
+              "decision_id": "dec_8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+              "operation_id": "code-editorial-agent-a-1",
+              "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+              "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+              "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+              "recorded_at": "2026-10-16T12:06:13.282251+00:00",
+              "request_digest": "8a3e598071f3db749c641c385a30bef8c193f14539b0e14f6b9c63eaba48a36c",
+              "reviewer": "editorial-agent-a",
+              "schema_version": 1,
+              "supersedes": null,
+              "verdict": "approve"
+            },
+            {
+              "actor_kind": "agent",
+              "decision_id": "dec_3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+              "operation_id": "code-editorial-agent-b-1",
+              "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+              "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+              "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+              "recorded_at": "2026-10-16T12:06:13.283958+00:00",
+              "request_digest": "3be11214f57ad10eebbdd6a1bf68c373f24f268050b6de89029569e7696cd157",
+              "reviewer": "editorial-agent-b",
+              "schema_version": 1,
+              "supersedes": null,
+              "verdict": "approve"
+            }
+          ],
+          "limits": [
+            "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+            "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+            "No state records factual truth or grants Store.accept/publication rights.",
+            "Human-review requirement remains true even when a caller records an actor labelled human."
+          ],
+          "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+          "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+          "requires_human_review": true,
+          "review_state": "agent_agreement",
+          "reviewer_count": 2
+        },
+        "formal_errors": [
+          {
+            "code": "unapproved"
+          }
+        ],
+        "formal_head": null,
+        "limits": [
+          "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+          "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+          "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+          "No dossier or recheck grants Store.accept or publication rights."
+        ],
+        "observed_revision": 1,
+        "packet_digest": "78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+        "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+        "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+        "proposal_id": "p_33e284c171616ad78d211c4f",
+        "proposal_status": "proposed",
+        "requires_human_review": true,
+        "runtime_basis_current": true,
+        "runtime_basis_digest": "f4a348a87245604fa16c2cee002f1943b9c0eb45a88ad3f801677a30d00bab5e",
+        "runtime_errors": [],
+        "state": "blocked"
+      },
+      {
+        "actors": {
+          "authenticated": false,
+          "independence_verified": false,
+          "packet_proposer": {
+            "id": "review-set-document-author",
+            "kind": "agent"
+          },
+          "runtime_author_id": "review-set-integrator"
+        },
+        "artifact_id": "docs/reference.md",
+        "atomic_capture": false,
+        "auto_accept": false,
+        "binding": {
+          "errors": [],
+          "matches": true,
+          "mode": "exact_template",
+          "scope": "template_text_only_not_rendered_output_or_all_metadata",
+          "semantic_mapping": "caller_declared_unverified"
+        },
+        "blockers": [
+          {
+            "code": "unapproved"
+          },
+          {
+            "artifact_ids": [
+              "code/client_config.py"
+            ],
+            "code": "uncovered_writes"
+          }
+        ],
+        "coverage": {
+          "complete": false,
+          "scope": "write_ids_only_not_semantic_coverage",
+          "selected_write_ids": [
+            "docs/reference.md"
+          ],
+          "uncovered_write_ids": [
+            "code/client_config.py"
+          ]
+        },
+        "decision_heads": {
+          "editorial-agent-a": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+          "editorial-agent-b": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6"
+        },
+        "editorial": {
+          "auto_accept": false,
+          "blockers": [
+            "human_review_not_recorded"
+          ],
+          "counts": {
+            "abstain": 0,
+            "approve": 2,
+            "request_changes": 0
+          },
+          "current_basis_decisions": [
+            {
+              "actor_kind": "agent",
+              "decision_id": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+              "operation_id": "document-editorial-agent-a-1",
+              "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+              "recorded_at": "2026-10-16T12:06:13.289704+00:00",
+              "request_digest": "f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+              "reviewer": "editorial-agent-a",
+              "schema_version": 1,
+              "supersedes": null,
+              "verdict": "approve"
+            },
+            {
+              "actor_kind": "agent",
+              "decision_id": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+              "operation_id": "document-editorial-agent-b-1",
+              "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+              "recorded_at": "2026-10-16T12:06:13.280959+00:00",
+              "request_digest": "3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+              "reviewer": "editorial-agent-b",
+              "schema_version": 1,
+              "supersedes": null,
+              "verdict": "approve"
+            }
+          ],
+          "current_human_review_recorded": false,
+          "current_input_checked": true,
+          "current_input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+          "current_input_provided": true,
+          "freshness": "current",
+          "history_count": 2,
+          "human_review_recorded": false,
+          "input_digest": "73a55bc362841d8cb222020f02b8618cc364819de406c7fa4f0f2cc43bc0a63e",
+          "is_current": true,
+          "latest_decisions": [
+            {
+              "actor_kind": "agent",
+              "decision_id": "dec_f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+              "operation_id": "document-editorial-agent-a-1",
+              "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+              "recorded_at": "2026-10-16T12:06:13.289704+00:00",
+              "request_digest": "f16cdaa667d080952cba81614b86630d655eeeac12d64e19531469fd204034e7",
+              "reviewer": "editorial-agent-a",
+              "schema_version": 1,
+              "supersedes": null,
+              "verdict": "approve"
+            },
+            {
+              "actor_kind": "agent",
+              "decision_id": "dec_3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+              "operation_id": "document-editorial-agent-b-1",
+              "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+              "rationale": "The authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording, metadata or program behavior.",
+              "recorded_at": "2026-10-16T12:06:13.280959+00:00",
+              "request_digest": "3fedcac6bba1890ecde6fdb5c184820ea232a3a52403e87014767bfa85f374d6",
+              "reviewer": "editorial-agent-b",
+              "schema_version": 1,
+              "supersedes": null,
+              "verdict": "approve"
+            }
+          ],
+          "limits": [
+            "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+            "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+            "No state records factual truth or grants Store.accept/publication rights.",
+            "Human-review requirement remains true even when a caller records an actor labelled human."
+          ],
+          "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+          "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+          "requires_human_review": true,
+          "review_state": "agent_agreement",
+          "reviewer_count": 2
+        },
+        "formal_errors": [
+          {
+            "code": "unapproved"
+          }
+        ],
+        "formal_head": null,
+        "limits": [
+          "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+          "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+          "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+          "No dossier or recheck grants Store.accept or publication rights."
+        ],
+        "observed_revision": 1,
+        "packet_digest": "d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+        "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+        "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+        "proposal_id": "p_33e284c171616ad78d211c4f",
+        "proposal_status": "proposed",
+        "requires_human_review": true,
+        "runtime_basis_current": true,
+        "runtime_basis_digest": "7bab4fbe5e44e2850527a97fdd85001ebd67a9f024a299213d8c3d50dd3403b1",
+        "runtime_errors": [],
+        "state": "blocked"
+      }
+    ],
+    "entry_coverage_scope": "each_entry_is_partial_global_coverage_is_authoritative",
+    "entry_summaries": [
+      {
+        "artifact_id": "code/client_config.py",
+        "blockers": [
+          {
+            "code": "unapproved"
+          }
+        ],
+        "packet_id": "pkt_78ea6d74cd2f64608502f30383b1aec526c8259899f535d17dff2c88edbddd3b",
+        "state": "blocked"
+      },
+      {
+        "artifact_id": "docs/reference.md",
+        "blockers": [
+          {
+            "code": "unapproved"
+          }
+        ],
+        "packet_id": "pkt_d26b50766506d4c6b2827dc9eeaa4d4b66c44392946120399f8415a6bd6359ea",
+        "state": "blocked"
+      }
+    ],
+    "formal_head": null,
+    "limits": [
+      "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+      "Write coverage enumerates proposal write IDs; it does not prove semantic coverage.",
+      "Exact template matching binds bytes; statement fields and their mapping to prose remain caller-declared.",
+      "Only existing document and code templates can obtain a matching binding in this version.",
+      "Actor identities and kinds are self-declared; agreement and reused packets do not prove independence or truth.",
+      "No review set or recheck grants Store.accept or publication rights."
+    ],
+    "observed_revision": 1,
+    "packet_reuse": [],
+    "proposal_digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+    "proposal_id": "p_33e284c171616ad78d211c4f",
+    "proposal_status": "proposed",
+    "requires_human_review": true,
+    "runtime_basis_digest": "bb0d98f8bf7b4bcf12dd2b77911958db34975ec73a369a78dd6670875e8dea75",
+    "state": "blocked"
+  },
+  "proposal_id": "p_33e284c171616ad78d211c4f",
+  "review_set_digest": "6ab8bc01599ca4a00aef0e5e4b4a4548bd18e8051c049004eb574412d2d9176b",
+  "review_set_id": "rset_6ab8bc01599ca4a00aef0e5e4b4a4548bd18e8051c049004eb574412d2d9176b",
+  "review_set_rules_version": "review-set-1",
+  "runtime_context": {
+    "actual_queries": {},
+    "actual_readset": {
+      "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+      "code/client_config.py": "a90f8d0521b9902825611a1857ff2775039310a66bd80844fdc4738ddc683271",
+      "docs/reference.md": "800039b4b8ea000bf3688b3e6cb4fdf3ee07239dc6a016d8ac75bd3f86039420"
+    },
+    "artifacts": {
+      "api.timeout_seconds": {
+        "evidence": {
+          "quote": "The API timeout may be 30 or 40 seconds.",
+          "source_id": "dossier-fixture"
+        },
+        "id": "api.timeout_seconds",
+        "kind": "claim",
+        "scope": "api:v1",
+        "unit": "s",
+        "value": 30
+      },
+      "code/client_config.py": {
+        "bindings": [
+          "api.timeout_seconds"
+        ],
+        "id": "code/client_config.py",
+        "kind": "code",
+        "template": "\"\"\"Fictional API configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\n"
+      },
+      "docs/reference.md": {
+        "bindings": [
+          "api.timeout_seconds"
+        ],
+        "id": "docs/reference.md",
+        "kind": "document",
+        "template": "# API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n"
+      }
+    },
+    "components": [
+      {
+        "digest": "06fb3efffd91a7780cfff2d4f6a10c6e3315a3eef4a98d6fc9b16d6d84197fbe",
+        "position": 1,
+        "proposal_id": "p_2b2fb1fddd0523c0878a69cf",
+        "write_ids": [
+          "docs/reference.md"
+        ]
+      },
+      {
+        "digest": "b2ed219183b770631ba12b6d6b46d512ab2e139941e17cf681c26d8301cb6fde",
+        "position": 2,
+        "proposal_id": "p_2675dd81b522b741942d4dce",
+        "write_ids": [
+          "code/client_config.py"
+        ]
+      }
+    ],
+    "formal_errors": [
+      {
+        "code": "unapproved"
+      }
+    ],
+    "formal_review": null,
+    "observed_revision": 1,
+    "proposal": {
+      "accepted_revision": null,
+      "author": "review-set-integrator",
+      "digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+      "id": "p_33e284c171616ad78d211c4f",
+      "payload": {
+        "queries": {},
+        "rationale": "{\"components\":[{\"digest\":\"06fb3efffd91a7780cfff2d4f6a10c6e3315a3eef4a98d6fc9b16d6d84197fbe\",\"proposal_id\":\"p_2b2fb1fddd0523c0878a69cf\",\"write_ids\":[\"docs/reference.md\"]},{\"digest\":\"b2ed219183b770631ba12b6d6b46d512ab2e139941e17cf681c26d8301cb6fde\",\"proposal_id\":\"p_2675dd81b522b741942d4dce\",\"write_ids\":[\"code/client_config.py\"]}],\"text\":\"Compose the declared independent document and code changes as one new proposal.\"}",
+        "readset": {
+          "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+          "code/client_config.py": "a90f8d0521b9902825611a1857ff2775039310a66bd80844fdc4738ddc683271",
+          "docs/reference.md": "800039b4b8ea000bf3688b3e6cb4fdf3ee07239dc6a016d8ac75bd3f86039420"
+        },
+        "writes": [
+          {
+            "bindings": [
+              "api.timeout_seconds"
+            ],
+            "id": "code/client_config.py",
+            "kind": "code",
+            "template": "\"\"\"Fictional API configuration; editorial review remains required.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\n"
+          },
+          {
+            "bindings": [
+              "api.timeout_seconds"
+            ],
+            "id": "docs/reference.md",
+            "kind": "document",
+            "template": "# Настройка API\n\nТайм-аут запроса: {{api.timeout_seconds}} секунд.\n"
+          }
+        ]
+      },
+      "status": "proposed",
+      "task_id": "review-set-compose",
+      "token": 1
+    },
+    "runtime_errors": [],
+    "runtime_rules_version": "mvp-1",
+    "schema_version": 2,
+    "sources": {
+      "dossier-fixture": {
+        "digest": "0bd0cb015a3ee3bdb80f601c3988124beb330e73a742c7c502a5e26772c1ddc3",
+        "id": "dossier-fixture",
+        "text": "FICTIONAL DOSSIER DEMONSTRATION SPECIFICATION. Not a real API.\nThe API timeout may be 30 or 40 seconds.\nThe retry limit is 3 attempts.\nThe total retry budget is 120 seconds.\nWindows is supported.\nThe policy is timeout_seconds * max_attempts <= budget_seconds.\n"
+      }
+    }
+  },
+  "schema_version": 1
+}

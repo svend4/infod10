@@ -1,0 +1,92 @@
+{
+  "document": {
+    "id": "p_2b2fb1fddd0523c0878a69cf",
+    "task_id": "review-set-document",
+    "author": "review-set-document-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Revise one existing file for composition.",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "docs/reference.md": "800039b4b8ea000bf3688b3e6cb4fdf3ee07239dc6a016d8ac75bd3f86039420"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "docs/reference.md",
+          "kind": "document",
+          "template": "# Настройка API\n\nТайм-аут запроса: {{api.timeout_seconds}} секунд.\n"
+        }
+      ]
+    },
+    "digest": "06fb3efffd91a7780cfff2d4f6a10c6e3315a3eef4a98d6fc9b16d6d84197fbe",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "code": {
+    "id": "p_2675dd81b522b741942d4dce",
+    "task_id": "review-set-code",
+    "author": "review-set-code-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Revise one existing file for composition.",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config.py": "a90f8d0521b9902825611a1857ff2775039310a66bd80844fdc4738ddc683271"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional API configuration; editorial review remains required.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\n"
+        }
+      ]
+    },
+    "digest": "b2ed219183b770631ba12b6d6b46d512ab2e139941e17cf681c26d8301cb6fde",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "composite": {
+    "id": "p_33e284c171616ad78d211c4f",
+    "task_id": "review-set-compose",
+    "author": "review-set-integrator",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "{\"components\":[{\"digest\":\"06fb3efffd91a7780cfff2d4f6a10c6e3315a3eef4a98d6fc9b16d6d84197fbe\",\"proposal_id\":\"p_2b2fb1fddd0523c0878a69cf\",\"write_ids\":[\"docs/reference.md\"]},{\"digest\":\"b2ed219183b770631ba12b6d6b46d512ab2e139941e17cf681c26d8301cb6fde\",\"proposal_id\":\"p_2675dd81b522b741942d4dce\",\"write_ids\":[\"code/client_config.py\"]}],\"text\":\"Compose the declared independent document and code changes as one new proposal.\"}",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config.py": "a90f8d0521b9902825611a1857ff2775039310a66bd80844fdc4738ddc683271",
+        "docs/reference.md": "800039b4b8ea000bf3688b3e6cb4fdf3ee07239dc6a016d8ac75bd3f86039420"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional API configuration; editorial review remains required.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\n"
+        },
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "docs/reference.md",
+          "kind": "document",
+          "template": "# Настройка API\n\nТайм-аут запроса: {{api.timeout_seconds}} секунд.\n"
+        }
+      ]
+    },
+    "digest": "23c71e4c48c432061bf736f4982cbc72f4b79345a69b4206fdd5f9bacc629e81",
+    "status": "proposed",
+    "accepted_revision": null
+  }
+}
