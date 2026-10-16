@@ -1,0 +1,55 @@
+{
+  "revision": 2,
+  "artifacts": {
+    "code/content.py": {
+      "bindings": [],
+      "id": "code/content.py",
+      "kind": "code",
+      "template": "SAMPLE_LIMIT = 4\n"
+    },
+    "docs/content.md": {
+      "bindings": [],
+      "id": "docs/content.md",
+      "kind": "document",
+      "template": "# Fictional sample contract\n\nThe sample limit is declared below.\n\n```json agentwiki:contract\n{\"limit\":4}\n```\n"
+    }
+  },
+  "digests": {
+    "code/content.py": "e8414490cf36dd1f9eac2703f80e3190c2999cc39ef64d87b4c7ed67c3436802",
+    "docs/content.md": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69"
+  },
+  "queries": {
+    "api:v1": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "platforms:api-v1": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+  },
+  "dependencies": {
+    "code/content.py": {
+      "proposal_id": "p_fd6b4b441eba7d472f885df2",
+      "baseline_revision": 2,
+      "readset": {
+        "code/content.py": "e8414490cf36dd1f9eac2703f80e3190c2999cc39ef64d87b4c7ed67c3436802",
+        "docs/content.md": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69"
+      },
+      "queries": {},
+      "write_ids": [
+        "code/content.py",
+        "docs/content.md"
+      ]
+    },
+    "docs/content.md": {
+      "proposal_id": "p_fd6b4b441eba7d472f885df2",
+      "baseline_revision": 2,
+      "readset": {
+        "code/content.py": "e8414490cf36dd1f9eac2703f80e3190c2999cc39ef64d87b4c7ed67c3436802",
+        "docs/content.md": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69"
+      },
+      "queries": {},
+      "write_ids": [
+        "code/content.py",
+        "docs/content.md"
+      ]
+    }
+  },
+  "dependency_coverage": "complete",
+  "sources": {}
+}

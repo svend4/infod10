@@ -1,0 +1,82 @@
+{
+  "enabled": true,
+  "rules_version": "content-gate-1",
+  "current_policy": {
+    "generation": 3,
+    "policy": {
+      "artifact_ids": [
+        "code/content.py",
+        "docs/content.md"
+      ],
+      "inventory": {
+        "promises": [
+          {
+            "anchor": {
+              "artifact_id": "docs/content.md",
+              "quote": "The sample limit is declared below."
+            },
+            "description": "The declared fictional sample limit.",
+            "id": "sample-promise",
+            "obligation_ids": [
+              "sample-limit"
+            ],
+            "requirement": {
+              "code": {
+                "artifact_id": "code/content.py",
+                "symbol": "SAMPLE_LIMIT"
+              },
+              "document": {
+                "artifact_id": "docs/content.md",
+                "fence_id": "contract",
+                "path": [
+                  "limit"
+                ]
+              },
+              "relation": "equals",
+              "scope": {
+                "sample": "v1",
+                "token": "public-sample-label"
+              },
+              "value_type": "integer"
+            }
+          }
+        ],
+        "schema_version": 1
+      },
+      "schema_version": 1,
+      "spec": {
+        "obligations": [
+          {
+            "code": {
+              "artifact_id": "code/content.py",
+              "symbol": "SAMPLE_LIMIT"
+            },
+            "description": "The fictional literal sample limit must match.",
+            "document": {
+              "artifact_id": "docs/content.md",
+              "fence_id": "contract",
+              "path": [
+                "limit"
+              ]
+            },
+            "id": "sample-limit",
+            "relation": "equals",
+            "scope": {
+              "sample": "v1",
+              "token": "public-sample-label"
+            },
+            "value_type": "integer"
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    "policy_digest": "155df0c19a6e1920e7752879fd85bdff9e1fd3ea71e2183f966519fd07884158",
+    "created_at": 1792168887.7898352,
+    "governance_policy_generation": 5,
+    "administrator_grant_id": "gvg_aff968084de3e387506df214a969feab"
+  },
+  "policy_generation": 5,
+  "content_policy_generation": 3,
+  "content_policy_digest": "155df0c19a6e1920e7752879fd85bdff9e1fd3ea71e2183f966519fd07884158"
+}

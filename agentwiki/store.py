@@ -128,6 +128,8 @@ class Store:
             connection.executescript(governance_schema)
             from .authorship import SCHEMA as authorship_schema
             connection.executescript(authorship_schema)
+            from .content_gate import SCHEMA as content_schema
+            connection.executescript(content_schema)
         finally:
             connection.close()
 
@@ -692,6 +694,32 @@ class Store:
                 self._find_proposal(connection, proposal_id)
             return authorship.status(connection, proposal_id)
 
+    def content_enable(self, policy: dict[str, Any], *, credential: str,
+                       expected_policy_generation: int) -> dict[str, Any]:
+        from . import content_gate
+        with self._transaction(write=True) as connection:
+            return content_gate.enable(connection, policy, credential=credential,
+                                       expected_policy_generation=expected_policy_generation)
+
+    def content_set_policy(self, policy: dict[str, Any], *, credential: str,
+                           expected_policy_generation: int) -> dict[str, Any]:
+        from . import content_gate
+        with self._transaction(write=True) as connection:
+            return content_gate.set_policy(connection, policy, credential=credential,
+                                           expected_policy_generation=expected_policy_generation)
+
+    def content_status(self, proposal_id: str | None = None) -> dict[str, Any]:
+        from . import content_gate
+        with self._transaction() as connection:
+            if proposal_id is not None:
+                self._find_proposal(connection, proposal_id)
+            return content_gate.status(connection, proposal_id)
+
+    def content_packet(self, packet_id: str) -> dict[str, Any]:
+        from . import content_gate
+        with self._transaction() as connection:
+            return content_gate.load_packet(connection, packet_id)
+
     def governance_grant(self, principal_id: str, role: str, artifact_ids: list[str],
                          expires_at: float, *, credential: str, new_credential: str,
                          operation_id: str) -> dict[str, Any]:
@@ -717,7 +745,8 @@ class Store:
                           rationale: str, *, credential: str,
                           expected_proposal_digest: str, expected_policy_generation: int,
                           expected_previous_decision: str | None,
-                          operation_id: str) -> dict[str, Any]:
+                          operation_id: str,
+                          expected_content_packet_digest: str | None = None) -> dict[str, Any]:
         from . import governance
         with self._transaction(write=True) as connection:
             return governance.decide(connection, self._find_proposal(connection, proposal_id),
@@ -725,7 +754,8 @@ class Store:
                                      expected_proposal_digest=expected_proposal_digest,
                                      expected_policy_generation=expected_policy_generation,
                                      expected_previous_decision=expected_previous_decision,
-                                     operation_id=operation_id)
+                                     operation_id=operation_id,
+                                     expected_content_packet_digest=expected_content_packet_digest)
 
     def governance_status(self, proposal_id: str | None = None) -> dict[str, Any]:
         from . import governance

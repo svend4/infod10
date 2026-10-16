@@ -1,0 +1,152 @@
+{
+  "content_policy_digest": "4e5a698edad65b75a26cba69b3e7f026b846418ce9edc43997a94bcb3576c012",
+  "content_policy_generation": 2,
+  "content_rules_version": "content-gate-1",
+  "coverage_rules_version": "coverage-1",
+  "dependencies": {},
+  "eligible": true,
+  "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+  "governance_policy_generation": 4,
+  "limits": [
+    "Only the administrator-declared inventory and its exact artifact bundle are covered; completeness over other text or project requirements is not established.",
+    "Exact unique quotations and resolved fields pin declared locations; correspondence between prose and those fields is not inferred or verified.",
+    "Literal Python declarations do not establish program behavior; proposed code is parsed with bounded AST rules and is never executed.",
+    "Matches do not establish prose truth, external evidence, human identity, independent people or independent models.",
+    "A standalone packet does not authorize acceptance; formal review, current runtime bases, authorship and governance remain separate requirements.",
+    "The SQLite owner and application implementation remain trusted; hashes provide internal consistency rather than external certification."
+  ],
+  "obligation_rules_version": "obligations-1",
+  "packet_digest": "46735740303b340e65be4a3921b185045fbab4a986e6f91eb98e32dee741e6d7",
+  "packet_id": "cgp_46735740303b340e65be4a3921b185045fbab4a986e6f91eb98e32dee741e6d7",
+  "promises": [
+    {
+      "anchor": {
+        "artifact_digest": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69",
+        "artifact_id": "docs/content.md",
+        "dependencies": {},
+        "location": {
+          "end_line": 3,
+          "end_offset": 64,
+          "start_line": 3,
+          "start_offset": 29
+        },
+        "quote": "The sample limit is declared below.",
+        "quote_digest": "88fc7768c2942ad3e457beb0d703787f276e6d887a860871a1a84ef53b1cd67f",
+        "reasons": [],
+        "render_basis": "captured_candidate_current_claims",
+        "rendered_digest": "5f526d385c8dd8df483d24ffdcec398d1e946af1b97d402cbd67c2a9abbd0064",
+        "resolved": true,
+        "snippet": "The sample limit is declared below.",
+        "snippet_digest": "88fc7768c2942ad3e457beb0d703787f276e6d887a860871a1a84ef53b1cd67f"
+      },
+      "anchor_verified": true,
+      "document": {
+        "artifact_digest": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69",
+        "artifact_id": "docs/content.md",
+        "dependencies": {},
+        "kind": "document",
+        "location": {
+          "end_line": 6,
+          "end_offset": 105,
+          "start_line": 6,
+          "start_offset": 93
+        },
+        "normalized_value": 4,
+        "reasons": [],
+        "render_basis": "captured_candidate_current_claims",
+        "rendered_digest": "5f526d385c8dd8df483d24ffdcec398d1e946af1b97d402cbd67c2a9abbd0064",
+        "resolved": true,
+        "snippet": "{\"limit\":4}\n",
+        "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+        "value": 4
+      },
+      "eligible": true,
+      "id": "sample-promise",
+      "mappings": [
+        {
+          "comparison_status": "match",
+          "obligation_id": "sample-limit",
+          "requirement_digest": "3c14ae0e3302ace92b74813200de48ccdc16c7b058a662a66015542868d02de5",
+          "valid": true
+        }
+      ],
+      "reasons": [],
+      "requirement_digest": "3c14ae0e3302ace92b74813200de48ccdc16c7b058a662a66015542868d02de5"
+    }
+  ],
+  "proposal_digest": "87dfaf0b818f2755a710533b7b2361e19340763228c6fe35f71b3e1bec4dbed3",
+  "proposal_id": "p_fd6b4b441eba7d472f885df2",
+  "queries": {},
+  "read_set": {
+    "code/content.py": {
+      "actual": "ed0303c128ef90024909c0f9ba58f86d16de3bda099c4c71d23af3ebe90cd36e",
+      "expected": "ed0303c128ef90024909c0f9ba58f86d16de3bda099c4c71d23af3ebe90cd36e"
+    },
+    "docs/content.md": {
+      "actual": "695d4f5be268cfc1ea5958d2119d342291b8ff1fc181c039a6061452ded78069",
+      "expected": "695d4f5be268cfc1ea5958d2119d342291b8ff1fc181c039a6061452ded78069"
+    }
+  },
+  "reasons": [],
+  "relations": [
+    {
+      "code": {
+        "artifact_digest": "e8414490cf36dd1f9eac2703f80e3190c2999cc39ef64d87b4c7ed67c3436802",
+        "artifact_id": "code/content.py",
+        "dependencies": {},
+        "kind": "code",
+        "location": {
+          "end_line": 1,
+          "end_offset": 16,
+          "start_line": 1,
+          "start_offset": 0
+        },
+        "normalized_value": 4,
+        "reasons": [],
+        "render_basis": "captured_candidate_current_claims",
+        "rendered_digest": "f3830f6870fbcf0a943b72115f9f59809306bc510f1c2791a75665b7b748d95f",
+        "resolved": true,
+        "snippet": "SAMPLE_LIMIT = 4",
+        "snippet_digest": "e009b688616b03b16c11a52916b1dcaebd07561bd905a06731a68eaa2e8a2085",
+        "value": 4
+      },
+      "document": {
+        "artifact_digest": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69",
+        "artifact_id": "docs/content.md",
+        "dependencies": {},
+        "kind": "document",
+        "location": {
+          "end_line": 6,
+          "end_offset": 105,
+          "start_line": 6,
+          "start_offset": 93
+        },
+        "normalized_value": 4,
+        "reasons": [],
+        "render_basis": "captured_candidate_current_claims",
+        "rendered_digest": "5f526d385c8dd8df483d24ffdcec398d1e946af1b97d402cbd67c2a9abbd0064",
+        "resolved": true,
+        "snippet": "{\"limit\":4}\n",
+        "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+        "value": 4
+      },
+      "id": "sample-limit",
+      "reasons": [],
+      "relation": "equals",
+      "scope": {
+        "sample": "v1"
+      },
+      "status": "match",
+      "value_type": "integer"
+    }
+  ],
+  "required_write_ids": [
+    "code/content.py",
+    "docs/content.md"
+  ],
+  "schema_version": 1,
+  "write_ids": [
+    "code/content.py",
+    "docs/content.md"
+  ]
+}

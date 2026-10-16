@@ -1,0 +1,21 @@
+{
+  "label": "generic-opinions-before-content",
+  "explanation": "The former editorial API can record opinions without inspecting the declared cross-file content.",
+  "runtime_revision": 1,
+  "content": {
+    "enabled": false,
+    "rules_version": "content-gate-1",
+    "trusted_database_owner_can_bypass": true,
+    "limits": [
+      "Only the administrator-declared inventory and its exact artifact bundle are covered; completeness over other text or project requirements is not established.",
+      "Exact unique quotations and resolved fields pin declared locations; correspondence between prose and those fields is not inferred or verified.",
+      "Literal Python declarations do not establish program behavior; proposed code is parsed with bounded AST rules and is never executed.",
+      "Matches do not establish prose truth, external evidence, human identity, independent people or independent models.",
+      "A standalone packet does not authorize acceptance; formal review, current runtime bases, authorship and governance remain separate requirements.",
+      "The SQLite owner and application implementation remain trusted; hashes provide internal consistency rather than external certification."
+    ]
+  },
+  "operation_result": {
+    "generic_decision_count": 8
+  }
+}

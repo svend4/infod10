@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T18:40:31.047927+02:00",
+  "created_at_utc": "2026-10-16T16:40:31.048025+00:00",
+  "kind": "mandatory_exact_content_packet_product_example",
+  "workers": 3,
+  "actors": {
+    "authenticated_local_capability_principals": true,
+    "persons_authenticated": false,
+    "human_review_recorded": false,
+    "independent_people_or_models_established": false,
+    "external_llm_used": false,
+    "proposed_code_executed": false
+  },
+  "editorial_policy": {
+    "schema_version": 1,
+    "minimum_reviewers": 2,
+    "separate_coordinator": true
+  },
+  "content_policy": {
+    "schema_version": 1,
+    "artifact_ids": [
+      "docs/content.md",
+      "code/content.py"
+    ],
+    "spec": {
+      "schema_version": 1,
+      "obligations": [
+        {
+          "id": "sample-limit",
+          "description": "The fictional literal sample limit must match.",
+          "scope": {
+            "sample": "v1"
+          },
+          "relation": "equals",
+          "value_type": "integer",
+          "document": {
+            "artifact_id": "docs/content.md",
+            "fence_id": "contract",
+            "path": [
+              "limit"
+            ]
+          },
+          "code": {
+            "artifact_id": "code/content.py",
+            "symbol": "SAMPLE_LIMIT"
+          }
+        }
+      ]
+    },
+    "inventory": {
+      "schema_version": 1,
+      "promises": [
+        {
+          "id": "sample-promise",
+          "description": "The declared fictional sample limit.",
+          "anchor": {
+            "artifact_id": "docs/content.md",
+            "quote": "The sample limit is declared below."
+          },
+          "requirement": {
+            "scope": {
+              "sample": "v1"
+            },
+            "relation": "equals",
+            "value_type": "integer",
+            "document": {
+              "artifact_id": "docs/content.md",
+              "fence_id": "contract",
+              "path": [
+                "limit"
+              ]
+            },
+            "code": {
+              "artifact_id": "code/content.py",
+              "symbol": "SAMPLE_LIMIT"
+            }
+          },
+          "obligation_ids": [
+            "sample-limit"
+          ]
+        }
+      ]
+    }
+  },
+  "governance_policy_generation": 4,
+  "content_policy_generation": 2,
+  "stages": [
+    {
+      "label": "authenticated-candidates",
+      "explanation": "Seven author jobs and six exact compositions carry local authorship; none has been accepted.",
+      "artifact": "stage-01-authenticated-candidates.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "generic-opinions-before-content",
+      "explanation": "The former editorial API can record opinions without inspecting the declared cross-file content.",
+      "artifact": "stage-02-generic-opinions-before-content.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "content-activation",
+      "explanation": "Content policy generation 1 advances governance to 3; generic old opinions no longer meet the current gate.",
+      "artifact": "stage-03-content-activation.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "formal-review-is-separate",
+      "explanation": "All seven inspected candidates pass formal runtime review; this does not establish declared content consistency.",
+      "artifact": "stage-04-formal-review-is-separate.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "exact-pin-and-contributor-gate",
+      "explanation": "Every new decision must identify its exact content packet; a new reviewer grant does not separate its author principal.",
+      "artifact": "stage-05-exact-pin-and-contributor-gate.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "mismatch-blocked",
+      "explanation": "Document limit 4 and code limit 5 disagree despite the old generic approvals.",
+      "artifact": "stage-06-mismatch-blocked.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "unresolved-blocked",
+      "explanation": "A computed Python expression remains unresolved; the workflow never executes it.",
+      "artifact": "stage-07-unresolved-blocked.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "missing-quote-blocked",
+      "explanation": "A matching numeric relation does not repair the absent exact promise quotation.",
+      "artifact": "stage-08-missing-quote-blocked.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "ambiguous-quote-blocked",
+      "explanation": "Two occurrences of the exact promise quotation make its anchor ambiguous.",
+      "artifact": "stage-09-ambiguous-quote-blocked.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "whole-bundle-required",
+      "explanation": "The bounded policy requires exactly its two configured write IDs; partial and extra bundles are blocked.",
+      "artifact": "stage-10-whole-bundle-required.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "eligible-before-policy-refresh",
+      "explanation": "Two noncontributor reviewers pin the exact packet for each write; decisions themselves do not alter that packet.",
+      "artifact": "stage-11-eligible-before-policy-refresh.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "policy-refresh-invalidates-opinions",
+      "explanation": "An identical policy body creates content generation 2 and governance generation 4; earlier pins cannot vote for the new packet.",
+      "artifact": "stage-12-policy-refresh-invalidates-opinions.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "historical-decision-replay",
+      "explanation": "A current original grant can replay the exact historical operation; its old pin remains historical and a new operation rejects it.",
+      "artifact": "stage-13-historical-decision-replay.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "fresh-consideration-under-current-policy",
+      "explanation": "Both registered reviewers reconsider each write and pin the new packet; formal review, provenance and runtime guards remain separate requirements.",
+      "artifact": "stage-14-fresh-consideration-under-current-policy.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "accepted-with-content-receipt",
+      "explanation": "New acceptance checks the exact packet in its transaction, advances revision 1 to 2, and retains the packet referenced by receipt schema 3.",
+      "artifact": "stage-15-accepted-with-content-receipt.json",
+      "runtime_revision": 2
+    },
+    {
+      "label": "historical-acceptance-is-stable",
+      "explanation": "The accepted candidate now has stale source reads; authorized replay returns its stored receipt before new live packet checks and creates no new event.",
+      "artifact": "stage-16-historical-acceptance-is-stable.json",
+      "runtime_revision": 2
+    }
+  ],
+  "initial_runtime_revision": 1,
+  "final_runtime_status": {
+    "revision": 2,
+    "artifacts": 2,
+    "sources": 0,
+    "tasks": {
+      "done": 13
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 12
+    },
+    "events": 99,
+    "rules_version": "mvp-1"
+  },
+  "summary": {
+    "author_job_count": 7,
+    "composite_proposal_count": 6,
+    "registered_author_principal_count": 2,
+    "root_contributor_count": 3,
+    "decision_count": 16,
+    "stage_count": 16,
+    "expected_api_rejection_count": 8,
+    "blocked_acceptance_count": 8,
+    "runtime_event_count": 99,
+    "accepted_proposal_count": 1,
+    "acceptance_receipt_schema": 3,
+    "release_created": false,
+    "credential_material_exported": false,
+    "measured_capacity": false,
+    "semantic_equivalence_proved": false,
+    "accepted_content_packet_digest": "46735740303b340e65be4a3921b185045fbab4a986e6f91eb98e32dee741e6d7"
+  },
+  "credential_file_layout": {
+    "administrator": "private/admin.credential",
+    "active_document_author": "private/document-author.credential",
+    "active_code_author": "private/code-author.credential",
+    "active_integrator": "private/integrator.credential",
+    "active_reviewer_a": "private/reviewer-a.credential",
+    "active_reviewer_b": "private/reviewer-b.credential",
+    "active_coordinator": "private/coordinator.credential",
+    "private_database": "private/state.sqlite3"
+  },
+  "limitations": [
+    "The SQLite owner, declared policy and local clock are trusted; local digests are not external attestation.",
+    "Programmed local principals and bearer grants do not establish people, models, expertise or independence.",
+    "Exact quotations and explicitly selected JSON/AST values do not prove natural-language entailment or factual truth.",
+    "The gate checks one declared whole bundle; it does not discover every undocumented requirement or artifact.",
+    "A literal relation match does not prove application behavior; computed code remains unresolved and is never executed.",
+    "Programmed consideration records explicit exact-packet approval but does not establish human understanding.",
+    "Public status is advisory; only the Store.accept transaction grants new runtime acceptance.",
+    "Historical replays preserve old packets and receipts without reviving old votes for a current policy.",
+    "Configured workers and seven jobs are not measured throughput or a supported limit of external agents.",
+    "Credentials, their hashes and SQLite stay private; this command creates no release or Git publication."
+  ]
+}

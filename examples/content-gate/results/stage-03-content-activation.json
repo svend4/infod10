@@ -1,0 +1,695 @@
+{
+  "label": "content-activation",
+  "explanation": "Content policy generation 1 advances governance to 3; generic old opinions no longer meet the current gate.",
+  "runtime_revision": 1,
+  "content": {
+    "enabled": true,
+    "rules_version": "content-gate-1",
+    "trusted_database_owner_can_bypass": true,
+    "limits": [
+      "Only the administrator-declared inventory and its exact artifact bundle are covered; completeness over other text or project requirements is not established.",
+      "Exact unique quotations and resolved fields pin declared locations; correspondence between prose and those fields is not inferred or verified.",
+      "Literal Python declarations do not establish program behavior; proposed code is parsed with bounded AST rules and is never executed.",
+      "Matches do not establish prose truth, external evidence, human identity, independent people or independent models.",
+      "A standalone packet does not authorize acceptance; formal review, current runtime bases, authorship and governance remain separate requirements.",
+      "The SQLite owner and application implementation remain trusted; hashes provide internal consistency rather than external certification."
+    ],
+    "current_policy": {
+      "generation": 1,
+      "policy": {
+        "artifact_ids": [
+          "code/content.py",
+          "docs/content.md"
+        ],
+        "inventory": {
+          "promises": [
+            {
+              "anchor": {
+                "artifact_id": "docs/content.md",
+                "quote": "The sample limit is declared below."
+              },
+              "description": "The declared fictional sample limit.",
+              "id": "sample-promise",
+              "obligation_ids": [
+                "sample-limit"
+              ],
+              "requirement": {
+                "code": {
+                  "artifact_id": "code/content.py",
+                  "symbol": "SAMPLE_LIMIT"
+                },
+                "document": {
+                  "artifact_id": "docs/content.md",
+                  "fence_id": "contract",
+                  "path": [
+                    "limit"
+                  ]
+                },
+                "relation": "equals",
+                "scope": {
+                  "sample": "v1"
+                },
+                "value_type": "integer"
+              }
+            }
+          ],
+          "schema_version": 1
+        },
+        "schema_version": 1,
+        "spec": {
+          "obligations": [
+            {
+              "code": {
+                "artifact_id": "code/content.py",
+                "symbol": "SAMPLE_LIMIT"
+              },
+              "description": "The fictional literal sample limit must match.",
+              "document": {
+                "artifact_id": "docs/content.md",
+                "fence_id": "contract",
+                "path": [
+                  "limit"
+                ]
+              },
+              "id": "sample-limit",
+              "relation": "equals",
+              "scope": {
+                "sample": "v1"
+              },
+              "value_type": "integer"
+            }
+          ],
+          "schema_version": 1
+        }
+      },
+      "policy_digest": "4e5a698edad65b75a26cba69b3e7f026b846418ce9edc43997a94bcb3576c012",
+      "created_at": 1792168830.7719178,
+      "governance_policy_generation": 3,
+      "administrator_grant_id": "gvg_aff968084de3e387506df214a969feab"
+    },
+    "activation": {
+      "rules_version": "content-gate-1",
+      "enabled_at": 1792168830.7719429,
+      "activation_revision": 1,
+      "governance_policy_generation": 3,
+      "administrator_grant_id": "gvg_aff968084de3e387506df214a969feab"
+    },
+    "stored_packets": [],
+    "stored_packet_count": 0,
+    "stored_packets_truncated": false,
+    "proposal_id": "p_fd6b4b441eba7d472f885df2",
+    "packet": {
+      "schema_version": 1,
+      "content_rules_version": "content-gate-1",
+      "obligation_rules_version": "obligations-1",
+      "coverage_rules_version": "coverage-1",
+      "content_policy_generation": 1,
+      "content_policy_digest": "4e5a698edad65b75a26cba69b3e7f026b846418ce9edc43997a94bcb3576c012",
+      "governance_policy_generation": 3,
+      "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "proposal_id": "p_fd6b4b441eba7d472f885df2",
+      "proposal_digest": "87dfaf0b818f2755a710533b7b2361e19340763228c6fe35f71b3e1bec4dbed3",
+      "read_set": {
+        "code/content.py": {
+          "expected": "ed0303c128ef90024909c0f9ba58f86d16de3bda099c4c71d23af3ebe90cd36e",
+          "actual": "ed0303c128ef90024909c0f9ba58f86d16de3bda099c4c71d23af3ebe90cd36e"
+        },
+        "docs/content.md": {
+          "expected": "695d4f5be268cfc1ea5958d2119d342291b8ff1fc181c039a6061452ded78069",
+          "actual": "695d4f5be268cfc1ea5958d2119d342291b8ff1fc181c039a6061452ded78069"
+        }
+      },
+      "queries": {},
+      "write_ids": [
+        "code/content.py",
+        "docs/content.md"
+      ],
+      "required_write_ids": [
+        "code/content.py",
+        "docs/content.md"
+      ],
+      "relations": [
+        {
+          "id": "sample-limit",
+          "scope": {
+            "sample": "v1"
+          },
+          "relation": "equals",
+          "value_type": "integer",
+          "status": "match",
+          "reasons": [],
+          "document": {
+            "artifact_id": "docs/content.md",
+            "kind": "document",
+            "artifact_digest": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69",
+            "rendered_digest": "5f526d385c8dd8df483d24ffdcec398d1e946af1b97d402cbd67c2a9abbd0064",
+            "dependencies": {},
+            "snippet": "{\"limit\":4}\n",
+            "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+            "location": {
+              "start_offset": 93,
+              "end_offset": 105,
+              "start_line": 6,
+              "end_line": 6
+            },
+            "resolved": true,
+            "value": 4,
+            "normalized_value": 4,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims"
+          },
+          "code": {
+            "artifact_id": "code/content.py",
+            "kind": "code",
+            "artifact_digest": "e8414490cf36dd1f9eac2703f80e3190c2999cc39ef64d87b4c7ed67c3436802",
+            "rendered_digest": "f3830f6870fbcf0a943b72115f9f59809306bc510f1c2791a75665b7b748d95f",
+            "dependencies": {},
+            "snippet": "SAMPLE_LIMIT = 4",
+            "snippet_digest": "e009b688616b03b16c11a52916b1dcaebd07561bd905a06731a68eaa2e8a2085",
+            "location": {
+              "start_offset": 0,
+              "end_offset": 16,
+              "start_line": 1,
+              "end_line": 1
+            },
+            "resolved": true,
+            "value": 4,
+            "normalized_value": 4,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims"
+          }
+        }
+      ],
+      "promises": [
+        {
+          "id": "sample-promise",
+          "requirement_digest": "3c14ae0e3302ace92b74813200de48ccdc16c7b058a662a66015542868d02de5",
+          "anchor": {
+            "artifact_id": "docs/content.md",
+            "artifact_digest": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69",
+            "rendered_digest": "5f526d385c8dd8df483d24ffdcec398d1e946af1b97d402cbd67c2a9abbd0064",
+            "dependencies": {},
+            "quote": "The sample limit is declared below.",
+            "quote_digest": "88fc7768c2942ad3e457beb0d703787f276e6d887a860871a1a84ef53b1cd67f",
+            "snippet": "The sample limit is declared below.",
+            "snippet_digest": "88fc7768c2942ad3e457beb0d703787f276e6d887a860871a1a84ef53b1cd67f",
+            "location": {
+              "start_offset": 29,
+              "end_offset": 64,
+              "start_line": 3,
+              "end_line": 3
+            },
+            "resolved": true,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims"
+          },
+          "document": {
+            "artifact_id": "docs/content.md",
+            "kind": "document",
+            "artifact_digest": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69",
+            "rendered_digest": "5f526d385c8dd8df483d24ffdcec398d1e946af1b97d402cbd67c2a9abbd0064",
+            "dependencies": {},
+            "snippet": "{\"limit\":4}\n",
+            "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+            "location": {
+              "start_offset": 93,
+              "end_offset": 105,
+              "start_line": 6,
+              "end_line": 6
+            },
+            "resolved": true,
+            "value": 4,
+            "normalized_value": 4,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims"
+          },
+          "mappings": [
+            {
+              "obligation_id": "sample-limit",
+              "requirement_digest": "3c14ae0e3302ace92b74813200de48ccdc16c7b058a662a66015542868d02de5",
+              "valid": true,
+              "comparison_status": "match"
+            }
+          ],
+          "anchor_verified": true,
+          "eligible": true,
+          "reasons": []
+        }
+      ],
+      "dependencies": {},
+      "eligible": true,
+      "reasons": [],
+      "limits": [
+        "Only the administrator-declared inventory and its exact artifact bundle are covered; completeness over other text or project requirements is not established.",
+        "Exact unique quotations and resolved fields pin declared locations; correspondence between prose and those fields is not inferred or verified.",
+        "Literal Python declarations do not establish program behavior; proposed code is parsed with bounded AST rules and is never executed.",
+        "Matches do not establish prose truth, external evidence, human identity, independent people or independent models.",
+        "A standalone packet does not authorize acceptance; formal review, current runtime bases, authorship and governance remain separate requirements.",
+        "The SQLite owner and application implementation remain trusted; hashes provide internal consistency rather than external certification."
+      ],
+      "packet_id": "cgp_4460666d4e57e1a72042422af3c9153e6130409981adc92468011c7e85da9ddc",
+      "packet_digest": "4460666d4e57e1a72042422af3c9153e6130409981adc92468011c7e85da9ddc"
+    },
+    "stored": false
+  },
+  "operation_result": {
+    "activation": {
+      "enabled": true,
+      "rules_version": "content-gate-1",
+      "current_policy": {
+        "generation": 1,
+        "policy": {
+          "artifact_ids": [
+            "code/content.py",
+            "docs/content.md"
+          ],
+          "inventory": {
+            "promises": [
+              {
+                "anchor": {
+                  "artifact_id": "docs/content.md",
+                  "quote": "The sample limit is declared below."
+                },
+                "description": "The declared fictional sample limit.",
+                "id": "sample-promise",
+                "obligation_ids": [
+                  "sample-limit"
+                ],
+                "requirement": {
+                  "code": {
+                    "artifact_id": "code/content.py",
+                    "symbol": "SAMPLE_LIMIT"
+                  },
+                  "document": {
+                    "artifact_id": "docs/content.md",
+                    "fence_id": "contract",
+                    "path": [
+                      "limit"
+                    ]
+                  },
+                  "relation": "equals",
+                  "scope": {
+                    "sample": "v1"
+                  },
+                  "value_type": "integer"
+                }
+              }
+            ],
+            "schema_version": 1
+          },
+          "schema_version": 1,
+          "spec": {
+            "obligations": [
+              {
+                "code": {
+                  "artifact_id": "code/content.py",
+                  "symbol": "SAMPLE_LIMIT"
+                },
+                "description": "The fictional literal sample limit must match.",
+                "document": {
+                  "artifact_id": "docs/content.md",
+                  "fence_id": "contract",
+                  "path": [
+                    "limit"
+                  ]
+                },
+                "id": "sample-limit",
+                "relation": "equals",
+                "scope": {
+                  "sample": "v1"
+                },
+                "value_type": "integer"
+              }
+            ],
+            "schema_version": 1
+          }
+        },
+        "policy_digest": "4e5a698edad65b75a26cba69b3e7f026b846418ce9edc43997a94bcb3576c012",
+        "created_at": 1792168830.7719178,
+        "governance_policy_generation": 3,
+        "administrator_grant_id": "gvg_aff968084de3e387506df214a969feab"
+      },
+      "policy_generation": 3,
+      "content_policy_generation": 1,
+      "content_policy_digest": "4e5a698edad65b75a26cba69b3e7f026b846418ce9edc43997a94bcb3576c012",
+      "activation_revision": 1,
+      "enabled_at": 1792168830.7719429
+    },
+    "acceptance": {
+      "accepted": false,
+      "proposal_id": "p_fd6b4b441eba7d472f885df2",
+      "revision": 1,
+      "replayed": false,
+      "reasons": [
+        {
+          "code": "unapproved"
+        },
+        {
+          "code": "governance_quorum_missing",
+          "artifact_id": "code/content.py",
+          "required": 2,
+          "actual": 0
+        },
+        {
+          "code": "governance_quorum_missing",
+          "artifact_id": "docs/content.md",
+          "required": 2,
+          "actual": 0
+        }
+      ],
+      "governance": {
+        "schema_version": 1,
+        "rules_version": "governance-1",
+        "enabled": true,
+        "proposal_id": "p_fd6b4b441eba7d472f885df2",
+        "proposal_digest": "87dfaf0b818f2755a710533b7b2361e19340763228c6fe35f71b3e1bec4dbed3",
+        "proposal_status": "proposed",
+        "policy_generation": 3,
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy": {
+          "minimum_reviewers": 2,
+          "schema_version": 1,
+          "separate_coordinator": true
+        },
+        "coordinator": {
+          "principal_id": "content-coordinator",
+          "grant_id": "gvg_f20406f661e0281ffa1862af8262f407"
+        },
+        "observed_at": 1792168830.777012,
+        "valid_until": 1792172430.6865916,
+        "writes": [
+          {
+            "artifact_id": "code/content.py",
+            "required_reviewers": 2,
+            "approval_principals": [],
+            "approval_decision_ids": [],
+            "used_decision_ids": [],
+            "veto_decision_ids": [],
+            "eligible": false
+          },
+          {
+            "artifact_id": "docs/content.md",
+            "required_reviewers": 2,
+            "approval_principals": [],
+            "approval_decision_ids": [],
+            "used_decision_ids": [],
+            "veto_decision_ids": [],
+            "eligible": false
+          }
+        ],
+        "decisions": [
+          {
+            "artifact_id": "docs/content.md",
+            "created_at": 1792168830.7573807,
+            "decision_id": "gvd_a679a93427b064bbddbdb8ab89ce0e169aa79d7fab4995781c36205eb062f5c4",
+            "grant_id": "gvg_7d2672924c2a8183ad6f2e373b6e40c8",
+            "operation_id": "content-decision-generic-matching-a-document",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 2,
+            "previous_decision_id": null,
+            "principal_id": "content-reviewer-a",
+            "proposal_digest": "87dfaf0b818f2755a710533b7b2361e19340763228c6fe35f71b3e1bec4dbed3",
+            "proposal_id": "p_fd6b4b441eba7d472f885df2",
+            "rationale": "Programmed consideration of the exact declared sample fields for generic-matching-a-document; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "verdict": "approve",
+            "current_head": true,
+            "grant_expires_at": 1792172430.6865916,
+            "valid": false,
+            "invalid_reasons": [
+              "policy_generation_changed",
+              "content_packet_changed"
+            ]
+          },
+          {
+            "artifact_id": "code/content.py",
+            "created_at": 1792168830.7588618,
+            "decision_id": "gvd_f83ce5cfb2db1eb44a82f20e74d9e39d701ed0c771f18e1fe6e4dd1efe443ee8",
+            "grant_id": "gvg_7d2672924c2a8183ad6f2e373b6e40c8",
+            "operation_id": "content-decision-generic-matching-a-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 2,
+            "previous_decision_id": null,
+            "principal_id": "content-reviewer-a",
+            "proposal_digest": "87dfaf0b818f2755a710533b7b2361e19340763228c6fe35f71b3e1bec4dbed3",
+            "proposal_id": "p_fd6b4b441eba7d472f885df2",
+            "rationale": "Programmed consideration of the exact declared sample fields for generic-matching-a-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "verdict": "approve",
+            "current_head": true,
+            "grant_expires_at": 1792172430.6865916,
+            "valid": false,
+            "invalid_reasons": [
+              "policy_generation_changed",
+              "content_packet_changed"
+            ]
+          },
+          {
+            "artifact_id": "docs/content.md",
+            "created_at": 1792168830.7601416,
+            "decision_id": "gvd_04498422ca34ad93000596dce21afb4aecd896158771904ab43c29f30684da6b",
+            "grant_id": "gvg_3f5e4966ab549f5715202563454b898d",
+            "operation_id": "content-decision-generic-matching-b-document",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 2,
+            "previous_decision_id": null,
+            "principal_id": "content-reviewer-b",
+            "proposal_digest": "87dfaf0b818f2755a710533b7b2361e19340763228c6fe35f71b3e1bec4dbed3",
+            "proposal_id": "p_fd6b4b441eba7d472f885df2",
+            "rationale": "Programmed consideration of the exact declared sample fields for generic-matching-b-document; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "verdict": "approve",
+            "current_head": true,
+            "grant_expires_at": 1792172430.6865916,
+            "valid": false,
+            "invalid_reasons": [
+              "policy_generation_changed",
+              "content_packet_changed"
+            ]
+          },
+          {
+            "artifact_id": "code/content.py",
+            "created_at": 1792168830.7626407,
+            "decision_id": "gvd_677c0a0f17437ade67c7df256293e1348e16382f3a83aa34db5c5220f68b23cf",
+            "grant_id": "gvg_3f5e4966ab549f5715202563454b898d",
+            "operation_id": "content-decision-generic-matching-b-code",
+            "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "policy_generation": 2,
+            "previous_decision_id": null,
+            "principal_id": "content-reviewer-b",
+            "proposal_digest": "87dfaf0b818f2755a710533b7b2361e19340763228c6fe35f71b3e1bec4dbed3",
+            "proposal_id": "p_fd6b4b441eba7d472f885df2",
+            "rationale": "Programmed consideration of the exact declared sample fields for generic-matching-b-code; no human review, prose truth or code behavior is asserted.",
+            "rules_version": "governance-1",
+            "schema_version": 1,
+            "verdict": "approve",
+            "current_head": true,
+            "grant_expires_at": 1792172430.6865916,
+            "valid": false,
+            "invalid_reasons": [
+              "policy_generation_changed",
+              "content_packet_changed"
+            ]
+          }
+        ],
+        "eligible": false,
+        "reasons": [
+          {
+            "code": "governance_quorum_missing",
+            "artifact_id": "code/content.py",
+            "required": 2,
+            "actual": 0
+          },
+          {
+            "code": "governance_quorum_missing",
+            "artifact_id": "docs/content.md",
+            "required": 2,
+            "actual": 0
+          }
+        ],
+        "advisory_only": true,
+        "author_identity_authenticated": false,
+        "human_identity_authenticated": false,
+        "authorship": {
+          "rules_version": "authorship-1",
+          "integrity_valid": true,
+          "reasons": [],
+          "proof": {
+            "authorship_id": "awp_f4ba655cfa02917ced0c94cdfb9c34de972249f71aa80911bcd94f506edc4532",
+            "authorship_digest": "f4ba655cfa02917ced0c94cdfb9c34de972249f71aa80911bcd94f506edc4532",
+            "principal_id": "content-integrator",
+            "contributor_principals": [
+              "content-code-author",
+              "content-document-author",
+              "content-integrator"
+            ],
+            "write_ids": [
+              "code/content.py",
+              "docs/content.md"
+            ]
+          },
+          "contributor_principals": [
+            "content-code-author",
+            "content-document-author",
+            "content-integrator"
+          ]
+        },
+        "content": {
+          "schema_version": 1,
+          "content_rules_version": "content-gate-1",
+          "obligation_rules_version": "obligations-1",
+          "coverage_rules_version": "coverage-1",
+          "content_policy_generation": 1,
+          "content_policy_digest": "4e5a698edad65b75a26cba69b3e7f026b846418ce9edc43997a94bcb3576c012",
+          "governance_policy_generation": 3,
+          "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+          "proposal_id": "p_fd6b4b441eba7d472f885df2",
+          "proposal_digest": "87dfaf0b818f2755a710533b7b2361e19340763228c6fe35f71b3e1bec4dbed3",
+          "read_set": {
+            "code/content.py": {
+              "expected": "ed0303c128ef90024909c0f9ba58f86d16de3bda099c4c71d23af3ebe90cd36e",
+              "actual": "ed0303c128ef90024909c0f9ba58f86d16de3bda099c4c71d23af3ebe90cd36e"
+            },
+            "docs/content.md": {
+              "expected": "695d4f5be268cfc1ea5958d2119d342291b8ff1fc181c039a6061452ded78069",
+              "actual": "695d4f5be268cfc1ea5958d2119d342291b8ff1fc181c039a6061452ded78069"
+            }
+          },
+          "queries": {},
+          "write_ids": [
+            "code/content.py",
+            "docs/content.md"
+          ],
+          "required_write_ids": [
+            "code/content.py",
+            "docs/content.md"
+          ],
+          "relations": [
+            {
+              "id": "sample-limit",
+              "scope": {
+                "sample": "v1"
+              },
+              "relation": "equals",
+              "value_type": "integer",
+              "status": "match",
+              "reasons": [],
+              "document": {
+                "artifact_id": "docs/content.md",
+                "kind": "document",
+                "artifact_digest": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69",
+                "rendered_digest": "5f526d385c8dd8df483d24ffdcec398d1e946af1b97d402cbd67c2a9abbd0064",
+                "dependencies": {},
+                "snippet": "{\"limit\":4}\n",
+                "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+                "location": {
+                  "start_offset": 93,
+                  "end_offset": 105,
+                  "start_line": 6,
+                  "end_line": 6
+                },
+                "resolved": true,
+                "value": 4,
+                "normalized_value": 4,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "code": {
+                "artifact_id": "code/content.py",
+                "kind": "code",
+                "artifact_digest": "e8414490cf36dd1f9eac2703f80e3190c2999cc39ef64d87b4c7ed67c3436802",
+                "rendered_digest": "f3830f6870fbcf0a943b72115f9f59809306bc510f1c2791a75665b7b748d95f",
+                "dependencies": {},
+                "snippet": "SAMPLE_LIMIT = 4",
+                "snippet_digest": "e009b688616b03b16c11a52916b1dcaebd07561bd905a06731a68eaa2e8a2085",
+                "location": {
+                  "start_offset": 0,
+                  "end_offset": 16,
+                  "start_line": 1,
+                  "end_line": 1
+                },
+                "resolved": true,
+                "value": 4,
+                "normalized_value": 4,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              }
+            }
+          ],
+          "promises": [
+            {
+              "id": "sample-promise",
+              "requirement_digest": "3c14ae0e3302ace92b74813200de48ccdc16c7b058a662a66015542868d02de5",
+              "anchor": {
+                "artifact_id": "docs/content.md",
+                "artifact_digest": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69",
+                "rendered_digest": "5f526d385c8dd8df483d24ffdcec398d1e946af1b97d402cbd67c2a9abbd0064",
+                "dependencies": {},
+                "quote": "The sample limit is declared below.",
+                "quote_digest": "88fc7768c2942ad3e457beb0d703787f276e6d887a860871a1a84ef53b1cd67f",
+                "snippet": "The sample limit is declared below.",
+                "snippet_digest": "88fc7768c2942ad3e457beb0d703787f276e6d887a860871a1a84ef53b1cd67f",
+                "location": {
+                  "start_offset": 29,
+                  "end_offset": 64,
+                  "start_line": 3,
+                  "end_line": 3
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "document": {
+                "artifact_id": "docs/content.md",
+                "kind": "document",
+                "artifact_digest": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69",
+                "rendered_digest": "5f526d385c8dd8df483d24ffdcec398d1e946af1b97d402cbd67c2a9abbd0064",
+                "dependencies": {},
+                "snippet": "{\"limit\":4}\n",
+                "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+                "location": {
+                  "start_offset": 93,
+                  "end_offset": 105,
+                  "start_line": 6,
+                  "end_line": 6
+                },
+                "resolved": true,
+                "value": 4,
+                "normalized_value": 4,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "mappings": [
+                {
+                  "obligation_id": "sample-limit",
+                  "requirement_digest": "3c14ae0e3302ace92b74813200de48ccdc16c7b058a662a66015542868d02de5",
+                  "valid": true,
+                  "comparison_status": "match"
+                }
+              ],
+              "anchor_verified": true,
+              "eligible": true,
+              "reasons": []
+            }
+          ],
+          "dependencies": {},
+          "eligible": true,
+          "reasons": [],
+          "limits": [
+            "Only the administrator-declared inventory and its exact artifact bundle are covered; completeness over other text or project requirements is not established.",
+            "Exact unique quotations and resolved fields pin declared locations; correspondence between prose and those fields is not inferred or verified.",
+            "Literal Python declarations do not establish program behavior; proposed code is parsed with bounded AST rules and is never executed.",
+            "Matches do not establish prose truth, external evidence, human identity, independent people or independent models.",
+            "A standalone packet does not authorize acceptance; formal review, current runtime bases, authorship and governance remain separate requirements.",
+            "The SQLite owner and application implementation remain trusted; hashes provide internal consistency rather than external certification."
+          ],
+          "packet_id": "cgp_4460666d4e57e1a72042422af3c9153e6130409981adc92468011c7e85da9ddc",
+          "packet_digest": "4460666d4e57e1a72042422af3c9153e6130409981adc92468011c7e85da9ddc"
+        }
+      }
+    }
+  }
+}

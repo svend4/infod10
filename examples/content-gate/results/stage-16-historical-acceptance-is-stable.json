@@ -1,0 +1,505 @@
+{
+  "label": "historical-acceptance-is-stable",
+  "explanation": "The accepted candidate now has stale source reads; authorized replay returns its stored receipt before new live packet checks and creates no new event.",
+  "runtime_revision": 2,
+  "content": {
+    "enabled": true,
+    "rules_version": "content-gate-1",
+    "trusted_database_owner_can_bypass": true,
+    "limits": [
+      "Only the administrator-declared inventory and its exact artifact bundle are covered; completeness over other text or project requirements is not established.",
+      "Exact unique quotations and resolved fields pin declared locations; correspondence between prose and those fields is not inferred or verified.",
+      "Literal Python declarations do not establish program behavior; proposed code is parsed with bounded AST rules and is never executed.",
+      "Matches do not establish prose truth, external evidence, human identity, independent people or independent models.",
+      "A standalone packet does not authorize acceptance; formal review, current runtime bases, authorship and governance remain separate requirements.",
+      "The SQLite owner and application implementation remain trusted; hashes provide internal consistency rather than external certification."
+    ],
+    "current_policy": {
+      "generation": 2,
+      "policy": {
+        "artifact_ids": [
+          "code/content.py",
+          "docs/content.md"
+        ],
+        "inventory": {
+          "promises": [
+            {
+              "anchor": {
+                "artifact_id": "docs/content.md",
+                "quote": "The sample limit is declared below."
+              },
+              "description": "The declared fictional sample limit.",
+              "id": "sample-promise",
+              "obligation_ids": [
+                "sample-limit"
+              ],
+              "requirement": {
+                "code": {
+                  "artifact_id": "code/content.py",
+                  "symbol": "SAMPLE_LIMIT"
+                },
+                "document": {
+                  "artifact_id": "docs/content.md",
+                  "fence_id": "contract",
+                  "path": [
+                    "limit"
+                  ]
+                },
+                "relation": "equals",
+                "scope": {
+                  "sample": "v1"
+                },
+                "value_type": "integer"
+              }
+            }
+          ],
+          "schema_version": 1
+        },
+        "schema_version": 1,
+        "spec": {
+          "obligations": [
+            {
+              "code": {
+                "artifact_id": "code/content.py",
+                "symbol": "SAMPLE_LIMIT"
+              },
+              "description": "The fictional literal sample limit must match.",
+              "document": {
+                "artifact_id": "docs/content.md",
+                "fence_id": "contract",
+                "path": [
+                  "limit"
+                ]
+              },
+              "id": "sample-limit",
+              "relation": "equals",
+              "scope": {
+                "sample": "v1"
+              },
+              "value_type": "integer"
+            }
+          ],
+          "schema_version": 1
+        }
+      },
+      "policy_digest": "4e5a698edad65b75a26cba69b3e7f026b846418ce9edc43997a94bcb3576c012",
+      "created_at": 1792168830.9013531,
+      "governance_policy_generation": 4,
+      "administrator_grant_id": "gvg_aff968084de3e387506df214a969feab"
+    },
+    "activation": {
+      "rules_version": "content-gate-1",
+      "enabled_at": 1792168830.7719429,
+      "activation_revision": 1,
+      "governance_policy_generation": 3,
+      "administrator_grant_id": "gvg_aff968084de3e387506df214a969feab"
+    },
+    "stored_packets": [
+      {
+        "packet_id": "cgp_46735740303b340e65be4a3921b185045fbab4a986e6f91eb98e32dee741e6d7",
+        "packet_digest": "46735740303b340e65be4a3921b185045fbab4a986e6f91eb98e32dee741e6d7",
+        "proposal_id": "p_fd6b4b441eba7d472f885df2",
+        "content_policy_generation": 2
+      },
+      {
+        "packet_id": "cgp_4460666d4e57e1a72042422af3c9153e6130409981adc92468011c7e85da9ddc",
+        "packet_digest": "4460666d4e57e1a72042422af3c9153e6130409981adc92468011c7e85da9ddc",
+        "proposal_id": "p_fd6b4b441eba7d472f885df2",
+        "content_policy_generation": 1
+      }
+    ],
+    "stored_packet_count": 2,
+    "stored_packets_truncated": false,
+    "proposal_id": "p_fd6b4b441eba7d472f885df2",
+    "packet": {
+      "schema_version": 1,
+      "content_rules_version": "content-gate-1",
+      "obligation_rules_version": "obligations-1",
+      "coverage_rules_version": "coverage-1",
+      "content_policy_generation": 2,
+      "content_policy_digest": "4e5a698edad65b75a26cba69b3e7f026b846418ce9edc43997a94bcb3576c012",
+      "governance_policy_generation": 4,
+      "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "proposal_id": "p_fd6b4b441eba7d472f885df2",
+      "proposal_digest": "87dfaf0b818f2755a710533b7b2361e19340763228c6fe35f71b3e1bec4dbed3",
+      "read_set": {
+        "code/content.py": {
+          "expected": "ed0303c128ef90024909c0f9ba58f86d16de3bda099c4c71d23af3ebe90cd36e",
+          "actual": "e8414490cf36dd1f9eac2703f80e3190c2999cc39ef64d87b4c7ed67c3436802"
+        },
+        "docs/content.md": {
+          "expected": "695d4f5be268cfc1ea5958d2119d342291b8ff1fc181c039a6061452ded78069",
+          "actual": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69"
+        }
+      },
+      "queries": {},
+      "write_ids": [
+        "code/content.py",
+        "docs/content.md"
+      ],
+      "required_write_ids": [
+        "code/content.py",
+        "docs/content.md"
+      ],
+      "relations": [
+        {
+          "id": "sample-limit",
+          "scope": {
+            "sample": "v1"
+          },
+          "relation": "equals",
+          "value_type": "integer",
+          "status": "match",
+          "reasons": [],
+          "document": {
+            "artifact_id": "docs/content.md",
+            "kind": "document",
+            "artifact_digest": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69",
+            "rendered_digest": "5f526d385c8dd8df483d24ffdcec398d1e946af1b97d402cbd67c2a9abbd0064",
+            "dependencies": {},
+            "snippet": "{\"limit\":4}\n",
+            "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+            "location": {
+              "start_offset": 93,
+              "end_offset": 105,
+              "start_line": 6,
+              "end_line": 6
+            },
+            "resolved": true,
+            "value": 4,
+            "normalized_value": 4,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims"
+          },
+          "code": {
+            "artifact_id": "code/content.py",
+            "kind": "code",
+            "artifact_digest": "e8414490cf36dd1f9eac2703f80e3190c2999cc39ef64d87b4c7ed67c3436802",
+            "rendered_digest": "f3830f6870fbcf0a943b72115f9f59809306bc510f1c2791a75665b7b748d95f",
+            "dependencies": {},
+            "snippet": "SAMPLE_LIMIT = 4",
+            "snippet_digest": "e009b688616b03b16c11a52916b1dcaebd07561bd905a06731a68eaa2e8a2085",
+            "location": {
+              "start_offset": 0,
+              "end_offset": 16,
+              "start_line": 1,
+              "end_line": 1
+            },
+            "resolved": true,
+            "value": 4,
+            "normalized_value": 4,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims"
+          }
+        }
+      ],
+      "promises": [
+        {
+          "id": "sample-promise",
+          "requirement_digest": "3c14ae0e3302ace92b74813200de48ccdc16c7b058a662a66015542868d02de5",
+          "anchor": {
+            "artifact_id": "docs/content.md",
+            "artifact_digest": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69",
+            "rendered_digest": "5f526d385c8dd8df483d24ffdcec398d1e946af1b97d402cbd67c2a9abbd0064",
+            "dependencies": {},
+            "quote": "The sample limit is declared below.",
+            "quote_digest": "88fc7768c2942ad3e457beb0d703787f276e6d887a860871a1a84ef53b1cd67f",
+            "snippet": "The sample limit is declared below.",
+            "snippet_digest": "88fc7768c2942ad3e457beb0d703787f276e6d887a860871a1a84ef53b1cd67f",
+            "location": {
+              "start_offset": 29,
+              "end_offset": 64,
+              "start_line": 3,
+              "end_line": 3
+            },
+            "resolved": true,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims"
+          },
+          "document": {
+            "artifact_id": "docs/content.md",
+            "kind": "document",
+            "artifact_digest": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69",
+            "rendered_digest": "5f526d385c8dd8df483d24ffdcec398d1e946af1b97d402cbd67c2a9abbd0064",
+            "dependencies": {},
+            "snippet": "{\"limit\":4}\n",
+            "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+            "location": {
+              "start_offset": 93,
+              "end_offset": 105,
+              "start_line": 6,
+              "end_line": 6
+            },
+            "resolved": true,
+            "value": 4,
+            "normalized_value": 4,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims"
+          },
+          "mappings": [
+            {
+              "obligation_id": "sample-limit",
+              "requirement_digest": "3c14ae0e3302ace92b74813200de48ccdc16c7b058a662a66015542868d02de5",
+              "valid": true,
+              "comparison_status": "match"
+            }
+          ],
+          "anchor_verified": true,
+          "eligible": true,
+          "reasons": []
+        }
+      ],
+      "dependencies": {},
+      "eligible": false,
+      "reasons": [
+        {
+          "code": "content_stale_read",
+          "artifact_id": "code/content.py",
+          "expected": "ed0303c128ef90024909c0f9ba58f86d16de3bda099c4c71d23af3ebe90cd36e",
+          "actual": "e8414490cf36dd1f9eac2703f80e3190c2999cc39ef64d87b4c7ed67c3436802"
+        },
+        {
+          "code": "content_stale_read",
+          "artifact_id": "docs/content.md",
+          "expected": "695d4f5be268cfc1ea5958d2119d342291b8ff1fc181c039a6061452ded78069",
+          "actual": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69"
+        }
+      ],
+      "limits": [
+        "Only the administrator-declared inventory and its exact artifact bundle are covered; completeness over other text or project requirements is not established.",
+        "Exact unique quotations and resolved fields pin declared locations; correspondence between prose and those fields is not inferred or verified.",
+        "Literal Python declarations do not establish program behavior; proposed code is parsed with bounded AST rules and is never executed.",
+        "Matches do not establish prose truth, external evidence, human identity, independent people or independent models.",
+        "A standalone packet does not authorize acceptance; formal review, current runtime bases, authorship and governance remain separate requirements.",
+        "The SQLite owner and application implementation remain trusted; hashes provide internal consistency rather than external certification."
+      ],
+      "packet_id": "cgp_57321cf01a312cae1e3d0ca7b8a49346396d482aa76b6e7a7035411d0058a14b",
+      "packet_digest": "57321cf01a312cae1e3d0ca7b8a49346396d482aa76b6e7a7035411d0058a14b"
+    },
+    "stored": false
+  },
+  "operation_result": {
+    "replayed_acceptance": {
+      "accepted": true,
+      "proposal_id": "p_fd6b4b441eba7d472f885df2",
+      "revision": 2,
+      "replayed": true,
+      "reasons": [],
+      "coordinator": "content-coordinator",
+      "coordinator_grant_id": "gvg_f20406f661e0281ffa1862af8262f407",
+      "authorization_time": 1792168830.9612794,
+      "governance_receipt": {
+        "accepted_at": 1792168830.9491115,
+        "authorization_time": 1792168830.9491115,
+        "authorship": {
+          "authorship_digest": "f4ba655cfa02917ced0c94cdfb9c34de972249f71aa80911bcd94f506edc4532",
+          "authorship_id": "awp_f4ba655cfa02917ced0c94cdfb9c34de972249f71aa80911bcd94f506edc4532",
+          "contributor_principals": [
+            "content-code-author",
+            "content-document-author",
+            "content-integrator"
+          ],
+          "principal_id": "content-integrator",
+          "write_ids": [
+            "code/content.py",
+            "docs/content.md"
+          ]
+        },
+        "content_packet": {
+          "content_policy_digest": "4e5a698edad65b75a26cba69b3e7f026b846418ce9edc43997a94bcb3576c012",
+          "content_policy_generation": 2,
+          "packet_digest": "46735740303b340e65be4a3921b185045fbab4a986e6f91eb98e32dee741e6d7",
+          "packet_id": "cgp_46735740303b340e65be4a3921b185045fbab4a986e6f91eb98e32dee741e6d7"
+        },
+        "coordinator": {
+          "grant_id": "gvg_f20406f661e0281ffa1862af8262f407",
+          "principal_id": "content-coordinator"
+        },
+        "decisions": {
+          "code/content.py": [
+            "gvd_6b971e55e73c84dbe8acc79012b8128ed7d2d47af8163b57a7ec2887190d59bd",
+            "gvd_e432ccfba2784e8f36ff7d4d4a88cc734fc54f83dd9c63e9a4af62597d4964ae"
+          ],
+          "docs/content.md": [
+            "gvd_d69df3a8db20ef5653eb0e8ba4e175304190e235173db3032432eed9381ef6b1",
+            "gvd_ccc5bd6cbe4a5cfab571c3ac3b0f9a2749686075ff231c2d6e46fbf69d98a4f0"
+          ]
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy_generation": 4,
+        "proposal_digest": "87dfaf0b818f2755a710533b7b2361e19340763228c6fe35f71b3e1bec4dbed3",
+        "proposal_id": "p_fd6b4b441eba7d472f885df2",
+        "receipt_id": "gvr_2f9bf34d66931eeb42c15d11b430a56777546560d587d85ddeae5dca02712be8",
+        "revision": 2,
+        "rules_version": "governance-1",
+        "schema_version": 3
+      },
+      "legacy_acceptance": false
+    },
+    "current_packet": {
+      "schema_version": 1,
+      "content_rules_version": "content-gate-1",
+      "obligation_rules_version": "obligations-1",
+      "coverage_rules_version": "coverage-1",
+      "content_policy_generation": 2,
+      "content_policy_digest": "4e5a698edad65b75a26cba69b3e7f026b846418ce9edc43997a94bcb3576c012",
+      "governance_policy_generation": 4,
+      "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "proposal_id": "p_fd6b4b441eba7d472f885df2",
+      "proposal_digest": "87dfaf0b818f2755a710533b7b2361e19340763228c6fe35f71b3e1bec4dbed3",
+      "read_set": {
+        "code/content.py": {
+          "expected": "ed0303c128ef90024909c0f9ba58f86d16de3bda099c4c71d23af3ebe90cd36e",
+          "actual": "e8414490cf36dd1f9eac2703f80e3190c2999cc39ef64d87b4c7ed67c3436802"
+        },
+        "docs/content.md": {
+          "expected": "695d4f5be268cfc1ea5958d2119d342291b8ff1fc181c039a6061452ded78069",
+          "actual": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69"
+        }
+      },
+      "queries": {},
+      "write_ids": [
+        "code/content.py",
+        "docs/content.md"
+      ],
+      "required_write_ids": [
+        "code/content.py",
+        "docs/content.md"
+      ],
+      "relations": [
+        {
+          "id": "sample-limit",
+          "scope": {
+            "sample": "v1"
+          },
+          "relation": "equals",
+          "value_type": "integer",
+          "status": "match",
+          "reasons": [],
+          "document": {
+            "artifact_id": "docs/content.md",
+            "kind": "document",
+            "artifact_digest": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69",
+            "rendered_digest": "5f526d385c8dd8df483d24ffdcec398d1e946af1b97d402cbd67c2a9abbd0064",
+            "dependencies": {},
+            "snippet": "{\"limit\":4}\n",
+            "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+            "location": {
+              "start_offset": 93,
+              "end_offset": 105,
+              "start_line": 6,
+              "end_line": 6
+            },
+            "resolved": true,
+            "value": 4,
+            "normalized_value": 4,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims"
+          },
+          "code": {
+            "artifact_id": "code/content.py",
+            "kind": "code",
+            "artifact_digest": "e8414490cf36dd1f9eac2703f80e3190c2999cc39ef64d87b4c7ed67c3436802",
+            "rendered_digest": "f3830f6870fbcf0a943b72115f9f59809306bc510f1c2791a75665b7b748d95f",
+            "dependencies": {},
+            "snippet": "SAMPLE_LIMIT = 4",
+            "snippet_digest": "e009b688616b03b16c11a52916b1dcaebd07561bd905a06731a68eaa2e8a2085",
+            "location": {
+              "start_offset": 0,
+              "end_offset": 16,
+              "start_line": 1,
+              "end_line": 1
+            },
+            "resolved": true,
+            "value": 4,
+            "normalized_value": 4,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims"
+          }
+        }
+      ],
+      "promises": [
+        {
+          "id": "sample-promise",
+          "requirement_digest": "3c14ae0e3302ace92b74813200de48ccdc16c7b058a662a66015542868d02de5",
+          "anchor": {
+            "artifact_id": "docs/content.md",
+            "artifact_digest": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69",
+            "rendered_digest": "5f526d385c8dd8df483d24ffdcec398d1e946af1b97d402cbd67c2a9abbd0064",
+            "dependencies": {},
+            "quote": "The sample limit is declared below.",
+            "quote_digest": "88fc7768c2942ad3e457beb0d703787f276e6d887a860871a1a84ef53b1cd67f",
+            "snippet": "The sample limit is declared below.",
+            "snippet_digest": "88fc7768c2942ad3e457beb0d703787f276e6d887a860871a1a84ef53b1cd67f",
+            "location": {
+              "start_offset": 29,
+              "end_offset": 64,
+              "start_line": 3,
+              "end_line": 3
+            },
+            "resolved": true,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims"
+          },
+          "document": {
+            "artifact_id": "docs/content.md",
+            "kind": "document",
+            "artifact_digest": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69",
+            "rendered_digest": "5f526d385c8dd8df483d24ffdcec398d1e946af1b97d402cbd67c2a9abbd0064",
+            "dependencies": {},
+            "snippet": "{\"limit\":4}\n",
+            "snippet_digest": "9efe7108d1a43bf052dcdd07b385a662e4b8119e3f6b8603d581c3f9081a393f",
+            "location": {
+              "start_offset": 93,
+              "end_offset": 105,
+              "start_line": 6,
+              "end_line": 6
+            },
+            "resolved": true,
+            "value": 4,
+            "normalized_value": 4,
+            "reasons": [],
+            "render_basis": "captured_candidate_current_claims"
+          },
+          "mappings": [
+            {
+              "obligation_id": "sample-limit",
+              "requirement_digest": "3c14ae0e3302ace92b74813200de48ccdc16c7b058a662a66015542868d02de5",
+              "valid": true,
+              "comparison_status": "match"
+            }
+          ],
+          "anchor_verified": true,
+          "eligible": true,
+          "reasons": []
+        }
+      ],
+      "dependencies": {},
+      "eligible": false,
+      "reasons": [
+        {
+          "code": "content_stale_read",
+          "artifact_id": "code/content.py",
+          "expected": "ed0303c128ef90024909c0f9ba58f86d16de3bda099c4c71d23af3ebe90cd36e",
+          "actual": "e8414490cf36dd1f9eac2703f80e3190c2999cc39ef64d87b4c7ed67c3436802"
+        },
+        {
+          "code": "content_stale_read",
+          "artifact_id": "docs/content.md",
+          "expected": "695d4f5be268cfc1ea5958d2119d342291b8ff1fc181c039a6061452ded78069",
+          "actual": "1d225b8dddae1bce554627ce6864c2225f9d229776e1e17caa5ee5c73809ed69"
+        }
+      ],
+      "limits": [
+        "Only the administrator-declared inventory and its exact artifact bundle are covered; completeness over other text or project requirements is not established.",
+        "Exact unique quotations and resolved fields pin declared locations; correspondence between prose and those fields is not inferred or verified.",
+        "Literal Python declarations do not establish program behavior; proposed code is parsed with bounded AST rules and is never executed.",
+        "Matches do not establish prose truth, external evidence, human identity, independent people or independent models.",
+        "A standalone packet does not authorize acceptance; formal review, current runtime bases, authorship and governance remain separate requirements.",
+        "The SQLite owner and application implementation remain trusted; hashes provide internal consistency rather than external certification."
+      ],
+      "packet_id": "cgp_57321cf01a312cae1e3d0ca7b8a49346396d482aa76b6e7a7035411d0058a14b",
+      "packet_digest": "57321cf01a312cae1e3d0ca7b8a49346396d482aa76b6e7a7035411d0058a14b"
+    }
+  }
+}

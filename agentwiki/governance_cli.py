@@ -218,6 +218,10 @@ def register_governance_parser(subparsers: argparse._SubParsersAction) -> None:
     decide.add_argument("--verdict", required=True, choices=["approve", "request_changes", "abstain"])
     decide.add_argument("--rationale", required=True)
     decide.add_argument("--expected-proposal-digest", required=True)
+    decide.add_argument(
+        "--content-packet-digest",
+        help="Точный digest пакета: обязателен для нового решения при активном content gate; исторический повтор сохраняет прежнюю привязку.",
+    )
     _generation_argument(decide)
     decide.add_argument("--previous-decision", help="Ожидаемый ID предыдущего решения; отсутствие означает первое мнение.")
     decide.add_argument("--operation", required=True)
@@ -272,11 +276,47 @@ def _redact_text(value: str, secrets: list[str]) -> str:
     return value
 
 
-def _public_result(value: Any, secrets: list[str]) -> Any:
-    """Defensively keep credential-bearing fields out of command output."""
+def _redact_value(value: Any, secrets: list[str]) -> Any:
+    """Redact known bearer values while retaining public content packet keys.
+
+    Validated content policies permit arbitrary scope keys. Filtering names
+    such as ``token`` inside those mappings would alter a packet's hashed body.
+    Store's public content packet schema itself contains no credential fields.
+    """
     if isinstance(value, dict):
         return {
-            _redact_text(str(key), secrets): _public_result(child, secrets)
+            _redact_text(str(key), secrets): _redact_value(child, secrets)
+            for key, child in value.items()
+        }
+    if isinstance(value, (list, tuple)):
+        return [_redact_value(child, secrets) for child in value]
+    if isinstance(value, str):
+        return _redact_text(value, secrets)
+    return value
+
+
+def _content_packet_field(name: str, value: Any) -> bool:
+    """Identify the Store-generated public packet or its immutable pin."""
+    return (
+        name in {"content", "content_packet"}
+        and isinstance(value, dict)
+        and {"packet_id", "packet_digest", "content_policy_generation", "content_policy_digest"}.issubset(value)
+        and isinstance(value["packet_id"], str)
+        and isinstance(value["packet_digest"], str)
+        and bool(governance.HASH.fullmatch(value["packet_digest"]))
+        and type(value["content_policy_generation"]) is int
+        and value["content_policy_generation"] >= 1
+    )
+
+
+def _public_result(value: Any, secrets: list[str]) -> Any:
+    """Filter ordinary output fields and preserve validated public packets."""
+    if isinstance(value, dict):
+        return {
+            _redact_text(str(key), secrets): (
+                _redact_value(child, secrets) if _content_packet_field(str(key), child)
+                else _public_result(child, secrets)
+            )
             for key, child in value.items()
             if str(key) == "credential_file" or not any(part in str(key).lower() for part in ("credential", "token", "secret", "password"))
         }
@@ -324,11 +364,15 @@ def run_governance_command(args: argparse.Namespace) -> dict[str, Any]:
         elif action == "policy":
             result = store.governance_set_policy(policy, credential=credential, expected_generation=args.expected_generation)
         elif action == "decide":
+            content_pin = {}
+            if getattr(args, "content_packet_digest", None) is not None:
+                content_pin["expected_content_packet_digest"] = args.content_packet_digest
             result = store.governance_decide(
                 args.proposal, args.artifact, args.verdict, args.rationale,
                 credential=credential, expected_proposal_digest=args.expected_proposal_digest,
                 expected_policy_generation=args.expected_policy_generation,
                 expected_previous_decision=args.previous_decision, operation_id=args.operation,
+                **content_pin,
             )
         elif action == "status":
             result = store.governance_status(args.proposal)

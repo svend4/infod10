@@ -257,10 +257,22 @@ def write_ids(proposal: sqlite3.Row) -> list[str]:
     return sorted(body["id"] for body in json.loads(proposal["payload"])["writes"])
 
 
+def _content_pin(packet: dict[str, Any]) -> dict[str, Any]:
+    """The immutable content references carried by a vote or receipt."""
+    return {key: packet[key] for key in (
+        "packet_id", "packet_digest", "content_policy_generation", "content_policy_digest")}
+
+
+def _content_decision_matches(body: dict[str, Any], packet: dict[str, Any]) -> bool:
+    return (body.get("content_packet_digest") == packet["packet_digest"]
+            and body.get("content_packet") == _content_pin(packet))
+
+
 def decide(connection: sqlite3.Connection, proposal: sqlite3.Row, artifact_id: Any,
            verdict: Any, rationale: Any, *, credential: Any,
            expected_proposal_digest: Any, expected_policy_generation: Any,
-           expected_previous_decision: Any, operation_id: Any) -> dict[str, Any]:
+           expected_previous_decision: Any, operation_id: Any,
+           expected_content_packet_digest: Any = None) -> dict[str, Any]:
     if not isinstance(artifact_id, str) or artifact_id not in write_ids(proposal):
         raise WorkbenchError("invalid_governance_input", "Decision must identify one exact proposal write")
     reviewer = authorize(connection, credential, "reviewer", [artifact_id])
@@ -284,10 +296,25 @@ def decide(connection: sqlite3.Connection, proposal: sqlite3.Row, artifact_id: A
                "verdict": verdict, "rationale": rationale,
                "previous_decision_id": expected_previous_decision,
                "principal_id": reviewer["principal_id"], "grant_id": reviewer["grant_id"]}
+    from . import content_gate
+    content_enabled = content_gate.enabled(connection)
+    if content_enabled and expected_content_packet_digest is not None:
+        if (not isinstance(expected_content_packet_digest, str)
+                or not HASH.fullmatch(expected_content_packet_digest)):
+            raise WorkbenchError("content_packet_required", "The exact content packet digest is required")
+        request["content_packet_digest"] = expected_content_packet_digest
+    # Authenticate first, but resolve a completed operation before rebuilding
+    # content. A historical replay returns its old pin, even after inputs or
+    # policy changed; it does not register a new vote for the current packet.
     old = _operation(connection, operation_id, "decide", request)
     if old:
         body = json.loads(connection.execute("SELECT body FROM governance_decisions WHERE decision_id=?", (old["result_id"],)).fetchone()[0])
+        if (content_enabled and expected_content_packet_digest is not None
+                and body.get("content_packet", {}).get("packet_digest") != expected_content_packet_digest):
+            raise WorkbenchError("idempotency_conflict", "Operation ID already names a different content packet")
         return {**body, "replayed": True}
+    if content_enabled and expected_content_packet_digest is None:
+        raise WorkbenchError("content_packet_required", "The exact content packet digest is required")
     policy = current_policy(connection)
     if proposal["status"] != "proposed":
         raise WorkbenchError("governance_closed_proposal", "New decisions require a proposed candidate")
@@ -295,6 +322,12 @@ def decide(connection: sqlite3.Connection, proposal: sqlite3.Row, artifact_id: A
         raise WorkbenchError("governance_proposal_changed", "Expected digest differs from the exact candidate")
     if expected_policy_generation != policy["generation"]:
         raise WorkbenchError("governance_policy_changed", "Expected policy generation does not match current policy")
+    packet = content_gate.build_packet(connection, proposal) if content_enabled else None
+    if packet is not None:
+        if packet["packet_digest"] != expected_content_packet_digest:
+            raise WorkbenchError("content_packet_changed", "Expected digest differs from the current content packet")
+        if verdict == "approve" and not packet["eligible"]:
+            raise WorkbenchError("content_packet_blocked", "A blocked content packet cannot receive an approval")
     head = connection.execute("SELECT decision_id FROM governance_heads WHERE proposal_id=? AND artifact_id=? AND principal_id=?",
                               (proposal["id"], artifact_id, reviewer["principal_id"])).fetchone()
     if (head[0] if head else None) != expected_previous_decision:
@@ -303,6 +336,10 @@ def decide(connection: sqlite3.Connection, proposal: sqlite3.Row, artifact_id: A
     authorize(connection, credential, "reviewer", [artifact_id], now=now)
     body = {"schema_version": 1, "rules_version": RULES_VERSION, **request,
             "policy_digest": policy["policy_digest"], "operation_id": operation_id, "created_at": now}
+    if packet is not None:
+        content_gate.save_packet(connection, packet)
+        body["schema_version"] = 2
+        body["content_packet"] = _content_pin(packet)
     body["decision_id"] = "gvd_" + digest(body)
     connection.execute("INSERT INTO governance_decisions(decision_id,proposal_id,artifact_id,principal_id,grant_id,body) VALUES (?,?,?,?,?,?)",
                        (body["decision_id"], proposal["id"], artifact_id, reviewer["principal_id"], reviewer["grant_id"], canonical(body)))
@@ -316,11 +353,11 @@ def decide(connection: sqlite3.Connection, proposal: sqlite3.Row, artifact_id: A
 
 def observe(connection: sqlite3.Connection, proposal: sqlite3.Row, coordinator: dict[str, Any],
             expected_policy_generation: Any, *, now: float | None = None) -> dict[str, Any]:
-    """Inspect current governance only; formal/runtime checks remain separate."""
+    """Inspect governance and its enabled content gate; runtime stays separate."""
     sampled = time.time() if now is None else now
     policy = current_policy(connection)
     reasons = []
-    from . import authorship
+    from . import authorship, content_gate
     attribution = None
     contributors: set[str] = set()
     if authorship.enabled(connection):
@@ -332,6 +369,11 @@ def observe(connection: sqlite3.Connection, proposal: sqlite3.Row, coordinator: 
     if type(expected_policy_generation) is not int or expected_policy_generation != policy["generation"]:
         reasons.append(reason("governance_policy_generation_mismatch", expected=expected_policy_generation,
                               actual=policy["generation"]))
+    packet = content_gate.build_packet(connection, proposal) if content_gate.enabled(connection) else None
+    if packet is not None:
+        if not packet["eligible"]:
+            reasons.append(reason("content_packet_blocked", packet_id=packet["packet_id"]))
+        reasons.extend(packet["reasons"])
     heads = {row[0] for row in connection.execute("SELECT decision_id FROM governance_heads WHERE proposal_id=?", (proposal["id"],))}
     observations = []
     for row in connection.execute("SELECT body FROM governance_decisions WHERE proposal_id=? ORDER BY seq", (proposal["id"],)):
@@ -347,6 +389,11 @@ def observe(connection: sqlite3.Connection, proposal: sqlite3.Row, coordinator: 
             invalid.append("proposal_digest_changed")
         if body["policy_generation"] != policy["generation"] or body["policy_digest"] != policy["policy_digest"]:
             invalid.append("policy_generation_changed")
+        if packet is not None:
+            if not _content_decision_matches(body, packet):
+                invalid.append("content_packet_changed")
+            if body["verdict"] == "approve" and not packet["eligible"]:
+                invalid.append("content_packet_blocked")
         grant_row = connection.execute("SELECT * FROM governance_grants WHERE grant_id=?", (body["grant_id"],)).fetchone()
         grant = _grant_public(connection, grant_row, sampled) if grant_row else None
         if grant is None or grant["role"] != "reviewer" or grant["principal_id"] != body["principal_id"] or body["artifact_id"] not in grant["artifact_ids"]:
@@ -395,6 +442,8 @@ def observe(connection: sqlite3.Connection, proposal: sqlite3.Row, coordinator: 
                                 "reasons": attribution["reasons"],
                                 "proof": authorship.metadata(attribution["record"]) if attribution["record"] else None,
                                 "contributor_principals": attribution["contributor_principals"]}
+    if packet is not None:
+        result["content"] = packet
     return result
 
 
@@ -410,7 +459,7 @@ def finalize_observation(connection: sqlite3.Connection, proposal: sqlite3.Row,
     """
     identifiers = write_ids(proposal)
     failures = []
-    from . import authorship
+    from . import authorship, content_gate
     contributors: set[str] = set()
     if authorship.enabled(connection):
         attribution = authorship.validate(connection, proposal["id"])
@@ -420,8 +469,16 @@ def finalize_observation(connection: sqlite3.Connection, proposal: sqlite3.Row,
         current_proof = authorship.metadata(attribution["record"]) if attribution["record"] else None
         if previous_proof != current_proof:
             failures.append(reason("authorship_provenance_changed"))
-    # Sample authority only after the complete provenance scan, so a grant
-    # expiring during that scan cannot pass with an earlier timestamp.
+    packet = content_gate.build_packet(connection, proposal) if content_gate.enabled(connection) else None
+    if packet is not None:
+        if not packet["eligible"]:
+            failures.append(reason("content_packet_blocked", packet_id=packet["packet_id"]))
+        failures.extend(packet["reasons"])
+        previous_packet = observation.get("content")
+        if previous_packet is None or _content_pin(previous_packet) != _content_pin(packet):
+            failures.append(reason("content_packet_changed"))
+    # Sample authority after the provenance and content scans, so a grant
+    # expiring during either scan cannot pass with an earlier timestamp.
     now = time.time()
     coordinator = authorize(connection, credential, "coordinator", identifiers, now=now)
     policy = current_policy(connection)
@@ -452,6 +509,7 @@ def finalize_observation(connection: sqlite3.Connection, proposal: sqlite3.Row,
                      and body["policy_generation"] == policy["generation"] and body["policy_digest"] == policy["policy_digest"]
                      and body["verdict"] == "approve" and head is not None and head[0] == decision_id
                      and body["principal_id"] not in contributors
+                     and (packet is None or (packet["eligible"] and _content_decision_matches(body, packet)))
                      and (not policy["policy"]["separate_coordinator"] or body["principal_id"] != coordinator["principal_id"]))
             if not valid:
                 failures.append(reason("governance_selected_approval_invalid", artifact_id=write["artifact_id"], decision_id=decision_id))
@@ -479,6 +537,14 @@ def receipt(connection: sqlite3.Connection, proposal: sqlite3.Row, revision: int
             raise WorkbenchError("authorship_provenance_invalid", "Acceptance requires authenticated provenance")
         body["schema_version"] = 2
         body["authorship"] = attribution["proof"]
+    if "content" in observation:
+        from . import content_gate
+        packet = observation["content"]
+        if not packet["eligible"]:
+            raise WorkbenchError("content_packet_blocked", "Acceptance requires an eligible content packet")
+        content_gate.save_packet(connection, packet)
+        body["schema_version"] = 3
+        body["content_packet"] = _content_pin(packet)
     body["receipt_id"] = "gvr_" + digest(body)
     connection.execute("INSERT INTO governance_receipts VALUES (?,?,?)", (proposal["id"], body["receipt_id"], canonical(body)))
     return body

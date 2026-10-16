@@ -1,0 +1,109 @@
+{
+  "enabled": true,
+  "rules_version": "content-gate-1",
+  "trusted_database_owner_can_bypass": true,
+  "limits": [
+    "Only the administrator-declared inventory and its exact artifact bundle are covered; completeness over other text or project requirements is not established.",
+    "Exact unique quotations and resolved fields pin declared locations; correspondence between prose and those fields is not inferred or verified.",
+    "Literal Python declarations do not establish program behavior; proposed code is parsed with bounded AST rules and is never executed.",
+    "Matches do not establish prose truth, external evidence, human identity, independent people or independent models.",
+    "A standalone packet does not authorize acceptance; formal review, current runtime bases, authorship and governance remain separate requirements.",
+    "The SQLite owner and application implementation remain trusted; hashes provide internal consistency rather than external certification."
+  ],
+  "current_policy": {
+    "generation": 2,
+    "policy": {
+      "artifact_ids": [
+        "code/content.py",
+        "docs/content.md"
+      ],
+      "inventory": {
+        "promises": [
+          {
+            "anchor": {
+              "artifact_id": "docs/content.md",
+              "quote": "The sample limit is declared below."
+            },
+            "description": "The declared fictional sample limit.",
+            "id": "sample-promise",
+            "obligation_ids": [
+              "sample-limit"
+            ],
+            "requirement": {
+              "code": {
+                "artifact_id": "code/content.py",
+                "symbol": "SAMPLE_LIMIT"
+              },
+              "document": {
+                "artifact_id": "docs/content.md",
+                "fence_id": "contract",
+                "path": [
+                  "limit"
+                ]
+              },
+              "relation": "equals",
+              "scope": {
+                "sample": "v1"
+              },
+              "value_type": "integer"
+            }
+          }
+        ],
+        "schema_version": 1
+      },
+      "schema_version": 1,
+      "spec": {
+        "obligations": [
+          {
+            "code": {
+              "artifact_id": "code/content.py",
+              "symbol": "SAMPLE_LIMIT"
+            },
+            "description": "The fictional literal sample limit must match.",
+            "document": {
+              "artifact_id": "docs/content.md",
+              "fence_id": "contract",
+              "path": [
+                "limit"
+              ]
+            },
+            "id": "sample-limit",
+            "relation": "equals",
+            "scope": {
+              "sample": "v1"
+            },
+            "value_type": "integer"
+          }
+        ],
+        "schema_version": 1
+      }
+    },
+    "policy_digest": "4e5a698edad65b75a26cba69b3e7f026b846418ce9edc43997a94bcb3576c012",
+    "created_at": 1792168830.9013531,
+    "governance_policy_generation": 4,
+    "administrator_grant_id": "gvg_aff968084de3e387506df214a969feab"
+  },
+  "activation": {
+    "rules_version": "content-gate-1",
+    "enabled_at": 1792168830.7719429,
+    "activation_revision": 1,
+    "governance_policy_generation": 3,
+    "administrator_grant_id": "gvg_aff968084de3e387506df214a969feab"
+  },
+  "stored_packets": [
+    {
+      "packet_id": "cgp_46735740303b340e65be4a3921b185045fbab4a986e6f91eb98e32dee741e6d7",
+      "packet_digest": "46735740303b340e65be4a3921b185045fbab4a986e6f91eb98e32dee741e6d7",
+      "proposal_id": "p_fd6b4b441eba7d472f885df2",
+      "content_policy_generation": 2
+    },
+    {
+      "packet_id": "cgp_4460666d4e57e1a72042422af3c9153e6130409981adc92468011c7e85da9ddc",
+      "packet_digest": "4460666d4e57e1a72042422af3c9153e6130409981adc92468011c7e85da9ddc",
+      "proposal_id": "p_fd6b4b441eba7d472f885df2",
+      "content_policy_generation": 1
+    }
+  ],
+  "stored_packet_count": 2,
+  "stored_packets_truncated": false
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "artifact_ids": [
+    "docs/content.md",
+    "code/content.py"
+  ],
+  "spec": {
+    "schema_version": 1,
+    "obligations": [
+      {
+        "id": "sample-limit",
+        "description": "The fictional literal sample limit must match.",
+        "scope": {
+          "sample": "v1",
+          "token": "public-sample-label"
+        },
+        "relation": "equals",
+        "value_type": "integer",
+        "document": {
+          "artifact_id": "docs/content.md",
+          "fence_id": "contract",
+          "path": [
+            "limit"
+          ]
+        },
+        "code": {
+          "artifact_id": "code/content.py",
+          "symbol": "SAMPLE_LIMIT"
+        }
+      }
+    ]
+  },
+  "inventory": {
+    "schema_version": 1,
+    "promises": [
+      {
+        "id": "sample-promise",
+        "description": "The declared fictional sample limit.",
+        "anchor": {
+          "artifact_id": "docs/content.md",
+          "quote": "The sample limit is declared below."
+        },
+        "requirement": {
+          "scope": {
+            "sample": "v1",
+            "token": "public-sample-label"
+          },
+          "relation": "equals",
+          "value_type": "integer",
+          "document": {
+            "artifact_id": "docs/content.md",
+            "fence_id": "contract",
+            "path": [
+              "limit"
+            ]
+          },
+          "code": {
+            "artifact_id": "code/content.py",
+            "symbol": "SAMPLE_LIMIT"
+          }
+        },
+        "obligation_ids": [
+          "sample-limit"
+        ]
+      }
+    ]
+  }
+}
