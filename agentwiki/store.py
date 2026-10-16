@@ -126,6 +126,8 @@ class Store:
             connection.executescript(SCHEMA)
             from .governance import SCHEMA as governance_schema
             connection.executescript(governance_schema)
+            from .authorship import SCHEMA as authorship_schema
+            connection.executescript(authorship_schema)
         finally:
             connection.close()
 
@@ -381,13 +383,21 @@ class Store:
             connection.execute("INSERT INTO tasks(id,role,payload,dependencies) VALUES (?,?,?,?)", (task_id, role, payload_text, dependency_text))
             self._event(connection, "task_enqueued", {"task_id": task_id, "role": role})
 
-    def claim_task(self, worker: str, roles: list[str] | None = None, lease_seconds: float = 60) -> dict[str, Any] | None:
+    def claim_task(self, worker: str, roles: list[str] | None = None, lease_seconds: float = 60, *,
+                   credential: str | None = None) -> dict[str, Any] | None:
         if not isinstance(worker, str) or not worker or not isinstance(lease_seconds, (int, float)) or not math.isfinite(lease_seconds) or lease_seconds < 0:
             raise WorkbenchError("invalid_lease", "Worker ID and nonnegative finite lease required")
         if roles is not None and (not isinstance(roles, list) or any(role not in ROLE_KINDS for role in roles)):
             raise WorkbenchError("invalid_role", "Unknown task role")
         with self._transaction(write=True) as connection:
+            from . import authorship
             now = time.time()
+            authenticated = None
+            if authorship.enabled(connection):
+                authenticated = authorship.authorize_worker(connection, credential, worker, now=now)
+                if roles is not None and any(role != authenticated["role"] for role in roles):
+                    raise WorkbenchError("authorship_role_mismatch", "A credential can claim only its own task role")
+                roles = [authenticated["role"]] if roles is None else roles
             for row in connection.execute("SELECT * FROM tasks WHERE state='pending' OR (state='leased' AND lease_until<=?) ORDER BY rowid", (now,)):
                 if roles is not None and row["role"] not in roles:
                     continue
@@ -395,7 +405,12 @@ class Store:
                 if any(connection.execute("SELECT state FROM tasks WHERE id=?", (key,)).fetchone()[0] != "done" for key in dependencies):
                     continue
                 token = row["token"] + 1
+                if authenticated is not None:
+                    now = time.time()
+                    authenticated = authorship.authorize_worker(connection, credential, worker, row["role"], now=now)
                 connection.execute("UPDATE tasks SET state='leased',token=?,worker=?,lease_until=? WHERE id=?", (token, worker, now + lease_seconds, row["id"]))
+                if authenticated is not None:
+                    authorship.pin_lease(connection, row["id"], token, authenticated, now)
                 self._event(connection, "task_leased", {"task_id": row["id"], "worker": worker, "token": token, "reclaimed": row["state"] == "leased"})
                 return {"task_id": row["id"], "role": row["role"], "payload": json.loads(row["payload"]), "token": token, "worker": worker, "lease_until": now + lease_seconds}
         return None
@@ -404,11 +419,15 @@ class Store:
     def _valid_lease(row: sqlite3.Row | None, worker: str, token: int) -> bool:
         return bool(row and row["state"] == "leased" and row["worker"] == worker and row["token"] == token and row["lease_until"] > time.time())
 
-    def heartbeat(self, task_id: str, worker: str, token: int, lease_seconds: float = 60) -> None:
+    def heartbeat(self, task_id: str, worker: str, token: int, lease_seconds: float = 60, *,
+                  credential: str | None = None) -> None:
         if not isinstance(lease_seconds, (int, float)) or not math.isfinite(lease_seconds) or lease_seconds <= 0:
             raise WorkbenchError("invalid_lease", "Positive finite lease required")
         with self._transaction(write=True) as connection:
+            from . import authorship
             row = connection.execute("SELECT * FROM tasks WHERE id=?", (task_id,)).fetchone()
+            if authorship.enabled(connection):
+                authorship.authorize_attempt(connection, row, worker, token, credential)
             if not self._valid_lease(row, worker, token):
                 raise WorkbenchError("lease_lost", "Lease expired or a newer attempt owns this task")
             connection.execute("UPDATE tasks SET lease_until=? WHERE id=?", (time.time() + lease_seconds, task_id))
@@ -447,7 +466,8 @@ class Store:
             errors.append(reason("duplicate_write"))
         return errors
 
-    def submit(self, task_id: str, worker: str, token: int, proposal: dict[str, Any]) -> dict[str, Any]:
+    def submit(self, task_id: str, worker: str, token: int, proposal: dict[str, Any], *,
+               credential: str | None = None) -> dict[str, Any]:
         try:
             payload_text = canonical(proposal)
         except (ValueError, TypeError) as error:
@@ -456,14 +476,24 @@ class Store:
             raise WorkbenchError("proposal_too_large", "Proposal limit is 1 MB")
         payload_digest = digest(proposal)
         with self._transaction(write=True) as connection:
+            from . import authorship
             task = connection.execute("SELECT * FROM tasks WHERE id=?", (task_id,)).fetchone()
+            attributed = authorship.enabled(connection)
+            if attributed:
+                authorship.authorize_attempt(connection, task, worker, token, credential)
             if task and task["role"] == "integrator":
                 raise WorkbenchError("composition_required", "Integrator tasks must use compose")
             if task and task["state"] == "done" and task["worker"] == worker and task["token"] == token:
                 previous = connection.execute("SELECT digest FROM proposals WHERE id=?", (task["result_id"],)).fetchone()
                 if previous[0] != payload_digest:
                     raise WorkbenchError("idempotency_conflict", "Completed attempt already returned different content")
-                return {"proposal_id": task["result_id"], "digest": payload_digest, "replayed": True}
+                result = {"proposal_id": task["result_id"], "digest": payload_digest, "replayed": True}
+                if attributed:
+                    previous_row = self._find_proposal(connection, task["result_id"])
+                    authorship.authorize_attempt(connection, task, worker, token, credential,
+                                                 sorted(body["id"] for body in json.loads(previous_row["payload"])["writes"]))
+                    result["authorship"] = authorship.metadata(authorship.require(connection, task["result_id"])["record"])
+                return result
             if not self._valid_lease(task, worker, token):
                 raise WorkbenchError("lease_lost", "Expired or superseded attempts cannot submit")
             errors = self._payload_errors(proposal, connection, task["role"])
@@ -471,9 +501,13 @@ class Store:
                 raise WorkbenchError("invalid_proposal", canonical(errors))
             proposal_id = "p_" + digest({"task": task_id, "token": token, "payload": payload_digest})[:24]
             connection.execute("INSERT INTO proposals(id,task_id,author,token,payload,digest) VALUES (?,?,?,?,?,?)", (proposal_id, task_id, worker, token, payload_text, payload_digest))
+            proof = authorship.record(connection, proposal_id, task, worker, token, credential) if attributed else None
             connection.execute("UPDATE tasks SET state='done',result_id=? WHERE id=?", (proposal_id, task_id))
             self._event(connection, "proposal_submitted", {"proposal_id": proposal_id, "task_id": task_id, "digest": payload_digest, "worker": worker, "token": token})
-            return {"proposal_id": proposal_id, "digest": payload_digest, "replayed": False}
+            result = {"proposal_id": proposal_id, "digest": payload_digest, "replayed": False}
+            if attributed:
+                result["authorship"] = proof
+            return result
 
     @staticmethod
     def _components(connection: sqlite3.Connection, proposal_id: str) -> list[dict[str, Any]]:
@@ -488,7 +522,8 @@ class Store:
             )
         ]
 
-    def compose(self, task_id: str, worker: str, token: int) -> dict[str, Any]:
+    def compose(self, task_id: str, worker: str, token: int, *,
+                credential: str | None = None) -> dict[str, Any]:
         """Combine exact document/code proposals without accepting any of them.
 
         The integrator task's immutable payload has exactly ``components``
@@ -499,7 +534,11 @@ class Store:
         No formal or editorial approvals are inherited from the components.
         """
         with self._transaction(write=True) as connection:
+            from . import authorship
             task = connection.execute("SELECT * FROM tasks WHERE id=?", (task_id,)).fetchone()
+            attributed = authorship.enabled(connection)
+            if attributed:
+                authorship.authorize_attempt(connection, task, worker, token, credential)
             if task is None:
                 raise WorkbenchError("lease_lost", "Expired or superseded attempts cannot compose")
             if task["role"] != "integrator":
@@ -508,8 +547,13 @@ class Store:
             # which may have changed status or acquired stale reads since then.
             if task["state"] == "done" and task["worker"] == worker and task["token"] == token:
                 previous = self._find_proposal(connection, task["result_id"])
-                return {"proposal_id": previous["id"], "digest": previous["digest"],
-                        "replayed": True, "components": self._components(connection, previous["id"])}
+                result = {"proposal_id": previous["id"], "digest": previous["digest"],
+                          "replayed": True, "components": self._components(connection, previous["id"])}
+                if attributed:
+                    authorship.authorize_attempt(connection, task, worker, token, credential,
+                                                 sorted(body["id"] for body in json.loads(previous["payload"])["writes"]))
+                    result["authorship"] = authorship.metadata(authorship.require(connection, previous["id"])["record"])
+                return result
             if not self._valid_lease(task, worker, token):
                 raise WorkbenchError("lease_lost", "Expired or superseded attempts cannot compose")
             request = json.loads(task["payload"])
@@ -534,6 +578,8 @@ class Store:
             embedded_references = []
             for position, reference in enumerate(references, 1):
                 source = self._find_proposal(connection, reference["proposal_id"])
+                if attributed:
+                    authorship.require(connection, source["id"])
                 if source["digest"] != reference["digest"]:
                     raise WorkbenchError("component_digest_mismatch", reference["proposal_id"])
                 if source["status"] != "proposed":
@@ -586,14 +632,18 @@ class Store:
                 "INSERT INTO proposal_components(composite_id,position,source_id,source_digest,writes) VALUES (?,?,?,?,?)",
                 [(proposal_id, *item) for item in captured],
             )
+            proof = authorship.record(connection, proposal_id, task, worker, token, credential) if attributed else None
             connection.execute("UPDATE tasks SET state='done',result_id=? WHERE id=?", (proposal_id, task_id))
             components = self._components(connection, proposal_id)
             self._event(connection, "proposal_composed", {
                 "proposal_id": proposal_id, "task_id": task_id, "digest": payload_digest,
                 "worker": worker, "token": token, "components": components,
             })
-            return {"proposal_id": proposal_id, "digest": payload_digest,
-                    "replayed": False, "components": components}
+            result = {"proposal_id": proposal_id, "digest": payload_digest,
+                      "replayed": False, "components": components}
+            if attributed:
+                result["authorship"] = proof
+            return result
 
     def _evaluate(self, connection: sqlite3.Connection, row: sqlite3.Row) -> list[dict[str, Any]]:
         payload = json.loads(row["payload"])
@@ -627,6 +677,20 @@ class Store:
         from . import governance
         with self._transaction(write=True) as connection:
             return governance.enable(connection, policy, administrator_id, new_credential)
+
+    def authorship_enable(self, *, credential: str,
+                          expected_policy_generation: int) -> dict[str, Any]:
+        from . import authorship
+        with self._transaction(write=True) as connection:
+            return authorship.enable(connection, credential=credential,
+                                     expected_policy_generation=expected_policy_generation)
+
+    def authorship_status(self, proposal_id: str | None = None) -> dict[str, Any]:
+        from . import authorship
+        with self._transaction() as connection:
+            if proposal_id is not None:
+                self._find_proposal(connection, proposal_id)
+            return authorship.status(connection, proposal_id)
 
     def governance_grant(self, principal_id: str, role: str, artifact_ids: list[str],
                          expires_at: float, *, credential: str, new_credential: str,
@@ -683,12 +747,14 @@ class Store:
     def review(self, proposal_id: str, reviewer: str = "reviewer", *,
                credential: str | None = None) -> dict[str, Any]:
         with self._transaction(write=True) as connection:
-            from . import governance
+            from . import authorship, governance
             row = self._find_proposal(connection, proposal_id)
             governed = governance.enabled(connection)
             if governed:
                 reviewer = governance.authorize(connection, credential, "reviewer",
                                                 governance.write_ids(row))["principal_id"]
+            if authorship.enabled(connection):
+                authorship.separate(connection, proposal_id, reviewer)
             if not isinstance(reviewer, str) or not reviewer or reviewer == row["author"]:
                 raise WorkbenchError("self_review", "Reviewer must be distinct from proposal author")
             errors = self._evaluate(connection, row)

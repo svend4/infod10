@@ -192,8 +192,8 @@ def grant(connection: sqlite3.Connection, principal_id: Any, role: Any, artifact
     now = time.time()
     administrator = authorize(connection, credential, "administrator", now=now)
     principal, scope = _identifier(principal_id, "principal ID"), _scope(artifact_ids)
-    if not isinstance(role, str) or role not in {"reviewer", "coordinator"}:
-        raise WorkbenchError("invalid_governance_input", "Only reviewer and coordinator grants may be issued")
+    if not isinstance(role, str) or role not in {"reviewer", "coordinator", "analyst", "doc_author", "code_author", "integrator"}:
+        raise WorkbenchError("invalid_governance_input", "Unknown reviewer, coordinator or author role")
     if type(expires_at) not in {int, float} or (type(expires_at) is float and not math.isfinite(expires_at)):
         raise WorkbenchError("invalid_governance_input", "Grant expiry must be finite epoch seconds")
     token_hash = _credential_hash(new_credential)
@@ -264,6 +264,9 @@ def decide(connection: sqlite3.Connection, proposal: sqlite3.Row, artifact_id: A
     if not isinstance(artifact_id, str) or artifact_id not in write_ids(proposal):
         raise WorkbenchError("invalid_governance_input", "Decision must identify one exact proposal write")
     reviewer = authorize(connection, credential, "reviewer", [artifact_id])
+    from . import authorship
+    if authorship.enabled(connection):
+        authorship.separate(connection, proposal["id"], reviewer["principal_id"])
     if not isinstance(verdict, str) or verdict not in {"approve", "request_changes", "abstain"}:
         raise WorkbenchError("invalid_governance_input", "Invalid governance verdict")
     if (not isinstance(rationale, str) or not rationale.strip() or len(rationale) > 4000
@@ -317,6 +320,15 @@ def observe(connection: sqlite3.Connection, proposal: sqlite3.Row, coordinator: 
     sampled = time.time() if now is None else now
     policy = current_policy(connection)
     reasons = []
+    from . import authorship
+    attribution = None
+    contributors: set[str] = set()
+    if authorship.enabled(connection):
+        attribution = authorship.validate(connection, proposal["id"])
+        reasons.extend(attribution["reasons"])
+        contributors = set(attribution["contributor_principals"])
+        if coordinator["principal_id"] in contributors:
+            reasons.append(reason("authorship_coordinator_contributor", principal_id=coordinator["principal_id"]))
     if type(expected_policy_generation) is not int or expected_policy_generation != policy["generation"]:
         reasons.append(reason("governance_policy_generation_mismatch", expected=expected_policy_generation,
                               actual=policy["generation"]))
@@ -325,6 +337,10 @@ def observe(connection: sqlite3.Connection, proposal: sqlite3.Row, coordinator: 
     for row in connection.execute("SELECT body FROM governance_decisions WHERE proposal_id=? ORDER BY seq", (proposal["id"],)):
         body = json.loads(row[0])
         invalid = []
+        if attribution is not None and not attribution["integrity_valid"]:
+            invalid.append("authorship_provenance_invalid")
+        if body["principal_id"] in contributors:
+            invalid.append("authorship_contributor_separated")
         if body["decision_id"] not in heads:
             invalid.append("superseded")
         if body["proposal_digest"] != proposal["digest"]:
@@ -364,7 +380,7 @@ def observe(connection: sqlite3.Connection, proposal: sqlite3.Row, coordinator: 
                        "eligible": len(approvals) >= minimum and not vetoes})
     deadlines = [coordinator["expires_at"]] + [item["grant_expires_at"] for item in observations if item["valid"]]
     finite_deadlines = [deadline for deadline in deadlines if deadline is not None]
-    return {"schema_version": 1, "rules_version": RULES_VERSION, "enabled": True,
+    result = {"schema_version": 1, "rules_version": RULES_VERSION, "enabled": True,
             "proposal_id": proposal["id"], "proposal_digest": proposal["digest"],
             "proposal_status": proposal["status"], "policy_generation": policy["generation"],
             "policy_digest": policy["policy_digest"], "policy": policy["policy"],
@@ -373,6 +389,13 @@ def observe(connection: sqlite3.Connection, proposal: sqlite3.Row, coordinator: 
             "writes": writes, "decisions": observations,
             "eligible": not reasons, "reasons": reasons, "advisory_only": True,
             "author_identity_authenticated": False, "human_identity_authenticated": False}
+    if attribution is not None:
+        result["authorship"] = {"rules_version": authorship.RULES_VERSION,
+                                "integrity_valid": attribution["integrity_valid"],
+                                "reasons": attribution["reasons"],
+                                "proof": authorship.metadata(attribution["record"]) if attribution["record"] else None,
+                                "contributor_principals": attribution["contributor_principals"]}
+    return result
 
 
 def finalize_observation(connection: sqlite3.Connection, proposal: sqlite3.Row,
@@ -386,10 +409,24 @@ def finalize_observation(connection: sqlite3.Connection, proposal: sqlite3.Row,
     authority remaining valid after this recorded point in the transaction.
     """
     identifiers = write_ids(proposal)
+    failures = []
+    from . import authorship
+    contributors: set[str] = set()
+    if authorship.enabled(connection):
+        attribution = authorship.validate(connection, proposal["id"])
+        failures.extend(attribution["reasons"])
+        contributors = set(attribution["contributor_principals"])
+        previous_proof = observation.get("authorship", {}).get("proof")
+        current_proof = authorship.metadata(attribution["record"]) if attribution["record"] else None
+        if previous_proof != current_proof:
+            failures.append(reason("authorship_provenance_changed"))
+    # Sample authority only after the complete provenance scan, so a grant
+    # expiring during that scan cannot pass with an earlier timestamp.
     now = time.time()
     coordinator = authorize(connection, credential, "coordinator", identifiers, now=now)
     policy = current_policy(connection)
-    failures = []
+    if coordinator["principal_id"] in contributors:
+        failures.append(reason("authorship_coordinator_contributor", principal_id=coordinator["principal_id"]))
     if (type(expected_policy_generation) is not int
             or expected_policy_generation != policy["generation"]
             or observation["policy_generation"] != policy["generation"]
@@ -414,6 +451,7 @@ def finalize_observation(connection: sqlite3.Connection, proposal: sqlite3.Row,
                      and body["proposal_id"] == proposal["id"] and body["proposal_digest"] == proposal["digest"]
                      and body["policy_generation"] == policy["generation"] and body["policy_digest"] == policy["policy_digest"]
                      and body["verdict"] == "approve" and head is not None and head[0] == decision_id
+                     and body["principal_id"] not in contributors
                      and (not policy["policy"]["separate_coordinator"] or body["principal_id"] != coordinator["principal_id"]))
             if not valid:
                 failures.append(reason("governance_selected_approval_invalid", artifact_id=write["artifact_id"], decision_id=decision_id))
@@ -435,6 +473,12 @@ def receipt(connection: sqlite3.Connection, proposal: sqlite3.Row, revision: int
             "coordinator": observation["coordinator"], "accepted_at": observation["authorization_time"],
             "authorization_time": observation["authorization_time"],
             "decisions": {item["artifact_id"]: item["used_decision_ids"] for item in observation["writes"]}}
+    if "authorship" in observation:
+        attribution = observation["authorship"]
+        if not attribution["integrity_valid"] or attribution["proof"] is None:
+            raise WorkbenchError("authorship_provenance_invalid", "Acceptance requires authenticated provenance")
+        body["schema_version"] = 2
+        body["authorship"] = attribution["proof"]
     body["receipt_id"] = "gvr_" + digest(body)
     connection.execute("INSERT INTO governance_receipts VALUES (?,?,?)", (proposal["id"], body["receipt_id"], canonical(body)))
     return body

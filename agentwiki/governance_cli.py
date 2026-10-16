@@ -187,7 +187,11 @@ def register_governance_parser(subparsers: argparse._SubParsersAction) -> None:
     _workspace_argument(grant)
     _credential_argument(grant)
     grant.add_argument("--principal", required=True)
-    grant.add_argument("--role", required=True, choices=["reviewer", "coordinator"])
+    grant.add_argument(
+        "--role", required=True,
+        choices=["reviewer", "coordinator", "analyst", "doc_author", "code_author", "integrator"],
+        help="Роль допуска; роли авторов связываются с principal при включённом authorship.",
+    )
     grant.add_argument("--artifact", action="append", required=True, dest="artifact_ids", help="Точный ID артефакта; повторяйте для нескольких файлов.")
     expiry = grant.add_mutually_exclusive_group(required=True)
     expiry.add_argument("--ttl-seconds", type=_ttl, help="Срок от момента вызова; для точного повтора используйте --expires-at.")

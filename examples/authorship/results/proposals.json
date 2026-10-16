@@ -1,0 +1,184 @@
+{
+  "legacy": {
+    "id": "p_05d420ea5e13db3920636306",
+    "task_id": "authorship-legacy",
+    "author": "legacy-self-declared-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "A self-declared proposal created before authenticated authorship was enabled.",
+      "readset": {
+        "docs/local-authorship.md": "5a26c8adf8624d03d840dca44cd22348890cd6803945928747eaaad1421ad542"
+      },
+      "writes": [
+        {
+          "bindings": [],
+          "id": "docs/local-authorship.md",
+          "kind": "document",
+          "template": "# Fictional legacy contract\n\nThe configured sample limit is 6.\n"
+        }
+      ]
+    },
+    "digest": "9ec10ab174ed2ab5ff33f9f50fa36647f6da1105377ea4d10888c488f32daad9",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "document": {
+    "id": "p_1a2f9515d1ba71261bc399cc",
+    "task_id": "authorship-document",
+    "author": "local-document-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Programmed author contribution; proposed code is stored as data and never executed.",
+      "readset": {
+        "docs/local-authorship.md": "5a26c8adf8624d03d840dca44cd22348890cd6803945928747eaaad1421ad542"
+      },
+      "writes": [
+        {
+          "bindings": [],
+          "id": "docs/local-authorship.md",
+          "kind": "document",
+          "template": "# Fictional local contract\n\nThe configured sample limit is 4.\n"
+        }
+      ]
+    },
+    "digest": "54f47e137cb85a12367df69bbc6b02eaf37dce23fc6a2bcc14ba04605176c5d1",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "code": {
+    "id": "p_b4ff87228e440d92466b2a9c",
+    "task_id": "authorship-code",
+    "author": "local-code-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Programmed author contribution; proposed code is stored as data and never executed.",
+      "readset": {
+        "code/local_authorship.py": "b7f8cd471ef9b6172abbb6f6be848753818409ef80f59acfca092c30770fd143"
+      },
+      "writes": [
+        {
+          "bindings": [],
+          "id": "code/local_authorship.py",
+          "kind": "code",
+          "template": "# Fictional configuration stored as data.\nSAMPLE_LIMIT = 4\n"
+        }
+      ]
+    },
+    "digest": "caa38dd440d1dd9e8df703ea971fea73c5cdc8a27ad683c9e8539bf9147ca3c4",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "competing-document": {
+    "id": "p_8244b64779c6765654cfc1ac",
+    "task_id": "authorship-competing-document",
+    "author": "local-document-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Programmed author contribution; proposed code is stored as data and never executed.",
+      "readset": {
+        "docs/local-authorship.md": "5a26c8adf8624d03d840dca44cd22348890cd6803945928747eaaad1421ad542"
+      },
+      "writes": [
+        {
+          "bindings": [],
+          "id": "docs/local-authorship.md",
+          "kind": "document",
+          "template": "# Fictional competing contract\n\nThe configured sample limit is 5.\n"
+        }
+      ]
+    },
+    "digest": "bcd2bc3fd8edb5180fe42ef3b9565c37ef4ca0b40bc4d8a02f314f3191b1118b",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "reclaimed": {
+    "id": "p_2b64cc4874d6fe2622b5c1cb",
+    "task_id": "authorship-regrant",
+    "author": "local-document-author",
+    "token": 2,
+    "payload": {
+      "queries": {},
+      "rationale": "A deterministic expired attempt is reclaimed with a different grant and fencing token.",
+      "readset": {
+        "docs/local-authorship.md": "5a26c8adf8624d03d840dca44cd22348890cd6803945928747eaaad1421ad542"
+      },
+      "writes": [
+        {
+          "bindings": [],
+          "id": "docs/local-authorship.md",
+          "kind": "document",
+          "template": "# Fictional regrant candidate\n\nThe configured sample limit is 7.\n"
+        }
+      ]
+    },
+    "digest": "e120959336a96bbe6438d52870276770a07058605afd20b4db42ea02c10794ca",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "intermediate": {
+    "id": "p_b27e086720e06c7cc52cea45",
+    "task_id": "authorship-compose-a",
+    "author": "local-integrator-a",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "{\"components\":[{\"digest\":\"54f47e137cb85a12367df69bbc6b02eaf37dce23fc6a2bcc14ba04605176c5d1\",\"proposal_id\":\"p_1a2f9515d1ba71261bc399cc\",\"write_ids\":[\"docs/local-authorship.md\"]},{\"digest\":\"caa38dd440d1dd9e8df703ea971fea73c5cdc8a27ad683c9e8539bf9147ca3c4\",\"proposal_id\":\"p_b4ff87228e440d92466b2a9c\",\"write_ids\":[\"code/local_authorship.py\"]}],\"text\":\"Compose exact fictional candidates while preserving every author and intermediate integrator.\"}",
+      "readset": {
+        "code/local_authorship.py": "b7f8cd471ef9b6172abbb6f6be848753818409ef80f59acfca092c30770fd143",
+        "docs/local-authorship.md": "5a26c8adf8624d03d840dca44cd22348890cd6803945928747eaaad1421ad542"
+      },
+      "writes": [
+        {
+          "bindings": [],
+          "id": "code/local_authorship.py",
+          "kind": "code",
+          "template": "# Fictional configuration stored as data.\nSAMPLE_LIMIT = 4\n"
+        },
+        {
+          "bindings": [],
+          "id": "docs/local-authorship.md",
+          "kind": "document",
+          "template": "# Fictional local contract\n\nThe configured sample limit is 4.\n"
+        }
+      ]
+    },
+    "digest": "57b5bfdcf52d0d05fb35b206a37b772a8c135f5a5f80ee822b659c67c236e446",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "root": {
+    "id": "p_7de85207324e3c090bbc0adf",
+    "task_id": "authorship-compose-b",
+    "author": "local-integrator-b",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "{\"components\":[{\"digest\":\"57b5bfdcf52d0d05fb35b206a37b772a8c135f5a5f80ee822b659c67c236e446\",\"proposal_id\":\"p_b27e086720e06c7cc52cea45\",\"write_ids\":[\"code/local_authorship.py\",\"docs/local-authorship.md\"]}],\"text\":\"Compose exact fictional candidates while preserving every author and intermediate integrator.\"}",
+      "readset": {
+        "code/local_authorship.py": "b7f8cd471ef9b6172abbb6f6be848753818409ef80f59acfca092c30770fd143",
+        "docs/local-authorship.md": "5a26c8adf8624d03d840dca44cd22348890cd6803945928747eaaad1421ad542"
+      },
+      "writes": [
+        {
+          "bindings": [],
+          "id": "code/local_authorship.py",
+          "kind": "code",
+          "template": "# Fictional configuration stored as data.\nSAMPLE_LIMIT = 4\n"
+        },
+        {
+          "bindings": [],
+          "id": "docs/local-authorship.md",
+          "kind": "document",
+          "template": "# Fictional local contract\n\nThe configured sample limit is 4.\n"
+        }
+      ]
+    },
+    "digest": "f8ee05d726115298f2106744eecc1b1e1a9ce25e52b92d7f0eab43f1928d4905",
+    "status": "accepted",
+    "accepted_revision": 2
+  }
+}

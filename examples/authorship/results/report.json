@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T18:16:13.130914+02:00",
+  "created_at_utc": "2026-10-16T16:16:13.131387+00:00",
+  "kind": "local_authenticated_authorship_product_example",
+  "workers": 3,
+  "actors": {
+    "authenticated_local_capability_principals": true,
+    "legacy_author_name_self_declared": true,
+    "persons_authenticated": false,
+    "human_review_recorded": false,
+    "independent_people_or_models_established": false,
+    "external_llm_used": false,
+    "proposed_code_executed": false
+  },
+  "policy": {
+    "schema_version": 1,
+    "minimum_reviewers": 2,
+    "separate_coordinator": true
+  },
+  "policy_generation": 2,
+  "stages": [
+    {
+      "label": "legacy-before-authorship",
+      "explanation": "A proposal, formal review and editorial opinion exist before authorship activation.",
+      "artifact": "stage-01-legacy-before-authorship.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "activated-generation-two",
+      "explanation": "One-way activation advances policy generation and does not backfill old authorship.",
+      "artifact": "stage-02-activated-generation-two.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "identity-and-role-enforced",
+      "explanation": "Claims require a current local grant, its exact principal and its author role.",
+      "artifact": "stage-03-identity-and-role-enforced.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "authenticated-worker-queue",
+      "explanation": "Three jobs create immutable grant-bound proofs for two registered author principals.",
+      "artifact": "stage-04-authenticated-worker-queue.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "exact-scope-and-rollback",
+      "explanation": "Out-of-scope submission rolls back the candidate and proof; the original grant can extend its own lease.",
+      "artifact": "stage-05-exact-scope-and-rollback.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "regrant-and-fenced-reclaim",
+      "explanation": "A replacement grant cannot continue or relabel an old attempt; a fresh fenced attempt succeeds and old proofs remain inspectable.",
+      "artifact": "stage-06-regrant-and-fenced-reclaim.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "compose-after-author-revocation",
+      "explanation": "Historical author authorization remains valid when a later integrator composes the exact original components.",
+      "artifact": "stage-07-compose-after-author-revocation.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "nested-transitive-provenance",
+      "explanation": "The root pins a four-proposal ancestry and all four contributors, including the intermediate integrator.",
+      "artifact": "stage-08-nested-transitive-provenance.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "unproven-component-rejected",
+      "explanation": "Composition requires an existing valid proof for every direct and transitive source.",
+      "artifact": "stage-09-unproven-component-rejected.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "contributors-separated-globally",
+      "explanation": "New role grants cannot let source authors or intermediate integrators review the root; exclusion covers every write and verdict.",
+      "artifact": "stage-10-contributors-separated-globally.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "contributor-coordinator-blocked",
+      "explanation": "A separate coordinator grant for an intermediate integrator remains excluded; an unrelated coordinator still needs formal review and every editorial quorum.",
+      "artifact": "stage-11-contributor-coordinator-blocked.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "formal-review-and-first-reviewer",
+      "explanation": "A valid formal review and one reviewer per write cannot meet the two-principal policy.",
+      "artifact": "stage-12-formal-review-and-first-reviewer.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "current-approvals-observed",
+      "explanation": "Two noncontributor principal IDs approve each write under generation 2; the observation does not itself accept the root.",
+      "artifact": "stage-13-current-approvals-observed.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "accepted-with-provenance-receipt",
+      "explanation": "Atomic acceptance checks runtime guards, formal review, current local authority, noncontributor quorums and exact authorship; the receipt pins the proof.",
+      "artifact": "stage-14-accepted-with-provenance-receipt.json",
+      "runtime_revision": 2
+    },
+    {
+      "label": "completed-replays-preserve-proof",
+      "explanation": "Current original integrator authority can replay a completed composition despite stale source reads; coordinator replay returns the original receipt without new events.",
+      "artifact": "stage-15-completed-replays-preserve-proof.json",
+      "runtime_revision": 2
+    },
+    {
+      "label": "historical-proofs-and-runtime-guards",
+      "explanation": "Legacy proposals receive no retroactive proof; a proven and approved competing proposal still cannot override stale_read.",
+      "artifact": "stage-16-historical-proofs-and-runtime-guards.json",
+      "runtime_revision": 2
+    }
+  ],
+  "initial_runtime_revision": 1,
+  "final_runtime_status": {
+    "revision": 2,
+    "artifacts": 2,
+    "sources": 0,
+    "tasks": {
+      "done": 7,
+      "leased": 2
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 6
+    },
+    "events": 64,
+    "rules_version": "mvp-1"
+  },
+  "summary": {
+    "author_job_count": 3,
+    "registered_author_principal_count": 2,
+    "composite_proposal_count": 2,
+    "root_transitive_contributor_count": 4,
+    "root_validated_proposal_count": 4,
+    "authenticated_proof_count": 6,
+    "legacy_unproven_proposal_count": 1,
+    "decision_count": 7,
+    "stage_count": 16,
+    "expected_api_rejection_count": 13,
+    "blocked_acceptance_count": 5,
+    "runtime_event_count": 64,
+    "accepted_proposal_count": 1,
+    "acceptance_receipt_schema": 2,
+    "release_created": false,
+    "credential_material_exported": false,
+    "measured_capacity": false,
+    "semantic_equivalence_proved": false
+  },
+  "credential_file_layout": {
+    "administrator": "private/admin.credential",
+    "active_coordinator": "private/coordinator.credential",
+    "active_document_author": "private/document-author-current.credential",
+    "active_code_author": "private/code-author.credential",
+    "active_root_integrator": "private/integrator.credential",
+    "active_reviewer_a": "private/reviewer-a.credential",
+    "active_reviewer_b": "private/reviewer-b.credential",
+    "private_database": "private/state.sqlite3"
+  },
+  "limitations": [
+    "The SQLite owner and local clock are trusted; local digests do not provide external attestation.",
+    "A bearer credential proves possession of a local grant, not a person's identity, SSO, model identity or expertise.",
+    "Different registered principal IDs do not establish independent people, models, organizations or evidence.",
+    "The proof records authority at submission and exact component ancestry; it does not prove how the text was created.",
+    "Legacy proposals receive no backfilled proof; activation also advances the editorial policy generation.",
+    "Historical proofs survive later grant revocation, while protected mutation and replay require the current original grant.",
+    "All reviews and decisions are programmed local examples, with no human review or external LLM call.",
+    "The code is stored data and may be parsed by formal guards; it is never executed by this workflow.",
+    "Contributor separation is global to the candidate, not limited to the files personally written by a contributor.",
+    "Authority, provenance and voting do not establish prose truth, code behavior, semantic completeness or external publication permission.",
+    "Sequential public snapshots are observations; Store.accept is the transaction boundary for new acceptance.",
+    "Configured Python workers are not a measurement of throughput, supported agent count or LLM capacity.",
+    "Credentials, credential hashes and SQLite stay private; no release or Git publication is created by this command."
+  ]
+}

@@ -1,0 +1,418 @@
+{
+  "label": "regrant-and-fenced-reclaim",
+  "explanation": "A replacement grant cannot continue or relabel an old attempt; a fresh fenced attempt succeeds and old proofs remain inspectable.",
+  "runtime_revision": 1,
+  "authorship": {
+    "enabled": true,
+    "rules_version": "authorship-1",
+    "activation": {
+      "rules_version": "authorship-1",
+      "epoch": 1,
+      "enabled_at": 1792167372.9400556,
+      "activation_revision": 1,
+      "policy_generation": 2,
+      "administrator_grant_id": "gvg_22608f30e774404c87279997a3483ace"
+    },
+    "credential_mode": "local_bearer",
+    "human_identity_authenticated": false,
+    "trusted_database_owner_can_bypass": true,
+    "proposal_id": "p_1a2f9515d1ba71261bc399cc",
+    "integrity_valid": true,
+    "reasons": [],
+    "record": {
+      "authorization_time": 1792167372.95512,
+      "components": [],
+      "contributor_principals": [
+        "local-document-author"
+      ],
+      "epoch": 1,
+      "fencing_token": 1,
+      "grant_id": "gvg_878fd15ab3a903e962add10c122fcf0c",
+      "lease_claimed_at": 1792167372.954246,
+      "principal_id": "local-document-author",
+      "proposal_digest": "54f47e137cb85a12367df69bbc6b02eaf37dce23fc6a2bcc14ba04605176c5d1",
+      "proposal_id": "p_1a2f9515d1ba71261bc399cc",
+      "role": "doc_author",
+      "rules_version": "authorship-1",
+      "schema_version": 1,
+      "task_id": "authorship-document",
+      "write_ids": [
+        "docs/local-authorship.md"
+      ],
+      "authorship_id": "awp_30cf96dafb4795dd9a6a376cbb68ea6ad57eab305caf20ca837a37743979f2b6",
+      "authorship_digest": "30cf96dafb4795dd9a6a376cbb68ea6ad57eab305caf20ca837a37743979f2b6"
+    },
+    "contributor_principals": [
+      "local-document-author"
+    ],
+    "validated_proposals": 1
+  },
+  "governance": {
+    "enabled": true,
+    "rules_version": "governance-1",
+    "observed_at": 1792167372.9888356,
+    "enabled_at": 1792167372.924512,
+    "activation_revision": 1,
+    "administrator_id": "local-administrator",
+    "policy_generation": 2,
+    "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+    "policy": {
+      "minimum_reviewers": 2,
+      "schema_version": 1,
+      "separate_coordinator": true
+    },
+    "policy_history": [
+      {
+        "generation": 1,
+        "policy": {
+          "minimum_reviewers": 2,
+          "schema_version": 1,
+          "separate_coordinator": true
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "created_at": 1792167372.924512,
+        "administrator_grant_id": "gvg_22608f30e774404c87279997a3483ace"
+      },
+      {
+        "generation": 2,
+        "policy": {
+          "minimum_reviewers": 2,
+          "schema_version": 1,
+          "separate_coordinator": true
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "created_at": 1792167372.9400196,
+        "administrator_grant_id": "gvg_22608f30e774404c87279997a3483ace"
+      }
+    ],
+    "grants": [
+      {
+        "grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "principal_id": "local-administrator",
+        "role": "administrator",
+        "artifact_ids": [],
+        "expires_at": null,
+        "created_at": 1792167372.924512,
+        "issuer_grant_id": null,
+        "operation_id": null,
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_878fd15ab3a903e962add10c122fcf0c",
+        "principal_id": "local-document-author",
+        "role": "doc_author",
+        "artifact_ids": [
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9254627,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-document-author-original",
+        "revoked": true,
+        "revoked_at": 1792167372.9813015,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_b60cdc0b71faea0e536e281dbb626555",
+        "principal_id": "local-code-author",
+        "role": "code_author",
+        "artifact_ids": [
+          "code/local_authorship.py"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9267025,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-code-author",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_be1517d38e89160242ecc077af482dff",
+        "principal_id": "local-integrator-a",
+        "role": "integrator",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9276164,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-integrator-a",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_7286ed4de5da5cb4396a0247cd572c42",
+        "principal_id": "local-integrator-b",
+        "role": "integrator",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9282598,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-integrator",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_27ccb4329f53e47181c501660aa328a3",
+        "principal_id": "local-reviewer-a",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9288568,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-reviewer-a",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_7fbd81d32c3e35bcc6d0bd4c4cf4b7d9",
+        "principal_id": "local-reviewer-b",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.929538,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-reviewer-b",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_a5febb5e304157361809539812ad1073",
+        "principal_id": "local-coordinator",
+        "role": "coordinator",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9310718,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-coordinator",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_ab10ec059a4d616bda4786e8e738f072",
+        "principal_id": "local-document-author",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9321072,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-author-as-reviewer",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_fa4bd457cab7b85e57e96c55f3b6c410",
+        "principal_id": "local-integrator-a",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9330902,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-integrator-as-reviewer",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_9621c42b19fad7f592b0a35232d5f441",
+        "principal_id": "local-integrator-a",
+        "role": "coordinator",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.934143,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-integrator-as-coordinator",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_5cce032cc6826d8946e600823eb4623f",
+        "principal_id": "local-document-author",
+        "role": "doc_author",
+        "artifact_ids": [
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9819665,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-document-author-current",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      }
+    ],
+    "revocations": [
+      {
+        "grant_id": "gvg_878fd15ab3a903e962add10c122fcf0c",
+        "revoked_at": 1792167372.9813015,
+        "administrator_grant_id": "gvg_22608f30e774404c87279997a3483ace"
+      }
+    ],
+    "decisions": [],
+    "receipts": [],
+    "credential_mode": "local_bearer",
+    "author_identity_authenticated": false,
+    "human_identity_authenticated": false,
+    "trusted_database_owner_can_bypass": true
+  },
+  "operation_result": {
+    "old_attempt": {
+      "task_id": "authorship-regrant",
+      "role": "doc_author",
+      "payload": {
+        "proposal": {
+          "queries": {},
+          "rationale": "A deterministic expired attempt is reclaimed with a different grant and fencing token.",
+          "readset": {
+            "docs/local-authorship.md": "5a26c8adf8624d03d840dca44cd22348890cd6803945928747eaaad1421ad542"
+          },
+          "writes": [
+            {
+              "bindings": [],
+              "id": "docs/local-authorship.md",
+              "kind": "document",
+              "template": "# Fictional regrant candidate\n\nThe configured sample limit is 7.\n"
+            }
+          ]
+        }
+      },
+      "token": 1,
+      "worker": "local-document-author",
+      "lease_until": 1792167372.9806118
+    },
+    "new_attempt": {
+      "task_id": "authorship-regrant",
+      "role": "doc_author",
+      "payload": {
+        "proposal": {
+          "queries": {},
+          "rationale": "A deterministic expired attempt is reclaimed with a different grant and fencing token.",
+          "readset": {
+            "docs/local-authorship.md": "5a26c8adf8624d03d840dca44cd22348890cd6803945928747eaaad1421ad542"
+          },
+          "writes": [
+            {
+              "bindings": [],
+              "id": "docs/local-authorship.md",
+              "kind": "document",
+              "template": "# Fictional regrant candidate\n\nThe configured sample limit is 7.\n"
+            }
+          ]
+        }
+      },
+      "token": 2,
+      "worker": "local-document-author",
+      "lease_until": 1792167672.9858077
+    },
+    "rejections": [
+      {
+        "label": "replacement-grant-cannot-continue-lease",
+        "rejected": true,
+        "code": "authorship_grant_mismatch"
+      },
+      {
+        "label": "replacement-grant-cannot-relabel-completed-submit",
+        "rejected": true,
+        "code": "authorship_grant_mismatch"
+      },
+      {
+        "label": "revoked-original-cannot-replay-submit",
+        "rejected": true,
+        "code": "governance_unauthorized"
+      }
+    ],
+    "historical_document": {
+      "enabled": true,
+      "rules_version": "authorship-1",
+      "activation": {
+        "rules_version": "authorship-1",
+        "epoch": 1,
+        "enabled_at": 1792167372.9400556,
+        "activation_revision": 1,
+        "policy_generation": 2,
+        "administrator_grant_id": "gvg_22608f30e774404c87279997a3483ace"
+      },
+      "credential_mode": "local_bearer",
+      "human_identity_authenticated": false,
+      "trusted_database_owner_can_bypass": true,
+      "proposal_id": "p_1a2f9515d1ba71261bc399cc",
+      "integrity_valid": true,
+      "reasons": [],
+      "record": {
+        "authorization_time": 1792167372.95512,
+        "components": [],
+        "contributor_principals": [
+          "local-document-author"
+        ],
+        "epoch": 1,
+        "fencing_token": 1,
+        "grant_id": "gvg_878fd15ab3a903e962add10c122fcf0c",
+        "lease_claimed_at": 1792167372.954246,
+        "principal_id": "local-document-author",
+        "proposal_digest": "54f47e137cb85a12367df69bbc6b02eaf37dce23fc6a2bcc14ba04605176c5d1",
+        "proposal_id": "p_1a2f9515d1ba71261bc399cc",
+        "role": "doc_author",
+        "rules_version": "authorship-1",
+        "schema_version": 1,
+        "task_id": "authorship-document",
+        "write_ids": [
+          "docs/local-authorship.md"
+        ],
+        "authorship_id": "awp_30cf96dafb4795dd9a6a376cbb68ea6ad57eab305caf20ca837a37743979f2b6",
+        "authorship_digest": "30cf96dafb4795dd9a6a376cbb68ea6ad57eab305caf20ca837a37743979f2b6"
+      },
+      "contributor_principals": [
+        "local-document-author"
+      ],
+      "validated_proposals": 1
+    },
+    "reclaimed": {
+      "proposal_id": "p_2b64cc4874d6fe2622b5c1cb",
+      "digest": "e120959336a96bbe6438d52870276770a07058605afd20b4db42ea02c10794ca",
+      "replayed": false,
+      "authorship": {
+        "authorship_id": "awp_41d4406d9445dc14b868b196085006b6291bc39984672dcd33aee84eb5ee51c5",
+        "authorship_digest": "41d4406d9445dc14b868b196085006b6291bc39984672dcd33aee84eb5ee51c5",
+        "principal_id": "local-document-author",
+        "contributor_principals": [
+          "local-document-author"
+        ],
+        "write_ids": [
+          "docs/local-authorship.md"
+        ]
+      }
+    }
+  }
+}

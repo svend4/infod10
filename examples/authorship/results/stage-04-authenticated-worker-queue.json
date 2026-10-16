@@ -1,0 +1,491 @@
+{
+  "label": "authenticated-worker-queue",
+  "explanation": "Three jobs create immutable grant-bound proofs for two registered author principals.",
+  "runtime_revision": 1,
+  "authorship": {
+    "enabled": true,
+    "rules_version": "authorship-1",
+    "activation": {
+      "rules_version": "authorship-1",
+      "epoch": 1,
+      "enabled_at": 1792167372.9400556,
+      "activation_revision": 1,
+      "policy_generation": 2,
+      "administrator_grant_id": "gvg_22608f30e774404c87279997a3483ace"
+    },
+    "credential_mode": "local_bearer",
+    "human_identity_authenticated": false,
+    "trusted_database_owner_can_bypass": true,
+    "leases": [
+      {
+        "task_id": "authorship-document",
+        "token": 1,
+        "principal_id": "local-document-author",
+        "grant_id": "gvg_878fd15ab3a903e962add10c122fcf0c",
+        "role": "doc_author",
+        "claimed_at": 1792167372.954246
+      },
+      {
+        "task_id": "authorship-competing-document",
+        "token": 1,
+        "principal_id": "local-document-author",
+        "grant_id": "gvg_878fd15ab3a903e962add10c122fcf0c",
+        "role": "doc_author",
+        "claimed_at": 1792167372.95787
+      },
+      {
+        "task_id": "authorship-code",
+        "token": 1,
+        "principal_id": "local-code-author",
+        "grant_id": "gvg_b60cdc0b71faea0e536e281dbb626555",
+        "role": "code_author",
+        "claimed_at": 1792167372.9628158
+      }
+    ],
+    "records": [
+      {
+        "proposal_id": "p_1a2f9515d1ba71261bc399cc",
+        "integrity_valid": true,
+        "reasons": [],
+        "record": {
+          "authorization_time": 1792167372.95512,
+          "components": [],
+          "contributor_principals": [
+            "local-document-author"
+          ],
+          "epoch": 1,
+          "fencing_token": 1,
+          "grant_id": "gvg_878fd15ab3a903e962add10c122fcf0c",
+          "lease_claimed_at": 1792167372.954246,
+          "principal_id": "local-document-author",
+          "proposal_digest": "54f47e137cb85a12367df69bbc6b02eaf37dce23fc6a2bcc14ba04605176c5d1",
+          "proposal_id": "p_1a2f9515d1ba71261bc399cc",
+          "role": "doc_author",
+          "rules_version": "authorship-1",
+          "schema_version": 1,
+          "task_id": "authorship-document",
+          "write_ids": [
+            "docs/local-authorship.md"
+          ],
+          "authorship_id": "awp_30cf96dafb4795dd9a6a376cbb68ea6ad57eab305caf20ca837a37743979f2b6",
+          "authorship_digest": "30cf96dafb4795dd9a6a376cbb68ea6ad57eab305caf20ca837a37743979f2b6"
+        },
+        "contributor_principals": [
+          "local-document-author"
+        ],
+        "validated_proposals": 1
+      },
+      {
+        "proposal_id": "p_8244b64779c6765654cfc1ac",
+        "integrity_valid": true,
+        "reasons": [],
+        "record": {
+          "authorization_time": 1792167372.958592,
+          "components": [],
+          "contributor_principals": [
+            "local-document-author"
+          ],
+          "epoch": 1,
+          "fencing_token": 1,
+          "grant_id": "gvg_878fd15ab3a903e962add10c122fcf0c",
+          "lease_claimed_at": 1792167372.95787,
+          "principal_id": "local-document-author",
+          "proposal_digest": "bcd2bc3fd8edb5180fe42ef3b9565c37ef4ca0b40bc4d8a02f314f3191b1118b",
+          "proposal_id": "p_8244b64779c6765654cfc1ac",
+          "role": "doc_author",
+          "rules_version": "authorship-1",
+          "schema_version": 1,
+          "task_id": "authorship-competing-document",
+          "write_ids": [
+            "docs/local-authorship.md"
+          ],
+          "authorship_id": "awp_d5bea49bac96a85942c71db7d0fe655c6425cf746ba77a8b7e4fd5f6d13a34a3",
+          "authorship_digest": "d5bea49bac96a85942c71db7d0fe655c6425cf746ba77a8b7e4fd5f6d13a34a3"
+        },
+        "contributor_principals": [
+          "local-document-author"
+        ],
+        "validated_proposals": 1
+      },
+      {
+        "proposal_id": "p_b4ff87228e440d92466b2a9c",
+        "integrity_valid": true,
+        "reasons": [],
+        "record": {
+          "authorization_time": 1792167372.9643955,
+          "components": [],
+          "contributor_principals": [
+            "local-code-author"
+          ],
+          "epoch": 1,
+          "fencing_token": 1,
+          "grant_id": "gvg_b60cdc0b71faea0e536e281dbb626555",
+          "lease_claimed_at": 1792167372.9628158,
+          "principal_id": "local-code-author",
+          "proposal_digest": "caa38dd440d1dd9e8df703ea971fea73c5cdc8a27ad683c9e8539bf9147ca3c4",
+          "proposal_id": "p_b4ff87228e440d92466b2a9c",
+          "role": "code_author",
+          "rules_version": "authorship-1",
+          "schema_version": 1,
+          "task_id": "authorship-code",
+          "write_ids": [
+            "code/local_authorship.py"
+          ],
+          "authorship_id": "awp_a516200b613ca63522518512402ceba72bc1b58fe9c4c62145e617bc43b86c47",
+          "authorship_digest": "a516200b613ca63522518512402ceba72bc1b58fe9c4c62145e617bc43b86c47"
+        },
+        "contributor_principals": [
+          "local-code-author"
+        ],
+        "validated_proposals": 1
+      }
+    ]
+  },
+  "governance": {
+    "enabled": true,
+    "rules_version": "governance-1",
+    "observed_at": 1792167372.9668124,
+    "enabled_at": 1792167372.924512,
+    "activation_revision": 1,
+    "administrator_id": "local-administrator",
+    "policy_generation": 2,
+    "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+    "policy": {
+      "minimum_reviewers": 2,
+      "schema_version": 1,
+      "separate_coordinator": true
+    },
+    "policy_history": [
+      {
+        "generation": 1,
+        "policy": {
+          "minimum_reviewers": 2,
+          "schema_version": 1,
+          "separate_coordinator": true
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "created_at": 1792167372.924512,
+        "administrator_grant_id": "gvg_22608f30e774404c87279997a3483ace"
+      },
+      {
+        "generation": 2,
+        "policy": {
+          "minimum_reviewers": 2,
+          "schema_version": 1,
+          "separate_coordinator": true
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "created_at": 1792167372.9400196,
+        "administrator_grant_id": "gvg_22608f30e774404c87279997a3483ace"
+      }
+    ],
+    "grants": [
+      {
+        "grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "principal_id": "local-administrator",
+        "role": "administrator",
+        "artifact_ids": [],
+        "expires_at": null,
+        "created_at": 1792167372.924512,
+        "issuer_grant_id": null,
+        "operation_id": null,
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_878fd15ab3a903e962add10c122fcf0c",
+        "principal_id": "local-document-author",
+        "role": "doc_author",
+        "artifact_ids": [
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9254627,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-document-author-original",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_b60cdc0b71faea0e536e281dbb626555",
+        "principal_id": "local-code-author",
+        "role": "code_author",
+        "artifact_ids": [
+          "code/local_authorship.py"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9267025,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-code-author",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_be1517d38e89160242ecc077af482dff",
+        "principal_id": "local-integrator-a",
+        "role": "integrator",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9276164,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-integrator-a",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_7286ed4de5da5cb4396a0247cd572c42",
+        "principal_id": "local-integrator-b",
+        "role": "integrator",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9282598,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-integrator",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_27ccb4329f53e47181c501660aa328a3",
+        "principal_id": "local-reviewer-a",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9288568,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-reviewer-a",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_7fbd81d32c3e35bcc6d0bd4c4cf4b7d9",
+        "principal_id": "local-reviewer-b",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.929538,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-reviewer-b",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_a5febb5e304157361809539812ad1073",
+        "principal_id": "local-coordinator",
+        "role": "coordinator",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9310718,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-coordinator",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_ab10ec059a4d616bda4786e8e738f072",
+        "principal_id": "local-document-author",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9321072,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-author-as-reviewer",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_fa4bd457cab7b85e57e96c55f3b6c410",
+        "principal_id": "local-integrator-a",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9330902,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-integrator-as-reviewer",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_9621c42b19fad7f592b0a35232d5f441",
+        "principal_id": "local-integrator-a",
+        "role": "coordinator",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.934143,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-integrator-as-coordinator",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      }
+    ],
+    "revocations": [],
+    "decisions": [
+      {
+        "artifact_id": "docs/local-authorship.md",
+        "created_at": 1792167372.9352422,
+        "decision_id": "gvd_f45fb2bfb8ece42eb9572b673bdd842c961cc949c63faa3d378cbd2dd60bca00",
+        "grant_id": "gvg_27ccb4329f53e47181c501660aa328a3",
+        "operation_id": "decision-legacy-generation-one",
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy_generation": 1,
+        "previous_decision_id": null,
+        "principal_id": "local-reviewer-a",
+        "proposal_digest": "9ec10ab174ed2ab5ff33f9f50fa36647f6da1105377ea4d10888c488f32daad9",
+        "proposal_id": "p_05d420ea5e13db3920636306",
+        "rationale": "Programmed local decision for legacy-generation-one; no human review or semantic proof is asserted.",
+        "rules_version": "governance-1",
+        "schema_version": 1,
+        "verdict": "approve"
+      }
+    ],
+    "receipts": [],
+    "credential_mode": "local_bearer",
+    "author_identity_authenticated": false,
+    "human_identity_authenticated": false,
+    "trusted_database_owner_can_bypass": true
+  },
+  "operation_result": {
+    "document": {
+      "label": "document",
+      "principal_id": "local-document-author",
+      "thread": "authorship-author_0",
+      "task_id": "authorship-document",
+      "fencing_token": 1,
+      "proposal_payload": {
+        "queries": {},
+        "rationale": "Programmed author contribution; proposed code is stored as data and never executed.",
+        "readset": {
+          "docs/local-authorship.md": "5a26c8adf8624d03d840dca44cd22348890cd6803945928747eaaad1421ad542"
+        },
+        "writes": [
+          {
+            "bindings": [],
+            "id": "docs/local-authorship.md",
+            "kind": "document",
+            "template": "# Fictional local contract\n\nThe configured sample limit is 4.\n"
+          }
+        ]
+      },
+      "proposal_id": "p_1a2f9515d1ba71261bc399cc",
+      "digest": "54f47e137cb85a12367df69bbc6b02eaf37dce23fc6a2bcc14ba04605176c5d1",
+      "replayed": false,
+      "authorship": {
+        "authorship_id": "awp_30cf96dafb4795dd9a6a376cbb68ea6ad57eab305caf20ca837a37743979f2b6",
+        "authorship_digest": "30cf96dafb4795dd9a6a376cbb68ea6ad57eab305caf20ca837a37743979f2b6",
+        "principal_id": "local-document-author",
+        "contributor_principals": [
+          "local-document-author"
+        ],
+        "write_ids": [
+          "docs/local-authorship.md"
+        ]
+      }
+    },
+    "code": {
+      "label": "code",
+      "principal_id": "local-code-author",
+      "thread": "authorship-author_1",
+      "task_id": "authorship-code",
+      "fencing_token": 1,
+      "proposal_payload": {
+        "queries": {},
+        "rationale": "Programmed author contribution; proposed code is stored as data and never executed.",
+        "readset": {
+          "code/local_authorship.py": "b7f8cd471ef9b6172abbb6f6be848753818409ef80f59acfca092c30770fd143"
+        },
+        "writes": [
+          {
+            "bindings": [],
+            "id": "code/local_authorship.py",
+            "kind": "code",
+            "template": "# Fictional configuration stored as data.\nSAMPLE_LIMIT = 4\n"
+          }
+        ]
+      },
+      "proposal_id": "p_b4ff87228e440d92466b2a9c",
+      "digest": "caa38dd440d1dd9e8df703ea971fea73c5cdc8a27ad683c9e8539bf9147ca3c4",
+      "replayed": false,
+      "authorship": {
+        "authorship_id": "awp_a516200b613ca63522518512402ceba72bc1b58fe9c4c62145e617bc43b86c47",
+        "authorship_digest": "a516200b613ca63522518512402ceba72bc1b58fe9c4c62145e617bc43b86c47",
+        "principal_id": "local-code-author",
+        "contributor_principals": [
+          "local-code-author"
+        ],
+        "write_ids": [
+          "code/local_authorship.py"
+        ]
+      }
+    },
+    "competing-document": {
+      "label": "competing-document",
+      "principal_id": "local-document-author",
+      "thread": "authorship-author_2",
+      "task_id": "authorship-competing-document",
+      "fencing_token": 1,
+      "proposal_payload": {
+        "queries": {},
+        "rationale": "Programmed author contribution; proposed code is stored as data and never executed.",
+        "readset": {
+          "docs/local-authorship.md": "5a26c8adf8624d03d840dca44cd22348890cd6803945928747eaaad1421ad542"
+        },
+        "writes": [
+          {
+            "bindings": [],
+            "id": "docs/local-authorship.md",
+            "kind": "document",
+            "template": "# Fictional competing contract\n\nThe configured sample limit is 5.\n"
+          }
+        ]
+      },
+      "proposal_id": "p_8244b64779c6765654cfc1ac",
+      "digest": "bcd2bc3fd8edb5180fe42ef3b9565c37ef4ca0b40bc4d8a02f314f3191b1118b",
+      "replayed": false,
+      "authorship": {
+        "authorship_id": "awp_d5bea49bac96a85942c71db7d0fe655c6425cf746ba77a8b7e4fd5f6d13a34a3",
+        "authorship_digest": "d5bea49bac96a85942c71db7d0fe655c6425cf746ba77a8b7e4fd5f6d13a34a3",
+        "principal_id": "local-document-author",
+        "contributor_principals": [
+          "local-document-author"
+        ],
+        "write_ids": [
+          "docs/local-authorship.md"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "governance_enabled": {
+    "enabled": true,
+    "rules_version": "governance-1",
+    "policy_generation": 1,
+    "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+    "policy": {
+      "schema_version": 1,
+      "minimum_reviewers": 2,
+      "separate_coordinator": true
+    },
+    "activation_revision": 1,
+    "enabled_at": 1792167372.924512,
+    "administrator": {
+      "grant_id": "gvg_22608f30e774404c87279997a3483ace",
+      "principal_id": "local-administrator",
+      "role": "administrator",
+      "artifact_ids": [],
+      "expires_at": null,
+      "created_at": 1792167372.924512,
+      "issuer_grant_id": null,
+      "operation_id": null,
+      "revoked": false,
+      "revoked_at": null,
+      "expired": false
+    }
+  },
+  "authorship_enabled": {
+    "enabled": true,
+    "rules_version": "authorship-1",
+    "activation": {
+      "rules_version": "authorship-1",
+      "epoch": 1,
+      "enabled_at": 1792167372.9400556,
+      "activation_revision": 1,
+      "policy_generation": 2,
+      "administrator_grant_id": "gvg_22608f30e774404c87279997a3483ace"
+    },
+    "policy_generation": 2,
+    "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+    "credential_mode": "local_bearer",
+    "human_identity_authenticated": false
+  },
+  "original_author_revoked": {
+    "grant_id": "gvg_878fd15ab3a903e962add10c122fcf0c",
+    "principal_id": "local-document-author",
+    "role": "doc_author",
+    "artifact_ids": [
+      "docs/local-authorship.md"
+    ],
+    "expires_at": 1792170972.9251316,
+    "created_at": 1792167372.9254627,
+    "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+    "operation_id": "grant-document-author-original",
+    "revoked": true,
+    "revoked_at": 1792167372.9813015,
+    "expired": false,
+    "replayed": false
+  },
+  "old_attempt": {
+    "task_id": "authorship-regrant",
+    "role": "doc_author",
+    "payload": {
+      "proposal": {
+        "queries": {},
+        "rationale": "A deterministic expired attempt is reclaimed with a different grant and fencing token.",
+        "readset": {
+          "docs/local-authorship.md": "5a26c8adf8624d03d840dca44cd22348890cd6803945928747eaaad1421ad542"
+        },
+        "writes": [
+          {
+            "bindings": [],
+            "id": "docs/local-authorship.md",
+            "kind": "document",
+            "template": "# Fictional regrant candidate\n\nThe configured sample limit is 7.\n"
+          }
+        ]
+      }
+    },
+    "token": 1,
+    "worker": "local-document-author",
+    "lease_until": 1792167372.9806118
+  },
+  "new_attempt": {
+    "task_id": "authorship-regrant",
+    "role": "doc_author",
+    "payload": {
+      "proposal": {
+        "queries": {},
+        "rationale": "A deterministic expired attempt is reclaimed with a different grant and fencing token.",
+        "readset": {
+          "docs/local-authorship.md": "5a26c8adf8624d03d840dca44cd22348890cd6803945928747eaaad1421ad542"
+        },
+        "writes": [
+          {
+            "bindings": [],
+            "id": "docs/local-authorship.md",
+            "kind": "document",
+            "template": "# Fictional regrant candidate\n\nThe configured sample limit is 7.\n"
+          }
+        ]
+      }
+    },
+    "token": 2,
+    "worker": "local-document-author",
+    "lease_until": 1792167672.9858077
+  },
+  "reclaimed": {
+    "proposal_id": "p_2b64cc4874d6fe2622b5c1cb",
+    "digest": "e120959336a96bbe6438d52870276770a07058605afd20b4db42ea02c10794ca",
+    "replayed": false,
+    "authorship": {
+      "authorship_id": "awp_41d4406d9445dc14b868b196085006b6291bc39984672dcd33aee84eb5ee51c5",
+      "authorship_digest": "41d4406d9445dc14b868b196085006b6291bc39984672dcd33aee84eb5ee51c5",
+      "principal_id": "local-document-author",
+      "contributor_principals": [
+        "local-document-author"
+      ],
+      "write_ids": [
+        "docs/local-authorship.md"
+      ]
+    }
+  }
+}

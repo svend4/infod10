@@ -1,0 +1,651 @@
+{
+  "label": "accepted-with-provenance-receipt",
+  "explanation": "Atomic acceptance checks runtime guards, formal review, current local authority, noncontributor quorums and exact authorship; the receipt pins the proof.",
+  "runtime_revision": 2,
+  "authorship": {
+    "enabled": true,
+    "rules_version": "authorship-1",
+    "activation": {
+      "rules_version": "authorship-1",
+      "epoch": 1,
+      "enabled_at": 1792167372.9400556,
+      "activation_revision": 1,
+      "policy_generation": 2,
+      "administrator_grant_id": "gvg_22608f30e774404c87279997a3483ace"
+    },
+    "credential_mode": "local_bearer",
+    "human_identity_authenticated": false,
+    "trusted_database_owner_can_bypass": true,
+    "proposal_id": "p_7de85207324e3c090bbc0adf",
+    "integrity_valid": true,
+    "reasons": [],
+    "record": {
+      "authorization_time": 1792167373.0039115,
+      "components": [
+        {
+          "authorship_digest": "3d4326d51394a90814e424ea05779b8bd80b9e97f1da693062e072cb167a2cb4",
+          "authorship_id": "awp_3d4326d51394a90814e424ea05779b8bd80b9e97f1da693062e072cb167a2cb4",
+          "position": 1,
+          "proposal_digest": "57b5bfdcf52d0d05fb35b206a37b772a8c135f5a5f80ee822b659c67c236e446",
+          "proposal_id": "p_b27e086720e06c7cc52cea45",
+          "write_ids": [
+            "code/local_authorship.py",
+            "docs/local-authorship.md"
+          ]
+        }
+      ],
+      "contributor_principals": [
+        "local-code-author",
+        "local-document-author",
+        "local-integrator-a",
+        "local-integrator-b"
+      ],
+      "epoch": 1,
+      "fencing_token": 1,
+      "grant_id": "gvg_7286ed4de5da5cb4396a0247cd572c42",
+      "lease_claimed_at": 1792167373.001533,
+      "principal_id": "local-integrator-b",
+      "proposal_digest": "f8ee05d726115298f2106744eecc1b1e1a9ce25e52b92d7f0eab43f1928d4905",
+      "proposal_id": "p_7de85207324e3c090bbc0adf",
+      "role": "integrator",
+      "rules_version": "authorship-1",
+      "schema_version": 1,
+      "task_id": "authorship-compose-b",
+      "write_ids": [
+        "code/local_authorship.py",
+        "docs/local-authorship.md"
+      ],
+      "authorship_id": "awp_2e7d4d519302804f2c6d5893d75cd20a1b2a3f130150621755355597f86af2b8",
+      "authorship_digest": "2e7d4d519302804f2c6d5893d75cd20a1b2a3f130150621755355597f86af2b8"
+    },
+    "contributor_principals": [
+      "local-code-author",
+      "local-document-author",
+      "local-integrator-a",
+      "local-integrator-b"
+    ],
+    "validated_proposals": 4
+  },
+  "governance": {
+    "enabled": true,
+    "rules_version": "governance-1",
+    "observed_at": 1792167373.066667,
+    "enabled_at": 1792167372.924512,
+    "activation_revision": 1,
+    "administrator_id": "local-administrator",
+    "policy_generation": 2,
+    "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+    "policy": {
+      "minimum_reviewers": 2,
+      "schema_version": 1,
+      "separate_coordinator": true
+    },
+    "policy_history": [
+      {
+        "generation": 1,
+        "policy": {
+          "minimum_reviewers": 2,
+          "schema_version": 1,
+          "separate_coordinator": true
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "created_at": 1792167372.924512,
+        "administrator_grant_id": "gvg_22608f30e774404c87279997a3483ace"
+      },
+      {
+        "generation": 2,
+        "policy": {
+          "minimum_reviewers": 2,
+          "schema_version": 1,
+          "separate_coordinator": true
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "created_at": 1792167372.9400196,
+        "administrator_grant_id": "gvg_22608f30e774404c87279997a3483ace"
+      }
+    ],
+    "grants": [
+      {
+        "grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "principal_id": "local-administrator",
+        "role": "administrator",
+        "artifact_ids": [],
+        "expires_at": null,
+        "created_at": 1792167372.924512,
+        "issuer_grant_id": null,
+        "operation_id": null,
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_878fd15ab3a903e962add10c122fcf0c",
+        "principal_id": "local-document-author",
+        "role": "doc_author",
+        "artifact_ids": [
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9254627,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-document-author-original",
+        "revoked": true,
+        "revoked_at": 1792167372.9813015,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_b60cdc0b71faea0e536e281dbb626555",
+        "principal_id": "local-code-author",
+        "role": "code_author",
+        "artifact_ids": [
+          "code/local_authorship.py"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9267025,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-code-author",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_be1517d38e89160242ecc077af482dff",
+        "principal_id": "local-integrator-a",
+        "role": "integrator",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9276164,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-integrator-a",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_7286ed4de5da5cb4396a0247cd572c42",
+        "principal_id": "local-integrator-b",
+        "role": "integrator",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9282598,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-integrator",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_27ccb4329f53e47181c501660aa328a3",
+        "principal_id": "local-reviewer-a",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9288568,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-reviewer-a",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_7fbd81d32c3e35bcc6d0bd4c4cf4b7d9",
+        "principal_id": "local-reviewer-b",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.929538,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-reviewer-b",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_a5febb5e304157361809539812ad1073",
+        "principal_id": "local-coordinator",
+        "role": "coordinator",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9310718,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-coordinator",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_ab10ec059a4d616bda4786e8e738f072",
+        "principal_id": "local-document-author",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9321072,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-author-as-reviewer",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_fa4bd457cab7b85e57e96c55f3b6c410",
+        "principal_id": "local-integrator-a",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9330902,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-integrator-as-reviewer",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_9621c42b19fad7f592b0a35232d5f441",
+        "principal_id": "local-integrator-a",
+        "role": "coordinator",
+        "artifact_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.934143,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-integrator-as-coordinator",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      {
+        "grant_id": "gvg_5cce032cc6826d8946e600823eb4623f",
+        "principal_id": "local-document-author",
+        "role": "doc_author",
+        "artifact_ids": [
+          "docs/local-authorship.md"
+        ],
+        "expires_at": 1792170972.9251316,
+        "created_at": 1792167372.9819665,
+        "issuer_grant_id": "gvg_22608f30e774404c87279997a3483ace",
+        "operation_id": "grant-document-author-current",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      }
+    ],
+    "revocations": [
+      {
+        "grant_id": "gvg_878fd15ab3a903e962add10c122fcf0c",
+        "revoked_at": 1792167372.9813015,
+        "administrator_grant_id": "gvg_22608f30e774404c87279997a3483ace"
+      }
+    ],
+    "decisions": [
+      {
+        "artifact_id": "docs/local-authorship.md",
+        "created_at": 1792167373.038187,
+        "decision_id": "gvd_3d960565592a7fb80174d28f819f2b9ce74fc5c5fd021498a041ef243cc7eed5",
+        "grant_id": "gvg_27ccb4329f53e47181c501660aa328a3",
+        "operation_id": "decision-root-reviewer-a-document",
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy_generation": 2,
+        "previous_decision_id": null,
+        "principal_id": "local-reviewer-a",
+        "proposal_digest": "f8ee05d726115298f2106744eecc1b1e1a9ce25e52b92d7f0eab43f1928d4905",
+        "proposal_id": "p_7de85207324e3c090bbc0adf",
+        "rationale": "Programmed local decision for root-reviewer-a-document; no human review or semantic proof is asserted.",
+        "rules_version": "governance-1",
+        "schema_version": 1,
+        "verdict": "approve"
+      },
+      {
+        "artifact_id": "code/local_authorship.py",
+        "created_at": 1792167373.0404253,
+        "decision_id": "gvd_a69bae03e6bc8980b12430919e6251eaa59979a4d8e5b55161c265e70dc48b17",
+        "grant_id": "gvg_27ccb4329f53e47181c501660aa328a3",
+        "operation_id": "decision-root-reviewer-a-code",
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy_generation": 2,
+        "previous_decision_id": null,
+        "principal_id": "local-reviewer-a",
+        "proposal_digest": "f8ee05d726115298f2106744eecc1b1e1a9ce25e52b92d7f0eab43f1928d4905",
+        "proposal_id": "p_7de85207324e3c090bbc0adf",
+        "rationale": "Programmed local decision for root-reviewer-a-code; no human review or semantic proof is asserted.",
+        "rules_version": "governance-1",
+        "schema_version": 1,
+        "verdict": "approve"
+      },
+      {
+        "artifact_id": "docs/local-authorship.md",
+        "created_at": 1792167373.0508862,
+        "decision_id": "gvd_7bddefbe638a74116948fffc42420df53223492e725bdbc2fb62a9948a8722be",
+        "grant_id": "gvg_7fbd81d32c3e35bcc6d0bd4c4cf4b7d9",
+        "operation_id": "decision-root-reviewer-b-document",
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy_generation": 2,
+        "previous_decision_id": null,
+        "principal_id": "local-reviewer-b",
+        "proposal_digest": "f8ee05d726115298f2106744eecc1b1e1a9ce25e52b92d7f0eab43f1928d4905",
+        "proposal_id": "p_7de85207324e3c090bbc0adf",
+        "rationale": "Programmed local decision for root-reviewer-b-document; no human review or semantic proof is asserted.",
+        "rules_version": "governance-1",
+        "schema_version": 1,
+        "verdict": "approve"
+      },
+      {
+        "artifact_id": "code/local_authorship.py",
+        "created_at": 1792167373.052563,
+        "decision_id": "gvd_5603965296d5ab6766ea686b786049e4f44fcfaaa63c3d36770e14f006e899d3",
+        "grant_id": "gvg_7fbd81d32c3e35bcc6d0bd4c4cf4b7d9",
+        "operation_id": "decision-root-reviewer-b-code",
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy_generation": 2,
+        "previous_decision_id": null,
+        "principal_id": "local-reviewer-b",
+        "proposal_digest": "f8ee05d726115298f2106744eecc1b1e1a9ce25e52b92d7f0eab43f1928d4905",
+        "proposal_id": "p_7de85207324e3c090bbc0adf",
+        "rationale": "Programmed local decision for root-reviewer-b-code; no human review or semantic proof is asserted.",
+        "rules_version": "governance-1",
+        "schema_version": 1,
+        "verdict": "approve"
+      }
+    ],
+    "receipts": [
+      {
+        "accepted_at": 1792167373.0636685,
+        "authorization_time": 1792167373.0636685,
+        "authorship": {
+          "authorship_digest": "2e7d4d519302804f2c6d5893d75cd20a1b2a3f130150621755355597f86af2b8",
+          "authorship_id": "awp_2e7d4d519302804f2c6d5893d75cd20a1b2a3f130150621755355597f86af2b8",
+          "contributor_principals": [
+            "local-code-author",
+            "local-document-author",
+            "local-integrator-a",
+            "local-integrator-b"
+          ],
+          "principal_id": "local-integrator-b",
+          "write_ids": [
+            "code/local_authorship.py",
+            "docs/local-authorship.md"
+          ]
+        },
+        "coordinator": {
+          "grant_id": "gvg_a5febb5e304157361809539812ad1073",
+          "principal_id": "local-coordinator"
+        },
+        "decisions": {
+          "code/local_authorship.py": [
+            "gvd_a69bae03e6bc8980b12430919e6251eaa59979a4d8e5b55161c265e70dc48b17",
+            "gvd_5603965296d5ab6766ea686b786049e4f44fcfaaa63c3d36770e14f006e899d3"
+          ],
+          "docs/local-authorship.md": [
+            "gvd_3d960565592a7fb80174d28f819f2b9ce74fc5c5fd021498a041ef243cc7eed5",
+            "gvd_7bddefbe638a74116948fffc42420df53223492e725bdbc2fb62a9948a8722be"
+          ]
+        },
+        "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "policy_generation": 2,
+        "proposal_digest": "f8ee05d726115298f2106744eecc1b1e1a9ce25e52b92d7f0eab43f1928d4905",
+        "proposal_id": "p_7de85207324e3c090bbc0adf",
+        "receipt_id": "gvr_ba60e11d492c105da3ac66dd2da2cfcd0e6a177d9ac9a303622282082634019d",
+        "revision": 2,
+        "rules_version": "governance-1",
+        "schema_version": 2
+      }
+    ],
+    "credential_mode": "local_bearer",
+    "author_identity_authenticated": false,
+    "human_identity_authenticated": false,
+    "trusted_database_owner_can_bypass": true
+  },
+  "operation_result": {
+    "accepted": true,
+    "proposal_id": "p_7de85207324e3c090bbc0adf",
+    "revision": 2,
+    "replayed": false,
+    "reasons": [],
+    "review_id": 2,
+    "coordinator": "local-coordinator",
+    "governance": {
+      "schema_version": 1,
+      "rules_version": "governance-1",
+      "enabled": true,
+      "proposal_id": "p_7de85207324e3c090bbc0adf",
+      "proposal_digest": "f8ee05d726115298f2106744eecc1b1e1a9ce25e52b92d7f0eab43f1928d4905",
+      "proposal_status": "proposed",
+      "policy_generation": 2,
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy": {
+        "minimum_reviewers": 2,
+        "schema_version": 1,
+        "separate_coordinator": true
+      },
+      "coordinator": {
+        "principal_id": "local-coordinator",
+        "grant_id": "gvg_a5febb5e304157361809539812ad1073"
+      },
+      "observed_at": 1792167373.062114,
+      "valid_until": 1792170972.9251316,
+      "writes": [
+        {
+          "artifact_id": "code/local_authorship.py",
+          "required_reviewers": 2,
+          "approval_principals": [
+            "local-reviewer-a",
+            "local-reviewer-b"
+          ],
+          "approval_decision_ids": [
+            "gvd_a69bae03e6bc8980b12430919e6251eaa59979a4d8e5b55161c265e70dc48b17",
+            "gvd_5603965296d5ab6766ea686b786049e4f44fcfaaa63c3d36770e14f006e899d3"
+          ],
+          "used_decision_ids": [
+            "gvd_a69bae03e6bc8980b12430919e6251eaa59979a4d8e5b55161c265e70dc48b17",
+            "gvd_5603965296d5ab6766ea686b786049e4f44fcfaaa63c3d36770e14f006e899d3"
+          ],
+          "veto_decision_ids": [],
+          "eligible": true
+        },
+        {
+          "artifact_id": "docs/local-authorship.md",
+          "required_reviewers": 2,
+          "approval_principals": [
+            "local-reviewer-a",
+            "local-reviewer-b"
+          ],
+          "approval_decision_ids": [
+            "gvd_3d960565592a7fb80174d28f819f2b9ce74fc5c5fd021498a041ef243cc7eed5",
+            "gvd_7bddefbe638a74116948fffc42420df53223492e725bdbc2fb62a9948a8722be"
+          ],
+          "used_decision_ids": [
+            "gvd_3d960565592a7fb80174d28f819f2b9ce74fc5c5fd021498a041ef243cc7eed5",
+            "gvd_7bddefbe638a74116948fffc42420df53223492e725bdbc2fb62a9948a8722be"
+          ],
+          "veto_decision_ids": [],
+          "eligible": true
+        }
+      ],
+      "decisions": [
+        {
+          "artifact_id": "docs/local-authorship.md",
+          "created_at": 1792167373.038187,
+          "decision_id": "gvd_3d960565592a7fb80174d28f819f2b9ce74fc5c5fd021498a041ef243cc7eed5",
+          "grant_id": "gvg_27ccb4329f53e47181c501660aa328a3",
+          "operation_id": "decision-root-reviewer-a-document",
+          "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+          "policy_generation": 2,
+          "previous_decision_id": null,
+          "principal_id": "local-reviewer-a",
+          "proposal_digest": "f8ee05d726115298f2106744eecc1b1e1a9ce25e52b92d7f0eab43f1928d4905",
+          "proposal_id": "p_7de85207324e3c090bbc0adf",
+          "rationale": "Programmed local decision for root-reviewer-a-document; no human review or semantic proof is asserted.",
+          "rules_version": "governance-1",
+          "schema_version": 1,
+          "verdict": "approve",
+          "current_head": true,
+          "grant_expires_at": 1792170972.9251316,
+          "valid": true,
+          "invalid_reasons": []
+        },
+        {
+          "artifact_id": "code/local_authorship.py",
+          "created_at": 1792167373.0404253,
+          "decision_id": "gvd_a69bae03e6bc8980b12430919e6251eaa59979a4d8e5b55161c265e70dc48b17",
+          "grant_id": "gvg_27ccb4329f53e47181c501660aa328a3",
+          "operation_id": "decision-root-reviewer-a-code",
+          "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+          "policy_generation": 2,
+          "previous_decision_id": null,
+          "principal_id": "local-reviewer-a",
+          "proposal_digest": "f8ee05d726115298f2106744eecc1b1e1a9ce25e52b92d7f0eab43f1928d4905",
+          "proposal_id": "p_7de85207324e3c090bbc0adf",
+          "rationale": "Programmed local decision for root-reviewer-a-code; no human review or semantic proof is asserted.",
+          "rules_version": "governance-1",
+          "schema_version": 1,
+          "verdict": "approve",
+          "current_head": true,
+          "grant_expires_at": 1792170972.9251316,
+          "valid": true,
+          "invalid_reasons": []
+        },
+        {
+          "artifact_id": "docs/local-authorship.md",
+          "created_at": 1792167373.0508862,
+          "decision_id": "gvd_7bddefbe638a74116948fffc42420df53223492e725bdbc2fb62a9948a8722be",
+          "grant_id": "gvg_7fbd81d32c3e35bcc6d0bd4c4cf4b7d9",
+          "operation_id": "decision-root-reviewer-b-document",
+          "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+          "policy_generation": 2,
+          "previous_decision_id": null,
+          "principal_id": "local-reviewer-b",
+          "proposal_digest": "f8ee05d726115298f2106744eecc1b1e1a9ce25e52b92d7f0eab43f1928d4905",
+          "proposal_id": "p_7de85207324e3c090bbc0adf",
+          "rationale": "Programmed local decision for root-reviewer-b-document; no human review or semantic proof is asserted.",
+          "rules_version": "governance-1",
+          "schema_version": 1,
+          "verdict": "approve",
+          "current_head": true,
+          "grant_expires_at": 1792170972.9251316,
+          "valid": true,
+          "invalid_reasons": []
+        },
+        {
+          "artifact_id": "code/local_authorship.py",
+          "created_at": 1792167373.052563,
+          "decision_id": "gvd_5603965296d5ab6766ea686b786049e4f44fcfaaa63c3d36770e14f006e899d3",
+          "grant_id": "gvg_7fbd81d32c3e35bcc6d0bd4c4cf4b7d9",
+          "operation_id": "decision-root-reviewer-b-code",
+          "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+          "policy_generation": 2,
+          "previous_decision_id": null,
+          "principal_id": "local-reviewer-b",
+          "proposal_digest": "f8ee05d726115298f2106744eecc1b1e1a9ce25e52b92d7f0eab43f1928d4905",
+          "proposal_id": "p_7de85207324e3c090bbc0adf",
+          "rationale": "Programmed local decision for root-reviewer-b-code; no human review or semantic proof is asserted.",
+          "rules_version": "governance-1",
+          "schema_version": 1,
+          "verdict": "approve",
+          "current_head": true,
+          "grant_expires_at": 1792170972.9251316,
+          "valid": true,
+          "invalid_reasons": []
+        }
+      ],
+      "eligible": true,
+      "reasons": [],
+      "advisory_only": true,
+      "author_identity_authenticated": false,
+      "human_identity_authenticated": false,
+      "authorship": {
+        "rules_version": "authorship-1",
+        "integrity_valid": true,
+        "reasons": [],
+        "proof": {
+          "authorship_id": "awp_2e7d4d519302804f2c6d5893d75cd20a1b2a3f130150621755355597f86af2b8",
+          "authorship_digest": "2e7d4d519302804f2c6d5893d75cd20a1b2a3f130150621755355597f86af2b8",
+          "principal_id": "local-integrator-b",
+          "contributor_principals": [
+            "local-code-author",
+            "local-document-author",
+            "local-integrator-a",
+            "local-integrator-b"
+          ],
+          "write_ids": [
+            "code/local_authorship.py",
+            "docs/local-authorship.md"
+          ]
+        },
+        "contributor_principals": [
+          "local-code-author",
+          "local-document-author",
+          "local-integrator-a",
+          "local-integrator-b"
+        ]
+      },
+      "authorization_time": 1792167373.0636685,
+      "authorization_reasons": []
+    },
+    "governance_receipt": {
+      "schema_version": 2,
+      "rules_version": "governance-1",
+      "proposal_id": "p_7de85207324e3c090bbc0adf",
+      "proposal_digest": "f8ee05d726115298f2106744eecc1b1e1a9ce25e52b92d7f0eab43f1928d4905",
+      "revision": 2,
+      "policy_generation": 2,
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "coordinator": {
+        "principal_id": "local-coordinator",
+        "grant_id": "gvg_a5febb5e304157361809539812ad1073"
+      },
+      "accepted_at": 1792167373.0636685,
+      "authorization_time": 1792167373.0636685,
+      "decisions": {
+        "code/local_authorship.py": [
+          "gvd_a69bae03e6bc8980b12430919e6251eaa59979a4d8e5b55161c265e70dc48b17",
+          "gvd_5603965296d5ab6766ea686b786049e4f44fcfaaa63c3d36770e14f006e899d3"
+        ],
+        "docs/local-authorship.md": [
+          "gvd_3d960565592a7fb80174d28f819f2b9ce74fc5c5fd021498a041ef243cc7eed5",
+          "gvd_7bddefbe638a74116948fffc42420df53223492e725bdbc2fb62a9948a8722be"
+        ]
+      },
+      "authorship": {
+        "authorship_id": "awp_2e7d4d519302804f2c6d5893d75cd20a1b2a3f130150621755355597f86af2b8",
+        "authorship_digest": "2e7d4d519302804f2c6d5893d75cd20a1b2a3f130150621755355597f86af2b8",
+        "principal_id": "local-integrator-b",
+        "contributor_principals": [
+          "local-code-author",
+          "local-document-author",
+          "local-integrator-a",
+          "local-integrator-b"
+        ],
+        "write_ids": [
+          "code/local_authorship.py",
+          "docs/local-authorship.md"
+        ]
+      },
+      "receipt_id": "gvr_ba60e11d492c105da3ac66dd2da2cfcd0e6a177d9ac9a303622282082634019d"
+    },
+    "authorization_time": 1792167373.0636685,
+    "coordinator_grant_id": "gvg_a5febb5e304157361809539812ad1073",
+    "legacy_acceptance": false
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "legacy": {
+    "accepted": false,
+    "proposal_id": "p_05d420ea5e13db3920636306",
+    "revision": 2,
+    "replayed": false,
+    "reasons": [
+      {
+        "code": "stale_read",
+        "id": "docs/local-authorship.md",
+        "expected": "5a26c8adf8624d03d840dca44cd22348890cd6803945928747eaaad1421ad542",
+        "actual": "6cf1aa0d646f7e4cdca77995c95db0652982a13275430c76a6227a13951918ae"
+      },
+      {
+        "code": "authorship_provenance_invalid",
+        "detail": "A candidate or source has no authorship proof"
+      },
+      {
+        "code": "governance_quorum_missing",
+        "artifact_id": "docs/local-authorship.md",
+        "required": 2,
+        "actual": 0
+      }
+    ],
+    "governance": {
+      "schema_version": 1,
+      "rules_version": "governance-1",
+      "enabled": true,
+      "proposal_id": "p_05d420ea5e13db3920636306",
+      "proposal_digest": "9ec10ab174ed2ab5ff33f9f50fa36647f6da1105377ea4d10888c488f32daad9",
+      "proposal_status": "proposed",
+      "policy_generation": 2,
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy": {
+        "minimum_reviewers": 2,
+        "schema_version": 1,
+        "separate_coordinator": true
+      },
+      "coordinator": {
+        "principal_id": "local-coordinator",
+        "grant_id": "gvg_a5febb5e304157361809539812ad1073"
+      },
+      "observed_at": 1792167373.08102,
+      "valid_until": 1792170972.9251316,
+      "writes": [
+        {
+          "artifact_id": "docs/local-authorship.md",
+          "required_reviewers": 2,
+          "approval_principals": [],
+          "approval_decision_ids": [],
+          "used_decision_ids": [],
+          "veto_decision_ids": [],
+          "eligible": false
+        }
+      ],
+      "decisions": [
+        {
+          "artifact_id": "docs/local-authorship.md",
+          "created_at": 1792167372.9352422,
+          "decision_id": "gvd_f45fb2bfb8ece42eb9572b673bdd842c961cc949c63faa3d378cbd2dd60bca00",
+          "grant_id": "gvg_27ccb4329f53e47181c501660aa328a3",
+          "operation_id": "decision-legacy-generation-one",
+          "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+          "policy_generation": 1,
+          "previous_decision_id": null,
+          "principal_id": "local-reviewer-a",
+          "proposal_digest": "9ec10ab174ed2ab5ff33f9f50fa36647f6da1105377ea4d10888c488f32daad9",
+          "proposal_id": "p_05d420ea5e13db3920636306",
+          "rationale": "Programmed local decision for legacy-generation-one; no human review or semantic proof is asserted.",
+          "rules_version": "governance-1",
+          "schema_version": 1,
+          "verdict": "approve",
+          "current_head": true,
+          "grant_expires_at": 1792170972.9251316,
+          "valid": false,
+          "invalid_reasons": [
+            "authorship_provenance_invalid",
+            "policy_generation_changed"
+          ]
+        }
+      ],
+      "eligible": false,
+      "reasons": [
+        {
+          "code": "authorship_provenance_invalid",
+          "detail": "A candidate or source has no authorship proof"
+        },
+        {
+          "code": "governance_quorum_missing",
+          "artifact_id": "docs/local-authorship.md",
+          "required": 2,
+          "actual": 0
+        }
+      ],
+      "advisory_only": true,
+      "author_identity_authenticated": false,
+      "human_identity_authenticated": false,
+      "authorship": {
+        "rules_version": "authorship-1",
+        "integrity_valid": false,
+        "reasons": [
+          {
+            "code": "authorship_provenance_invalid",
+            "detail": "A candidate or source has no authorship proof"
+          }
+        ],
+        "proof": null,
+        "contributor_principals": []
+      }
+    }
+  },
+  "competing": {
+    "accepted": false,
+    "proposal_id": "p_8244b64779c6765654cfc1ac",
+    "revision": 2,
+    "replayed": false,
+    "reasons": [
+      {
+        "code": "stale_read",
+        "id": "docs/local-authorship.md",
+        "expected": "5a26c8adf8624d03d840dca44cd22348890cd6803945928747eaaad1421ad542",
+        "actual": "6cf1aa0d646f7e4cdca77995c95db0652982a13275430c76a6227a13951918ae"
+      }
+    ],
+    "governance": {
+      "schema_version": 1,
+      "rules_version": "governance-1",
+      "enabled": true,
+      "proposal_id": "p_8244b64779c6765654cfc1ac",
+      "proposal_digest": "bcd2bc3fd8edb5180fe42ef3b9565c37ef4ca0b40bc4d8a02f314f3191b1118b",
+      "proposal_status": "proposed",
+      "policy_generation": 2,
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy": {
+        "minimum_reviewers": 2,
+        "schema_version": 1,
+        "separate_coordinator": true
+      },
+      "coordinator": {
+        "principal_id": "local-coordinator",
+        "grant_id": "gvg_a5febb5e304157361809539812ad1073"
+      },
+      "observed_at": 1792167373.0837097,
+      "valid_until": 1792170972.9251316,
+      "writes": [
+        {
+          "artifact_id": "docs/local-authorship.md",
+          "required_reviewers": 2,
+          "approval_principals": [
+            "local-reviewer-a",
+            "local-reviewer-b"
+          ],
+          "approval_decision_ids": [
+            "gvd_2f81a60e5fcec78ba4986d0c9232de42629098abd4dbcc13cbe33153a6c8557e",
+            "gvd_932e64c89c691121e29ea293d2a0f9cb995e2ba308d13ea42f0e8a0b15756544"
+          ],
+          "used_decision_ids": [
+            "gvd_2f81a60e5fcec78ba4986d0c9232de42629098abd4dbcc13cbe33153a6c8557e",
+            "gvd_932e64c89c691121e29ea293d2a0f9cb995e2ba308d13ea42f0e8a0b15756544"
+          ],
+          "veto_decision_ids": [],
+          "eligible": true
+        }
+      ],
+      "decisions": [
+        {
+          "artifact_id": "docs/local-authorship.md",
+          "created_at": 1792167373.0534961,
+          "decision_id": "gvd_2f81a60e5fcec78ba4986d0c9232de42629098abd4dbcc13cbe33153a6c8557e",
+          "grant_id": "gvg_27ccb4329f53e47181c501660aa328a3",
+          "operation_id": "decision-competing-reviewer-a",
+          "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+          "policy_generation": 2,
+          "previous_decision_id": null,
+          "principal_id": "local-reviewer-a",
+          "proposal_digest": "bcd2bc3fd8edb5180fe42ef3b9565c37ef4ca0b40bc4d8a02f314f3191b1118b",
+          "proposal_id": "p_8244b64779c6765654cfc1ac",
+          "rationale": "Programmed local decision for competing-reviewer-a; no human review or semantic proof is asserted.",
+          "rules_version": "governance-1",
+          "schema_version": 1,
+          "verdict": "approve",
+          "current_head": true,
+          "grant_expires_at": 1792170972.9251316,
+          "valid": true,
+          "invalid_reasons": []
+        },
+        {
+          "artifact_id": "docs/local-authorship.md",
+          "created_at": 1792167373.0544562,
+          "decision_id": "gvd_932e64c89c691121e29ea293d2a0f9cb995e2ba308d13ea42f0e8a0b15756544",
+          "grant_id": "gvg_7fbd81d32c3e35bcc6d0bd4c4cf4b7d9",
+          "operation_id": "decision-competing-reviewer-b",
+          "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+          "policy_generation": 2,
+          "previous_decision_id": null,
+          "principal_id": "local-reviewer-b",
+          "proposal_digest": "bcd2bc3fd8edb5180fe42ef3b9565c37ef4ca0b40bc4d8a02f314f3191b1118b",
+          "proposal_id": "p_8244b64779c6765654cfc1ac",
+          "rationale": "Programmed local decision for competing-reviewer-b; no human review or semantic proof is asserted.",
+          "rules_version": "governance-1",
+          "schema_version": 1,
+          "verdict": "approve",
+          "current_head": true,
+          "grant_expires_at": 1792170972.9251316,
+          "valid": true,
+          "invalid_reasons": []
+        }
+      ],
+      "eligible": true,
+      "reasons": [],
+      "advisory_only": true,
+      "author_identity_authenticated": false,
+      "human_identity_authenticated": false,
+      "authorship": {
+        "rules_version": "authorship-1",
+        "integrity_valid": true,
+        "reasons": [],
+        "proof": {
+          "authorship_id": "awp_d5bea49bac96a85942c71db7d0fe655c6425cf746ba77a8b7e4fd5f6d13a34a3",
+          "authorship_digest": "d5bea49bac96a85942c71db7d0fe655c6425cf746ba77a8b7e4fd5f6d13a34a3",
+          "principal_id": "local-document-author",
+          "contributor_principals": [
+            "local-document-author"
+          ],
+          "write_ids": [
+            "docs/local-authorship.md"
+          ]
+        },
+        "contributor_principals": [
+          "local-document-author"
+        ]
+      }
+    }
+  }
+}
