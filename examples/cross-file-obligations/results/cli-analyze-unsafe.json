@@ -1,0 +1,109 @@
+{
+  "path": "/tmp/infod10-obligations-development-01/cli-unsafe-obligations.json",
+  "report_id": "obl_04ad5f861cf485ef63d201e6f501420f3ca0d926563621b5d8957c38656288fb",
+  "report_digest": "04ad5f861cf485ef63d201e6f501420f3ca0d926563621b5d8957c38656288fb",
+  "observation": {
+    "source_review_set_id": "rset_8f9cc63d4e4077179f4033da1fdfc7aa63f8007e6e33031a2d52accbf133b81c",
+    "source_review_set_digest": "8f9cc63d4e4077179f4033da1fdfc7aa63f8007e6e33031a2d52accbf133b81c",
+    "proposal_id": "p_d49f32b0285506e5bbd973d4",
+    "proposal_digest": "e02a4a79d7e268679626a8e12a38e2b5ad59a4bb9734575717bc9affb7f7bbdb",
+    "upstream_state": "current_for_human_review",
+    "upstream_blockers": [],
+    "declared_relation_state": "relations_mismatch",
+    "results": [
+      {
+        "id": "retry-methods",
+        "scope": {
+          "api_version": "v1",
+          "policy": "retry-methods"
+        },
+        "relation": "code_subset_of_document",
+        "value_type": "string_set",
+        "status": "mismatch",
+        "reasons": [
+          {
+            "code": "code_members_not_documented"
+          }
+        ],
+        "document": {
+          "artifact_id": "docs/reference.md",
+          "kind": "document",
+          "artifact_digest": "9d92fcbbffcb4e35f449278e667194bb298cb871580f88ea7f5820bdc1635873",
+          "rendered_digest": "36efe8bf0180ee49d6190ad44bf3e6a159bcd3c4837877f37b9daf77a50d03fb",
+          "dependencies": {
+            "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+          },
+          "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"]}\n",
+          "snippet_digest": "ef59a8be781a797c36d36fc929e27c06a5d9409e9332023ff65be3ee37e29b3d",
+          "location": {
+            "start_offset": 132,
+            "end_offset": 167,
+            "start_line": 8,
+            "end_line": 8
+          },
+          "resolved": true,
+          "value": [
+            "GET",
+            "HEAD"
+          ],
+          "normalized_value": [
+            "GET",
+            "HEAD"
+          ],
+          "reasons": [],
+          "render_basis": "captured_candidate_current_claims"
+        },
+        "code": {
+          "artifact_id": "code/client_config.py",
+          "kind": "code",
+          "artifact_digest": "fdd65b44e2ec0966192f778b2cdc27ea4bfb247c6ef36b6c6431f2ae3f5e4988",
+          "rendered_digest": "d4e3ddf71e67f6d3d09c2967020c455d954245fa98d5083aeb5ec65726069362",
+          "dependencies": {
+            "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+          },
+          "snippet": "ALLOWED_METHODS = {\"GET\", \"HEAD\", \"POST\"}",
+          "snippet_digest": "5d3b20b32341ceb1b55fb8a35ef93f09c8e2d620c246002cccfe8357b2b6e94c",
+          "location": {
+            "start_offset": 81,
+            "end_offset": 122,
+            "start_line": 3,
+            "end_line": 3
+          },
+          "resolved": true,
+          "value": [
+            "GET",
+            "HEAD",
+            "POST"
+          ],
+          "normalized_value": [
+            "GET",
+            "HEAD",
+            "POST"
+          ],
+          "reasons": [],
+          "render_basis": "captured_candidate_current_claims"
+        }
+      }
+    ],
+    "blockers": [
+      {
+        "code": "obligation_mismatch",
+        "obligation_id": "retry-methods"
+      }
+    ],
+    "state": "blocked",
+    "requires_human_review": true,
+    "auto_accept": false,
+    "atomic_capture": false,
+    "live_state_checked": false,
+    "limits": [
+      "Only caller-declared obligations are compared; completeness of their selection is not established.",
+      "Scope and mappings from prose to fields are caller-declared metadata, not inferred or verified semantics.",
+      "A Python literal declaration does not establish program behavior or fulfillment of a prose promise.",
+      "Only the embedded review-set snapshot is examined; no live state or cross-database transaction is checked.",
+      "Rendering uses the captured candidate and its currently observed claims; it does not repair stale proposal read expectations.",
+      "A match does not clear upstream blockers, record human review, or grant Store.accept or publication rights.",
+      "Content hashes establish internal consistency, not authorship, independent review, truth, or completeness."
+    ]
+  }
+}

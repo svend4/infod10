@@ -1,0 +1,59 @@
+{
+  "before": {
+    "subject": "fictional-api-client",
+    "property": "declared-retry-methods",
+    "scope": {
+      "version": "v1",
+      "policy": "retry-methods"
+    },
+    "kind": "specification",
+    "modality": "asserted",
+    "polarity": "positive",
+    "value": {
+      "type": "set",
+      "members": [
+        "GET"
+      ],
+      "complete": true
+    },
+    "attribution": "programmed scenario author",
+    "evidence": {
+      "source_id": "fictional-retry-policy",
+      "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+      "quote": "The baseline declared retry methods are GET."
+    },
+    "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nРазрешённые методы политики повторов: GET.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\"]}\n```\n"
+  },
+  "after": {
+    "subject": "fictional-api-client",
+    "property": "declared-retry-methods",
+    "scope": {
+      "version": "v1",
+      "policy": "retry-methods"
+    },
+    "kind": "specification",
+    "modality": "asserted",
+    "polarity": "positive",
+    "value": {
+      "type": "set",
+      "members": [
+        "GET",
+        "HEAD"
+      ],
+      "complete": true
+    },
+    "attribution": "programmed scenario author",
+    "evidence": {
+      "source_id": "fictional-retry-policy",
+      "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+      "quote": "The documented allowed retry methods are GET and HEAD."
+    },
+    "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET и HEAD.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"]}\n```\n"
+  },
+  "sources": {
+    "fictional-retry-policy": {
+      "text": "FICTIONAL AUTHORED RETRY-POLICY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe documented allowed retry methods are GET and HEAD.\nThe unsafe configuration initially declares GET, HEAD and POST.\nThe fixed configuration initially declares GET and HEAD.\nThe dynamic configuration initially declares GET and HEAD, then adds POST.\n",
+      "sha256": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98"
+    }
+  }
+}

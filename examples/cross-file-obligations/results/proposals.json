@@ -1,0 +1,218 @@
+{
+  "document": {
+    "id": "p_64c29c850760d490bbea5913",
+    "task_id": "obligation-document",
+    "author": "obligation-document-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Author the explicitly declared retry-policy configuration.",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "docs/reference.md": "9dfe0247f6a8c0e20d5e08047125fb6475740a177d8b630917397fd9877cb00f"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "docs/reference.md",
+          "kind": "document",
+          "template": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET и HEAD.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"]}\n```\n"
+        }
+      ]
+    },
+    "digest": "739393a368fc48f96b395befcb4890e5024208f3ff849033ba4a7d7765c71368",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "unsafe": {
+    "id": "p_0d7f9754fd6cd42e2451d9ce",
+    "task_id": "obligation-unsafe",
+    "author": "obligation-unsafe-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Author the explicitly declared retry-policy configuration.",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config.py": "0caf43ac1fe6e18d93551e61a22dce71baf1a9515a54af8c3986b4ea07ef2ffd"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional configuration; proposed data, not executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\", \"POST\"}\n"
+        }
+      ]
+    },
+    "digest": "6b844892fea34172342424e96d1c85c8f7c3f8a7bff45bda8f208fa4fa3d4464",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "fixed": {
+    "id": "p_9f4c85f8b07bef7aa415d8c4",
+    "task_id": "obligation-fixed",
+    "author": "obligation-fixed-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Author the explicitly declared retry-policy configuration.",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config.py": "0caf43ac1fe6e18d93551e61a22dce71baf1a9515a54af8c3986b4ea07ef2ffd"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional configuration; proposed data, not executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\n"
+        }
+      ]
+    },
+    "digest": "31dc5763fff07f42adaf44dfceb264e16b5cf9127fdd9b96e6b2e55cc1eaf5b7",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "dynamic": {
+    "id": "p_beaae03fdab675ce4bb633bb",
+    "task_id": "obligation-dynamic",
+    "author": "obligation-dynamic-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Author the explicitly declared retry-policy configuration.",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config.py": "0caf43ac1fe6e18d93551e61a22dce71baf1a9515a54af8c3986b4ea07ef2ffd"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional configuration; mutation is outside the static grammar.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nALLOWED_METHODS.add(\"POST\")\n"
+        }
+      ]
+    },
+    "digest": "88057344f4ae1e2307ede9661113f50445fc17a1e922301f179b0fec9398a428",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "composite-unsafe": {
+    "id": "p_d49f32b0285506e5bbd973d4",
+    "task_id": "obligation-compose-unsafe",
+    "author": "obligation-integrator",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "{\"components\":[{\"digest\":\"739393a368fc48f96b395befcb4890e5024208f3ff849033ba4a7d7765c71368\",\"proposal_id\":\"p_64c29c850760d490bbea5913\",\"write_ids\":[\"docs/reference.md\"]},{\"digest\":\"6b844892fea34172342424e96d1c85c8f7c3f8a7bff45bda8f208fa4fa3d4464\",\"proposal_id\":\"p_0d7f9754fd6cd42e2451d9ce\",\"write_ids\":[\"code/client_config.py\"]}],\"text\":\"Compose the document with the unsafe configuration for declared relation analysis.\"}",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config.py": "0caf43ac1fe6e18d93551e61a22dce71baf1a9515a54af8c3986b4ea07ef2ffd",
+        "docs/reference.md": "9dfe0247f6a8c0e20d5e08047125fb6475740a177d8b630917397fd9877cb00f"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional configuration; proposed data, not executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\", \"POST\"}\n"
+        },
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "docs/reference.md",
+          "kind": "document",
+          "template": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET и HEAD.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"]}\n```\n"
+        }
+      ]
+    },
+    "digest": "e02a4a79d7e268679626a8e12a38e2b5ad59a4bb9734575717bc9affb7f7bbdb",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "composite-fixed": {
+    "id": "p_4cdd92970b23c5cdfaa589b6",
+    "task_id": "obligation-compose-fixed",
+    "author": "obligation-integrator",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "{\"components\":[{\"digest\":\"739393a368fc48f96b395befcb4890e5024208f3ff849033ba4a7d7765c71368\",\"proposal_id\":\"p_64c29c850760d490bbea5913\",\"write_ids\":[\"docs/reference.md\"]},{\"digest\":\"31dc5763fff07f42adaf44dfceb264e16b5cf9127fdd9b96e6b2e55cc1eaf5b7\",\"proposal_id\":\"p_9f4c85f8b07bef7aa415d8c4\",\"write_ids\":[\"code/client_config.py\"]}],\"text\":\"Compose the document with the fixed configuration for declared relation analysis.\"}",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config.py": "0caf43ac1fe6e18d93551e61a22dce71baf1a9515a54af8c3986b4ea07ef2ffd",
+        "docs/reference.md": "9dfe0247f6a8c0e20d5e08047125fb6475740a177d8b630917397fd9877cb00f"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional configuration; proposed data, not executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\n"
+        },
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "docs/reference.md",
+          "kind": "document",
+          "template": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET и HEAD.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"]}\n```\n"
+        }
+      ]
+    },
+    "digest": "6f1e4ee4b2a338cdfa67f02025bed1869586f4343100a84b6a640195677bdac1",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "composite-dynamic": {
+    "id": "p_0bbc8493b97c52a0e87c98be",
+    "task_id": "obligation-compose-dynamic",
+    "author": "obligation-integrator",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "{\"components\":[{\"digest\":\"739393a368fc48f96b395befcb4890e5024208f3ff849033ba4a7d7765c71368\",\"proposal_id\":\"p_64c29c850760d490bbea5913\",\"write_ids\":[\"docs/reference.md\"]},{\"digest\":\"88057344f4ae1e2307ede9661113f50445fc17a1e922301f179b0fec9398a428\",\"proposal_id\":\"p_beaae03fdab675ce4bb633bb\",\"write_ids\":[\"code/client_config.py\"]}],\"text\":\"Compose the document with the dynamic configuration for declared relation analysis.\"}",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config.py": "0caf43ac1fe6e18d93551e61a22dce71baf1a9515a54af8c3986b4ea07ef2ffd",
+        "docs/reference.md": "9dfe0247f6a8c0e20d5e08047125fb6475740a177d8b630917397fd9877cb00f"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional configuration; mutation is outside the static grammar.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nALLOWED_METHODS.add(\"POST\")\n"
+        },
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "docs/reference.md",
+          "kind": "document",
+          "template": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET и HEAD.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"]}\n```\n"
+        }
+      ]
+    },
+    "digest": "fdd8e3970cc6e85a1b775e06f857b955365e182debae17fa9cbe4a17e9d47552",
+    "status": "proposed",
+    "accepted_revision": null
+  }
+}

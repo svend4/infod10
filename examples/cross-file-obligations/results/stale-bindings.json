@@ -1,0 +1,128 @@
+[
+  {
+    "artifact_id": "docs/reference.md",
+    "packet_id": "pkt_93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+    "pair": {
+      "before": {
+        "subject": "fictional-api-client",
+        "property": "declared-retry-methods",
+        "scope": {
+          "version": "v1",
+          "policy": "retry-methods"
+        },
+        "kind": "specification",
+        "modality": "asserted",
+        "polarity": "positive",
+        "value": {
+          "type": "set",
+          "members": [
+            "GET"
+          ],
+          "complete": true
+        },
+        "attribution": "programmed scenario author",
+        "evidence": {
+          "source_id": "fictional-retry-policy",
+          "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+          "quote": "The baseline declared retry methods are GET."
+        },
+        "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nРазрешённые методы политики повторов: GET.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\"]}\n```\n"
+      },
+      "after": {
+        "subject": "fictional-api-client",
+        "property": "declared-retry-methods",
+        "scope": {
+          "version": "v1",
+          "policy": "retry-methods"
+        },
+        "kind": "specification",
+        "modality": "asserted",
+        "polarity": "positive",
+        "value": {
+          "type": "set",
+          "members": [
+            "GET",
+            "HEAD"
+          ],
+          "complete": true
+        },
+        "attribution": "programmed scenario author",
+        "evidence": {
+          "source_id": "fictional-retry-policy",
+          "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+          "quote": "The documented allowed retry methods are GET and HEAD."
+        },
+        "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET и HEAD.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"]}\n```\n"
+      },
+      "sources": {
+        "fictional-retry-policy": {
+          "text": "FICTIONAL AUTHORED RETRY-POLICY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe documented allowed retry methods are GET and HEAD.\nThe unsafe configuration initially declares GET, HEAD and POST.\nThe fixed configuration initially declares GET and HEAD.\nThe dynamic configuration initially declares GET and HEAD, then adds POST.\n",
+          "sha256": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98"
+        }
+      }
+    }
+  },
+  {
+    "artifact_id": "code/client_config.py",
+    "packet_id": "pkt_c0b405b2a0d89116a13e6558f01e2b21258bf7a10658503019b35610d41a9af9",
+    "pair": {
+      "before": {
+        "subject": "fictional-api-client",
+        "property": "declared-retry-methods",
+        "scope": {
+          "version": "v1",
+          "policy": "retry-methods"
+        },
+        "kind": "specification",
+        "modality": "asserted",
+        "polarity": "positive",
+        "value": {
+          "type": "set",
+          "members": [
+            "GET"
+          ],
+          "complete": true
+        },
+        "attribution": "programmed scenario author",
+        "evidence": {
+          "source_id": "fictional-retry-policy",
+          "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+          "quote": "The baseline declared retry methods are GET."
+        },
+        "text": "\"\"\"Fictional client configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\"}\n"
+      },
+      "after": {
+        "subject": "fictional-api-client",
+        "property": "declared-retry-methods",
+        "scope": {
+          "version": "v1",
+          "policy": "retry-methods"
+        },
+        "kind": "specification",
+        "modality": "asserted",
+        "polarity": "positive",
+        "value": {
+          "type": "set",
+          "members": [
+            "GET",
+            "HEAD"
+          ],
+          "complete": true
+        },
+        "attribution": "programmed scenario author",
+        "evidence": {
+          "source_id": "fictional-retry-policy",
+          "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+          "quote": "The fixed configuration initially declares GET and HEAD."
+        },
+        "text": "\"\"\"Fictional configuration; proposed data, not executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\n"
+      },
+      "sources": {
+        "fictional-retry-policy": {
+          "text": "FICTIONAL AUTHORED RETRY-POLICY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe documented allowed retry methods are GET and HEAD.\nThe unsafe configuration initially declares GET, HEAD and POST.\nThe fixed configuration initially declares GET and HEAD.\nThe dynamic configuration initially declares GET and HEAD, then adds POST.\n",
+          "sha256": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98"
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,895 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T15:32:17.817517+02:00",
+  "report_timezone": "Europe/Berlin",
+  "workspace": "/tmp/infod10-obligations-development-01",
+  "uses_llm": false,
+  "fictional_sources": true,
+  "executes_proposed_code": false,
+  "requires_human_review": true,
+  "human_review_recorded": false,
+  "auto_accept": false,
+  "calls_store_accept": true,
+  "store_accept_scope": "One background fictional timeout claim only.",
+  "accepts_document_or_code_proposals": false,
+  "publishes_release": false,
+  "execution": {
+    "requested_pool_workers": 3,
+    "submitted_author_jobs": 4,
+    "submitted_editorial_review_jobs": 8,
+    "author_ids": [
+      "obligation-document-author",
+      "obligation-dynamic-author",
+      "obligation-fixed-author",
+      "obligation-unsafe-author"
+    ],
+    "observed_author_threads": [
+      "obligation-author_0",
+      "obligation-author_1"
+    ],
+    "observed_editorial_threads": [
+      "obligation-review_0",
+      "obligation-review_1",
+      "obligation-review_2"
+    ],
+    "integrator_id": "obligation-integrator",
+    "component_formal_reviewer_id": "component-formal-agent",
+    "composite_formal_reviewer_id": "composite-formal-agent",
+    "all_actor_kinds": [
+      "agent"
+    ]
+  },
+  "authors": {
+    "document": {
+      "label": "document",
+      "author": "obligation-document-author",
+      "thread": "obligation-author_0",
+      "task_id": "obligation-document",
+      "proposal_id": "p_64c29c850760d490bbea5913",
+      "digest": "739393a368fc48f96b395befcb4890e5024208f3ff849033ba4a7d7765c71368",
+      "replayed": false
+    },
+    "unsafe": {
+      "label": "unsafe",
+      "author": "obligation-unsafe-author",
+      "thread": "obligation-author_1",
+      "task_id": "obligation-unsafe",
+      "proposal_id": "p_0d7f9754fd6cd42e2451d9ce",
+      "digest": "6b844892fea34172342424e96d1c85c8f7c3f8a7bff45bda8f208fa4fa3d4464",
+      "replayed": false
+    },
+    "fixed": {
+      "label": "fixed",
+      "author": "obligation-fixed-author",
+      "thread": "obligation-author_0",
+      "task_id": "obligation-fixed",
+      "proposal_id": "p_9f4c85f8b07bef7aa415d8c4",
+      "digest": "31dc5763fff07f42adaf44dfceb264e16b5cf9127fdd9b96e6b2e55cc1eaf5b7",
+      "replayed": false
+    },
+    "dynamic": {
+      "label": "dynamic",
+      "author": "obligation-dynamic-author",
+      "thread": "obligation-author_1",
+      "task_id": "obligation-dynamic",
+      "proposal_id": "p_beaae03fdab675ce4bb633bb",
+      "digest": "88057344f4ae1e2307ede9661113f50445fc17a1e922301f179b0fec9398a428",
+      "replayed": false
+    }
+  },
+  "component_reviews": {
+    "document": {
+      "proposal_id": "p_64c29c850760d490bbea5913",
+      "proposal_digest": "739393a368fc48f96b395befcb4890e5024208f3ff849033ba4a7d7765c71368",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 1
+    },
+    "unsafe": {
+      "proposal_id": "p_0d7f9754fd6cd42e2451d9ce",
+      "proposal_digest": "6b844892fea34172342424e96d1c85c8f7c3f8a7bff45bda8f208fa4fa3d4464",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 2
+    },
+    "fixed": {
+      "proposal_id": "p_9f4c85f8b07bef7aa415d8c4",
+      "proposal_digest": "31dc5763fff07f42adaf44dfceb264e16b5cf9127fdd9b96e6b2e55cc1eaf5b7",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 4
+    },
+    "dynamic": {
+      "proposal_id": "p_beaae03fdab675ce4bb633bb",
+      "proposal_digest": "88057344f4ae1e2307ede9661113f50445fc17a1e922301f179b0fec9398a428",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 5
+    }
+  },
+  "compositions": {
+    "unsafe": {
+      "proposal_id": "p_d49f32b0285506e5bbd973d4",
+      "digest": "e02a4a79d7e268679626a8e12a38e2b5ad59a4bb9734575717bc9affb7f7bbdb",
+      "replayed": false,
+      "components": [
+        {
+          "position": 1,
+          "proposal_id": "p_64c29c850760d490bbea5913",
+          "digest": "739393a368fc48f96b395befcb4890e5024208f3ff849033ba4a7d7765c71368",
+          "write_ids": [
+            "docs/reference.md"
+          ]
+        },
+        {
+          "position": 2,
+          "proposal_id": "p_0d7f9754fd6cd42e2451d9ce",
+          "digest": "6b844892fea34172342424e96d1c85c8f7c3f8a7bff45bda8f208fa4fa3d4464",
+          "write_ids": [
+            "code/client_config.py"
+          ]
+        }
+      ]
+    },
+    "fixed": {
+      "proposal_id": "p_4cdd92970b23c5cdfaa589b6",
+      "digest": "6f1e4ee4b2a338cdfa67f02025bed1869586f4343100a84b6a640195677bdac1",
+      "replayed": false,
+      "components": [
+        {
+          "position": 1,
+          "proposal_id": "p_64c29c850760d490bbea5913",
+          "digest": "739393a368fc48f96b395befcb4890e5024208f3ff849033ba4a7d7765c71368",
+          "write_ids": [
+            "docs/reference.md"
+          ]
+        },
+        {
+          "position": 2,
+          "proposal_id": "p_9f4c85f8b07bef7aa415d8c4",
+          "digest": "31dc5763fff07f42adaf44dfceb264e16b5cf9127fdd9b96e6b2e55cc1eaf5b7",
+          "write_ids": [
+            "code/client_config.py"
+          ]
+        }
+      ]
+    },
+    "dynamic": {
+      "proposal_id": "p_0bbc8493b97c52a0e87c98be",
+      "digest": "fdd8e3970cc6e85a1b775e06f857b955365e182debae17fa9cbe4a17e9d47552",
+      "replayed": false,
+      "components": [
+        {
+          "position": 1,
+          "proposal_id": "p_64c29c850760d490bbea5913",
+          "digest": "739393a368fc48f96b395befcb4890e5024208f3ff849033ba4a7d7765c71368",
+          "write_ids": [
+            "docs/reference.md"
+          ]
+        },
+        {
+          "position": 2,
+          "proposal_id": "p_beaae03fdab675ce4bb633bb",
+          "digest": "88057344f4ae1e2307ede9661113f50445fc17a1e922301f179b0fec9398a428",
+          "write_ids": [
+            "code/client_config.py"
+          ]
+        }
+      ]
+    }
+  },
+  "composite_reviews": {
+    "unsafe": {
+      "proposal_id": "p_d49f32b0285506e5bbd973d4",
+      "proposal_digest": "e02a4a79d7e268679626a8e12a38e2b5ad59a4bb9734575717bc9affb7f7bbdb",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "composite-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 3
+    },
+    "fixed": {
+      "proposal_id": "p_4cdd92970b23c5cdfaa589b6",
+      "proposal_digest": "6f1e4ee4b2a338cdfa67f02025bed1869586f4343100a84b6a640195677bdac1",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "composite-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 6
+    },
+    "dynamic": {
+      "proposal_id": "p_0bbc8493b97c52a0e87c98be",
+      "proposal_digest": "fdd8e3970cc6e85a1b775e06f857b955365e182debae17fa9cbe4a17e9d47552",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "composite-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 7
+    }
+  },
+  "editorial_reviews": [
+    {
+      "label": "document",
+      "reviewer": "editorial-agent-a",
+      "thread": "obligation-review_0",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+        "packet_digest": "93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+        "reviewer": "editorial-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+        "operation_id": "document-editorial-agent-a-1",
+        "supersedes": null,
+        "decision_id": "dec_c936a0777097d002268ea2bcc1b6bf4bf21962a9725370a419079cafe5b523ad",
+        "request_digest": "c936a0777097d002268ea2bcc1b6bf4bf21962a9725370a419079cafe5b523ad",
+        "recorded_at": "2026-10-16T13:32:17.025089+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "document",
+      "reviewer": "editorial-agent-b",
+      "thread": "obligation-review_1",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+        "packet_digest": "93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+        "reviewer": "editorial-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+        "operation_id": "document-editorial-agent-b-1",
+        "supersedes": null,
+        "decision_id": "dec_8c37aaec35d670ce29a3d58027d1122bf0abeffbd55a00a14352e1fe65a6a442",
+        "request_digest": "8c37aaec35d670ce29a3d58027d1122bf0abeffbd55a00a14352e1fe65a6a442",
+        "recorded_at": "2026-10-16T13:32:17.018301+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "unsafe",
+      "reviewer": "editorial-agent-a",
+      "thread": "obligation-review_2",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+        "packet_digest": "1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+        "reviewer": "editorial-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+        "operation_id": "unsafe-editorial-agent-a-1",
+        "supersedes": null,
+        "decision_id": "dec_e2ef0416aaad52509d4c6e2b4d1c9bed4101d93b7a11992a57630c09910f037c",
+        "request_digest": "e2ef0416aaad52509d4c6e2b4d1c9bed4101d93b7a11992a57630c09910f037c",
+        "recorded_at": "2026-10-16T13:32:17.036181+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "unsafe",
+      "reviewer": "editorial-agent-b",
+      "thread": "obligation-review_1",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+        "packet_digest": "1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+        "reviewer": "editorial-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+        "operation_id": "unsafe-editorial-agent-b-1",
+        "supersedes": null,
+        "decision_id": "dec_19389e0960e9441b7a90524b38b180b292cd2867cbe769814dfeeeff2d1265ea",
+        "request_digest": "19389e0960e9441b7a90524b38b180b292cd2867cbe769814dfeeeff2d1265ea",
+        "recorded_at": "2026-10-16T13:32:17.021322+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "fixed",
+      "reviewer": "editorial-agent-a",
+      "thread": "obligation-review_0",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_c0b405b2a0d89116a13e6558f01e2b21258bf7a10658503019b35610d41a9af9",
+        "packet_digest": "c0b405b2a0d89116a13e6558f01e2b21258bf7a10658503019b35610d41a9af9",
+        "reviewer": "editorial-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+        "operation_id": "fixed-editorial-agent-a-1",
+        "supersedes": null,
+        "decision_id": "dec_b5be82837d302ef749054b9d51f8251608c863bcfcb9864637934c14973222bf",
+        "request_digest": "b5be82837d302ef749054b9d51f8251608c863bcfcb9864637934c14973222bf",
+        "recorded_at": "2026-10-16T13:32:17.219907+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "fixed",
+      "reviewer": "editorial-agent-b",
+      "thread": "obligation-review_1",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_c0b405b2a0d89116a13e6558f01e2b21258bf7a10658503019b35610d41a9af9",
+        "packet_digest": "c0b405b2a0d89116a13e6558f01e2b21258bf7a10658503019b35610d41a9af9",
+        "reviewer": "editorial-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+        "operation_id": "fixed-editorial-agent-b-1",
+        "supersedes": null,
+        "decision_id": "dec_45c69338af48c540afd9bde2293e2b6bd7205c56fc1d975d967935d58723e1ea",
+        "request_digest": "45c69338af48c540afd9bde2293e2b6bd7205c56fc1d975d967935d58723e1ea",
+        "recorded_at": "2026-10-16T13:32:17.222710+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "dynamic",
+      "reviewer": "editorial-agent-a",
+      "thread": "obligation-review_2",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_3a8e3fe4c307edd0f959341226e02c9c141bb6ee0348482fc8c4d30638e0c548",
+        "packet_digest": "3a8e3fe4c307edd0f959341226e02c9c141bb6ee0348482fc8c4d30638e0c548",
+        "reviewer": "editorial-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+        "operation_id": "dynamic-editorial-agent-a-1",
+        "supersedes": null,
+        "decision_id": "dec_41d99f0c7ff3200a1b853b05b7276d0ad5ad2267e9c468c87fa36d2a39c02e02",
+        "request_digest": "41d99f0c7ff3200a1b853b05b7276d0ad5ad2267e9c468c87fa36d2a39c02e02",
+        "recorded_at": "2026-10-16T13:32:17.224460+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "dynamic",
+      "reviewer": "editorial-agent-b",
+      "thread": "obligation-review_0",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_3a8e3fe4c307edd0f959341226e02c9c141bb6ee0348482fc8c4d30638e0c548",
+        "packet_digest": "3a8e3fe4c307edd0f959341226e02c9c141bb6ee0348482fc8c4d30638e0c548",
+        "reviewer": "editorial-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+        "operation_id": "dynamic-editorial-agent-b-1",
+        "supersedes": null,
+        "decision_id": "dec_b31d440d8fcab4f61ed23fed74d7d778271f2c1e636380e642e4dc87ff965222",
+        "request_digest": "b31d440d8fcab4f61ed23fed74d7d778271f2c1e636380e642e4dc87ff965222",
+        "recorded_at": "2026-10-16T13:32:17.221455+00:00",
+        "replayed": false
+      }
+    }
+  ],
+  "dependency_change": {
+    "submitted": {
+      "proposal_id": "p_ed0bec884ab2e18ee41bb08d",
+      "digest": "568d3b117416d475ee45f7e47399da7586e810f49d7e4701ef4c1108fb801ea8",
+      "replayed": false
+    },
+    "review": {
+      "proposal_id": "p_ed0bec884ab2e18ee41bb08d",
+      "proposal_digest": "568d3b117416d475ee45f7e47399da7586e810f49d7e4701ef4c1108fb801ea8",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "background-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {
+        "dossier-fixture": "0bd0cb015a3ee3bdb80f601c3988124beb330e73a742c7c502a5e26772c1ddc3"
+      },
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 8
+    },
+    "acceptance": {
+      "accepted": true,
+      "proposal_id": "p_ed0bec884ab2e18ee41bb08d",
+      "revision": 2,
+      "replayed": false,
+      "reasons": [],
+      "review_id": 8,
+      "coordinator": "background-coordinator"
+    }
+  },
+  "stages": {
+    "unsafe": {
+      "review_set_id": "rset_8f9cc63d4e4077179f4033da1fdfc7aa63f8007e6e33031a2d52accbf133b81c",
+      "review_set_state": "current_for_human_review",
+      "report_id": "obl_14feafba5c88d9c6ee4aa28cb7ecbdf0e2b712b305c253d477385fae653758aa",
+      "observation": {
+        "source_review_set_id": "rset_8f9cc63d4e4077179f4033da1fdfc7aa63f8007e6e33031a2d52accbf133b81c",
+        "source_review_set_digest": "8f9cc63d4e4077179f4033da1fdfc7aa63f8007e6e33031a2d52accbf133b81c",
+        "proposal_id": "p_d49f32b0285506e5bbd973d4",
+        "proposal_digest": "e02a4a79d7e268679626a8e12a38e2b5ad59a4bb9734575717bc9affb7f7bbdb",
+        "upstream_state": "current_for_human_review",
+        "upstream_blockers": [],
+        "declared_relation_state": "relations_mismatch",
+        "results": [
+          {
+            "id": "retry-methods",
+            "scope": {
+              "api_version": "v1",
+              "policy": "retry-methods"
+            },
+            "relation": "code_subset_of_document",
+            "value_type": "string_set",
+            "status": "mismatch",
+            "reasons": [
+              {
+                "code": "code_members_not_documented"
+              }
+            ],
+            "document": {
+              "artifact_id": "docs/reference.md",
+              "kind": "document",
+              "artifact_digest": "9d92fcbbffcb4e35f449278e667194bb298cb871580f88ea7f5820bdc1635873",
+              "rendered_digest": "36efe8bf0180ee49d6190ad44bf3e6a159bcd3c4837877f37b9daf77a50d03fb",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"]}\n",
+              "snippet_digest": "ef59a8be781a797c36d36fc929e27c06a5d9409e9332023ff65be3ee37e29b3d",
+              "location": {
+                "start_offset": 132,
+                "end_offset": 167,
+                "start_line": 8,
+                "end_line": 8
+              },
+              "resolved": true,
+              "value": [
+                "GET",
+                "HEAD"
+              ],
+              "normalized_value": [
+                "GET",
+                "HEAD"
+              ],
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "code": {
+              "artifact_id": "code/client_config.py",
+              "kind": "code",
+              "artifact_digest": "fdd65b44e2ec0966192f778b2cdc27ea4bfb247c6ef36b6c6431f2ae3f5e4988",
+              "rendered_digest": "d4e3ddf71e67f6d3d09c2967020c455d954245fa98d5083aeb5ec65726069362",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "snippet": "ALLOWED_METHODS = {\"GET\", \"HEAD\", \"POST\"}",
+              "snippet_digest": "5d3b20b32341ceb1b55fb8a35ef93f09c8e2d620c246002cccfe8357b2b6e94c",
+              "location": {
+                "start_offset": 81,
+                "end_offset": 122,
+                "start_line": 3,
+                "end_line": 3
+              },
+              "resolved": true,
+              "value": [
+                "GET",
+                "HEAD",
+                "POST"
+              ],
+              "normalized_value": [
+                "GET",
+                "HEAD",
+                "POST"
+              ],
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            }
+          }
+        ],
+        "blockers": [
+          {
+            "code": "obligation_mismatch",
+            "obligation_id": "retry-methods"
+          }
+        ],
+        "state": "blocked",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "atomic_capture": false,
+        "live_state_checked": false,
+        "limits": [
+          "Only caller-declared obligations are compared; completeness of their selection is not established.",
+          "Scope and mappings from prose to fields are caller-declared metadata, not inferred or verified semantics.",
+          "A Python literal declaration does not establish program behavior or fulfillment of a prose promise.",
+          "Only the embedded review-set snapshot is examined; no live state or cross-database transaction is checked.",
+          "Rendering uses the captured candidate and its currently observed claims; it does not repair stale proposal read expectations.",
+          "A match does not clear upstream blockers, record human review, or grant Store.accept or publication rights.",
+          "Content hashes establish internal consistency, not authorship, independent review, truth, or completeness."
+        ]
+      }
+    },
+    "fixed": {
+      "review_set_id": "rset_791a5ebcf12680642f1e44734f1c1ca352b6311a2029f2cd93b5d4115866ebee",
+      "review_set_state": "current_for_human_review",
+      "report_id": "obl_f93ce4b32f2c43dfbdf53a70d1a33666939cbcf407a94b6acf249776f9ef90a4",
+      "observation": {
+        "source_review_set_id": "rset_791a5ebcf12680642f1e44734f1c1ca352b6311a2029f2cd93b5d4115866ebee",
+        "source_review_set_digest": "791a5ebcf12680642f1e44734f1c1ca352b6311a2029f2cd93b5d4115866ebee",
+        "proposal_id": "p_4cdd92970b23c5cdfaa589b6",
+        "proposal_digest": "6f1e4ee4b2a338cdfa67f02025bed1869586f4343100a84b6a640195677bdac1",
+        "upstream_state": "current_for_human_review",
+        "upstream_blockers": [],
+        "declared_relation_state": "declared_relations_match",
+        "results": [
+          {
+            "id": "retry-methods",
+            "scope": {
+              "api_version": "v1",
+              "policy": "retry-methods"
+            },
+            "relation": "code_subset_of_document",
+            "value_type": "string_set",
+            "status": "match",
+            "reasons": [],
+            "document": {
+              "artifact_id": "docs/reference.md",
+              "kind": "document",
+              "artifact_digest": "9d92fcbbffcb4e35f449278e667194bb298cb871580f88ea7f5820bdc1635873",
+              "rendered_digest": "36efe8bf0180ee49d6190ad44bf3e6a159bcd3c4837877f37b9daf77a50d03fb",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"]}\n",
+              "snippet_digest": "ef59a8be781a797c36d36fc929e27c06a5d9409e9332023ff65be3ee37e29b3d",
+              "location": {
+                "start_offset": 132,
+                "end_offset": 167,
+                "start_line": 8,
+                "end_line": 8
+              },
+              "resolved": true,
+              "value": [
+                "GET",
+                "HEAD"
+              ],
+              "normalized_value": [
+                "GET",
+                "HEAD"
+              ],
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "code": {
+              "artifact_id": "code/client_config.py",
+              "kind": "code",
+              "artifact_digest": "3148ec4dee6d3921ca7221513e2c21ec2356ea1aa7ab4d94683bd1ec5383b09b",
+              "rendered_digest": "b680f0ecfe01cd7fa1e2ac0b66e3c94f5835b3aacaee018bb024a90205627079",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "snippet": "ALLOWED_METHODS = {\"GET\", \"HEAD\"}",
+              "snippet_digest": "a1830cd17d0292ed2a0c052684e4f5cb68a14d6e2b8fdba4ad37fc3cba3f4243",
+              "location": {
+                "start_offset": 81,
+                "end_offset": 114,
+                "start_line": 3,
+                "end_line": 3
+              },
+              "resolved": true,
+              "value": [
+                "GET",
+                "HEAD"
+              ],
+              "normalized_value": [
+                "GET",
+                "HEAD"
+              ],
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            }
+          }
+        ],
+        "blockers": [],
+        "state": "current_for_human_review",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "atomic_capture": false,
+        "live_state_checked": false,
+        "limits": [
+          "Only caller-declared obligations are compared; completeness of their selection is not established.",
+          "Scope and mappings from prose to fields are caller-declared metadata, not inferred or verified semantics.",
+          "A Python literal declaration does not establish program behavior or fulfillment of a prose promise.",
+          "Only the embedded review-set snapshot is examined; no live state or cross-database transaction is checked.",
+          "Rendering uses the captured candidate and its currently observed claims; it does not repair stale proposal read expectations.",
+          "A match does not clear upstream blockers, record human review, or grant Store.accept or publication rights.",
+          "Content hashes establish internal consistency, not authorship, independent review, truth, or completeness."
+        ]
+      }
+    },
+    "dynamic": {
+      "review_set_id": "rset_fa01a5835499bec49ba26e73c4fc257212c1ecf2b1fe247ac1ea1e176ea3fecf",
+      "review_set_state": "current_for_human_review",
+      "report_id": "obl_01b75301056f8fc9b8ce64658c698cab87ef99a560118670b31666b7be00261c",
+      "observation": {
+        "source_review_set_id": "rset_fa01a5835499bec49ba26e73c4fc257212c1ecf2b1fe247ac1ea1e176ea3fecf",
+        "source_review_set_digest": "fa01a5835499bec49ba26e73c4fc257212c1ecf2b1fe247ac1ea1e176ea3fecf",
+        "proposal_id": "p_0bbc8493b97c52a0e87c98be",
+        "proposal_digest": "fdd8e3970cc6e85a1b775e06f857b955365e182debae17fa9cbe4a17e9d47552",
+        "upstream_state": "current_for_human_review",
+        "upstream_blockers": [],
+        "declared_relation_state": "unresolved",
+        "results": [
+          {
+            "id": "retry-methods",
+            "scope": {
+              "api_version": "v1",
+              "policy": "retry-methods"
+            },
+            "relation": "code_subset_of_document",
+            "value_type": "string_set",
+            "status": "unresolved",
+            "reasons": [
+              {
+                "endpoint": "code",
+                "code": "unsupported_python_module_statement",
+                "line": 4
+              }
+            ],
+            "document": {
+              "artifact_id": "docs/reference.md",
+              "kind": "document",
+              "artifact_digest": "9d92fcbbffcb4e35f449278e667194bb298cb871580f88ea7f5820bdc1635873",
+              "rendered_digest": "36efe8bf0180ee49d6190ad44bf3e6a159bcd3c4837877f37b9daf77a50d03fb",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"]}\n",
+              "snippet_digest": "ef59a8be781a797c36d36fc929e27c06a5d9409e9332023ff65be3ee37e29b3d",
+              "location": {
+                "start_offset": 132,
+                "end_offset": 167,
+                "start_line": 8,
+                "end_line": 8
+              },
+              "resolved": true,
+              "value": [
+                "GET",
+                "HEAD"
+              ],
+              "normalized_value": [
+                "GET",
+                "HEAD"
+              ],
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "code": {
+              "artifact_id": "code/client_config.py",
+              "kind": "code",
+              "artifact_digest": "bd12bfe353a01bb2ac3e09f9e0a3a96dead1cdb569eb860dd380c9d03f455584",
+              "rendered_digest": "11cb79af28070c88d61eede831a1b00c37053fb2d643bea42a8b1b7be326dc9b",
+              "dependencies": {
+                "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+              },
+              "snippet": null,
+              "snippet_digest": null,
+              "location": null,
+              "resolved": false,
+              "value": null,
+              "normalized_value": null,
+              "reasons": [
+                {
+                  "code": "unsupported_python_module_statement",
+                  "line": 4
+                }
+              ],
+              "render_basis": "captured_candidate_current_claims"
+            }
+          }
+        ],
+        "blockers": [
+          {
+            "code": "obligation_unresolved",
+            "obligation_id": "retry-methods"
+          }
+        ],
+        "state": "blocked",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "atomic_capture": false,
+        "live_state_checked": false,
+        "limits": [
+          "Only caller-declared obligations are compared; completeness of their selection is not established.",
+          "Scope and mappings from prose to fields are caller-declared metadata, not inferred or verified semantics.",
+          "A Python literal declaration does not establish program behavior or fulfillment of a prose promise.",
+          "Only the embedded review-set snapshot is examined; no live state or cross-database transaction is checked.",
+          "Rendering uses the captured candidate and its currently observed claims; it does not repair stale proposal read expectations.",
+          "A match does not clear upstream blockers, record human review, or grant Store.accept or publication rights.",
+          "Content hashes establish internal consistency, not authorship, independent review, truth, or completeness."
+        ]
+      }
+    },
+    "stale": {
+      "review_set_id": "rset_097e5ef3ae9b4e1be52f4c78bf3d21afaf403dea76479075233f4c45cfec12bb",
+      "review_set_state": "blocked",
+      "report_id": "obl_af3db2f36a6382dc674952011ecf9f3e14831705fc552b11917e20dff4d670e8",
+      "observation": {
+        "source_review_set_id": "rset_097e5ef3ae9b4e1be52f4c78bf3d21afaf403dea76479075233f4c45cfec12bb",
+        "source_review_set_digest": "097e5ef3ae9b4e1be52f4c78bf3d21afaf403dea76479075233f4c45cfec12bb",
+        "proposal_id": "p_4cdd92970b23c5cdfaa589b6",
+        "proposal_digest": "6f1e4ee4b2a338cdfa67f02025bed1869586f4343100a84b6a640195677bdac1",
+        "upstream_state": "blocked",
+        "upstream_blockers": [
+          {
+            "actual": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d",
+            "code": "stale_read",
+            "expected": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+            "id": "api.timeout_seconds"
+          }
+        ],
+        "declared_relation_state": "declared_relations_match",
+        "results": [
+          {
+            "id": "retry-methods",
+            "scope": {
+              "api_version": "v1",
+              "policy": "retry-methods"
+            },
+            "relation": "code_subset_of_document",
+            "value_type": "string_set",
+            "status": "match",
+            "reasons": [],
+            "document": {
+              "artifact_id": "docs/reference.md",
+              "kind": "document",
+              "artifact_digest": "9d92fcbbffcb4e35f449278e667194bb298cb871580f88ea7f5820bdc1635873",
+              "rendered_digest": "ec8f8ec9b8fc0a6a0f9672b0723a25453204ac853eb0ae0ced5a8a8e788d513b",
+              "dependencies": {
+                "api.timeout_seconds": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+              },
+              "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"]}\n",
+              "snippet_digest": "ef59a8be781a797c36d36fc929e27c06a5d9409e9332023ff65be3ee37e29b3d",
+              "location": {
+                "start_offset": 132,
+                "end_offset": 167,
+                "start_line": 8,
+                "end_line": 8
+              },
+              "resolved": true,
+              "value": [
+                "GET",
+                "HEAD"
+              ],
+              "normalized_value": [
+                "GET",
+                "HEAD"
+              ],
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "code": {
+              "artifact_id": "code/client_config.py",
+              "kind": "code",
+              "artifact_digest": "3148ec4dee6d3921ca7221513e2c21ec2356ea1aa7ab4d94683bd1ec5383b09b",
+              "rendered_digest": "6ee30129f9b59c9e2ce1801e48a945da7ccbf015764c4790b338153d1fe3e87b",
+              "dependencies": {
+                "api.timeout_seconds": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+              },
+              "snippet": "ALLOWED_METHODS = {\"GET\", \"HEAD\"}",
+              "snippet_digest": "a1830cd17d0292ed2a0c052684e4f5cb68a14d6e2b8fdba4ad37fc3cba3f4243",
+              "location": {
+                "start_offset": 81,
+                "end_offset": 114,
+                "start_line": 3,
+                "end_line": 3
+              },
+              "resolved": true,
+              "value": [
+                "GET",
+                "HEAD"
+              ],
+              "normalized_value": [
+                "GET",
+                "HEAD"
+              ],
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            }
+          }
+        ],
+        "blockers": [
+          {
+            "actual": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d",
+            "code": "stale_read",
+            "expected": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+            "id": "api.timeout_seconds"
+          }
+        ],
+        "state": "blocked",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "atomic_capture": false,
+        "live_state_checked": false,
+        "limits": [
+          "Only caller-declared obligations are compared; completeness of their selection is not established.",
+          "Scope and mappings from prose to fields are caller-declared metadata, not inferred or verified semantics.",
+          "A Python literal declaration does not establish program behavior or fulfillment of a prose promise.",
+          "Only the embedded review-set snapshot is examined; no live state or cross-database transaction is checked.",
+          "Rendering uses the captured candidate and its currently observed claims; it does not repair stale proposal read expectations.",
+          "A match does not clear upstream blockers, record human review, or grant Store.accept or publication rights.",
+          "Content hashes establish internal consistency, not authorship, independent review, truth, or completeness."
+        ]
+      }
+    }
+  },
+  "final_runtime_status": {
+    "revision": 2,
+    "artifacts": 5,
+    "sources": 1,
+    "tasks": {
+      "done": 8
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 7
+    },
+    "events": 35,
+    "rules_version": "mvp-1"
+  },
+  "summary": {
+    "component_proposal_count": 4,
+    "composite_proposal_count": 3,
+    "review_set_count": 4,
+    "obligation_report_count": 4,
+    "packet_count": 4,
+    "decision_count": 8,
+    "journal_event_count": 18,
+    "extra_post_method_exposed": true,
+    "repaired_declared_relation_matches": true,
+    "dynamic_module_remains_unresolved": true,
+    "matching_values_do_not_hide_stale_basis": true,
+    "file_proposals_remain_unaccepted": true,
+    "human_review_recorded": false,
+    "auto_accept": false
+  },
+  "limitations": [
+    "Local authors and reviewers are programmed workers, not LLMs or independent experts.",
+    "The document fence and code symbol are caller-selected; scope metadata is declared, not inferred.",
+    "The comparison covers one declared policy value, not prose entailment or complete program behavior.",
+    "Set metadata and fictional scenario quotes are authored separately; citation integrity is not entailment or truth.",
+    "Dynamic metadata lists only the initial declaration and marks completeness false; mutation is not evaluated.",
+    "The shared document packet is intentionally reused and is not a new independent review.",
+    "Only the captured snapshot is analyzed; no live-state query or cross-database transaction occurs.",
+    "The scenario is not a quality benchmark, load measurement or execution of proposed Python code."
+  ]
+}

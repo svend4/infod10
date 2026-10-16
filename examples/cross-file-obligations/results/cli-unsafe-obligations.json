@@ -1,0 +1,1646 @@
+{
+  "created_at": "2026-10-16T13:33:04.702141+00:00",
+  "obligation_rules_version": "obligations-1",
+  "observation": {
+    "atomic_capture": false,
+    "auto_accept": false,
+    "blockers": [
+      {
+        "code": "obligation_mismatch",
+        "obligation_id": "retry-methods"
+      }
+    ],
+    "declared_relation_state": "relations_mismatch",
+    "limits": [
+      "Only caller-declared obligations are compared; completeness of their selection is not established.",
+      "Scope and mappings from prose to fields are caller-declared metadata, not inferred or verified semantics.",
+      "A Python literal declaration does not establish program behavior or fulfillment of a prose promise.",
+      "Only the embedded review-set snapshot is examined; no live state or cross-database transaction is checked.",
+      "Rendering uses the captured candidate and its currently observed claims; it does not repair stale proposal read expectations.",
+      "A match does not clear upstream blockers, record human review, or grant Store.accept or publication rights.",
+      "Content hashes establish internal consistency, not authorship, independent review, truth, or completeness."
+    ],
+    "live_state_checked": false,
+    "proposal_digest": "e02a4a79d7e268679626a8e12a38e2b5ad59a4bb9734575717bc9affb7f7bbdb",
+    "proposal_id": "p_d49f32b0285506e5bbd973d4",
+    "requires_human_review": true,
+    "results": [
+      {
+        "code": {
+          "artifact_digest": "fdd65b44e2ec0966192f778b2cdc27ea4bfb247c6ef36b6c6431f2ae3f5e4988",
+          "artifact_id": "code/client_config.py",
+          "dependencies": {
+            "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+          },
+          "kind": "code",
+          "location": {
+            "end_line": 3,
+            "end_offset": 122,
+            "start_line": 3,
+            "start_offset": 81
+          },
+          "normalized_value": [
+            "GET",
+            "HEAD",
+            "POST"
+          ],
+          "reasons": [],
+          "render_basis": "captured_candidate_current_claims",
+          "rendered_digest": "d4e3ddf71e67f6d3d09c2967020c455d954245fa98d5083aeb5ec65726069362",
+          "resolved": true,
+          "snippet": "ALLOWED_METHODS = {\"GET\", \"HEAD\", \"POST\"}",
+          "snippet_digest": "5d3b20b32341ceb1b55fb8a35ef93f09c8e2d620c246002cccfe8357b2b6e94c",
+          "value": [
+            "GET",
+            "HEAD",
+            "POST"
+          ]
+        },
+        "document": {
+          "artifact_digest": "9d92fcbbffcb4e35f449278e667194bb298cb871580f88ea7f5820bdc1635873",
+          "artifact_id": "docs/reference.md",
+          "dependencies": {
+            "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+          },
+          "kind": "document",
+          "location": {
+            "end_line": 8,
+            "end_offset": 167,
+            "start_line": 8,
+            "start_offset": 132
+          },
+          "normalized_value": [
+            "GET",
+            "HEAD"
+          ],
+          "reasons": [],
+          "render_basis": "captured_candidate_current_claims",
+          "rendered_digest": "36efe8bf0180ee49d6190ad44bf3e6a159bcd3c4837877f37b9daf77a50d03fb",
+          "resolved": true,
+          "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"]}\n",
+          "snippet_digest": "ef59a8be781a797c36d36fc929e27c06a5d9409e9332023ff65be3ee37e29b3d",
+          "value": [
+            "GET",
+            "HEAD"
+          ]
+        },
+        "id": "retry-methods",
+        "reasons": [
+          {
+            "code": "code_members_not_documented"
+          }
+        ],
+        "relation": "code_subset_of_document",
+        "scope": {
+          "api_version": "v1",
+          "policy": "retry-methods"
+        },
+        "status": "mismatch",
+        "value_type": "string_set"
+      }
+    ],
+    "source_review_set_digest": "8f9cc63d4e4077179f4033da1fdfc7aa63f8007e6e33031a2d52accbf133b81c",
+    "source_review_set_id": "rset_8f9cc63d4e4077179f4033da1fdfc7aa63f8007e6e33031a2d52accbf133b81c",
+    "state": "blocked",
+    "upstream_blockers": [],
+    "upstream_state": "current_for_human_review"
+  },
+  "report_digest": "04ad5f861cf485ef63d201e6f501420f3ca0d926563621b5d8957c38656288fb",
+  "report_id": "obl_04ad5f861cf485ef63d201e6f501420f3ca0d926563621b5d8957c38656288fb",
+  "review_set": {
+    "bindings": [
+      {
+        "artifact_id": "code/client_config.py",
+        "packet_id": "pkt_1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+        "pair": {
+          "after": {
+            "attribution": "programmed scenario author",
+            "evidence": {
+              "quote": "The unsafe configuration initially declares GET, HEAD and POST.",
+              "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+              "source_id": "fictional-retry-policy"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "declared-retry-methods",
+            "scope": {
+              "policy": "retry-methods",
+              "version": "v1"
+            },
+            "subject": "fictional-api-client",
+            "text": "\"\"\"Fictional configuration; proposed data, not executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\", \"POST\"}\n",
+            "value": {
+              "complete": true,
+              "members": [
+                "GET",
+                "HEAD",
+                "POST"
+              ],
+              "type": "set"
+            }
+          },
+          "before": {
+            "attribution": "programmed scenario author",
+            "evidence": {
+              "quote": "The baseline declared retry methods are GET.",
+              "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+              "source_id": "fictional-retry-policy"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "declared-retry-methods",
+            "scope": {
+              "policy": "retry-methods",
+              "version": "v1"
+            },
+            "subject": "fictional-api-client",
+            "text": "\"\"\"Fictional client configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\"}\n",
+            "value": {
+              "complete": true,
+              "members": [
+                "GET"
+              ],
+              "type": "set"
+            }
+          },
+          "sources": {
+            "fictional-retry-policy": {
+              "sha256": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+              "text": "FICTIONAL AUTHORED RETRY-POLICY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe documented allowed retry methods are GET and HEAD.\nThe unsafe configuration initially declares GET, HEAD and POST.\nThe fixed configuration initially declares GET and HEAD.\nThe dynamic configuration initially declares GET and HEAD, then adds POST.\n"
+            }
+          }
+        }
+      },
+      {
+        "artifact_id": "docs/reference.md",
+        "packet_id": "pkt_93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+        "pair": {
+          "after": {
+            "attribution": "programmed scenario author",
+            "evidence": {
+              "quote": "The documented allowed retry methods are GET and HEAD.",
+              "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+              "source_id": "fictional-retry-policy"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "declared-retry-methods",
+            "scope": {
+              "policy": "retry-methods",
+              "version": "v1"
+            },
+            "subject": "fictional-api-client",
+            "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET и HEAD.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"]}\n```\n",
+            "value": {
+              "complete": true,
+              "members": [
+                "GET",
+                "HEAD"
+              ],
+              "type": "set"
+            }
+          },
+          "before": {
+            "attribution": "programmed scenario author",
+            "evidence": {
+              "quote": "The baseline declared retry methods are GET.",
+              "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+              "source_id": "fictional-retry-policy"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "declared-retry-methods",
+            "scope": {
+              "policy": "retry-methods",
+              "version": "v1"
+            },
+            "subject": "fictional-api-client",
+            "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nРазрешённые методы политики повторов: GET.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\"]}\n```\n",
+            "value": {
+              "complete": true,
+              "members": [
+                "GET"
+              ],
+              "type": "set"
+            }
+          },
+          "sources": {
+            "fictional-retry-policy": {
+              "sha256": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+              "text": "FICTIONAL AUTHORED RETRY-POLICY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe documented allowed retry methods are GET and HEAD.\nThe unsafe configuration initially declares GET, HEAD and POST.\nThe fixed configuration initially declares GET and HEAD.\nThe dynamic configuration initially declares GET and HEAD, then adds POST.\n"
+            }
+          }
+        }
+      }
+    ],
+    "created_at": "2026-10-16T13:32:17.069553+00:00",
+    "dossier_rules_version": "dossier-1",
+    "journal_snapshot": {
+      "actors": [
+        {
+          "id": "editorial-agent-a",
+          "kind": "agent"
+        },
+        {
+          "id": "editorial-agent-b",
+          "kind": "agent"
+        },
+        {
+          "id": "obligation-document-author",
+          "kind": "agent"
+        },
+        {
+          "id": "obligation-unsafe-author",
+          "kind": "agent"
+        }
+      ],
+      "auto_accept": false,
+      "current_policy": {
+        "actor_identity": "self_declared_local",
+        "agent_agreement_min": 2,
+        "auto_accept": false,
+        "latest_decision_per_reviewer": true,
+        "requires_human_review": true,
+        "version": "editorial-1"
+      },
+      "current_rules_version": "semantic-1",
+      "decisions": [
+        {
+          "actor_kind": "agent",
+          "decision_id": "dec_8c37aaec35d670ce29a3d58027d1122bf0abeffbd55a00a14352e1fe65a6a442",
+          "operation_id": "document-editorial-agent-b-1",
+          "packet_digest": "93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+          "packet_id": "pkt_93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+          "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+          "recorded_at": "2026-10-16T13:32:17.018301+00:00",
+          "request_digest": "8c37aaec35d670ce29a3d58027d1122bf0abeffbd55a00a14352e1fe65a6a442",
+          "reviewer": "editorial-agent-b",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        {
+          "actor_kind": "agent",
+          "decision_id": "dec_19389e0960e9441b7a90524b38b180b292cd2867cbe769814dfeeeff2d1265ea",
+          "operation_id": "unsafe-editorial-agent-b-1",
+          "packet_digest": "1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+          "packet_id": "pkt_1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+          "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+          "recorded_at": "2026-10-16T13:32:17.021322+00:00",
+          "request_digest": "19389e0960e9441b7a90524b38b180b292cd2867cbe769814dfeeeff2d1265ea",
+          "reviewer": "editorial-agent-b",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        {
+          "actor_kind": "agent",
+          "decision_id": "dec_c936a0777097d002268ea2bcc1b6bf4bf21962a9725370a419079cafe5b523ad",
+          "operation_id": "document-editorial-agent-a-1",
+          "packet_digest": "93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+          "packet_id": "pkt_93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+          "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+          "recorded_at": "2026-10-16T13:32:17.025089+00:00",
+          "request_digest": "c936a0777097d002268ea2bcc1b6bf4bf21962a9725370a419079cafe5b523ad",
+          "reviewer": "editorial-agent-a",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        {
+          "actor_kind": "agent",
+          "decision_id": "dec_e2ef0416aaad52509d4c6e2b4d1c9bed4101d93b7a11992a57630c09910f037c",
+          "operation_id": "unsafe-editorial-agent-a-1",
+          "packet_digest": "1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+          "packet_id": "pkt_1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+          "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+          "recorded_at": "2026-10-16T13:32:17.036181+00:00",
+          "request_digest": "e2ef0416aaad52509d4c6e2b4d1c9bed4101d93b7a11992a57630c09910f037c",
+          "reviewer": "editorial-agent-a",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        }
+      ],
+      "events": [
+        {
+          "event_hash": "5857cc422aa77acd402e9c2518ce411e42d440e69afbf90e286a25b9e7afdcd3",
+          "payload": {
+            "id": "obligation-document-author",
+            "kind": "agent"
+          },
+          "previous_hash": null,
+          "recorded_at": "2026-10-16T13:32:17.011423+00:00",
+          "seq": 1,
+          "type": "actor_registered"
+        },
+        {
+          "event_hash": "48e255b1788c2b6d0d7ad43b937ed1f2c8ba2cc25b058fe1f025806e5600e966",
+          "payload": {
+            "analysis": {
+              "auto_accept": false,
+              "evidence": {
+                "after": {
+                  "check": "Literal quote presence only, not entailment or truth",
+                  "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                  "source_id": "fictional-retry-policy",
+                  "status": "quote_present",
+                  "verified": true
+                },
+                "before": {
+                  "check": "Literal quote presence only, not entailment or truth",
+                  "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                  "source_id": "fictional-retry-policy",
+                  "status": "quote_present",
+                  "verified": true
+                }
+              },
+              "findings": [
+                {
+                  "code": "evidence_changed",
+                  "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+                },
+                {
+                  "code": "wording_changed",
+                  "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+                },
+                {
+                  "code": "structured_value_changed",
+                  "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+                },
+                {
+                  "added": [
+                    "HEAD"
+                  ],
+                  "code": "set_members_changed",
+                  "explanation": "Изменился состав множества; полнота сведений о мире этим не устанавливается.",
+                  "removed": []
+                },
+                {
+                  "code": "closed_world_annotation",
+                  "explanation": "Флаг complete является входной аннотацией; полномочность источника задавать полный перечень автоматически не проверена."
+                }
+              ],
+              "input_digest": "65cc05edb2ebafcc7d0e7ee53e1f0d14ef7a1f01897a0ecddff40baaf394fcb9",
+              "limitations": [
+                "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+                "Literal quote presence does not establish entailment, factual truth or source independence.",
+                "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+                "Different scope metadata does not prove scopes are disjoint.",
+                "No corpus annotation is an input to this function; no model or network is used."
+              ],
+              "normalized": {
+                "after": {
+                  "canonical": {
+                    "complete": true,
+                    "members": [
+                      "GET",
+                      "HEAD"
+                    ],
+                    "type": "set"
+                  },
+                  "supported": true
+                },
+                "before": {
+                  "canonical": {
+                    "complete": true,
+                    "members": [
+                      "GET"
+                    ],
+                    "type": "set"
+                  },
+                  "supported": true
+                }
+              },
+              "relation": "review_required",
+              "requires_human_review": true,
+              "review_action": "review_change_or_preserve_attributed_disagreement",
+              "rules_version": "semantic-1",
+              "schema_version": 1
+            },
+            "analysis_digest": "65f384cb77a76227d1656c4e472cbb61a697bf3bec2fe3b3c0934b98aa3e4610",
+            "created_at": "2026-10-16T13:32:17.010579+00:00",
+            "input_digest": "65cc05edb2ebafcc7d0e7ee53e1f0d14ef7a1f01897a0ecddff40baaf394fcb9",
+            "packet_digest": "93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+            "packet_id": "pkt_93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+            "pair": {
+              "after": {
+                "attribution": "programmed scenario author",
+                "evidence": {
+                  "quote": "The documented allowed retry methods are GET and HEAD.",
+                  "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                  "source_id": "fictional-retry-policy"
+                },
+                "kind": "specification",
+                "modality": "asserted",
+                "polarity": "positive",
+                "property": "declared-retry-methods",
+                "scope": {
+                  "policy": "retry-methods",
+                  "version": "v1"
+                },
+                "subject": "fictional-api-client",
+                "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET и HEAD.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"]}\n```\n",
+                "value": {
+                  "complete": true,
+                  "members": [
+                    "GET",
+                    "HEAD"
+                  ],
+                  "type": "set"
+                }
+              },
+              "before": {
+                "attribution": "programmed scenario author",
+                "evidence": {
+                  "quote": "The baseline declared retry methods are GET.",
+                  "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                  "source_id": "fictional-retry-policy"
+                },
+                "kind": "specification",
+                "modality": "asserted",
+                "polarity": "positive",
+                "property": "declared-retry-methods",
+                "scope": {
+                  "policy": "retry-methods",
+                  "version": "v1"
+                },
+                "subject": "fictional-api-client",
+                "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nРазрешённые методы политики повторов: GET.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\"]}\n```\n",
+                "value": {
+                  "complete": true,
+                  "members": [
+                    "GET"
+                  ],
+                  "type": "set"
+                }
+              },
+              "sources": {
+                "fictional-retry-policy": {
+                  "sha256": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                  "text": "FICTIONAL AUTHORED RETRY-POLICY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe documented allowed retry methods are GET and HEAD.\nThe unsafe configuration initially declares GET, HEAD and POST.\nThe fixed configuration initially declares GET and HEAD.\nThe dynamic configuration initially declares GET and HEAD, then adds POST.\n"
+                }
+              }
+            },
+            "policy": {
+              "actor_identity": "self_declared_local",
+              "agent_agreement_min": 2,
+              "auto_accept": false,
+              "latest_decision_per_reviewer": true,
+              "requires_human_review": true,
+              "version": "editorial-1"
+            },
+            "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+            "proposer": {
+              "id": "obligation-document-author",
+              "kind": "agent"
+            },
+            "rules_version": "semantic-1",
+            "schema_version": 1
+          },
+          "previous_hash": "5857cc422aa77acd402e9c2518ce411e42d440e69afbf90e286a25b9e7afdcd3",
+          "recorded_at": "2026-10-16T13:32:17.011815+00:00",
+          "seq": 2,
+          "type": "packet_created"
+        },
+        {
+          "event_hash": "2d861fe0faf5b8d13a54d543649b96bae84ef95b2db03ce04b98a4403c48e165",
+          "payload": {
+            "id": "obligation-unsafe-author",
+            "kind": "agent"
+          },
+          "previous_hash": "48e255b1788c2b6d0d7ad43b937ed1f2c8ba2cc25b058fe1f025806e5600e966",
+          "recorded_at": "2026-10-16T13:32:17.013125+00:00",
+          "seq": 3,
+          "type": "actor_registered"
+        },
+        {
+          "event_hash": "9de4aa72c4540e8bb15871bdb2ca228752c5bb3b7da7e26028323865dd029176",
+          "payload": {
+            "analysis": {
+              "auto_accept": false,
+              "evidence": {
+                "after": {
+                  "check": "Literal quote presence only, not entailment or truth",
+                  "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                  "source_id": "fictional-retry-policy",
+                  "status": "quote_present",
+                  "verified": true
+                },
+                "before": {
+                  "check": "Literal quote presence only, not entailment or truth",
+                  "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                  "source_id": "fictional-retry-policy",
+                  "status": "quote_present",
+                  "verified": true
+                }
+              },
+              "findings": [
+                {
+                  "code": "evidence_changed",
+                  "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+                },
+                {
+                  "code": "wording_changed",
+                  "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+                },
+                {
+                  "code": "structured_value_changed",
+                  "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+                },
+                {
+                  "added": [
+                    "HEAD",
+                    "POST"
+                  ],
+                  "code": "set_members_changed",
+                  "explanation": "Изменился состав множества; полнота сведений о мире этим не устанавливается.",
+                  "removed": []
+                },
+                {
+                  "code": "closed_world_annotation",
+                  "explanation": "Флаг complete является входной аннотацией; полномочность источника задавать полный перечень автоматически не проверена."
+                }
+              ],
+              "input_digest": "f84cd45074f5719fc24a8b5ac3b9720b0f8fd40e85e88864ee67d001c0a7f12d",
+              "limitations": [
+                "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+                "Literal quote presence does not establish entailment, factual truth or source independence.",
+                "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+                "Different scope metadata does not prove scopes are disjoint.",
+                "No corpus annotation is an input to this function; no model or network is used."
+              ],
+              "normalized": {
+                "after": {
+                  "canonical": {
+                    "complete": true,
+                    "members": [
+                      "GET",
+                      "HEAD",
+                      "POST"
+                    ],
+                    "type": "set"
+                  },
+                  "supported": true
+                },
+                "before": {
+                  "canonical": {
+                    "complete": true,
+                    "members": [
+                      "GET"
+                    ],
+                    "type": "set"
+                  },
+                  "supported": true
+                }
+              },
+              "relation": "review_required",
+              "requires_human_review": true,
+              "review_action": "review_change_or_preserve_attributed_disagreement",
+              "rules_version": "semantic-1",
+              "schema_version": 1
+            },
+            "analysis_digest": "f2acbb879e2f3f003a34aa873ea5f938d3c9a14f4b3aa279121ac50c53b4e750",
+            "created_at": "2026-10-16T13:32:17.012633+00:00",
+            "input_digest": "f84cd45074f5719fc24a8b5ac3b9720b0f8fd40e85e88864ee67d001c0a7f12d",
+            "packet_digest": "1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+            "packet_id": "pkt_1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+            "pair": {
+              "after": {
+                "attribution": "programmed scenario author",
+                "evidence": {
+                  "quote": "The unsafe configuration initially declares GET, HEAD and POST.",
+                  "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                  "source_id": "fictional-retry-policy"
+                },
+                "kind": "specification",
+                "modality": "asserted",
+                "polarity": "positive",
+                "property": "declared-retry-methods",
+                "scope": {
+                  "policy": "retry-methods",
+                  "version": "v1"
+                },
+                "subject": "fictional-api-client",
+                "text": "\"\"\"Fictional configuration; proposed data, not executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\", \"POST\"}\n",
+                "value": {
+                  "complete": true,
+                  "members": [
+                    "GET",
+                    "HEAD",
+                    "POST"
+                  ],
+                  "type": "set"
+                }
+              },
+              "before": {
+                "attribution": "programmed scenario author",
+                "evidence": {
+                  "quote": "The baseline declared retry methods are GET.",
+                  "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                  "source_id": "fictional-retry-policy"
+                },
+                "kind": "specification",
+                "modality": "asserted",
+                "polarity": "positive",
+                "property": "declared-retry-methods",
+                "scope": {
+                  "policy": "retry-methods",
+                  "version": "v1"
+                },
+                "subject": "fictional-api-client",
+                "text": "\"\"\"Fictional client configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\"}\n",
+                "value": {
+                  "complete": true,
+                  "members": [
+                    "GET"
+                  ],
+                  "type": "set"
+                }
+              },
+              "sources": {
+                "fictional-retry-policy": {
+                  "sha256": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                  "text": "FICTIONAL AUTHORED RETRY-POLICY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe documented allowed retry methods are GET and HEAD.\nThe unsafe configuration initially declares GET, HEAD and POST.\nThe fixed configuration initially declares GET and HEAD.\nThe dynamic configuration initially declares GET and HEAD, then adds POST.\n"
+                }
+              }
+            },
+            "policy": {
+              "actor_identity": "self_declared_local",
+              "agent_agreement_min": 2,
+              "auto_accept": false,
+              "latest_decision_per_reviewer": true,
+              "requires_human_review": true,
+              "version": "editorial-1"
+            },
+            "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+            "proposer": {
+              "id": "obligation-unsafe-author",
+              "kind": "agent"
+            },
+            "rules_version": "semantic-1",
+            "schema_version": 1
+          },
+          "previous_hash": "2d861fe0faf5b8d13a54d543649b96bae84ef95b2db03ce04b98a4403c48e165",
+          "recorded_at": "2026-10-16T13:32:17.013244+00:00",
+          "seq": 4,
+          "type": "packet_created"
+        },
+        {
+          "event_hash": "6973b6ba49893b858435f216a229e0d02f6c6076d5f8b7097fd92e6ba0518bf8",
+          "payload": {
+            "id": "editorial-agent-b",
+            "kind": "agent"
+          },
+          "previous_hash": "9de4aa72c4540e8bb15871bdb2ca228752c5bb3b7da7e26028323865dd029176",
+          "recorded_at": "2026-10-16T13:32:17.018254+00:00",
+          "seq": 5,
+          "type": "actor_registered"
+        },
+        {
+          "event_hash": "67dcbd1c6012d78909b64d53e6d69e7e1a3d7d4745e88f40809886dc5a4e28a4",
+          "payload": {
+            "actor_kind": "agent",
+            "decision_id": "dec_8c37aaec35d670ce29a3d58027d1122bf0abeffbd55a00a14352e1fe65a6a442",
+            "operation_id": "document-editorial-agent-b-1",
+            "packet_digest": "93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+            "packet_id": "pkt_93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+            "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+            "recorded_at": "2026-10-16T13:32:17.018301+00:00",
+            "request_digest": "8c37aaec35d670ce29a3d58027d1122bf0abeffbd55a00a14352e1fe65a6a442",
+            "reviewer": "editorial-agent-b",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "approve"
+          },
+          "previous_hash": "6973b6ba49893b858435f216a229e0d02f6c6076d5f8b7097fd92e6ba0518bf8",
+          "recorded_at": "2026-10-16T13:32:17.018839+00:00",
+          "seq": 6,
+          "type": "decision_recorded"
+        },
+        {
+          "event_hash": "1fd711e970ee20ce3d7bb0c11457b49293eed75bd8ca321d54efd5efece6c4cb",
+          "payload": {
+            "actor_kind": "agent",
+            "decision_id": "dec_19389e0960e9441b7a90524b38b180b292cd2867cbe769814dfeeeff2d1265ea",
+            "operation_id": "unsafe-editorial-agent-b-1",
+            "packet_digest": "1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+            "packet_id": "pkt_1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+            "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+            "recorded_at": "2026-10-16T13:32:17.021322+00:00",
+            "request_digest": "19389e0960e9441b7a90524b38b180b292cd2867cbe769814dfeeeff2d1265ea",
+            "reviewer": "editorial-agent-b",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "approve"
+          },
+          "previous_hash": "67dcbd1c6012d78909b64d53e6d69e7e1a3d7d4745e88f40809886dc5a4e28a4",
+          "recorded_at": "2026-10-16T13:32:17.021380+00:00",
+          "seq": 7,
+          "type": "decision_recorded"
+        },
+        {
+          "event_hash": "885ad688ec7753fd2766e541a3bd2f1f6475bfc48172eb5955edb6181ed7fc0f",
+          "payload": {
+            "id": "editorial-agent-a",
+            "kind": "agent"
+          },
+          "previous_hash": "1fd711e970ee20ce3d7bb0c11457b49293eed75bd8ca321d54efd5efece6c4cb",
+          "recorded_at": "2026-10-16T13:32:17.025054+00:00",
+          "seq": 8,
+          "type": "actor_registered"
+        },
+        {
+          "event_hash": "10b0fca0c1ecf223e9dd39ddd18e6ce97dacfa9dc26b9b680b5655f08653d95a",
+          "payload": {
+            "actor_kind": "agent",
+            "decision_id": "dec_c936a0777097d002268ea2bcc1b6bf4bf21962a9725370a419079cafe5b523ad",
+            "operation_id": "document-editorial-agent-a-1",
+            "packet_digest": "93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+            "packet_id": "pkt_93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+            "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+            "recorded_at": "2026-10-16T13:32:17.025089+00:00",
+            "request_digest": "c936a0777097d002268ea2bcc1b6bf4bf21962a9725370a419079cafe5b523ad",
+            "reviewer": "editorial-agent-a",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "approve"
+          },
+          "previous_hash": "885ad688ec7753fd2766e541a3bd2f1f6475bfc48172eb5955edb6181ed7fc0f",
+          "recorded_at": "2026-10-16T13:32:17.025127+00:00",
+          "seq": 9,
+          "type": "decision_recorded"
+        },
+        {
+          "event_hash": "c1f06e31de1bb26aeb8ee26ae90736aed731f14f4a056e01ede812618de37aa3",
+          "payload": {
+            "actor_kind": "agent",
+            "decision_id": "dec_e2ef0416aaad52509d4c6e2b4d1c9bed4101d93b7a11992a57630c09910f037c",
+            "operation_id": "unsafe-editorial-agent-a-1",
+            "packet_digest": "1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+            "packet_id": "pkt_1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+            "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+            "recorded_at": "2026-10-16T13:32:17.036181+00:00",
+            "request_digest": "e2ef0416aaad52509d4c6e2b4d1c9bed4101d93b7a11992a57630c09910f037c",
+            "reviewer": "editorial-agent-a",
+            "schema_version": 1,
+            "supersedes": null,
+            "verdict": "approve"
+          },
+          "previous_hash": "10b0fca0c1ecf223e9dd39ddd18e6ce97dacfa9dc26b9b680b5655f08653d95a",
+          "recorded_at": "2026-10-16T13:32:17.036472+00:00",
+          "seq": 10,
+          "type": "decision_recorded"
+        }
+      ],
+      "export_digest": "f5fee3518d2cc6620cbd2ad18dd55928871e012734c2c732c1c1338860329de7",
+      "integrity_scope": "Internal consistency only; hashes do not authenticate authorship, independence, completeness of an externally truncated history, or truth",
+      "packets": [
+        {
+          "analysis": {
+            "auto_accept": false,
+            "evidence": {
+              "after": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                "source_id": "fictional-retry-policy",
+                "status": "quote_present",
+                "verified": true
+              },
+              "before": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                "source_id": "fictional-retry-policy",
+                "status": "quote_present",
+                "verified": true
+              }
+            },
+            "findings": [
+              {
+                "code": "evidence_changed",
+                "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+              },
+              {
+                "code": "wording_changed",
+                "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+              },
+              {
+                "code": "structured_value_changed",
+                "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+              },
+              {
+                "added": [
+                  "HEAD"
+                ],
+                "code": "set_members_changed",
+                "explanation": "Изменился состав множества; полнота сведений о мире этим не устанавливается.",
+                "removed": []
+              },
+              {
+                "code": "closed_world_annotation",
+                "explanation": "Флаг complete является входной аннотацией; полномочность источника задавать полный перечень автоматически не проверена."
+              }
+            ],
+            "input_digest": "65cc05edb2ebafcc7d0e7ee53e1f0d14ef7a1f01897a0ecddff40baaf394fcb9",
+            "limitations": [
+              "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+              "Literal quote presence does not establish entailment, factual truth or source independence.",
+              "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+              "Different scope metadata does not prove scopes are disjoint.",
+              "No corpus annotation is an input to this function; no model or network is used."
+            ],
+            "normalized": {
+              "after": {
+                "canonical": {
+                  "complete": true,
+                  "members": [
+                    "GET",
+                    "HEAD"
+                  ],
+                  "type": "set"
+                },
+                "supported": true
+              },
+              "before": {
+                "canonical": {
+                  "complete": true,
+                  "members": [
+                    "GET"
+                  ],
+                  "type": "set"
+                },
+                "supported": true
+              }
+            },
+            "relation": "review_required",
+            "requires_human_review": true,
+            "review_action": "review_change_or_preserve_attributed_disagreement",
+            "rules_version": "semantic-1",
+            "schema_version": 1
+          },
+          "analysis_digest": "65f384cb77a76227d1656c4e472cbb61a697bf3bec2fe3b3c0934b98aa3e4610",
+          "created_at": "2026-10-16T13:32:17.010579+00:00",
+          "input_digest": "65cc05edb2ebafcc7d0e7ee53e1f0d14ef7a1f01897a0ecddff40baaf394fcb9",
+          "packet_digest": "93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+          "packet_id": "pkt_93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+          "pair": {
+            "after": {
+              "attribution": "programmed scenario author",
+              "evidence": {
+                "quote": "The documented allowed retry methods are GET and HEAD.",
+                "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                "source_id": "fictional-retry-policy"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "declared-retry-methods",
+              "scope": {
+                "policy": "retry-methods",
+                "version": "v1"
+              },
+              "subject": "fictional-api-client",
+              "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET и HEAD.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"]}\n```\n",
+              "value": {
+                "complete": true,
+                "members": [
+                  "GET",
+                  "HEAD"
+                ],
+                "type": "set"
+              }
+            },
+            "before": {
+              "attribution": "programmed scenario author",
+              "evidence": {
+                "quote": "The baseline declared retry methods are GET.",
+                "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                "source_id": "fictional-retry-policy"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "declared-retry-methods",
+              "scope": {
+                "policy": "retry-methods",
+                "version": "v1"
+              },
+              "subject": "fictional-api-client",
+              "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nРазрешённые методы политики повторов: GET.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\"]}\n```\n",
+              "value": {
+                "complete": true,
+                "members": [
+                  "GET"
+                ],
+                "type": "set"
+              }
+            },
+            "sources": {
+              "fictional-retry-policy": {
+                "sha256": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                "text": "FICTIONAL AUTHORED RETRY-POLICY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe documented allowed retry methods are GET and HEAD.\nThe unsafe configuration initially declares GET, HEAD and POST.\nThe fixed configuration initially declares GET and HEAD.\nThe dynamic configuration initially declares GET and HEAD, then adds POST.\n"
+              }
+            }
+          },
+          "policy": {
+            "actor_identity": "self_declared_local",
+            "agent_agreement_min": 2,
+            "auto_accept": false,
+            "latest_decision_per_reviewer": true,
+            "requires_human_review": true,
+            "version": "editorial-1"
+          },
+          "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+          "proposer": {
+            "id": "obligation-document-author",
+            "kind": "agent"
+          },
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        {
+          "analysis": {
+            "auto_accept": false,
+            "evidence": {
+              "after": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                "source_id": "fictional-retry-policy",
+                "status": "quote_present",
+                "verified": true
+              },
+              "before": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                "source_id": "fictional-retry-policy",
+                "status": "quote_present",
+                "verified": true
+              }
+            },
+            "findings": [
+              {
+                "code": "evidence_changed",
+                "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+              },
+              {
+                "code": "wording_changed",
+                "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+              },
+              {
+                "code": "structured_value_changed",
+                "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+              },
+              {
+                "added": [
+                  "HEAD",
+                  "POST"
+                ],
+                "code": "set_members_changed",
+                "explanation": "Изменился состав множества; полнота сведений о мире этим не устанавливается.",
+                "removed": []
+              },
+              {
+                "code": "closed_world_annotation",
+                "explanation": "Флаг complete является входной аннотацией; полномочность источника задавать полный перечень автоматически не проверена."
+              }
+            ],
+            "input_digest": "f84cd45074f5719fc24a8b5ac3b9720b0f8fd40e85e88864ee67d001c0a7f12d",
+            "limitations": [
+              "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+              "Literal quote presence does not establish entailment, factual truth or source independence.",
+              "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+              "Different scope metadata does not prove scopes are disjoint.",
+              "No corpus annotation is an input to this function; no model or network is used."
+            ],
+            "normalized": {
+              "after": {
+                "canonical": {
+                  "complete": true,
+                  "members": [
+                    "GET",
+                    "HEAD",
+                    "POST"
+                  ],
+                  "type": "set"
+                },
+                "supported": true
+              },
+              "before": {
+                "canonical": {
+                  "complete": true,
+                  "members": [
+                    "GET"
+                  ],
+                  "type": "set"
+                },
+                "supported": true
+              }
+            },
+            "relation": "review_required",
+            "requires_human_review": true,
+            "review_action": "review_change_or_preserve_attributed_disagreement",
+            "rules_version": "semantic-1",
+            "schema_version": 1
+          },
+          "analysis_digest": "f2acbb879e2f3f003a34aa873ea5f938d3c9a14f4b3aa279121ac50c53b4e750",
+          "created_at": "2026-10-16T13:32:17.012633+00:00",
+          "input_digest": "f84cd45074f5719fc24a8b5ac3b9720b0f8fd40e85e88864ee67d001c0a7f12d",
+          "packet_digest": "1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+          "packet_id": "pkt_1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+          "pair": {
+            "after": {
+              "attribution": "programmed scenario author",
+              "evidence": {
+                "quote": "The unsafe configuration initially declares GET, HEAD and POST.",
+                "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                "source_id": "fictional-retry-policy"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "declared-retry-methods",
+              "scope": {
+                "policy": "retry-methods",
+                "version": "v1"
+              },
+              "subject": "fictional-api-client",
+              "text": "\"\"\"Fictional configuration; proposed data, not executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\", \"POST\"}\n",
+              "value": {
+                "complete": true,
+                "members": [
+                  "GET",
+                  "HEAD",
+                  "POST"
+                ],
+                "type": "set"
+              }
+            },
+            "before": {
+              "attribution": "programmed scenario author",
+              "evidence": {
+                "quote": "The baseline declared retry methods are GET.",
+                "source_digest": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                "source_id": "fictional-retry-policy"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "declared-retry-methods",
+              "scope": {
+                "policy": "retry-methods",
+                "version": "v1"
+              },
+              "subject": "fictional-api-client",
+              "text": "\"\"\"Fictional client configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\"}\n",
+              "value": {
+                "complete": true,
+                "members": [
+                  "GET"
+                ],
+                "type": "set"
+              }
+            },
+            "sources": {
+              "fictional-retry-policy": {
+                "sha256": "00f49d7ffcc6eba075d2481c03dcca0b8d2d54bb85d51b3559182e1db72d1a98",
+                "text": "FICTIONAL AUTHORED RETRY-POLICY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe documented allowed retry methods are GET and HEAD.\nThe unsafe configuration initially declares GET, HEAD and POST.\nThe fixed configuration initially declares GET and HEAD.\nThe dynamic configuration initially declares GET and HEAD, then adds POST.\n"
+              }
+            }
+          },
+          "policy": {
+            "actor_identity": "self_declared_local",
+            "agent_agreement_min": 2,
+            "auto_accept": false,
+            "latest_decision_per_reviewer": true,
+            "requires_human_review": true,
+            "version": "editorial-1"
+          },
+          "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+          "proposer": {
+            "id": "obligation-unsafe-author",
+            "kind": "agent"
+          },
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        }
+      ],
+      "requires_human_review": true,
+      "schema_version": 1
+    },
+    "observation": {
+      "atomic_capture": false,
+      "auto_accept": false,
+      "blockers": [],
+      "component_head": "d5ac772acfd7eb2701adc28a87da7579b499dd07d1abb0eb842fcd5eab676665",
+      "coverage": {
+        "complete": true,
+        "scope": "write_ids_only_not_semantic_coverage",
+        "selected_write_ids": [
+          "code/client_config.py",
+          "docs/reference.md"
+        ],
+        "uncovered_write_ids": []
+      },
+      "entries": [
+        {
+          "actors": {
+            "authenticated": false,
+            "independence_verified": false,
+            "packet_proposer": {
+              "id": "obligation-unsafe-author",
+              "kind": "agent"
+            },
+            "runtime_author_id": "obligation-integrator"
+          },
+          "artifact_id": "code/client_config.py",
+          "atomic_capture": false,
+          "auto_accept": false,
+          "binding": {
+            "errors": [],
+            "matches": true,
+            "mode": "exact_template",
+            "scope": "template_text_only_not_rendered_output_or_all_metadata",
+            "semantic_mapping": "caller_declared_unverified"
+          },
+          "blockers": [
+            {
+              "artifact_ids": [
+                "docs/reference.md"
+              ],
+              "code": "uncovered_writes"
+            }
+          ],
+          "coverage": {
+            "complete": false,
+            "scope": "write_ids_only_not_semantic_coverage",
+            "selected_write_ids": [
+              "code/client_config.py"
+            ],
+            "uncovered_write_ids": [
+              "docs/reference.md"
+            ]
+          },
+          "decision_heads": {
+            "editorial-agent-a": "dec_e2ef0416aaad52509d4c6e2b4d1c9bed4101d93b7a11992a57630c09910f037c",
+            "editorial-agent-b": "dec_19389e0960e9441b7a90524b38b180b292cd2867cbe769814dfeeeff2d1265ea"
+          },
+          "editorial": {
+            "auto_accept": false,
+            "blockers": [
+              "human_review_not_recorded"
+            ],
+            "counts": {
+              "abstain": 0,
+              "approve": 2,
+              "request_changes": 0
+            },
+            "current_basis_decisions": [
+              {
+                "actor_kind": "agent",
+                "decision_id": "dec_e2ef0416aaad52509d4c6e2b4d1c9bed4101d93b7a11992a57630c09910f037c",
+                "operation_id": "unsafe-editorial-agent-a-1",
+                "packet_digest": "1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+                "packet_id": "pkt_1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+                "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+                "recorded_at": "2026-10-16T13:32:17.036181+00:00",
+                "request_digest": "e2ef0416aaad52509d4c6e2b4d1c9bed4101d93b7a11992a57630c09910f037c",
+                "reviewer": "editorial-agent-a",
+                "schema_version": 1,
+                "supersedes": null,
+                "verdict": "approve"
+              },
+              {
+                "actor_kind": "agent",
+                "decision_id": "dec_19389e0960e9441b7a90524b38b180b292cd2867cbe769814dfeeeff2d1265ea",
+                "operation_id": "unsafe-editorial-agent-b-1",
+                "packet_digest": "1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+                "packet_id": "pkt_1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+                "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+                "recorded_at": "2026-10-16T13:32:17.021322+00:00",
+                "request_digest": "19389e0960e9441b7a90524b38b180b292cd2867cbe769814dfeeeff2d1265ea",
+                "reviewer": "editorial-agent-b",
+                "schema_version": 1,
+                "supersedes": null,
+                "verdict": "approve"
+              }
+            ],
+            "current_human_review_recorded": false,
+            "current_input_checked": true,
+            "current_input_digest": "f84cd45074f5719fc24a8b5ac3b9720b0f8fd40e85e88864ee67d001c0a7f12d",
+            "current_input_provided": true,
+            "freshness": "current",
+            "history_count": 2,
+            "human_review_recorded": false,
+            "input_digest": "f84cd45074f5719fc24a8b5ac3b9720b0f8fd40e85e88864ee67d001c0a7f12d",
+            "is_current": true,
+            "latest_decisions": [
+              {
+                "actor_kind": "agent",
+                "decision_id": "dec_e2ef0416aaad52509d4c6e2b4d1c9bed4101d93b7a11992a57630c09910f037c",
+                "operation_id": "unsafe-editorial-agent-a-1",
+                "packet_digest": "1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+                "packet_id": "pkt_1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+                "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+                "recorded_at": "2026-10-16T13:32:17.036181+00:00",
+                "request_digest": "e2ef0416aaad52509d4c6e2b4d1c9bed4101d93b7a11992a57630c09910f037c",
+                "reviewer": "editorial-agent-a",
+                "schema_version": 1,
+                "supersedes": null,
+                "verdict": "approve"
+              },
+              {
+                "actor_kind": "agent",
+                "decision_id": "dec_19389e0960e9441b7a90524b38b180b292cd2867cbe769814dfeeeff2d1265ea",
+                "operation_id": "unsafe-editorial-agent-b-1",
+                "packet_digest": "1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+                "packet_id": "pkt_1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+                "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+                "recorded_at": "2026-10-16T13:32:17.021322+00:00",
+                "request_digest": "19389e0960e9441b7a90524b38b180b292cd2867cbe769814dfeeeff2d1265ea",
+                "reviewer": "editorial-agent-b",
+                "schema_version": 1,
+                "supersedes": null,
+                "verdict": "approve"
+              }
+            ],
+            "limits": [
+              "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+              "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+              "No state records factual truth or grants Store.accept/publication rights.",
+              "Human-review requirement remains true even when a caller records an actor labelled human."
+            ],
+            "packet_digest": "1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+            "packet_id": "pkt_1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+            "requires_human_review": true,
+            "review_state": "agent_agreement",
+            "reviewer_count": 2
+          },
+          "formal_errors": [],
+          "formal_head": {
+            "report_digest": "e4210de402f6bdbfae1030d8de9d25c4aa725895aa03eb852e75abf4c46609e2",
+            "review_id": 3
+          },
+          "limits": [
+            "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+            "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+            "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+            "No dossier or recheck grants Store.accept or publication rights."
+          ],
+          "observed_revision": 1,
+          "packet_digest": "1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+          "packet_id": "pkt_1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+          "proposal_digest": "e02a4a79d7e268679626a8e12a38e2b5ad59a4bb9734575717bc9affb7f7bbdb",
+          "proposal_id": "p_d49f32b0285506e5bbd973d4",
+          "proposal_status": "proposed",
+          "requires_human_review": true,
+          "runtime_basis_current": true,
+          "runtime_basis_digest": "ca5b06348aba69bdc95892c01472db0bdf7965375ba3a0931fbfea5891a26f7c",
+          "runtime_errors": [],
+          "state": "blocked"
+        },
+        {
+          "actors": {
+            "authenticated": false,
+            "independence_verified": false,
+            "packet_proposer": {
+              "id": "obligation-document-author",
+              "kind": "agent"
+            },
+            "runtime_author_id": "obligation-integrator"
+          },
+          "artifact_id": "docs/reference.md",
+          "atomic_capture": false,
+          "auto_accept": false,
+          "binding": {
+            "errors": [],
+            "matches": true,
+            "mode": "exact_template",
+            "scope": "template_text_only_not_rendered_output_or_all_metadata",
+            "semantic_mapping": "caller_declared_unverified"
+          },
+          "blockers": [
+            {
+              "artifact_ids": [
+                "code/client_config.py"
+              ],
+              "code": "uncovered_writes"
+            }
+          ],
+          "coverage": {
+            "complete": false,
+            "scope": "write_ids_only_not_semantic_coverage",
+            "selected_write_ids": [
+              "docs/reference.md"
+            ],
+            "uncovered_write_ids": [
+              "code/client_config.py"
+            ]
+          },
+          "decision_heads": {
+            "editorial-agent-a": "dec_c936a0777097d002268ea2bcc1b6bf4bf21962a9725370a419079cafe5b523ad",
+            "editorial-agent-b": "dec_8c37aaec35d670ce29a3d58027d1122bf0abeffbd55a00a14352e1fe65a6a442"
+          },
+          "editorial": {
+            "auto_accept": false,
+            "blockers": [
+              "human_review_not_recorded"
+            ],
+            "counts": {
+              "abstain": 0,
+              "approve": 2,
+              "request_changes": 0
+            },
+            "current_basis_decisions": [
+              {
+                "actor_kind": "agent",
+                "decision_id": "dec_c936a0777097d002268ea2bcc1b6bf4bf21962a9725370a419079cafe5b523ad",
+                "operation_id": "document-editorial-agent-a-1",
+                "packet_digest": "93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+                "packet_id": "pkt_93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+                "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+                "recorded_at": "2026-10-16T13:32:17.025089+00:00",
+                "request_digest": "c936a0777097d002268ea2bcc1b6bf4bf21962a9725370a419079cafe5b523ad",
+                "reviewer": "editorial-agent-a",
+                "schema_version": 1,
+                "supersedes": null,
+                "verdict": "approve"
+              },
+              {
+                "actor_kind": "agent",
+                "decision_id": "dec_8c37aaec35d670ce29a3d58027d1122bf0abeffbd55a00a14352e1fe65a6a442",
+                "operation_id": "document-editorial-agent-b-1",
+                "packet_digest": "93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+                "packet_id": "pkt_93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+                "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+                "recorded_at": "2026-10-16T13:32:17.018301+00:00",
+                "request_digest": "8c37aaec35d670ce29a3d58027d1122bf0abeffbd55a00a14352e1fe65a6a442",
+                "reviewer": "editorial-agent-b",
+                "schema_version": 1,
+                "supersedes": null,
+                "verdict": "approve"
+              }
+            ],
+            "current_human_review_recorded": false,
+            "current_input_checked": true,
+            "current_input_digest": "65cc05edb2ebafcc7d0e7ee53e1f0d14ef7a1f01897a0ecddff40baaf394fcb9",
+            "current_input_provided": true,
+            "freshness": "current",
+            "history_count": 2,
+            "human_review_recorded": false,
+            "input_digest": "65cc05edb2ebafcc7d0e7ee53e1f0d14ef7a1f01897a0ecddff40baaf394fcb9",
+            "is_current": true,
+            "latest_decisions": [
+              {
+                "actor_kind": "agent",
+                "decision_id": "dec_c936a0777097d002268ea2bcc1b6bf4bf21962a9725370a419079cafe5b523ad",
+                "operation_id": "document-editorial-agent-a-1",
+                "packet_digest": "93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+                "packet_id": "pkt_93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+                "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+                "recorded_at": "2026-10-16T13:32:17.025089+00:00",
+                "request_digest": "c936a0777097d002268ea2bcc1b6bf4bf21962a9725370a419079cafe5b523ad",
+                "reviewer": "editorial-agent-a",
+                "schema_version": 1,
+                "supersedes": null,
+                "verdict": "approve"
+              },
+              {
+                "actor_kind": "agent",
+                "decision_id": "dec_8c37aaec35d670ce29a3d58027d1122bf0abeffbd55a00a14352e1fe65a6a442",
+                "operation_id": "document-editorial-agent-b-1",
+                "packet_digest": "93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+                "packet_id": "pkt_93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+                "rationale": "Programmed approval for consideration of the authored retry-method set metadata. This does not certify truth, complete wording or code behavior. Declared cross-file obligations are analyzed separately; human review remains required.",
+                "recorded_at": "2026-10-16T13:32:17.018301+00:00",
+                "request_digest": "8c37aaec35d670ce29a3d58027d1122bf0abeffbd55a00a14352e1fe65a6a442",
+                "reviewer": "editorial-agent-b",
+                "schema_version": 1,
+                "supersedes": null,
+                "verdict": "approve"
+              }
+            ],
+            "limits": [
+              "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+              "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+              "No state records factual truth or grants Store.accept/publication rights.",
+              "Human-review requirement remains true even when a caller records an actor labelled human."
+            ],
+            "packet_digest": "93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+            "packet_id": "pkt_93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+            "requires_human_review": true,
+            "review_state": "agent_agreement",
+            "reviewer_count": 2
+          },
+          "formal_errors": [],
+          "formal_head": {
+            "report_digest": "e4210de402f6bdbfae1030d8de9d25c4aa725895aa03eb852e75abf4c46609e2",
+            "review_id": 3
+          },
+          "limits": [
+            "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+            "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+            "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+            "No dossier or recheck grants Store.accept or publication rights."
+          ],
+          "observed_revision": 1,
+          "packet_digest": "93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+          "packet_id": "pkt_93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+          "proposal_digest": "e02a4a79d7e268679626a8e12a38e2b5ad59a4bb9734575717bc9affb7f7bbdb",
+          "proposal_id": "p_d49f32b0285506e5bbd973d4",
+          "proposal_status": "proposed",
+          "requires_human_review": true,
+          "runtime_basis_current": true,
+          "runtime_basis_digest": "931c7f29df33e7479585ddf4432ba7fb82afc7ecf535c8b5c7ec0146c5921125",
+          "runtime_errors": [],
+          "state": "blocked"
+        }
+      ],
+      "entry_coverage_scope": "each_entry_is_partial_global_coverage_is_authoritative",
+      "entry_summaries": [
+        {
+          "artifact_id": "code/client_config.py",
+          "blockers": [],
+          "packet_id": "pkt_1ecf89d006e05614a161def5a98a17dccd577940c10317be79d18771327b96d8",
+          "state": "current_for_human_review"
+        },
+        {
+          "artifact_id": "docs/reference.md",
+          "blockers": [],
+          "packet_id": "pkt_93c57021e03fef7bcbec62b69395e8e60babbd6353361a351f46ac624908acb2",
+          "state": "current_for_human_review"
+        }
+      ],
+      "formal_head": {
+        "report_digest": "e4210de402f6bdbfae1030d8de9d25c4aa725895aa03eb852e75abf4c46609e2",
+        "review_id": 3
+      },
+      "limits": [
+        "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+        "Write coverage enumerates proposal write IDs; it does not prove semantic coverage.",
+        "Exact template matching binds bytes; statement fields and their mapping to prose remain caller-declared.",
+        "Only existing document and code templates can obtain a matching binding in this version.",
+        "Actor identities and kinds are self-declared; agreement and reused packets do not prove independence or truth.",
+        "No review set or recheck grants Store.accept or publication rights."
+      ],
+      "observed_revision": 1,
+      "packet_reuse": [],
+      "proposal_digest": "e02a4a79d7e268679626a8e12a38e2b5ad59a4bb9734575717bc9affb7f7bbdb",
+      "proposal_id": "p_d49f32b0285506e5bbd973d4",
+      "proposal_status": "proposed",
+      "requires_human_review": true,
+      "runtime_basis_digest": "19544b03745b364ce87e4fbb8bac084b8f96450ab19bdfcd5d955eb153681809",
+      "state": "current_for_human_review"
+    },
+    "proposal_id": "p_d49f32b0285506e5bbd973d4",
+    "review_set_digest": "8f9cc63d4e4077179f4033da1fdfc7aa63f8007e6e33031a2d52accbf133b81c",
+    "review_set_id": "rset_8f9cc63d4e4077179f4033da1fdfc7aa63f8007e6e33031a2d52accbf133b81c",
+    "review_set_rules_version": "review-set-1",
+    "runtime_context": {
+      "actual_queries": {},
+      "actual_readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config.py": "0caf43ac1fe6e18d93551e61a22dce71baf1a9515a54af8c3986b4ea07ef2ffd",
+        "docs/reference.md": "9dfe0247f6a8c0e20d5e08047125fb6475740a177d8b630917397fd9877cb00f"
+      },
+      "artifacts": {
+        "api.timeout_seconds": {
+          "evidence": {
+            "quote": "The API timeout may be 30 or 40 seconds.",
+            "source_id": "dossier-fixture"
+          },
+          "id": "api.timeout_seconds",
+          "kind": "claim",
+          "scope": "api:v1",
+          "unit": "s",
+          "value": 30
+        },
+        "code/client_config.py": {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional client configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\"}\n"
+        },
+        "docs/reference.md": {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "docs/reference.md",
+          "kind": "document",
+          "template": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nРазрешённые методы политики повторов: GET.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\"]}\n```\n"
+        }
+      },
+      "components": [
+        {
+          "digest": "739393a368fc48f96b395befcb4890e5024208f3ff849033ba4a7d7765c71368",
+          "position": 1,
+          "proposal_id": "p_64c29c850760d490bbea5913",
+          "write_ids": [
+            "docs/reference.md"
+          ]
+        },
+        {
+          "digest": "6b844892fea34172342424e96d1c85c8f7c3f8a7bff45bda8f208fa4fa3d4464",
+          "position": 2,
+          "proposal_id": "p_0d7f9754fd6cd42e2451d9ce",
+          "write_ids": [
+            "code/client_config.py"
+          ]
+        }
+      ],
+      "formal_errors": [],
+      "formal_review": {
+        "approved": true,
+        "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+        "observed_revision": 1,
+        "proposal_digest": "e02a4a79d7e268679626a8e12a38e2b5ad59a4bb9734575717bc9affb7f7bbdb",
+        "proposal_id": "p_d49f32b0285506e5bbd973d4",
+        "reasons": [],
+        "review_id": 3,
+        "reviewer": "composite-formal-agent",
+        "rules_version": "mvp-1",
+        "source_digests": {}
+      },
+      "observed_revision": 1,
+      "proposal": {
+        "accepted_revision": null,
+        "author": "obligation-integrator",
+        "digest": "e02a4a79d7e268679626a8e12a38e2b5ad59a4bb9734575717bc9affb7f7bbdb",
+        "id": "p_d49f32b0285506e5bbd973d4",
+        "payload": {
+          "queries": {},
+          "rationale": "{\"components\":[{\"digest\":\"739393a368fc48f96b395befcb4890e5024208f3ff849033ba4a7d7765c71368\",\"proposal_id\":\"p_64c29c850760d490bbea5913\",\"write_ids\":[\"docs/reference.md\"]},{\"digest\":\"6b844892fea34172342424e96d1c85c8f7c3f8a7bff45bda8f208fa4fa3d4464\",\"proposal_id\":\"p_0d7f9754fd6cd42e2451d9ce\",\"write_ids\":[\"code/client_config.py\"]}],\"text\":\"Compose the document with the unsafe configuration for declared relation analysis.\"}",
+          "readset": {
+            "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+            "code/client_config.py": "0caf43ac1fe6e18d93551e61a22dce71baf1a9515a54af8c3986b4ea07ef2ffd",
+            "docs/reference.md": "9dfe0247f6a8c0e20d5e08047125fb6475740a177d8b630917397fd9877cb00f"
+          },
+          "writes": [
+            {
+              "bindings": [
+                "api.timeout_seconds"
+              ],
+              "id": "code/client_config.py",
+              "kind": "code",
+              "template": "\"\"\"Fictional configuration; proposed data, not executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\", \"POST\"}\n"
+            },
+            {
+              "bindings": [
+                "api.timeout_seconds"
+              ],
+              "id": "docs/reference.md",
+              "kind": "document",
+              "template": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET и HEAD.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"]}\n```\n"
+            }
+          ]
+        },
+        "status": "proposed",
+        "task_id": "obligation-compose-unsafe",
+        "token": 1
+      },
+      "runtime_errors": [],
+      "runtime_rules_version": "mvp-1",
+      "schema_version": 2,
+      "sources": {
+        "dossier-fixture": {
+          "digest": "0bd0cb015a3ee3bdb80f601c3988124beb330e73a742c7c502a5e26772c1ddc3",
+          "id": "dossier-fixture",
+          "text": "FICTIONAL DOSSIER DEMONSTRATION SPECIFICATION. Not a real API.\nThe API timeout may be 30 or 40 seconds.\nThe retry limit is 3 attempts.\nThe total retry budget is 120 seconds.\nWindows is supported.\nThe policy is timeout_seconds * max_attempts <= budget_seconds.\n"
+        }
+      }
+    },
+    "schema_version": 1
+  },
+  "schema_version": 1,
+  "spec": {
+    "obligations": [
+      {
+        "code": {
+          "artifact_id": "code/client_config.py",
+          "symbol": "ALLOWED_METHODS"
+        },
+        "description": "Configured retry methods must be allowed by the declared document policy.",
+        "document": {
+          "artifact_id": "docs/reference.md",
+          "fence_id": "retry-policy",
+          "path": [
+            "allowed_methods"
+          ]
+        },
+        "id": "retry-methods",
+        "relation": "code_subset_of_document",
+        "scope": {
+          "api_version": "v1",
+          "policy": "retry-methods"
+        },
+        "value_type": "string_set"
+      }
+    ],
+    "schema_version": 1
+  }
+}
