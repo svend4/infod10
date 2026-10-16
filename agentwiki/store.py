@@ -261,6 +261,59 @@ class Store:
         connection.execute("INSERT INTO revisions VALUES (?,?,?,?)", (revision, proposal_id, canonical(state), digest(state)))
         connection.execute("UPDATE meta SET value=? WHERE key='revision'", (str(revision),))
 
+    def _dependencies(self, connection: sqlite3.Connection) -> dict[str, Any]:
+        """Retain declared dependencies with a baseline after atomic acceptance.
+
+        A proposal reads the preimage of every write, including create-only
+        absence. Those are not its resulting dependencies. Rebase recorded
+        reads and queries to its accepted snapshot; exclude only self when
+        checking, retaining conservative cross-artifact dependencies in bundles.
+        """
+        dependencies = {}
+        baseline_cache: dict[int, dict[str, Any]] = {}
+        rows = connection.execute(
+            "SELECT a.id,a.revision,r.state,p.id AS proposal_id,p.payload "
+            "FROM artifacts a JOIN revisions r ON a.revision=r.revision "
+            "LEFT JOIN proposals p ON r.proposal_id=p.id ORDER BY a.id"
+        )
+        for row in rows:
+            if row["proposal_id"] is None:
+                dependencies[row["id"]] = {
+                    "proposal_id": None, "baseline_revision": row["revision"],
+                    "readset": {}, "queries": {}, "write_ids": [row["id"]],
+                }
+                continue
+            if row["revision"] not in baseline_cache:
+                baseline_cache[row["revision"]] = json.loads(row["state"])
+            baseline = baseline_cache[row["revision"]]
+            payload = json.loads(row["payload"])
+            dependencies[row["id"]] = {
+                "proposal_id": row["proposal_id"],
+                "baseline_revision": row["revision"],
+                "readset": {key: digest(baseline[key]) if key in baseline else None for key in payload["readset"]},
+                "queries": {scope: self._query_digest(baseline, scope) for scope in payload["queries"]},
+                "write_ids": sorted(body["id"] for body in payload["writes"]),
+            }
+        return dependencies
+
+    @staticmethod
+    def _publication_errors(artifacts: dict[str, Any], dependencies: dict[str, Any]) -> list[dict[str, Any]]:
+        """Bindings rerender; other accepted assumptions must remain current."""
+        errors = []
+        for target, dependency in dependencies.items():
+            bindings = set(artifacts[target].get("bindings", []))
+            for key, expected in dependency["readset"].items():
+                if key == target or key in bindings:
+                    continue
+                actual = digest(artifacts[key]) if key in artifacts else None
+                if expected != actual:
+                    errors.append(reason("stale_accepted_read", id=target, dependency=key, expected=expected, actual=actual))
+            for scope, expected in dependency["queries"].items():
+                actual = Store._query_digest(artifacts, scope)
+                if expected != actual:
+                    errors.append(reason("stale_accepted_query", id=target, scope=scope, expected=expected, actual=actual))
+        return errors
+
     def bootstrap(self, artifacts: list[dict[str, Any]]) -> None:
         with self._transaction(write=True) as connection:
             if self._revision(connection) != 0 or connection.execute("SELECT 1 FROM artifacts").fetchone():
@@ -286,6 +339,9 @@ class Store:
                 "artifacts": artifacts,
                 "digests": {key: digest(body) for key, body in artifacts.items()},
                 "queries": {scope: self._query_digest(artifacts, scope) for scope in QUERY_SCOPES},
+                "dependencies": self._dependencies(connection),
+                "dependency_coverage": "complete",
+                "sources": {row["id"]: dict(row) for row in connection.execute("SELECT * FROM sources ORDER BY id")},
             }
 
     def query_digest(self, scope: str) -> str:
@@ -515,9 +571,13 @@ class Store:
             if not row:
                 raise WorkbenchError("empty_store", "Bootstrap before exporting")
             artifacts = json.loads(row["state"])
+            dependencies = self._dependencies(connection)
             sources = {source["id"]: dict(source) for source in connection.execute("SELECT * FROM sources ORDER BY id")}
         # Rendering and disk I/O happen after the read transaction, using only
         # the captured immutable state, never later reads of current artifacts.
+        publication_errors = self._publication_errors(artifacts, dependencies)
+        if publication_errors:
+            raise WorkbenchError("release_needs_review", canonical(publication_errors))
         files: dict[str, bytes] = {}
         index = []
         for identifier, body in artifacts.items():
@@ -537,9 +597,10 @@ class Store:
         files["knowledge.json"] = (json.dumps(artifacts, ensure_ascii=False, indent=2, sort_keys=True) + "\n").encode()
         used_sources = {body["evidence"]["source_id"] for body in artifacts.values() if body["kind"] == "claim"}
         files["sources.json"] = (json.dumps({key: sources[key] for key in sorted(used_sources)}, ensure_ascii=False, indent=2, sort_keys=True) + "\n").encode()
+        files["dependencies.json"] = (json.dumps({"schema_version": 1, "revision": revision, "artifacts": dependencies}, ensure_ascii=False, indent=2, sort_keys=True) + "\n").encode()
         files["search-index.json"] = (json.dumps({"revision": revision, "documents": index}, ensure_ascii=False, indent=2, sort_keys=True) + "\n").encode()
         manifest = {
-            "schema_version": 1, "revision": revision, "state_digest": row["state_digest"],
+            "schema_version": 2, "revision": revision, "state_digest": row["state_digest"],
             "rules_version": RULES_VERSION,
             "files": {name: {"sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)} for name, data in sorted(files.items())},
         }
@@ -591,24 +652,11 @@ def _verify_release_files(directory: Path, expected: dict[str, bytes]) -> None:
 
 def search_release(release: str | Path, query: str) -> dict[str, Any]:
     """Search one immutable release and verify every file before returning hits."""
-    directory = Path(release)
-    if directory.is_symlink():
-        raise WorkbenchError("unsafe_path", "Release cannot be a symlink")
-    manifest = json.loads((directory / "manifest.json").read_text(encoding="utf-8"))
-    expected = {}
-    for name, entry in manifest["files"].items():
-        if name not in {"knowledge.json", "sources.json", "search-index.json"} and not (safe_file_id(name, "document") or safe_file_id(name, "code")):
-            raise WorkbenchError("unsafe_path", name)
-        path = directory / name
-        if path.is_symlink() or any(parent.is_symlink() for parent in path.parents if parent != directory.parent):
-            raise WorkbenchError("unsafe_path", name)
-        data = path.read_bytes()
-        if len(data) != entry["bytes"] or hashlib.sha256(data).hexdigest() != entry["sha256"]:
-            raise WorkbenchError("release_corrupt", name)
-        expected[name] = data
-    index = json.loads(expected["search-index.json"])
-    if index["revision"] != manifest["revision"]:
-        raise WorkbenchError("release_mismatch", "Index and manifest must use one revision")
+    from .releases import load_release
+
+    loaded = load_release(release)
+    manifest = loaded["manifest"]
+    index = json.loads(loaded["files"]["search-index.json"])
     terms = set(re.findall(r"\w+", query.casefold()))
     results = []
     for document in index["documents"]:

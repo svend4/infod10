@@ -1,0 +1,3 @@
+# Linux
+
+Поддержка Linux: True.

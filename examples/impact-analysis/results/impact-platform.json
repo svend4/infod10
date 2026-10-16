@@ -1,0 +1,145 @@
+{
+  "revision": 11,
+  "changed": [
+    "artifact:platform.macos"
+  ],
+  "affected_artifacts": [
+    "docs/platforms.md"
+  ],
+  "affected_files": [
+    "docs/platforms.md"
+  ],
+  "render_files": [],
+  "review_files": [
+    "docs/platforms.md"
+  ],
+  "rules": [],
+  "derived": [
+    "dependencies.json",
+    "knowledge.json",
+    "search-index.json",
+    "sources.json"
+  ],
+  "paths": {
+    "artifact:docs/platforms.md": [
+      "artifact:platform.macos",
+      "query:platforms:api-v1",
+      "artifact:docs/platforms.md"
+    ],
+    "artifact:platform.macos": [
+      "artifact:platform.macos"
+    ],
+    "derived:dependencies.json": [
+      "artifact:platform.macos",
+      "derived:dependencies.json"
+    ],
+    "derived:knowledge.json": [
+      "artifact:platform.macos",
+      "derived:knowledge.json"
+    ],
+    "derived:search-index.json": [
+      "artifact:platform.macos",
+      "query:platforms:api-v1",
+      "artifact:docs/platforms.md",
+      "derived:search-index.json"
+    ],
+    "derived:sources.json": [
+      "artifact:platform.macos",
+      "derived:sources.json"
+    ],
+    "query:platforms:api-v1": [
+      "artifact:platform.macos",
+      "query:platforms:api-v1"
+    ],
+    "release:snapshot": [
+      "artifact:platform.macos",
+      "release:snapshot"
+    ]
+  },
+  "path_kinds": {
+    "artifact:docs/platforms.md": [
+      "scope_member",
+      "query_read"
+    ],
+    "artifact:platform.macos": [],
+    "derived:dependencies.json": [
+      "dependency_record"
+    ],
+    "derived:knowledge.json": [
+      "knowledge_member"
+    ],
+    "derived:search-index.json": [
+      "scope_member",
+      "query_read",
+      "search_member"
+    ],
+    "derived:sources.json": [
+      "source_selection"
+    ],
+    "query:platforms:api-v1": [
+      "scope_member"
+    ],
+    "release:snapshot": [
+      "release_member"
+    ]
+  },
+  "render_paths": {},
+  "review_paths": {
+    "docs/platforms.md": [
+      "artifact:platform.macos",
+      "query:platforms:api-v1",
+      "artifact:docs/platforms.md"
+    ]
+  },
+  "review_path_kinds": {
+    "docs/platforms.md": [
+      "scope_member",
+      "query_read"
+    ]
+  },
+  "counts": {
+    "total_files": 6,
+    "affected_files": 1,
+    "render_files": 0,
+    "review_files": 1,
+    "unaffected_files": 5,
+    "candidate_file_checks": 1,
+    "full_file_checks": 6,
+    "reachable_nodes": 8,
+    "graph_nodes": 22,
+    "graph_edges": 83
+  },
+  "coverage": {
+    "declared_only": true,
+    "proposal_dependencies_available": true,
+    "artifacts_with_dependency_metadata": [
+      "api.budget_seconds",
+      "api.max_attempts",
+      "api.timeout_seconds",
+      "code/client_config.py",
+      "docs/lease-recovery.md",
+      "docs/linux.md",
+      "docs/platforms.md",
+      "docs/reference.md",
+      "docs/retries.md",
+      "platform.linux",
+      "platform.macos",
+      "platform.windows"
+    ],
+    "artifacts_with_proposal_dependencies": [
+      "api.timeout_seconds",
+      "code/client_config.py",
+      "docs/lease-recovery.md",
+      "docs/linux.md",
+      "docs/platforms.md",
+      "docs/reference.md",
+      "docs/retries.md",
+      "platform.macos",
+      "platform.windows"
+    ],
+    "artifacts_without_dependency_metadata": [],
+    "warnings": [],
+    "declared_graph_limit": "Only explicit bindings, evidence IDs, scope membership, accepted read/query sets and the registered budget rule are represented. Prose and program semantics are not inferred.",
+    "publication_limit": "Candidate selection does not skip acceptance invariants or replace complete pinned release publication; revision metadata can change even for otherwise unaffected content."
+  }
+}

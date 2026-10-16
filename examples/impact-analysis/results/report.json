@@ -1,0 +1,837 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T10:20:23.202705+00:00",
+  "workspace": "/tmp/infod10-impact-development-02",
+  "uses_llm": false,
+  "fictional_sources": true,
+  "executes_proposed_code": false,
+  "initial_worker_execution": {
+    "scheduled_jobs": 6,
+    "requested_workers": 6,
+    "observed_threads": [
+      "agentwiki_0",
+      "agentwiki_1",
+      "agentwiki_2",
+      "agentwiki_3",
+      "agentwiki_4",
+      "agentwiki_5"
+    ],
+    "observed_peak_jobs_in_worker_section": 6,
+    "elapsed_seconds": 0.026099,
+    "interpretation": "Локальные потоки и операции SQLite; не измерение LLM или CPU capacity."
+  },
+  "releases": {
+    "before": {
+      "release_id": "r9-58b57cc435622fed",
+      "revision": 9,
+      "path": "/tmp/infod10-impact-development-02/release/r9-58b57cc435622fed",
+      "files": {
+        "code/client_config.py": {
+          "sha256": "b468184c39506d354994abe6d04d95a75f646a7956e02fc31ad367823a77c8f9",
+          "bytes": 121
+        },
+        "dependencies.json": {
+          "sha256": "cfd233a5011facd6d72be25c86f539ac595f5aeb6d2d7ca4556837ca474b6392",
+          "bytes": 4539
+        },
+        "docs/lease-recovery.md": {
+          "sha256": "3df72c26d3cf65e6f67d7b0ba0bd8f0496f961fbbe323acfea1f633d721ea964",
+          "bytes": 54
+        },
+        "docs/linux.md": {
+          "sha256": "ccc2f33b5270ca8a2ffea671041453dfef58a2a3d5a67f8ea5d2fb3887d60204",
+          "bytes": 41
+        },
+        "docs/platforms.md": {
+          "sha256": "ff244bbc3c8e25c0eae74fd97e3d737332c429d76e7f87f2a084116aa9d77a81",
+          "bytes": 99
+        },
+        "docs/reference.md": {
+          "sha256": "4340c7dadbc0dc06e7867ae9c0acec2af7974cafa5e370a5078c0fdea11e17f0",
+          "bytes": 50
+        },
+        "docs/retries.md": {
+          "sha256": "071b4421c7760d06e836e3bd554667351b18fc00cc50cfd16e99a0ca8481045b",
+          "bytes": 112
+        },
+        "knowledge.json": {
+          "sha256": "f57d94d484332179521e9954b5d2cb800dc71e5953248158fe2d5e3a188a1f68",
+          "bytes": 3126
+        },
+        "search-index.json": {
+          "sha256": "26c7943946c4e23045d399a68fa3bdbeaee0b5f4ff0f132c61c403850ab39e02",
+          "bytes": 1502
+        },
+        "sources.json": {
+          "sha256": "b5422368637c7f4c631a5b305d4ad91c3f17b5add55ab629493914c2d1f94670",
+          "bytes": 447
+        }
+      },
+      "state_digest": "dd8cf56a98dd2331584ce76fb04ea2a6484fb1a3191c61cf22ba26847ffe6227"
+    },
+    "after_timeout": {
+      "release_id": "r10-abbdcd6b3af7436c",
+      "revision": 10,
+      "path": "/tmp/infod10-impact-development-02/release/r10-abbdcd6b3af7436c",
+      "files": {
+        "code/client_config.py": {
+          "sha256": "fad752ca4ba19b8f495268de779f6d5313d224cb002b048d6ecc60a098723d94",
+          "bytes": 121
+        },
+        "dependencies.json": {
+          "sha256": "8e1ed0655999b855b2bbd278b8905ed5569df7e63641a480557f62b9a0abae07",
+          "bytes": 4541
+        },
+        "docs/lease-recovery.md": {
+          "sha256": "3df72c26d3cf65e6f67d7b0ba0bd8f0496f961fbbe323acfea1f633d721ea964",
+          "bytes": 54
+        },
+        "docs/linux.md": {
+          "sha256": "ccc2f33b5270ca8a2ffea671041453dfef58a2a3d5a67f8ea5d2fb3887d60204",
+          "bytes": 41
+        },
+        "docs/platforms.md": {
+          "sha256": "ff244bbc3c8e25c0eae74fd97e3d737332c429d76e7f87f2a084116aa9d77a81",
+          "bytes": 99
+        },
+        "docs/reference.md": {
+          "sha256": "fb0e421cc136f0041a6344e5653d8ca3e3124594ca8ea1fec1837f8e869ac8a8",
+          "bytes": 50
+        },
+        "docs/retries.md": {
+          "sha256": "36c275f1ae763d4ab62f02b7ddc9ca22aff30f52aa87490df58c8b230213e470",
+          "bytes": 112
+        },
+        "knowledge.json": {
+          "sha256": "4d370cbec057735ed028c503d01ed0b73c990d06179e4eb8378180398e2eee29",
+          "bytes": 3126
+        },
+        "search-index.json": {
+          "sha256": "53db31223a18c8e7ba71cb9d6a61f8363b2bff030b903816c16c7c0ae4b6bd4f",
+          "bytes": 1503
+        },
+        "sources.json": {
+          "sha256": "b5422368637c7f4c631a5b305d4ad91c3f17b5add55ab629493914c2d1f94670",
+          "bytes": 447
+        }
+      },
+      "state_digest": "0a58d47c7d3f805c311e5547289bf370411d72583217badaa5cc705fa8fc33f3"
+    },
+    "after_platform_refresh": {
+      "release_id": "r12-923d5e5a41d54b48",
+      "revision": 12,
+      "path": "/tmp/infod10-impact-development-02/release/r12-923d5e5a41d54b48",
+      "files": {
+        "code/client_config.py": {
+          "sha256": "fad752ca4ba19b8f495268de779f6d5313d224cb002b048d6ecc60a098723d94",
+          "bytes": 121
+        },
+        "dependencies.json": {
+          "sha256": "7a9296737593b591d910549175997ccdb10f4e1325218732d49d2e4461679078",
+          "bytes": 4945
+        },
+        "docs/lease-recovery.md": {
+          "sha256": "3df72c26d3cf65e6f67d7b0ba0bd8f0496f961fbbe323acfea1f633d721ea964",
+          "bytes": 54
+        },
+        "docs/linux.md": {
+          "sha256": "ccc2f33b5270ca8a2ffea671041453dfef58a2a3d5a67f8ea5d2fb3887d60204",
+          "bytes": 41
+        },
+        "docs/platforms.md": {
+          "sha256": "f70109ac9acbdfed23af486e1034bc00b647af3263f86a411e50fc7e64bd8b86",
+          "bytes": 122
+        },
+        "docs/reference.md": {
+          "sha256": "fb0e421cc136f0041a6344e5653d8ca3e3124594ca8ea1fec1837f8e869ac8a8",
+          "bytes": 50
+        },
+        "docs/retries.md": {
+          "sha256": "36c275f1ae763d4ab62f02b7ddc9ca22aff30f52aa87490df58c8b230213e470",
+          "bytes": 112
+        },
+        "knowledge.json": {
+          "sha256": "42ae4b315ef83ea96f16fadb5ed43933a0ef0cfdd8727d06d238be2dfc644fff",
+          "bytes": 3442
+        },
+        "search-index.json": {
+          "sha256": "d911db41c8626a65fbc52d5a0dd18ab9ae36f1fbf7bcd94e1f13d356a0d8dd69",
+          "bytes": 1544
+        },
+        "sources.json": {
+          "sha256": "e667bd6ff81576718412c7fc5199d8a29ca25a62bb4d8fcd3bc8ff149c5ef885",
+          "bytes": 692
+        }
+      },
+      "state_digest": "beecbbb49ac616bc78f2fa0a6def580d9817984f9f5b6774830139886494a2c9"
+    }
+  },
+  "timeout": {
+    "impact_before_change": {
+      "revision": 9,
+      "changed": [
+        "artifact:api.timeout_seconds"
+      ],
+      "affected_artifacts": [
+        "code/client_config.py",
+        "docs/reference.md",
+        "docs/retries.md"
+      ],
+      "affected_files": [
+        "code/client_config.py",
+        "docs/reference.md",
+        "docs/retries.md"
+      ],
+      "render_files": [
+        "code/client_config.py",
+        "docs/reference.md",
+        "docs/retries.md"
+      ],
+      "review_files": [],
+      "rules": [
+        "timeout_times_attempts"
+      ],
+      "derived": [
+        "dependencies.json",
+        "knowledge.json",
+        "search-index.json",
+        "sources.json"
+      ],
+      "paths": {
+        "artifact:api.timeout_seconds": [
+          "artifact:api.timeout_seconds"
+        ],
+        "artifact:code/client_config.py": [
+          "artifact:api.timeout_seconds",
+          "artifact:code/client_config.py"
+        ],
+        "artifact:docs/reference.md": [
+          "artifact:api.timeout_seconds",
+          "artifact:docs/reference.md"
+        ],
+        "artifact:docs/retries.md": [
+          "artifact:api.timeout_seconds",
+          "artifact:docs/retries.md"
+        ],
+        "derived:dependencies.json": [
+          "artifact:api.timeout_seconds",
+          "derived:dependencies.json"
+        ],
+        "derived:knowledge.json": [
+          "artifact:api.timeout_seconds",
+          "derived:knowledge.json"
+        ],
+        "derived:search-index.json": [
+          "artifact:api.timeout_seconds",
+          "artifact:docs/reference.md",
+          "derived:search-index.json"
+        ],
+        "derived:sources.json": [
+          "artifact:api.timeout_seconds",
+          "derived:sources.json"
+        ],
+        "query:api:v1": [
+          "artifact:api.timeout_seconds",
+          "query:api:v1"
+        ],
+        "release:snapshot": [
+          "artifact:api.timeout_seconds",
+          "release:snapshot"
+        ],
+        "rule:timeout_times_attempts": [
+          "artifact:api.timeout_seconds",
+          "rule:timeout_times_attempts"
+        ]
+      },
+      "path_kinds": {
+        "artifact:api.timeout_seconds": [],
+        "artifact:code/client_config.py": [
+          "binding"
+        ],
+        "artifact:docs/reference.md": [
+          "binding"
+        ],
+        "artifact:docs/retries.md": [
+          "binding"
+        ],
+        "derived:dependencies.json": [
+          "dependency_record"
+        ],
+        "derived:knowledge.json": [
+          "knowledge_member"
+        ],
+        "derived:search-index.json": [
+          "binding",
+          "search_member"
+        ],
+        "derived:sources.json": [
+          "source_selection"
+        ],
+        "query:api:v1": [
+          "scope_member"
+        ],
+        "release:snapshot": [
+          "release_member"
+        ],
+        "rule:timeout_times_attempts": [
+          "rule_input"
+        ]
+      },
+      "render_paths": {
+        "code/client_config.py": [
+          "artifact:api.timeout_seconds",
+          "artifact:code/client_config.py"
+        ],
+        "docs/reference.md": [
+          "artifact:api.timeout_seconds",
+          "artifact:docs/reference.md"
+        ],
+        "docs/retries.md": [
+          "artifact:api.timeout_seconds",
+          "artifact:docs/retries.md"
+        ]
+      },
+      "review_paths": {},
+      "review_path_kinds": {},
+      "counts": {
+        "total_files": 6,
+        "affected_files": 3,
+        "render_files": 3,
+        "review_files": 0,
+        "unaffected_files": 3,
+        "candidate_file_checks": 3,
+        "full_file_checks": 6,
+        "reachable_nodes": 11,
+        "graph_nodes": 20,
+        "graph_edges": 76
+      },
+      "coverage": {
+        "declared_only": true,
+        "proposal_dependencies_available": true,
+        "artifacts_with_dependency_metadata": [
+          "api.budget_seconds",
+          "api.max_attempts",
+          "api.timeout_seconds",
+          "code/client_config.py",
+          "docs/lease-recovery.md",
+          "docs/linux.md",
+          "docs/platforms.md",
+          "docs/reference.md",
+          "docs/retries.md",
+          "platform.linux",
+          "platform.windows"
+        ],
+        "artifacts_with_proposal_dependencies": [
+          "api.timeout_seconds",
+          "code/client_config.py",
+          "docs/lease-recovery.md",
+          "docs/linux.md",
+          "docs/platforms.md",
+          "docs/reference.md",
+          "docs/retries.md",
+          "platform.windows"
+        ],
+        "artifacts_without_dependency_metadata": [],
+        "warnings": [],
+        "declared_graph_limit": "Only explicit bindings, evidence IDs, scope membership, accepted read/query sets and the registered budget rule are represented. Prose and program semantics are not inferred.",
+        "publication_limit": "Candidate selection does not skip acceptance invariants or replace complete pinned release publication; revision metadata can change even for otherwise unaffected content."
+      }
+    },
+    "change": {
+      "submitted": {
+        "proposal_id": "p_53c2abf792fcbd7a2b8d23b0",
+        "digest": "548847bcf00797221eba7cdb1439a26521bb0e3dd9805cb622617f34fe7edf7f",
+        "replayed": false
+      },
+      "review": {
+        "proposal_id": "p_53c2abf792fcbd7a2b8d23b0",
+        "proposal_digest": "548847bcf00797221eba7cdb1439a26521bb0e3dd9805cb622617f34fe7edf7f",
+        "rules_version": "mvp-1",
+        "approved": true,
+        "reasons": [],
+        "reviewer": "impact-editor",
+        "observed_revision": 9,
+        "source_digests": {
+          "fixture-spec": "c21be34aa5f0d8ffe971dc1c7d28d9cfea7afa3990c037a082f75e0cd3eb90a0"
+        },
+        "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+        "review_id": 12
+      },
+      "accepted": {
+        "accepted": true,
+        "proposal_id": "p_53c2abf792fcbd7a2b8d23b0",
+        "revision": 10,
+        "replayed": false,
+        "reasons": [],
+        "review_id": 12,
+        "coordinator": "impact-coordinator"
+      }
+    },
+    "comparison": {
+      "before": {
+        "release_id": "r9-58b57cc435622fed",
+        "revision": 9
+      },
+      "after": {
+        "release_id": "r10-abbdcd6b3af7436c",
+        "revision": 10
+      },
+      "artifact_changes": {
+        "added": [],
+        "removed": [],
+        "modified": [
+          "api.timeout_seconds"
+        ],
+        "unchanged": [
+          "api.budget_seconds",
+          "api.max_attempts",
+          "code/client_config.py",
+          "docs/lease-recovery.md",
+          "docs/linux.md",
+          "docs/platforms.md",
+          "docs/reference.md",
+          "docs/retries.md",
+          "platform.linux",
+          "platform.windows"
+        ],
+        "details": [
+          {
+            "id": "api.timeout_seconds",
+            "fields": [
+              "value"
+            ],
+            "categories": [
+              "claim_value_or_scope"
+            ],
+            "before_digest": "4ba78befe8ea90188849fc7c688ab32254f4974e60d33ada63647e8585a2e616",
+            "after_digest": "929089e61ffe6e82ac0dde93a1da561e6dfeee166de9d11b8b85b02009299e8d"
+          }
+        ]
+      },
+      "file_changes": {
+        "added": [],
+        "removed": [],
+        "modified": [
+          "code/client_config.py",
+          "dependencies.json",
+          "docs/reference.md",
+          "docs/retries.md",
+          "knowledge.json",
+          "manifest.json",
+          "search-index.json"
+        ],
+        "unchanged": [
+          "docs/lease-recovery.md",
+          "docs/linux.md",
+          "docs/platforms.md",
+          "sources.json"
+        ]
+      },
+      "source_changes": {
+        "added": [],
+        "removed": [],
+        "modified": [],
+        "unchanged": [
+          "fixture-spec"
+        ]
+      },
+      "dependency_changes": {
+        "added": [],
+        "removed": [],
+        "modified": [
+          "api.timeout_seconds"
+        ],
+        "unchanged": [
+          "api.budget_seconds",
+          "api.max_attempts",
+          "code/client_config.py",
+          "docs/lease-recovery.md",
+          "docs/linux.md",
+          "docs/platforms.md",
+          "docs/reference.md",
+          "docs/retries.md",
+          "platform.linux",
+          "platform.windows"
+        ]
+      },
+      "changed_rendered_files": [
+        "code/client_config.py",
+        "docs/reference.md",
+        "docs/retries.md"
+      ],
+      "template_changes": [],
+      "claim_value_changes": [
+        "api.timeout_seconds"
+      ],
+      "evidence_changes": [],
+      "warnings": []
+    }
+  },
+  "platform": {
+    "change": {
+      "submitted": {
+        "proposal_id": "p_2969ffd0045928761fd7424f",
+        "digest": "8bfa897b868eeaf7b200d3842bff607e1fe8dfd8585c6bbc3bedceaed1b7859c",
+        "replayed": false
+      },
+      "review": {
+        "proposal_id": "p_2969ffd0045928761fd7424f",
+        "proposal_digest": "8bfa897b868eeaf7b200d3842bff607e1fe8dfd8585c6bbc3bedceaed1b7859c",
+        "rules_version": "mvp-1",
+        "approved": true,
+        "reasons": [],
+        "reviewer": "impact-editor",
+        "observed_revision": 10,
+        "source_digests": {
+          "fixture-platform-extension": "d92884099fa3b630bb5db0684e0029ec83d8f05d4d26452a3b974b5789a256a6"
+        },
+        "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+        "review_id": 13
+      },
+      "accepted": {
+        "accepted": true,
+        "proposal_id": "p_2969ffd0045928761fd7424f",
+        "revision": 11,
+        "replayed": false,
+        "reasons": [],
+        "review_id": 13,
+        "coordinator": "impact-coordinator"
+      }
+    },
+    "impact_before_refresh": {
+      "revision": 11,
+      "changed": [
+        "artifact:platform.macos"
+      ],
+      "affected_artifacts": [
+        "docs/platforms.md"
+      ],
+      "affected_files": [
+        "docs/platforms.md"
+      ],
+      "render_files": [],
+      "review_files": [
+        "docs/platforms.md"
+      ],
+      "rules": [],
+      "derived": [
+        "dependencies.json",
+        "knowledge.json",
+        "search-index.json",
+        "sources.json"
+      ],
+      "paths": {
+        "artifact:docs/platforms.md": [
+          "artifact:platform.macos",
+          "query:platforms:api-v1",
+          "artifact:docs/platforms.md"
+        ],
+        "artifact:platform.macos": [
+          "artifact:platform.macos"
+        ],
+        "derived:dependencies.json": [
+          "artifact:platform.macos",
+          "derived:dependencies.json"
+        ],
+        "derived:knowledge.json": [
+          "artifact:platform.macos",
+          "derived:knowledge.json"
+        ],
+        "derived:search-index.json": [
+          "artifact:platform.macos",
+          "query:platforms:api-v1",
+          "artifact:docs/platforms.md",
+          "derived:search-index.json"
+        ],
+        "derived:sources.json": [
+          "artifact:platform.macos",
+          "derived:sources.json"
+        ],
+        "query:platforms:api-v1": [
+          "artifact:platform.macos",
+          "query:platforms:api-v1"
+        ],
+        "release:snapshot": [
+          "artifact:platform.macos",
+          "release:snapshot"
+        ]
+      },
+      "path_kinds": {
+        "artifact:docs/platforms.md": [
+          "scope_member",
+          "query_read"
+        ],
+        "artifact:platform.macos": [],
+        "derived:dependencies.json": [
+          "dependency_record"
+        ],
+        "derived:knowledge.json": [
+          "knowledge_member"
+        ],
+        "derived:search-index.json": [
+          "scope_member",
+          "query_read",
+          "search_member"
+        ],
+        "derived:sources.json": [
+          "source_selection"
+        ],
+        "query:platforms:api-v1": [
+          "scope_member"
+        ],
+        "release:snapshot": [
+          "release_member"
+        ]
+      },
+      "render_paths": {},
+      "review_paths": {
+        "docs/platforms.md": [
+          "artifact:platform.macos",
+          "query:platforms:api-v1",
+          "artifact:docs/platforms.md"
+        ]
+      },
+      "review_path_kinds": {
+        "docs/platforms.md": [
+          "scope_member",
+          "query_read"
+        ]
+      },
+      "counts": {
+        "total_files": 6,
+        "affected_files": 1,
+        "render_files": 0,
+        "review_files": 1,
+        "unaffected_files": 5,
+        "candidate_file_checks": 1,
+        "full_file_checks": 6,
+        "reachable_nodes": 8,
+        "graph_nodes": 22,
+        "graph_edges": 83
+      },
+      "coverage": {
+        "declared_only": true,
+        "proposal_dependencies_available": true,
+        "artifacts_with_dependency_metadata": [
+          "api.budget_seconds",
+          "api.max_attempts",
+          "api.timeout_seconds",
+          "code/client_config.py",
+          "docs/lease-recovery.md",
+          "docs/linux.md",
+          "docs/platforms.md",
+          "docs/reference.md",
+          "docs/retries.md",
+          "platform.linux",
+          "platform.macos",
+          "platform.windows"
+        ],
+        "artifacts_with_proposal_dependencies": [
+          "api.timeout_seconds",
+          "code/client_config.py",
+          "docs/lease-recovery.md",
+          "docs/linux.md",
+          "docs/platforms.md",
+          "docs/reference.md",
+          "docs/retries.md",
+          "platform.macos",
+          "platform.windows"
+        ],
+        "artifacts_without_dependency_metadata": [],
+        "warnings": [],
+        "declared_graph_limit": "Only explicit bindings, evidence IDs, scope membership, accepted read/query sets and the registered budget rule are represented. Prose and program semantics are not inferred.",
+        "publication_limit": "Candidate selection does not skip acceptance invariants or replace complete pinned release publication; revision metadata can change even for otherwise unaffected content."
+      }
+    },
+    "blocked_release": {
+      "code": "release_needs_review",
+      "reasons": [
+        {
+          "actual": "0e97c966a56cbf655e2bd014bed740c35f87a4d890bf0e64fbfcc7d02bd65491",
+          "code": "stale_accepted_query",
+          "expected": "87536862a3fdb118eab0d334ea9210a3b9c3a14f69f8664b3400b736430aa23b",
+          "id": "docs/platforms.md",
+          "scope": "platforms:api-v1"
+        }
+      ],
+      "revision": 11
+    },
+    "refresh": {
+      "submitted": {
+        "proposal_id": "p_dc3c6863492cbb65cf5442ef",
+        "digest": "6d3f31c7f7528a7b8e6cb00842df718ec8c2d6978be442e3cc7c34766e291432",
+        "replayed": false
+      },
+      "review": {
+        "proposal_id": "p_dc3c6863492cbb65cf5442ef",
+        "proposal_digest": "6d3f31c7f7528a7b8e6cb00842df718ec8c2d6978be442e3cc7c34766e291432",
+        "rules_version": "mvp-1",
+        "approved": true,
+        "reasons": [],
+        "reviewer": "impact-editor",
+        "observed_revision": 11,
+        "source_digests": {},
+        "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+        "review_id": 14
+      },
+      "accepted": {
+        "accepted": true,
+        "proposal_id": "p_dc3c6863492cbb65cf5442ef",
+        "revision": 12,
+        "replayed": false,
+        "reasons": [],
+        "review_id": 14,
+        "coordinator": "impact-coordinator"
+      }
+    },
+    "comparison": {
+      "before": {
+        "release_id": "r10-abbdcd6b3af7436c",
+        "revision": 10
+      },
+      "after": {
+        "release_id": "r12-923d5e5a41d54b48",
+        "revision": 12
+      },
+      "artifact_changes": {
+        "added": [
+          "platform.macos"
+        ],
+        "removed": [],
+        "modified": [
+          "docs/platforms.md"
+        ],
+        "unchanged": [
+          "api.budget_seconds",
+          "api.max_attempts",
+          "api.timeout_seconds",
+          "code/client_config.py",
+          "docs/lease-recovery.md",
+          "docs/linux.md",
+          "docs/reference.md",
+          "docs/retries.md",
+          "platform.linux",
+          "platform.windows"
+        ],
+        "details": [
+          {
+            "id": "docs/platforms.md",
+            "fields": [
+              "bindings",
+              "template"
+            ],
+            "categories": [
+              "template",
+              "bindings"
+            ],
+            "before_digest": "f1cffe6bb7504cb80fea45a751cb4848acd8862cefa7d84265aa4778e63b7fb1",
+            "after_digest": "26fb9c2e0bb442afd7e0538898fa54572cccd0df3ff4626fce2febca3482cb44"
+          },
+          {
+            "id": "platform.macos",
+            "fields": [
+              "evidence",
+              "id",
+              "kind",
+              "scope",
+              "unit",
+              "value"
+            ],
+            "categories": [
+              "added"
+            ],
+            "before_digest": null,
+            "after_digest": "4dc11fd3b7b06657488759106dd7aff40dd77d94e4c4ec560c972b09c39b64f8"
+          }
+        ]
+      },
+      "file_changes": {
+        "added": [],
+        "removed": [],
+        "modified": [
+          "dependencies.json",
+          "docs/platforms.md",
+          "knowledge.json",
+          "manifest.json",
+          "search-index.json",
+          "sources.json"
+        ],
+        "unchanged": [
+          "code/client_config.py",
+          "docs/lease-recovery.md",
+          "docs/linux.md",
+          "docs/reference.md",
+          "docs/retries.md"
+        ]
+      },
+      "source_changes": {
+        "added": [
+          "fixture-platform-extension"
+        ],
+        "removed": [],
+        "modified": [],
+        "unchanged": [
+          "fixture-spec"
+        ]
+      },
+      "dependency_changes": {
+        "added": [
+          "platform.macos"
+        ],
+        "removed": [],
+        "modified": [
+          "docs/platforms.md"
+        ],
+        "unchanged": [
+          "api.budget_seconds",
+          "api.max_attempts",
+          "api.timeout_seconds",
+          "code/client_config.py",
+          "docs/lease-recovery.md",
+          "docs/linux.md",
+          "docs/reference.md",
+          "docs/retries.md",
+          "platform.linux",
+          "platform.windows"
+        ]
+      },
+      "changed_rendered_files": [
+        "docs/platforms.md"
+      ],
+      "template_changes": [
+        "docs/platforms.md"
+      ],
+      "claim_value_changes": [],
+      "evidence_changes": [],
+      "warnings": []
+    }
+  },
+  "summary": {
+    "timeout_candidate_files": [
+      "code/client_config.py",
+      "docs/reference.md",
+      "docs/retries.md"
+    ],
+    "timeout_actual_changed_files": [
+      "code/client_config.py",
+      "docs/reference.md",
+      "docs/retries.md"
+    ],
+    "timeout_all_files": 6,
+    "platform_review_files": [
+      "docs/platforms.md"
+    ],
+    "platform_actual_changed_files": [
+      "docs/platforms.md"
+    ],
+    "publication_was_blocked": true,
+    "final_revision": 12
+  },
+  "limitations": [
+    "Only explicitly declared dependencies are analyzed; no NLP inference.",
+    "Candidate counts do not measure execution-time or quality improvements.",
+    "All invariants still run at acceptance; graph selection does not bypass them.",
+    "Bootstrap and producer metadata are trusted local inputs, not authenticated evidence.",
+    "This is one functional scenario, not a fault or load verification program."
+  ]
+}

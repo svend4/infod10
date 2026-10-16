@@ -1,0 +1,454 @@
+{
+  "before": {
+    "release_id": "r9-58b57cc435622fed",
+    "revision": 9
+  },
+  "after": {
+    "release_id": "r10-abbdcd6b3af7436c",
+    "revision": 10
+  },
+  "artifact_changes": {
+    "added": [],
+    "removed": [],
+    "modified": [
+      "api.timeout_seconds"
+    ],
+    "unchanged": [
+      "api.budget_seconds",
+      "api.max_attempts",
+      "code/client_config.py",
+      "docs/lease-recovery.md",
+      "docs/linux.md",
+      "docs/platforms.md",
+      "docs/reference.md",
+      "docs/retries.md",
+      "platform.linux",
+      "platform.windows"
+    ],
+    "details": [
+      {
+        "id": "api.timeout_seconds",
+        "fields": [
+          "value"
+        ],
+        "categories": [
+          "claim_value_or_scope"
+        ],
+        "before_digest": "4ba78befe8ea90188849fc7c688ab32254f4974e60d33ada63647e8585a2e616",
+        "after_digest": "929089e61ffe6e82ac0dde93a1da561e6dfeee166de9d11b8b85b02009299e8d"
+      }
+    ]
+  },
+  "file_changes": {
+    "added": [],
+    "removed": [],
+    "modified": [
+      "code/client_config.py",
+      "dependencies.json",
+      "docs/reference.md",
+      "docs/retries.md",
+      "knowledge.json",
+      "manifest.json",
+      "search-index.json"
+    ],
+    "unchanged": [
+      "docs/lease-recovery.md",
+      "docs/linux.md",
+      "docs/platforms.md",
+      "sources.json"
+    ]
+  },
+  "source_changes": {
+    "added": [],
+    "removed": [],
+    "modified": [],
+    "unchanged": [
+      "fixture-spec"
+    ]
+  },
+  "dependency_changes": {
+    "added": [],
+    "removed": [],
+    "modified": [
+      "api.timeout_seconds"
+    ],
+    "unchanged": [
+      "api.budget_seconds",
+      "api.max_attempts",
+      "code/client_config.py",
+      "docs/lease-recovery.md",
+      "docs/linux.md",
+      "docs/platforms.md",
+      "docs/reference.md",
+      "docs/retries.md",
+      "platform.linux",
+      "platform.windows"
+    ]
+  },
+  "changed_rendered_files": [
+    "code/client_config.py",
+    "docs/reference.md",
+    "docs/retries.md"
+  ],
+  "template_changes": [],
+  "claim_value_changes": [
+    "api.timeout_seconds"
+  ],
+  "evidence_changes": [],
+  "warnings": [],
+  "impact": {
+    "before": {
+      "revision": 9,
+      "changed": [
+        "artifact:api.timeout_seconds"
+      ],
+      "affected_artifacts": [
+        "code/client_config.py",
+        "docs/reference.md",
+        "docs/retries.md"
+      ],
+      "affected_files": [
+        "code/client_config.py",
+        "docs/reference.md",
+        "docs/retries.md"
+      ],
+      "render_files": [
+        "code/client_config.py",
+        "docs/reference.md",
+        "docs/retries.md"
+      ],
+      "review_files": [],
+      "rules": [
+        "timeout_times_attempts"
+      ],
+      "derived": [
+        "dependencies.json",
+        "knowledge.json",
+        "search-index.json",
+        "sources.json"
+      ],
+      "paths": {
+        "artifact:api.timeout_seconds": [
+          "artifact:api.timeout_seconds"
+        ],
+        "artifact:code/client_config.py": [
+          "artifact:api.timeout_seconds",
+          "artifact:code/client_config.py"
+        ],
+        "artifact:docs/reference.md": [
+          "artifact:api.timeout_seconds",
+          "artifact:docs/reference.md"
+        ],
+        "artifact:docs/retries.md": [
+          "artifact:api.timeout_seconds",
+          "artifact:docs/retries.md"
+        ],
+        "derived:dependencies.json": [
+          "artifact:api.timeout_seconds",
+          "derived:dependencies.json"
+        ],
+        "derived:knowledge.json": [
+          "artifact:api.timeout_seconds",
+          "derived:knowledge.json"
+        ],
+        "derived:search-index.json": [
+          "artifact:api.timeout_seconds",
+          "artifact:docs/reference.md",
+          "derived:search-index.json"
+        ],
+        "derived:sources.json": [
+          "artifact:api.timeout_seconds",
+          "derived:sources.json"
+        ],
+        "query:api:v1": [
+          "artifact:api.timeout_seconds",
+          "query:api:v1"
+        ],
+        "release:snapshot": [
+          "artifact:api.timeout_seconds",
+          "release:snapshot"
+        ],
+        "rule:timeout_times_attempts": [
+          "artifact:api.timeout_seconds",
+          "rule:timeout_times_attempts"
+        ]
+      },
+      "path_kinds": {
+        "artifact:api.timeout_seconds": [],
+        "artifact:code/client_config.py": [
+          "binding"
+        ],
+        "artifact:docs/reference.md": [
+          "binding"
+        ],
+        "artifact:docs/retries.md": [
+          "binding"
+        ],
+        "derived:dependencies.json": [
+          "dependency_record"
+        ],
+        "derived:knowledge.json": [
+          "knowledge_member"
+        ],
+        "derived:search-index.json": [
+          "binding",
+          "search_member"
+        ],
+        "derived:sources.json": [
+          "source_selection"
+        ],
+        "query:api:v1": [
+          "scope_member"
+        ],
+        "release:snapshot": [
+          "release_member"
+        ],
+        "rule:timeout_times_attempts": [
+          "rule_input"
+        ]
+      },
+      "render_paths": {
+        "code/client_config.py": [
+          "artifact:api.timeout_seconds",
+          "artifact:code/client_config.py"
+        ],
+        "docs/reference.md": [
+          "artifact:api.timeout_seconds",
+          "artifact:docs/reference.md"
+        ],
+        "docs/retries.md": [
+          "artifact:api.timeout_seconds",
+          "artifact:docs/retries.md"
+        ]
+      },
+      "review_paths": {},
+      "review_path_kinds": {},
+      "counts": {
+        "total_files": 6,
+        "affected_files": 3,
+        "render_files": 3,
+        "review_files": 0,
+        "unaffected_files": 3,
+        "candidate_file_checks": 3,
+        "full_file_checks": 6,
+        "reachable_nodes": 11,
+        "graph_nodes": 20,
+        "graph_edges": 76
+      },
+      "coverage": {
+        "declared_only": true,
+        "proposal_dependencies_available": true,
+        "artifacts_with_dependency_metadata": [
+          "api.budget_seconds",
+          "api.max_attempts",
+          "api.timeout_seconds",
+          "code/client_config.py",
+          "docs/lease-recovery.md",
+          "docs/linux.md",
+          "docs/platforms.md",
+          "docs/reference.md",
+          "docs/retries.md",
+          "platform.linux",
+          "platform.windows"
+        ],
+        "artifacts_with_proposal_dependencies": [
+          "api.timeout_seconds",
+          "code/client_config.py",
+          "docs/lease-recovery.md",
+          "docs/linux.md",
+          "docs/platforms.md",
+          "docs/reference.md",
+          "docs/retries.md",
+          "platform.windows"
+        ],
+        "artifacts_without_dependency_metadata": [],
+        "warnings": [],
+        "declared_graph_limit": "Only explicit bindings, evidence IDs, scope membership, accepted read/query sets and the registered budget rule are represented. Prose and program semantics are not inferred.",
+        "publication_limit": "Candidate selection does not skip acceptance invariants or replace complete pinned release publication; revision metadata can change even for otherwise unaffected content."
+      }
+    },
+    "after": {
+      "revision": 10,
+      "changed": [
+        "artifact:api.timeout_seconds"
+      ],
+      "affected_artifacts": [
+        "code/client_config.py",
+        "docs/reference.md",
+        "docs/retries.md"
+      ],
+      "affected_files": [
+        "code/client_config.py",
+        "docs/reference.md",
+        "docs/retries.md"
+      ],
+      "render_files": [
+        "code/client_config.py",
+        "docs/reference.md",
+        "docs/retries.md"
+      ],
+      "review_files": [],
+      "rules": [
+        "timeout_times_attempts"
+      ],
+      "derived": [
+        "dependencies.json",
+        "knowledge.json",
+        "search-index.json",
+        "sources.json"
+      ],
+      "paths": {
+        "artifact:api.timeout_seconds": [
+          "artifact:api.timeout_seconds"
+        ],
+        "artifact:code/client_config.py": [
+          "artifact:api.timeout_seconds",
+          "artifact:code/client_config.py"
+        ],
+        "artifact:docs/reference.md": [
+          "artifact:api.timeout_seconds",
+          "artifact:docs/reference.md"
+        ],
+        "artifact:docs/retries.md": [
+          "artifact:api.timeout_seconds",
+          "artifact:docs/retries.md"
+        ],
+        "derived:dependencies.json": [
+          "artifact:api.timeout_seconds",
+          "derived:dependencies.json"
+        ],
+        "derived:knowledge.json": [
+          "artifact:api.timeout_seconds",
+          "derived:knowledge.json"
+        ],
+        "derived:search-index.json": [
+          "artifact:api.timeout_seconds",
+          "artifact:docs/reference.md",
+          "derived:search-index.json"
+        ],
+        "derived:sources.json": [
+          "artifact:api.timeout_seconds",
+          "derived:sources.json"
+        ],
+        "query:api:v1": [
+          "artifact:api.timeout_seconds",
+          "query:api:v1"
+        ],
+        "release:snapshot": [
+          "artifact:api.timeout_seconds",
+          "release:snapshot"
+        ],
+        "rule:timeout_times_attempts": [
+          "artifact:api.timeout_seconds",
+          "rule:timeout_times_attempts"
+        ]
+      },
+      "path_kinds": {
+        "artifact:api.timeout_seconds": [],
+        "artifact:code/client_config.py": [
+          "binding"
+        ],
+        "artifact:docs/reference.md": [
+          "binding"
+        ],
+        "artifact:docs/retries.md": [
+          "binding"
+        ],
+        "derived:dependencies.json": [
+          "dependency_record"
+        ],
+        "derived:knowledge.json": [
+          "knowledge_member"
+        ],
+        "derived:search-index.json": [
+          "binding",
+          "search_member"
+        ],
+        "derived:sources.json": [
+          "source_selection"
+        ],
+        "query:api:v1": [
+          "scope_member"
+        ],
+        "release:snapshot": [
+          "release_member"
+        ],
+        "rule:timeout_times_attempts": [
+          "rule_input"
+        ]
+      },
+      "render_paths": {
+        "code/client_config.py": [
+          "artifact:api.timeout_seconds",
+          "artifact:code/client_config.py"
+        ],
+        "docs/reference.md": [
+          "artifact:api.timeout_seconds",
+          "artifact:docs/reference.md"
+        ],
+        "docs/retries.md": [
+          "artifact:api.timeout_seconds",
+          "artifact:docs/retries.md"
+        ]
+      },
+      "review_paths": {},
+      "review_path_kinds": {},
+      "counts": {
+        "total_files": 6,
+        "affected_files": 3,
+        "render_files": 3,
+        "review_files": 0,
+        "unaffected_files": 3,
+        "candidate_file_checks": 3,
+        "full_file_checks": 6,
+        "reachable_nodes": 11,
+        "graph_nodes": 20,
+        "graph_edges": 76
+      },
+      "coverage": {
+        "declared_only": true,
+        "proposal_dependencies_available": true,
+        "artifacts_with_dependency_metadata": [
+          "api.budget_seconds",
+          "api.max_attempts",
+          "api.timeout_seconds",
+          "code/client_config.py",
+          "docs/lease-recovery.md",
+          "docs/linux.md",
+          "docs/platforms.md",
+          "docs/reference.md",
+          "docs/retries.md",
+          "platform.linux",
+          "platform.windows"
+        ],
+        "artifacts_with_proposal_dependencies": [
+          "api.timeout_seconds",
+          "code/client_config.py",
+          "docs/lease-recovery.md",
+          "docs/linux.md",
+          "docs/platforms.md",
+          "docs/reference.md",
+          "docs/retries.md",
+          "platform.windows"
+        ],
+        "artifacts_without_dependency_metadata": [],
+        "warnings": [],
+        "declared_graph_limit": "Only explicit bindings, evidence IDs, scope membership, accepted read/query sets and the registered budget rule are represented. Prose and program semantics are not inferred.",
+        "publication_limit": "Candidate selection does not skip acceptance invariants or replace complete pinned release publication; revision metadata can change even for otherwise unaffected content."
+      }
+    },
+    "predicted_files": [
+      "code/client_config.py",
+      "docs/reference.md",
+      "docs/retries.md"
+    ],
+    "actual_changed_files": [
+      "code/client_config.py",
+      "docs/reference.md",
+      "docs/retries.md"
+    ],
+    "changed_files_outside_declared_graph": [],
+    "predicted_but_byte_unchanged": [],
+    "interpretation": "Declared dependency candidates, not measured acceleration or proof of semantic completeness"
+  }
+}

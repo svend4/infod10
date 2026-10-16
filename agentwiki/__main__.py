@@ -3,12 +3,15 @@
 from __future__ import annotations
 
 import argparse
+import html
 import json
 from pathlib import Path
 import sys
 
 from .demo import DATABASE_NAME, run_demo
 from .store import Store, WorkbenchError, search_release
+from .impact import analyze_impact, dependency_graph
+from .releases import compare_releases, load_release
 
 
 def _workers(value: str) -> int:
@@ -26,6 +29,59 @@ def _existing_store(workspace: Path) -> Store:
     if not database.is_file():
         raise ValueError(f"База не найдена: {database}. Сначала выполните команду demo.")
     return Store(database)
+
+
+def _snapshot(arguments: argparse.Namespace) -> dict:
+    if arguments.workspace is not None:
+        return _existing_store(arguments.workspace).snapshot()
+    return load_release(arguments.release.expanduser())["snapshot"]
+
+
+def _mermaid(graph: dict) -> str:
+    identifiers = {node["id"]: f"n{index}" for index, node in enumerate(graph["nodes"])}
+    lines = ["flowchart LR"]
+    for node in graph["nodes"]:
+        label = html.escape(node["id"], quote=True)
+        lines.append(f'    {identifiers[node["id"]]}["{label}"]')
+    for edge in graph["edges"]:
+        lines.append(f'    {identifiers[edge["source"]]} -->|{edge["kind"]}| {identifiers[edge["target"]]}')
+    return "\n".join(lines)
+
+
+def comparison_with_impact(before: Path, after: Path) -> dict:
+    comparison = compare_releases(before, after)
+    old = load_release(before)["snapshot"]
+    new = load_release(after)["snapshot"]
+    changes = comparison["artifact_changes"]
+    modified = changes["modified"]
+    dependency_changes = comparison["dependency_changes"]
+    source_changes = comparison["source_changes"]
+    before_seeds = sorted(
+        set(changes["removed"] + modified)
+        | {key for key in dependency_changes["removed"] + dependency_changes["modified"] if key in old["artifacts"]}
+        | {"source:" + key for key in source_changes["removed"] + source_changes["modified"]}
+    )
+    after_seeds = sorted(
+        set(changes["added"] + modified)
+        | {key for key in dependency_changes["added"] + dependency_changes["modified"] if key in new["artifacts"]}
+        | {"source:" + key for key in source_changes["added"] + source_changes["modified"]}
+    )
+    before_impact = analyze_impact(old, before_seeds) if before_seeds else None
+    after_impact = analyze_impact(new, after_seeds) if after_seeds else None
+    predicted = set()
+    for impact in [before_impact, after_impact]:
+        if impact:
+            predicted.update(impact["affected_files"])
+    actual = set(comparison["changed_rendered_files"])
+    comparison["impact"] = {
+        "before": before_impact, "after": after_impact,
+        "predicted_files": sorted(predicted),
+        "actual_changed_files": sorted(actual),
+        "changed_files_outside_declared_graph": sorted(actual - predicted),
+        "predicted_but_byte_unchanged": sorted(predicted - actual),
+        "interpretation": "Declared dependency candidates, not measured acceleration or proof of semantic completeness",
+    }
+    return comparison
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -46,6 +102,21 @@ def main(argv: list[str] | None = None) -> int:
     search = commands.add_parser("search", help="Искать текст внутри одного опубликованного release.")
     search.add_argument("--release", required=True, type=Path, help="Каталог release с manifest.json.")
     search.add_argument("--query", required=True, help="Текст поискового запроса.")
+    for name, description in [("impact", "Показать влияние объявленных изменений."), ("graph", "Показать граф объявленных зависимостей.")]:
+        command = commands.add_parser(name, help=description)
+        source = command.add_mutually_exclusive_group(required=True)
+        source.add_argument("--workspace", type=Path)
+        source.add_argument("--release", type=Path)
+        if name == "impact":
+            command.add_argument("--changed", action="append", required=True, help="ID артефакта или source:/query:/rule: ID; можно повторять.")
+        else:
+            command.add_argument("--format", choices=["json", "mermaid"], default="json")
+    compare = commands.add_parser("compare", help="Сравнить проверенные выпуски и объяснить влияние изменений.")
+    compare.add_argument("--before", type=Path, required=True)
+    compare.add_argument("--after", type=Path, required=True)
+    impact_demo = commands.add_parser("impact-demo", help="Выполнить пример графа влияния и обновления списка платформ.")
+    impact_demo.add_argument("--workspace", type=Path, required=True)
+    impact_demo.add_argument("--workers", default=6, type=_workers)
     arguments = parser.parse_args(argv)
     try:
         if arguments.command == "demo":
@@ -65,9 +136,21 @@ def main(argv: list[str] | None = None) -> int:
         elif arguments.command == "export":
             release = _existing_store(arguments.workspace).publish(arguments.output.expanduser().resolve())
             print(json.dumps(release, ensure_ascii=False, indent=2))
-        else:
-            result = search_release(arguments.release.expanduser().resolve(), arguments.query)
+        elif arguments.command == "search":
+            result = search_release(arguments.release.expanduser(), arguments.query)
             print(json.dumps(result, ensure_ascii=False, indent=2))
+        elif arguments.command == "impact":
+            print(json.dumps(analyze_impact(_snapshot(arguments), arguments.changed), ensure_ascii=False, indent=2))
+        elif arguments.command == "graph":
+            graph = dependency_graph(_snapshot(arguments))
+            print(_mermaid(graph) if arguments.format == "mermaid" else json.dumps(graph, ensure_ascii=False, indent=2))
+        elif arguments.command == "compare":
+            print(json.dumps(comparison_with_impact(arguments.before.expanduser(), arguments.after.expanduser()), ensure_ascii=False, indent=2))
+        else:
+            from .impact_demo import run_impact_demo
+
+            report = run_impact_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "report.md"), "releases": {name: release["release_id"] for name, release in report["releases"].items()}, "summary": report["summary"]}, ensure_ascii=False, indent=2))
     except (WorkbenchError, ValueError, OSError, RuntimeError) as error:
         code = getattr(error, "code", "operation_failed")
         print(f"Ошибка [{code}]: {error}", file=sys.stderr)

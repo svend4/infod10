@@ -1,0 +1,107 @@
+flowchart LR
+    n0["artifact:api.budget_seconds"]
+    n1["artifact:api.max_attempts"]
+    n2["artifact:api.timeout_seconds"]
+    n3["artifact:code/client_config.py"]
+    n4["artifact:docs/lease-recovery.md"]
+    n5["artifact:docs/linux.md"]
+    n6["artifact:docs/platforms.md"]
+    n7["artifact:docs/reference.md"]
+    n8["artifact:docs/retries.md"]
+    n9["artifact:platform.linux"]
+    n10["artifact:platform.macos"]
+    n11["artifact:platform.windows"]
+    n12["derived:dependencies.json"]
+    n13["derived:knowledge.json"]
+    n14["derived:search-index.json"]
+    n15["derived:sources.json"]
+    n16["query:api:v1"]
+    n17["query:platforms:api-v1"]
+    n18["release:snapshot"]
+    n19["rule:timeout_times_attempts"]
+    n20["source:fixture-platform-extension"]
+    n21["source:fixture-spec"]
+    n0 -->|binding| n3
+    n0 -->|binding| n4
+    n0 -->|binding| n7
+    n0 -->|binding| n8
+    n0 -->|dependency_record| n12
+    n0 -->|knowledge_member| n13
+    n0 -->|source_selection| n15
+    n0 -->|scope_member| n16
+    n0 -->|release_member| n18
+    n0 -->|rule_input| n19
+    n1 -->|binding| n3
+    n1 -->|binding| n7
+    n1 -->|binding| n8
+    n1 -->|dependency_record| n12
+    n1 -->|knowledge_member| n13
+    n1 -->|source_selection| n15
+    n1 -->|scope_member| n16
+    n1 -->|release_member| n18
+    n1 -->|rule_input| n19
+    n2 -->|binding| n3
+    n2 -->|binding| n7
+    n2 -->|binding| n8
+    n2 -->|dependency_record| n12
+    n2 -->|knowledge_member| n13
+    n2 -->|source_selection| n15
+    n2 -->|scope_member| n16
+    n2 -->|release_member| n18
+    n2 -->|rule_input| n19
+    n3 -->|dependency_record| n12
+    n3 -->|knowledge_member| n13
+    n3 -->|release_member| n18
+    n4 -->|dependency_record| n12
+    n4 -->|knowledge_member| n13
+    n4 -->|search_member| n14
+    n4 -->|release_member| n18
+    n5 -->|dependency_record| n12
+    n5 -->|knowledge_member| n13
+    n5 -->|search_member| n14
+    n5 -->|release_member| n18
+    n6 -->|dependency_record| n12
+    n6 -->|knowledge_member| n13
+    n6 -->|search_member| n14
+    n6 -->|release_member| n18
+    n7 -->|dependency_record| n12
+    n7 -->|knowledge_member| n13
+    n7 -->|search_member| n14
+    n7 -->|release_member| n18
+    n8 -->|dependency_record| n12
+    n8 -->|knowledge_member| n13
+    n8 -->|search_member| n14
+    n8 -->|release_member| n18
+    n9 -->|binding| n5
+    n9 -->|binding| n6
+    n9 -->|dependency_record| n12
+    n9 -->|knowledge_member| n13
+    n9 -->|source_selection| n15
+    n9 -->|scope_member| n17
+    n9 -->|release_member| n18
+    n10 -->|binding| n6
+    n10 -->|dependency_record| n12
+    n10 -->|knowledge_member| n13
+    n10 -->|source_selection| n15
+    n10 -->|scope_member| n17
+    n10 -->|release_member| n18
+    n11 -->|binding| n6
+    n11 -->|dependency_record| n12
+    n11 -->|knowledge_member| n13
+    n11 -->|source_selection| n15
+    n11 -->|scope_member| n17
+    n11 -->|release_member| n18
+    n12 -->|release_member| n18
+    n13 -->|release_member| n18
+    n14 -->|release_member| n18
+    n15 -->|release_member| n18
+    n17 -->|query_read| n6
+    n19 -->|release_gate| n18
+    n20 -->|evidence| n10
+    n20 -->|source_member| n15
+    n21 -->|evidence| n0
+    n21 -->|evidence| n1
+    n21 -->|evidence| n2
+    n21 -->|evidence| n9
+    n21 -->|evidence| n11
+    n21 -->|source_member| n15

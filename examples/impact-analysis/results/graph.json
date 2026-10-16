@@ -1,0 +1,594 @@
+{
+  "revision": 12,
+  "nodes": [
+    {
+      "id": "artifact:api.budget_seconds",
+      "kind": "artifact",
+      "artifact_id": "api.budget_seconds",
+      "artifact_kind": "claim",
+      "present": true
+    },
+    {
+      "id": "artifact:api.max_attempts",
+      "kind": "artifact",
+      "artifact_id": "api.max_attempts",
+      "artifact_kind": "claim",
+      "present": true
+    },
+    {
+      "id": "artifact:api.timeout_seconds",
+      "kind": "artifact",
+      "artifact_id": "api.timeout_seconds",
+      "artifact_kind": "claim",
+      "present": true
+    },
+    {
+      "id": "artifact:code/client_config.py",
+      "kind": "artifact",
+      "artifact_id": "code/client_config.py",
+      "artifact_kind": "code",
+      "present": true
+    },
+    {
+      "id": "artifact:docs/lease-recovery.md",
+      "kind": "artifact",
+      "artifact_id": "docs/lease-recovery.md",
+      "artifact_kind": "document",
+      "present": true
+    },
+    {
+      "id": "artifact:docs/linux.md",
+      "kind": "artifact",
+      "artifact_id": "docs/linux.md",
+      "artifact_kind": "document",
+      "present": true
+    },
+    {
+      "id": "artifact:docs/platforms.md",
+      "kind": "artifact",
+      "artifact_id": "docs/platforms.md",
+      "artifact_kind": "document",
+      "present": true
+    },
+    {
+      "id": "artifact:docs/reference.md",
+      "kind": "artifact",
+      "artifact_id": "docs/reference.md",
+      "artifact_kind": "document",
+      "present": true
+    },
+    {
+      "id": "artifact:docs/retries.md",
+      "kind": "artifact",
+      "artifact_id": "docs/retries.md",
+      "artifact_kind": "document",
+      "present": true
+    },
+    {
+      "id": "artifact:platform.linux",
+      "kind": "artifact",
+      "artifact_id": "platform.linux",
+      "artifact_kind": "claim",
+      "present": true
+    },
+    {
+      "id": "artifact:platform.macos",
+      "kind": "artifact",
+      "artifact_id": "platform.macos",
+      "artifact_kind": "claim",
+      "present": true
+    },
+    {
+      "id": "artifact:platform.windows",
+      "kind": "artifact",
+      "artifact_id": "platform.windows",
+      "artifact_kind": "claim",
+      "present": true
+    },
+    {
+      "id": "derived:dependencies.json",
+      "kind": "derived",
+      "path": "dependencies.json"
+    },
+    {
+      "id": "derived:knowledge.json",
+      "kind": "derived",
+      "path": "knowledge.json"
+    },
+    {
+      "id": "derived:search-index.json",
+      "kind": "derived",
+      "path": "search-index.json"
+    },
+    {
+      "id": "derived:sources.json",
+      "kind": "derived",
+      "path": "sources.json"
+    },
+    {
+      "id": "query:api:v1",
+      "kind": "query",
+      "scope": "api:v1"
+    },
+    {
+      "id": "query:platforms:api-v1",
+      "kind": "query",
+      "scope": "platforms:api-v1"
+    },
+    {
+      "id": "release:snapshot",
+      "kind": "release",
+      "revision": 12
+    },
+    {
+      "id": "rule:timeout_times_attempts",
+      "kind": "rule",
+      "rule": "timeout_times_attempts"
+    },
+    {
+      "id": "source:fixture-platform-extension",
+      "kind": "source",
+      "source_id": "fixture-platform-extension"
+    },
+    {
+      "id": "source:fixture-spec",
+      "kind": "source",
+      "source_id": "fixture-spec"
+    }
+  ],
+  "edges": [
+    {
+      "source": "artifact:api.budget_seconds",
+      "target": "artifact:code/client_config.py",
+      "kind": "binding"
+    },
+    {
+      "source": "artifact:api.budget_seconds",
+      "target": "artifact:docs/lease-recovery.md",
+      "kind": "binding"
+    },
+    {
+      "source": "artifact:api.budget_seconds",
+      "target": "artifact:docs/reference.md",
+      "kind": "binding"
+    },
+    {
+      "source": "artifact:api.budget_seconds",
+      "target": "artifact:docs/retries.md",
+      "kind": "binding"
+    },
+    {
+      "source": "artifact:api.budget_seconds",
+      "target": "derived:dependencies.json",
+      "kind": "dependency_record"
+    },
+    {
+      "source": "artifact:api.budget_seconds",
+      "target": "derived:knowledge.json",
+      "kind": "knowledge_member"
+    },
+    {
+      "source": "artifact:api.budget_seconds",
+      "target": "derived:sources.json",
+      "kind": "source_selection"
+    },
+    {
+      "source": "artifact:api.budget_seconds",
+      "target": "query:api:v1",
+      "kind": "scope_member"
+    },
+    {
+      "source": "artifact:api.budget_seconds",
+      "target": "release:snapshot",
+      "kind": "release_member"
+    },
+    {
+      "source": "artifact:api.budget_seconds",
+      "target": "rule:timeout_times_attempts",
+      "kind": "rule_input"
+    },
+    {
+      "source": "artifact:api.max_attempts",
+      "target": "artifact:code/client_config.py",
+      "kind": "binding"
+    },
+    {
+      "source": "artifact:api.max_attempts",
+      "target": "artifact:docs/reference.md",
+      "kind": "binding"
+    },
+    {
+      "source": "artifact:api.max_attempts",
+      "target": "artifact:docs/retries.md",
+      "kind": "binding"
+    },
+    {
+      "source": "artifact:api.max_attempts",
+      "target": "derived:dependencies.json",
+      "kind": "dependency_record"
+    },
+    {
+      "source": "artifact:api.max_attempts",
+      "target": "derived:knowledge.json",
+      "kind": "knowledge_member"
+    },
+    {
+      "source": "artifact:api.max_attempts",
+      "target": "derived:sources.json",
+      "kind": "source_selection"
+    },
+    {
+      "source": "artifact:api.max_attempts",
+      "target": "query:api:v1",
+      "kind": "scope_member"
+    },
+    {
+      "source": "artifact:api.max_attempts",
+      "target": "release:snapshot",
+      "kind": "release_member"
+    },
+    {
+      "source": "artifact:api.max_attempts",
+      "target": "rule:timeout_times_attempts",
+      "kind": "rule_input"
+    },
+    {
+      "source": "artifact:api.timeout_seconds",
+      "target": "artifact:code/client_config.py",
+      "kind": "binding"
+    },
+    {
+      "source": "artifact:api.timeout_seconds",
+      "target": "artifact:docs/reference.md",
+      "kind": "binding"
+    },
+    {
+      "source": "artifact:api.timeout_seconds",
+      "target": "artifact:docs/retries.md",
+      "kind": "binding"
+    },
+    {
+      "source": "artifact:api.timeout_seconds",
+      "target": "derived:dependencies.json",
+      "kind": "dependency_record"
+    },
+    {
+      "source": "artifact:api.timeout_seconds",
+      "target": "derived:knowledge.json",
+      "kind": "knowledge_member"
+    },
+    {
+      "source": "artifact:api.timeout_seconds",
+      "target": "derived:sources.json",
+      "kind": "source_selection"
+    },
+    {
+      "source": "artifact:api.timeout_seconds",
+      "target": "query:api:v1",
+      "kind": "scope_member"
+    },
+    {
+      "source": "artifact:api.timeout_seconds",
+      "target": "release:snapshot",
+      "kind": "release_member"
+    },
+    {
+      "source": "artifact:api.timeout_seconds",
+      "target": "rule:timeout_times_attempts",
+      "kind": "rule_input"
+    },
+    {
+      "source": "artifact:code/client_config.py",
+      "target": "derived:dependencies.json",
+      "kind": "dependency_record"
+    },
+    {
+      "source": "artifact:code/client_config.py",
+      "target": "derived:knowledge.json",
+      "kind": "knowledge_member"
+    },
+    {
+      "source": "artifact:code/client_config.py",
+      "target": "release:snapshot",
+      "kind": "release_member"
+    },
+    {
+      "source": "artifact:docs/lease-recovery.md",
+      "target": "derived:dependencies.json",
+      "kind": "dependency_record"
+    },
+    {
+      "source": "artifact:docs/lease-recovery.md",
+      "target": "derived:knowledge.json",
+      "kind": "knowledge_member"
+    },
+    {
+      "source": "artifact:docs/lease-recovery.md",
+      "target": "derived:search-index.json",
+      "kind": "search_member"
+    },
+    {
+      "source": "artifact:docs/lease-recovery.md",
+      "target": "release:snapshot",
+      "kind": "release_member"
+    },
+    {
+      "source": "artifact:docs/linux.md",
+      "target": "derived:dependencies.json",
+      "kind": "dependency_record"
+    },
+    {
+      "source": "artifact:docs/linux.md",
+      "target": "derived:knowledge.json",
+      "kind": "knowledge_member"
+    },
+    {
+      "source": "artifact:docs/linux.md",
+      "target": "derived:search-index.json",
+      "kind": "search_member"
+    },
+    {
+      "source": "artifact:docs/linux.md",
+      "target": "release:snapshot",
+      "kind": "release_member"
+    },
+    {
+      "source": "artifact:docs/platforms.md",
+      "target": "derived:dependencies.json",
+      "kind": "dependency_record"
+    },
+    {
+      "source": "artifact:docs/platforms.md",
+      "target": "derived:knowledge.json",
+      "kind": "knowledge_member"
+    },
+    {
+      "source": "artifact:docs/platforms.md",
+      "target": "derived:search-index.json",
+      "kind": "search_member"
+    },
+    {
+      "source": "artifact:docs/platforms.md",
+      "target": "release:snapshot",
+      "kind": "release_member"
+    },
+    {
+      "source": "artifact:docs/reference.md",
+      "target": "derived:dependencies.json",
+      "kind": "dependency_record"
+    },
+    {
+      "source": "artifact:docs/reference.md",
+      "target": "derived:knowledge.json",
+      "kind": "knowledge_member"
+    },
+    {
+      "source": "artifact:docs/reference.md",
+      "target": "derived:search-index.json",
+      "kind": "search_member"
+    },
+    {
+      "source": "artifact:docs/reference.md",
+      "target": "release:snapshot",
+      "kind": "release_member"
+    },
+    {
+      "source": "artifact:docs/retries.md",
+      "target": "derived:dependencies.json",
+      "kind": "dependency_record"
+    },
+    {
+      "source": "artifact:docs/retries.md",
+      "target": "derived:knowledge.json",
+      "kind": "knowledge_member"
+    },
+    {
+      "source": "artifact:docs/retries.md",
+      "target": "derived:search-index.json",
+      "kind": "search_member"
+    },
+    {
+      "source": "artifact:docs/retries.md",
+      "target": "release:snapshot",
+      "kind": "release_member"
+    },
+    {
+      "source": "artifact:platform.linux",
+      "target": "artifact:docs/linux.md",
+      "kind": "binding"
+    },
+    {
+      "source": "artifact:platform.linux",
+      "target": "artifact:docs/platforms.md",
+      "kind": "binding"
+    },
+    {
+      "source": "artifact:platform.linux",
+      "target": "derived:dependencies.json",
+      "kind": "dependency_record"
+    },
+    {
+      "source": "artifact:platform.linux",
+      "target": "derived:knowledge.json",
+      "kind": "knowledge_member"
+    },
+    {
+      "source": "artifact:platform.linux",
+      "target": "derived:sources.json",
+      "kind": "source_selection"
+    },
+    {
+      "source": "artifact:platform.linux",
+      "target": "query:platforms:api-v1",
+      "kind": "scope_member"
+    },
+    {
+      "source": "artifact:platform.linux",
+      "target": "release:snapshot",
+      "kind": "release_member"
+    },
+    {
+      "source": "artifact:platform.macos",
+      "target": "artifact:docs/platforms.md",
+      "kind": "binding"
+    },
+    {
+      "source": "artifact:platform.macos",
+      "target": "derived:dependencies.json",
+      "kind": "dependency_record"
+    },
+    {
+      "source": "artifact:platform.macos",
+      "target": "derived:knowledge.json",
+      "kind": "knowledge_member"
+    },
+    {
+      "source": "artifact:platform.macos",
+      "target": "derived:sources.json",
+      "kind": "source_selection"
+    },
+    {
+      "source": "artifact:platform.macos",
+      "target": "query:platforms:api-v1",
+      "kind": "scope_member"
+    },
+    {
+      "source": "artifact:platform.macos",
+      "target": "release:snapshot",
+      "kind": "release_member"
+    },
+    {
+      "source": "artifact:platform.windows",
+      "target": "artifact:docs/platforms.md",
+      "kind": "binding"
+    },
+    {
+      "source": "artifact:platform.windows",
+      "target": "derived:dependencies.json",
+      "kind": "dependency_record"
+    },
+    {
+      "source": "artifact:platform.windows",
+      "target": "derived:knowledge.json",
+      "kind": "knowledge_member"
+    },
+    {
+      "source": "artifact:platform.windows",
+      "target": "derived:sources.json",
+      "kind": "source_selection"
+    },
+    {
+      "source": "artifact:platform.windows",
+      "target": "query:platforms:api-v1",
+      "kind": "scope_member"
+    },
+    {
+      "source": "artifact:platform.windows",
+      "target": "release:snapshot",
+      "kind": "release_member"
+    },
+    {
+      "source": "derived:dependencies.json",
+      "target": "release:snapshot",
+      "kind": "release_member"
+    },
+    {
+      "source": "derived:knowledge.json",
+      "target": "release:snapshot",
+      "kind": "release_member"
+    },
+    {
+      "source": "derived:search-index.json",
+      "target": "release:snapshot",
+      "kind": "release_member"
+    },
+    {
+      "source": "derived:sources.json",
+      "target": "release:snapshot",
+      "kind": "release_member"
+    },
+    {
+      "source": "query:platforms:api-v1",
+      "target": "artifact:docs/platforms.md",
+      "kind": "query_read"
+    },
+    {
+      "source": "rule:timeout_times_attempts",
+      "target": "release:snapshot",
+      "kind": "release_gate"
+    },
+    {
+      "source": "source:fixture-platform-extension",
+      "target": "artifact:platform.macos",
+      "kind": "evidence"
+    },
+    {
+      "source": "source:fixture-platform-extension",
+      "target": "derived:sources.json",
+      "kind": "source_member"
+    },
+    {
+      "source": "source:fixture-spec",
+      "target": "artifact:api.budget_seconds",
+      "kind": "evidence"
+    },
+    {
+      "source": "source:fixture-spec",
+      "target": "artifact:api.max_attempts",
+      "kind": "evidence"
+    },
+    {
+      "source": "source:fixture-spec",
+      "target": "artifact:api.timeout_seconds",
+      "kind": "evidence"
+    },
+    {
+      "source": "source:fixture-spec",
+      "target": "artifact:platform.linux",
+      "kind": "evidence"
+    },
+    {
+      "source": "source:fixture-spec",
+      "target": "artifact:platform.windows",
+      "kind": "evidence"
+    },
+    {
+      "source": "source:fixture-spec",
+      "target": "derived:sources.json",
+      "kind": "source_member"
+    }
+  ],
+  "coverage": {
+    "declared_only": true,
+    "proposal_dependencies_available": true,
+    "artifacts_with_dependency_metadata": [
+      "api.budget_seconds",
+      "api.max_attempts",
+      "api.timeout_seconds",
+      "code/client_config.py",
+      "docs/lease-recovery.md",
+      "docs/linux.md",
+      "docs/platforms.md",
+      "docs/reference.md",
+      "docs/retries.md",
+      "platform.linux",
+      "platform.macos",
+      "platform.windows"
+    ],
+    "artifacts_with_proposal_dependencies": [
+      "api.timeout_seconds",
+      "code/client_config.py",
+      "docs/lease-recovery.md",
+      "docs/linux.md",
+      "docs/platforms.md",
+      "docs/reference.md",
+      "docs/retries.md",
+      "platform.macos",
+      "platform.windows"
+    ],
+    "artifacts_without_dependency_metadata": [],
+    "warnings": [],
+    "declared_graph_limit": "Only explicit bindings, evidence IDs, scope membership, accepted read/query sets and the registered budget rule are represented. Prose and program semantics are not inferred.",
+    "publication_limit": "Candidate selection does not skip acceptance invariants or replace complete pinned release publication; revision metadata can change even for otherwise unaffected content."
+  }
+}
