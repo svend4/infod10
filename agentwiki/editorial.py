@@ -245,55 +245,7 @@ class EditorialJournal:
             decisions = [json.loads(row["body"]) for row in connection.execute("SELECT body FROM decisions WHERE packet_id=? ORDER BY rowid", (packet_id,))]
         # Long comparisons use captured immutable packet/history, without a
         # write lock and without rereading a potentially changed input file.
-        freshness, analysis = self._freshness(packet, current_pair)
-        latest_by_reviewer = {decision["reviewer"]: decision for decision in decisions}
-        latest = [latest_by_reviewer[key] for key in sorted(latest_by_reviewer)]
-        approvals = [decision for decision in latest if decision["verdict"] == "approve"]
-        objections = [decision for decision in latest if decision["verdict"] == "request_changes"]
-        agent_approvals = [decision for decision in approvals if decision["actor_kind"] == "agent"]
-        if approvals and objections:
-            review_state = "disagreement"
-        elif objections:
-            review_state = "changes_requested"
-        elif len(agent_approvals) >= EDITORIAL_POLICY["agent_agreement_min"]:
-            review_state = "agent_agreement"
-        elif approvals:
-            review_state = "review_recorded"
-        elif latest:
-            review_state = "abstained"
-        else:
-            review_state = "awaiting_reviews"
-        human_recorded = any(decision["actor_kind"] == "human" for decision in latest)
-        blockers = []
-        if freshness != "current":
-            blockers.append(freshness)
-        if not human_recorded:
-            blockers.append("human_review_not_recorded")
-        if objections:
-            blockers.append("unresolved_changes_requested")
-        if (analysis or packet["analysis"])["relation"] == "undetermined":
-            blockers.append("semantic_context_incomplete")
-        return {
-            "packet_id": packet_id, "packet_digest": packet["packet_digest"],
-            "input_digest": packet["input_digest"],
-            "current_input_digest": analysis["input_digest"] if analysis is not None else None,
-            "freshness": freshness, "is_current": None if freshness == "input_not_checked" else freshness == "current",
-            "current_input_provided": current_pair is not None,
-            "current_input_checked": current_pair is not None and analysis is not None,
-            "review_state": review_state, "latest_decisions": latest,
-            "current_basis_decisions": latest if freshness == "current" else [],
-            "history_count": len(decisions), "reviewer_count": len(latest),
-            "human_review_recorded": human_recorded, "requires_human_review": True,
-            "current_human_review_recorded": human_recorded and freshness == "current",
-            "auto_accept": False, "blockers": blockers,
-            "counts": {"approve": len(approvals), "request_changes": len(objections), "abstain": sum(decision["verdict"] == "abstain" for decision in latest)},
-            "limits": [
-                "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
-                "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
-                "No state records factual truth or grants Store.accept/publication rights.",
-                "Human-review requirement remains true even when a caller records an actor labelled human.",
-            ],
-        }
+        return _assess_records(packet, decisions, current_pair)
 
     def export_snapshot(self) -> dict[str, Any]:
         with self._transaction() as connection:
@@ -379,3 +331,71 @@ def verify_journal_export(snapshot: dict[str, Any]) -> dict[str, Any]:
         raise
     except (KeyError, TypeError, ValueError, AttributeError, RecursionError) as error:
         raise WorkbenchError("journal_integrity", "Malformed journal export: " + str(error)) from error
+
+
+def _assess_records(packet: dict[str, Any], decisions: list[dict[str, Any]], current_pair: dict[str, Any] | None) -> dict[str, Any]:
+    """Assess already captured records; perform no database reads."""
+    freshness, analysis = EditorialJournal._freshness(packet, current_pair)
+    latest_by_reviewer = {decision["reviewer"]: decision for decision in decisions}
+    latest = [latest_by_reviewer[key] for key in sorted(latest_by_reviewer)]
+    approvals = [decision for decision in latest if decision["verdict"] == "approve"]
+    objections = [decision for decision in latest if decision["verdict"] == "request_changes"]
+    agent_approvals = [decision for decision in approvals if decision["actor_kind"] == "agent"]
+    if approvals and objections:
+        review_state = "disagreement"
+    elif objections:
+        review_state = "changes_requested"
+    elif len(agent_approvals) >= EDITORIAL_POLICY["agent_agreement_min"]:
+        review_state = "agent_agreement"
+    elif approvals:
+        review_state = "review_recorded"
+    elif latest:
+        review_state = "abstained"
+    else:
+        review_state = "awaiting_reviews"
+    human_recorded = any(decision["actor_kind"] == "human" for decision in latest)
+    blockers = []
+    if freshness != "current":
+        blockers.append(freshness)
+    if not human_recorded:
+        blockers.append("human_review_not_recorded")
+    if objections:
+        blockers.append("unresolved_changes_requested")
+    if (analysis or packet["analysis"])["relation"] == "undetermined":
+        blockers.append("semantic_context_incomplete")
+    return {
+        "packet_id": packet["packet_id"], "packet_digest": packet["packet_digest"],
+        "input_digest": packet["input_digest"],
+        "current_input_digest": analysis["input_digest"] if analysis is not None else None,
+        "freshness": freshness, "is_current": None if freshness == "input_not_checked" else freshness == "current",
+        "current_input_provided": current_pair is not None,
+        "current_input_checked": current_pair is not None and analysis is not None,
+        "review_state": review_state, "latest_decisions": latest,
+        "current_basis_decisions": latest if freshness == "current" else [],
+        "history_count": len(decisions), "reviewer_count": len(latest),
+        "human_review_recorded": human_recorded, "requires_human_review": True,
+        "current_human_review_recorded": human_recorded and freshness == "current",
+        "auto_accept": False, "blockers": blockers,
+        "counts": {"approve": len(approvals), "request_changes": len(objections), "abstain": sum(decision["verdict"] == "abstain" for decision in latest)},
+        "limits": [
+            "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+            "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+            "No state records factual truth or grants Store.accept/publication rights.",
+            "Human-review requirement remains true even when a caller records an actor labelled human.",
+        ],
+    }
+
+
+def assess_export(snapshot: dict[str, Any], packet_id: str, current_pair: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Assess one packet from a self-contained journal observation.
+
+    Both the packet and latest decision heads come from the same captured
+    export. Its hashes establish internal consistency, not trusted identity.
+    """
+    snapshot = json.loads(canonical(snapshot))
+    pair = json.loads(canonical(current_pair)) if current_pair is not None else None
+    verify_journal_export(snapshot)
+    packet = next((item for item in snapshot["packets"] if item["packet_id"] == packet_id), None)
+    _require(packet is not None, "unknown_packet", packet_id)
+    decisions = [item for item in snapshot["decisions"] if item["packet_id"] == packet_id]
+    return _assess_records(packet, decisions, pair)

@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "bridge_rules_version": "dossier-1",
+  "dossier_id": "dos_5c566a1a91dec3ab9688b25da3c8bda534a49a7b234b39362fa13444c4ed8130",
+  "dossier_digest": "5c566a1a91dec3ab9688b25da3c8bda534a49a7b234b39362fa13444c4ed8130",
+  "freshness": "current",
+  "state": "current_for_human_review",
+  "changes": [],
+  "blockers": [],
+  "current_observation": {
+    "proposal_id": "p_a60437ee232ae3e11831d74a",
+    "proposal_digest": "5830f03ae3113ea4ba91f3054ec5812e523a15d3031ca592501593240410bfc6",
+    "packet_id": "pkt_29f3adf2cb690ef62de7f09aefedcf3d7bfd07925e7e94040abcc9482df1b4f1",
+    "packet_digest": "29f3adf2cb690ef62de7f09aefedcf3d7bfd07925e7e94040abcc9482df1b4f1",
+    "artifact_id": "code/client_config.py",
+    "observed_revision": 2,
+    "proposal_status": "proposed",
+    "runtime_basis_current": true,
+    "runtime_basis_digest": "a1a1600c3a20d6344e284e097a81deb28055dbe0090348b4fe39edcd913e7229",
+    "formal_head": {
+      "review_id": 2,
+      "report_digest": "6c89c8f86d874ea29d43df9ddba689e8c6b2d2e28d5817d3ddf9950f11f27f6d"
+    },
+    "decision_heads": {
+      "editorial-agent-a": "dec_8bcbffebc983454eba3b5417722dd5869645abc83319c3c9c561986e3afdbe8c",
+      "editorial-agent-b": "dec_32c7fd2c6e1c8f605d840950b59f0c8e1e8bf0c9d5eb7c427e09f2895e9cdcaa"
+    },
+    "binding": {
+      "mode": "exact_template",
+      "matches": true,
+      "errors": [],
+      "semantic_mapping": "caller_declared_unverified",
+      "scope": "template_text_only_not_rendered_output_or_all_metadata"
+    },
+    "coverage": {
+      "selected_write_ids": [
+        "code/client_config.py"
+      ],
+      "uncovered_write_ids": [],
+      "complete": true,
+      "scope": "write_ids_only_not_semantic_coverage"
+    },
+    "actors": {
+      "runtime_author_id": "dossier-code-author",
+      "packet_proposer": {
+        "id": "dossier-code-author",
+        "kind": "agent"
+      },
+      "authenticated": false,
+      "independence_verified": false
+    },
+    "runtime_errors": [],
+    "formal_errors": [],
+    "editorial": {
+      "packet_id": "pkt_29f3adf2cb690ef62de7f09aefedcf3d7bfd07925e7e94040abcc9482df1b4f1",
+      "packet_digest": "29f3adf2cb690ef62de7f09aefedcf3d7bfd07925e7e94040abcc9482df1b4f1",
+      "input_digest": "8d01e9d190cdfed95b268100a1220e7593c5aab6a0264dd4a695db432ea5ebbf",
+      "current_input_digest": "8d01e9d190cdfed95b268100a1220e7593c5aab6a0264dd4a695db432ea5ebbf",
+      "freshness": "current",
+      "is_current": true,
+      "current_input_provided": true,
+      "current_input_checked": true,
+      "review_state": "agent_agreement",
+      "latest_decisions": [
+        {
+          "actor_kind": "agent",
+          "decision_id": "dec_8bcbffebc983454eba3b5417722dd5869645abc83319c3c9c561986e3afdbe8c",
+          "operation_id": "code-editorial-agent-a-1",
+          "packet_digest": "29f3adf2cb690ef62de7f09aefedcf3d7bfd07925e7e94040abcc9482df1b4f1",
+          "packet_id": "pkt_29f3adf2cb690ef62de7f09aefedcf3d7bfd07925e7e94040abcc9482df1b4f1",
+          "rationale": "The explicitly authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording or code behavior.",
+          "recorded_at": "2026-10-16T11:51:30.816702+00:00",
+          "request_digest": "8bcbffebc983454eba3b5417722dd5869645abc83319c3c9c561986e3afdbe8c",
+          "reviewer": "editorial-agent-a",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        {
+          "actor_kind": "agent",
+          "decision_id": "dec_32c7fd2c6e1c8f605d840950b59f0c8e1e8bf0c9d5eb7c427e09f2895e9cdcaa",
+          "operation_id": "code-editorial-agent-b-1",
+          "packet_digest": "29f3adf2cb690ef62de7f09aefedcf3d7bfd07925e7e94040abcc9482df1b4f1",
+          "packet_id": "pkt_29f3adf2cb690ef62de7f09aefedcf3d7bfd07925e7e94040abcc9482df1b4f1",
+          "rationale": "The explicitly authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording or code behavior.",
+          "recorded_at": "2026-10-16T11:51:30.817967+00:00",
+          "request_digest": "32c7fd2c6e1c8f605d840950b59f0c8e1e8bf0c9d5eb7c427e09f2895e9cdcaa",
+          "reviewer": "editorial-agent-b",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        }
+      ],
+      "current_basis_decisions": [
+        {
+          "actor_kind": "agent",
+          "decision_id": "dec_8bcbffebc983454eba3b5417722dd5869645abc83319c3c9c561986e3afdbe8c",
+          "operation_id": "code-editorial-agent-a-1",
+          "packet_digest": "29f3adf2cb690ef62de7f09aefedcf3d7bfd07925e7e94040abcc9482df1b4f1",
+          "packet_id": "pkt_29f3adf2cb690ef62de7f09aefedcf3d7bfd07925e7e94040abcc9482df1b4f1",
+          "rationale": "The explicitly authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording or code behavior.",
+          "recorded_at": "2026-10-16T11:51:30.816702+00:00",
+          "request_digest": "8bcbffebc983454eba3b5417722dd5869645abc83319c3c9c561986e3afdbe8c",
+          "reviewer": "editorial-agent-a",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        {
+          "actor_kind": "agent",
+          "decision_id": "dec_32c7fd2c6e1c8f605d840950b59f0c8e1e8bf0c9d5eb7c427e09f2895e9cdcaa",
+          "operation_id": "code-editorial-agent-b-1",
+          "packet_digest": "29f3adf2cb690ef62de7f09aefedcf3d7bfd07925e7e94040abcc9482df1b4f1",
+          "packet_id": "pkt_29f3adf2cb690ef62de7f09aefedcf3d7bfd07925e7e94040abcc9482df1b4f1",
+          "rationale": "The explicitly authored quantity metadata compares 30 seconds with 30000 milliseconds. Exact template attachment is checked separately. This programmed approval does not assess all wording or code behavior.",
+          "recorded_at": "2026-10-16T11:51:30.817967+00:00",
+          "request_digest": "32c7fd2c6e1c8f605d840950b59f0c8e1e8bf0c9d5eb7c427e09f2895e9cdcaa",
+          "reviewer": "editorial-agent-b",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        }
+      ],
+      "history_count": 2,
+      "reviewer_count": 2,
+      "human_review_recorded": false,
+      "requires_human_review": true,
+      "current_human_review_recorded": false,
+      "auto_accept": false,
+      "blockers": [
+        "human_review_not_recorded"
+      ],
+      "counts": {
+        "approve": 2,
+        "request_changes": 0,
+        "abstain": 0
+      },
+      "limits": [
+        "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+        "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+        "No state records factual truth or grants Store.accept/publication rights.",
+        "Human-review requirement remains true even when a caller records an actor labelled human."
+      ]
+    },
+    "blockers": [],
+    "state": "current_for_human_review",
+    "requires_human_review": true,
+    "auto_accept": false,
+    "atomic_capture": false,
+    "limits": [
+      "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+      "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+      "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+      "No dossier or recheck grants Store.accept or publication rights."
+    ]
+  },
+  "original_observed_revision": 1,
+  "current_observed_revision": 2,
+  "journal_snapshot_changed": false,
+  "requires_human_review": true,
+  "auto_accept": false,
+  "atomic_capture": false,
+  "limits": [
+    "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+    "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+    "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+    "No dossier or recheck grants Store.accept or publication rights."
+  ]
+}

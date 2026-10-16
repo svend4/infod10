@@ -536,6 +536,50 @@ class Store:
             result["payload"] = json.loads(result["payload"])
             return result
 
+    def proposal_context(self, proposal_id: str) -> dict[str, Any]:
+        """Capture a proposal and its current basis in one read transaction.
+
+        This is an observation for an editor. It does not reserve a revision,
+        write a review, or grant acceptance rights after the transaction ends.
+        """
+        with self._transaction() as connection:
+            row = self._find_proposal(connection, proposal_id)
+            proposal = dict(row)
+            proposal["payload"] = json.loads(proposal["payload"])
+            payload = proposal["payload"]
+            current = self._artifacts(connection)
+            review = connection.execute(
+                "SELECT * FROM reviews WHERE proposal_id=? ORDER BY id DESC LIMIT 1",
+                (proposal_id,),
+            ).fetchone()
+            formal_errors = []
+            if not review or not review["approved"]:
+                formal_errors.append(reason("unapproved"))
+            elif review["proposal_digest"] != row["digest"] or review["rules_version"] != RULES_VERSION:
+                formal_errors.append(reason("stale_review"))
+            formal_review = None
+            if review:
+                formal_review = {**json.loads(review["report"]), "review_id": review["id"]}
+            identifiers = set(payload["readset"]) | {body["id"] for body in payload["writes"]}
+            return {
+                "schema_version": 1, "runtime_rules_version": RULES_VERSION,
+                "observed_revision": self._revision(connection), "proposal": proposal,
+                "artifacts": {key: current.get(key) for key in sorted(identifiers)},
+                "actual_readset": {
+                    key: digest(current[key]) if key in current else None
+                    for key in sorted(payload["readset"])
+                },
+                "actual_queries": {
+                    scope: self._query_digest(current, scope) for scope in sorted(payload["queries"])
+                },
+                "sources": {
+                    source["id"]: dict(source)
+                    for source in connection.execute("SELECT id,text,digest FROM sources ORDER BY id")
+                },
+                "formal_review": formal_review, "formal_errors": formal_errors,
+                "runtime_errors": self._evaluate(connection, row),
+            }
+
     def tasks(self) -> list[dict[str, Any]]:
         with self._transaction() as connection:
             tasks = []

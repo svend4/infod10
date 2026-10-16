@@ -1,0 +1,52 @@
+{
+  "before": {
+    "subject": "fictional-api",
+    "property": "request-timeout",
+    "scope": {
+      "version": "1.0"
+    },
+    "kind": "specification",
+    "modality": "asserted",
+    "polarity": "positive",
+    "value": {
+      "type": "quantity",
+      "amount": "30",
+      "unit": "s"
+    },
+    "attribution": "вымышленный редактор Альфа",
+    "evidence": {
+      "source_id": "fictional-shared",
+      "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+      "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам."
+    },
+    "text": "\"\"\"Fictional API configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\n"
+  },
+  "after": {
+    "subject": "fictional-api",
+    "property": "request-timeout",
+    "scope": {
+      "version": "1.0"
+    },
+    "kind": "specification",
+    "modality": "asserted",
+    "polarity": "positive",
+    "value": {
+      "type": "quantity",
+      "amount": "30000",
+      "unit": "ms"
+    },
+    "attribution": "вымышленный редактор Альфа",
+    "evidence": {
+      "source_id": "fictional-shared",
+      "source_digest": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1",
+      "quote": "Тайм-аут равен 30 секундам, то есть 30000 миллисекундам."
+    },
+    "text": "\"\"\"Fictional API configuration; source values require editorial review.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\n"
+  },
+  "sources": {
+    "fictional-shared": {
+      "text": "ВЫМЫШЛЕННЫЙ ИСТОЧНИК. Учебный снимок условного API, не сведения о реальном продукте.\nТайм-аут равен 30 секундам, то есть 30000 миллисекундам.\n",
+      "sha256": "2c5481355c9daf4f85b8b1c8ae24ba853459dc7a2c9c006d410f62471a9f7ca1"
+    }
+  }
+}

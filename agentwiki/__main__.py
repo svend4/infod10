@@ -15,6 +15,7 @@ from .releases import _compare_loaded_releases, load_release
 from .corpus import analyze_case, get_case, load_corpus
 from .semantic import analyze_pair_file
 from .editorial_cli import register_editorial_parser, run_editorial_command
+from .dossier_cli import register_dossier_parser, run_dossier_command
 
 
 def _workers(value: str) -> int:
@@ -136,9 +137,13 @@ def main(argv: list[str] | None = None) -> int:
     review_pair = commands.add_parser("review-pair", help="Объяснить различия пары структурированных утверждений; автоматического принятия нет.")
     review_pair.add_argument("--input", type=Path, required=True, help="JSON с before, after и sources.")
     register_editorial_parser(commands)
+    register_dossier_parser(commands)
     editorial_demo = commands.add_parser("editorial-demo", help="Показать историю решений программных проверяющих и устаревание оснований.")
     editorial_demo.add_argument("--workspace", type=Path, required=True)
     editorial_demo.add_argument("--workers", default=3, type=_workers)
+    dossier_demo = commands.add_parser("dossier-demo", help="Связать рассмотрение с точными предложениями документов и кода.")
+    dossier_demo.add_argument("--workspace", type=Path, required=True)
+    dossier_demo.add_argument("--workers", default=3, type=_workers)
     arguments = parser.parse_args(argv)
     try:
         if arguments.command == "demo":
@@ -177,6 +182,13 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(analyze_pair_file(arguments.input.expanduser()), ensure_ascii=False, indent=2))
         elif arguments.command == "editorial":
             print(json.dumps(run_editorial_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "dossier":
+            print(json.dumps(run_dossier_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "dossier-demo":
+            from .dossier_demo import run_dossier_demo
+
+            report = run_dossier_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "editorial-demo":
             from .editorial_demo import run_editorial_demo
 
