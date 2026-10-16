@@ -1,0 +1,335 @@
+{
+  "base-document": {
+    "id": "p_62f233f2cb7db7c7f4821842",
+    "task_id": "inventory-rebase-base-document",
+    "author": "inventory-document-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Author a fictional candidate for explicit inventory maintenance.",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "docs/reference.md": "1b56fdd00729aeea5f63fdfa841c5f4891350ba3a7d884e76447f38e72ccbfcd"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "docs/reference.md",
+          "kind": "document",
+          "template": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 3 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n```\n"
+        }
+      ]
+    },
+    "digest": "e46b3811ba415a07f1623d8616153ddcf61985f25053e62efa353edfc9cfc13f",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "changed-code": {
+    "id": "p_3475acc592d1cf4586ad2fd2",
+    "task_id": "inventory-rebase-changed-code",
+    "author": "inventory-code-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Author a fictional candidate for explicit inventory maintenance.",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config.py": "fe84dac16357d1b11411530c3586426c6bc3be52b31310a1f63f946b189338d1"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional candidate configuration; never executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 4\n"
+        }
+      ]
+    },
+    "digest": "34d66610bc58898f7b5511a12361e40f20c9d91fda20dafa084bcfab0e9ef721",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "changed-document": {
+    "id": "p_73ef2b87094d6571c999a937",
+    "task_id": "inventory-rebase-changed-document",
+    "author": "inventory-document-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Author a fictional candidate for explicit inventory maintenance.",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "docs/reference.md": "1b56fdd00729aeea5f63fdfa841c5f4891350ba3a7d884e76447f38e72ccbfcd"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "docs/reference.md",
+          "kind": "document",
+          "template": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 4 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":4}\n```\n"
+        }
+      ]
+    },
+    "digest": "ff22626f2e2f643c19764fcdc4144a39adffeae615388b6b99c8f7aadd05035f",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "prose-document": {
+    "id": "p_34bfdcf5b5fcd51217a52653",
+    "task_id": "inventory-rebase-prose-document",
+    "author": "inventory-document-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Author a fictional candidate for explicit inventory maintenance.",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "docs/reference.md": "1b56fdd00729aeea5f63fdfa841c5f4891350ba3a7d884e76447f38e72ccbfcd"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "docs/reference.md",
+          "kind": "document",
+          "template": "Вводное пояснение к вымышленной конфигурации.\n\n# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 3 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n```\n"
+        }
+      ]
+    },
+    "digest": "4b7ccf1da90237fcfcf9e43bea20e405722c807b42df0fa7a014509ecc9eea4d",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "base-code": {
+    "id": "p_e708593baaacf8c63dc0e299",
+    "task_id": "inventory-rebase-base-code",
+    "author": "inventory-code-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Author a fictional candidate for explicit inventory maintenance.",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config.py": "fe84dac16357d1b11411530c3586426c6bc3be52b31310a1f63f946b189338d1"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional candidate configuration; never executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 3\n"
+        }
+      ]
+    },
+    "digest": "c4f9b33326fe9d9d4c0e39fd60017dc0a8fef01769b247524fd1e5d7f909bdd0",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "renamed-document": {
+    "id": "p_1ec669a3f08a85dd5eeb5336",
+    "task_id": "inventory-rebase-renamed-document",
+    "author": "inventory-document-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Author a fictional candidate for explicit inventory maintenance.",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "docs/reference-v2.md": "201c2835b46e68a26a501777c941a9b5f1e9f2383a51393a1bae30ee726e2de0"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "docs/reference-v2.md",
+          "kind": "document",
+          "template": "Кандидат размещён по явно сопоставленному пути.\n\n# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 3 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n```\n"
+        }
+      ]
+    },
+    "digest": "94973a92463ca5d8117f3c0ed7f306ca3f2101095a5a93b5b98ab4851c943784",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "renamed-code": {
+    "id": "p_9db57d9a16c96bb871bc9c59",
+    "task_id": "inventory-rebase-renamed-code",
+    "author": "inventory-code-author",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "Author a fictional candidate for explicit inventory maintenance.",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config_v2.py": "ddfdced7292fb85c6607c9e2801fc48dda2dd9f3c5d766f3ff0d0349c9dca445"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config_v2.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional candidate at an explicitly mapped path; never executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 3\n"
+        }
+      ]
+    },
+    "digest": "e25b4b5fcb4bab336cbb3a53be0a9f322f199b48482675813b1ede229edf576d",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "composite-base": {
+    "id": "p_6e0eedd931ada617939c4031",
+    "task_id": "inventory-compose-base",
+    "author": "inventory-integrator",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "{\"components\":[{\"digest\":\"e46b3811ba415a07f1623d8616153ddcf61985f25053e62efa353edfc9cfc13f\",\"proposal_id\":\"p_62f233f2cb7db7c7f4821842\",\"write_ids\":[\"docs/reference.md\"]},{\"digest\":\"c4f9b33326fe9d9d4c0e39fd60017dc0a8fef01769b247524fd1e5d7f909bdd0\",\"proposal_id\":\"p_e708593baaacf8c63dc0e299\",\"write_ids\":[\"code/client_config.py\"]}],\"text\":\"Compose exact fictional document and code candidates for base inventory planning.\"}",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config.py": "fe84dac16357d1b11411530c3586426c6bc3be52b31310a1f63f946b189338d1",
+        "docs/reference.md": "1b56fdd00729aeea5f63fdfa841c5f4891350ba3a7d884e76447f38e72ccbfcd"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional candidate configuration; never executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 3\n"
+        },
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "docs/reference.md",
+          "kind": "document",
+          "template": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 3 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n```\n"
+        }
+      ]
+    },
+    "digest": "c38cf928487c41bc3af8f5c32e121d880c8b76742899b96d489215a6512e8c04",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "composite-prose": {
+    "id": "p_54718635deceec0a4a820b23",
+    "task_id": "inventory-compose-prose",
+    "author": "inventory-integrator",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "{\"components\":[{\"digest\":\"4b7ccf1da90237fcfcf9e43bea20e405722c807b42df0fa7a014509ecc9eea4d\",\"proposal_id\":\"p_34bfdcf5b5fcd51217a52653\",\"write_ids\":[\"docs/reference.md\"]},{\"digest\":\"c4f9b33326fe9d9d4c0e39fd60017dc0a8fef01769b247524fd1e5d7f909bdd0\",\"proposal_id\":\"p_e708593baaacf8c63dc0e299\",\"write_ids\":[\"code/client_config.py\"]}],\"text\":\"Compose exact fictional document and code candidates for prose inventory planning.\"}",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config.py": "fe84dac16357d1b11411530c3586426c6bc3be52b31310a1f63f946b189338d1",
+        "docs/reference.md": "1b56fdd00729aeea5f63fdfa841c5f4891350ba3a7d884e76447f38e72ccbfcd"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional candidate configuration; never executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 3\n"
+        },
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "docs/reference.md",
+          "kind": "document",
+          "template": "Вводное пояснение к вымышленной конфигурации.\n\n# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 3 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n```\n"
+        }
+      ]
+    },
+    "digest": "8ebf33b3bfd6a4c25805923179d1ac2c77e8332eeb646aae0a229ab5b2296574",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "composite-renamed": {
+    "id": "p_c364713fb8080aef00323548",
+    "task_id": "inventory-compose-renamed",
+    "author": "inventory-integrator",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "{\"components\":[{\"digest\":\"94973a92463ca5d8117f3c0ed7f306ca3f2101095a5a93b5b98ab4851c943784\",\"proposal_id\":\"p_1ec669a3f08a85dd5eeb5336\",\"write_ids\":[\"docs/reference-v2.md\"]},{\"digest\":\"e25b4b5fcb4bab336cbb3a53be0a9f322f199b48482675813b1ede229edf576d\",\"proposal_id\":\"p_9db57d9a16c96bb871bc9c59\",\"write_ids\":[\"code/client_config_v2.py\"]}],\"text\":\"Compose exact fictional document and code candidates for renamed inventory planning.\"}",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config_v2.py": "ddfdced7292fb85c6607c9e2801fc48dda2dd9f3c5d766f3ff0d0349c9dca445",
+        "docs/reference-v2.md": "201c2835b46e68a26a501777c941a9b5f1e9f2383a51393a1bae30ee726e2de0"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config_v2.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional candidate at an explicitly mapped path; never executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 3\n"
+        },
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "docs/reference-v2.md",
+          "kind": "document",
+          "template": "Кандидат размещён по явно сопоставленному пути.\n\n# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 3 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n```\n"
+        }
+      ]
+    },
+    "digest": "c67131860f58a0cda8d2bbfb45554c572192975a2f173437f80d30cd5847ab45",
+    "status": "proposed",
+    "accepted_revision": null
+  },
+  "composite-changed": {
+    "id": "p_cae61536c2169f082bbb552e",
+    "task_id": "inventory-compose-changed",
+    "author": "inventory-integrator",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "{\"components\":[{\"digest\":\"ff22626f2e2f643c19764fcdc4144a39adffeae615388b6b99c8f7aadd05035f\",\"proposal_id\":\"p_73ef2b87094d6571c999a937\",\"write_ids\":[\"docs/reference.md\"]},{\"digest\":\"34d66610bc58898f7b5511a12361e40f20c9d91fda20dafa084bcfab0e9ef721\",\"proposal_id\":\"p_3475acc592d1cf4586ad2fd2\",\"write_ids\":[\"code/client_config.py\"]}],\"text\":\"Compose exact fictional document and code candidates for changed inventory planning.\"}",
+      "readset": {
+        "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+        "code/client_config.py": "fe84dac16357d1b11411530c3586426c6bc3be52b31310a1f63f946b189338d1",
+        "docs/reference.md": "1b56fdd00729aeea5f63fdfa841c5f4891350ba3a7d884e76447f38e72ccbfcd"
+      },
+      "writes": [
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "code/client_config.py",
+          "kind": "code",
+          "template": "\"\"\"Fictional candidate configuration; never executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 4\n"
+        },
+        {
+          "bindings": [
+            "api.timeout_seconds"
+          ],
+          "id": "docs/reference.md",
+          "kind": "document",
+          "template": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 4 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":4}\n```\n"
+        }
+      ]
+    },
+    "digest": "d9fcf8a9dc2c327195963d3bec07984b030fc4edf861249db9fabfd02f63a249",
+    "status": "proposed",
+    "accepted_revision": null
+  }
+}

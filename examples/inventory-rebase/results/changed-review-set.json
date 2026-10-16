@@ -1,0 +1,3507 @@
+{
+  "bindings": [
+    {
+      "artifact_id": "code/client_config.py",
+      "packet_id": "pkt_9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+      "pair": {
+        "after": {
+          "attribution": "programmed scenario author",
+          "evidence": {
+            "quote": "The proposed declared retry methods are GET and HEAD.",
+            "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+            "source_id": "fictional-inventory-policy"
+          },
+          "kind": "specification",
+          "modality": "asserted",
+          "polarity": "positive",
+          "property": "declared-retry-methods",
+          "scope": {
+            "policy": "retry-methods",
+            "version": "v1"
+          },
+          "subject": "fictional-api-client",
+          "text": "\"\"\"Fictional candidate configuration; never executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 4\n",
+          "value": {
+            "complete": true,
+            "members": [
+              "GET",
+              "HEAD"
+            ],
+            "type": "set"
+          }
+        },
+        "before": {
+          "attribution": "programmed scenario author",
+          "evidence": {
+            "quote": "The baseline declared retry methods are GET.",
+            "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+            "source_id": "fictional-inventory-policy"
+          },
+          "kind": "specification",
+          "modality": "asserted",
+          "polarity": "positive",
+          "property": "declared-retry-methods",
+          "scope": {
+            "policy": "retry-methods",
+            "version": "v1"
+          },
+          "subject": "fictional-api-client",
+          "text": "\"\"\"Fictional baseline configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\"}\nMAX_ATTEMPTS = 3\n",
+          "value": {
+            "complete": true,
+            "members": [
+              "GET"
+            ],
+            "type": "set"
+          }
+        },
+        "sources": {
+          "fictional-inventory-policy": {
+            "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+            "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n"
+          }
+        }
+      }
+    },
+    {
+      "artifact_id": "docs/reference.md",
+      "packet_id": "pkt_4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+      "pair": {
+        "after": {
+          "attribution": "programmed scenario author",
+          "evidence": {
+            "quote": "The proposed declared retry methods are GET and HEAD.",
+            "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+            "source_id": "fictional-inventory-policy"
+          },
+          "kind": "specification",
+          "modality": "asserted",
+          "polarity": "positive",
+          "property": "declared-retry-methods",
+          "scope": {
+            "policy": "retry-methods",
+            "version": "v1"
+          },
+          "subject": "fictional-api-client",
+          "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 4 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":4}\n```\n",
+          "value": {
+            "complete": true,
+            "members": [
+              "GET",
+              "HEAD"
+            ],
+            "type": "set"
+          }
+        },
+        "before": {
+          "attribution": "programmed scenario author",
+          "evidence": {
+            "quote": "The baseline declared retry methods are GET.",
+            "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+            "source_id": "fictional-inventory-policy"
+          },
+          "kind": "specification",
+          "modality": "asserted",
+          "polarity": "positive",
+          "property": "declared-retry-methods",
+          "scope": {
+            "policy": "retry-methods",
+            "version": "v1"
+          },
+          "subject": "fictional-api-client",
+          "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\"],\"max_attempts\":3}\n```\n",
+          "value": {
+            "complete": true,
+            "members": [
+              "GET"
+            ],
+            "type": "set"
+          }
+        },
+        "sources": {
+          "fictional-inventory-policy": {
+            "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+            "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n"
+          }
+        }
+      }
+    }
+  ],
+  "created_at": "2026-10-16T14:17:16.578160+00:00",
+  "dossier_rules_version": "dossier-1",
+  "journal_snapshot": {
+    "actors": [
+      {
+        "id": "inventory-code-author",
+        "kind": "agent"
+      },
+      {
+        "id": "inventory-document-author",
+        "kind": "agent"
+      },
+      {
+        "id": "inventory-review-agent-a",
+        "kind": "agent"
+      },
+      {
+        "id": "inventory-review-agent-b",
+        "kind": "agent"
+      }
+    ],
+    "auto_accept": false,
+    "current_policy": {
+      "actor_identity": "self_declared_local",
+      "agent_agreement_min": 2,
+      "auto_accept": false,
+      "latest_decision_per_reviewer": true,
+      "requires_human_review": true,
+      "version": "editorial-1"
+    },
+    "current_rules_version": "semantic-1",
+    "decisions": [
+      {
+        "actor_kind": "agent",
+        "decision_id": "dec_8447faed2619316d6009a26d3aaecb7b173ccffb6af22639c94e3906fc40ea36",
+        "operation_id": "base-document-inventory-review-agent-a",
+        "packet_digest": "43e341dac6ebf11d2cdb1457e1ad96c720855bd48588c5d4d319b9b24e10f721",
+        "packet_id": "pkt_43e341dac6ebf11d2cdb1457e1ad96c720855bd48588c5d4d319b9b24e10f721",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "recorded_at": "2026-10-16T14:17:16.049252+00:00",
+        "request_digest": "8447faed2619316d6009a26d3aaecb7b173ccffb6af22639c94e3906fc40ea36",
+        "reviewer": "inventory-review-agent-a",
+        "schema_version": 1,
+        "supersedes": null,
+        "verdict": "approve"
+      },
+      {
+        "actor_kind": "agent",
+        "decision_id": "dec_11cad87e16c3e4fc2dba876d7078ae544f84dfb3e13e28ffd82eec8d86d11dad",
+        "operation_id": "base-document-inventory-review-agent-b",
+        "packet_digest": "43e341dac6ebf11d2cdb1457e1ad96c720855bd48588c5d4d319b9b24e10f721",
+        "packet_id": "pkt_43e341dac6ebf11d2cdb1457e1ad96c720855bd48588c5d4d319b9b24e10f721",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "recorded_at": "2026-10-16T14:17:16.050370+00:00",
+        "request_digest": "11cad87e16c3e4fc2dba876d7078ae544f84dfb3e13e28ffd82eec8d86d11dad",
+        "reviewer": "inventory-review-agent-b",
+        "schema_version": 1,
+        "supersedes": null,
+        "verdict": "approve"
+      },
+      {
+        "actor_kind": "agent",
+        "decision_id": "dec_67aeb3ef9f5d9c3e2b0b24d93453eeb7c8593c8faa8c34b61fe51812a0268d39",
+        "operation_id": "prose-document-inventory-review-agent-a",
+        "packet_digest": "b3848c3a5bdadf82ca93a9e02cba2bb3b3898dc64b137429d7af33865435eed2",
+        "packet_id": "pkt_b3848c3a5bdadf82ca93a9e02cba2bb3b3898dc64b137429d7af33865435eed2",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "recorded_at": "2026-10-16T14:17:16.051291+00:00",
+        "request_digest": "67aeb3ef9f5d9c3e2b0b24d93453eeb7c8593c8faa8c34b61fe51812a0268d39",
+        "reviewer": "inventory-review-agent-a",
+        "schema_version": 1,
+        "supersedes": null,
+        "verdict": "approve"
+      },
+      {
+        "actor_kind": "agent",
+        "decision_id": "dec_72644840f769ca8c537110d1ab9aae4d23cc69ae7ff3ded1e700972673fd31ce",
+        "operation_id": "prose-document-inventory-review-agent-b",
+        "packet_digest": "b3848c3a5bdadf82ca93a9e02cba2bb3b3898dc64b137429d7af33865435eed2",
+        "packet_id": "pkt_b3848c3a5bdadf82ca93a9e02cba2bb3b3898dc64b137429d7af33865435eed2",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "recorded_at": "2026-10-16T14:17:16.052405+00:00",
+        "request_digest": "72644840f769ca8c537110d1ab9aae4d23cc69ae7ff3ded1e700972673fd31ce",
+        "reviewer": "inventory-review-agent-b",
+        "schema_version": 1,
+        "supersedes": null,
+        "verdict": "approve"
+      },
+      {
+        "actor_kind": "agent",
+        "decision_id": "dec_d6f9b469dfabd31d983d087561287ed03f27f95d9a560b2db4642577af726793",
+        "operation_id": "renamed-document-inventory-review-agent-a",
+        "packet_digest": "8065c9e1798245b489da400a67a7c07d240ee22043ec35798a65d0b34c2fe268",
+        "packet_id": "pkt_8065c9e1798245b489da400a67a7c07d240ee22043ec35798a65d0b34c2fe268",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "recorded_at": "2026-10-16T14:17:16.053160+00:00",
+        "request_digest": "d6f9b469dfabd31d983d087561287ed03f27f95d9a560b2db4642577af726793",
+        "reviewer": "inventory-review-agent-a",
+        "schema_version": 1,
+        "supersedes": null,
+        "verdict": "approve"
+      },
+      {
+        "actor_kind": "agent",
+        "decision_id": "dec_4ef5b8f59852a52519aa08e2d58fb70df718f600d13491e75fd2344c61054bbd",
+        "operation_id": "base-code-inventory-review-agent-b",
+        "packet_digest": "a089956a85822f36758eb68cf3baaea1ffe6673a48cd31c8caec0f460a835ab6",
+        "packet_id": "pkt_a089956a85822f36758eb68cf3baaea1ffe6673a48cd31c8caec0f460a835ab6",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "recorded_at": "2026-10-16T14:17:16.053950+00:00",
+        "request_digest": "4ef5b8f59852a52519aa08e2d58fb70df718f600d13491e75fd2344c61054bbd",
+        "reviewer": "inventory-review-agent-b",
+        "schema_version": 1,
+        "supersedes": null,
+        "verdict": "approve"
+      },
+      {
+        "actor_kind": "agent",
+        "decision_id": "dec_cb41d8c35c0557f487e3f2d810db9602ae43645fe614fc64ad68aa51fcb60347",
+        "operation_id": "renamed-code-inventory-review-agent-a",
+        "packet_digest": "18c4520b48b63d53ceafccdc650f52bec0b4cd587c09432168f459398067aba1",
+        "packet_id": "pkt_18c4520b48b63d53ceafccdc650f52bec0b4cd587c09432168f459398067aba1",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "recorded_at": "2026-10-16T14:17:16.054888+00:00",
+        "request_digest": "cb41d8c35c0557f487e3f2d810db9602ae43645fe614fc64ad68aa51fcb60347",
+        "reviewer": "inventory-review-agent-a",
+        "schema_version": 1,
+        "supersedes": null,
+        "verdict": "approve"
+      },
+      {
+        "actor_kind": "agent",
+        "decision_id": "dec_c3a12688a8222d63bb52fa832b051163caf628385278dfd0181000425add876d",
+        "operation_id": "renamed-code-inventory-review-agent-b",
+        "packet_digest": "18c4520b48b63d53ceafccdc650f52bec0b4cd587c09432168f459398067aba1",
+        "packet_id": "pkt_18c4520b48b63d53ceafccdc650f52bec0b4cd587c09432168f459398067aba1",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "recorded_at": "2026-10-16T14:17:16.055647+00:00",
+        "request_digest": "c3a12688a8222d63bb52fa832b051163caf628385278dfd0181000425add876d",
+        "reviewer": "inventory-review-agent-b",
+        "schema_version": 1,
+        "supersedes": null,
+        "verdict": "approve"
+      },
+      {
+        "actor_kind": "agent",
+        "decision_id": "dec_44cbdce66e8d7d338bca6e6e6e498a77fae4be060d9863ab53eeb67250da923e",
+        "operation_id": "changed-document-inventory-review-agent-a",
+        "packet_digest": "4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+        "packet_id": "pkt_4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "recorded_at": "2026-10-16T14:17:16.056319+00:00",
+        "request_digest": "44cbdce66e8d7d338bca6e6e6e498a77fae4be060d9863ab53eeb67250da923e",
+        "reviewer": "inventory-review-agent-a",
+        "schema_version": 1,
+        "supersedes": null,
+        "verdict": "approve"
+      },
+      {
+        "actor_kind": "agent",
+        "decision_id": "dec_0379888e22fae646ec2b59910959caf42889f976f5d6b171581bcc2da470e9dc",
+        "operation_id": "changed-document-inventory-review-agent-b",
+        "packet_digest": "4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+        "packet_id": "pkt_4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "recorded_at": "2026-10-16T14:17:16.057021+00:00",
+        "request_digest": "0379888e22fae646ec2b59910959caf42889f976f5d6b171581bcc2da470e9dc",
+        "reviewer": "inventory-review-agent-b",
+        "schema_version": 1,
+        "supersedes": null,
+        "verdict": "approve"
+      },
+      {
+        "actor_kind": "agent",
+        "decision_id": "dec_37c9c031163f58fb319d53405bcaa8982c24277c9841dec8ab70577db06bd3b9",
+        "operation_id": "changed-code-inventory-review-agent-a",
+        "packet_digest": "9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+        "packet_id": "pkt_9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "recorded_at": "2026-10-16T14:17:16.057588+00:00",
+        "request_digest": "37c9c031163f58fb319d53405bcaa8982c24277c9841dec8ab70577db06bd3b9",
+        "reviewer": "inventory-review-agent-a",
+        "schema_version": 1,
+        "supersedes": null,
+        "verdict": "approve"
+      },
+      {
+        "actor_kind": "agent",
+        "decision_id": "dec_cd682a6fc8d483a65f80e84752280427ed374f39b690080cb6dbde0431658643",
+        "operation_id": "changed-code-inventory-review-agent-b",
+        "packet_digest": "9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+        "packet_id": "pkt_9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "recorded_at": "2026-10-16T14:17:16.058208+00:00",
+        "request_digest": "cd682a6fc8d483a65f80e84752280427ed374f39b690080cb6dbde0431658643",
+        "reviewer": "inventory-review-agent-b",
+        "schema_version": 1,
+        "supersedes": null,
+        "verdict": "approve"
+      },
+      {
+        "actor_kind": "agent",
+        "decision_id": "dec_ae87a530f245bb1b1960cbb2dd31906663f1ab86b318a5d2127944222711fc8d",
+        "operation_id": "renamed-document-inventory-review-agent-b",
+        "packet_digest": "8065c9e1798245b489da400a67a7c07d240ee22043ec35798a65d0b34c2fe268",
+        "packet_id": "pkt_8065c9e1798245b489da400a67a7c07d240ee22043ec35798a65d0b34c2fe268",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "recorded_at": "2026-10-16T14:17:16.062567+00:00",
+        "request_digest": "ae87a530f245bb1b1960cbb2dd31906663f1ab86b318a5d2127944222711fc8d",
+        "reviewer": "inventory-review-agent-b",
+        "schema_version": 1,
+        "supersedes": null,
+        "verdict": "approve"
+      },
+      {
+        "actor_kind": "agent",
+        "decision_id": "dec_7e43734a286fe0e32dc7f95004441f6a348dca4268531fdd07e43cb412a862d9",
+        "operation_id": "base-code-inventory-review-agent-a",
+        "packet_digest": "a089956a85822f36758eb68cf3baaea1ffe6673a48cd31c8caec0f460a835ab6",
+        "packet_id": "pkt_a089956a85822f36758eb68cf3baaea1ffe6673a48cd31c8caec0f460a835ab6",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "recorded_at": "2026-10-16T14:17:16.068669+00:00",
+        "request_digest": "7e43734a286fe0e32dc7f95004441f6a348dca4268531fdd07e43cb412a862d9",
+        "reviewer": "inventory-review-agent-a",
+        "schema_version": 1,
+        "supersedes": null,
+        "verdict": "approve"
+      }
+    ],
+    "events": [
+      {
+        "event_hash": "3898ba13008d58f369080ac846336deaab28c953dfe19db58148ac57b598c12d",
+        "payload": {
+          "id": "inventory-document-author",
+          "kind": "agent"
+        },
+        "previous_hash": null,
+        "recorded_at": "2026-10-16T14:17:16.037210+00:00",
+        "seq": 1,
+        "type": "actor_registered"
+      },
+      {
+        "event_hash": "198495d6da62f86d7ed5f77ceae1b33449149a22d67a86ff004de902b3eeabb6",
+        "payload": {
+          "analysis": {
+            "auto_accept": false,
+            "evidence": {
+              "after": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy",
+                "status": "quote_present",
+                "verified": true
+              },
+              "before": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy",
+                "status": "quote_present",
+                "verified": true
+              }
+            },
+            "findings": [
+              {
+                "code": "evidence_changed",
+                "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+              },
+              {
+                "code": "wording_changed",
+                "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+              },
+              {
+                "code": "structured_value_changed",
+                "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+              },
+              {
+                "added": [
+                  "HEAD"
+                ],
+                "code": "set_members_changed",
+                "explanation": "Изменился состав множества; полнота сведений о мире этим не устанавливается.",
+                "removed": []
+              },
+              {
+                "code": "closed_world_annotation",
+                "explanation": "Флаг complete является входной аннотацией; полномочность источника задавать полный перечень автоматически не проверена."
+              }
+            ],
+            "input_digest": "a18c4887519738b767d35c42f43b834961ba7133a43c430afb69ffe0f9c11573",
+            "limitations": [
+              "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+              "Literal quote presence does not establish entailment, factual truth or source independence.",
+              "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+              "Different scope metadata does not prove scopes are disjoint.",
+              "No corpus annotation is an input to this function; no model or network is used."
+            ],
+            "normalized": {
+              "after": {
+                "canonical": {
+                  "complete": true,
+                  "members": [
+                    "GET",
+                    "HEAD"
+                  ],
+                  "type": "set"
+                },
+                "supported": true
+              },
+              "before": {
+                "canonical": {
+                  "complete": true,
+                  "members": [
+                    "GET"
+                  ],
+                  "type": "set"
+                },
+                "supported": true
+              }
+            },
+            "relation": "review_required",
+            "requires_human_review": true,
+            "review_action": "review_change_or_preserve_attributed_disagreement",
+            "rules_version": "semantic-1",
+            "schema_version": 1
+          },
+          "analysis_digest": "961ac123a58f1587d427e6c6c00984cec5ad1c5ae39fee73e3107958839033c2",
+          "created_at": "2026-10-16T14:17:16.036595+00:00",
+          "input_digest": "a18c4887519738b767d35c42f43b834961ba7133a43c430afb69ffe0f9c11573",
+          "packet_digest": "43e341dac6ebf11d2cdb1457e1ad96c720855bd48588c5d4d319b9b24e10f721",
+          "packet_id": "pkt_43e341dac6ebf11d2cdb1457e1ad96c720855bd48588c5d4d319b9b24e10f721",
+          "pair": {
+            "after": {
+              "attribution": "programmed scenario author",
+              "evidence": {
+                "quote": "The proposed declared retry methods are GET and HEAD.",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "declared-retry-methods",
+              "scope": {
+                "policy": "retry-methods",
+                "version": "v1"
+              },
+              "subject": "fictional-api-client",
+              "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 3 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n```\n",
+              "value": {
+                "complete": true,
+                "members": [
+                  "GET",
+                  "HEAD"
+                ],
+                "type": "set"
+              }
+            },
+            "before": {
+              "attribution": "programmed scenario author",
+              "evidence": {
+                "quote": "The baseline declared retry methods are GET.",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "declared-retry-methods",
+              "scope": {
+                "policy": "retry-methods",
+                "version": "v1"
+              },
+              "subject": "fictional-api-client",
+              "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\"],\"max_attempts\":3}\n```\n",
+              "value": {
+                "complete": true,
+                "members": [
+                  "GET"
+                ],
+                "type": "set"
+              }
+            },
+            "sources": {
+              "fictional-inventory-policy": {
+                "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n"
+              }
+            }
+          },
+          "policy": {
+            "actor_identity": "self_declared_local",
+            "agent_agreement_min": 2,
+            "auto_accept": false,
+            "latest_decision_per_reviewer": true,
+            "requires_human_review": true,
+            "version": "editorial-1"
+          },
+          "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+          "proposer": {
+            "id": "inventory-document-author",
+            "kind": "agent"
+          },
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        "previous_hash": "3898ba13008d58f369080ac846336deaab28c953dfe19db58148ac57b598c12d",
+        "recorded_at": "2026-10-16T14:17:16.037330+00:00",
+        "seq": 2,
+        "type": "packet_created"
+      },
+      {
+        "event_hash": "6167705e2708d946eb96a1aad1f52ac59e3e37bd3d9defcfb410c7fc6c5b6a0e",
+        "payload": {
+          "id": "inventory-code-author",
+          "kind": "agent"
+        },
+        "previous_hash": "198495d6da62f86d7ed5f77ceae1b33449149a22d67a86ff004de902b3eeabb6",
+        "recorded_at": "2026-10-16T14:17:16.039158+00:00",
+        "seq": 3,
+        "type": "actor_registered"
+      },
+      {
+        "event_hash": "f97a20a2163d754a066ef7d425e580400dd9625dd788736352f5fd3ffb291512",
+        "payload": {
+          "analysis": {
+            "auto_accept": false,
+            "evidence": {
+              "after": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy",
+                "status": "quote_present",
+                "verified": true
+              },
+              "before": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy",
+                "status": "quote_present",
+                "verified": true
+              }
+            },
+            "findings": [
+              {
+                "code": "evidence_changed",
+                "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+              },
+              {
+                "code": "wording_changed",
+                "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+              },
+              {
+                "code": "structured_value_changed",
+                "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+              },
+              {
+                "added": [
+                  "HEAD"
+                ],
+                "code": "set_members_changed",
+                "explanation": "Изменился состав множества; полнота сведений о мире этим не устанавливается.",
+                "removed": []
+              },
+              {
+                "code": "closed_world_annotation",
+                "explanation": "Флаг complete является входной аннотацией; полномочность источника задавать полный перечень автоматически не проверена."
+              }
+            ],
+            "input_digest": "88dc88493cf5e4ec3536cb1bf43c2366ae55aaf76496bbfdb422220e34eb0d69",
+            "limitations": [
+              "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+              "Literal quote presence does not establish entailment, factual truth or source independence.",
+              "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+              "Different scope metadata does not prove scopes are disjoint.",
+              "No corpus annotation is an input to this function; no model or network is used."
+            ],
+            "normalized": {
+              "after": {
+                "canonical": {
+                  "complete": true,
+                  "members": [
+                    "GET",
+                    "HEAD"
+                  ],
+                  "type": "set"
+                },
+                "supported": true
+              },
+              "before": {
+                "canonical": {
+                  "complete": true,
+                  "members": [
+                    "GET"
+                  ],
+                  "type": "set"
+                },
+                "supported": true
+              }
+            },
+            "relation": "review_required",
+            "requires_human_review": true,
+            "review_action": "review_change_or_preserve_attributed_disagreement",
+            "rules_version": "semantic-1",
+            "schema_version": 1
+          },
+          "analysis_digest": "f218ee47c6b43728a4d7f51a6105610f15179abc7f26d7f290ad5f86f7f1f720",
+          "created_at": "2026-10-16T14:17:16.038644+00:00",
+          "input_digest": "88dc88493cf5e4ec3536cb1bf43c2366ae55aaf76496bbfdb422220e34eb0d69",
+          "packet_digest": "a089956a85822f36758eb68cf3baaea1ffe6673a48cd31c8caec0f460a835ab6",
+          "packet_id": "pkt_a089956a85822f36758eb68cf3baaea1ffe6673a48cd31c8caec0f460a835ab6",
+          "pair": {
+            "after": {
+              "attribution": "programmed scenario author",
+              "evidence": {
+                "quote": "The proposed declared retry methods are GET and HEAD.",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "declared-retry-methods",
+              "scope": {
+                "policy": "retry-methods",
+                "version": "v1"
+              },
+              "subject": "fictional-api-client",
+              "text": "\"\"\"Fictional candidate configuration; never executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 3\n",
+              "value": {
+                "complete": true,
+                "members": [
+                  "GET",
+                  "HEAD"
+                ],
+                "type": "set"
+              }
+            },
+            "before": {
+              "attribution": "programmed scenario author",
+              "evidence": {
+                "quote": "The baseline declared retry methods are GET.",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "declared-retry-methods",
+              "scope": {
+                "policy": "retry-methods",
+                "version": "v1"
+              },
+              "subject": "fictional-api-client",
+              "text": "\"\"\"Fictional baseline configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\"}\nMAX_ATTEMPTS = 3\n",
+              "value": {
+                "complete": true,
+                "members": [
+                  "GET"
+                ],
+                "type": "set"
+              }
+            },
+            "sources": {
+              "fictional-inventory-policy": {
+                "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n"
+              }
+            }
+          },
+          "policy": {
+            "actor_identity": "self_declared_local",
+            "agent_agreement_min": 2,
+            "auto_accept": false,
+            "latest_decision_per_reviewer": true,
+            "requires_human_review": true,
+            "version": "editorial-1"
+          },
+          "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+          "proposer": {
+            "id": "inventory-code-author",
+            "kind": "agent"
+          },
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        "previous_hash": "6167705e2708d946eb96a1aad1f52ac59e3e37bd3d9defcfb410c7fc6c5b6a0e",
+        "recorded_at": "2026-10-16T14:17:16.039288+00:00",
+        "seq": 4,
+        "type": "packet_created"
+      },
+      {
+        "event_hash": "306f70290274793eee70c2e48779bc64e417a506af754c4ea1c8312122ffcdec",
+        "payload": {
+          "analysis": {
+            "auto_accept": false,
+            "evidence": {
+              "after": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy",
+                "status": "quote_present",
+                "verified": true
+              },
+              "before": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy",
+                "status": "quote_present",
+                "verified": true
+              }
+            },
+            "findings": [
+              {
+                "code": "evidence_changed",
+                "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+              },
+              {
+                "code": "wording_changed",
+                "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+              },
+              {
+                "code": "structured_value_changed",
+                "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+              },
+              {
+                "added": [
+                  "HEAD"
+                ],
+                "code": "set_members_changed",
+                "explanation": "Изменился состав множества; полнота сведений о мире этим не устанавливается.",
+                "removed": []
+              },
+              {
+                "code": "closed_world_annotation",
+                "explanation": "Флаг complete является входной аннотацией; полномочность источника задавать полный перечень автоматически не проверена."
+              }
+            ],
+            "input_digest": "9e24ba562f1a08d2b9dc2c4b09047222cf4cb596169089f030d6849ffa33aa0f",
+            "limitations": [
+              "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+              "Literal quote presence does not establish entailment, factual truth or source independence.",
+              "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+              "Different scope metadata does not prove scopes are disjoint.",
+              "No corpus annotation is an input to this function; no model or network is used."
+            ],
+            "normalized": {
+              "after": {
+                "canonical": {
+                  "complete": true,
+                  "members": [
+                    "GET",
+                    "HEAD"
+                  ],
+                  "type": "set"
+                },
+                "supported": true
+              },
+              "before": {
+                "canonical": {
+                  "complete": true,
+                  "members": [
+                    "GET"
+                  ],
+                  "type": "set"
+                },
+                "supported": true
+              }
+            },
+            "relation": "review_required",
+            "requires_human_review": true,
+            "review_action": "review_change_or_preserve_attributed_disagreement",
+            "rules_version": "semantic-1",
+            "schema_version": 1
+          },
+          "analysis_digest": "4729cc885d015cef3d88ab123c02ade07b5e92e4916fc01c8618b16ba588bb53",
+          "created_at": "2026-10-16T14:17:16.040965+00:00",
+          "input_digest": "9e24ba562f1a08d2b9dc2c4b09047222cf4cb596169089f030d6849ffa33aa0f",
+          "packet_digest": "b3848c3a5bdadf82ca93a9e02cba2bb3b3898dc64b137429d7af33865435eed2",
+          "packet_id": "pkt_b3848c3a5bdadf82ca93a9e02cba2bb3b3898dc64b137429d7af33865435eed2",
+          "pair": {
+            "after": {
+              "attribution": "programmed scenario author",
+              "evidence": {
+                "quote": "The proposed declared retry methods are GET and HEAD.",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "declared-retry-methods",
+              "scope": {
+                "policy": "retry-methods",
+                "version": "v1"
+              },
+              "subject": "fictional-api-client",
+              "text": "Вводное пояснение к вымышленной конфигурации.\n\n# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 3 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n```\n",
+              "value": {
+                "complete": true,
+                "members": [
+                  "GET",
+                  "HEAD"
+                ],
+                "type": "set"
+              }
+            },
+            "before": {
+              "attribution": "programmed scenario author",
+              "evidence": {
+                "quote": "The baseline declared retry methods are GET.",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "declared-retry-methods",
+              "scope": {
+                "policy": "retry-methods",
+                "version": "v1"
+              },
+              "subject": "fictional-api-client",
+              "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\"],\"max_attempts\":3}\n```\n",
+              "value": {
+                "complete": true,
+                "members": [
+                  "GET"
+                ],
+                "type": "set"
+              }
+            },
+            "sources": {
+              "fictional-inventory-policy": {
+                "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n"
+              }
+            }
+          },
+          "policy": {
+            "actor_identity": "self_declared_local",
+            "agent_agreement_min": 2,
+            "auto_accept": false,
+            "latest_decision_per_reviewer": true,
+            "requires_human_review": true,
+            "version": "editorial-1"
+          },
+          "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+          "proposer": {
+            "id": "inventory-document-author",
+            "kind": "agent"
+          },
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        "previous_hash": "f97a20a2163d754a066ef7d425e580400dd9625dd788736352f5fd3ffb291512",
+        "recorded_at": "2026-10-16T14:17:16.041308+00:00",
+        "seq": 5,
+        "type": "packet_created"
+      },
+      {
+        "event_hash": "a5b8c14a2d3fe5c411f19ad0a8a0abdf321973d525c8d189341612afe77592da",
+        "payload": {
+          "analysis": {
+            "auto_accept": false,
+            "evidence": {
+              "after": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy",
+                "status": "quote_present",
+                "verified": true
+              },
+              "before": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy",
+                "status": "quote_present",
+                "verified": true
+              }
+            },
+            "findings": [
+              {
+                "code": "evidence_changed",
+                "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+              },
+              {
+                "code": "wording_changed",
+                "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+              },
+              {
+                "code": "structured_value_changed",
+                "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+              },
+              {
+                "added": [
+                  "HEAD"
+                ],
+                "code": "set_members_changed",
+                "explanation": "Изменился состав множества; полнота сведений о мире этим не устанавливается.",
+                "removed": []
+              },
+              {
+                "code": "closed_world_annotation",
+                "explanation": "Флаг complete является входной аннотацией; полномочность источника задавать полный перечень автоматически не проверена."
+              }
+            ],
+            "input_digest": "bb716c4d033e62eb8694489b74aa6484702e79b677f81148a52fabd2dae41d17",
+            "limitations": [
+              "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+              "Literal quote presence does not establish entailment, factual truth or source independence.",
+              "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+              "Different scope metadata does not prove scopes are disjoint.",
+              "No corpus annotation is an input to this function; no model or network is used."
+            ],
+            "normalized": {
+              "after": {
+                "canonical": {
+                  "complete": true,
+                  "members": [
+                    "GET",
+                    "HEAD"
+                  ],
+                  "type": "set"
+                },
+                "supported": true
+              },
+              "before": {
+                "canonical": {
+                  "complete": true,
+                  "members": [
+                    "GET"
+                  ],
+                  "type": "set"
+                },
+                "supported": true
+              }
+            },
+            "relation": "review_required",
+            "requires_human_review": true,
+            "review_action": "review_change_or_preserve_attributed_disagreement",
+            "rules_version": "semantic-1",
+            "schema_version": 1
+          },
+          "analysis_digest": "449f34524bbbbfda9ce4c47a35930f0054087066d0c2edf5b69aa8334c2716d8",
+          "created_at": "2026-10-16T14:17:16.041944+00:00",
+          "input_digest": "bb716c4d033e62eb8694489b74aa6484702e79b677f81148a52fabd2dae41d17",
+          "packet_digest": "8065c9e1798245b489da400a67a7c07d240ee22043ec35798a65d0b34c2fe268",
+          "packet_id": "pkt_8065c9e1798245b489da400a67a7c07d240ee22043ec35798a65d0b34c2fe268",
+          "pair": {
+            "after": {
+              "attribution": "programmed scenario author",
+              "evidence": {
+                "quote": "The proposed declared retry methods are GET and HEAD.",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "declared-retry-methods",
+              "scope": {
+                "policy": "retry-methods",
+                "version": "v1"
+              },
+              "subject": "fictional-api-client",
+              "text": "Кандидат размещён по явно сопоставленному пути.\n\n# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 3 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n```\n",
+              "value": {
+                "complete": true,
+                "members": [
+                  "GET",
+                  "HEAD"
+                ],
+                "type": "set"
+              }
+            },
+            "before": {
+              "attribution": "programmed scenario author",
+              "evidence": {
+                "quote": "The baseline declared retry methods are GET.",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "declared-retry-methods",
+              "scope": {
+                "policy": "retry-methods",
+                "version": "v1"
+              },
+              "subject": "fictional-api-client",
+              "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\"],\"max_attempts\":3}\n```\n",
+              "value": {
+                "complete": true,
+                "members": [
+                  "GET"
+                ],
+                "type": "set"
+              }
+            },
+            "sources": {
+              "fictional-inventory-policy": {
+                "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n"
+              }
+            }
+          },
+          "policy": {
+            "actor_identity": "self_declared_local",
+            "agent_agreement_min": 2,
+            "auto_accept": false,
+            "latest_decision_per_reviewer": true,
+            "requires_human_review": true,
+            "version": "editorial-1"
+          },
+          "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+          "proposer": {
+            "id": "inventory-document-author",
+            "kind": "agent"
+          },
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        "previous_hash": "306f70290274793eee70c2e48779bc64e417a506af754c4ea1c8312122ffcdec",
+        "recorded_at": "2026-10-16T14:17:16.042279+00:00",
+        "seq": 6,
+        "type": "packet_created"
+      },
+      {
+        "event_hash": "7ec54e8306bac485b514925ce1a478fda43dbfa534bc48013e008a237ad02352",
+        "payload": {
+          "analysis": {
+            "auto_accept": false,
+            "evidence": {
+              "after": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy",
+                "status": "quote_present",
+                "verified": true
+              },
+              "before": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy",
+                "status": "quote_present",
+                "verified": true
+              }
+            },
+            "findings": [
+              {
+                "code": "evidence_changed",
+                "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+              },
+              {
+                "code": "wording_changed",
+                "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+              },
+              {
+                "code": "structured_value_changed",
+                "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+              },
+              {
+                "added": [
+                  "HEAD"
+                ],
+                "code": "set_members_changed",
+                "explanation": "Изменился состав множества; полнота сведений о мире этим не устанавливается.",
+                "removed": []
+              },
+              {
+                "code": "closed_world_annotation",
+                "explanation": "Флаг complete является входной аннотацией; полномочность источника задавать полный перечень автоматически не проверена."
+              }
+            ],
+            "input_digest": "3f8c7f06485853fc1a0dd4147267cb9bbf74302e0ea9ac64322101dbad120aac",
+            "limitations": [
+              "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+              "Literal quote presence does not establish entailment, factual truth or source independence.",
+              "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+              "Different scope metadata does not prove scopes are disjoint.",
+              "No corpus annotation is an input to this function; no model or network is used."
+            ],
+            "normalized": {
+              "after": {
+                "canonical": {
+                  "complete": true,
+                  "members": [
+                    "GET",
+                    "HEAD"
+                  ],
+                  "type": "set"
+                },
+                "supported": true
+              },
+              "before": {
+                "canonical": {
+                  "complete": true,
+                  "members": [
+                    "GET"
+                  ],
+                  "type": "set"
+                },
+                "supported": true
+              }
+            },
+            "relation": "review_required",
+            "requires_human_review": true,
+            "review_action": "review_change_or_preserve_attributed_disagreement",
+            "rules_version": "semantic-1",
+            "schema_version": 1
+          },
+          "analysis_digest": "262189075b637cf5b384743e3a98ff3411b4eaa04e53ec62ab89b00d475ef18f",
+          "created_at": "2026-10-16T14:17:16.042865+00:00",
+          "input_digest": "3f8c7f06485853fc1a0dd4147267cb9bbf74302e0ea9ac64322101dbad120aac",
+          "packet_digest": "18c4520b48b63d53ceafccdc650f52bec0b4cd587c09432168f459398067aba1",
+          "packet_id": "pkt_18c4520b48b63d53ceafccdc650f52bec0b4cd587c09432168f459398067aba1",
+          "pair": {
+            "after": {
+              "attribution": "programmed scenario author",
+              "evidence": {
+                "quote": "The proposed declared retry methods are GET and HEAD.",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "declared-retry-methods",
+              "scope": {
+                "policy": "retry-methods",
+                "version": "v1"
+              },
+              "subject": "fictional-api-client",
+              "text": "\"\"\"Fictional candidate at an explicitly mapped path; never executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 3\n",
+              "value": {
+                "complete": true,
+                "members": [
+                  "GET",
+                  "HEAD"
+                ],
+                "type": "set"
+              }
+            },
+            "before": {
+              "attribution": "programmed scenario author",
+              "evidence": {
+                "quote": "The baseline declared retry methods are GET.",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "declared-retry-methods",
+              "scope": {
+                "policy": "retry-methods",
+                "version": "v1"
+              },
+              "subject": "fictional-api-client",
+              "text": "\"\"\"Fictional baseline configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\"}\nMAX_ATTEMPTS = 3\n",
+              "value": {
+                "complete": true,
+                "members": [
+                  "GET"
+                ],
+                "type": "set"
+              }
+            },
+            "sources": {
+              "fictional-inventory-policy": {
+                "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n"
+              }
+            }
+          },
+          "policy": {
+            "actor_identity": "self_declared_local",
+            "agent_agreement_min": 2,
+            "auto_accept": false,
+            "latest_decision_per_reviewer": true,
+            "requires_human_review": true,
+            "version": "editorial-1"
+          },
+          "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+          "proposer": {
+            "id": "inventory-code-author",
+            "kind": "agent"
+          },
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        "previous_hash": "a5b8c14a2d3fe5c411f19ad0a8a0abdf321973d525c8d189341612afe77592da",
+        "recorded_at": "2026-10-16T14:17:16.043306+00:00",
+        "seq": 7,
+        "type": "packet_created"
+      },
+      {
+        "event_hash": "87fdb2bb24738822e0488eb3a312bd4c35d0a38104cbaf278e2c85e0fcf5e537",
+        "payload": {
+          "analysis": {
+            "auto_accept": false,
+            "evidence": {
+              "after": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy",
+                "status": "quote_present",
+                "verified": true
+              },
+              "before": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy",
+                "status": "quote_present",
+                "verified": true
+              }
+            },
+            "findings": [
+              {
+                "code": "evidence_changed",
+                "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+              },
+              {
+                "code": "wording_changed",
+                "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+              },
+              {
+                "code": "structured_value_changed",
+                "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+              },
+              {
+                "added": [
+                  "HEAD"
+                ],
+                "code": "set_members_changed",
+                "explanation": "Изменился состав множества; полнота сведений о мире этим не устанавливается.",
+                "removed": []
+              },
+              {
+                "code": "closed_world_annotation",
+                "explanation": "Флаг complete является входной аннотацией; полномочность источника задавать полный перечень автоматически не проверена."
+              }
+            ],
+            "input_digest": "a1fc98a570717dbf13199ec20248bb9967a62402521f7892e77805d3075d5112",
+            "limitations": [
+              "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+              "Literal quote presence does not establish entailment, factual truth or source independence.",
+              "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+              "Different scope metadata does not prove scopes are disjoint.",
+              "No corpus annotation is an input to this function; no model or network is used."
+            ],
+            "normalized": {
+              "after": {
+                "canonical": {
+                  "complete": true,
+                  "members": [
+                    "GET",
+                    "HEAD"
+                  ],
+                  "type": "set"
+                },
+                "supported": true
+              },
+              "before": {
+                "canonical": {
+                  "complete": true,
+                  "members": [
+                    "GET"
+                  ],
+                  "type": "set"
+                },
+                "supported": true
+              }
+            },
+            "relation": "review_required",
+            "requires_human_review": true,
+            "review_action": "review_change_or_preserve_attributed_disagreement",
+            "rules_version": "semantic-1",
+            "schema_version": 1
+          },
+          "analysis_digest": "c6a522d9139b6f8fa1c7336d1c40d606a007343abcd4117c6ce07b69e8b6668a",
+          "created_at": "2026-10-16T14:17:16.044003+00:00",
+          "input_digest": "a1fc98a570717dbf13199ec20248bb9967a62402521f7892e77805d3075d5112",
+          "packet_digest": "4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+          "packet_id": "pkt_4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+          "pair": {
+            "after": {
+              "attribution": "programmed scenario author",
+              "evidence": {
+                "quote": "The proposed declared retry methods are GET and HEAD.",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "declared-retry-methods",
+              "scope": {
+                "policy": "retry-methods",
+                "version": "v1"
+              },
+              "subject": "fictional-api-client",
+              "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 4 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":4}\n```\n",
+              "value": {
+                "complete": true,
+                "members": [
+                  "GET",
+                  "HEAD"
+                ],
+                "type": "set"
+              }
+            },
+            "before": {
+              "attribution": "programmed scenario author",
+              "evidence": {
+                "quote": "The baseline declared retry methods are GET.",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "declared-retry-methods",
+              "scope": {
+                "policy": "retry-methods",
+                "version": "v1"
+              },
+              "subject": "fictional-api-client",
+              "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\"],\"max_attempts\":3}\n```\n",
+              "value": {
+                "complete": true,
+                "members": [
+                  "GET"
+                ],
+                "type": "set"
+              }
+            },
+            "sources": {
+              "fictional-inventory-policy": {
+                "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n"
+              }
+            }
+          },
+          "policy": {
+            "actor_identity": "self_declared_local",
+            "agent_agreement_min": 2,
+            "auto_accept": false,
+            "latest_decision_per_reviewer": true,
+            "requires_human_review": true,
+            "version": "editorial-1"
+          },
+          "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+          "proposer": {
+            "id": "inventory-document-author",
+            "kind": "agent"
+          },
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        "previous_hash": "7ec54e8306bac485b514925ce1a478fda43dbfa534bc48013e008a237ad02352",
+        "recorded_at": "2026-10-16T14:17:16.044444+00:00",
+        "seq": 8,
+        "type": "packet_created"
+      },
+      {
+        "event_hash": "9d04130db6e3bb04565b9a32c6918dcf95b6cf865c403c6e834c921627ab026b",
+        "payload": {
+          "analysis": {
+            "auto_accept": false,
+            "evidence": {
+              "after": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy",
+                "status": "quote_present",
+                "verified": true
+              },
+              "before": {
+                "check": "Literal quote presence only, not entailment or truth",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy",
+                "status": "quote_present",
+                "verified": true
+              }
+            },
+            "findings": [
+              {
+                "code": "evidence_changed",
+                "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+              },
+              {
+                "code": "wording_changed",
+                "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+              },
+              {
+                "code": "structured_value_changed",
+                "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+              },
+              {
+                "added": [
+                  "HEAD"
+                ],
+                "code": "set_members_changed",
+                "explanation": "Изменился состав множества; полнота сведений о мире этим не устанавливается.",
+                "removed": []
+              },
+              {
+                "code": "closed_world_annotation",
+                "explanation": "Флаг complete является входной аннотацией; полномочность источника задавать полный перечень автоматически не проверена."
+              }
+            ],
+            "input_digest": "88658468b8eea11ba527e7eebb935d8ac8d2cc8d93ae2c049cc486bb96cf5687",
+            "limitations": [
+              "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+              "Literal quote presence does not establish entailment, factual truth or source independence.",
+              "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+              "Different scope metadata does not prove scopes are disjoint.",
+              "No corpus annotation is an input to this function; no model or network is used."
+            ],
+            "normalized": {
+              "after": {
+                "canonical": {
+                  "complete": true,
+                  "members": [
+                    "GET",
+                    "HEAD"
+                  ],
+                  "type": "set"
+                },
+                "supported": true
+              },
+              "before": {
+                "canonical": {
+                  "complete": true,
+                  "members": [
+                    "GET"
+                  ],
+                  "type": "set"
+                },
+                "supported": true
+              }
+            },
+            "relation": "review_required",
+            "requires_human_review": true,
+            "review_action": "review_change_or_preserve_attributed_disagreement",
+            "rules_version": "semantic-1",
+            "schema_version": 1
+          },
+          "analysis_digest": "6a99abaade9a740f52a9111a6d72341c29b8f5f88d0ca7d0227f36e9bb6e185b",
+          "created_at": "2026-10-16T14:17:16.045080+00:00",
+          "input_digest": "88658468b8eea11ba527e7eebb935d8ac8d2cc8d93ae2c049cc486bb96cf5687",
+          "packet_digest": "9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+          "packet_id": "pkt_9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+          "pair": {
+            "after": {
+              "attribution": "programmed scenario author",
+              "evidence": {
+                "quote": "The proposed declared retry methods are GET and HEAD.",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "declared-retry-methods",
+              "scope": {
+                "policy": "retry-methods",
+                "version": "v1"
+              },
+              "subject": "fictional-api-client",
+              "text": "\"\"\"Fictional candidate configuration; never executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 4\n",
+              "value": {
+                "complete": true,
+                "members": [
+                  "GET",
+                  "HEAD"
+                ],
+                "type": "set"
+              }
+            },
+            "before": {
+              "attribution": "programmed scenario author",
+              "evidence": {
+                "quote": "The baseline declared retry methods are GET.",
+                "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "source_id": "fictional-inventory-policy"
+              },
+              "kind": "specification",
+              "modality": "asserted",
+              "polarity": "positive",
+              "property": "declared-retry-methods",
+              "scope": {
+                "policy": "retry-methods",
+                "version": "v1"
+              },
+              "subject": "fictional-api-client",
+              "text": "\"\"\"Fictional baseline configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\"}\nMAX_ATTEMPTS = 3\n",
+              "value": {
+                "complete": true,
+                "members": [
+                  "GET"
+                ],
+                "type": "set"
+              }
+            },
+            "sources": {
+              "fictional-inventory-policy": {
+                "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+                "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n"
+              }
+            }
+          },
+          "policy": {
+            "actor_identity": "self_declared_local",
+            "agent_agreement_min": 2,
+            "auto_accept": false,
+            "latest_decision_per_reviewer": true,
+            "requires_human_review": true,
+            "version": "editorial-1"
+          },
+          "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+          "proposer": {
+            "id": "inventory-code-author",
+            "kind": "agent"
+          },
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        "previous_hash": "87fdb2bb24738822e0488eb3a312bd4c35d0a38104cbaf278e2c85e0fcf5e537",
+        "recorded_at": "2026-10-16T14:17:16.045406+00:00",
+        "seq": 9,
+        "type": "packet_created"
+      },
+      {
+        "event_hash": "cc434ddfc19f8cbf364d4757548122ff1aa88808e4c3537137f27b5ab582891a",
+        "payload": {
+          "id": "inventory-review-agent-a",
+          "kind": "agent"
+        },
+        "previous_hash": "9d04130db6e3bb04565b9a32c6918dcf95b6cf865c403c6e834c921627ab026b",
+        "recorded_at": "2026-10-16T14:17:16.049222+00:00",
+        "seq": 10,
+        "type": "actor_registered"
+      },
+      {
+        "event_hash": "b090e69fdbfd0ebc1816b29087fe67889d7eff404e3b6ff1d36ec4de8a85bea8",
+        "payload": {
+          "actor_kind": "agent",
+          "decision_id": "dec_8447faed2619316d6009a26d3aaecb7b173ccffb6af22639c94e3906fc40ea36",
+          "operation_id": "base-document-inventory-review-agent-a",
+          "packet_digest": "43e341dac6ebf11d2cdb1457e1ad96c720855bd48588c5d4d319b9b24e10f721",
+          "packet_id": "pkt_43e341dac6ebf11d2cdb1457e1ad96c720855bd48588c5d4d319b9b24e10f721",
+          "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+          "recorded_at": "2026-10-16T14:17:16.049252+00:00",
+          "request_digest": "8447faed2619316d6009a26d3aaecb7b173ccffb6af22639c94e3906fc40ea36",
+          "reviewer": "inventory-review-agent-a",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        "previous_hash": "cc434ddfc19f8cbf364d4757548122ff1aa88808e4c3537137f27b5ab582891a",
+        "recorded_at": "2026-10-16T14:17:16.049322+00:00",
+        "seq": 11,
+        "type": "decision_recorded"
+      },
+      {
+        "event_hash": "b4dbde7e3acf941c20bb08b5c9521943c973d9a87cba6b7cd021ec71303a0fc8",
+        "payload": {
+          "id": "inventory-review-agent-b",
+          "kind": "agent"
+        },
+        "previous_hash": "b090e69fdbfd0ebc1816b29087fe67889d7eff404e3b6ff1d36ec4de8a85bea8",
+        "recorded_at": "2026-10-16T14:17:16.050339+00:00",
+        "seq": 12,
+        "type": "actor_registered"
+      },
+      {
+        "event_hash": "4d6722289c75191e00dc2d5bb2863b218069ed7a10edcb28e1464fdf0537b8ff",
+        "payload": {
+          "actor_kind": "agent",
+          "decision_id": "dec_11cad87e16c3e4fc2dba876d7078ae544f84dfb3e13e28ffd82eec8d86d11dad",
+          "operation_id": "base-document-inventory-review-agent-b",
+          "packet_digest": "43e341dac6ebf11d2cdb1457e1ad96c720855bd48588c5d4d319b9b24e10f721",
+          "packet_id": "pkt_43e341dac6ebf11d2cdb1457e1ad96c720855bd48588c5d4d319b9b24e10f721",
+          "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+          "recorded_at": "2026-10-16T14:17:16.050370+00:00",
+          "request_digest": "11cad87e16c3e4fc2dba876d7078ae544f84dfb3e13e28ffd82eec8d86d11dad",
+          "reviewer": "inventory-review-agent-b",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        "previous_hash": "b4dbde7e3acf941c20bb08b5c9521943c973d9a87cba6b7cd021ec71303a0fc8",
+        "recorded_at": "2026-10-16T14:17:16.050407+00:00",
+        "seq": 13,
+        "type": "decision_recorded"
+      },
+      {
+        "event_hash": "8351c3de934a0c2dd348cc5f89484bbb69e4e158ee42d6585bcc8c835bb5af41",
+        "payload": {
+          "actor_kind": "agent",
+          "decision_id": "dec_67aeb3ef9f5d9c3e2b0b24d93453eeb7c8593c8faa8c34b61fe51812a0268d39",
+          "operation_id": "prose-document-inventory-review-agent-a",
+          "packet_digest": "b3848c3a5bdadf82ca93a9e02cba2bb3b3898dc64b137429d7af33865435eed2",
+          "packet_id": "pkt_b3848c3a5bdadf82ca93a9e02cba2bb3b3898dc64b137429d7af33865435eed2",
+          "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+          "recorded_at": "2026-10-16T14:17:16.051291+00:00",
+          "request_digest": "67aeb3ef9f5d9c3e2b0b24d93453eeb7c8593c8faa8c34b61fe51812a0268d39",
+          "reviewer": "inventory-review-agent-a",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        "previous_hash": "4d6722289c75191e00dc2d5bb2863b218069ed7a10edcb28e1464fdf0537b8ff",
+        "recorded_at": "2026-10-16T14:17:16.051346+00:00",
+        "seq": 14,
+        "type": "decision_recorded"
+      },
+      {
+        "event_hash": "6f4d174bdd3be1fb4ebef218ec630b1f9359c42fdcdd71befa0edc889ab425cf",
+        "payload": {
+          "actor_kind": "agent",
+          "decision_id": "dec_72644840f769ca8c537110d1ab9aae4d23cc69ae7ff3ded1e700972673fd31ce",
+          "operation_id": "prose-document-inventory-review-agent-b",
+          "packet_digest": "b3848c3a5bdadf82ca93a9e02cba2bb3b3898dc64b137429d7af33865435eed2",
+          "packet_id": "pkt_b3848c3a5bdadf82ca93a9e02cba2bb3b3898dc64b137429d7af33865435eed2",
+          "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+          "recorded_at": "2026-10-16T14:17:16.052405+00:00",
+          "request_digest": "72644840f769ca8c537110d1ab9aae4d23cc69ae7ff3ded1e700972673fd31ce",
+          "reviewer": "inventory-review-agent-b",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        "previous_hash": "8351c3de934a0c2dd348cc5f89484bbb69e4e158ee42d6585bcc8c835bb5af41",
+        "recorded_at": "2026-10-16T14:17:16.052469+00:00",
+        "seq": 15,
+        "type": "decision_recorded"
+      },
+      {
+        "event_hash": "eb688af6faffa269d01918985aeb3f0f84f480987d4469daa84ade5dc006e844",
+        "payload": {
+          "actor_kind": "agent",
+          "decision_id": "dec_d6f9b469dfabd31d983d087561287ed03f27f95d9a560b2db4642577af726793",
+          "operation_id": "renamed-document-inventory-review-agent-a",
+          "packet_digest": "8065c9e1798245b489da400a67a7c07d240ee22043ec35798a65d0b34c2fe268",
+          "packet_id": "pkt_8065c9e1798245b489da400a67a7c07d240ee22043ec35798a65d0b34c2fe268",
+          "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+          "recorded_at": "2026-10-16T14:17:16.053160+00:00",
+          "request_digest": "d6f9b469dfabd31d983d087561287ed03f27f95d9a560b2db4642577af726793",
+          "reviewer": "inventory-review-agent-a",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        "previous_hash": "6f4d174bdd3be1fb4ebef218ec630b1f9359c42fdcdd71befa0edc889ab425cf",
+        "recorded_at": "2026-10-16T14:17:16.053220+00:00",
+        "seq": 16,
+        "type": "decision_recorded"
+      },
+      {
+        "event_hash": "803aab633bd8ef6b6186f0b9b7853c69bfacdbe98b4e66057642323be91573af",
+        "payload": {
+          "actor_kind": "agent",
+          "decision_id": "dec_4ef5b8f59852a52519aa08e2d58fb70df718f600d13491e75fd2344c61054bbd",
+          "operation_id": "base-code-inventory-review-agent-b",
+          "packet_digest": "a089956a85822f36758eb68cf3baaea1ffe6673a48cd31c8caec0f460a835ab6",
+          "packet_id": "pkt_a089956a85822f36758eb68cf3baaea1ffe6673a48cd31c8caec0f460a835ab6",
+          "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+          "recorded_at": "2026-10-16T14:17:16.053950+00:00",
+          "request_digest": "4ef5b8f59852a52519aa08e2d58fb70df718f600d13491e75fd2344c61054bbd",
+          "reviewer": "inventory-review-agent-b",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        "previous_hash": "eb688af6faffa269d01918985aeb3f0f84f480987d4469daa84ade5dc006e844",
+        "recorded_at": "2026-10-16T14:17:16.054020+00:00",
+        "seq": 17,
+        "type": "decision_recorded"
+      },
+      {
+        "event_hash": "5bbdf6400b32648da8334591b45cc5ea86d7669c90df01c22c9c1fe72f7f71de",
+        "payload": {
+          "actor_kind": "agent",
+          "decision_id": "dec_cb41d8c35c0557f487e3f2d810db9602ae43645fe614fc64ad68aa51fcb60347",
+          "operation_id": "renamed-code-inventory-review-agent-a",
+          "packet_digest": "18c4520b48b63d53ceafccdc650f52bec0b4cd587c09432168f459398067aba1",
+          "packet_id": "pkt_18c4520b48b63d53ceafccdc650f52bec0b4cd587c09432168f459398067aba1",
+          "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+          "recorded_at": "2026-10-16T14:17:16.054888+00:00",
+          "request_digest": "cb41d8c35c0557f487e3f2d810db9602ae43645fe614fc64ad68aa51fcb60347",
+          "reviewer": "inventory-review-agent-a",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        "previous_hash": "803aab633bd8ef6b6186f0b9b7853c69bfacdbe98b4e66057642323be91573af",
+        "recorded_at": "2026-10-16T14:17:16.055050+00:00",
+        "seq": 18,
+        "type": "decision_recorded"
+      },
+      {
+        "event_hash": "a9f02b88e5439aedecd010386fe911f158130838ea5d163cb219c0d79f0395fc",
+        "payload": {
+          "actor_kind": "agent",
+          "decision_id": "dec_c3a12688a8222d63bb52fa832b051163caf628385278dfd0181000425add876d",
+          "operation_id": "renamed-code-inventory-review-agent-b",
+          "packet_digest": "18c4520b48b63d53ceafccdc650f52bec0b4cd587c09432168f459398067aba1",
+          "packet_id": "pkt_18c4520b48b63d53ceafccdc650f52bec0b4cd587c09432168f459398067aba1",
+          "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+          "recorded_at": "2026-10-16T14:17:16.055647+00:00",
+          "request_digest": "c3a12688a8222d63bb52fa832b051163caf628385278dfd0181000425add876d",
+          "reviewer": "inventory-review-agent-b",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        "previous_hash": "5bbdf6400b32648da8334591b45cc5ea86d7669c90df01c22c9c1fe72f7f71de",
+        "recorded_at": "2026-10-16T14:17:16.055697+00:00",
+        "seq": 19,
+        "type": "decision_recorded"
+      },
+      {
+        "event_hash": "0d5bf645b41758b6868e9539e738f2b804975aa1531f563749ed760948766253",
+        "payload": {
+          "actor_kind": "agent",
+          "decision_id": "dec_44cbdce66e8d7d338bca6e6e6e498a77fae4be060d9863ab53eeb67250da923e",
+          "operation_id": "changed-document-inventory-review-agent-a",
+          "packet_digest": "4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+          "packet_id": "pkt_4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+          "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+          "recorded_at": "2026-10-16T14:17:16.056319+00:00",
+          "request_digest": "44cbdce66e8d7d338bca6e6e6e498a77fae4be060d9863ab53eeb67250da923e",
+          "reviewer": "inventory-review-agent-a",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        "previous_hash": "a9f02b88e5439aedecd010386fe911f158130838ea5d163cb219c0d79f0395fc",
+        "recorded_at": "2026-10-16T14:17:16.056369+00:00",
+        "seq": 20,
+        "type": "decision_recorded"
+      },
+      {
+        "event_hash": "0d9a8b62b5e8fccc4d9abf38973f7d4e844abb709ec110f830e7e0ac1754b2a7",
+        "payload": {
+          "actor_kind": "agent",
+          "decision_id": "dec_0379888e22fae646ec2b59910959caf42889f976f5d6b171581bcc2da470e9dc",
+          "operation_id": "changed-document-inventory-review-agent-b",
+          "packet_digest": "4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+          "packet_id": "pkt_4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+          "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+          "recorded_at": "2026-10-16T14:17:16.057021+00:00",
+          "request_digest": "0379888e22fae646ec2b59910959caf42889f976f5d6b171581bcc2da470e9dc",
+          "reviewer": "inventory-review-agent-b",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        "previous_hash": "0d5bf645b41758b6868e9539e738f2b804975aa1531f563749ed760948766253",
+        "recorded_at": "2026-10-16T14:17:16.057078+00:00",
+        "seq": 21,
+        "type": "decision_recorded"
+      },
+      {
+        "event_hash": "58b46f7ce72b8835fad1c8d6af9402a36a4f65883da2edd4d0b2ffbdf72b4348",
+        "payload": {
+          "actor_kind": "agent",
+          "decision_id": "dec_37c9c031163f58fb319d53405bcaa8982c24277c9841dec8ab70577db06bd3b9",
+          "operation_id": "changed-code-inventory-review-agent-a",
+          "packet_digest": "9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+          "packet_id": "pkt_9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+          "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+          "recorded_at": "2026-10-16T14:17:16.057588+00:00",
+          "request_digest": "37c9c031163f58fb319d53405bcaa8982c24277c9841dec8ab70577db06bd3b9",
+          "reviewer": "inventory-review-agent-a",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        "previous_hash": "0d9a8b62b5e8fccc4d9abf38973f7d4e844abb709ec110f830e7e0ac1754b2a7",
+        "recorded_at": "2026-10-16T14:17:16.057635+00:00",
+        "seq": 22,
+        "type": "decision_recorded"
+      },
+      {
+        "event_hash": "f7e5b1da45da97be19aa7a158f10938a3b1bfd19241fc762b7e8f45583f8ead5",
+        "payload": {
+          "actor_kind": "agent",
+          "decision_id": "dec_cd682a6fc8d483a65f80e84752280427ed374f39b690080cb6dbde0431658643",
+          "operation_id": "changed-code-inventory-review-agent-b",
+          "packet_digest": "9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+          "packet_id": "pkt_9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+          "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+          "recorded_at": "2026-10-16T14:17:16.058208+00:00",
+          "request_digest": "cd682a6fc8d483a65f80e84752280427ed374f39b690080cb6dbde0431658643",
+          "reviewer": "inventory-review-agent-b",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        "previous_hash": "58b46f7ce72b8835fad1c8d6af9402a36a4f65883da2edd4d0b2ffbdf72b4348",
+        "recorded_at": "2026-10-16T14:17:16.058260+00:00",
+        "seq": 23,
+        "type": "decision_recorded"
+      },
+      {
+        "event_hash": "2152d6fa31e4e6a6cd389f48c3c0bd9a9762678a84533e12f2ee97139a29ec81",
+        "payload": {
+          "actor_kind": "agent",
+          "decision_id": "dec_ae87a530f245bb1b1960cbb2dd31906663f1ab86b318a5d2127944222711fc8d",
+          "operation_id": "renamed-document-inventory-review-agent-b",
+          "packet_digest": "8065c9e1798245b489da400a67a7c07d240ee22043ec35798a65d0b34c2fe268",
+          "packet_id": "pkt_8065c9e1798245b489da400a67a7c07d240ee22043ec35798a65d0b34c2fe268",
+          "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+          "recorded_at": "2026-10-16T14:17:16.062567+00:00",
+          "request_digest": "ae87a530f245bb1b1960cbb2dd31906663f1ab86b318a5d2127944222711fc8d",
+          "reviewer": "inventory-review-agent-b",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        "previous_hash": "f7e5b1da45da97be19aa7a158f10938a3b1bfd19241fc762b7e8f45583f8ead5",
+        "recorded_at": "2026-10-16T14:17:16.062636+00:00",
+        "seq": 24,
+        "type": "decision_recorded"
+      },
+      {
+        "event_hash": "b7ca2e8e047f917b235a87cc1c3f099bf10b6908df4799aff7ad2c0f927035a4",
+        "payload": {
+          "actor_kind": "agent",
+          "decision_id": "dec_7e43734a286fe0e32dc7f95004441f6a348dca4268531fdd07e43cb412a862d9",
+          "operation_id": "base-code-inventory-review-agent-a",
+          "packet_digest": "a089956a85822f36758eb68cf3baaea1ffe6673a48cd31c8caec0f460a835ab6",
+          "packet_id": "pkt_a089956a85822f36758eb68cf3baaea1ffe6673a48cd31c8caec0f460a835ab6",
+          "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+          "recorded_at": "2026-10-16T14:17:16.068669+00:00",
+          "request_digest": "7e43734a286fe0e32dc7f95004441f6a348dca4268531fdd07e43cb412a862d9",
+          "reviewer": "inventory-review-agent-a",
+          "schema_version": 1,
+          "supersedes": null,
+          "verdict": "approve"
+        },
+        "previous_hash": "2152d6fa31e4e6a6cd389f48c3c0bd9a9762678a84533e12f2ee97139a29ec81",
+        "recorded_at": "2026-10-16T14:17:16.068735+00:00",
+        "seq": 25,
+        "type": "decision_recorded"
+      }
+    ],
+    "export_digest": "0dc13262238b03858c86d0eb1b69e275a9335158c964681c805b9ad6756fd14f",
+    "integrity_scope": "Internal consistency only; hashes do not authenticate authorship, independence, completeness of an externally truncated history, or truth",
+    "packets": [
+      {
+        "analysis": {
+          "auto_accept": false,
+          "evidence": {
+            "after": {
+              "check": "Literal quote presence only, not entailment or truth",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy",
+              "status": "quote_present",
+              "verified": true
+            },
+            "before": {
+              "check": "Literal quote presence only, not entailment or truth",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy",
+              "status": "quote_present",
+              "verified": true
+            }
+          },
+          "findings": [
+            {
+              "code": "evidence_changed",
+              "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+            },
+            {
+              "code": "wording_changed",
+              "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+            },
+            {
+              "code": "structured_value_changed",
+              "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+            },
+            {
+              "added": [
+                "HEAD"
+              ],
+              "code": "set_members_changed",
+              "explanation": "Изменился состав множества; полнота сведений о мире этим не устанавливается.",
+              "removed": []
+            },
+            {
+              "code": "closed_world_annotation",
+              "explanation": "Флаг complete является входной аннотацией; полномочность источника задавать полный перечень автоматически не проверена."
+            }
+          ],
+          "input_digest": "a18c4887519738b767d35c42f43b834961ba7133a43c430afb69ffe0f9c11573",
+          "limitations": [
+            "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+            "Literal quote presence does not establish entailment, factual truth or source independence.",
+            "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+            "Different scope metadata does not prove scopes are disjoint.",
+            "No corpus annotation is an input to this function; no model or network is used."
+          ],
+          "normalized": {
+            "after": {
+              "canonical": {
+                "complete": true,
+                "members": [
+                  "GET",
+                  "HEAD"
+                ],
+                "type": "set"
+              },
+              "supported": true
+            },
+            "before": {
+              "canonical": {
+                "complete": true,
+                "members": [
+                  "GET"
+                ],
+                "type": "set"
+              },
+              "supported": true
+            }
+          },
+          "relation": "review_required",
+          "requires_human_review": true,
+          "review_action": "review_change_or_preserve_attributed_disagreement",
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        "analysis_digest": "961ac123a58f1587d427e6c6c00984cec5ad1c5ae39fee73e3107958839033c2",
+        "created_at": "2026-10-16T14:17:16.036595+00:00",
+        "input_digest": "a18c4887519738b767d35c42f43b834961ba7133a43c430afb69ffe0f9c11573",
+        "packet_digest": "43e341dac6ebf11d2cdb1457e1ad96c720855bd48588c5d4d319b9b24e10f721",
+        "packet_id": "pkt_43e341dac6ebf11d2cdb1457e1ad96c720855bd48588c5d4d319b9b24e10f721",
+        "pair": {
+          "after": {
+            "attribution": "programmed scenario author",
+            "evidence": {
+              "quote": "The proposed declared retry methods are GET and HEAD.",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "declared-retry-methods",
+            "scope": {
+              "policy": "retry-methods",
+              "version": "v1"
+            },
+            "subject": "fictional-api-client",
+            "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 3 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n```\n",
+            "value": {
+              "complete": true,
+              "members": [
+                "GET",
+                "HEAD"
+              ],
+              "type": "set"
+            }
+          },
+          "before": {
+            "attribution": "programmed scenario author",
+            "evidence": {
+              "quote": "The baseline declared retry methods are GET.",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "declared-retry-methods",
+            "scope": {
+              "policy": "retry-methods",
+              "version": "v1"
+            },
+            "subject": "fictional-api-client",
+            "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\"],\"max_attempts\":3}\n```\n",
+            "value": {
+              "complete": true,
+              "members": [
+                "GET"
+              ],
+              "type": "set"
+            }
+          },
+          "sources": {
+            "fictional-inventory-policy": {
+              "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n"
+            }
+          }
+        },
+        "policy": {
+          "actor_identity": "self_declared_local",
+          "agent_agreement_min": 2,
+          "auto_accept": false,
+          "latest_decision_per_reviewer": true,
+          "requires_human_review": true,
+          "version": "editorial-1"
+        },
+        "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+        "proposer": {
+          "id": "inventory-document-author",
+          "kind": "agent"
+        },
+        "rules_version": "semantic-1",
+        "schema_version": 1
+      },
+      {
+        "analysis": {
+          "auto_accept": false,
+          "evidence": {
+            "after": {
+              "check": "Literal quote presence only, not entailment or truth",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy",
+              "status": "quote_present",
+              "verified": true
+            },
+            "before": {
+              "check": "Literal quote presence only, not entailment or truth",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy",
+              "status": "quote_present",
+              "verified": true
+            }
+          },
+          "findings": [
+            {
+              "code": "evidence_changed",
+              "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+            },
+            {
+              "code": "wording_changed",
+              "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+            },
+            {
+              "code": "structured_value_changed",
+              "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+            },
+            {
+              "added": [
+                "HEAD"
+              ],
+              "code": "set_members_changed",
+              "explanation": "Изменился состав множества; полнота сведений о мире этим не устанавливается.",
+              "removed": []
+            },
+            {
+              "code": "closed_world_annotation",
+              "explanation": "Флаг complete является входной аннотацией; полномочность источника задавать полный перечень автоматически не проверена."
+            }
+          ],
+          "input_digest": "88dc88493cf5e4ec3536cb1bf43c2366ae55aaf76496bbfdb422220e34eb0d69",
+          "limitations": [
+            "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+            "Literal quote presence does not establish entailment, factual truth or source independence.",
+            "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+            "Different scope metadata does not prove scopes are disjoint.",
+            "No corpus annotation is an input to this function; no model or network is used."
+          ],
+          "normalized": {
+            "after": {
+              "canonical": {
+                "complete": true,
+                "members": [
+                  "GET",
+                  "HEAD"
+                ],
+                "type": "set"
+              },
+              "supported": true
+            },
+            "before": {
+              "canonical": {
+                "complete": true,
+                "members": [
+                  "GET"
+                ],
+                "type": "set"
+              },
+              "supported": true
+            }
+          },
+          "relation": "review_required",
+          "requires_human_review": true,
+          "review_action": "review_change_or_preserve_attributed_disagreement",
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        "analysis_digest": "f218ee47c6b43728a4d7f51a6105610f15179abc7f26d7f290ad5f86f7f1f720",
+        "created_at": "2026-10-16T14:17:16.038644+00:00",
+        "input_digest": "88dc88493cf5e4ec3536cb1bf43c2366ae55aaf76496bbfdb422220e34eb0d69",
+        "packet_digest": "a089956a85822f36758eb68cf3baaea1ffe6673a48cd31c8caec0f460a835ab6",
+        "packet_id": "pkt_a089956a85822f36758eb68cf3baaea1ffe6673a48cd31c8caec0f460a835ab6",
+        "pair": {
+          "after": {
+            "attribution": "programmed scenario author",
+            "evidence": {
+              "quote": "The proposed declared retry methods are GET and HEAD.",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "declared-retry-methods",
+            "scope": {
+              "policy": "retry-methods",
+              "version": "v1"
+            },
+            "subject": "fictional-api-client",
+            "text": "\"\"\"Fictional candidate configuration; never executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 3\n",
+            "value": {
+              "complete": true,
+              "members": [
+                "GET",
+                "HEAD"
+              ],
+              "type": "set"
+            }
+          },
+          "before": {
+            "attribution": "programmed scenario author",
+            "evidence": {
+              "quote": "The baseline declared retry methods are GET.",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "declared-retry-methods",
+            "scope": {
+              "policy": "retry-methods",
+              "version": "v1"
+            },
+            "subject": "fictional-api-client",
+            "text": "\"\"\"Fictional baseline configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\"}\nMAX_ATTEMPTS = 3\n",
+            "value": {
+              "complete": true,
+              "members": [
+                "GET"
+              ],
+              "type": "set"
+            }
+          },
+          "sources": {
+            "fictional-inventory-policy": {
+              "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n"
+            }
+          }
+        },
+        "policy": {
+          "actor_identity": "self_declared_local",
+          "agent_agreement_min": 2,
+          "auto_accept": false,
+          "latest_decision_per_reviewer": true,
+          "requires_human_review": true,
+          "version": "editorial-1"
+        },
+        "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+        "proposer": {
+          "id": "inventory-code-author",
+          "kind": "agent"
+        },
+        "rules_version": "semantic-1",
+        "schema_version": 1
+      },
+      {
+        "analysis": {
+          "auto_accept": false,
+          "evidence": {
+            "after": {
+              "check": "Literal quote presence only, not entailment or truth",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy",
+              "status": "quote_present",
+              "verified": true
+            },
+            "before": {
+              "check": "Literal quote presence only, not entailment or truth",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy",
+              "status": "quote_present",
+              "verified": true
+            }
+          },
+          "findings": [
+            {
+              "code": "evidence_changed",
+              "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+            },
+            {
+              "code": "wording_changed",
+              "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+            },
+            {
+              "code": "structured_value_changed",
+              "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+            },
+            {
+              "added": [
+                "HEAD"
+              ],
+              "code": "set_members_changed",
+              "explanation": "Изменился состав множества; полнота сведений о мире этим не устанавливается.",
+              "removed": []
+            },
+            {
+              "code": "closed_world_annotation",
+              "explanation": "Флаг complete является входной аннотацией; полномочность источника задавать полный перечень автоматически не проверена."
+            }
+          ],
+          "input_digest": "9e24ba562f1a08d2b9dc2c4b09047222cf4cb596169089f030d6849ffa33aa0f",
+          "limitations": [
+            "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+            "Literal quote presence does not establish entailment, factual truth or source independence.",
+            "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+            "Different scope metadata does not prove scopes are disjoint.",
+            "No corpus annotation is an input to this function; no model or network is used."
+          ],
+          "normalized": {
+            "after": {
+              "canonical": {
+                "complete": true,
+                "members": [
+                  "GET",
+                  "HEAD"
+                ],
+                "type": "set"
+              },
+              "supported": true
+            },
+            "before": {
+              "canonical": {
+                "complete": true,
+                "members": [
+                  "GET"
+                ],
+                "type": "set"
+              },
+              "supported": true
+            }
+          },
+          "relation": "review_required",
+          "requires_human_review": true,
+          "review_action": "review_change_or_preserve_attributed_disagreement",
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        "analysis_digest": "4729cc885d015cef3d88ab123c02ade07b5e92e4916fc01c8618b16ba588bb53",
+        "created_at": "2026-10-16T14:17:16.040965+00:00",
+        "input_digest": "9e24ba562f1a08d2b9dc2c4b09047222cf4cb596169089f030d6849ffa33aa0f",
+        "packet_digest": "b3848c3a5bdadf82ca93a9e02cba2bb3b3898dc64b137429d7af33865435eed2",
+        "packet_id": "pkt_b3848c3a5bdadf82ca93a9e02cba2bb3b3898dc64b137429d7af33865435eed2",
+        "pair": {
+          "after": {
+            "attribution": "programmed scenario author",
+            "evidence": {
+              "quote": "The proposed declared retry methods are GET and HEAD.",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "declared-retry-methods",
+            "scope": {
+              "policy": "retry-methods",
+              "version": "v1"
+            },
+            "subject": "fictional-api-client",
+            "text": "Вводное пояснение к вымышленной конфигурации.\n\n# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 3 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n```\n",
+            "value": {
+              "complete": true,
+              "members": [
+                "GET",
+                "HEAD"
+              ],
+              "type": "set"
+            }
+          },
+          "before": {
+            "attribution": "programmed scenario author",
+            "evidence": {
+              "quote": "The baseline declared retry methods are GET.",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "declared-retry-methods",
+            "scope": {
+              "policy": "retry-methods",
+              "version": "v1"
+            },
+            "subject": "fictional-api-client",
+            "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\"],\"max_attempts\":3}\n```\n",
+            "value": {
+              "complete": true,
+              "members": [
+                "GET"
+              ],
+              "type": "set"
+            }
+          },
+          "sources": {
+            "fictional-inventory-policy": {
+              "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n"
+            }
+          }
+        },
+        "policy": {
+          "actor_identity": "self_declared_local",
+          "agent_agreement_min": 2,
+          "auto_accept": false,
+          "latest_decision_per_reviewer": true,
+          "requires_human_review": true,
+          "version": "editorial-1"
+        },
+        "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+        "proposer": {
+          "id": "inventory-document-author",
+          "kind": "agent"
+        },
+        "rules_version": "semantic-1",
+        "schema_version": 1
+      },
+      {
+        "analysis": {
+          "auto_accept": false,
+          "evidence": {
+            "after": {
+              "check": "Literal quote presence only, not entailment or truth",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy",
+              "status": "quote_present",
+              "verified": true
+            },
+            "before": {
+              "check": "Literal quote presence only, not entailment or truth",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy",
+              "status": "quote_present",
+              "verified": true
+            }
+          },
+          "findings": [
+            {
+              "code": "evidence_changed",
+              "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+            },
+            {
+              "code": "wording_changed",
+              "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+            },
+            {
+              "code": "structured_value_changed",
+              "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+            },
+            {
+              "added": [
+                "HEAD"
+              ],
+              "code": "set_members_changed",
+              "explanation": "Изменился состав множества; полнота сведений о мире этим не устанавливается.",
+              "removed": []
+            },
+            {
+              "code": "closed_world_annotation",
+              "explanation": "Флаг complete является входной аннотацией; полномочность источника задавать полный перечень автоматически не проверена."
+            }
+          ],
+          "input_digest": "bb716c4d033e62eb8694489b74aa6484702e79b677f81148a52fabd2dae41d17",
+          "limitations": [
+            "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+            "Literal quote presence does not establish entailment, factual truth or source independence.",
+            "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+            "Different scope metadata does not prove scopes are disjoint.",
+            "No corpus annotation is an input to this function; no model or network is used."
+          ],
+          "normalized": {
+            "after": {
+              "canonical": {
+                "complete": true,
+                "members": [
+                  "GET",
+                  "HEAD"
+                ],
+                "type": "set"
+              },
+              "supported": true
+            },
+            "before": {
+              "canonical": {
+                "complete": true,
+                "members": [
+                  "GET"
+                ],
+                "type": "set"
+              },
+              "supported": true
+            }
+          },
+          "relation": "review_required",
+          "requires_human_review": true,
+          "review_action": "review_change_or_preserve_attributed_disagreement",
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        "analysis_digest": "449f34524bbbbfda9ce4c47a35930f0054087066d0c2edf5b69aa8334c2716d8",
+        "created_at": "2026-10-16T14:17:16.041944+00:00",
+        "input_digest": "bb716c4d033e62eb8694489b74aa6484702e79b677f81148a52fabd2dae41d17",
+        "packet_digest": "8065c9e1798245b489da400a67a7c07d240ee22043ec35798a65d0b34c2fe268",
+        "packet_id": "pkt_8065c9e1798245b489da400a67a7c07d240ee22043ec35798a65d0b34c2fe268",
+        "pair": {
+          "after": {
+            "attribution": "programmed scenario author",
+            "evidence": {
+              "quote": "The proposed declared retry methods are GET and HEAD.",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "declared-retry-methods",
+            "scope": {
+              "policy": "retry-methods",
+              "version": "v1"
+            },
+            "subject": "fictional-api-client",
+            "text": "Кандидат размещён по явно сопоставленному пути.\n\n# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 3 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n```\n",
+            "value": {
+              "complete": true,
+              "members": [
+                "GET",
+                "HEAD"
+              ],
+              "type": "set"
+            }
+          },
+          "before": {
+            "attribution": "programmed scenario author",
+            "evidence": {
+              "quote": "The baseline declared retry methods are GET.",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "declared-retry-methods",
+            "scope": {
+              "policy": "retry-methods",
+              "version": "v1"
+            },
+            "subject": "fictional-api-client",
+            "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\"],\"max_attempts\":3}\n```\n",
+            "value": {
+              "complete": true,
+              "members": [
+                "GET"
+              ],
+              "type": "set"
+            }
+          },
+          "sources": {
+            "fictional-inventory-policy": {
+              "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n"
+            }
+          }
+        },
+        "policy": {
+          "actor_identity": "self_declared_local",
+          "agent_agreement_min": 2,
+          "auto_accept": false,
+          "latest_decision_per_reviewer": true,
+          "requires_human_review": true,
+          "version": "editorial-1"
+        },
+        "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+        "proposer": {
+          "id": "inventory-document-author",
+          "kind": "agent"
+        },
+        "rules_version": "semantic-1",
+        "schema_version": 1
+      },
+      {
+        "analysis": {
+          "auto_accept": false,
+          "evidence": {
+            "after": {
+              "check": "Literal quote presence only, not entailment or truth",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy",
+              "status": "quote_present",
+              "verified": true
+            },
+            "before": {
+              "check": "Literal quote presence only, not entailment or truth",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy",
+              "status": "quote_present",
+              "verified": true
+            }
+          },
+          "findings": [
+            {
+              "code": "evidence_changed",
+              "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+            },
+            {
+              "code": "wording_changed",
+              "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+            },
+            {
+              "code": "structured_value_changed",
+              "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+            },
+            {
+              "added": [
+                "HEAD"
+              ],
+              "code": "set_members_changed",
+              "explanation": "Изменился состав множества; полнота сведений о мире этим не устанавливается.",
+              "removed": []
+            },
+            {
+              "code": "closed_world_annotation",
+              "explanation": "Флаг complete является входной аннотацией; полномочность источника задавать полный перечень автоматически не проверена."
+            }
+          ],
+          "input_digest": "3f8c7f06485853fc1a0dd4147267cb9bbf74302e0ea9ac64322101dbad120aac",
+          "limitations": [
+            "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+            "Literal quote presence does not establish entailment, factual truth or source independence.",
+            "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+            "Different scope metadata does not prove scopes are disjoint.",
+            "No corpus annotation is an input to this function; no model or network is used."
+          ],
+          "normalized": {
+            "after": {
+              "canonical": {
+                "complete": true,
+                "members": [
+                  "GET",
+                  "HEAD"
+                ],
+                "type": "set"
+              },
+              "supported": true
+            },
+            "before": {
+              "canonical": {
+                "complete": true,
+                "members": [
+                  "GET"
+                ],
+                "type": "set"
+              },
+              "supported": true
+            }
+          },
+          "relation": "review_required",
+          "requires_human_review": true,
+          "review_action": "review_change_or_preserve_attributed_disagreement",
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        "analysis_digest": "262189075b637cf5b384743e3a98ff3411b4eaa04e53ec62ab89b00d475ef18f",
+        "created_at": "2026-10-16T14:17:16.042865+00:00",
+        "input_digest": "3f8c7f06485853fc1a0dd4147267cb9bbf74302e0ea9ac64322101dbad120aac",
+        "packet_digest": "18c4520b48b63d53ceafccdc650f52bec0b4cd587c09432168f459398067aba1",
+        "packet_id": "pkt_18c4520b48b63d53ceafccdc650f52bec0b4cd587c09432168f459398067aba1",
+        "pair": {
+          "after": {
+            "attribution": "programmed scenario author",
+            "evidence": {
+              "quote": "The proposed declared retry methods are GET and HEAD.",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "declared-retry-methods",
+            "scope": {
+              "policy": "retry-methods",
+              "version": "v1"
+            },
+            "subject": "fictional-api-client",
+            "text": "\"\"\"Fictional candidate at an explicitly mapped path; never executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 3\n",
+            "value": {
+              "complete": true,
+              "members": [
+                "GET",
+                "HEAD"
+              ],
+              "type": "set"
+            }
+          },
+          "before": {
+            "attribution": "programmed scenario author",
+            "evidence": {
+              "quote": "The baseline declared retry methods are GET.",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "declared-retry-methods",
+            "scope": {
+              "policy": "retry-methods",
+              "version": "v1"
+            },
+            "subject": "fictional-api-client",
+            "text": "\"\"\"Fictional baseline configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\"}\nMAX_ATTEMPTS = 3\n",
+            "value": {
+              "complete": true,
+              "members": [
+                "GET"
+              ],
+              "type": "set"
+            }
+          },
+          "sources": {
+            "fictional-inventory-policy": {
+              "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n"
+            }
+          }
+        },
+        "policy": {
+          "actor_identity": "self_declared_local",
+          "agent_agreement_min": 2,
+          "auto_accept": false,
+          "latest_decision_per_reviewer": true,
+          "requires_human_review": true,
+          "version": "editorial-1"
+        },
+        "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+        "proposer": {
+          "id": "inventory-code-author",
+          "kind": "agent"
+        },
+        "rules_version": "semantic-1",
+        "schema_version": 1
+      },
+      {
+        "analysis": {
+          "auto_accept": false,
+          "evidence": {
+            "after": {
+              "check": "Literal quote presence only, not entailment or truth",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy",
+              "status": "quote_present",
+              "verified": true
+            },
+            "before": {
+              "check": "Literal quote presence only, not entailment or truth",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy",
+              "status": "quote_present",
+              "verified": true
+            }
+          },
+          "findings": [
+            {
+              "code": "evidence_changed",
+              "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+            },
+            {
+              "code": "wording_changed",
+              "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+            },
+            {
+              "code": "structured_value_changed",
+              "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+            },
+            {
+              "added": [
+                "HEAD"
+              ],
+              "code": "set_members_changed",
+              "explanation": "Изменился состав множества; полнота сведений о мире этим не устанавливается.",
+              "removed": []
+            },
+            {
+              "code": "closed_world_annotation",
+              "explanation": "Флаг complete является входной аннотацией; полномочность источника задавать полный перечень автоматически не проверена."
+            }
+          ],
+          "input_digest": "a1fc98a570717dbf13199ec20248bb9967a62402521f7892e77805d3075d5112",
+          "limitations": [
+            "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+            "Literal quote presence does not establish entailment, factual truth or source independence.",
+            "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+            "Different scope metadata does not prove scopes are disjoint.",
+            "No corpus annotation is an input to this function; no model or network is used."
+          ],
+          "normalized": {
+            "after": {
+              "canonical": {
+                "complete": true,
+                "members": [
+                  "GET",
+                  "HEAD"
+                ],
+                "type": "set"
+              },
+              "supported": true
+            },
+            "before": {
+              "canonical": {
+                "complete": true,
+                "members": [
+                  "GET"
+                ],
+                "type": "set"
+              },
+              "supported": true
+            }
+          },
+          "relation": "review_required",
+          "requires_human_review": true,
+          "review_action": "review_change_or_preserve_attributed_disagreement",
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        "analysis_digest": "c6a522d9139b6f8fa1c7336d1c40d606a007343abcd4117c6ce07b69e8b6668a",
+        "created_at": "2026-10-16T14:17:16.044003+00:00",
+        "input_digest": "a1fc98a570717dbf13199ec20248bb9967a62402521f7892e77805d3075d5112",
+        "packet_digest": "4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+        "packet_id": "pkt_4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+        "pair": {
+          "after": {
+            "attribution": "programmed scenario author",
+            "evidence": {
+              "quote": "The proposed declared retry methods are GET and HEAD.",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "declared-retry-methods",
+            "scope": {
+              "policy": "retry-methods",
+              "version": "v1"
+            },
+            "subject": "fictional-api-client",
+            "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 4 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":4}\n```\n",
+            "value": {
+              "complete": true,
+              "members": [
+                "GET",
+                "HEAD"
+              ],
+              "type": "set"
+            }
+          },
+          "before": {
+            "attribution": "programmed scenario author",
+            "evidence": {
+              "quote": "The baseline declared retry methods are GET.",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "declared-retry-methods",
+            "scope": {
+              "policy": "retry-methods",
+              "version": "v1"
+            },
+            "subject": "fictional-api-client",
+            "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\"],\"max_attempts\":3}\n```\n",
+            "value": {
+              "complete": true,
+              "members": [
+                "GET"
+              ],
+              "type": "set"
+            }
+          },
+          "sources": {
+            "fictional-inventory-policy": {
+              "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n"
+            }
+          }
+        },
+        "policy": {
+          "actor_identity": "self_declared_local",
+          "agent_agreement_min": 2,
+          "auto_accept": false,
+          "latest_decision_per_reviewer": true,
+          "requires_human_review": true,
+          "version": "editorial-1"
+        },
+        "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+        "proposer": {
+          "id": "inventory-document-author",
+          "kind": "agent"
+        },
+        "rules_version": "semantic-1",
+        "schema_version": 1
+      },
+      {
+        "analysis": {
+          "auto_accept": false,
+          "evidence": {
+            "after": {
+              "check": "Literal quote presence only, not entailment or truth",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy",
+              "status": "quote_present",
+              "verified": true
+            },
+            "before": {
+              "check": "Literal quote presence only, not entailment or truth",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy",
+              "status": "quote_present",
+              "verified": true
+            }
+          },
+          "findings": [
+            {
+              "code": "evidence_changed",
+              "explanation": "Основание изменено; совпадение формальных значений не переносит редакционное одобрение на новый источник."
+            },
+            {
+              "code": "wording_changed",
+              "explanation": "Исходные тексты различаются; соответствие свободной формулировки полям не проверяется автоматически."
+            },
+            {
+              "code": "structured_value_changed",
+              "explanation": "Формальные значения различаются; это не определяет истинность сторон или допустимость обновления."
+            },
+            {
+              "added": [
+                "HEAD"
+              ],
+              "code": "set_members_changed",
+              "explanation": "Изменился состав множества; полнота сведений о мире этим не устанавливается.",
+              "removed": []
+            },
+            {
+              "code": "closed_world_annotation",
+              "explanation": "Флаг complete является входной аннотацией; полномочность источника задавать полный перечень автоматически не проверена."
+            }
+          ],
+          "input_digest": "88658468b8eea11ba527e7eebb935d8ac8d2cc8d93ae2c049cc486bb96cf5687",
+          "limitations": [
+            "Only supplied structure is compared; fields are not inferred from or checked against free prose.",
+            "Literal quote presence does not establish entailment, factual truth or source independence.",
+            "A pair comparison does not implement three-way merge, readset checking or Store acceptance.",
+            "Different scope metadata does not prove scopes are disjoint.",
+            "No corpus annotation is an input to this function; no model or network is used."
+          ],
+          "normalized": {
+            "after": {
+              "canonical": {
+                "complete": true,
+                "members": [
+                  "GET",
+                  "HEAD"
+                ],
+                "type": "set"
+              },
+              "supported": true
+            },
+            "before": {
+              "canonical": {
+                "complete": true,
+                "members": [
+                  "GET"
+                ],
+                "type": "set"
+              },
+              "supported": true
+            }
+          },
+          "relation": "review_required",
+          "requires_human_review": true,
+          "review_action": "review_change_or_preserve_attributed_disagreement",
+          "rules_version": "semantic-1",
+          "schema_version": 1
+        },
+        "analysis_digest": "6a99abaade9a740f52a9111a6d72341c29b8f5f88d0ca7d0227f36e9bb6e185b",
+        "created_at": "2026-10-16T14:17:16.045080+00:00",
+        "input_digest": "88658468b8eea11ba527e7eebb935d8ac8d2cc8d93ae2c049cc486bb96cf5687",
+        "packet_digest": "9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+        "packet_id": "pkt_9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+        "pair": {
+          "after": {
+            "attribution": "programmed scenario author",
+            "evidence": {
+              "quote": "The proposed declared retry methods are GET and HEAD.",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "declared-retry-methods",
+            "scope": {
+              "policy": "retry-methods",
+              "version": "v1"
+            },
+            "subject": "fictional-api-client",
+            "text": "\"\"\"Fictional candidate configuration; never executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 4\n",
+            "value": {
+              "complete": true,
+              "members": [
+                "GET",
+                "HEAD"
+              ],
+              "type": "set"
+            }
+          },
+          "before": {
+            "attribution": "programmed scenario author",
+            "evidence": {
+              "quote": "The baseline declared retry methods are GET.",
+              "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "source_id": "fictional-inventory-policy"
+            },
+            "kind": "specification",
+            "modality": "asserted",
+            "polarity": "positive",
+            "property": "declared-retry-methods",
+            "scope": {
+              "policy": "retry-methods",
+              "version": "v1"
+            },
+            "subject": "fictional-api-client",
+            "text": "\"\"\"Fictional baseline configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\"}\nMAX_ATTEMPTS = 3\n",
+            "value": {
+              "complete": true,
+              "members": [
+                "GET"
+              ],
+              "type": "set"
+            }
+          },
+          "sources": {
+            "fictional-inventory-policy": {
+              "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+              "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n"
+            }
+          }
+        },
+        "policy": {
+          "actor_identity": "self_declared_local",
+          "agent_agreement_min": 2,
+          "auto_accept": false,
+          "latest_decision_per_reviewer": true,
+          "requires_human_review": true,
+          "version": "editorial-1"
+        },
+        "policy_digest": "7ffb43f20ff9b80fae6c8e455e89066961d1ae6d0b1b596f71a4e26a1c071e2b",
+        "proposer": {
+          "id": "inventory-code-author",
+          "kind": "agent"
+        },
+        "rules_version": "semantic-1",
+        "schema_version": 1
+      }
+    ],
+    "requires_human_review": true,
+    "schema_version": 1
+  },
+  "observation": {
+    "atomic_capture": false,
+    "auto_accept": false,
+    "blockers": [],
+    "component_head": "f6a628339cffc4968213f1e0b9981b414c197ebfe322375ecc76451bcc7d98bd",
+    "coverage": {
+      "complete": true,
+      "scope": "write_ids_only_not_semantic_coverage",
+      "selected_write_ids": [
+        "code/client_config.py",
+        "docs/reference.md"
+      ],
+      "uncovered_write_ids": []
+    },
+    "entries": [
+      {
+        "actors": {
+          "authenticated": false,
+          "independence_verified": false,
+          "packet_proposer": {
+            "id": "inventory-code-author",
+            "kind": "agent"
+          },
+          "runtime_author_id": "inventory-integrator"
+        },
+        "artifact_id": "code/client_config.py",
+        "atomic_capture": false,
+        "auto_accept": false,
+        "binding": {
+          "errors": [],
+          "matches": true,
+          "mode": "exact_template",
+          "scope": "template_text_only_not_rendered_output_or_all_metadata",
+          "semantic_mapping": "caller_declared_unverified"
+        },
+        "blockers": [
+          {
+            "artifact_ids": [
+              "docs/reference.md"
+            ],
+            "code": "uncovered_writes"
+          }
+        ],
+        "coverage": {
+          "complete": false,
+          "scope": "write_ids_only_not_semantic_coverage",
+          "selected_write_ids": [
+            "code/client_config.py"
+          ],
+          "uncovered_write_ids": [
+            "docs/reference.md"
+          ]
+        },
+        "decision_heads": {
+          "inventory-review-agent-a": "dec_37c9c031163f58fb319d53405bcaa8982c24277c9841dec8ab70577db06bd3b9",
+          "inventory-review-agent-b": "dec_cd682a6fc8d483a65f80e84752280427ed374f39b690080cb6dbde0431658643"
+        },
+        "editorial": {
+          "auto_accept": false,
+          "blockers": [
+            "human_review_not_recorded"
+          ],
+          "counts": {
+            "abstain": 0,
+            "approve": 2,
+            "request_changes": 0
+          },
+          "current_basis_decisions": [
+            {
+              "actor_kind": "agent",
+              "decision_id": "dec_37c9c031163f58fb319d53405bcaa8982c24277c9841dec8ab70577db06bd3b9",
+              "operation_id": "changed-code-inventory-review-agent-a",
+              "packet_digest": "9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+              "packet_id": "pkt_9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+              "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+              "recorded_at": "2026-10-16T14:17:16.057588+00:00",
+              "request_digest": "37c9c031163f58fb319d53405bcaa8982c24277c9841dec8ab70577db06bd3b9",
+              "reviewer": "inventory-review-agent-a",
+              "schema_version": 1,
+              "supersedes": null,
+              "verdict": "approve"
+            },
+            {
+              "actor_kind": "agent",
+              "decision_id": "dec_cd682a6fc8d483a65f80e84752280427ed374f39b690080cb6dbde0431658643",
+              "operation_id": "changed-code-inventory-review-agent-b",
+              "packet_digest": "9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+              "packet_id": "pkt_9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+              "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+              "recorded_at": "2026-10-16T14:17:16.058208+00:00",
+              "request_digest": "cd682a6fc8d483a65f80e84752280427ed374f39b690080cb6dbde0431658643",
+              "reviewer": "inventory-review-agent-b",
+              "schema_version": 1,
+              "supersedes": null,
+              "verdict": "approve"
+            }
+          ],
+          "current_human_review_recorded": false,
+          "current_input_checked": true,
+          "current_input_digest": "88658468b8eea11ba527e7eebb935d8ac8d2cc8d93ae2c049cc486bb96cf5687",
+          "current_input_provided": true,
+          "freshness": "current",
+          "history_count": 2,
+          "human_review_recorded": false,
+          "input_digest": "88658468b8eea11ba527e7eebb935d8ac8d2cc8d93ae2c049cc486bb96cf5687",
+          "is_current": true,
+          "latest_decisions": [
+            {
+              "actor_kind": "agent",
+              "decision_id": "dec_37c9c031163f58fb319d53405bcaa8982c24277c9841dec8ab70577db06bd3b9",
+              "operation_id": "changed-code-inventory-review-agent-a",
+              "packet_digest": "9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+              "packet_id": "pkt_9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+              "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+              "recorded_at": "2026-10-16T14:17:16.057588+00:00",
+              "request_digest": "37c9c031163f58fb319d53405bcaa8982c24277c9841dec8ab70577db06bd3b9",
+              "reviewer": "inventory-review-agent-a",
+              "schema_version": 1,
+              "supersedes": null,
+              "verdict": "approve"
+            },
+            {
+              "actor_kind": "agent",
+              "decision_id": "dec_cd682a6fc8d483a65f80e84752280427ed374f39b690080cb6dbde0431658643",
+              "operation_id": "changed-code-inventory-review-agent-b",
+              "packet_digest": "9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+              "packet_id": "pkt_9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+              "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+              "recorded_at": "2026-10-16T14:17:16.058208+00:00",
+              "request_digest": "cd682a6fc8d483a65f80e84752280427ed374f39b690080cb6dbde0431658643",
+              "reviewer": "inventory-review-agent-b",
+              "schema_version": 1,
+              "supersedes": null,
+              "verdict": "approve"
+            }
+          ],
+          "limits": [
+            "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+            "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+            "No state records factual truth or grants Store.accept/publication rights.",
+            "Human-review requirement remains true even when a caller records an actor labelled human."
+          ],
+          "packet_digest": "9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+          "packet_id": "pkt_9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+          "requires_human_review": true,
+          "review_state": "agent_agreement",
+          "reviewer_count": 2
+        },
+        "formal_errors": [],
+        "formal_head": {
+          "report_digest": "a6764ff67dd66716b4d137973961df6e9c2a498c062e794be8538357f57c67e7",
+          "review_id": 11
+        },
+        "limits": [
+          "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+          "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+          "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+          "No dossier or recheck grants Store.accept or publication rights."
+        ],
+        "observed_revision": 1,
+        "packet_digest": "9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+        "packet_id": "pkt_9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+        "proposal_digest": "d9fcf8a9dc2c327195963d3bec07984b030fc4edf861249db9fabfd02f63a249",
+        "proposal_id": "p_cae61536c2169f082bbb552e",
+        "proposal_status": "proposed",
+        "requires_human_review": true,
+        "runtime_basis_current": true,
+        "runtime_basis_digest": "455ca807f92bda29a559bb2b504fb19f0ce9f21b356694539a78757443d20cd6",
+        "runtime_errors": [],
+        "state": "blocked"
+      },
+      {
+        "actors": {
+          "authenticated": false,
+          "independence_verified": false,
+          "packet_proposer": {
+            "id": "inventory-document-author",
+            "kind": "agent"
+          },
+          "runtime_author_id": "inventory-integrator"
+        },
+        "artifact_id": "docs/reference.md",
+        "atomic_capture": false,
+        "auto_accept": false,
+        "binding": {
+          "errors": [],
+          "matches": true,
+          "mode": "exact_template",
+          "scope": "template_text_only_not_rendered_output_or_all_metadata",
+          "semantic_mapping": "caller_declared_unverified"
+        },
+        "blockers": [
+          {
+            "artifact_ids": [
+              "code/client_config.py"
+            ],
+            "code": "uncovered_writes"
+          }
+        ],
+        "coverage": {
+          "complete": false,
+          "scope": "write_ids_only_not_semantic_coverage",
+          "selected_write_ids": [
+            "docs/reference.md"
+          ],
+          "uncovered_write_ids": [
+            "code/client_config.py"
+          ]
+        },
+        "decision_heads": {
+          "inventory-review-agent-a": "dec_44cbdce66e8d7d338bca6e6e6e498a77fae4be060d9863ab53eeb67250da923e",
+          "inventory-review-agent-b": "dec_0379888e22fae646ec2b59910959caf42889f976f5d6b171581bcc2da470e9dc"
+        },
+        "editorial": {
+          "auto_accept": false,
+          "blockers": [
+            "human_review_not_recorded"
+          ],
+          "counts": {
+            "abstain": 0,
+            "approve": 2,
+            "request_changes": 0
+          },
+          "current_basis_decisions": [
+            {
+              "actor_kind": "agent",
+              "decision_id": "dec_44cbdce66e8d7d338bca6e6e6e498a77fae4be060d9863ab53eeb67250da923e",
+              "operation_id": "changed-document-inventory-review-agent-a",
+              "packet_digest": "4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+              "packet_id": "pkt_4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+              "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+              "recorded_at": "2026-10-16T14:17:16.056319+00:00",
+              "request_digest": "44cbdce66e8d7d338bca6e6e6e498a77fae4be060d9863ab53eeb67250da923e",
+              "reviewer": "inventory-review-agent-a",
+              "schema_version": 1,
+              "supersedes": null,
+              "verdict": "approve"
+            },
+            {
+              "actor_kind": "agent",
+              "decision_id": "dec_0379888e22fae646ec2b59910959caf42889f976f5d6b171581bcc2da470e9dc",
+              "operation_id": "changed-document-inventory-review-agent-b",
+              "packet_digest": "4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+              "packet_id": "pkt_4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+              "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+              "recorded_at": "2026-10-16T14:17:16.057021+00:00",
+              "request_digest": "0379888e22fae646ec2b59910959caf42889f976f5d6b171581bcc2da470e9dc",
+              "reviewer": "inventory-review-agent-b",
+              "schema_version": 1,
+              "supersedes": null,
+              "verdict": "approve"
+            }
+          ],
+          "current_human_review_recorded": false,
+          "current_input_checked": true,
+          "current_input_digest": "a1fc98a570717dbf13199ec20248bb9967a62402521f7892e77805d3075d5112",
+          "current_input_provided": true,
+          "freshness": "current",
+          "history_count": 2,
+          "human_review_recorded": false,
+          "input_digest": "a1fc98a570717dbf13199ec20248bb9967a62402521f7892e77805d3075d5112",
+          "is_current": true,
+          "latest_decisions": [
+            {
+              "actor_kind": "agent",
+              "decision_id": "dec_44cbdce66e8d7d338bca6e6e6e498a77fae4be060d9863ab53eeb67250da923e",
+              "operation_id": "changed-document-inventory-review-agent-a",
+              "packet_digest": "4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+              "packet_id": "pkt_4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+              "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+              "recorded_at": "2026-10-16T14:17:16.056319+00:00",
+              "request_digest": "44cbdce66e8d7d338bca6e6e6e498a77fae4be060d9863ab53eeb67250da923e",
+              "reviewer": "inventory-review-agent-a",
+              "schema_version": 1,
+              "supersedes": null,
+              "verdict": "approve"
+            },
+            {
+              "actor_kind": "agent",
+              "decision_id": "dec_0379888e22fae646ec2b59910959caf42889f976f5d6b171581bcc2da470e9dc",
+              "operation_id": "changed-document-inventory-review-agent-b",
+              "packet_digest": "4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+              "packet_id": "pkt_4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+              "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+              "recorded_at": "2026-10-16T14:17:16.057021+00:00",
+              "request_digest": "0379888e22fae646ec2b59910959caf42889f976f5d6b171581bcc2da470e9dc",
+              "reviewer": "inventory-review-agent-b",
+              "schema_version": 1,
+              "supersedes": null,
+              "verdict": "approve"
+            }
+          ],
+          "limits": [
+            "Actor identities and kinds are self-declared local metadata, not authentication or evidence of independence.",
+            "Review state describes decisions about the stored packet; stale decisions do not apply to different current input.",
+            "No state records factual truth or grants Store.accept/publication rights.",
+            "Human-review requirement remains true even when a caller records an actor labelled human."
+          ],
+          "packet_digest": "4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+          "packet_id": "pkt_4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+          "requires_human_review": true,
+          "review_state": "agent_agreement",
+          "reviewer_count": 2
+        },
+        "formal_errors": [],
+        "formal_head": {
+          "report_digest": "a6764ff67dd66716b4d137973961df6e9c2a498c062e794be8538357f57c67e7",
+          "review_id": 11
+        },
+        "limits": [
+          "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+          "Exact template matching binds bytes only; statement fields and their mapping to prose are caller-declared.",
+          "Actor identities and kinds are self-declared; agreement does not prove independence or truth.",
+          "No dossier or recheck grants Store.accept or publication rights."
+        ],
+        "observed_revision": 1,
+        "packet_digest": "4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+        "packet_id": "pkt_4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+        "proposal_digest": "d9fcf8a9dc2c327195963d3bec07984b030fc4edf861249db9fabfd02f63a249",
+        "proposal_id": "p_cae61536c2169f082bbb552e",
+        "proposal_status": "proposed",
+        "requires_human_review": true,
+        "runtime_basis_current": true,
+        "runtime_basis_digest": "fa58a2fc462ab9e71403475eced1419e79e0a91ead21e8136d765382b1100ec5",
+        "runtime_errors": [],
+        "state": "blocked"
+      }
+    ],
+    "entry_coverage_scope": "each_entry_is_partial_global_coverage_is_authoritative",
+    "entry_summaries": [
+      {
+        "artifact_id": "code/client_config.py",
+        "blockers": [],
+        "packet_id": "pkt_9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+        "state": "current_for_human_review"
+      },
+      {
+        "artifact_id": "docs/reference.md",
+        "blockers": [],
+        "packet_id": "pkt_4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+        "state": "current_for_human_review"
+      }
+    ],
+    "formal_head": {
+      "report_digest": "a6764ff67dd66716b4d137973961df6e9c2a498c062e794be8538357f57c67e7",
+      "review_id": 11
+    },
+    "limits": [
+      "Runtime and journal snapshots are sequential observations, not one atomic transaction.",
+      "Write coverage enumerates proposal write IDs; it does not prove semantic coverage.",
+      "Exact template matching binds bytes; statement fields and their mapping to prose remain caller-declared.",
+      "Only existing document and code templates can obtain a matching binding in this version.",
+      "Actor identities and kinds are self-declared; agreement and reused packets do not prove independence or truth.",
+      "No review set or recheck grants Store.accept or publication rights."
+    ],
+    "observed_revision": 1,
+    "packet_reuse": [],
+    "proposal_digest": "d9fcf8a9dc2c327195963d3bec07984b030fc4edf861249db9fabfd02f63a249",
+    "proposal_id": "p_cae61536c2169f082bbb552e",
+    "proposal_status": "proposed",
+    "requires_human_review": true,
+    "runtime_basis_digest": "b3c159684256eb5cb31c40303e87d7bbd48357ddef2bccd26c805f71cf5b2ff6",
+    "state": "current_for_human_review"
+  },
+  "proposal_id": "p_cae61536c2169f082bbb552e",
+  "review_set_digest": "5b1523672733992b02ca2cc7bc57c46bfea1bdce20d69095e1bf0e6568ea2c77",
+  "review_set_id": "rset_5b1523672733992b02ca2cc7bc57c46bfea1bdce20d69095e1bf0e6568ea2c77",
+  "review_set_rules_version": "review-set-1",
+  "runtime_context": {
+    "actual_queries": {},
+    "actual_readset": {
+      "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+      "code/client_config.py": "fe84dac16357d1b11411530c3586426c6bc3be52b31310a1f63f946b189338d1",
+      "docs/reference.md": "1b56fdd00729aeea5f63fdfa841c5f4891350ba3a7d884e76447f38e72ccbfcd"
+    },
+    "artifacts": {
+      "api.timeout_seconds": {
+        "evidence": {
+          "quote": "The API timeout may be 30 or 40 seconds.",
+          "source_id": "dossier-fixture"
+        },
+        "id": "api.timeout_seconds",
+        "kind": "claim",
+        "scope": "api:v1",
+        "unit": "s",
+        "value": 30
+      },
+      "code/client_config.py": {
+        "bindings": [
+          "api.timeout_seconds"
+        ],
+        "id": "code/client_config.py",
+        "kind": "code",
+        "template": "\"\"\"Fictional baseline configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\"}\nMAX_ATTEMPTS = 3\n"
+      },
+      "docs/reference.md": {
+        "bindings": [
+          "api.timeout_seconds"
+        ],
+        "id": "docs/reference.md",
+        "kind": "document",
+        "template": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\"],\"max_attempts\":3}\n```\n"
+      }
+    },
+    "components": [
+      {
+        "digest": "ff22626f2e2f643c19764fcdc4144a39adffeae615388b6b99c8f7aadd05035f",
+        "position": 1,
+        "proposal_id": "p_73ef2b87094d6571c999a937",
+        "write_ids": [
+          "docs/reference.md"
+        ]
+      },
+      {
+        "digest": "34d66610bc58898f7b5511a12361e40f20c9d91fda20dafa084bcfab0e9ef721",
+        "position": 2,
+        "proposal_id": "p_3475acc592d1cf4586ad2fd2",
+        "write_ids": [
+          "code/client_config.py"
+        ]
+      }
+    ],
+    "formal_errors": [],
+    "formal_review": {
+      "approved": true,
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "observed_revision": 1,
+      "proposal_digest": "d9fcf8a9dc2c327195963d3bec07984b030fc4edf861249db9fabfd02f63a249",
+      "proposal_id": "p_cae61536c2169f082bbb552e",
+      "reasons": [],
+      "review_id": 11,
+      "reviewer": "composite-formal-agent",
+      "rules_version": "mvp-1",
+      "source_digests": {}
+    },
+    "observed_revision": 1,
+    "proposal": {
+      "accepted_revision": null,
+      "author": "inventory-integrator",
+      "digest": "d9fcf8a9dc2c327195963d3bec07984b030fc4edf861249db9fabfd02f63a249",
+      "id": "p_cae61536c2169f082bbb552e",
+      "payload": {
+        "queries": {},
+        "rationale": "{\"components\":[{\"digest\":\"ff22626f2e2f643c19764fcdc4144a39adffeae615388b6b99c8f7aadd05035f\",\"proposal_id\":\"p_73ef2b87094d6571c999a937\",\"write_ids\":[\"docs/reference.md\"]},{\"digest\":\"34d66610bc58898f7b5511a12361e40f20c9d91fda20dafa084bcfab0e9ef721\",\"proposal_id\":\"p_3475acc592d1cf4586ad2fd2\",\"write_ids\":[\"code/client_config.py\"]}],\"text\":\"Compose exact fictional document and code candidates for changed inventory planning.\"}",
+        "readset": {
+          "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+          "code/client_config.py": "fe84dac16357d1b11411530c3586426c6bc3be52b31310a1f63f946b189338d1",
+          "docs/reference.md": "1b56fdd00729aeea5f63fdfa841c5f4891350ba3a7d884e76447f38e72ccbfcd"
+        },
+        "writes": [
+          {
+            "bindings": [
+              "api.timeout_seconds"
+            ],
+            "id": "code/client_config.py",
+            "kind": "code",
+            "template": "\"\"\"Fictional candidate configuration; never executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 4\n"
+          },
+          {
+            "bindings": [
+              "api.timeout_seconds"
+            ],
+            "id": "docs/reference.md",
+            "kind": "document",
+            "template": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 4 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":4}\n```\n"
+          }
+        ]
+      },
+      "status": "proposed",
+      "task_id": "inventory-compose-changed",
+      "token": 1
+    },
+    "runtime_errors": [],
+    "runtime_rules_version": "mvp-1",
+    "schema_version": 2,
+    "sources": {
+      "dossier-fixture": {
+        "digest": "0bd0cb015a3ee3bdb80f601c3988124beb330e73a742c7c502a5e26772c1ddc3",
+        "id": "dossier-fixture",
+        "text": "FICTIONAL DOSSIER DEMONSTRATION SPECIFICATION. Not a real API.\nThe API timeout may be 30 or 40 seconds.\nThe retry limit is 3 attempts.\nThe total retry budget is 120 seconds.\nWindows is supported.\nThe policy is timeout_seconds * max_attempts <= budget_seconds.\n"
+      }
+    }
+  },
+  "schema_version": 1
+}

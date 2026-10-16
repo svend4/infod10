@@ -1,6 +1,6 @@
 # Архивы сессий
 
-Десять последовательных частей одной доступной беседы: **98 сообщений**. Идентификаторы сообщений локальны для каждой части. Точная граница снимка указана в её описании.
+Одиннадцать последовательных частей одной доступной беседы: **105 сообщений**. Идентификаторы сообщений локальны для каждой части. Точная граница снимка указана в её описании.
 
 | Сессия | Содержание | Форматы |
 |---|---|---|
@@ -14,9 +14,10 @@
 | [session-008](session-008/README.md) | Досье предложений документа и кода, результаты пятого этапа и следующий запрос продолжения с анализом | [Markdown](session-008/transcript.md), [JSONL](session-008/transcript.jsonl), [метаданные](session-008/metadata.json), [контрольные суммы](session-008/manifest.json) |
 | [session-009](session-009/README.md) | Сборка авторских вкладов, единый комплект рассмотрения, результаты шестого этапа и следующий запрос анализа с продолжением | [Markdown](session-009/transcript.md), [JSONL](session-009/transcript.jsonl), [метаданные](session-009/metadata.json), [контрольные суммы](session-009/manifest.json) |
 | [session-010](session-010/README.md) | Межфайловые обязательства документации и конфигурации, результаты седьмого этапа и следующий запрос продолжения | [Markdown](session-010/transcript.md), [JSONL](session-010/transcript.jsonl), [метаданные](session-010/metadata.json), [контрольные суммы](session-010/manifest.json) |
+| [session-011](session-011/README.md) | Покрытие заявленных обещаний документации, результаты восьмого этапа и следующий запрос продолжения | [Markdown](session-011/transcript.md), [JSONL](session-011/transcript.jsonl), [метаданные](session-011/metadata.json), [контрольные суммы](session-011/manifest.json) |
 
-Количество сообщений: session-001 — 34, session-002 — 10, session-003 — 5, session-004 — 7, session-005 — 7, session-006 — 7, session-007 — 7, session-008 — 7, session-009 — 7, session-010 — 7. Предыдущие снимки сохранены без изменений; каждая следующая часть начинается со следующего сообщения ассистента.
+Количество сообщений: session-001 — 34, session-002 — 10, session-003 — 5, session-004 — 7, session-005 — 7, session-006 — 7, session-007 — 7, session-008 — 7, session-009 — 7, session-010 — 7, session-011 — 7. Предыдущие снимки сохранены без изменений; каждая следующая часть начинается со следующего сообщения ассистента.
 
-Указатели ссылок из сообщений: [session-001](session-001/links.json), [session-002](session-002/links.json), [session-003](session-003/links.json), [session-004](session-004/links.json), [session-005](session-005/links.json), [session-006](session-006/links.json), [session-007](session-007/links.json), [session-008](session-008/links.json), [session-009](session-009/links.json), [session-010](session-010/links.json). Указатель фиксирует присутствие URL в переписке и не заменяет проверку источника.
+Указатели ссылок из сообщений: [session-001](session-001/links.json), [session-002](session-002/links.json), [session-003](session-003/links.json), [session-004](session-004/links.json), [session-005](session-005/links.json), [session-006](session-006/links.json), [session-007](session-007/links.json), [session-008](session-008/links.json), [session-009](session-009/links.json), [session-010](session-010/links.json), [session-011](session-011/links.json). Указатель фиксирует присутствие URL в переписке и не заменяет проверку источника.
 
 Тематическая переработка материалов находится в [базе знаний](../knowledge/README.md). Она дополняет исходную переписку.

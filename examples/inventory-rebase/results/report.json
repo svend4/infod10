@@ -1,0 +1,3602 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-16T16:17:17.790007+02:00",
+  "report_timezone": "Europe/Berlin",
+  "workspace": "/tmp/infod10-rebase-development-01",
+  "concurrency": {
+    "worker_pool_size": 3,
+    "submitted_author_jobs": 7,
+    "submitted_editorial_review_jobs": 14,
+    "author_ids": [
+      "inventory-code-author",
+      "inventory-document-author"
+    ],
+    "observed_author_threads": [
+      "inventory-author_0",
+      "inventory-author_1",
+      "inventory-author_2"
+    ],
+    "observed_editorial_threads": [
+      "inventory-review_0",
+      "inventory-review_1",
+      "inventory-review_2"
+    ],
+    "integrator_id": "inventory-integrator",
+    "all_actor_kinds": [
+      "agent"
+    ]
+  },
+  "authors": {
+    "base-document": {
+      "label": "base-document",
+      "author": "inventory-document-author",
+      "thread": "inventory-author_0",
+      "task_id": "inventory-rebase-base-document",
+      "proposal_id": "p_62f233f2cb7db7c7f4821842",
+      "digest": "e46b3811ba415a07f1623d8616153ddcf61985f25053e62efa353edfc9cfc13f",
+      "replayed": false
+    },
+    "changed-code": {
+      "label": "changed-code",
+      "author": "inventory-code-author",
+      "thread": "inventory-author_1",
+      "task_id": "inventory-rebase-changed-code",
+      "proposal_id": "p_3475acc592d1cf4586ad2fd2",
+      "digest": "34d66610bc58898f7b5511a12361e40f20c9d91fda20dafa084bcfab0e9ef721",
+      "replayed": false
+    },
+    "changed-document": {
+      "label": "changed-document",
+      "author": "inventory-document-author",
+      "thread": "inventory-author_2",
+      "task_id": "inventory-rebase-changed-document",
+      "proposal_id": "p_73ef2b87094d6571c999a937",
+      "digest": "ff22626f2e2f643c19764fcdc4144a39adffeae615388b6b99c8f7aadd05035f",
+      "replayed": false
+    },
+    "prose-document": {
+      "label": "prose-document",
+      "author": "inventory-document-author",
+      "thread": "inventory-author_0",
+      "task_id": "inventory-rebase-prose-document",
+      "proposal_id": "p_34bfdcf5b5fcd51217a52653",
+      "digest": "4b7ccf1da90237fcfcf9e43bea20e405722c807b42df0fa7a014509ecc9eea4d",
+      "replayed": false
+    },
+    "base-code": {
+      "label": "base-code",
+      "author": "inventory-code-author",
+      "thread": "inventory-author_0",
+      "task_id": "inventory-rebase-base-code",
+      "proposal_id": "p_e708593baaacf8c63dc0e299",
+      "digest": "c4f9b33326fe9d9d4c0e39fd60017dc0a8fef01769b247524fd1e5d7f909bdd0",
+      "replayed": false
+    },
+    "renamed-document": {
+      "label": "renamed-document",
+      "author": "inventory-document-author",
+      "thread": "inventory-author_0",
+      "task_id": "inventory-rebase-renamed-document",
+      "proposal_id": "p_1ec669a3f08a85dd5eeb5336",
+      "digest": "94973a92463ca5d8117f3c0ed7f306ca3f2101095a5a93b5b98ab4851c943784",
+      "replayed": false
+    },
+    "renamed-code": {
+      "label": "renamed-code",
+      "author": "inventory-code-author",
+      "thread": "inventory-author_0",
+      "task_id": "inventory-rebase-renamed-code",
+      "proposal_id": "p_9db57d9a16c96bb871bc9c59",
+      "digest": "e25b4b5fcb4bab336cbb3a53be0a9f322f199b48482675813b1ede229edf576d",
+      "replayed": false
+    }
+  },
+  "component_reviews": {
+    "base-document": {
+      "proposal_id": "p_62f233f2cb7db7c7f4821842",
+      "proposal_digest": "e46b3811ba415a07f1623d8616153ddcf61985f25053e62efa353edfc9cfc13f",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 1
+    },
+    "changed-code": {
+      "proposal_id": "p_3475acc592d1cf4586ad2fd2",
+      "proposal_digest": "34d66610bc58898f7b5511a12361e40f20c9d91fda20dafa084bcfab0e9ef721",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 2
+    },
+    "changed-document": {
+      "proposal_id": "p_73ef2b87094d6571c999a937",
+      "proposal_digest": "ff22626f2e2f643c19764fcdc4144a39adffeae615388b6b99c8f7aadd05035f",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 3
+    },
+    "prose-document": {
+      "proposal_id": "p_34bfdcf5b5fcd51217a52653",
+      "proposal_digest": "4b7ccf1da90237fcfcf9e43bea20e405722c807b42df0fa7a014509ecc9eea4d",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 4
+    },
+    "base-code": {
+      "proposal_id": "p_e708593baaacf8c63dc0e299",
+      "proposal_digest": "c4f9b33326fe9d9d4c0e39fd60017dc0a8fef01769b247524fd1e5d7f909bdd0",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 5
+    },
+    "renamed-document": {
+      "proposal_id": "p_1ec669a3f08a85dd5eeb5336",
+      "proposal_digest": "94973a92463ca5d8117f3c0ed7f306ca3f2101095a5a93b5b98ab4851c943784",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 6
+    },
+    "renamed-code": {
+      "proposal_id": "p_9db57d9a16c96bb871bc9c59",
+      "proposal_digest": "e25b4b5fcb4bab336cbb3a53be0a9f322f199b48482675813b1ede229edf576d",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "component-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 7
+    }
+  },
+  "compositions": {
+    "base": {
+      "proposal_id": "p_6e0eedd931ada617939c4031",
+      "digest": "c38cf928487c41bc3af8f5c32e121d880c8b76742899b96d489215a6512e8c04",
+      "replayed": false,
+      "components": [
+        {
+          "position": 1,
+          "proposal_id": "p_62f233f2cb7db7c7f4821842",
+          "digest": "e46b3811ba415a07f1623d8616153ddcf61985f25053e62efa353edfc9cfc13f",
+          "write_ids": [
+            "docs/reference.md"
+          ]
+        },
+        {
+          "position": 2,
+          "proposal_id": "p_e708593baaacf8c63dc0e299",
+          "digest": "c4f9b33326fe9d9d4c0e39fd60017dc0a8fef01769b247524fd1e5d7f909bdd0",
+          "write_ids": [
+            "code/client_config.py"
+          ]
+        }
+      ]
+    },
+    "prose": {
+      "proposal_id": "p_54718635deceec0a4a820b23",
+      "digest": "8ebf33b3bfd6a4c25805923179d1ac2c77e8332eeb646aae0a229ab5b2296574",
+      "replayed": false,
+      "components": [
+        {
+          "position": 1,
+          "proposal_id": "p_34bfdcf5b5fcd51217a52653",
+          "digest": "4b7ccf1da90237fcfcf9e43bea20e405722c807b42df0fa7a014509ecc9eea4d",
+          "write_ids": [
+            "docs/reference.md"
+          ]
+        },
+        {
+          "position": 2,
+          "proposal_id": "p_e708593baaacf8c63dc0e299",
+          "digest": "c4f9b33326fe9d9d4c0e39fd60017dc0a8fef01769b247524fd1e5d7f909bdd0",
+          "write_ids": [
+            "code/client_config.py"
+          ]
+        }
+      ]
+    },
+    "renamed": {
+      "proposal_id": "p_c364713fb8080aef00323548",
+      "digest": "c67131860f58a0cda8d2bbfb45554c572192975a2f173437f80d30cd5847ab45",
+      "replayed": false,
+      "components": [
+        {
+          "position": 1,
+          "proposal_id": "p_1ec669a3f08a85dd5eeb5336",
+          "digest": "94973a92463ca5d8117f3c0ed7f306ca3f2101095a5a93b5b98ab4851c943784",
+          "write_ids": [
+            "docs/reference-v2.md"
+          ]
+        },
+        {
+          "position": 2,
+          "proposal_id": "p_9db57d9a16c96bb871bc9c59",
+          "digest": "e25b4b5fcb4bab336cbb3a53be0a9f322f199b48482675813b1ede229edf576d",
+          "write_ids": [
+            "code/client_config_v2.py"
+          ]
+        }
+      ]
+    },
+    "changed": {
+      "proposal_id": "p_cae61536c2169f082bbb552e",
+      "digest": "d9fcf8a9dc2c327195963d3bec07984b030fc4edf861249db9fabfd02f63a249",
+      "replayed": false,
+      "components": [
+        {
+          "position": 1,
+          "proposal_id": "p_73ef2b87094d6571c999a937",
+          "digest": "ff22626f2e2f643c19764fcdc4144a39adffeae615388b6b99c8f7aadd05035f",
+          "write_ids": [
+            "docs/reference.md"
+          ]
+        },
+        {
+          "position": 2,
+          "proposal_id": "p_3475acc592d1cf4586ad2fd2",
+          "digest": "34d66610bc58898f7b5511a12361e40f20c9d91fda20dafa084bcfab0e9ef721",
+          "write_ids": [
+            "code/client_config.py"
+          ]
+        }
+      ]
+    }
+  },
+  "composite_reviews": {
+    "base": {
+      "proposal_id": "p_6e0eedd931ada617939c4031",
+      "proposal_digest": "c38cf928487c41bc3af8f5c32e121d880c8b76742899b96d489215a6512e8c04",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "composite-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 8
+    },
+    "prose": {
+      "proposal_id": "p_54718635deceec0a4a820b23",
+      "proposal_digest": "8ebf33b3bfd6a4c25805923179d1ac2c77e8332eeb646aae0a229ab5b2296574",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "composite-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 9
+    },
+    "renamed": {
+      "proposal_id": "p_c364713fb8080aef00323548",
+      "proposal_digest": "c67131860f58a0cda8d2bbfb45554c572192975a2f173437f80d30cd5847ab45",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "composite-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 10
+    },
+    "changed": {
+      "proposal_id": "p_cae61536c2169f082bbb552e",
+      "proposal_digest": "d9fcf8a9dc2c327195963d3bec07984b030fc4edf861249db9fabfd02f63a249",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "composite-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 11
+    }
+  },
+  "editorial_reviews": [
+    {
+      "label": "base-document",
+      "reviewer": "inventory-review-agent-a",
+      "thread": "inventory-review_0",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_43e341dac6ebf11d2cdb1457e1ad96c720855bd48588c5d4d319b9b24e10f721",
+        "packet_digest": "43e341dac6ebf11d2cdb1457e1ad96c720855bd48588c5d4d319b9b24e10f721",
+        "reviewer": "inventory-review-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "operation_id": "base-document-inventory-review-agent-a",
+        "supersedes": null,
+        "decision_id": "dec_8447faed2619316d6009a26d3aaecb7b173ccffb6af22639c94e3906fc40ea36",
+        "request_digest": "8447faed2619316d6009a26d3aaecb7b173ccffb6af22639c94e3906fc40ea36",
+        "recorded_at": "2026-10-16T14:17:16.049252+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "base-document",
+      "reviewer": "inventory-review-agent-b",
+      "thread": "inventory-review_1",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_43e341dac6ebf11d2cdb1457e1ad96c720855bd48588c5d4d319b9b24e10f721",
+        "packet_digest": "43e341dac6ebf11d2cdb1457e1ad96c720855bd48588c5d4d319b9b24e10f721",
+        "reviewer": "inventory-review-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "operation_id": "base-document-inventory-review-agent-b",
+        "supersedes": null,
+        "decision_id": "dec_11cad87e16c3e4fc2dba876d7078ae544f84dfb3e13e28ffd82eec8d86d11dad",
+        "request_digest": "11cad87e16c3e4fc2dba876d7078ae544f84dfb3e13e28ffd82eec8d86d11dad",
+        "recorded_at": "2026-10-16T14:17:16.050370+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "base-code",
+      "reviewer": "inventory-review-agent-a",
+      "thread": "inventory-review_2",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_a089956a85822f36758eb68cf3baaea1ffe6673a48cd31c8caec0f460a835ab6",
+        "packet_digest": "a089956a85822f36758eb68cf3baaea1ffe6673a48cd31c8caec0f460a835ab6",
+        "reviewer": "inventory-review-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "operation_id": "base-code-inventory-review-agent-a",
+        "supersedes": null,
+        "decision_id": "dec_7e43734a286fe0e32dc7f95004441f6a348dca4268531fdd07e43cb412a862d9",
+        "request_digest": "7e43734a286fe0e32dc7f95004441f6a348dca4268531fdd07e43cb412a862d9",
+        "recorded_at": "2026-10-16T14:17:16.068669+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "base-code",
+      "reviewer": "inventory-review-agent-b",
+      "thread": "inventory-review_0",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_a089956a85822f36758eb68cf3baaea1ffe6673a48cd31c8caec0f460a835ab6",
+        "packet_digest": "a089956a85822f36758eb68cf3baaea1ffe6673a48cd31c8caec0f460a835ab6",
+        "reviewer": "inventory-review-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "operation_id": "base-code-inventory-review-agent-b",
+        "supersedes": null,
+        "decision_id": "dec_4ef5b8f59852a52519aa08e2d58fb70df718f600d13491e75fd2344c61054bbd",
+        "request_digest": "4ef5b8f59852a52519aa08e2d58fb70df718f600d13491e75fd2344c61054bbd",
+        "recorded_at": "2026-10-16T14:17:16.053950+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "prose-document",
+      "reviewer": "inventory-review-agent-a",
+      "thread": "inventory-review_1",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_b3848c3a5bdadf82ca93a9e02cba2bb3b3898dc64b137429d7af33865435eed2",
+        "packet_digest": "b3848c3a5bdadf82ca93a9e02cba2bb3b3898dc64b137429d7af33865435eed2",
+        "reviewer": "inventory-review-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "operation_id": "prose-document-inventory-review-agent-a",
+        "supersedes": null,
+        "decision_id": "dec_67aeb3ef9f5d9c3e2b0b24d93453eeb7c8593c8faa8c34b61fe51812a0268d39",
+        "request_digest": "67aeb3ef9f5d9c3e2b0b24d93453eeb7c8593c8faa8c34b61fe51812a0268d39",
+        "recorded_at": "2026-10-16T14:17:16.051291+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "prose-document",
+      "reviewer": "inventory-review-agent-b",
+      "thread": "inventory-review_1",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_b3848c3a5bdadf82ca93a9e02cba2bb3b3898dc64b137429d7af33865435eed2",
+        "packet_digest": "b3848c3a5bdadf82ca93a9e02cba2bb3b3898dc64b137429d7af33865435eed2",
+        "reviewer": "inventory-review-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "operation_id": "prose-document-inventory-review-agent-b",
+        "supersedes": null,
+        "decision_id": "dec_72644840f769ca8c537110d1ab9aae4d23cc69ae7ff3ded1e700972673fd31ce",
+        "request_digest": "72644840f769ca8c537110d1ab9aae4d23cc69ae7ff3ded1e700972673fd31ce",
+        "recorded_at": "2026-10-16T14:17:16.052405+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "renamed-document",
+      "reviewer": "inventory-review-agent-a",
+      "thread": "inventory-review_1",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_8065c9e1798245b489da400a67a7c07d240ee22043ec35798a65d0b34c2fe268",
+        "packet_digest": "8065c9e1798245b489da400a67a7c07d240ee22043ec35798a65d0b34c2fe268",
+        "reviewer": "inventory-review-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "operation_id": "renamed-document-inventory-review-agent-a",
+        "supersedes": null,
+        "decision_id": "dec_d6f9b469dfabd31d983d087561287ed03f27f95d9a560b2db4642577af726793",
+        "request_digest": "d6f9b469dfabd31d983d087561287ed03f27f95d9a560b2db4642577af726793",
+        "recorded_at": "2026-10-16T14:17:16.053160+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "renamed-document",
+      "reviewer": "inventory-review-agent-b",
+      "thread": "inventory-review_1",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_8065c9e1798245b489da400a67a7c07d240ee22043ec35798a65d0b34c2fe268",
+        "packet_digest": "8065c9e1798245b489da400a67a7c07d240ee22043ec35798a65d0b34c2fe268",
+        "reviewer": "inventory-review-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "operation_id": "renamed-document-inventory-review-agent-b",
+        "supersedes": null,
+        "decision_id": "dec_ae87a530f245bb1b1960cbb2dd31906663f1ab86b318a5d2127944222711fc8d",
+        "request_digest": "ae87a530f245bb1b1960cbb2dd31906663f1ab86b318a5d2127944222711fc8d",
+        "recorded_at": "2026-10-16T14:17:16.062567+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "renamed-code",
+      "reviewer": "inventory-review-agent-a",
+      "thread": "inventory-review_0",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_18c4520b48b63d53ceafccdc650f52bec0b4cd587c09432168f459398067aba1",
+        "packet_digest": "18c4520b48b63d53ceafccdc650f52bec0b4cd587c09432168f459398067aba1",
+        "reviewer": "inventory-review-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "operation_id": "renamed-code-inventory-review-agent-a",
+        "supersedes": null,
+        "decision_id": "dec_cb41d8c35c0557f487e3f2d810db9602ae43645fe614fc64ad68aa51fcb60347",
+        "request_digest": "cb41d8c35c0557f487e3f2d810db9602ae43645fe614fc64ad68aa51fcb60347",
+        "recorded_at": "2026-10-16T14:17:16.054888+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "renamed-code",
+      "reviewer": "inventory-review-agent-b",
+      "thread": "inventory-review_0",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_18c4520b48b63d53ceafccdc650f52bec0b4cd587c09432168f459398067aba1",
+        "packet_digest": "18c4520b48b63d53ceafccdc650f52bec0b4cd587c09432168f459398067aba1",
+        "reviewer": "inventory-review-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "operation_id": "renamed-code-inventory-review-agent-b",
+        "supersedes": null,
+        "decision_id": "dec_c3a12688a8222d63bb52fa832b051163caf628385278dfd0181000425add876d",
+        "request_digest": "c3a12688a8222d63bb52fa832b051163caf628385278dfd0181000425add876d",
+        "recorded_at": "2026-10-16T14:17:16.055647+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "changed-document",
+      "reviewer": "inventory-review-agent-a",
+      "thread": "inventory-review_0",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+        "packet_digest": "4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+        "reviewer": "inventory-review-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "operation_id": "changed-document-inventory-review-agent-a",
+        "supersedes": null,
+        "decision_id": "dec_44cbdce66e8d7d338bca6e6e6e498a77fae4be060d9863ab53eeb67250da923e",
+        "request_digest": "44cbdce66e8d7d338bca6e6e6e498a77fae4be060d9863ab53eeb67250da923e",
+        "recorded_at": "2026-10-16T14:17:16.056319+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "changed-document",
+      "reviewer": "inventory-review-agent-b",
+      "thread": "inventory-review_0",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+        "packet_digest": "4edec43fa7f90b678ffc628c42ab3cb21eb9423cb87099f4b49d5f834b113a88",
+        "reviewer": "inventory-review-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "operation_id": "changed-document-inventory-review-agent-b",
+        "supersedes": null,
+        "decision_id": "dec_0379888e22fae646ec2b59910959caf42889f976f5d6b171581bcc2da470e9dc",
+        "request_digest": "0379888e22fae646ec2b59910959caf42889f976f5d6b171581bcc2da470e9dc",
+        "recorded_at": "2026-10-16T14:17:16.057021+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "changed-code",
+      "reviewer": "inventory-review-agent-a",
+      "thread": "inventory-review_0",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+        "packet_digest": "9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+        "reviewer": "inventory-review-agent-a",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "operation_id": "changed-code-inventory-review-agent-a",
+        "supersedes": null,
+        "decision_id": "dec_37c9c031163f58fb319d53405bcaa8982c24277c9841dec8ab70577db06bd3b9",
+        "request_digest": "37c9c031163f58fb319d53405bcaa8982c24277c9841dec8ab70577db06bd3b9",
+        "recorded_at": "2026-10-16T14:17:16.057588+00:00",
+        "replayed": false
+      }
+    },
+    {
+      "label": "changed-code",
+      "reviewer": "inventory-review-agent-b",
+      "thread": "inventory-review_0",
+      "decision": {
+        "schema_version": 1,
+        "packet_id": "pkt_9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+        "packet_digest": "9bf88098ba8955c1356f03d7a26c4e5f067612ad5568e869ce13b394c8f2ca96",
+        "reviewer": "inventory-review-agent-b",
+        "actor_kind": "agent",
+        "verdict": "approve",
+        "rationale": "Programmed review of separately supplied fictional retry-method metadata. The pair is attached to exact templates; this is not whole-file semantic validation, an attempt-limit review, an authorization or an independent expert conclusion. This fresh decision concerns this packet only; no old decision is transferred.",
+        "operation_id": "changed-code-inventory-review-agent-b",
+        "supersedes": null,
+        "decision_id": "dec_cd682a6fc8d483a65f80e84752280427ed374f39b690080cb6dbde0431658643",
+        "request_digest": "cd682a6fc8d483a65f80e84752280427ed374f39b690080cb6dbde0431658643",
+        "recorded_at": "2026-10-16T14:17:16.058208+00:00",
+        "replayed": false
+      }
+    }
+  ],
+  "dependency_change": {
+    "submitted": {
+      "proposal_id": "p_a1d87e4c4728e9e8d6f88fe1",
+      "digest": "20a11bb29b7010596fe7a5ca59a97b09974d1936f9bd41586d664584af1c474e",
+      "replayed": false
+    },
+    "review": {
+      "proposal_id": "p_a1d87e4c4728e9e8d6f88fe1",
+      "proposal_digest": "20a11bb29b7010596fe7a5ca59a97b09974d1936f9bd41586d664584af1c474e",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "background-formal-agent",
+      "observed_revision": 1,
+      "source_digests": {
+        "dossier-fixture": "0bd0cb015a3ee3bdb80f601c3988124beb330e73a742c7c502a5e26772c1ddc3"
+      },
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 12
+    },
+    "acceptance": {
+      "accepted": true,
+      "proposal_id": "p_a1d87e4c4728e9e8d6f88fe1",
+      "revision": 2,
+      "replayed": false,
+      "reasons": [],
+      "review_id": 12,
+      "coordinator": "background-coordinator"
+    }
+  },
+  "stages": {
+    "prose": {
+      "report_id": "reb_19b6d368a90b539a76f81597d379c0991945e3e638d727f45e3e21729ec95437",
+      "observation": {
+        "source_coverage_report_id": "cov_ba8b13cd13c6309a15f927127e9fec448284347906194aeb3343ec3a916b73de",
+        "source_coverage_report_digest": "ba8b13cd13c6309a15f927127e9fec448284347906194aeb3343ec3a916b73de",
+        "target_obligation_report_id": "obl_3f02c9e00ee642464444d32378df8161db87b3ab4733ef18fe29b177014238bf",
+        "target_obligation_report_digest": "3f02c9e00ee642464444d32378df8161db87b3ab4733ef18fe29b177014238bf",
+        "source_proposal_id": "p_6e0eedd931ada617939c4031",
+        "target_proposal_id": "p_54718635deceec0a4a820b23",
+        "historical_source_blockers": [],
+        "target_upstream_blockers": [],
+        "draft_inventory": {
+          "schema_version": 1,
+          "promises": [
+            {
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "quote": "Клиент повторяет только методы GET и HEAD."
+              },
+              "description": "The declared code methods must be allowed by the document.",
+              "id": "allowed-methods-promise",
+              "obligation_ids": [
+                "retry-methods"
+              ],
+              "requirement": {
+                "code": {
+                  "artifact_id": "code/client_config.py",
+                  "symbol": "ALLOWED_METHODS"
+                },
+                "document": {
+                  "artifact_id": "docs/reference.md",
+                  "fence_id": "retry-policy",
+                  "path": [
+                    "allowed_methods"
+                  ]
+                },
+                "relation": "code_subset_of_document",
+                "scope": {
+                  "api_version": "v1",
+                  "policy": "retry-methods"
+                },
+                "value_type": "string_set"
+              }
+            },
+            {
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "quote": "Клиент делает не более 3 попыток."
+              },
+              "description": "The declared attempt limit must equal the document value.",
+              "id": "attempt-limit-promise",
+              "obligation_ids": [
+                "retry-attempts"
+              ],
+              "requirement": {
+                "code": {
+                  "artifact_id": "code/client_config.py",
+                  "symbol": "MAX_ATTEMPTS"
+                },
+                "document": {
+                  "artifact_id": "docs/reference.md",
+                  "fence_id": "retry-policy",
+                  "path": [
+                    "max_attempts"
+                  ]
+                },
+                "relation": "equals",
+                "scope": {
+                  "api_version": "v1",
+                  "policy": "retry-limit"
+                },
+                "value_type": "integer"
+              }
+            }
+          ]
+        },
+        "draft_coverage": {
+          "source_obligation_report_id": "obl_3f02c9e00ee642464444d32378df8161db87b3ab4733ef18fe29b177014238bf",
+          "source_obligation_report_digest": "3f02c9e00ee642464444d32378df8161db87b3ab4733ef18fe29b177014238bf",
+          "source_review_set_id": "rset_272c90fd2db0c30eb2a226761f527f42de2ff13ed0566a0eb0d043802becf64e",
+          "proposal_id": "p_54718635deceec0a4a820b23",
+          "proposal_digest": "8ebf33b3bfd6a4c25805923179d1ac2c77e8332eeb646aae0a229ab5b2296574",
+          "upstream_state": "current_for_human_review",
+          "upstream_blockers": [],
+          "coverage_state": "declared_promises_covered",
+          "counts": {
+            "total": 2,
+            "assigned": 2,
+            "mapped": 2,
+            "anchor_verified": 2,
+            "covered": 2,
+            "matching": 2,
+            "mismatch": 0,
+            "unresolved": 0,
+            "uncovered": 0,
+            "invalid_mapping": 0,
+            "unresolved_anchor": 0,
+            "unique_requirements": 2,
+            "covered_unique_requirements": 2,
+            "assigned_obligation_ids": 2,
+            "mapped_obligation_ids": 2
+          },
+          "coverage_fraction": {
+            "numerator": 2,
+            "denominator": 2
+          },
+          "unique_requirement_fraction": {
+            "numerator": 2,
+            "denominator": 2
+          },
+          "results": [
+            {
+              "id": "allowed-methods-promise",
+              "requirement_digest": "6f902382ea655c17786ba1d10fc018bcee1e37ee414ac466dd4591eacd570f3b",
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "5f784b8235d624fb753eb9a375dc327fccb8642bf668b64789618d58317642ab",
+                "rendered_digest": "09d489fb3bc9cb2278c4d4af66f84e087790285cb8994f65dbb705eb502c48d6",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "quote": "Клиент повторяет только методы GET и HEAD.",
+                "quote_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+                "snippet": "Клиент повторяет только методы GET и HEAD.",
+                "snippet_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+                "location": {
+                  "start_offset": 95,
+                  "end_offset": 137,
+                  "start_line": 7,
+                  "end_line": 7
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "kind": "document",
+                "artifact_digest": "5f784b8235d624fb753eb9a375dc327fccb8642bf668b64789618d58317642ab",
+                "rendered_digest": "09d489fb3bc9cb2278c4d4af66f84e087790285cb8994f65dbb705eb502c48d6",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n",
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 205,
+                  "end_offset": 257,
+                  "start_line": 12,
+                  "end_line": 12
+                },
+                "resolved": true,
+                "value": [
+                  "GET",
+                  "HEAD"
+                ],
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ],
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "anchor_verified": true,
+              "mapping_state": "mapped",
+              "satisfaction_state": "match",
+              "mappings": [
+                {
+                  "obligation_id": "retry-methods",
+                  "valid": true,
+                  "comparison_status": "match",
+                  "requirement_digest": "6f902382ea655c17786ba1d10fc018bcee1e37ee414ac466dd4591eacd570f3b",
+                  "reasons": []
+                }
+              ],
+              "reasons": []
+            },
+            {
+              "id": "attempt-limit-promise",
+              "requirement_digest": "a1f74887a5747433e39bd0d841e551bbbb7fd2496a2aa86b8690ac7c102fe5c9",
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "5f784b8235d624fb753eb9a375dc327fccb8642bf668b64789618d58317642ab",
+                "rendered_digest": "09d489fb3bc9cb2278c4d4af66f84e087790285cb8994f65dbb705eb502c48d6",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "quote": "Клиент делает не более 3 попыток.",
+                "quote_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+                "snippet": "Клиент делает не более 3 попыток.",
+                "snippet_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+                "location": {
+                  "start_offset": 139,
+                  "end_offset": 172,
+                  "start_line": 9,
+                  "end_line": 9
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "kind": "document",
+                "artifact_digest": "5f784b8235d624fb753eb9a375dc327fccb8642bf668b64789618d58317642ab",
+                "rendered_digest": "09d489fb3bc9cb2278c4d4af66f84e087790285cb8994f65dbb705eb502c48d6",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n",
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 205,
+                  "end_offset": 257,
+                  "start_line": 12,
+                  "end_line": 12
+                },
+                "resolved": true,
+                "value": 3,
+                "normalized_value": 3,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "anchor_verified": true,
+              "mapping_state": "mapped",
+              "satisfaction_state": "match",
+              "mappings": [
+                {
+                  "obligation_id": "retry-attempts",
+                  "valid": true,
+                  "comparison_status": "match",
+                  "requirement_digest": "a1f74887a5747433e39bd0d841e551bbbb7fd2496a2aa86b8690ac7c102fe5c9",
+                  "reasons": []
+                }
+              ],
+              "reasons": []
+            }
+          ],
+          "shared_obligations": [],
+          "duplicate_requirements": [],
+          "unmapped_obligation_ids": [],
+          "unknown_obligation_ids": [],
+          "blockers": [],
+          "state": "current_for_human_review",
+          "requires_human_review": true,
+          "auto_accept": false,
+          "live_state_checked": false,
+          "atomic_capture": false,
+          "limits": [
+            "The denominator contains only caller-declared promises; completeness over the document or project is not established.",
+            "A unique exact quote and a resolved document field pin declared locations; their semantic correspondence is not inferred or verified.",
+            "Coverage requires exact declared requirement metadata and references; coverage and comparison satisfaction are separate observations.",
+            "Several promises may share an obligation or repeat a requirement; they are not independent checks or independent evidence.",
+            "Only the embedded obligations-1 report and its captured candidate are examined; no live state or cross-database transaction is checked.",
+            "A matched configuration declaration does not establish program behavior, prose truth, authorship, or permission to accept or publish.",
+            "Coverage does not remove upstream blockers or record human review; content hashes establish internal consistency only."
+          ]
+        },
+        "results": [
+          {
+            "id": "allowed-methods-promise",
+            "state": "reusable_descriptor",
+            "original_obligation_ids": [
+              "retry-methods"
+            ],
+            "proposed_obligation_ids": [
+              "retry-methods"
+            ],
+            "draft_obligation_ids": [
+              "retry-methods"
+            ],
+            "transformed_requirement": {
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "symbol": "ALLOWED_METHODS"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "fence_id": "retry-policy",
+                "path": [
+                  "allowed_methods"
+                ]
+              },
+              "relation": "code_subset_of_document",
+              "scope": {
+                "api_version": "v1",
+                "policy": "retry-methods"
+              },
+              "value_type": "string_set"
+            },
+            "source": {
+              "anchor_verified": true,
+              "mapping_state": "mapped",
+              "satisfaction_state": "match",
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+                "location": {
+                  "start_offset": 48,
+                  "end_offset": 90,
+                  "start_line": 5,
+                  "end_line": 5
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "quote_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 158,
+                  "end_offset": 210,
+                  "start_line": 10,
+                  "end_line": 10
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ]
+              },
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "artifact_digest": "e6df4db09cf52be5dc7d40d5354efb41f3e9c7d370b6cfe8b02ddc34f06fc2b4",
+                "rendered_digest": "01177f9256c2dadc9fdcab1e1974ff1082910e0adb3a795fced8bab2b4894529",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "a1830cd17d0292ed2a0c052684e4f5cb68a14d6e2b8fdba4ad37fc3cba3f4243",
+                "location": {
+                  "start_offset": 78,
+                  "end_offset": 111,
+                  "start_line": 3,
+                  "end_line": 3
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ]
+              }
+            },
+            "target": {
+              "anchor_verified": true,
+              "mappings": [
+                {
+                  "obligation_id": "retry-methods",
+                  "valid": true,
+                  "different_fields": [],
+                  "status": "match",
+                  "reasons": []
+                }
+              ],
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "5f784b8235d624fb753eb9a375dc327fccb8642bf668b64789618d58317642ab",
+                "rendered_digest": "09d489fb3bc9cb2278c4d4af66f84e087790285cb8994f65dbb705eb502c48d6",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+                "location": {
+                  "start_offset": 95,
+                  "end_offset": 137,
+                  "start_line": 7,
+                  "end_line": 7
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "quote_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "5f784b8235d624fb753eb9a375dc327fccb8642bf668b64789618d58317642ab",
+                "rendered_digest": "09d489fb3bc9cb2278c4d4af66f84e087790285cb8994f65dbb705eb502c48d6",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 205,
+                  "end_offset": 257,
+                  "start_line": 12,
+                  "end_line": 12
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ]
+              },
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "artifact_digest": "e6df4db09cf52be5dc7d40d5354efb41f3e9c7d370b6cfe8b02ddc34f06fc2b4",
+                "rendered_digest": "01177f9256c2dadc9fdcab1e1974ff1082910e0adb3a795fced8bab2b4894529",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "a1830cd17d0292ed2a0c052684e4f5cb68a14d6e2b8fdba4ad37fc3cba3f4243",
+                "location": {
+                  "start_offset": 78,
+                  "end_offset": 111,
+                  "start_line": 3,
+                  "end_line": 3
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ]
+              }
+            },
+            "changes": {
+              "anchor": {
+                "artifact_id_changed": false,
+                "artifact_digest_changed": true,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": false,
+                "location_changed": true,
+                "dependencies_changed": false
+              },
+              "document": {
+                "artifact_id_changed": false,
+                "artifact_digest_changed": true,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": false,
+                "location_changed": true,
+                "dependencies_changed": false,
+                "normalized_value_changed": false
+              },
+              "code": {
+                "artifact_id_changed": false,
+                "artifact_digest_changed": false,
+                "rendered_digest_changed": false,
+                "snippet_digest_changed": false,
+                "location_changed": false,
+                "dependencies_changed": false,
+                "normalized_value_changed": false
+              }
+            },
+            "checks": {
+              "source_eligible": true,
+              "source_anchor_verified": true,
+              "target_anchor_verified": true,
+              "target_mapping_valid": true,
+              "document_value_unchanged": true,
+              "document_dependencies_unchanged": true,
+              "code_value_unchanged": true,
+              "code_dependencies_unchanged": true
+            },
+            "reasons": []
+          },
+          {
+            "id": "attempt-limit-promise",
+            "state": "reusable_descriptor",
+            "original_obligation_ids": [
+              "retry-attempts"
+            ],
+            "proposed_obligation_ids": [
+              "retry-attempts"
+            ],
+            "draft_obligation_ids": [
+              "retry-attempts"
+            ],
+            "transformed_requirement": {
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "symbol": "MAX_ATTEMPTS"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "fence_id": "retry-policy",
+                "path": [
+                  "max_attempts"
+                ]
+              },
+              "relation": "equals",
+              "scope": {
+                "api_version": "v1",
+                "policy": "retry-limit"
+              },
+              "value_type": "integer"
+            },
+            "source": {
+              "anchor_verified": true,
+              "mapping_state": "mapped",
+              "satisfaction_state": "match",
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+                "location": {
+                  "start_offset": 92,
+                  "end_offset": 125,
+                  "start_line": 7,
+                  "end_line": 7
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "quote_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 158,
+                  "end_offset": 210,
+                  "start_line": 10,
+                  "end_line": 10
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": 3
+              },
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "artifact_digest": "e6df4db09cf52be5dc7d40d5354efb41f3e9c7d370b6cfe8b02ddc34f06fc2b4",
+                "rendered_digest": "01177f9256c2dadc9fdcab1e1974ff1082910e0adb3a795fced8bab2b4894529",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "83ecafd1c73a7cc2fe9ef67157fe2a243e3a4944bf8b39f2718e0ef13c38b546",
+                "location": {
+                  "start_offset": 112,
+                  "end_offset": 128,
+                  "start_line": 4,
+                  "end_line": 4
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": 3
+              }
+            },
+            "target": {
+              "anchor_verified": true,
+              "mappings": [
+                {
+                  "obligation_id": "retry-attempts",
+                  "valid": true,
+                  "different_fields": [],
+                  "status": "match",
+                  "reasons": []
+                }
+              ],
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "5f784b8235d624fb753eb9a375dc327fccb8642bf668b64789618d58317642ab",
+                "rendered_digest": "09d489fb3bc9cb2278c4d4af66f84e087790285cb8994f65dbb705eb502c48d6",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+                "location": {
+                  "start_offset": 139,
+                  "end_offset": 172,
+                  "start_line": 9,
+                  "end_line": 9
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "quote_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "5f784b8235d624fb753eb9a375dc327fccb8642bf668b64789618d58317642ab",
+                "rendered_digest": "09d489fb3bc9cb2278c4d4af66f84e087790285cb8994f65dbb705eb502c48d6",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 205,
+                  "end_offset": 257,
+                  "start_line": 12,
+                  "end_line": 12
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": 3
+              },
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "artifact_digest": "e6df4db09cf52be5dc7d40d5354efb41f3e9c7d370b6cfe8b02ddc34f06fc2b4",
+                "rendered_digest": "01177f9256c2dadc9fdcab1e1974ff1082910e0adb3a795fced8bab2b4894529",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "83ecafd1c73a7cc2fe9ef67157fe2a243e3a4944bf8b39f2718e0ef13c38b546",
+                "location": {
+                  "start_offset": 112,
+                  "end_offset": 128,
+                  "start_line": 4,
+                  "end_line": 4
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": 3
+              }
+            },
+            "changes": {
+              "anchor": {
+                "artifact_id_changed": false,
+                "artifact_digest_changed": true,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": false,
+                "location_changed": true,
+                "dependencies_changed": false
+              },
+              "document": {
+                "artifact_id_changed": false,
+                "artifact_digest_changed": true,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": false,
+                "location_changed": true,
+                "dependencies_changed": false,
+                "normalized_value_changed": false
+              },
+              "code": {
+                "artifact_id_changed": false,
+                "artifact_digest_changed": false,
+                "rendered_digest_changed": false,
+                "snippet_digest_changed": false,
+                "location_changed": false,
+                "dependencies_changed": false,
+                "normalized_value_changed": false
+              }
+            },
+            "checks": {
+              "source_eligible": true,
+              "source_anchor_verified": true,
+              "target_anchor_verified": true,
+              "target_mapping_valid": true,
+              "document_value_unchanged": true,
+              "document_dependencies_unchanged": true,
+              "code_value_unchanged": true,
+              "code_dependencies_unchanged": true
+            },
+            "reasons": []
+          }
+        ],
+        "counts": {
+          "total": 2,
+          "reusable_descriptor": 2,
+          "needs_review": 0,
+          "unresolved": 0,
+          "preserved_promises": 2,
+          "cleared_reference_promises": 0
+        },
+        "migration_state": "all_descriptors_reusable",
+        "migration_blockers": [],
+        "blockers": [],
+        "state": "current_for_human_review",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "live_state_checked": false,
+        "atomic_capture": false,
+        "limits": [
+          "Only descriptors in the previous caller-declared inventory are considered; preservation of that denominator does not establish completeness over either document.",
+          "A reusable descriptor preserves an exact unique quote, selected typed values, declared requirement and rendering dependencies; their semantic correspondence is not inferred.",
+          "Artifact and obligation renames require an explicit injective mapping; symbols, JSON paths, scope, relation and quotes are never guessed or rewritten.",
+          "Every old promise remains in the draft; obligation references are cleared for descriptors that require review, so omission cannot silently improve coverage.",
+          "File, fragment and position changes are reported separately; unchanged selected values do not establish program behavior or truth of prose.",
+          "Rendering dependencies cover all bindings of each selected artifact; an unrelated binding change can conservatively require new consideration.",
+          "Source blockers are historical observations; target blockers remain effective. No editorial decisions or formal approvals are transferred to the target.",
+          "Only captured reports are examined, with no live-state observation or atomic transaction between databases; hashes establish internal consistency only.",
+          "A new draft always requires human review and never authorizes acceptance or publication."
+        ]
+      }
+    },
+    "renamed": {
+      "report_id": "reb_4afdd3b749b50f82cd075ca0c875827ccfc6374196933fd403528bb63bb5d181",
+      "observation": {
+        "source_coverage_report_id": "cov_ba8b13cd13c6309a15f927127e9fec448284347906194aeb3343ec3a916b73de",
+        "source_coverage_report_digest": "ba8b13cd13c6309a15f927127e9fec448284347906194aeb3343ec3a916b73de",
+        "target_obligation_report_id": "obl_9af7a922184bde152f005f043df1dab76178457db0372857e190a92da9395d7a",
+        "target_obligation_report_digest": "9af7a922184bde152f005f043df1dab76178457db0372857e190a92da9395d7a",
+        "source_proposal_id": "p_6e0eedd931ada617939c4031",
+        "target_proposal_id": "p_c364713fb8080aef00323548",
+        "historical_source_blockers": [],
+        "target_upstream_blockers": [],
+        "draft_inventory": {
+          "schema_version": 1,
+          "promises": [
+            {
+              "anchor": {
+                "artifact_id": "docs/reference-v2.md",
+                "quote": "Клиент повторяет только методы GET и HEAD."
+              },
+              "description": "The declared code methods must be allowed by the document.",
+              "id": "allowed-methods-promise",
+              "obligation_ids": [
+                "retry-methods-v2"
+              ],
+              "requirement": {
+                "code": {
+                  "artifact_id": "code/client_config_v2.py",
+                  "symbol": "ALLOWED_METHODS"
+                },
+                "document": {
+                  "artifact_id": "docs/reference-v2.md",
+                  "fence_id": "retry-policy",
+                  "path": [
+                    "allowed_methods"
+                  ]
+                },
+                "relation": "code_subset_of_document",
+                "scope": {
+                  "api_version": "v1",
+                  "policy": "retry-methods"
+                },
+                "value_type": "string_set"
+              }
+            },
+            {
+              "anchor": {
+                "artifact_id": "docs/reference-v2.md",
+                "quote": "Клиент делает не более 3 попыток."
+              },
+              "description": "The declared attempt limit must equal the document value.",
+              "id": "attempt-limit-promise",
+              "obligation_ids": [
+                "retry-attempts-v2"
+              ],
+              "requirement": {
+                "code": {
+                  "artifact_id": "code/client_config_v2.py",
+                  "symbol": "MAX_ATTEMPTS"
+                },
+                "document": {
+                  "artifact_id": "docs/reference-v2.md",
+                  "fence_id": "retry-policy",
+                  "path": [
+                    "max_attempts"
+                  ]
+                },
+                "relation": "equals",
+                "scope": {
+                  "api_version": "v1",
+                  "policy": "retry-limit"
+                },
+                "value_type": "integer"
+              }
+            }
+          ]
+        },
+        "draft_coverage": {
+          "source_obligation_report_id": "obl_9af7a922184bde152f005f043df1dab76178457db0372857e190a92da9395d7a",
+          "source_obligation_report_digest": "9af7a922184bde152f005f043df1dab76178457db0372857e190a92da9395d7a",
+          "source_review_set_id": "rset_c260c45dd0b23ac053631cc3d54a6d3a115217ae7f10d77ae46ef32b27e863fe",
+          "proposal_id": "p_c364713fb8080aef00323548",
+          "proposal_digest": "c67131860f58a0cda8d2bbfb45554c572192975a2f173437f80d30cd5847ab45",
+          "upstream_state": "current_for_human_review",
+          "upstream_blockers": [],
+          "coverage_state": "declared_promises_covered",
+          "counts": {
+            "total": 2,
+            "assigned": 2,
+            "mapped": 2,
+            "anchor_verified": 2,
+            "covered": 2,
+            "matching": 2,
+            "mismatch": 0,
+            "unresolved": 0,
+            "uncovered": 0,
+            "invalid_mapping": 0,
+            "unresolved_anchor": 0,
+            "unique_requirements": 2,
+            "covered_unique_requirements": 2,
+            "assigned_obligation_ids": 2,
+            "mapped_obligation_ids": 2
+          },
+          "coverage_fraction": {
+            "numerator": 2,
+            "denominator": 2
+          },
+          "unique_requirement_fraction": {
+            "numerator": 2,
+            "denominator": 2
+          },
+          "results": [
+            {
+              "id": "allowed-methods-promise",
+              "requirement_digest": "93f5bf02ec104ee0608aeeddbee648aab32010ed79699b9e13aafa45e27475e6",
+              "anchor": {
+                "artifact_id": "docs/reference-v2.md",
+                "artifact_digest": "101adfccf2c8987cdc29b911c02b42176ca81556a08c1cf46a5265fc2338a7af",
+                "rendered_digest": "0205454e3fab6b47f9a6d51a1b651beac8550ec131a4ad636fc6faac0245cb7c",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "quote": "Клиент повторяет только методы GET и HEAD.",
+                "quote_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+                "snippet": "Клиент повторяет только методы GET и HEAD.",
+                "snippet_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+                "location": {
+                  "start_offset": 97,
+                  "end_offset": 139,
+                  "start_line": 7,
+                  "end_line": 7
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "document": {
+                "artifact_id": "docs/reference-v2.md",
+                "kind": "document",
+                "artifact_digest": "101adfccf2c8987cdc29b911c02b42176ca81556a08c1cf46a5265fc2338a7af",
+                "rendered_digest": "0205454e3fab6b47f9a6d51a1b651beac8550ec131a4ad636fc6faac0245cb7c",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n",
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 207,
+                  "end_offset": 259,
+                  "start_line": 12,
+                  "end_line": 12
+                },
+                "resolved": true,
+                "value": [
+                  "GET",
+                  "HEAD"
+                ],
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ],
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "anchor_verified": true,
+              "mapping_state": "mapped",
+              "satisfaction_state": "match",
+              "mappings": [
+                {
+                  "obligation_id": "retry-methods-v2",
+                  "valid": true,
+                  "comparison_status": "match",
+                  "requirement_digest": "93f5bf02ec104ee0608aeeddbee648aab32010ed79699b9e13aafa45e27475e6",
+                  "reasons": []
+                }
+              ],
+              "reasons": []
+            },
+            {
+              "id": "attempt-limit-promise",
+              "requirement_digest": "f4de8c901c98ac02eaf97cda066e17d137e9eb60f104813a78c38940bf2ecddf",
+              "anchor": {
+                "artifact_id": "docs/reference-v2.md",
+                "artifact_digest": "101adfccf2c8987cdc29b911c02b42176ca81556a08c1cf46a5265fc2338a7af",
+                "rendered_digest": "0205454e3fab6b47f9a6d51a1b651beac8550ec131a4ad636fc6faac0245cb7c",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "quote": "Клиент делает не более 3 попыток.",
+                "quote_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+                "snippet": "Клиент делает не более 3 попыток.",
+                "snippet_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+                "location": {
+                  "start_offset": 141,
+                  "end_offset": 174,
+                  "start_line": 9,
+                  "end_line": 9
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "document": {
+                "artifact_id": "docs/reference-v2.md",
+                "kind": "document",
+                "artifact_digest": "101adfccf2c8987cdc29b911c02b42176ca81556a08c1cf46a5265fc2338a7af",
+                "rendered_digest": "0205454e3fab6b47f9a6d51a1b651beac8550ec131a4ad636fc6faac0245cb7c",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n",
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 207,
+                  "end_offset": 259,
+                  "start_line": 12,
+                  "end_line": 12
+                },
+                "resolved": true,
+                "value": 3,
+                "normalized_value": 3,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "anchor_verified": true,
+              "mapping_state": "mapped",
+              "satisfaction_state": "match",
+              "mappings": [
+                {
+                  "obligation_id": "retry-attempts-v2",
+                  "valid": true,
+                  "comparison_status": "match",
+                  "requirement_digest": "f4de8c901c98ac02eaf97cda066e17d137e9eb60f104813a78c38940bf2ecddf",
+                  "reasons": []
+                }
+              ],
+              "reasons": []
+            }
+          ],
+          "shared_obligations": [],
+          "duplicate_requirements": [],
+          "unmapped_obligation_ids": [],
+          "unknown_obligation_ids": [],
+          "blockers": [],
+          "state": "current_for_human_review",
+          "requires_human_review": true,
+          "auto_accept": false,
+          "live_state_checked": false,
+          "atomic_capture": false,
+          "limits": [
+            "The denominator contains only caller-declared promises; completeness over the document or project is not established.",
+            "A unique exact quote and a resolved document field pin declared locations; their semantic correspondence is not inferred or verified.",
+            "Coverage requires exact declared requirement metadata and references; coverage and comparison satisfaction are separate observations.",
+            "Several promises may share an obligation or repeat a requirement; they are not independent checks or independent evidence.",
+            "Only the embedded obligations-1 report and its captured candidate are examined; no live state or cross-database transaction is checked.",
+            "A matched configuration declaration does not establish program behavior, prose truth, authorship, or permission to accept or publish.",
+            "Coverage does not remove upstream blockers or record human review; content hashes establish internal consistency only."
+          ]
+        },
+        "results": [
+          {
+            "id": "allowed-methods-promise",
+            "state": "reusable_descriptor",
+            "original_obligation_ids": [
+              "retry-methods"
+            ],
+            "proposed_obligation_ids": [
+              "retry-methods-v2"
+            ],
+            "draft_obligation_ids": [
+              "retry-methods-v2"
+            ],
+            "transformed_requirement": {
+              "code": {
+                "artifact_id": "code/client_config_v2.py",
+                "symbol": "ALLOWED_METHODS"
+              },
+              "document": {
+                "artifact_id": "docs/reference-v2.md",
+                "fence_id": "retry-policy",
+                "path": [
+                  "allowed_methods"
+                ]
+              },
+              "relation": "code_subset_of_document",
+              "scope": {
+                "api_version": "v1",
+                "policy": "retry-methods"
+              },
+              "value_type": "string_set"
+            },
+            "source": {
+              "anchor_verified": true,
+              "mapping_state": "mapped",
+              "satisfaction_state": "match",
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+                "location": {
+                  "start_offset": 48,
+                  "end_offset": 90,
+                  "start_line": 5,
+                  "end_line": 5
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "quote_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 158,
+                  "end_offset": 210,
+                  "start_line": 10,
+                  "end_line": 10
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ]
+              },
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "artifact_digest": "e6df4db09cf52be5dc7d40d5354efb41f3e9c7d370b6cfe8b02ddc34f06fc2b4",
+                "rendered_digest": "01177f9256c2dadc9fdcab1e1974ff1082910e0adb3a795fced8bab2b4894529",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "a1830cd17d0292ed2a0c052684e4f5cb68a14d6e2b8fdba4ad37fc3cba3f4243",
+                "location": {
+                  "start_offset": 78,
+                  "end_offset": 111,
+                  "start_line": 3,
+                  "end_line": 3
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ]
+              }
+            },
+            "target": {
+              "anchor_verified": true,
+              "mappings": [
+                {
+                  "obligation_id": "retry-methods-v2",
+                  "valid": true,
+                  "different_fields": [],
+                  "status": "match",
+                  "reasons": []
+                }
+              ],
+              "anchor": {
+                "artifact_id": "docs/reference-v2.md",
+                "artifact_digest": "101adfccf2c8987cdc29b911c02b42176ca81556a08c1cf46a5265fc2338a7af",
+                "rendered_digest": "0205454e3fab6b47f9a6d51a1b651beac8550ec131a4ad636fc6faac0245cb7c",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+                "location": {
+                  "start_offset": 97,
+                  "end_offset": 139,
+                  "start_line": 7,
+                  "end_line": 7
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "quote_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be"
+              },
+              "document": {
+                "artifact_id": "docs/reference-v2.md",
+                "artifact_digest": "101adfccf2c8987cdc29b911c02b42176ca81556a08c1cf46a5265fc2338a7af",
+                "rendered_digest": "0205454e3fab6b47f9a6d51a1b651beac8550ec131a4ad636fc6faac0245cb7c",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 207,
+                  "end_offset": 259,
+                  "start_line": 12,
+                  "end_line": 12
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ]
+              },
+              "code": {
+                "artifact_id": "code/client_config_v2.py",
+                "artifact_digest": "00774032cab0fe19c3f9b199e18bc854afb27ab54db7a479d8d26f0a521333d5",
+                "rendered_digest": "f1bd5cbf8450c2172834a2d0295205c6ac3f6f2eb9aaa71b4e51438331577702",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "a1830cd17d0292ed2a0c052684e4f5cb68a14d6e2b8fdba4ad37fc3cba3f4243",
+                "location": {
+                  "start_offset": 93,
+                  "end_offset": 126,
+                  "start_line": 3,
+                  "end_line": 3
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ]
+              }
+            },
+            "changes": {
+              "anchor": {
+                "artifact_id_changed": true,
+                "artifact_digest_changed": true,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": false,
+                "location_changed": true,
+                "dependencies_changed": false
+              },
+              "document": {
+                "artifact_id_changed": true,
+                "artifact_digest_changed": true,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": false,
+                "location_changed": true,
+                "dependencies_changed": false,
+                "normalized_value_changed": false
+              },
+              "code": {
+                "artifact_id_changed": true,
+                "artifact_digest_changed": true,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": false,
+                "location_changed": true,
+                "dependencies_changed": false,
+                "normalized_value_changed": false
+              }
+            },
+            "checks": {
+              "source_eligible": true,
+              "source_anchor_verified": true,
+              "target_anchor_verified": true,
+              "target_mapping_valid": true,
+              "document_value_unchanged": true,
+              "document_dependencies_unchanged": true,
+              "code_value_unchanged": true,
+              "code_dependencies_unchanged": true
+            },
+            "reasons": []
+          },
+          {
+            "id": "attempt-limit-promise",
+            "state": "reusable_descriptor",
+            "original_obligation_ids": [
+              "retry-attempts"
+            ],
+            "proposed_obligation_ids": [
+              "retry-attempts-v2"
+            ],
+            "draft_obligation_ids": [
+              "retry-attempts-v2"
+            ],
+            "transformed_requirement": {
+              "code": {
+                "artifact_id": "code/client_config_v2.py",
+                "symbol": "MAX_ATTEMPTS"
+              },
+              "document": {
+                "artifact_id": "docs/reference-v2.md",
+                "fence_id": "retry-policy",
+                "path": [
+                  "max_attempts"
+                ]
+              },
+              "relation": "equals",
+              "scope": {
+                "api_version": "v1",
+                "policy": "retry-limit"
+              },
+              "value_type": "integer"
+            },
+            "source": {
+              "anchor_verified": true,
+              "mapping_state": "mapped",
+              "satisfaction_state": "match",
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+                "location": {
+                  "start_offset": 92,
+                  "end_offset": 125,
+                  "start_line": 7,
+                  "end_line": 7
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "quote_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 158,
+                  "end_offset": 210,
+                  "start_line": 10,
+                  "end_line": 10
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": 3
+              },
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "artifact_digest": "e6df4db09cf52be5dc7d40d5354efb41f3e9c7d370b6cfe8b02ddc34f06fc2b4",
+                "rendered_digest": "01177f9256c2dadc9fdcab1e1974ff1082910e0adb3a795fced8bab2b4894529",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "83ecafd1c73a7cc2fe9ef67157fe2a243e3a4944bf8b39f2718e0ef13c38b546",
+                "location": {
+                  "start_offset": 112,
+                  "end_offset": 128,
+                  "start_line": 4,
+                  "end_line": 4
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": 3
+              }
+            },
+            "target": {
+              "anchor_verified": true,
+              "mappings": [
+                {
+                  "obligation_id": "retry-attempts-v2",
+                  "valid": true,
+                  "different_fields": [],
+                  "status": "match",
+                  "reasons": []
+                }
+              ],
+              "anchor": {
+                "artifact_id": "docs/reference-v2.md",
+                "artifact_digest": "101adfccf2c8987cdc29b911c02b42176ca81556a08c1cf46a5265fc2338a7af",
+                "rendered_digest": "0205454e3fab6b47f9a6d51a1b651beac8550ec131a4ad636fc6faac0245cb7c",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+                "location": {
+                  "start_offset": 141,
+                  "end_offset": 174,
+                  "start_line": 9,
+                  "end_line": 9
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "quote_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2"
+              },
+              "document": {
+                "artifact_id": "docs/reference-v2.md",
+                "artifact_digest": "101adfccf2c8987cdc29b911c02b42176ca81556a08c1cf46a5265fc2338a7af",
+                "rendered_digest": "0205454e3fab6b47f9a6d51a1b651beac8550ec131a4ad636fc6faac0245cb7c",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 207,
+                  "end_offset": 259,
+                  "start_line": 12,
+                  "end_line": 12
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": 3
+              },
+              "code": {
+                "artifact_id": "code/client_config_v2.py",
+                "artifact_digest": "00774032cab0fe19c3f9b199e18bc854afb27ab54db7a479d8d26f0a521333d5",
+                "rendered_digest": "f1bd5cbf8450c2172834a2d0295205c6ac3f6f2eb9aaa71b4e51438331577702",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "83ecafd1c73a7cc2fe9ef67157fe2a243e3a4944bf8b39f2718e0ef13c38b546",
+                "location": {
+                  "start_offset": 127,
+                  "end_offset": 143,
+                  "start_line": 4,
+                  "end_line": 4
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": 3
+              }
+            },
+            "changes": {
+              "anchor": {
+                "artifact_id_changed": true,
+                "artifact_digest_changed": true,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": false,
+                "location_changed": true,
+                "dependencies_changed": false
+              },
+              "document": {
+                "artifact_id_changed": true,
+                "artifact_digest_changed": true,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": false,
+                "location_changed": true,
+                "dependencies_changed": false,
+                "normalized_value_changed": false
+              },
+              "code": {
+                "artifact_id_changed": true,
+                "artifact_digest_changed": true,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": false,
+                "location_changed": true,
+                "dependencies_changed": false,
+                "normalized_value_changed": false
+              }
+            },
+            "checks": {
+              "source_eligible": true,
+              "source_anchor_verified": true,
+              "target_anchor_verified": true,
+              "target_mapping_valid": true,
+              "document_value_unchanged": true,
+              "document_dependencies_unchanged": true,
+              "code_value_unchanged": true,
+              "code_dependencies_unchanged": true
+            },
+            "reasons": []
+          }
+        ],
+        "counts": {
+          "total": 2,
+          "reusable_descriptor": 2,
+          "needs_review": 0,
+          "unresolved": 0,
+          "preserved_promises": 2,
+          "cleared_reference_promises": 0
+        },
+        "migration_state": "all_descriptors_reusable",
+        "migration_blockers": [],
+        "blockers": [],
+        "state": "current_for_human_review",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "live_state_checked": false,
+        "atomic_capture": false,
+        "limits": [
+          "Only descriptors in the previous caller-declared inventory are considered; preservation of that denominator does not establish completeness over either document.",
+          "A reusable descriptor preserves an exact unique quote, selected typed values, declared requirement and rendering dependencies; their semantic correspondence is not inferred.",
+          "Artifact and obligation renames require an explicit injective mapping; symbols, JSON paths, scope, relation and quotes are never guessed or rewritten.",
+          "Every old promise remains in the draft; obligation references are cleared for descriptors that require review, so omission cannot silently improve coverage.",
+          "File, fragment and position changes are reported separately; unchanged selected values do not establish program behavior or truth of prose.",
+          "Rendering dependencies cover all bindings of each selected artifact; an unrelated binding change can conservatively require new consideration.",
+          "Source blockers are historical observations; target blockers remain effective. No editorial decisions or formal approvals are transferred to the target.",
+          "Only captured reports are examined, with no live-state observation or atomic transaction between databases; hashes establish internal consistency only.",
+          "A new draft always requires human review and never authorizes acceptance or publication."
+        ]
+      }
+    },
+    "changed": {
+      "report_id": "reb_24a77b24f1405153d1fbeaa1780d46817cb87d7097b02cb1bb9a5a270a37deb8",
+      "observation": {
+        "source_coverage_report_id": "cov_ba8b13cd13c6309a15f927127e9fec448284347906194aeb3343ec3a916b73de",
+        "source_coverage_report_digest": "ba8b13cd13c6309a15f927127e9fec448284347906194aeb3343ec3a916b73de",
+        "target_obligation_report_id": "obl_3742f8915f837a405b1cfbb18a1b39459c5e821bc182c86958a16e1fcded7c91",
+        "target_obligation_report_digest": "3742f8915f837a405b1cfbb18a1b39459c5e821bc182c86958a16e1fcded7c91",
+        "source_proposal_id": "p_6e0eedd931ada617939c4031",
+        "target_proposal_id": "p_cae61536c2169f082bbb552e",
+        "historical_source_blockers": [],
+        "target_upstream_blockers": [],
+        "draft_inventory": {
+          "schema_version": 1,
+          "promises": [
+            {
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "quote": "Клиент повторяет только методы GET и HEAD."
+              },
+              "description": "The declared code methods must be allowed by the document.",
+              "id": "allowed-methods-promise",
+              "obligation_ids": [
+                "retry-methods"
+              ],
+              "requirement": {
+                "code": {
+                  "artifact_id": "code/client_config.py",
+                  "symbol": "ALLOWED_METHODS"
+                },
+                "document": {
+                  "artifact_id": "docs/reference.md",
+                  "fence_id": "retry-policy",
+                  "path": [
+                    "allowed_methods"
+                  ]
+                },
+                "relation": "code_subset_of_document",
+                "scope": {
+                  "api_version": "v1",
+                  "policy": "retry-methods"
+                },
+                "value_type": "string_set"
+              }
+            },
+            {
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "quote": "Клиент делает не более 3 попыток."
+              },
+              "description": "The declared attempt limit must equal the document value.",
+              "id": "attempt-limit-promise",
+              "obligation_ids": [],
+              "requirement": {
+                "code": {
+                  "artifact_id": "code/client_config.py",
+                  "symbol": "MAX_ATTEMPTS"
+                },
+                "document": {
+                  "artifact_id": "docs/reference.md",
+                  "fence_id": "retry-policy",
+                  "path": [
+                    "max_attempts"
+                  ]
+                },
+                "relation": "equals",
+                "scope": {
+                  "api_version": "v1",
+                  "policy": "retry-limit"
+                },
+                "value_type": "integer"
+              }
+            }
+          ]
+        },
+        "draft_coverage": {
+          "source_obligation_report_id": "obl_3742f8915f837a405b1cfbb18a1b39459c5e821bc182c86958a16e1fcded7c91",
+          "source_obligation_report_digest": "3742f8915f837a405b1cfbb18a1b39459c5e821bc182c86958a16e1fcded7c91",
+          "source_review_set_id": "rset_5b1523672733992b02ca2cc7bc57c46bfea1bdce20d69095e1bf0e6568ea2c77",
+          "proposal_id": "p_cae61536c2169f082bbb552e",
+          "proposal_digest": "d9fcf8a9dc2c327195963d3bec07984b030fc4edf861249db9fabfd02f63a249",
+          "upstream_state": "current_for_human_review",
+          "upstream_blockers": [],
+          "coverage_state": "declared_coverage_incomplete",
+          "counts": {
+            "total": 2,
+            "assigned": 1,
+            "mapped": 1,
+            "anchor_verified": 1,
+            "covered": 1,
+            "matching": 1,
+            "mismatch": 0,
+            "unresolved": 0,
+            "uncovered": 1,
+            "invalid_mapping": 0,
+            "unresolved_anchor": 1,
+            "unique_requirements": 2,
+            "covered_unique_requirements": 1,
+            "assigned_obligation_ids": 1,
+            "mapped_obligation_ids": 1
+          },
+          "coverage_fraction": {
+            "numerator": 1,
+            "denominator": 2
+          },
+          "unique_requirement_fraction": {
+            "numerator": 1,
+            "denominator": 2
+          },
+          "results": [
+            {
+              "id": "allowed-methods-promise",
+              "requirement_digest": "6f902382ea655c17786ba1d10fc018bcee1e37ee414ac466dd4591eacd570f3b",
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "2380354ba3bd3faaad5b328870fc99a4c4ac8c4ba42a1d51b4ae76351a02e1ed",
+                "rendered_digest": "712340e95282c10e0fe1529ad4219e2974b8bce8d0c7739f3dd4ee0c47900e56",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "quote": "Клиент повторяет только методы GET и HEAD.",
+                "quote_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+                "snippet": "Клиент повторяет только методы GET и HEAD.",
+                "snippet_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+                "location": {
+                  "start_offset": 48,
+                  "end_offset": 90,
+                  "start_line": 5,
+                  "end_line": 5
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "kind": "document",
+                "artifact_digest": "2380354ba3bd3faaad5b328870fc99a4c4ac8c4ba42a1d51b4ae76351a02e1ed",
+                "rendered_digest": "712340e95282c10e0fe1529ad4219e2974b8bce8d0c7739f3dd4ee0c47900e56",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":4}\n",
+                "snippet_digest": "d8a6d176d7387ba119c2f9e6513cd9b2539a7f73a93090622e7603d2f88412d0",
+                "location": {
+                  "start_offset": 158,
+                  "end_offset": 210,
+                  "start_line": 10,
+                  "end_line": 10
+                },
+                "resolved": true,
+                "value": [
+                  "GET",
+                  "HEAD"
+                ],
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ],
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "anchor_verified": true,
+              "mapping_state": "mapped",
+              "satisfaction_state": "match",
+              "mappings": [
+                {
+                  "obligation_id": "retry-methods",
+                  "valid": true,
+                  "comparison_status": "match",
+                  "requirement_digest": "6f902382ea655c17786ba1d10fc018bcee1e37ee414ac466dd4591eacd570f3b",
+                  "reasons": []
+                }
+              ],
+              "reasons": []
+            },
+            {
+              "id": "attempt-limit-promise",
+              "requirement_digest": "a1f74887a5747433e39bd0d841e551bbbb7fd2496a2aa86b8690ac7c102fe5c9",
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "2380354ba3bd3faaad5b328870fc99a4c4ac8c4ba42a1d51b4ae76351a02e1ed",
+                "rendered_digest": "712340e95282c10e0fe1529ad4219e2974b8bce8d0c7739f3dd4ee0c47900e56",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "quote": "Клиент делает не более 3 попыток.",
+                "quote_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+                "snippet": null,
+                "snippet_digest": null,
+                "location": null,
+                "resolved": false,
+                "reasons": [
+                  {
+                    "code": "missing_promise_quote"
+                  }
+                ],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "kind": "document",
+                "artifact_digest": "2380354ba3bd3faaad5b328870fc99a4c4ac8c4ba42a1d51b4ae76351a02e1ed",
+                "rendered_digest": "712340e95282c10e0fe1529ad4219e2974b8bce8d0c7739f3dd4ee0c47900e56",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":4}\n",
+                "snippet_digest": "d8a6d176d7387ba119c2f9e6513cd9b2539a7f73a93090622e7603d2f88412d0",
+                "location": {
+                  "start_offset": 158,
+                  "end_offset": 210,
+                  "start_line": 10,
+                  "end_line": 10
+                },
+                "resolved": true,
+                "value": 4,
+                "normalized_value": 4,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "anchor_verified": false,
+              "mapping_state": "uncovered",
+              "satisfaction_state": "not_evaluated",
+              "mappings": [],
+              "reasons": [
+                {
+                  "endpoint": "quote_anchor",
+                  "code": "missing_promise_quote"
+                },
+                {
+                  "code": "no_assigned_obligations"
+                }
+              ]
+            }
+          ],
+          "shared_obligations": [],
+          "duplicate_requirements": [],
+          "unmapped_obligation_ids": [
+            "retry-attempts"
+          ],
+          "unknown_obligation_ids": [],
+          "blockers": [
+            {
+              "code": "promise_anchor_unresolved",
+              "promise_id": "attempt-limit-promise"
+            },
+            {
+              "code": "promise_uncovered",
+              "promise_id": "attempt-limit-promise"
+            }
+          ],
+          "state": "blocked",
+          "requires_human_review": true,
+          "auto_accept": false,
+          "live_state_checked": false,
+          "atomic_capture": false,
+          "limits": [
+            "The denominator contains only caller-declared promises; completeness over the document or project is not established.",
+            "A unique exact quote and a resolved document field pin declared locations; their semantic correspondence is not inferred or verified.",
+            "Coverage requires exact declared requirement metadata and references; coverage and comparison satisfaction are separate observations.",
+            "Several promises may share an obligation or repeat a requirement; they are not independent checks or independent evidence.",
+            "Only the embedded obligations-1 report and its captured candidate are examined; no live state or cross-database transaction is checked.",
+            "A matched configuration declaration does not establish program behavior, prose truth, authorship, or permission to accept or publish.",
+            "Coverage does not remove upstream blockers or record human review; content hashes establish internal consistency only."
+          ]
+        },
+        "results": [
+          {
+            "id": "allowed-methods-promise",
+            "state": "reusable_descriptor",
+            "original_obligation_ids": [
+              "retry-methods"
+            ],
+            "proposed_obligation_ids": [
+              "retry-methods"
+            ],
+            "draft_obligation_ids": [
+              "retry-methods"
+            ],
+            "transformed_requirement": {
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "symbol": "ALLOWED_METHODS"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "fence_id": "retry-policy",
+                "path": [
+                  "allowed_methods"
+                ]
+              },
+              "relation": "code_subset_of_document",
+              "scope": {
+                "api_version": "v1",
+                "policy": "retry-methods"
+              },
+              "value_type": "string_set"
+            },
+            "source": {
+              "anchor_verified": true,
+              "mapping_state": "mapped",
+              "satisfaction_state": "match",
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+                "location": {
+                  "start_offset": 48,
+                  "end_offset": 90,
+                  "start_line": 5,
+                  "end_line": 5
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "quote_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 158,
+                  "end_offset": 210,
+                  "start_line": 10,
+                  "end_line": 10
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ]
+              },
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "artifact_digest": "e6df4db09cf52be5dc7d40d5354efb41f3e9c7d370b6cfe8b02ddc34f06fc2b4",
+                "rendered_digest": "01177f9256c2dadc9fdcab1e1974ff1082910e0adb3a795fced8bab2b4894529",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "a1830cd17d0292ed2a0c052684e4f5cb68a14d6e2b8fdba4ad37fc3cba3f4243",
+                "location": {
+                  "start_offset": 78,
+                  "end_offset": 111,
+                  "start_line": 3,
+                  "end_line": 3
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ]
+              }
+            },
+            "target": {
+              "anchor_verified": true,
+              "mappings": [
+                {
+                  "obligation_id": "retry-methods",
+                  "valid": true,
+                  "different_fields": [],
+                  "status": "match",
+                  "reasons": []
+                }
+              ],
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "2380354ba3bd3faaad5b328870fc99a4c4ac8c4ba42a1d51b4ae76351a02e1ed",
+                "rendered_digest": "712340e95282c10e0fe1529ad4219e2974b8bce8d0c7739f3dd4ee0c47900e56",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+                "location": {
+                  "start_offset": 48,
+                  "end_offset": 90,
+                  "start_line": 5,
+                  "end_line": 5
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "quote_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "2380354ba3bd3faaad5b328870fc99a4c4ac8c4ba42a1d51b4ae76351a02e1ed",
+                "rendered_digest": "712340e95282c10e0fe1529ad4219e2974b8bce8d0c7739f3dd4ee0c47900e56",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "d8a6d176d7387ba119c2f9e6513cd9b2539a7f73a93090622e7603d2f88412d0",
+                "location": {
+                  "start_offset": 158,
+                  "end_offset": 210,
+                  "start_line": 10,
+                  "end_line": 10
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ]
+              },
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "artifact_digest": "356d4c8078d502a7b9fc34efbce6e6d1118e44c1ceb635fc971adabd073f3602",
+                "rendered_digest": "aa582e4fd9741c61efbb4b698c7e68070ded5564c0918a630e0b18fd6befe342",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "a1830cd17d0292ed2a0c052684e4f5cb68a14d6e2b8fdba4ad37fc3cba3f4243",
+                "location": {
+                  "start_offset": 78,
+                  "end_offset": 111,
+                  "start_line": 3,
+                  "end_line": 3
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ]
+              }
+            },
+            "changes": {
+              "anchor": {
+                "artifact_id_changed": false,
+                "artifact_digest_changed": true,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": false,
+                "location_changed": false,
+                "dependencies_changed": false
+              },
+              "document": {
+                "artifact_id_changed": false,
+                "artifact_digest_changed": true,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": true,
+                "location_changed": false,
+                "dependencies_changed": false,
+                "normalized_value_changed": false
+              },
+              "code": {
+                "artifact_id_changed": false,
+                "artifact_digest_changed": true,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": false,
+                "location_changed": false,
+                "dependencies_changed": false,
+                "normalized_value_changed": false
+              }
+            },
+            "checks": {
+              "source_eligible": true,
+              "source_anchor_verified": true,
+              "target_anchor_verified": true,
+              "target_mapping_valid": true,
+              "document_value_unchanged": true,
+              "document_dependencies_unchanged": true,
+              "code_value_unchanged": true,
+              "code_dependencies_unchanged": true
+            },
+            "reasons": []
+          },
+          {
+            "id": "attempt-limit-promise",
+            "state": "unresolved",
+            "original_obligation_ids": [
+              "retry-attempts"
+            ],
+            "proposed_obligation_ids": [
+              "retry-attempts"
+            ],
+            "draft_obligation_ids": [],
+            "transformed_requirement": {
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "symbol": "MAX_ATTEMPTS"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "fence_id": "retry-policy",
+                "path": [
+                  "max_attempts"
+                ]
+              },
+              "relation": "equals",
+              "scope": {
+                "api_version": "v1",
+                "policy": "retry-limit"
+              },
+              "value_type": "integer"
+            },
+            "source": {
+              "anchor_verified": true,
+              "mapping_state": "mapped",
+              "satisfaction_state": "match",
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+                "location": {
+                  "start_offset": 92,
+                  "end_offset": 125,
+                  "start_line": 7,
+                  "end_line": 7
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "quote_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 158,
+                  "end_offset": 210,
+                  "start_line": 10,
+                  "end_line": 10
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": 3
+              },
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "artifact_digest": "e6df4db09cf52be5dc7d40d5354efb41f3e9c7d370b6cfe8b02ddc34f06fc2b4",
+                "rendered_digest": "01177f9256c2dadc9fdcab1e1974ff1082910e0adb3a795fced8bab2b4894529",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "83ecafd1c73a7cc2fe9ef67157fe2a243e3a4944bf8b39f2718e0ef13c38b546",
+                "location": {
+                  "start_offset": 112,
+                  "end_offset": 128,
+                  "start_line": 4,
+                  "end_line": 4
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": 3
+              }
+            },
+            "target": {
+              "anchor_verified": false,
+              "mappings": [
+                {
+                  "obligation_id": "retry-attempts",
+                  "valid": true,
+                  "different_fields": [],
+                  "status": "match",
+                  "reasons": []
+                }
+              ],
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "2380354ba3bd3faaad5b328870fc99a4c4ac8c4ba42a1d51b4ae76351a02e1ed",
+                "rendered_digest": "712340e95282c10e0fe1529ad4219e2974b8bce8d0c7739f3dd4ee0c47900e56",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": null,
+                "location": null,
+                "resolved": false,
+                "reasons": [
+                  {
+                    "code": "missing_promise_quote"
+                  }
+                ],
+                "render_basis": "captured_candidate_current_claims",
+                "quote_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "2380354ba3bd3faaad5b328870fc99a4c4ac8c4ba42a1d51b4ae76351a02e1ed",
+                "rendered_digest": "712340e95282c10e0fe1529ad4219e2974b8bce8d0c7739f3dd4ee0c47900e56",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "d8a6d176d7387ba119c2f9e6513cd9b2539a7f73a93090622e7603d2f88412d0",
+                "location": {
+                  "start_offset": 158,
+                  "end_offset": 210,
+                  "start_line": 10,
+                  "end_line": 10
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": 4
+              },
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "artifact_digest": "356d4c8078d502a7b9fc34efbce6e6d1118e44c1ceb635fc971adabd073f3602",
+                "rendered_digest": "aa582e4fd9741c61efbb4b698c7e68070ded5564c0918a630e0b18fd6befe342",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "5a74e0453d1707fdefd1826c26d4311d9c159de741e3ce9ccfa1d91c02f9a339",
+                "location": {
+                  "start_offset": 112,
+                  "end_offset": 128,
+                  "start_line": 4,
+                  "end_line": 4
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": 4
+              }
+            },
+            "changes": {
+              "anchor": {
+                "artifact_id_changed": false,
+                "artifact_digest_changed": true,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": true,
+                "location_changed": true,
+                "dependencies_changed": false
+              },
+              "document": {
+                "artifact_id_changed": false,
+                "artifact_digest_changed": true,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": true,
+                "location_changed": false,
+                "dependencies_changed": false,
+                "normalized_value_changed": true
+              },
+              "code": {
+                "artifact_id_changed": false,
+                "artifact_digest_changed": true,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": true,
+                "location_changed": false,
+                "dependencies_changed": false,
+                "normalized_value_changed": true
+              }
+            },
+            "checks": {
+              "source_eligible": true,
+              "source_anchor_verified": true,
+              "target_anchor_verified": false,
+              "target_mapping_valid": true,
+              "document_value_unchanged": false,
+              "document_dependencies_unchanged": true,
+              "code_value_unchanged": false,
+              "code_dependencies_unchanged": true
+            },
+            "reasons": [
+              {
+                "side": "target",
+                "endpoint": "quote_anchor",
+                "code": "missing_promise_quote"
+              },
+              {
+                "code": "selected_value_changed",
+                "endpoint": "document"
+              },
+              {
+                "code": "selected_value_changed",
+                "endpoint": "code"
+              }
+            ]
+          }
+        ],
+        "counts": {
+          "total": 2,
+          "reusable_descriptor": 1,
+          "needs_review": 0,
+          "unresolved": 1,
+          "preserved_promises": 2,
+          "cleared_reference_promises": 1
+        },
+        "migration_state": "migration_requires_review",
+        "migration_blockers": [
+          {
+            "code": "descriptor_unresolved",
+            "promise_id": "attempt-limit-promise"
+          }
+        ],
+        "blockers": [
+          {
+            "code": "promise_anchor_unresolved",
+            "promise_id": "attempt-limit-promise"
+          },
+          {
+            "code": "promise_uncovered",
+            "promise_id": "attempt-limit-promise"
+          },
+          {
+            "code": "descriptor_unresolved",
+            "promise_id": "attempt-limit-promise"
+          }
+        ],
+        "state": "blocked",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "live_state_checked": false,
+        "atomic_capture": false,
+        "limits": [
+          "Only descriptors in the previous caller-declared inventory are considered; preservation of that denominator does not establish completeness over either document.",
+          "A reusable descriptor preserves an exact unique quote, selected typed values, declared requirement and rendering dependencies; their semantic correspondence is not inferred.",
+          "Artifact and obligation renames require an explicit injective mapping; symbols, JSON paths, scope, relation and quotes are never guessed or rewritten.",
+          "Every old promise remains in the draft; obligation references are cleared for descriptors that require review, so omission cannot silently improve coverage.",
+          "File, fragment and position changes are reported separately; unchanged selected values do not establish program behavior or truth of prose.",
+          "Rendering dependencies cover all bindings of each selected artifact; an unrelated binding change can conservatively require new consideration.",
+          "Source blockers are historical observations; target blockers remain effective. No editorial decisions or formal approvals are transferred to the target.",
+          "Only captured reports are examined, with no live-state observation or atomic transaction between databases; hashes establish internal consistency only.",
+          "A new draft always requires human review and never authorizes acceptance or publication."
+        ]
+      }
+    },
+    "stale": {
+      "report_id": "reb_dc98c7fbfe5231758242e331492131db07facaf6b8080af65816993114d85286",
+      "observation": {
+        "source_coverage_report_id": "cov_ba8b13cd13c6309a15f927127e9fec448284347906194aeb3343ec3a916b73de",
+        "source_coverage_report_digest": "ba8b13cd13c6309a15f927127e9fec448284347906194aeb3343ec3a916b73de",
+        "target_obligation_report_id": "obl_0167059dee7f3746438354b98f7eee73b008c3157ef35e1859fad252cb736d6d",
+        "target_obligation_report_digest": "0167059dee7f3746438354b98f7eee73b008c3157ef35e1859fad252cb736d6d",
+        "source_proposal_id": "p_6e0eedd931ada617939c4031",
+        "target_proposal_id": "p_6e0eedd931ada617939c4031",
+        "historical_source_blockers": [],
+        "target_upstream_blockers": [
+          {
+            "actual": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d",
+            "code": "stale_read",
+            "expected": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+            "id": "api.timeout_seconds"
+          }
+        ],
+        "draft_inventory": {
+          "schema_version": 1,
+          "promises": [
+            {
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "quote": "Клиент повторяет только методы GET и HEAD."
+              },
+              "description": "The declared code methods must be allowed by the document.",
+              "id": "allowed-methods-promise",
+              "obligation_ids": [],
+              "requirement": {
+                "code": {
+                  "artifact_id": "code/client_config.py",
+                  "symbol": "ALLOWED_METHODS"
+                },
+                "document": {
+                  "artifact_id": "docs/reference.md",
+                  "fence_id": "retry-policy",
+                  "path": [
+                    "allowed_methods"
+                  ]
+                },
+                "relation": "code_subset_of_document",
+                "scope": {
+                  "api_version": "v1",
+                  "policy": "retry-methods"
+                },
+                "value_type": "string_set"
+              }
+            },
+            {
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "quote": "Клиент делает не более 3 попыток."
+              },
+              "description": "The declared attempt limit must equal the document value.",
+              "id": "attempt-limit-promise",
+              "obligation_ids": [],
+              "requirement": {
+                "code": {
+                  "artifact_id": "code/client_config.py",
+                  "symbol": "MAX_ATTEMPTS"
+                },
+                "document": {
+                  "artifact_id": "docs/reference.md",
+                  "fence_id": "retry-policy",
+                  "path": [
+                    "max_attempts"
+                  ]
+                },
+                "relation": "equals",
+                "scope": {
+                  "api_version": "v1",
+                  "policy": "retry-limit"
+                },
+                "value_type": "integer"
+              }
+            }
+          ]
+        },
+        "draft_coverage": {
+          "source_obligation_report_id": "obl_0167059dee7f3746438354b98f7eee73b008c3157ef35e1859fad252cb736d6d",
+          "source_obligation_report_digest": "0167059dee7f3746438354b98f7eee73b008c3157ef35e1859fad252cb736d6d",
+          "source_review_set_id": "rset_33e0a8d0f8ad90ce0733e1b286fb159c67a8fb3e3ae95c1aadfd013d0db8b62f",
+          "proposal_id": "p_6e0eedd931ada617939c4031",
+          "proposal_digest": "c38cf928487c41bc3af8f5c32e121d880c8b76742899b96d489215a6512e8c04",
+          "upstream_state": "blocked",
+          "upstream_blockers": [
+            {
+              "actual": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d",
+              "code": "stale_read",
+              "expected": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+              "id": "api.timeout_seconds"
+            }
+          ],
+          "coverage_state": "declared_coverage_incomplete",
+          "counts": {
+            "total": 2,
+            "assigned": 0,
+            "mapped": 0,
+            "anchor_verified": 2,
+            "covered": 0,
+            "matching": 0,
+            "mismatch": 0,
+            "unresolved": 0,
+            "uncovered": 2,
+            "invalid_mapping": 0,
+            "unresolved_anchor": 0,
+            "unique_requirements": 2,
+            "covered_unique_requirements": 0,
+            "assigned_obligation_ids": 0,
+            "mapped_obligation_ids": 0
+          },
+          "coverage_fraction": {
+            "numerator": 0,
+            "denominator": 2
+          },
+          "unique_requirement_fraction": {
+            "numerator": 0,
+            "denominator": 2
+          },
+          "results": [
+            {
+              "id": "allowed-methods-promise",
+              "requirement_digest": "6f902382ea655c17786ba1d10fc018bcee1e37ee414ac466dd4591eacd570f3b",
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "3205a00197847fe13afe58fe5d8ee5961fdb573855c1d417b02acf64c3f51e83",
+                "dependencies": {
+                  "api.timeout_seconds": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+                },
+                "quote": "Клиент повторяет только методы GET и HEAD.",
+                "quote_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+                "snippet": "Клиент повторяет только методы GET и HEAD.",
+                "snippet_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+                "location": {
+                  "start_offset": 48,
+                  "end_offset": 90,
+                  "start_line": 5,
+                  "end_line": 5
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "kind": "document",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "3205a00197847fe13afe58fe5d8ee5961fdb573855c1d417b02acf64c3f51e83",
+                "dependencies": {
+                  "api.timeout_seconds": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+                },
+                "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n",
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 158,
+                  "end_offset": 210,
+                  "start_line": 10,
+                  "end_line": 10
+                },
+                "resolved": true,
+                "value": [
+                  "GET",
+                  "HEAD"
+                ],
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ],
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "anchor_verified": true,
+              "mapping_state": "uncovered",
+              "satisfaction_state": "not_evaluated",
+              "mappings": [],
+              "reasons": [
+                {
+                  "code": "no_assigned_obligations"
+                }
+              ]
+            },
+            {
+              "id": "attempt-limit-promise",
+              "requirement_digest": "a1f74887a5747433e39bd0d841e551bbbb7fd2496a2aa86b8690ac7c102fe5c9",
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "3205a00197847fe13afe58fe5d8ee5961fdb573855c1d417b02acf64c3f51e83",
+                "dependencies": {
+                  "api.timeout_seconds": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+                },
+                "quote": "Клиент делает не более 3 попыток.",
+                "quote_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+                "snippet": "Клиент делает не более 3 попыток.",
+                "snippet_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+                "location": {
+                  "start_offset": 92,
+                  "end_offset": 125,
+                  "start_line": 7,
+                  "end_line": 7
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "kind": "document",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "3205a00197847fe13afe58fe5d8ee5961fdb573855c1d417b02acf64c3f51e83",
+                "dependencies": {
+                  "api.timeout_seconds": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+                },
+                "snippet": "{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n",
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 158,
+                  "end_offset": 210,
+                  "start_line": 10,
+                  "end_line": 10
+                },
+                "resolved": true,
+                "value": 3,
+                "normalized_value": 3,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims"
+              },
+              "anchor_verified": true,
+              "mapping_state": "uncovered",
+              "satisfaction_state": "not_evaluated",
+              "mappings": [],
+              "reasons": [
+                {
+                  "code": "no_assigned_obligations"
+                }
+              ]
+            }
+          ],
+          "shared_obligations": [],
+          "duplicate_requirements": [],
+          "unmapped_obligation_ids": [
+            "retry-attempts",
+            "retry-methods"
+          ],
+          "unknown_obligation_ids": [],
+          "blockers": [
+            {
+              "actual": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d",
+              "code": "stale_read",
+              "expected": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+              "id": "api.timeout_seconds"
+            },
+            {
+              "code": "promise_uncovered",
+              "promise_id": "allowed-methods-promise"
+            },
+            {
+              "code": "promise_uncovered",
+              "promise_id": "attempt-limit-promise"
+            }
+          ],
+          "state": "blocked",
+          "requires_human_review": true,
+          "auto_accept": false,
+          "live_state_checked": false,
+          "atomic_capture": false,
+          "limits": [
+            "The denominator contains only caller-declared promises; completeness over the document or project is not established.",
+            "A unique exact quote and a resolved document field pin declared locations; their semantic correspondence is not inferred or verified.",
+            "Coverage requires exact declared requirement metadata and references; coverage and comparison satisfaction are separate observations.",
+            "Several promises may share an obligation or repeat a requirement; they are not independent checks or independent evidence.",
+            "Only the embedded obligations-1 report and its captured candidate are examined; no live state or cross-database transaction is checked.",
+            "A matched configuration declaration does not establish program behavior, prose truth, authorship, or permission to accept or publish.",
+            "Coverage does not remove upstream blockers or record human review; content hashes establish internal consistency only."
+          ]
+        },
+        "results": [
+          {
+            "id": "allowed-methods-promise",
+            "state": "needs_review",
+            "original_obligation_ids": [
+              "retry-methods"
+            ],
+            "proposed_obligation_ids": [
+              "retry-methods"
+            ],
+            "draft_obligation_ids": [],
+            "transformed_requirement": {
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "symbol": "ALLOWED_METHODS"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "fence_id": "retry-policy",
+                "path": [
+                  "allowed_methods"
+                ]
+              },
+              "relation": "code_subset_of_document",
+              "scope": {
+                "api_version": "v1",
+                "policy": "retry-methods"
+              },
+              "value_type": "string_set"
+            },
+            "source": {
+              "anchor_verified": true,
+              "mapping_state": "mapped",
+              "satisfaction_state": "match",
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+                "location": {
+                  "start_offset": 48,
+                  "end_offset": 90,
+                  "start_line": 5,
+                  "end_line": 5
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "quote_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 158,
+                  "end_offset": 210,
+                  "start_line": 10,
+                  "end_line": 10
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ]
+              },
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "artifact_digest": "e6df4db09cf52be5dc7d40d5354efb41f3e9c7d370b6cfe8b02ddc34f06fc2b4",
+                "rendered_digest": "01177f9256c2dadc9fdcab1e1974ff1082910e0adb3a795fced8bab2b4894529",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "a1830cd17d0292ed2a0c052684e4f5cb68a14d6e2b8fdba4ad37fc3cba3f4243",
+                "location": {
+                  "start_offset": 78,
+                  "end_offset": 111,
+                  "start_line": 3,
+                  "end_line": 3
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ]
+              }
+            },
+            "target": {
+              "anchor_verified": true,
+              "mappings": [
+                {
+                  "obligation_id": "retry-methods",
+                  "valid": true,
+                  "different_fields": [],
+                  "status": "match",
+                  "reasons": []
+                }
+              ],
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "3205a00197847fe13afe58fe5d8ee5961fdb573855c1d417b02acf64c3f51e83",
+                "dependencies": {
+                  "api.timeout_seconds": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+                },
+                "snippet_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be",
+                "location": {
+                  "start_offset": 48,
+                  "end_offset": 90,
+                  "start_line": 5,
+                  "end_line": 5
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "quote_digest": "cb4549c0be2aaae32d64a37394fdebc7a648cd140242000419d3f7dbc9cc10be"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "3205a00197847fe13afe58fe5d8ee5961fdb573855c1d417b02acf64c3f51e83",
+                "dependencies": {
+                  "api.timeout_seconds": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+                },
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 158,
+                  "end_offset": 210,
+                  "start_line": 10,
+                  "end_line": 10
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ]
+              },
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "artifact_digest": "e6df4db09cf52be5dc7d40d5354efb41f3e9c7d370b6cfe8b02ddc34f06fc2b4",
+                "rendered_digest": "f0dbc8fd8728ec09f525071c5745caca45143d97b305a8f5d8ec9a446340bea7",
+                "dependencies": {
+                  "api.timeout_seconds": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+                },
+                "snippet_digest": "a1830cd17d0292ed2a0c052684e4f5cb68a14d6e2b8fdba4ad37fc3cba3f4243",
+                "location": {
+                  "start_offset": 78,
+                  "end_offset": 111,
+                  "start_line": 3,
+                  "end_line": 3
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": [
+                  "GET",
+                  "HEAD"
+                ]
+              }
+            },
+            "changes": {
+              "anchor": {
+                "artifact_id_changed": false,
+                "artifact_digest_changed": false,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": false,
+                "location_changed": false,
+                "dependencies_changed": true
+              },
+              "document": {
+                "artifact_id_changed": false,
+                "artifact_digest_changed": false,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": false,
+                "location_changed": false,
+                "dependencies_changed": true,
+                "normalized_value_changed": false
+              },
+              "code": {
+                "artifact_id_changed": false,
+                "artifact_digest_changed": false,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": false,
+                "location_changed": false,
+                "dependencies_changed": true,
+                "normalized_value_changed": false
+              }
+            },
+            "checks": {
+              "source_eligible": true,
+              "source_anchor_verified": true,
+              "target_anchor_verified": true,
+              "target_mapping_valid": true,
+              "document_value_unchanged": true,
+              "document_dependencies_unchanged": false,
+              "code_value_unchanged": true,
+              "code_dependencies_unchanged": false
+            },
+            "reasons": [
+              {
+                "code": "render_dependencies_changed",
+                "endpoint": "document"
+              },
+              {
+                "code": "render_dependencies_changed",
+                "endpoint": "code"
+              }
+            ]
+          },
+          {
+            "id": "attempt-limit-promise",
+            "state": "needs_review",
+            "original_obligation_ids": [
+              "retry-attempts"
+            ],
+            "proposed_obligation_ids": [
+              "retry-attempts"
+            ],
+            "draft_obligation_ids": [],
+            "transformed_requirement": {
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "symbol": "MAX_ATTEMPTS"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "fence_id": "retry-policy",
+                "path": [
+                  "max_attempts"
+                ]
+              },
+              "relation": "equals",
+              "scope": {
+                "api_version": "v1",
+                "policy": "retry-limit"
+              },
+              "value_type": "integer"
+            },
+            "source": {
+              "anchor_verified": true,
+              "mapping_state": "mapped",
+              "satisfaction_state": "match",
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+                "location": {
+                  "start_offset": 92,
+                  "end_offset": 125,
+                  "start_line": 7,
+                  "end_line": 7
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "quote_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "91226fdc049766e3fe61d0aac4aa0b9b27337dab76bcdd4611012ddc552640b3",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 158,
+                  "end_offset": 210,
+                  "start_line": 10,
+                  "end_line": 10
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": 3
+              },
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "artifact_digest": "e6df4db09cf52be5dc7d40d5354efb41f3e9c7d370b6cfe8b02ddc34f06fc2b4",
+                "rendered_digest": "01177f9256c2dadc9fdcab1e1974ff1082910e0adb3a795fced8bab2b4894529",
+                "dependencies": {
+                  "api.timeout_seconds": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6"
+                },
+                "snippet_digest": "83ecafd1c73a7cc2fe9ef67157fe2a243e3a4944bf8b39f2718e0ef13c38b546",
+                "location": {
+                  "start_offset": 112,
+                  "end_offset": 128,
+                  "start_line": 4,
+                  "end_line": 4
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": 3
+              }
+            },
+            "target": {
+              "anchor_verified": true,
+              "mappings": [
+                {
+                  "obligation_id": "retry-attempts",
+                  "valid": true,
+                  "different_fields": [],
+                  "status": "match",
+                  "reasons": []
+                }
+              ],
+              "anchor": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "3205a00197847fe13afe58fe5d8ee5961fdb573855c1d417b02acf64c3f51e83",
+                "dependencies": {
+                  "api.timeout_seconds": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+                },
+                "snippet_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2",
+                "location": {
+                  "start_offset": 92,
+                  "end_offset": 125,
+                  "start_line": 7,
+                  "end_line": 7
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "quote_digest": "9569b8be706d9ee772afcb6fa21d03e42d3673663633ba655425bc88db2230f2"
+              },
+              "document": {
+                "artifact_id": "docs/reference.md",
+                "artifact_digest": "1c1922303242920c5e61170a48bd46d83ec111dec2f2ff2d8c7258e35780a86b",
+                "rendered_digest": "3205a00197847fe13afe58fe5d8ee5961fdb573855c1d417b02acf64c3f51e83",
+                "dependencies": {
+                  "api.timeout_seconds": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+                },
+                "snippet_digest": "da2678fb7748cf9dc3bf13b995e11cec22c765c66f791967fcfbe6a0c84f4415",
+                "location": {
+                  "start_offset": 158,
+                  "end_offset": 210,
+                  "start_line": 10,
+                  "end_line": 10
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": 3
+              },
+              "code": {
+                "artifact_id": "code/client_config.py",
+                "artifact_digest": "e6df4db09cf52be5dc7d40d5354efb41f3e9c7d370b6cfe8b02ddc34f06fc2b4",
+                "rendered_digest": "f0dbc8fd8728ec09f525071c5745caca45143d97b305a8f5d8ec9a446340bea7",
+                "dependencies": {
+                  "api.timeout_seconds": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d"
+                },
+                "snippet_digest": "83ecafd1c73a7cc2fe9ef67157fe2a243e3a4944bf8b39f2718e0ef13c38b546",
+                "location": {
+                  "start_offset": 112,
+                  "end_offset": 128,
+                  "start_line": 4,
+                  "end_line": 4
+                },
+                "resolved": true,
+                "reasons": [],
+                "render_basis": "captured_candidate_current_claims",
+                "normalized_value": 3
+              }
+            },
+            "changes": {
+              "anchor": {
+                "artifact_id_changed": false,
+                "artifact_digest_changed": false,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": false,
+                "location_changed": false,
+                "dependencies_changed": true
+              },
+              "document": {
+                "artifact_id_changed": false,
+                "artifact_digest_changed": false,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": false,
+                "location_changed": false,
+                "dependencies_changed": true,
+                "normalized_value_changed": false
+              },
+              "code": {
+                "artifact_id_changed": false,
+                "artifact_digest_changed": false,
+                "rendered_digest_changed": true,
+                "snippet_digest_changed": false,
+                "location_changed": false,
+                "dependencies_changed": true,
+                "normalized_value_changed": false
+              }
+            },
+            "checks": {
+              "source_eligible": true,
+              "source_anchor_verified": true,
+              "target_anchor_verified": true,
+              "target_mapping_valid": true,
+              "document_value_unchanged": true,
+              "document_dependencies_unchanged": false,
+              "code_value_unchanged": true,
+              "code_dependencies_unchanged": false
+            },
+            "reasons": [
+              {
+                "code": "render_dependencies_changed",
+                "endpoint": "document"
+              },
+              {
+                "code": "render_dependencies_changed",
+                "endpoint": "code"
+              }
+            ]
+          }
+        ],
+        "counts": {
+          "total": 2,
+          "reusable_descriptor": 0,
+          "needs_review": 2,
+          "unresolved": 0,
+          "preserved_promises": 2,
+          "cleared_reference_promises": 2
+        },
+        "migration_state": "migration_requires_review",
+        "migration_blockers": [
+          {
+            "code": "descriptor_needs_review",
+            "promise_id": "allowed-methods-promise"
+          },
+          {
+            "code": "descriptor_needs_review",
+            "promise_id": "attempt-limit-promise"
+          }
+        ],
+        "blockers": [
+          {
+            "actual": "778912f0bf5ee6c13304db4c05a484755dc45b97e305075e2fbe647f059aef5d",
+            "code": "stale_read",
+            "expected": "78936bbf7e1a5d4874b2958fd3ea9ae9600c9031bc901330ab4b2a00a2a9fdf6",
+            "id": "api.timeout_seconds"
+          },
+          {
+            "code": "promise_uncovered",
+            "promise_id": "allowed-methods-promise"
+          },
+          {
+            "code": "promise_uncovered",
+            "promise_id": "attempt-limit-promise"
+          },
+          {
+            "code": "descriptor_needs_review",
+            "promise_id": "allowed-methods-promise"
+          },
+          {
+            "code": "descriptor_needs_review",
+            "promise_id": "attempt-limit-promise"
+          }
+        ],
+        "state": "blocked",
+        "requires_human_review": true,
+        "auto_accept": false,
+        "live_state_checked": false,
+        "atomic_capture": false,
+        "limits": [
+          "Only descriptors in the previous caller-declared inventory are considered; preservation of that denominator does not establish completeness over either document.",
+          "A reusable descriptor preserves an exact unique quote, selected typed values, declared requirement and rendering dependencies; their semantic correspondence is not inferred.",
+          "Artifact and obligation renames require an explicit injective mapping; symbols, JSON paths, scope, relation and quotes are never guessed or rewritten.",
+          "Every old promise remains in the draft; obligation references are cleared for descriptors that require review, so omission cannot silently improve coverage.",
+          "File, fragment and position changes are reported separately; unchanged selected values do not establish program behavior or truth of prose.",
+          "Rendering dependencies cover all bindings of each selected artifact; an unrelated binding change can conservatively require new consideration.",
+          "Source blockers are historical observations; target blockers remain effective. No editorial decisions or formal approvals are transferred to the target.",
+          "Only captured reports are examined, with no live-state observation or atomic transaction between databases; hashes establish internal consistency only.",
+          "A new draft always requires human review and never authorizes acceptance or publication."
+        ]
+      }
+    }
+  },
+  "final_runtime_status": {
+    "revision": 2,
+    "artifacts": 7,
+    "sources": 1,
+    "tasks": {
+      "done": 12
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 11
+    },
+    "events": 51,
+    "rules_version": "mvp-1"
+  },
+  "summary": {
+    "component_proposal_count": 7,
+    "composite_proposal_count": 4,
+    "review_set_count": 5,
+    "obligation_report_count": 5,
+    "coverage_report_count": 1,
+    "rebase_plan_count": 4,
+    "listed_promise_count": 2,
+    "packet_count": 7,
+    "decision_count": 14,
+    "journal_event_count": 25,
+    "all_original_promises_preserved": true,
+    "old_editorial_decisions_transferred": false,
+    "file_proposals_remain_unaccepted": true,
+    "human_review_recorded": false,
+    "auto_accept": false
+  },
+  "limitations": [
+    "The manually authored inventory lists two promises and does not establish completeness of a page.",
+    "Descriptor reuse compares captured declared locations, values and dependencies; it is not semantic certification or approval transfer.",
+    "The path mapping targets separately seeded artifacts; no runtime rename or deletion of original files occurs.",
+    "Fresh self-declared programmed decisions are recorded for each exact packet; identical content can share a content-addressed packet.",
+    "Fictional semantic metadata concerns retry methods only and does not independently validate whole prose or attempt limits.",
+    "Proposed Python code is not executed, no external LLM or human review is simulated, and no release is created.",
+    "Saved reports capture observations; there is no live-state check or shared transaction of the two databases.",
+    "Worker pool size is not a measured capacity, a quality benchmark or a number of independent models."
+  ]
+}

@@ -1,0 +1,128 @@
+[
+  {
+    "artifact_id": "docs/reference-v2.md",
+    "packet_id": "pkt_8065c9e1798245b489da400a67a7c07d240ee22043ec35798a65d0b34c2fe268",
+    "pair": {
+      "before": {
+        "subject": "fictional-api-client",
+        "property": "declared-retry-methods",
+        "scope": {
+          "version": "v1",
+          "policy": "retry-methods"
+        },
+        "kind": "specification",
+        "modality": "asserted",
+        "polarity": "positive",
+        "value": {
+          "type": "set",
+          "members": [
+            "GET"
+          ],
+          "complete": true
+        },
+        "attribution": "programmed scenario author",
+        "evidence": {
+          "source_id": "fictional-inventory-policy",
+          "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+          "quote": "The baseline declared retry methods are GET."
+        },
+        "text": "# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nОбъявленная политика повторов разрешает GET.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\"],\"max_attempts\":3}\n```\n"
+      },
+      "after": {
+        "subject": "fictional-api-client",
+        "property": "declared-retry-methods",
+        "scope": {
+          "version": "v1",
+          "policy": "retry-methods"
+        },
+        "kind": "specification",
+        "modality": "asserted",
+        "polarity": "positive",
+        "value": {
+          "type": "set",
+          "members": [
+            "GET",
+            "HEAD"
+          ],
+          "complete": true
+        },
+        "attribution": "programmed scenario author",
+        "evidence": {
+          "source_id": "fictional-inventory-policy",
+          "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+          "quote": "The proposed declared retry methods are GET and HEAD."
+        },
+        "text": "Кандидат размещён по явно сопоставленному пути.\n\n# Вымышленный клиент API\n\nТайм-аут: {{api.timeout_seconds}} секунд.\n\nКлиент повторяет только методы GET и HEAD.\n\nКлиент делает не более 3 попыток.\n\n```json agentwiki:retry-policy\n{\"allowed_methods\":[\"GET\",\"HEAD\"],\"max_attempts\":3}\n```\n"
+      },
+      "sources": {
+        "fictional-inventory-policy": {
+          "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n",
+          "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864"
+        }
+      }
+    }
+  },
+  {
+    "artifact_id": "code/client_config_v2.py",
+    "packet_id": "pkt_18c4520b48b63d53ceafccdc650f52bec0b4cd587c09432168f459398067aba1",
+    "pair": {
+      "before": {
+        "subject": "fictional-api-client",
+        "property": "declared-retry-methods",
+        "scope": {
+          "version": "v1",
+          "policy": "retry-methods"
+        },
+        "kind": "specification",
+        "modality": "asserted",
+        "polarity": "positive",
+        "value": {
+          "type": "set",
+          "members": [
+            "GET"
+          ],
+          "complete": true
+        },
+        "attribution": "programmed scenario author",
+        "evidence": {
+          "source_id": "fictional-inventory-policy",
+          "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+          "quote": "The baseline declared retry methods are GET."
+        },
+        "text": "\"\"\"Fictional baseline configuration.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\"}\nMAX_ATTEMPTS = 3\n"
+      },
+      "after": {
+        "subject": "fictional-api-client",
+        "property": "declared-retry-methods",
+        "scope": {
+          "version": "v1",
+          "policy": "retry-methods"
+        },
+        "kind": "specification",
+        "modality": "asserted",
+        "polarity": "positive",
+        "value": {
+          "type": "set",
+          "members": [
+            "GET",
+            "HEAD"
+          ],
+          "complete": true
+        },
+        "attribution": "programmed scenario author",
+        "evidence": {
+          "source_id": "fictional-inventory-policy",
+          "source_digest": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864",
+          "quote": "The proposed declared retry methods are GET and HEAD."
+        },
+        "text": "\"\"\"Fictional candidate at an explicitly mapped path; never executed.\"\"\"\nTIMEOUT_SECONDS = {{api.timeout_seconds}}\nALLOWED_METHODS = {\"GET\", \"HEAD\"}\nMAX_ATTEMPTS = 3\n"
+      },
+      "sources": {
+        "fictional-inventory-policy": {
+          "text": "FICTIONAL AUTHORED INVENTORY SCENARIO. Not a real client specification.\nThe baseline declared retry methods are GET.\nThe proposed declared retry methods are GET and HEAD.\nStructured set metadata concerns methods only, not attempt limits or complete program behavior.\n",
+          "sha256": "409c96ffa0b17967b44e4279efe5bf5665217b9acef12d360bb17b889fd13864"
+        }
+      }
+    }
+  }
+]

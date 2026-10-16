@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "promises": [
+    {
+      "anchor": {
+        "artifact_id": "docs/reference.md",
+        "quote": "Клиент повторяет только методы GET и HEAD."
+      },
+      "description": "The declared code methods must be allowed by the document.",
+      "id": "allowed-methods-promise",
+      "obligation_ids": [
+        "retry-methods"
+      ],
+      "requirement": {
+        "code": {
+          "artifact_id": "code/client_config.py",
+          "symbol": "ALLOWED_METHODS"
+        },
+        "document": {
+          "artifact_id": "docs/reference.md",
+          "fence_id": "retry-policy",
+          "path": [
+            "allowed_methods"
+          ]
+        },
+        "relation": "code_subset_of_document",
+        "scope": {
+          "api_version": "v1",
+          "policy": "retry-methods"
+        },
+        "value_type": "string_set"
+      }
+    },
+    {
+      "anchor": {
+        "artifact_id": "docs/reference.md",
+        "quote": "Клиент делает не более 3 попыток."
+      },
+      "description": "The declared attempt limit must equal the document value.",
+      "id": "attempt-limit-promise",
+      "obligation_ids": [
+        "retry-attempts"
+      ],
+      "requirement": {
+        "code": {
+          "artifact_id": "code/client_config.py",
+          "symbol": "MAX_ATTEMPTS"
+        },
+        "document": {
+          "artifact_id": "docs/reference.md",
+          "fence_id": "retry-policy",
+          "path": [
+            "max_attempts"
+          ]
+        },
+        "relation": "equals",
+        "scope": {
+          "api_version": "v1",
+          "policy": "retry-limit"
+        },
+        "value_type": "integer"
+      }
+    }
+  ]
+}
