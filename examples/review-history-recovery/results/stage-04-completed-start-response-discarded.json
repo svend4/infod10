@@ -1,0 +1,47 @@
+{
+  "label": "completed-start-response-discarded",
+  "explanation": "An independent CLI process commits start and exits zero; this client deliberately discards stdout and has no audit ID from that response.",
+  "runtime_status": {
+    "revision": 1,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4
+    },
+    "proposals": {
+      "proposed": 4
+    },
+    "events": 47,
+    "rules_version": "mvp-1"
+  },
+  "governance_policy_generation": 7,
+  "content_policy_generation": 4,
+  "operation_result": {
+    "label": "discarded-start-response",
+    "module": "agentwiki",
+    "command": "history-audit",
+    "action": "start",
+    "arguments": [
+      "--decision",
+      "gvd_2540ebb2b62577c1f6ea9ef8005086d4c4b7820f5f7cbd57b7ed2755ebd398c5",
+      "--expected-policy-generation",
+      "7",
+      "--expected-target-packet-digest",
+      "be15fe7666cb4fbfc70a33819eb7ac02112e6e978d2a4a9543f43b830259a4f5",
+      "--operation",
+      "recovery-main-start"
+    ],
+    "workspace": "private",
+    "credential_file": "private/admin.credential",
+    "shell": false,
+    "working_directory": "repository checkout",
+    "child_process_id": 110607,
+    "returncode": 0,
+    "stdout_discarded": true,
+    "stdout_captured": false,
+    "stderr": "",
+    "completed_child_process": true,
+    "network_failure_simulated": false,
+    "process_crash_simulated": false
+  }
+}

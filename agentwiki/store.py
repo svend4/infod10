@@ -134,6 +134,8 @@ class Store:
             connection.executescript(continuity_schema)
             from .review_history_audit import SCHEMA as history_audit_schema
             connection.executescript(history_audit_schema)
+            from .review_history_recovery import SCHEMA as history_recovery_schema
+            connection.executescript(history_recovery_schema)
         finally:
             connection.close()
 
@@ -765,6 +767,19 @@ class Store:
         from . import review_history_audit
         with self._transaction() as connection:
             return review_history_audit.show(connection, audit_id, checkpoint_id)
+
+    def continuity_audit_recover(self, operation_id: str, *, credential: str) -> dict[str, Any]:
+        from . import review_history_recovery
+        with self._transaction() as connection:
+            return review_history_recovery.recover(connection, operation_id, credential=credential)
+
+    def continuity_audit_catalogue(self, *, after_seq: int = 0,
+                                  snapshot_max_seq: int | None = None,
+                                  limit: int = 10) -> dict[str, Any]:
+        from . import review_history_recovery
+        with self._transaction() as connection:
+            return review_history_recovery.catalogue(
+                connection, after_seq=after_seq, snapshot_max_seq=snapshot_max_seq, limit=limit)
 
     def governance_grant(self, principal_id: str, role: str, artifact_ids: list[str],
                          expires_at: float, *, credential: str, new_credential: str,

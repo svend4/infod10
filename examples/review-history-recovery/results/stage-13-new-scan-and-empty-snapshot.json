@@ -1,0 +1,178 @@
+{
+  "label": "new-scan-and-empty-snapshot",
+  "explanation": "A new catalogue scan sees all four roots. The earlier ceiling zero still describes an empty set after new starts.",
+  "runtime_status": {
+    "revision": 1,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4
+    },
+    "proposals": {
+      "proposed": 4
+    },
+    "events": 53,
+    "rules_version": "mvp-1"
+  },
+  "governance_policy_generation": 7,
+  "content_policy_generation": 4,
+  "operation_result": {
+    "new_scan": {
+      "rules_version": "review-history-recovery-1",
+      "after_seq": 0,
+      "snapshot_max_seq": 52,
+      "limit": 10,
+      "scanned_count": 4,
+      "returned_count": 4,
+      "entries": [
+        {
+          "event_seq": 47,
+          "audit_id": "rha_9e028274b40f30966bf7f303157256ad8c12a57dd01c276349d9fe1eb4efc483",
+          "proposal_id": "p_7ed68bb0ade843c4292f5f7a",
+          "source_decision_id": "gvd_2540ebb2b62577c1f6ea9ef8005086d4c4b7820f5f7cbd57b7ed2755ebd398c5",
+          "target_packet": {
+            "content_policy_digest": "45dd1ee5256fc561021aa60e28706b49f8d857314c33a2e206e106e475b1f7dc",
+            "content_policy_generation": 4,
+            "packet_digest": "be15fe7666cb4fbfc70a33819eb7ac02112e6e978d2a4a9543f43b830259a4f5",
+            "packet_id": "cgp_be15fe7666cb4fbfc70a33819eb7ac02112e6e978d2a4a9543f43b830259a4f5"
+          },
+          "source_governance_generation": 4,
+          "target_governance_generation": 7,
+          "start_operation_id": "recovery-main-start",
+          "initial_checkpoint_id": "rhs_eedda2f3224d282281182abe0b96d097dcdc24e737b57dc226deaf21165ad478",
+          "observed_head": {
+            "checkpoint_id": "rhs_a5f34872270f87c830216c4e0d5618f538dda06d147960aa3245690e8a3cf7ab",
+            "index": 2,
+            "state": "history_complete",
+            "total_checked_transition_count": 3,
+            "cursor": {
+              "content_policy_digest": "45dd1ee5256fc561021aa60e28706b49f8d857314c33a2e206e106e475b1f7dc",
+              "content_policy_generation": 4,
+              "governance_generation": 7,
+              "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f"
+            }
+          },
+          "advisory_only": true,
+          "acceptance_authority": false,
+          "authority_evaluated": false
+        },
+        {
+          "event_seq": 49,
+          "audit_id": "rha_5f71e083eb9be00431b31ac244134d7fca2c6b57fcf4b9cd9e5cdf8bec28752b",
+          "proposal_id": "p_7ed68bb0ade843c4292f5f7a",
+          "source_decision_id": "gvd_2540ebb2b62577c1f6ea9ef8005086d4c4b7820f5f7cbd57b7ed2755ebd398c5",
+          "target_packet": {
+            "content_policy_digest": "45dd1ee5256fc561021aa60e28706b49f8d857314c33a2e206e106e475b1f7dc",
+            "content_policy_generation": 4,
+            "packet_digest": "be15fe7666cb4fbfc70a33819eb7ac02112e6e978d2a4a9543f43b830259a4f5",
+            "packet_id": "cgp_be15fe7666cb4fbfc70a33819eb7ac02112e6e978d2a4a9543f43b830259a4f5"
+          },
+          "source_governance_generation": 4,
+          "target_governance_generation": 7,
+          "start_operation_id": "recovery-audit-start-completed-secondary",
+          "initial_checkpoint_id": "rhs_fca0b221eefee24b23a8159a366407f90773696bb44b06c72ad1a7e823eea5c5",
+          "observed_head": {
+            "checkpoint_id": "rhs_54eb4614cc74844534585624b596b3bf3a81ca4e7f72076bd080ba8a0c8e1d88",
+            "index": 1,
+            "state": "history_complete",
+            "total_checked_transition_count": 3,
+            "cursor": {
+              "content_policy_digest": "45dd1ee5256fc561021aa60e28706b49f8d857314c33a2e206e106e475b1f7dc",
+              "content_policy_generation": 4,
+              "governance_generation": 7,
+              "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f"
+            }
+          },
+          "advisory_only": true,
+          "acceptance_authority": false,
+          "authority_evaluated": false
+        },
+        {
+          "event_seq": 51,
+          "audit_id": "rha_909a05d1ccd33f9f46a1980258c8bc13dd0af20c6910a3a640de30d3aec76d4f",
+          "proposal_id": "p_7ed68bb0ade843c4292f5f7a",
+          "source_decision_id": "gvd_2540ebb2b62577c1f6ea9ef8005086d4c4b7820f5f7cbd57b7ed2755ebd398c5",
+          "target_packet": {
+            "content_policy_digest": "45dd1ee5256fc561021aa60e28706b49f8d857314c33a2e206e106e475b1f7dc",
+            "content_policy_generation": 4,
+            "packet_digest": "be15fe7666cb4fbfc70a33819eb7ac02112e6e978d2a4a9543f43b830259a4f5",
+            "packet_id": "cgp_be15fe7666cb4fbfc70a33819eb7ac02112e6e978d2a4a9543f43b830259a4f5"
+          },
+          "source_governance_generation": 4,
+          "target_governance_generation": 7,
+          "start_operation_id": "recovery-audit-start-pending-secondary",
+          "initial_checkpoint_id": "rhs_285d80d0638b0ac6b33a5c29ce75c3997ac25be63d12ee0cda715fe7be50a590",
+          "observed_head": {
+            "checkpoint_id": "rhs_285d80d0638b0ac6b33a5c29ce75c3997ac25be63d12ee0cda715fe7be50a590",
+            "index": 0,
+            "state": "pending",
+            "total_checked_transition_count": 0,
+            "cursor": {
+              "content_policy_digest": "fcc91d3c8e36f4f67a7966d5dd3b3dce56cac4e1d43040520c8ce89daf2de3eb",
+              "content_policy_generation": 1,
+              "governance_generation": 4,
+              "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f"
+            }
+          },
+          "advisory_only": true,
+          "acceptance_authority": false,
+          "authority_evaluated": false
+        },
+        {
+          "event_seq": 52,
+          "audit_id": "rha_21043a26e9f9b91f8e8d4435682212ff2f8c5887dc481e03dd3042a1f99a6f70",
+          "proposal_id": "p_7ed68bb0ade843c4292f5f7a",
+          "source_decision_id": "gvd_2540ebb2b62577c1f6ea9ef8005086d4c4b7820f5f7cbd57b7ed2755ebd398c5",
+          "target_packet": {
+            "content_policy_digest": "45dd1ee5256fc561021aa60e28706b49f8d857314c33a2e206e106e475b1f7dc",
+            "content_policy_generation": 4,
+            "packet_digest": "be15fe7666cb4fbfc70a33819eb7ac02112e6e978d2a4a9543f43b830259a4f5",
+            "packet_id": "cgp_be15fe7666cb4fbfc70a33819eb7ac02112e6e978d2a4a9543f43b830259a4f5"
+          },
+          "source_governance_generation": 4,
+          "target_governance_generation": 7,
+          "start_operation_id": "recovery-audit-start-late-outside-ceiling",
+          "initial_checkpoint_id": "rhs_8691f39e933862aad661a6d85ab7cf71dc877c391c86659b010100da4adb1ce3",
+          "observed_head": {
+            "checkpoint_id": "rhs_8691f39e933862aad661a6d85ab7cf71dc877c391c86659b010100da4adb1ce3",
+            "index": 0,
+            "state": "pending",
+            "total_checked_transition_count": 0,
+            "cursor": {
+              "content_policy_digest": "fcc91d3c8e36f4f67a7966d5dd3b3dce56cac4e1d43040520c8ce89daf2de3eb",
+              "content_policy_generation": 1,
+              "governance_generation": 4,
+              "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f"
+            }
+          },
+          "advisory_only": true,
+          "acceptance_authority": false,
+          "authority_evaluated": false
+        }
+      ],
+      "errors": [],
+      "has_more": false,
+      "next_cursor": null,
+      "heads_observed_at": 1792492434.5306964,
+      "advisory_only": true,
+      "acceptance_authority": false,
+      "authority_evaluated": false
+    },
+    "repeated_empty": {
+      "rules_version": "review-history-recovery-1",
+      "after_seq": 0,
+      "snapshot_max_seq": 0,
+      "limit": 1,
+      "scanned_count": 0,
+      "returned_count": 0,
+      "entries": [],
+      "errors": [],
+      "has_more": false,
+      "next_cursor": null,
+      "heads_observed_at": 1792492434.6558623,
+      "advisory_only": true,
+      "acceptance_authority": false,
+      "authority_evaluated": false
+    }
+  }
+}

@@ -202,6 +202,9 @@ def main(argv: list[str] | None = None) -> int:
     history_audit_demo = commands.add_parser("history-audit-demo", help="Разобрать длинную историю рассмотрения пошаговым аудитом.")
     history_audit_demo.add_argument("--workspace", type=Path, required=True)
     history_audit_demo.add_argument("--workers", default=3, type=_workers)
+    history_recovery_demo = commands.add_parser("history-recovery-demo", help="Восстановить потерянные ответы и найти аудиты в постраничном каталоге.")
+    history_recovery_demo.add_argument("--workspace", type=Path, required=True)
+    history_recovery_demo.add_argument("--workers", default=3, type=_workers)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -269,6 +272,11 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(run_continuity_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "history-audit":
             print(json.dumps(run_history_audit_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "history-recovery-demo":
+            from .review_history_recovery_demo import run_history_recovery_demo
+
+            report = run_history_recovery_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "history-audit-demo":
             from .review_history_audit_demo import run_history_audit_demo
 

@@ -1,0 +1,47 @@
+{
+  "label": "completed-advance-response-discarded",
+  "explanation": "A separate CLI process commits one transition and exits zero; its checkpoint response is also discarded.",
+  "runtime_status": {
+    "revision": 1,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4
+    },
+    "proposals": {
+      "proposed": 4
+    },
+    "events": 48,
+    "rules_version": "mvp-1"
+  },
+  "governance_policy_generation": 7,
+  "content_policy_generation": 4,
+  "operation_result": {
+    "label": "discarded-advance-response",
+    "module": "agentwiki",
+    "command": "history-audit",
+    "action": "advance",
+    "arguments": [
+      "--audit",
+      "rha_9e028274b40f30966bf7f303157256ad8c12a57dd01c276349d9fe1eb4efc483",
+      "--expected-checkpoint",
+      "rhs_eedda2f3224d282281182abe0b96d097dcdc24e737b57dc226deaf21165ad478",
+      "--limit",
+      "1",
+      "--operation",
+      "recovery-main-first-advance"
+    ],
+    "workspace": "private",
+    "credential_file": "private/admin.credential",
+    "shell": false,
+    "working_directory": "repository checkout",
+    "child_process_id": 110609,
+    "returncode": 0,
+    "stdout_discarded": true,
+    "stdout_captured": false,
+    "stderr": "",
+    "completed_child_process": true,
+    "network_failure_simulated": false,
+    "process_crash_simulated": false
+  }
+}

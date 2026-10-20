@@ -1,0 +1,760 @@
+[
+  {
+    "generation": 1,
+    "policy": {
+      "schema_version": 2,
+      "sections": [
+        {
+          "id": "section-a",
+          "policy": {
+            "artifact_ids": [
+              "code/continuity_a.py",
+              "docs/continuity-a.md"
+            ],
+            "inventory": {
+              "promises": [
+                {
+                  "anchor": {
+                    "artifact_id": "docs/continuity-a.md",
+                    "quote": "The fictional sample limit is declared below."
+                  },
+                  "description": "The declared fictional sample limit.",
+                  "id": "sample-promise",
+                  "obligation_ids": [
+                    "sample-limit"
+                  ],
+                  "requirement": {
+                    "code": {
+                      "artifact_id": "code/continuity_a.py",
+                      "symbol": "SAMPLE_LIMIT"
+                    },
+                    "document": {
+                      "artifact_id": "docs/continuity-a.md",
+                      "fence_id": "contract",
+                      "path": [
+                        "limit"
+                      ]
+                    },
+                    "relation": "equals",
+                    "scope": {
+                      "sample": "continuity-v1"
+                    },
+                    "value_type": "integer"
+                  }
+                }
+              ],
+              "schema_version": 1
+            },
+            "schema_version": 1,
+            "spec": {
+              "obligations": [
+                {
+                  "code": {
+                    "artifact_id": "code/continuity_a.py",
+                    "symbol": "SAMPLE_LIMIT"
+                  },
+                  "description": "The fictional literal sample limit must match.",
+                  "document": {
+                    "artifact_id": "docs/continuity-a.md",
+                    "fence_id": "contract",
+                    "path": [
+                      "limit"
+                    ]
+                  },
+                  "id": "sample-limit",
+                  "relation": "equals",
+                  "scope": {
+                    "sample": "continuity-v1"
+                  },
+                  "value_type": "integer"
+                }
+              ],
+              "schema_version": 1
+            }
+          }
+        },
+        {
+          "id": "section-d",
+          "policy": {
+            "artifact_ids": [
+              "code/continuity_d.py",
+              "docs/continuity-d.md"
+            ],
+            "inventory": {
+              "promises": [
+                {
+                  "anchor": {
+                    "artifact_id": "docs/continuity-d.md",
+                    "quote": "The fictional sample limit is declared below."
+                  },
+                  "description": "The declared fictional sample limit.",
+                  "id": "sample-promise",
+                  "obligation_ids": [
+                    "sample-limit"
+                  ],
+                  "requirement": {
+                    "code": {
+                      "artifact_id": "code/continuity_d.py",
+                      "symbol": "SAMPLE_LIMIT"
+                    },
+                    "document": {
+                      "artifact_id": "docs/continuity-d.md",
+                      "fence_id": "contract",
+                      "path": [
+                        "limit"
+                      ]
+                    },
+                    "relation": "equals",
+                    "scope": {
+                      "sample": "continuity-v1"
+                    },
+                    "value_type": "integer"
+                  }
+                }
+              ],
+              "schema_version": 1
+            },
+            "schema_version": 1,
+            "spec": {
+              "obligations": [
+                {
+                  "code": {
+                    "artifact_id": "code/continuity_d.py",
+                    "symbol": "SAMPLE_LIMIT"
+                  },
+                  "description": "The fictional literal sample limit must match.",
+                  "document": {
+                    "artifact_id": "docs/continuity-d.md",
+                    "fence_id": "contract",
+                    "path": [
+                      "limit"
+                    ]
+                  },
+                  "id": "sample-limit",
+                  "relation": "equals",
+                  "scope": {
+                    "sample": "continuity-v1"
+                  },
+                  "value_type": "integer"
+                }
+              ],
+              "schema_version": 1
+            }
+          }
+        }
+      ]
+    },
+    "policy_digest": "fcc91d3c8e36f4f67a7966d5dd3b3dce56cac4e1d43040520c8ce89daf2de3eb",
+    "created_at": 1792492432.4415562,
+    "governance_policy_generation": 3,
+    "administrator_grant_id": "gvg_a9f333d01ec4f17ba9516a95011257ad"
+  },
+  {
+    "generation": 2,
+    "policy": {
+      "schema_version": 2,
+      "sections": [
+        {
+          "id": "section-a",
+          "policy": {
+            "artifact_ids": [
+              "code/continuity_a.py",
+              "docs/continuity-a.md"
+            ],
+            "inventory": {
+              "promises": [
+                {
+                  "anchor": {
+                    "artifact_id": "docs/continuity-a.md",
+                    "quote": "The fictional sample limit is declared below."
+                  },
+                  "description": "The declared fictional sample limit.",
+                  "id": "sample-promise",
+                  "obligation_ids": [
+                    "sample-limit"
+                  ],
+                  "requirement": {
+                    "code": {
+                      "artifact_id": "code/continuity_a.py",
+                      "symbol": "SAMPLE_LIMIT"
+                    },
+                    "document": {
+                      "artifact_id": "docs/continuity-a.md",
+                      "fence_id": "contract",
+                      "path": [
+                        "limit"
+                      ]
+                    },
+                    "relation": "equals",
+                    "scope": {
+                      "sample": "continuity-v1"
+                    },
+                    "value_type": "integer"
+                  }
+                }
+              ],
+              "schema_version": 1
+            },
+            "schema_version": 1,
+            "spec": {
+              "obligations": [
+                {
+                  "code": {
+                    "artifact_id": "code/continuity_a.py",
+                    "symbol": "SAMPLE_LIMIT"
+                  },
+                  "description": "The fictional literal sample limit must match.",
+                  "document": {
+                    "artifact_id": "docs/continuity-a.md",
+                    "fence_id": "contract",
+                    "path": [
+                      "limit"
+                    ]
+                  },
+                  "id": "sample-limit",
+                  "relation": "equals",
+                  "scope": {
+                    "sample": "continuity-v1"
+                  },
+                  "value_type": "integer"
+                }
+              ],
+              "schema_version": 1
+            }
+          }
+        },
+        {
+          "id": "section-d",
+          "policy": {
+            "artifact_ids": [
+              "code/continuity_d.py",
+              "docs/continuity-d.md"
+            ],
+            "inventory": {
+              "promises": [
+                {
+                  "anchor": {
+                    "artifact_id": "docs/continuity-d.md",
+                    "quote": "The fictional sample limit is declared below."
+                  },
+                  "description": "The declared fictional sample limit.",
+                  "id": "sample-promise",
+                  "obligation_ids": [
+                    "sample-limit"
+                  ],
+                  "requirement": {
+                    "code": {
+                      "artifact_id": "code/continuity_d.py",
+                      "symbol": "SAMPLE_LIMIT"
+                    },
+                    "document": {
+                      "artifact_id": "docs/continuity-d.md",
+                      "fence_id": "contract",
+                      "path": [
+                        "limit"
+                      ]
+                    },
+                    "relation": "equals",
+                    "scope": {
+                      "revision": "before-target-d-1",
+                      "sample": "continuity-v1"
+                    },
+                    "value_type": "integer"
+                  }
+                }
+              ],
+              "schema_version": 1
+            },
+            "schema_version": 1,
+            "spec": {
+              "obligations": [
+                {
+                  "code": {
+                    "artifact_id": "code/continuity_d.py",
+                    "symbol": "SAMPLE_LIMIT"
+                  },
+                  "description": "The fictional literal sample limit must match.",
+                  "document": {
+                    "artifact_id": "docs/continuity-d.md",
+                    "fence_id": "contract",
+                    "path": [
+                      "limit"
+                    ]
+                  },
+                  "id": "sample-limit",
+                  "relation": "equals",
+                  "scope": {
+                    "revision": "before-target-d-1",
+                    "sample": "continuity-v1"
+                  },
+                  "value_type": "integer"
+                }
+              ],
+              "schema_version": 1
+            }
+          }
+        }
+      ]
+    },
+    "policy_digest": "c1b5e73ffe53a7a54782f54740b57933baf93e5e1b6d1a780cf692af20ac120f",
+    "created_at": 1792492432.7086194,
+    "governance_policy_generation": 5,
+    "administrator_grant_id": "gvg_a9f333d01ec4f17ba9516a95011257ad"
+  },
+  {
+    "generation": 3,
+    "policy": {
+      "schema_version": 2,
+      "sections": [
+        {
+          "id": "section-a",
+          "policy": {
+            "artifact_ids": [
+              "code/continuity_a.py",
+              "docs/continuity-a.md"
+            ],
+            "inventory": {
+              "promises": [
+                {
+                  "anchor": {
+                    "artifact_id": "docs/continuity-a.md",
+                    "quote": "The fictional sample limit is declared below."
+                  },
+                  "description": "The declared fictional sample limit.",
+                  "id": "sample-promise",
+                  "obligation_ids": [
+                    "sample-limit"
+                  ],
+                  "requirement": {
+                    "code": {
+                      "artifact_id": "code/continuity_a.py",
+                      "symbol": "SAMPLE_LIMIT"
+                    },
+                    "document": {
+                      "artifact_id": "docs/continuity-a.md",
+                      "fence_id": "contract",
+                      "path": [
+                        "limit"
+                      ]
+                    },
+                    "relation": "equals",
+                    "scope": {
+                      "sample": "continuity-v1"
+                    },
+                    "value_type": "integer"
+                  }
+                }
+              ],
+              "schema_version": 1
+            },
+            "schema_version": 1,
+            "spec": {
+              "obligations": [
+                {
+                  "code": {
+                    "artifact_id": "code/continuity_a.py",
+                    "symbol": "SAMPLE_LIMIT"
+                  },
+                  "description": "The fictional literal sample limit must match.",
+                  "document": {
+                    "artifact_id": "docs/continuity-a.md",
+                    "fence_id": "contract",
+                    "path": [
+                      "limit"
+                    ]
+                  },
+                  "id": "sample-limit",
+                  "relation": "equals",
+                  "scope": {
+                    "sample": "continuity-v1"
+                  },
+                  "value_type": "integer"
+                }
+              ],
+              "schema_version": 1
+            }
+          }
+        },
+        {
+          "id": "section-d",
+          "policy": {
+            "artifact_ids": [
+              "code/continuity_d.py",
+              "docs/continuity-d.md"
+            ],
+            "inventory": {
+              "promises": [
+                {
+                  "anchor": {
+                    "artifact_id": "docs/continuity-d.md",
+                    "quote": "The fictional sample limit is declared below."
+                  },
+                  "description": "The declared fictional sample limit.",
+                  "id": "sample-promise",
+                  "obligation_ids": [
+                    "sample-limit"
+                  ],
+                  "requirement": {
+                    "code": {
+                      "artifact_id": "code/continuity_d.py",
+                      "symbol": "SAMPLE_LIMIT"
+                    },
+                    "document": {
+                      "artifact_id": "docs/continuity-d.md",
+                      "fence_id": "contract",
+                      "path": [
+                        "limit"
+                      ]
+                    },
+                    "relation": "equals",
+                    "scope": {
+                      "revision": "before-target-d-2",
+                      "sample": "continuity-v1"
+                    },
+                    "value_type": "integer"
+                  }
+                }
+              ],
+              "schema_version": 1
+            },
+            "schema_version": 1,
+            "spec": {
+              "obligations": [
+                {
+                  "code": {
+                    "artifact_id": "code/continuity_d.py",
+                    "symbol": "SAMPLE_LIMIT"
+                  },
+                  "description": "The fictional literal sample limit must match.",
+                  "document": {
+                    "artifact_id": "docs/continuity-d.md",
+                    "fence_id": "contract",
+                    "path": [
+                      "limit"
+                    ]
+                  },
+                  "id": "sample-limit",
+                  "relation": "equals",
+                  "scope": {
+                    "revision": "before-target-d-2",
+                    "sample": "continuity-v1"
+                  },
+                  "value_type": "integer"
+                }
+              ],
+              "schema_version": 1
+            }
+          }
+        }
+      ]
+    },
+    "policy_digest": "4575cdab41866f7e3e37ad29c258bdb3de31223c25f06fa1004d44d26f3ed7b1",
+    "created_at": 1792492432.7136657,
+    "governance_policy_generation": 6,
+    "administrator_grant_id": "gvg_a9f333d01ec4f17ba9516a95011257ad"
+  },
+  {
+    "generation": 4,
+    "policy": {
+      "schema_version": 2,
+      "sections": [
+        {
+          "id": "section-a",
+          "policy": {
+            "artifact_ids": [
+              "code/continuity_a.py",
+              "docs/continuity-a.md"
+            ],
+            "inventory": {
+              "promises": [
+                {
+                  "anchor": {
+                    "artifact_id": "docs/continuity-a.md",
+                    "quote": "The fictional sample limit is declared below."
+                  },
+                  "description": "The declared fictional sample limit.",
+                  "id": "sample-promise",
+                  "obligation_ids": [
+                    "sample-limit"
+                  ],
+                  "requirement": {
+                    "code": {
+                      "artifact_id": "code/continuity_a.py",
+                      "symbol": "SAMPLE_LIMIT"
+                    },
+                    "document": {
+                      "artifact_id": "docs/continuity-a.md",
+                      "fence_id": "contract",
+                      "path": [
+                        "limit"
+                      ]
+                    },
+                    "relation": "equals",
+                    "scope": {
+                      "sample": "continuity-v1"
+                    },
+                    "value_type": "integer"
+                  }
+                }
+              ],
+              "schema_version": 1
+            },
+            "schema_version": 1,
+            "spec": {
+              "obligations": [
+                {
+                  "code": {
+                    "artifact_id": "code/continuity_a.py",
+                    "symbol": "SAMPLE_LIMIT"
+                  },
+                  "description": "The fictional literal sample limit must match.",
+                  "document": {
+                    "artifact_id": "docs/continuity-a.md",
+                    "fence_id": "contract",
+                    "path": [
+                      "limit"
+                    ]
+                  },
+                  "id": "sample-limit",
+                  "relation": "equals",
+                  "scope": {
+                    "sample": "continuity-v1"
+                  },
+                  "value_type": "integer"
+                }
+              ],
+              "schema_version": 1
+            }
+          }
+        },
+        {
+          "id": "section-d",
+          "policy": {
+            "artifact_ids": [
+              "code/continuity_d.py",
+              "docs/continuity-d.md"
+            ],
+            "inventory": {
+              "promises": [
+                {
+                  "anchor": {
+                    "artifact_id": "docs/continuity-d.md",
+                    "quote": "The fictional sample limit is declared below."
+                  },
+                  "description": "The declared fictional sample limit.",
+                  "id": "sample-promise",
+                  "obligation_ids": [
+                    "sample-limit"
+                  ],
+                  "requirement": {
+                    "code": {
+                      "artifact_id": "code/continuity_d.py",
+                      "symbol": "SAMPLE_LIMIT"
+                    },
+                    "document": {
+                      "artifact_id": "docs/continuity-d.md",
+                      "fence_id": "contract",
+                      "path": [
+                        "limit"
+                      ]
+                    },
+                    "relation": "equals",
+                    "scope": {
+                      "revision": "before-target-d-3",
+                      "sample": "continuity-v1"
+                    },
+                    "value_type": "integer"
+                  }
+                }
+              ],
+              "schema_version": 1
+            },
+            "schema_version": 1,
+            "spec": {
+              "obligations": [
+                {
+                  "code": {
+                    "artifact_id": "code/continuity_d.py",
+                    "symbol": "SAMPLE_LIMIT"
+                  },
+                  "description": "The fictional literal sample limit must match.",
+                  "document": {
+                    "artifact_id": "docs/continuity-d.md",
+                    "fence_id": "contract",
+                    "path": [
+                      "limit"
+                    ]
+                  },
+                  "id": "sample-limit",
+                  "relation": "equals",
+                  "scope": {
+                    "revision": "before-target-d-3",
+                    "sample": "continuity-v1"
+                  },
+                  "value_type": "integer"
+                }
+              ],
+              "schema_version": 1
+            }
+          }
+        }
+      ]
+    },
+    "policy_digest": "45dd1ee5256fc561021aa60e28706b49f8d857314c33a2e206e106e475b1f7dc",
+    "created_at": 1792492432.7195675,
+    "governance_policy_generation": 7,
+    "administrator_grant_id": "gvg_a9f333d01ec4f17ba9516a95011257ad"
+  },
+  {
+    "generation": 5,
+    "policy": {
+      "schema_version": 2,
+      "sections": [
+        {
+          "id": "section-a",
+          "policy": {
+            "artifact_ids": [
+              "code/continuity_a.py",
+              "docs/continuity-a.md"
+            ],
+            "inventory": {
+              "promises": [
+                {
+                  "anchor": {
+                    "artifact_id": "docs/continuity-a.md",
+                    "quote": "The fictional sample limit is declared below."
+                  },
+                  "description": "The declared fictional sample limit.",
+                  "id": "sample-promise",
+                  "obligation_ids": [
+                    "sample-limit"
+                  ],
+                  "requirement": {
+                    "code": {
+                      "artifact_id": "code/continuity_a.py",
+                      "symbol": "SAMPLE_LIMIT"
+                    },
+                    "document": {
+                      "artifact_id": "docs/continuity-a.md",
+                      "fence_id": "contract",
+                      "path": [
+                        "limit"
+                      ]
+                    },
+                    "relation": "equals",
+                    "scope": {
+                      "sample": "continuity-v1"
+                    },
+                    "value_type": "integer"
+                  }
+                }
+              ],
+              "schema_version": 1
+            },
+            "schema_version": 1,
+            "spec": {
+              "obligations": [
+                {
+                  "code": {
+                    "artifact_id": "code/continuity_a.py",
+                    "symbol": "SAMPLE_LIMIT"
+                  },
+                  "description": "The fictional literal sample limit must match.",
+                  "document": {
+                    "artifact_id": "docs/continuity-a.md",
+                    "fence_id": "contract",
+                    "path": [
+                      "limit"
+                    ]
+                  },
+                  "id": "sample-limit",
+                  "relation": "equals",
+                  "scope": {
+                    "sample": "continuity-v1"
+                  },
+                  "value_type": "integer"
+                }
+              ],
+              "schema_version": 1
+            }
+          }
+        },
+        {
+          "id": "section-d",
+          "policy": {
+            "artifact_ids": [
+              "code/continuity_d.py",
+              "docs/continuity-d.md"
+            ],
+            "inventory": {
+              "promises": [
+                {
+                  "anchor": {
+                    "artifact_id": "docs/continuity-d.md",
+                    "quote": "The fictional sample limit is declared below."
+                  },
+                  "description": "The declared fictional sample limit.",
+                  "id": "sample-promise",
+                  "obligation_ids": [
+                    "sample-limit"
+                  ],
+                  "requirement": {
+                    "code": {
+                      "artifact_id": "code/continuity_d.py",
+                      "symbol": "SAMPLE_LIMIT"
+                    },
+                    "document": {
+                      "artifact_id": "docs/continuity-d.md",
+                      "fence_id": "contract",
+                      "path": [
+                        "limit"
+                      ]
+                    },
+                    "relation": "equals",
+                    "scope": {
+                      "revision": "after-acceptance-live-d-change",
+                      "sample": "continuity-v1"
+                    },
+                    "value_type": "integer"
+                  }
+                }
+              ],
+              "schema_version": 1
+            },
+            "schema_version": 1,
+            "spec": {
+              "obligations": [
+                {
+                  "code": {
+                    "artifact_id": "code/continuity_d.py",
+                    "symbol": "SAMPLE_LIMIT"
+                  },
+                  "description": "The fictional literal sample limit must match.",
+                  "document": {
+                    "artifact_id": "docs/continuity-d.md",
+                    "fence_id": "contract",
+                    "path": [
+                      "limit"
+                    ]
+                  },
+                  "id": "sample-limit",
+                  "relation": "equals",
+                  "scope": {
+                    "revision": "after-acceptance-live-d-change",
+                    "sample": "continuity-v1"
+                  },
+                  "value_type": "integer"
+                }
+              ],
+              "schema_version": 1
+            }
+          }
+        }
+      ]
+    },
+    "policy_digest": "69889e80bca35de5e256aa4c4a0f60217f81d2d8b818edcb60bd93ad22224793",
+    "created_at": 1792492434.9292,
+    "governance_policy_generation": 8,
+    "administrator_grant_id": "gvg_a9f333d01ec4f17ba9516a95011257ad"
+  }
+]

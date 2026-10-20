@@ -32,6 +32,26 @@ def _edge_limit(value: str) -> int:
     return limit
 
 
+def _nonnegative_sequence(value: str) -> int:
+    try:
+        sequence = int(value)
+    except ValueError as error:
+        raise argparse.ArgumentTypeError("Укажите неотрицательный целый номер последовательности.") from error
+    if sequence < 0:
+        raise argparse.ArgumentTypeError("Номер последовательности должен быть неотрицательным.")
+    return sequence
+
+
+def _catalogue_limit(value: str) -> int:
+    try:
+        limit = int(value)
+    except ValueError as error:
+        raise argparse.ArgumentTypeError("Укажите целое число записей от 1 до 20.") from error
+    if not 1 <= limit <= 20:
+        raise argparse.ArgumentTypeError("Страница каталога может содержать от 1 до 20 записей.")
+    return limit
+
+
 def _authenticated_workspace(parser: argparse.ArgumentParser) -> None:
     _workspace_argument(parser)
     _credential_argument(parser)
@@ -44,7 +64,10 @@ def register_history_audit_parser(subparsers: argparse._SubParsersAction) -> Non
         description=(
             "Совещательный аудит истории continuity с замороженной целью. "
             "Каждый advance рассматривает не более 64 переходов. "
-            "Start и advance требуют действующего административного допуска. "
+            "Start, advance и recover требуют действующего административного допуска. "
+            "Recover читает сохранённый результат операции без создания нового шага. "
+            "List фиксирует состав каталога по snapshot_max_seq; головы аудитов "
+            "наблюдаются на каждой странице отдельно. "
             "Пакет аудита и checkpoints не предоставляют полномочий принятия "
             "и не заменяют актуальные проверки Store.accept."
         ),
@@ -76,16 +99,42 @@ def register_history_audit_parser(subparsers: argparse._SubParsersAction) -> Non
     show.add_argument("--audit", required=True, help="ID аудита rha_.")
     show.add_argument("--checkpoint", help="ID исторического checkpoint rhs_; без него читается текущий.")
 
+    recover = commands.add_parser("recover", help="Восстановить сохранённый результат известной операции.")
+    _authenticated_workspace(recover)
+    recover.add_argument("--operation", required=True, help="ID ранее выполненной операции start или advance.")
+
+    catalogue = commands.add_parser(
+        "list", help="Прочитать публичную страницу каталога аудитов с фиксированным составом.",
+        description=(
+            "Состав каталога ограничен snapshot_max_seq, головы аудитов наблюдаются "
+            "на каждой странице. Для продолжения передайте оба поля next_cursor: "
+            "after_seq и snapshot_max_seq. При after_seq > 0 верхняя граница обязательна."
+        ),
+    )
+    _workspace_argument(catalogue)
+    catalogue.add_argument(
+        "--after-seq", type=_nonnegative_sequence, default=0,
+        help="Последний прочитанный номер из next_cursor.after_seq; по умолчанию 0.",
+    )
+    catalogue.add_argument(
+        "--snapshot-max-seq", type=_nonnegative_sequence,
+        help="Граница состава из next_cursor.snapshot_max_seq; обязательна при продолжении.",
+    )
+    catalogue.add_argument(
+        "--limit", type=_catalogue_limit, default=10,
+        help="Число записей на странице, 1–20; по умолчанию 10.",
+    )
+
 
 def run_history_audit_command(args: argparse.Namespace) -> Any:
     """Run one advisory operation while preserving public proof keys."""
     action = args.history_audit_command
-    if action not in {"start", "advance", "show"}:
+    if action not in {"start", "advance", "show", "recover", "list"}:
         raise WorkbenchError("unknown_history_audit_command", "Unknown history audit command")
     secrets: list[str] = []
     try:
         credential = None
-        if action != "show":
+        if action in {"start", "advance", "recover"}:
             credential = read_credential(args.credential)
             secrets.append(credential)
         database = _existing_database(args.workspace)
@@ -103,8 +152,16 @@ def run_history_audit_command(args: argparse.Namespace) -> Any:
                 expected_checkpoint_id=args.expected_checkpoint,
                 limit=args.limit, operation_id=args.operation,
             )
-        else:
+        elif action == "show":
             result = store.continuity_audit_show(args.audit, checkpoint_id=args.checkpoint)
+        elif action == "recover":
+            result = store.continuity_audit_recover(args.operation, credential=credential)
+        else:
+            result = store.continuity_audit_catalogue(
+                after_seq=args.after_seq,
+                snapshot_max_seq=args.snapshot_max_seq,
+                limit=args.limit,
+            )
     except WorkbenchError as error:
         raise WorkbenchError(_redact_text(error.code, secrets), _redact_text(str(error), secrets)) from error
     except (ValueError, OSError, RuntimeError, TypeError, sqlite3.Error) as error:

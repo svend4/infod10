@@ -1,0 +1,87 @@
+{
+  "revision": 2,
+  "artifacts": {
+    "code/continuity_a.py": {
+      "bindings": [],
+      "id": "code/continuity_a.py",
+      "kind": "code",
+      "template": "SAMPLE_LIMIT = 4\n"
+    },
+    "code/continuity_d.py": {
+      "bindings": [],
+      "id": "code/continuity_d.py",
+      "kind": "code",
+      "template": "SAMPLE_LIMIT = 3\n"
+    },
+    "docs/continuity-a.md": {
+      "bindings": [],
+      "id": "docs/continuity-a.md",
+      "kind": "document",
+      "template": "# Fictional continuity contract\n\nThe fictional sample limit is declared below.\n\n```json agentwiki:contract\n{\"limit\":4}\n```\n"
+    },
+    "docs/continuity-d.md": {
+      "bindings": [],
+      "id": "docs/continuity-d.md",
+      "kind": "document",
+      "template": "# Fictional continuity contract\n\nThe fictional sample limit is declared below.\n\n```json agentwiki:contract\n{\"limit\":3}\n```\n"
+    }
+  },
+  "digests": {
+    "code/continuity_a.py": "d5e6eccd85fda41fa62aea2e25a889d5f46dad8ae746e2e33e488e07d6bf9c58",
+    "code/continuity_d.py": "8ec6948a16b09e251a3145d6e32cea9ed3b2c5f25c531966cd7e2384f41c457e",
+    "docs/continuity-a.md": "0aeccfe1ff373048b4d46234bbfb9745658bfdd4df61a5671da370a3db7adf09",
+    "docs/continuity-d.md": "cb32fda65a18d0b02826d2129b5308e3f096dd30ced0f3a912e993be5fb4974b"
+  },
+  "queries": {
+    "api:v1": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "platforms:api-v1": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+  },
+  "dependencies": {
+    "code/continuity_a.py": {
+      "proposal_id": "p_7ed68bb0ade843c4292f5f7a",
+      "baseline_revision": 2,
+      "readset": {
+        "code/continuity_a.py": "d5e6eccd85fda41fa62aea2e25a889d5f46dad8ae746e2e33e488e07d6bf9c58",
+        "docs/continuity-a.md": "0aeccfe1ff373048b4d46234bbfb9745658bfdd4df61a5671da370a3db7adf09"
+      },
+      "queries": {},
+      "write_ids": [
+        "code/continuity_a.py",
+        "docs/continuity-a.md"
+      ]
+    },
+    "code/continuity_d.py": {
+      "proposal_id": null,
+      "baseline_revision": 1,
+      "readset": {},
+      "queries": {},
+      "write_ids": [
+        "code/continuity_d.py"
+      ]
+    },
+    "docs/continuity-a.md": {
+      "proposal_id": "p_7ed68bb0ade843c4292f5f7a",
+      "baseline_revision": 2,
+      "readset": {
+        "code/continuity_a.py": "d5e6eccd85fda41fa62aea2e25a889d5f46dad8ae746e2e33e488e07d6bf9c58",
+        "docs/continuity-a.md": "0aeccfe1ff373048b4d46234bbfb9745658bfdd4df61a5671da370a3db7adf09"
+      },
+      "queries": {},
+      "write_ids": [
+        "code/continuity_a.py",
+        "docs/continuity-a.md"
+      ]
+    },
+    "docs/continuity-d.md": {
+      "proposal_id": null,
+      "baseline_revision": 1,
+      "readset": {},
+      "queries": {},
+      "write_ids": [
+        "docs/continuity-d.md"
+      ]
+    }
+  },
+  "dependency_coverage": "complete",
+  "sources": {}
+}

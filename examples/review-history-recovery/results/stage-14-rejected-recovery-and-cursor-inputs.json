@@ -1,0 +1,51 @@
+{
+  "label": "rejected-recovery-and-cursor-inputs",
+  "explanation": "Unknown operations, missing administrative authority and three invalid catalogue arguments are rejected without events.",
+  "runtime_status": {
+    "revision": 1,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4
+    },
+    "proposals": {
+      "proposed": 4
+    },
+    "events": 53,
+    "rules_version": "mvp-1"
+  },
+  "governance_policy_generation": 7,
+  "content_policy_generation": 4,
+  "operation_result": [
+    {
+      "label": "recover-unknown-operation",
+      "rejected": true,
+      "code": "audit_operation_not_found",
+      "event_count_unchanged": true
+    },
+    {
+      "label": "recover-without-administrator",
+      "rejected": true,
+      "code": "governance_unauthorized",
+      "event_count_unchanged": true
+    },
+    {
+      "label": "catalogue-future-ceiling",
+      "rejected": true,
+      "code": "audit_invalid_input",
+      "event_count_unchanged": true
+    },
+    {
+      "label": "catalogue-after-without-ceiling",
+      "rejected": true,
+      "code": "audit_invalid_input",
+      "event_count_unchanged": true
+    },
+    {
+      "label": "catalogue-limit-over-20",
+      "rejected": true,
+      "code": "audit_invalid_input",
+      "event_count_unchanged": true
+    }
+  ]
+}

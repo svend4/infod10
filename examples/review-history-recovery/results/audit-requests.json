@@ -1,0 +1,44 @@
+{
+  "main-start-with-discarded-response": {
+    "decision_id": "gvd_2540ebb2b62577c1f6ea9ef8005086d4c4b7820f5f7cbd57b7ed2755ebd398c5",
+    "expected_policy_generation": 7,
+    "expected_target_packet_digest": "be15fe7666cb4fbfc70a33819eb7ac02112e6e978d2a4a9543f43b830259a4f5",
+    "operation_id": "recovery-main-start"
+  },
+  "main-advance-with-discarded-response": {
+    "audit_id": "rha_9e028274b40f30966bf7f303157256ad8c12a57dd01c276349d9fe1eb4efc483",
+    "expected_checkpoint_id": "rhs_eedda2f3224d282281182abe0b96d097dcdc24e737b57dc226deaf21165ad478",
+    "limit": 1,
+    "operation_id": "recovery-main-first-advance"
+  },
+  "completed-secondary-start": {
+    "decision_id": "gvd_2540ebb2b62577c1f6ea9ef8005086d4c4b7820f5f7cbd57b7ed2755ebd398c5",
+    "expected_policy_generation": 7,
+    "expected_target_packet_digest": "be15fe7666cb4fbfc70a33819eb7ac02112e6e978d2a4a9543f43b830259a4f5",
+    "operation_id": "recovery-audit-start-completed-secondary"
+  },
+  "completed-secondary-advance": {
+    "audit_id": "rha_5f71e083eb9be00431b31ac244134d7fca2c6b57fcf4b9cd9e5cdf8bec28752b",
+    "expected_checkpoint_id": "rhs_fca0b221eefee24b23a8159a366407f90773696bb44b06c72ad1a7e823eea5c5",
+    "limit": 3,
+    "operation_id": "recovery-secondary-complete"
+  },
+  "pending-secondary-start": {
+    "decision_id": "gvd_2540ebb2b62577c1f6ea9ef8005086d4c4b7820f5f7cbd57b7ed2755ebd398c5",
+    "expected_policy_generation": 7,
+    "expected_target_packet_digest": "be15fe7666cb4fbfc70a33819eb7ac02112e6e978d2a4a9543f43b830259a4f5",
+    "operation_id": "recovery-audit-start-pending-secondary"
+  },
+  "late-outside-ceiling-start": {
+    "decision_id": "gvd_2540ebb2b62577c1f6ea9ef8005086d4c4b7820f5f7cbd57b7ed2755ebd398c5",
+    "expected_policy_generation": 7,
+    "expected_target_packet_digest": "be15fe7666cb4fbfc70a33819eb7ac02112e6e978d2a4a9543f43b830259a4f5",
+    "operation_id": "recovery-audit-start-late-outside-ceiling"
+  },
+  "main-complete": {
+    "audit_id": "rha_9e028274b40f30966bf7f303157256ad8c12a57dd01c276349d9fe1eb4efc483",
+    "expected_checkpoint_id": "rhs_8fa783e820a8280542d3bddb40e402c6b7f8f3f2c48c4cff7b970f07a2740035",
+    "limit": 2,
+    "operation_id": "recovery-main-complete"
+  }
+}
