@@ -254,6 +254,10 @@ def _transition(connection: sqlite3.Connection, generation: int,
     size = connection.execute("SELECT length(CAST(body AS BLOB)),typeof(body) FROM review_continuity_transitions"
                               " WHERE from_governance_generation=?", (generation,)).fetchone()
     if size is None:
+        if connection.execute("SELECT 1 FROM content_policies WHERE governance_policy_generation=? LIMIT 1",
+                              (generation + 1,)).fetchone() is not None:
+            raise WorkbenchError("continuity_history_invalid",
+                                 "A recorded content policy update is missing its continuity edge")
         return None
     _require(size[1] == "text" and size[0] <= MAX_TRANSITION_BYTES,
              "continuity_history_invalid", "Continuity edge exceeds its bound")
