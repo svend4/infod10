@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-20T11:20:29.988614+02:00",
+  "created_at_utc": "2026-10-20T09:20:29.988890+00:00",
+  "kind": "bounded_review_continuity_product_example",
+  "workers": 3,
+  "actors": {
+    "authenticated_local_capability_principals": true,
+    "persons_authenticated": false,
+    "human_review_recorded": false,
+    "independent_people_or_models_established": false,
+    "external_llm_used": false,
+    "proposed_code_executed": false
+  },
+  "main_proposal_id": "p_92809563f915085696be8fe7",
+  "accepted_content_packet_id": "cgp_9e32eb9df54966209f8a8e9c9250294297175f790b2e2118e0f9d90e49f8a137",
+  "initial_content_packet_id": "cgp_7149c6e04fe1e4c925726c32c22806f8e0c2568a36b11208185862d33f8bf43a",
+  "initial_review_basis_digest": "7cfd37c5ca0a411982728bb00e1e03f7f0db808fec43eda5295351efc6ad1e1d",
+  "initial_approval_decision_ids": [
+    "gvd_75ba79f5563ddb6f17c9d77ec65df5f7aed904c1b45ddac6e23e66bc8e625ee5",
+    "gvd_463022c3003ec3f7a3746855b633579618f1f6464564d25f6a5dcad1c6ef70cb",
+    "gvd_4bca4d164f5be2a98df1b7f43534a359a5fa74cfcf3c6da2005e4a300599f7b0",
+    "gvd_5f894c557882033c65b266d007b59054d6e303f2a66e64765d189a67e675e530"
+  ],
+  "accepted_approval_decision_ids": [
+    "gvd_fd5f01eaa81aaac760b45eb9284a5c6b83ed9e062ec573704608e36acd832230",
+    "gvd_09231bb2fe412afafda5d2ecd1c1a62599bbee930fdb0052d1547688dd85255d",
+    "gvd_c92806466abd4b0ce0797d7a5e5b4071673ec1df695e37c2ddfb4432500918cc",
+    "gvd_b8a9497ba1c40854fdc0614622f2f8c0f1cd4ba969661b406ef24d5b8460ab88"
+  ],
+  "governance_policy_generation": 75,
+  "content_policy_generation": 71,
+  "editorial_policy": {
+    "schema_version": 1,
+    "minimum_reviewers": 2,
+    "separate_coordinator": true
+  },
+  "stages": [
+    {
+      "label": "authenticated-candidate",
+      "explanation": "Three author jobs and one composition retain local provenance; the code is stored data.",
+      "artifact": "stage-01-authenticated-candidate.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "preactivation-opinion",
+      "explanation": "An ordinary content-pinned opinion is saved before continuity; it receives no future stamp retroactively.",
+      "artifact": "stage-02-preactivation-opinion.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "continuity-activated",
+      "explanation": "Explicit activation advances governance and requires fresh decisions; schema-one downgrade is refused.",
+      "artifact": "stage-03-continuity-activated.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "exact-current-approvals",
+      "explanation": "Two local reviewers pin each write and its local basis; a wrong packet or absent grant is rejected.",
+      "artifact": "stage-04-exact-current-approvals.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "unrelated-catalog-keeps-votes",
+      "explanation": "D changes the full packet, but A's local basis and four original approvals remain current without new votes.",
+      "artifact": "stage-05-unrelated-catalog-keeps-votes.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "current-objection-blocks",
+      "explanation": "A third current reviewer records request_changes; the existing quorum cannot bypass the veto.",
+      "artifact": "stage-06-current-objection-blocks.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "objection-survives-unrelated-edit",
+      "explanation": "The same continuity rule carries request_changes and approvals through another unrelated D edit.",
+      "artifact": "stage-07-objection-survives-unrelated-edit.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "objection-explicitly-replaced",
+      "explanation": "C explicitly supersedes the objection with abstain; A/B approvals are still the original four decisions.",
+      "artifact": "stage-08-objection-explicitly-replaced.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "revoked-grant-stops-votes",
+      "explanation": "Continuity does not override a grant revocation; the original B votes stop counting.",
+      "artifact": "stage-09-revoked-grant-stops-votes.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "reissued-grant-does-not-restore",
+      "explanation": "A new B grant has the same principal but cannot reactivate decisions tied to the revoked grant.",
+      "artifact": "stage-10-reissued-grant-does-not-restore.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "fresh-grant-decisions",
+      "explanation": "B writes two new CAS-linked opinions with the current grant; A's original approvals remain usable.",
+      "artifact": "stage-11-fresh-grant-decisions.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "selected-change-and-return",
+      "explanation": "A changed and returned to its old local basis; every intermediate edge is checked, so the old opinions do not revive.",
+      "artifact": "stage-12-selected-change-and-return.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "fresh-after-selected-change",
+      "explanation": "Fresh opinions supersede A/B heads after the selected-context barrier; old objects remain historical.",
+      "artifact": "stage-13-fresh-after-selected-change.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "direct-governance-reset",
+      "explanation": "An identical direct governance policy creates a generation gap without a catalog transition; fresh review is required.",
+      "artifact": "stage-14-direct-governance-reset.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "fresh-after-direct-reset",
+      "explanation": "The current A/B grants explicitly approve the current exact packet after the governance reset.",
+      "artifact": "stage-15-fresh-after-direct-reset.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "objection-before-long-history",
+      "explanation": "C records a fresh objection at the same generation as the current quorum, before the bounded catalog history grows.",
+      "artifact": "stage-16-objection-before-long-history.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "bounded-history-requires-consideration",
+      "explanation": "After 65 unrelated updates, old current heads exceed the 64-edge reader and require explicit fresh consideration.",
+      "artifact": "stage-17-bounded-history-requires-consideration.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "fresh-quorum-keeps-old-objection-blocker",
+      "explanation": "A/B supply a fresh quorum, but C's unresolved current-head objection remains a proposal-level blocker.",
+      "artifact": "stage-18-fresh-quorum-keeps-old-objection-blocker.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "objection-explicitly-reconsidered",
+      "explanation": "C explicitly replaces the old head with a current abstain; the fresh A/B quorum can now be considered.",
+      "artifact": "stage-19-objection-explicitly-reconsidered.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "accepted-with-preserved-quorum",
+      "explanation": "One final unrelated D transition preserves the same four A/B decisions; receipt schema 4 pins their old/current packets and transition proofs.",
+      "artifact": "stage-20-accepted-with-preserved-quorum.json",
+      "runtime_revision": 2
+    },
+    {
+      "label": "historical-replays-preserve-objects",
+      "explanation": "Current authorized replays return old objects, including an unstamped preactivation decision, without new votes or acceptance events.",
+      "artifact": "stage-21-historical-replays-preserve-objects.json",
+      "runtime_revision": 2
+    }
+  ],
+  "initial_runtime_revision": 1,
+  "final_runtime_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 3
+    },
+    "events": 277,
+    "rules_version": "mvp-1"
+  },
+  "summary": {
+    "author_job_count": 3,
+    "composite_proposal_count": 1,
+    "registered_author_principal_count": 2,
+    "root_contributor_count": 3,
+    "decision_count": 23,
+    "stage_count": 21,
+    "catalog_update_count": 70,
+    "bounded_sweep_update_count": 65,
+    "expected_api_rejection_count": 4,
+    "blocked_acceptance_count": 8,
+    "runtime_event_count": 277,
+    "accepted_proposal_count": 1,
+    "acceptance_receipt_schema": 4,
+    "accepted_content_packet_schema": 2,
+    "unrelated_change_kept_original_decision_ids": true,
+    "unrelated_change_kept_local_basis": true,
+    "selected_change_restore_did_not_revive_votes": true,
+    "history_limit_kept_objection_blocker": true,
+    "final_receipt_preserves_existing_decisions": true,
+    "release_created": false,
+    "credential_material_exported": false,
+    "measured_capacity": false,
+    "semantic_equivalence_proved": false
+  },
+  "credential_file_layout": {
+    "administrator": "private/admin.credential",
+    "active_document_author": "private/document-author.credential",
+    "active_code_author": "private/code-author.credential",
+    "active_integrator": "private/integrator.credential",
+    "active_reviewer_a": "private/reviewer-a.credential",
+    "active_reviewer_b": "private/reviewer-b-current.credential",
+    "active_reviewer_c": "private/reviewer-c.credential",
+    "active_coordinator": "private/coordinator.credential",
+    "private_database": "private/state.sqlite3"
+  },
+  "limitations": [
+    "The SQLite owner, local clock and declared administrative policy are trusted; internal hashes are not external certification.",
+    "Programmed local principal IDs and bearer grants do not authenticate people, models, expertise, independence or understanding.",
+    "Local basis equality covers the complete declared packet projection, not the truth or completeness of natural-language documentation.",
+    "Every recorded catalog edge is checked; selected-policy change-and-restore cannot reactivate old votes.",
+    "Content-data read/query freshness remains digest-based; restoring intermediate data bytes is not a new general ABA detector.",
+    "Continuity carries all verdicts only through a proven bounded path; unresolved current heads past the limit require fresh consideration or grant revocation.",
+    "The 65-update sweep is a bounded functional history example, not a throughput, load, cost or scalability measurement.",
+    "Proposed Python is parsed as declared data and never executed; external LLMs and human review are absent.",
+    "Status and separate JSON snapshots are advisory observations; Store.accept is the transaction boundary for new acceptance.",
+    "Credentials, their hashes and SQLite remain private; the command creates no release or Git publication."
+  ]
+}

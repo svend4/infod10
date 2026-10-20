@@ -1,0 +1,147 @@
+{
+  "schema_version": 2,
+  "sections": [
+    {
+      "id": "section-a",
+      "policy": {
+        "artifact_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ],
+        "inventory": {
+          "promises": [
+            {
+              "anchor": {
+                "artifact_id": "docs/continuity-a.md",
+                "quote": "The fictional sample limit is declared below."
+              },
+              "description": "The declared fictional sample limit.",
+              "id": "sample-promise",
+              "obligation_ids": [
+                "sample-limit"
+              ],
+              "requirement": {
+                "code": {
+                  "artifact_id": "code/continuity_a.py",
+                  "symbol": "SAMPLE_LIMIT"
+                },
+                "document": {
+                  "artifact_id": "docs/continuity-a.md",
+                  "fence_id": "contract",
+                  "path": [
+                    "limit"
+                  ]
+                },
+                "relation": "equals",
+                "scope": {
+                  "sample": "continuity-v1"
+                },
+                "value_type": "integer"
+              }
+            }
+          ],
+          "schema_version": 1
+        },
+        "schema_version": 1,
+        "spec": {
+          "obligations": [
+            {
+              "code": {
+                "artifact_id": "code/continuity_a.py",
+                "symbol": "SAMPLE_LIMIT"
+              },
+              "description": "The fictional literal sample limit must match.",
+              "document": {
+                "artifact_id": "docs/continuity-a.md",
+                "fence_id": "contract",
+                "path": [
+                  "limit"
+                ]
+              },
+              "id": "sample-limit",
+              "relation": "equals",
+              "scope": {
+                "sample": "continuity-v1"
+              },
+              "value_type": "integer"
+            }
+          ],
+          "schema_version": 1
+        }
+      }
+    },
+    {
+      "id": "section-d",
+      "policy": {
+        "artifact_ids": [
+          "code/continuity_d.py",
+          "docs/continuity-d.md"
+        ],
+        "inventory": {
+          "promises": [
+            {
+              "anchor": {
+                "artifact_id": "docs/continuity-d.md",
+                "quote": "The fictional sample limit is declared below."
+              },
+              "description": "The declared fictional sample limit.",
+              "id": "sample-promise",
+              "obligation_ids": [
+                "sample-limit"
+              ],
+              "requirement": {
+                "code": {
+                  "artifact_id": "code/continuity_d.py",
+                  "symbol": "SAMPLE_LIMIT"
+                },
+                "document": {
+                  "artifact_id": "docs/continuity-d.md",
+                  "fence_id": "contract",
+                  "path": [
+                    "limit"
+                  ]
+                },
+                "relation": "equals",
+                "scope": {
+                  "revision": "final-unrelated",
+                  "sample": "continuity-v1",
+                  "token": "public-continuity-label"
+                },
+                "value_type": "integer"
+              }
+            }
+          ],
+          "schema_version": 1
+        },
+        "schema_version": 1,
+        "spec": {
+          "obligations": [
+            {
+              "code": {
+                "artifact_id": "code/continuity_d.py",
+                "symbol": "SAMPLE_LIMIT"
+              },
+              "description": "The fictional literal sample limit must match.",
+              "document": {
+                "artifact_id": "docs/continuity-d.md",
+                "fence_id": "contract",
+                "path": [
+                  "limit"
+                ]
+              },
+              "id": "sample-limit",
+              "relation": "equals",
+              "scope": {
+                "revision": "final-unrelated",
+                "sample": "continuity-v1",
+                "token": "public-continuity-label"
+              },
+              "value_type": "integer"
+            }
+          ],
+          "schema_version": 1
+        }
+      }
+    }
+  ]
+}

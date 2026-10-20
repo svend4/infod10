@@ -204,9 +204,19 @@ def set_policy(connection: sqlite3.Connection, policy: Any, *, credential: Any,
                expected_policy_generation: Any) -> dict[str, Any]:
     current = current_policy(connection)
     validated = _policy(policy)
+    from . import review_continuity
+    continuous = review_continuity.enabled(connection)
+    if continuous and validated["schema_version"] != 2:
+        raise WorkbenchError("continuity_schema_required", "Review continuity requires a schema 2 catalog")
+    # A direct governance change may have happened since the last catalog
+    # update. Capture its actual head; an unrecorded generation stays a barrier.
+    previous_governance = governance.current_policy(connection) if continuous else None
     changed = _append_policy(connection, validated, credential=credential,
                              expected_policy_generation=expected_policy_generation,
                              generation=current["generation"] + 1)
+    if continuous:
+        review_continuity.record_transition(connection, current, previous_governance,
+                                            current_policy(connection), governance.current_policy(connection))
     result = {"enabled": True, "rules_version": RULES_VERSION,
               "current_policy": current_policy(connection),
               "policy_generation": changed["governance_policy_generation"],

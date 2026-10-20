@@ -1,0 +1,150 @@
+{
+  "label": "authenticated-candidate",
+  "explanation": "Three author jobs and one composition retain local provenance; the code is stored data.",
+  "runtime_revision": 1,
+  "content": {
+    "enabled": false,
+    "rules_version": "content-gate-1",
+    "trusted_database_owner_can_bypass": true,
+    "limits": [
+      "Only the administrator-declared inventory and its exact artifact bundle are covered; completeness over other text or project requirements is not established.",
+      "Exact unique quotations and resolved fields pin declared locations; correspondence between prose and those fields is not inferred or verified.",
+      "Literal Python declarations do not establish program behavior; proposed code is parsed with bounded AST rules and is never executed.",
+      "Matches do not establish prose truth, external evidence, human identity, independent people or independent models.",
+      "A standalone packet does not authorize acceptance; formal review, current runtime bases, authorship and governance remain separate requirements.",
+      "The SQLite owner and application implementation remain trusted; hashes provide internal consistency rather than external certification."
+    ]
+  },
+  "continuity": {
+    "enabled": false,
+    "rules_version": "review-continuity-1",
+    "maximum_transitions": 64,
+    "limits": [
+      "Continuity covers the same immutable proposal and the entire selected review basis, not another proposal or a claim of prose truth.",
+      "Every intervening governance increment must be a recorded content-policy transition preserving the selected catalog context on both sides.",
+      "A selected-policy change followed by a return to its old value does not restore the old opinion.",
+      "A direct governance policy update, even with the same body, is a barrier rather than a continuity transition.",
+      "At most 64 intervening transitions are examined; a recent verified direct-policy barrier invalidates older opinions, while otherwise unresolved history requires reconsideration or grant revocation.",
+      "Original grant validity, current heads, scope, contributor separation, formal review and runtime freshness remain separate requirements.",
+      "The SQLite owner and local clock remain trusted; hashes do not authenticate people, establish independent expertise or externally attest history."
+    ],
+    "trusted_database_owner_can_bypass": true,
+    "human_identity_authenticated": false
+  },
+  "operation_result": {
+    "authors": {
+      "alternative-document": {
+        "label": "alternative-document",
+        "principal_id": "continuity-document-author",
+        "thread": "continuity-author_0",
+        "task_id": "continuity-author-alternative-document",
+        "fencing_token": 1,
+        "proposal_id": "p_41c7733274190b2707f52275",
+        "digest": "17d7bd402757dbbf788494e08000cf21d84be2498f6f6459cac7674389c21159",
+        "replayed": false,
+        "authorship": {
+          "authorship_id": "awp_69fa8ddbc528ab051a4d5013043d3094b094585c23c0c02ed86889c5873a1299",
+          "authorship_digest": "69fa8ddbc528ab051a4d5013043d3094b094585c23c0c02ed86889c5873a1299",
+          "principal_id": "continuity-document-author",
+          "contributor_principals": [
+            "continuity-document-author"
+          ],
+          "write_ids": [
+            "docs/continuity-a.md"
+          ]
+        }
+      },
+      "code-a": {
+        "label": "code-a",
+        "principal_id": "continuity-code-author",
+        "thread": "continuity-author_1",
+        "task_id": "continuity-author-code-a",
+        "fencing_token": 1,
+        "proposal_id": "p_e6ff8b50db96183101d62c14",
+        "digest": "68a4f86a7007efe9974e3e978ddec0879f8938c483fdb24a30191491ba0c9484",
+        "replayed": false,
+        "authorship": {
+          "authorship_id": "awp_f7b2ef82fa451188d24a4bfb795107cded9bf1ff5189eaa4ef5812a2de924185",
+          "authorship_digest": "f7b2ef82fa451188d24a4bfb795107cded9bf1ff5189eaa4ef5812a2de924185",
+          "principal_id": "continuity-code-author",
+          "contributor_principals": [
+            "continuity-code-author"
+          ],
+          "write_ids": [
+            "code/continuity_a.py"
+          ]
+        }
+      },
+      "document-a": {
+        "label": "document-a",
+        "principal_id": "continuity-document-author",
+        "thread": "continuity-author_2",
+        "task_id": "continuity-author-document-a",
+        "fencing_token": 1,
+        "proposal_id": "p_1a987acb29e7d014522d94ed",
+        "digest": "e9e42716c40bdd4e0f3990fda1e0cc09e2acd9bab98112c29f8b7df28394931e",
+        "replayed": false,
+        "authorship": {
+          "authorship_id": "awp_f082de5b15708ca61b90708b5a336c4e326b2c4263565cf2a92f45cf58395feb",
+          "authorship_digest": "f082de5b15708ca61b90708b5a336c4e326b2c4263565cf2a92f45cf58395feb",
+          "principal_id": "continuity-document-author",
+          "contributor_principals": [
+            "continuity-document-author"
+          ],
+          "write_ids": [
+            "docs/continuity-a.md"
+          ]
+        }
+      }
+    },
+    "composition": {
+      "proposal_id": "p_92809563f915085696be8fe7",
+      "digest": "af316a98baa28ee1422c733b176b41e6e42106f3d7377235267a857d650f5d11",
+      "replayed": false,
+      "components": [
+        {
+          "position": 1,
+          "proposal_id": "p_1a987acb29e7d014522d94ed",
+          "digest": "e9e42716c40bdd4e0f3990fda1e0cc09e2acd9bab98112c29f8b7df28394931e",
+          "write_ids": [
+            "docs/continuity-a.md"
+          ]
+        },
+        {
+          "position": 2,
+          "proposal_id": "p_e6ff8b50db96183101d62c14",
+          "digest": "68a4f86a7007efe9974e3e978ddec0879f8938c483fdb24a30191491ba0c9484",
+          "write_ids": [
+            "code/continuity_a.py"
+          ]
+        }
+      ],
+      "authorship": {
+        "authorship_id": "awp_9807bae52062712852e35dbe1c3900886818167f61fb6d9b543e46e6cb004329",
+        "authorship_digest": "9807bae52062712852e35dbe1c3900886818167f61fb6d9b543e46e6cb004329",
+        "principal_id": "continuity-integrator",
+        "contributor_principals": [
+          "continuity-code-author",
+          "continuity-document-author",
+          "continuity-integrator"
+        ],
+        "write_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ]
+      }
+    },
+    "formal_review": {
+      "proposal_id": "p_92809563f915085696be8fe7",
+      "proposal_digest": "af316a98baa28ee1422c733b176b41e6e42106f3d7377235267a857d650f5d11",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "continuity-reviewer-a",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 1
+    }
+  }
+}

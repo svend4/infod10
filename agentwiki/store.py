@@ -130,6 +130,8 @@ class Store:
             connection.executescript(authorship_schema)
             from .content_gate import SCHEMA as content_schema
             connection.executescript(content_schema)
+            from .review_continuity import SCHEMA as continuity_schema
+            connection.executescript(continuity_schema)
         finally:
             connection.close()
 
@@ -719,6 +721,20 @@ class Store:
         from . import content_gate
         with self._transaction() as connection:
             return content_gate.load_packet(connection, packet_id)
+
+    def continuity_enable(self, *, credential: str,
+                          expected_policy_generation: int) -> dict[str, Any]:
+        from . import review_continuity
+        with self._transaction(write=True) as connection:
+            return review_continuity.enable(connection, credential=credential,
+                                            expected_policy_generation=expected_policy_generation)
+
+    def continuity_status(self, proposal_id: str | None = None) -> dict[str, Any]:
+        from . import review_continuity
+        with self._transaction() as connection:
+            if proposal_id is not None:
+                self._find_proposal(connection, proposal_id)
+            return review_continuity.status(connection, proposal_id)
 
     def governance_grant(self, principal_id: str, role: str, artifact_ids: list[str],
                          expires_at: float, *, credential: str, new_credential: str,

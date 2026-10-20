@@ -332,6 +332,8 @@ def decide(connection: sqlite3.Connection, proposal: sqlite3.Row, artifact_id: A
                               (proposal["id"], artifact_id, reviewer["principal_id"])).fetchone()
     if (head[0] if head else None) != expected_previous_decision:
         raise WorkbenchError("governance_decision_conflict", "Previous decision does not match the current principal head")
+    from . import review_continuity
+    continuity_stamp = review_continuity.stamp(connection, packet) if review_continuity.enabled(connection) else None
     now = time.time()
     authorize(connection, credential, "reviewer", [artifact_id], now=now)
     body = {"schema_version": 1, "rules_version": RULES_VERSION, **request,
@@ -340,6 +342,9 @@ def decide(connection: sqlite3.Connection, proposal: sqlite3.Row, artifact_id: A
         content_gate.save_packet(connection, packet)
         body["schema_version"] = 2
         body["content_packet"] = _content_pin(packet)
+    if continuity_stamp is not None:
+        body["schema_version"] = 3
+        body["review_continuity"] = continuity_stamp
     body["decision_id"] = "gvd_" + digest(body)
     connection.execute("INSERT INTO governance_decisions(decision_id,proposal_id,artifact_id,principal_id,grant_id,body) VALUES (?,?,?,?,?,?)",
                        (body["decision_id"], proposal["id"], artifact_id, reviewer["principal_id"], reviewer["grant_id"], canonical(body)))
@@ -357,7 +362,8 @@ def observe(connection: sqlite3.Connection, proposal: sqlite3.Row, coordinator: 
     sampled = time.time() if now is None else now
     policy = current_policy(connection)
     reasons = []
-    from . import authorship, content_gate
+    from . import authorship, content_gate, review_continuity
+    continuous = review_continuity.enabled(connection)
     attribution = None
     contributors: set[str] = set()
     if authorship.enabled(connection):
@@ -387,10 +393,15 @@ def observe(connection: sqlite3.Connection, proposal: sqlite3.Row, coordinator: 
             invalid.append("superseded")
         if body["proposal_digest"] != proposal["digest"]:
             invalid.append("proposal_digest_changed")
-        if body["policy_generation"] != policy["generation"] or body["policy_digest"] != policy["policy_digest"]:
+        continuity_match = None
+        if continuous:
+            continuity_match = review_continuity.match_decision(connection, body, packet)
+            if not continuity_match["valid"]:
+                invalid.extend(continuity_match["reasons"] or ["continuity_match_invalid"])
+        elif body["policy_generation"] != policy["generation"] or body["policy_digest"] != policy["policy_digest"]:
             invalid.append("policy_generation_changed")
         if packet is not None:
-            if not _content_decision_matches(body, packet):
+            if not continuous and not _content_decision_matches(body, packet):
                 invalid.append("content_packet_changed")
             if body["verdict"] == "approve" and not packet["eligible"]:
                 invalid.append("content_packet_blocked")
@@ -405,9 +416,20 @@ def observe(connection: sqlite3.Connection, proposal: sqlite3.Row, coordinator: 
         if (policy["policy"]["separate_coordinator"] and body["verdict"] == "approve"
                 and body["principal_id"] == coordinator["principal_id"]):
             invalid.append("coordinator_separated")
-        observations.append({**body, "current_head": body["decision_id"] in heads,
-                             "grant_expires_at": grant["expires_at"] if grant else None,
-                             "valid": not invalid, "invalid_reasons": invalid})
+        if (continuous and continuity_match is not None
+                and len(continuity_match["reasons"]) == 1
+                and continuity_match["reasons"][0] in {"continuity_history_limit", "continuity_history_invalid"}
+                and invalid == continuity_match["reasons"]):
+            # An unresolved old veto must not silently disappear just because
+            # its history is malformed or exceeds the bounded reader. A fresh
+            # head or revocation is needed before this proposal can be accepted.
+            reasons.append(reason("continuity_reconsideration_required", decision_id=body["decision_id"]))
+        item = {**body, "current_head": body["decision_id"] in heads,
+                "grant_expires_at": grant["expires_at"] if grant else None,
+                "valid": not invalid, "invalid_reasons": invalid}
+        if continuous:
+            item["continuity_match"] = continuity_match
+        observations.append(item)
     writes = []
     for identifier in write_ids(proposal):
         valid = [item for item in observations if item["artifact_id"] == identifier and item["valid"]]
@@ -444,6 +466,13 @@ def observe(connection: sqlite3.Connection, proposal: sqlite3.Row, coordinator: 
                                 "contributor_principals": attribution["contributor_principals"]}
     if packet is not None:
         result["content"] = packet
+    if continuous:
+        matches = {item["decision_id"]: item["continuity_match"] for item in observations}
+        result["review_continuity"] = {
+            **review_continuity.stamp(connection, packet),
+            "used_decisions": {decision_id: matches[decision_id]["proof"]
+                               for write in writes for decision_id in write["used_decision_ids"]},
+        }
     return result
 
 
@@ -459,7 +488,8 @@ def finalize_observation(connection: sqlite3.Connection, proposal: sqlite3.Row,
     """
     identifiers = write_ids(proposal)
     failures = []
-    from . import authorship, content_gate
+    from . import authorship, content_gate, review_continuity
+    continuous = review_continuity.enabled(connection)
     contributors: set[str] = set()
     if authorship.enabled(connection):
         attribution = authorship.validate(connection, proposal["id"])
@@ -477,8 +507,31 @@ def finalize_observation(connection: sqlite3.Connection, proposal: sqlite3.Row,
         previous_packet = observation.get("content")
         if previous_packet is None or _content_pin(previous_packet) != _content_pin(packet):
             failures.append(reason("content_packet_changed"))
-    # Sample authority after the provenance and content scans, so a grant
-    # expiring during either scan cannot pass with an earlier timestamp.
+    prepared_matches = {}
+    selected_bodies = {}
+    continuity_summary = None
+    if continuous:
+        # Full historical packet and transition validation can be expensive.
+        # Resolve every selected proof before sampling current grant authority.
+        for write in observation["writes"]:
+            for decision_id in write["used_decision_ids"]:
+                row = connection.execute("SELECT body FROM governance_decisions WHERE decision_id=?", (decision_id,)).fetchone()
+                body = json.loads(row[0]) if row else None
+                selected_bodies[decision_id] = body
+                if body is None:
+                    failures.append(reason("governance_selected_approval_invalid", artifact_id=write["artifact_id"], decision_id=decision_id))
+                    continue
+                matched = review_continuity.match_decision(connection, body, packet)
+                prepared_matches[decision_id] = matched
+                if not matched["valid"]:
+                    failures.append(reason("continuity_selected_approval_invalid", artifact_id=write["artifact_id"],
+                                           decision_id=decision_id, continuity_reasons=matched["reasons"]))
+        continuity_summary = {
+            **review_continuity.stamp(connection, packet),
+            "used_decisions": {identifier: matched["proof"] for identifier, matched in prepared_matches.items()},
+        }
+    # Sample authority after provenance, content and continuity scans, so a
+    # grant expiring during any of those scans cannot pass with an old time.
     now = time.time()
     coordinator = authorize(connection, credential, "coordinator", identifiers, now=now)
     policy = current_policy(connection)
@@ -492,8 +545,11 @@ def finalize_observation(connection: sqlite3.Connection, proposal: sqlite3.Row,
                                actual=policy["generation"]))
     for write in observation["writes"]:
         for decision_id in write["used_decision_ids"]:
-            row = connection.execute("SELECT body FROM governance_decisions WHERE decision_id=?", (decision_id,)).fetchone()
-            body = json.loads(row[0]) if row else None
+            if continuous:
+                body = selected_bodies[decision_id]
+            else:
+                row = connection.execute("SELECT body FROM governance_decisions WHERE decision_id=?", (decision_id,)).fetchone()
+                body = json.loads(row[0]) if row else None
             if body is None:
                 failures.append(reason("governance_selected_approval_invalid", artifact_id=write["artifact_id"], decision_id=decision_id))
                 continue
@@ -501,24 +557,33 @@ def finalize_observation(connection: sqlite3.Connection, proposal: sqlite3.Row,
             grant = _grant_public(connection, grant_row, now) if grant_row else None
             head = connection.execute("SELECT decision_id FROM governance_heads WHERE proposal_id=? AND artifact_id=? AND principal_id=?",
                                       (proposal["id"], write["artifact_id"], body["principal_id"])).fetchone()
+            policy_and_content_valid = (
+                prepared_matches[decision_id]["valid"] if continuous else (
+                    body["policy_generation"] == policy["generation"] and body["policy_digest"] == policy["policy_digest"]
+                    and (packet is None or (packet["eligible"] and _content_decision_matches(body, packet)))
+                )
+            )
             valid = (grant is not None and grant["role"] == "reviewer" and not grant["revoked"]
                      and grant["principal_id"] == body["principal_id"]
                      and write["artifact_id"] in grant["artifact_ids"]
                      and body["artifact_id"] == write["artifact_id"]
                      and body["proposal_id"] == proposal["id"] and body["proposal_digest"] == proposal["digest"]
-                     and body["policy_generation"] == policy["generation"] and body["policy_digest"] == policy["policy_digest"]
+                     and policy_and_content_valid
                      and body["verdict"] == "approve" and head is not None and head[0] == decision_id
                      and body["principal_id"] not in contributors
-                     and (packet is None or (packet["eligible"] and _content_decision_matches(body, packet)))
+                     and (not continuous or packet["eligible"])
                      and (not policy["policy"]["separate_coordinator"] or body["principal_id"] != coordinator["principal_id"]))
             if not valid:
                 failures.append(reason("governance_selected_approval_invalid", artifact_id=write["artifact_id"], decision_id=decision_id))
             elif grant["expired"]:
                 failures.append(reason("governance_approval_expired", artifact_id=write["artifact_id"], decision_id=decision_id))
-    return {**observation, "authorization_time": now,
-            "eligible": observation["eligible"] and not failures,
-            "reasons": [*observation["reasons"], *failures],
-            "authorization_reasons": failures}, coordinator
+    result = {**observation, "authorization_time": now,
+              "eligible": observation["eligible"] and not failures,
+              "reasons": [*observation["reasons"], *failures],
+              "authorization_reasons": failures}
+    if continuous:
+        result["review_continuity"] = continuity_summary
+    return result, coordinator
 
 
 def receipt(connection: sqlite3.Connection, proposal: sqlite3.Row, revision: int,
@@ -545,7 +610,12 @@ def receipt(connection: sqlite3.Connection, proposal: sqlite3.Row, revision: int
         content_gate.save_packet(connection, packet)
         body["schema_version"] = 3
         body["content_packet"] = _content_pin(packet)
+    if "review_continuity" in observation:
+        body["schema_version"] = 4
+        body["review_continuity"] = observation["review_continuity"]
     body["receipt_id"] = "gvr_" + digest(body)
+    if body["schema_version"] == 4 and len(canonical(body).encode("utf-8")) > 4_000_000:
+        raise WorkbenchError("continuity_receipt_too_large", "Continuity acceptance receipt exceeds 4 MB")
     connection.execute("INSERT INTO governance_receipts VALUES (?,?,?)", (proposal["id"], body["receipt_id"], canonical(body)))
     return body
 
