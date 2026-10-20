@@ -1,0 +1,75 @@
+{
+  "label": "publication-and-seal-launched-together",
+  "explanation": "Two ordinary requests share a launch barrier. Publication either completes under its writer reservation or observes the committed fence.",
+  "source_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 5,
+      "leased": 1,
+      "pending": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 4
+    },
+    "events": 63,
+    "rules_version": "mvp-1"
+  },
+  "snapshot_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4,
+      "leased": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 3
+    },
+    "events": 52,
+    "rules_version": "mvp-1"
+  },
+  "observations": {
+    "launch_barrier_participants": 2,
+    "publication": {
+      "outcome": "completed",
+      "started_monotonic_ns": 173339696839882,
+      "finished_monotonic_ns": 173339706573448,
+      "release_id": "r2-c6edc44b6754ad41",
+      "revision": 2,
+      "manifest_content_file_count": 8,
+      "relative_directory": "pre-fence-release/r2-c6edc44b6754ad41",
+      "release_files_exported_with_this_report": false
+    },
+    "seal_receipt": {
+      "event_count_before": 62,
+      "source_writes_blocked": true,
+      "trusted_database_owner_can_bypass": true,
+      "fence_id": "sfn_bee0cb9e4cff927cab56cfea4b4ac9ae",
+      "source_epoch": "sfe_4554be953ab355338c2850ea3ec2b2b7",
+      "plan_id": "rcp_3ea97f08a5f56f8f1f9eebb775b4f9b2",
+      "administrator_grant_id": "gvg_54dd99bf026132099cfce18c07dc4cfa",
+      "irreversible": true,
+      "operation_id": "source-fence-demo-seal",
+      "fence_event_seq": 63,
+      "rules_version": "source-fence-1",
+      "revision": 2,
+      "event_high_water_before": 62,
+      "snapshot_activation_allowed": false,
+      "external_fencing_established": false,
+      "created_at": 1792498231.0392992,
+      "publication_blocked": true,
+      "schema_version": 1
+    },
+    "writer_reservation_contract": "BEGIN IMMEDIATE through publication cleanup and seal commit",
+    "observed_return_times_are_commit_times": false,
+    "lock_attempt_overlap_measured": false,
+    "both_orderings_intentionally_forced": false,
+    "forced_delays_or_hooks_used": false,
+    "source_event_count_before": 62,
+    "source_event_count_after": 63
+  }
+}

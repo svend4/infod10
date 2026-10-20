@@ -412,7 +412,7 @@ def create_backup(database_path: str | Path, destination: str | Path, *, credent
     Failure leaves a private incomplete destination. It is never completed by a
     retry or used as an active Store; choose a new destination for another try.
     """
-    from . import governance, store_quarantine
+    from . import governance, source_fence, store_quarantine
 
     _support()
     source_path, destination_path = _path(database_path), _path(destination)
@@ -430,10 +430,14 @@ def create_backup(database_path: str | Path, destination: str | Path, *, credent
             code = "snapshot_incomplete" if error.code == "store_snapshot_incomplete" else "snapshot_source_invalid"
             raise WorkbenchError(code, "Snapshot source is incomplete or malformed") from error
         _require(existing_marker is None, "snapshot_source_invalid", "Creating another backup from a quarantined snapshot is unsupported")
+        _require(source_fence.probe(source_path) is None,
+                 "store_source_fenced", "A fenced source cannot authorize a new backup")
         with _connection(source_path, deadline, readonly=True) as source:
             source.execute("BEGIN")
             _require(not store_quarantine.quarantine_present(source),
                      "snapshot_source_invalid", "Creating another backup from a quarantined snapshot is unsupported")
+            _require(source_fence.fence_info(source) is None,
+                     "store_source_fenced", "A fenced source cannot authorize a new backup")
             administrator = governance.authorize(source, credential, "administrator")
             _supported_schema(source, marked=False)
             source_metadata = _metadata(source)
@@ -489,6 +493,8 @@ def create_backup(database_path: str | Path, destination: str | Path, *, credent
             fresh.execute("BEGIN")
             _require(not store_quarantine.quarantine_present(fresh),
                      "snapshot_source_invalid", "Source became a quarantined snapshot during backup")
+            _require(source_fence.fence_info(fresh) is None,
+                     "store_source_fenced", "The source stopped writes during backup creation")
             current = governance.authorize(fresh, credential, "administrator")
             _require(current["grant_id"] == administrator["grant_id"],
                      "governance_unauthorized", "Administrator grant changed during snapshot creation")

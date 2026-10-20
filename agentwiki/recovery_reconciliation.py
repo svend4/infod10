@@ -238,11 +238,15 @@ def _source_path(path: Path) -> None:
 
 @contextmanager
 def _source(path: Path, credential: Any, deadline: float) -> Iterator[tuple[sqlite3.Connection, dict[str, Any]]]:
+    from . import source_fence
+
     _source_path(path)
     with store_backup._connection(path, deadline, readonly=True) as connection:
         connection.execute("BEGIN")
         _require(not store_quarantine.quarantine_present(connection),
                  "recovery_source_invalid", "A quarantined snapshot cannot supply live authority")
+        _require(source_fence.fence_info(connection) is None,
+                 "recovery_source_invalid", "A fenced source cannot supply live recovery authority")
         store_backup._supported_schema(connection, marked=False)
         page_size = connection.execute("PRAGMA page_size").fetchone()[0]
         page_count = connection.execute("PRAGMA page_count").fetchone()[0]

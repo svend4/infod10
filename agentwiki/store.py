@@ -110,6 +110,18 @@ CREATE TABLE IF NOT EXISTS events (
 """
 
 
+def _execute_schema(connection: sqlite3.Connection, script: str) -> None:
+    """Execute only trusted application SQL without an implicit COMMIT."""
+    pieces: list[str] = []
+    for character in script:
+        pieces.append(character)
+        if character == ";" and sqlite3.complete_statement("".join(pieces)):
+            connection.execute("".join(pieces))
+            pieces.clear()
+    if "".join(pieces).strip():
+        raise RuntimeError("Application schema contains an incomplete SQL statement")
+
+
 class Store:
     """Use one connection per operation; compatible with local threads/processes.
 
@@ -120,52 +132,90 @@ class Store:
     def __init__(self, path: str | Path):
         self.path = Path(path)
         self._inspection_only = False
-        from . import store_quarantine
+        self._source_fenced = False
+        from . import source_fence, store_quarantine
         marker = store_quarantine.probe(self.path)
-        if marker is not None:
-            self._inspection_only = True
+        fence = source_fence.probe(self.path)
+        self._inspection_only = marker is not None
+        self._source_fenced = fence is not None
+        if self._inspection_only or self._source_fenced:
             return
         self.path.parent.mkdir(parents=True, exist_ok=True)
         connection = self._connect()
         try:
-            # A copy may have replaced this path since the initial probe.
-            # Inspect its actual connection before any writable initialization.
-            if store_quarantine.quarantine_info(connection) is not None:
-                self._inspection_only = True
+            if self._record_access_markers(connection):
                 return
-            connection.execute("PRAGMA journal_mode=WAL")
-            connection.executescript(SCHEMA)
+            fresh = connection.execute("SELECT 1 FROM main.sqlite_schema LIMIT 1").fetchone() is None
+            if fresh:
+                # Changing journal mode requires autocommit. EXCLUSIVE locking
+                # mode retains the lock across that boundary until close, so
+                # another initializer/seal cannot win between this recheck and
+                # the fresh database's WAL setup.
+                connection.execute("PRAGMA locking_mode=EXCLUSIVE")
+                connection.execute("BEGIN EXCLUSIVE")
+                if self._record_access_markers(connection):
+                    connection.rollback()
+                    return
+                fresh = connection.execute("SELECT 1 FROM main.sqlite_schema LIMIT 1").fetchone() is None
+                connection.commit()
+                if fresh:
+                    connection.execute("PRAGMA journal_mode=WAL")
+            # Existing initialized stores retain their journal mode. The
+            # reservation also serializes all schema work with source sealing.
+            connection.execute("BEGIN IMMEDIATE")
+            if self._record_access_markers(connection):
+                connection.rollback()
+                return
+            _execute_schema(connection, SCHEMA)
             from .governance import SCHEMA as governance_schema
-            connection.executescript(governance_schema)
+            _execute_schema(connection, governance_schema)
             from .authorship import SCHEMA as authorship_schema
-            connection.executescript(authorship_schema)
+            _execute_schema(connection, authorship_schema)
             from .content_gate import SCHEMA as content_schema
-            connection.executescript(content_schema)
+            _execute_schema(connection, content_schema)
             from .review_continuity import SCHEMA as continuity_schema
-            connection.executescript(continuity_schema)
+            _execute_schema(connection, continuity_schema)
             from .review_history_audit import SCHEMA as history_audit_schema
-            connection.executescript(history_audit_schema)
+            _execute_schema(connection, history_audit_schema)
             from .review_history_recovery import SCHEMA as history_recovery_schema
-            connection.executescript(history_recovery_schema)
+            _execute_schema(connection, history_recovery_schema)
+            connection.commit()
+        except BaseException:
+            connection.rollback()
+            raise
         finally:
             connection.close()
 
-    def _connect(self) -> sqlite3.Connection:
-        from . import store_quarantine
-        marker = store_quarantine.probe(self.path)
-        if marker is not None:
-            self._inspection_only = True
-            return store_quarantine.readonly_connection(self.path)
-        if self._inspection_only:
+    def _record_access_markers(self, connection: sqlite3.Connection) -> bool:
+        """Check the actual database before any initialization or write body."""
+        from . import source_fence, store_quarantine
+        marker = store_quarantine.quarantine_info(connection)
+        fence = source_fence.fence_info(connection)
+        if self._inspection_only and marker is None:
             raise WorkbenchError("store_snapshot_invalid", "An inspection-only Store lost its snapshot marker")
+        if self._source_fenced and fence is None:
+            raise WorkbenchError("store_source_fence_invalid", "A fenced Store lost its source marker")
+        self._inspection_only = marker is not None
+        self._source_fenced = fence is not None
+        return self._inspection_only or self._source_fenced
+
+    def _connect(self) -> sqlite3.Connection:
+        from . import source_fence, store_quarantine
+        marker = store_quarantine.probe(self.path)
+        fence = source_fence.probe(self.path)
+        if self._inspection_only and marker is None:
+            raise WorkbenchError("store_snapshot_invalid", "An inspection-only Store lost its snapshot marker")
+        if self._source_fenced and fence is None:
+            raise WorkbenchError("store_source_fence_invalid", "A fenced Store lost its source marker")
+        self._inspection_only = marker is not None
+        self._source_fenced = fence is not None
+        if self._inspection_only or self._source_fenced:
+            return store_quarantine.readonly_connection(self.path)
         connection = sqlite3.connect(self.path, timeout=30, isolation_level=None)
         try:
             connection.row_factory = sqlite3.Row
-            # The read-only probe and this open are separate operations. Check
-            # the opened database again before applying active connection setup.
-            if store_quarantine.quarantine_info(connection) is not None:
+            if self._record_access_markers(connection):
                 connection.close()
-                self._inspection_only = True
                 return store_quarantine.readonly_connection(self.path)
             connection.execute("PRAGMA foreign_keys=ON")
             connection.execute("PRAGMA busy_timeout=30000")
@@ -179,14 +229,17 @@ class Store:
     def _transaction(self, write: bool = False) -> Iterator[sqlite3.Connection]:
         connection = self._connect()
         try:
-            from . import store_quarantine
             readonly = bool(connection.execute("PRAGMA query_only").fetchone()[0])
             connection.execute("BEGIN IMMEDIATE" if write and not readonly else "BEGIN")
-            marker = store_quarantine.quarantine_info(connection)
-            if write and (readonly or marker is not None):
+            self._record_access_markers(connection)
+            if write and self._inspection_only:
                 # This check runs before the action body, including completed
                 # operation replays, and before a write BEGIN on a read-only DB.
                 raise WorkbenchError("store_snapshot_quarantined", "Snapshot copies permit inspection only")
+            if write and self._source_fenced:
+                raise WorkbenchError("store_source_fenced", "The source has permanently stopped Store writes")
+            if write and readonly:
+                raise WorkbenchError("store_source_fence_invalid", "A read-only Store has no valid access marker")
             yield connection
             connection.commit()
         except BaseException:
@@ -197,25 +250,34 @@ class Store:
 
     def snapshot_access(self) -> dict[str, Any]:
         """Describe this path's current access boundary without authorizing it."""
-        from . import store_quarantine
+        from . import source_fence, store_quarantine
         with self._transaction() as connection:
             marker = store_quarantine.quarantine_info(connection)
+            fence = source_fence.fence_info(connection)
             quarantined = marker is not None
+            fenced = fence is not None
+            inspection_only = quarantined or fenced
             result = {"rules_version": store_quarantine.RULES_VERSION,
-                      "quarantined": quarantined, "inspection_only": quarantined,
-                      "domain_writes_allowed": not quarantined,
+                      "quarantined": quarantined, "source_fenced": fenced,
+                      "inspection_only": inspection_only,
+                      "domain_writes_allowed": not inspection_only,
                       "historical_authorization_only": quarantined,
-                      "live_authorization_allowed": not quarantined,
+                      "live_authorization_allowed": not inspection_only,
                       "trusted_database_owner_can_bypass": True}
             if marker is not None:
                 result.update({key: marker[key] for key in (
                     "backup_id", "quarantine_id", "source_revision", "event_high_water", "created_at")})
+            if fence is not None:
+                result["source_fence"] = fence
             return result
 
     def create_backup(self, destination: str | Path, *, credential: str) -> dict[str, Any]:
         """Create a private snapshot bundle; it does not activate another Store."""
-        if self.snapshot_access()["inspection_only"]:
+        access = self.snapshot_access()
+        if access["quarantined"]:
             raise WorkbenchError("store_snapshot_quarantined", "Snapshot copies cannot authorize a new backup")
+        if access["source_fenced"]:
+            raise WorkbenchError("store_source_fenced", "A fenced source cannot authorize a new backup")
         from . import store_backup
         return store_backup.create_backup(self.path, destination, credential=credential)
 
@@ -1078,19 +1140,21 @@ class Store:
 
     def publish(self, output_dir: str | Path) -> dict[str, Any]:
         """Export a pinned snapshot. No live site or active release is switched."""
-        with self._transaction() as connection:
-            from . import store_quarantine
-            if store_quarantine.quarantine_info(connection) is not None:
-                raise WorkbenchError("store_snapshot_quarantined", "Snapshot copies cannot publish a release")
-            revision = self._revision(connection)
-            row = connection.execute("SELECT * FROM revisions WHERE revision=?", (revision,)).fetchone()
-            if not row:
-                raise WorkbenchError("empty_store", "Bootstrap before exporting")
-            artifacts = json.loads(row["state"])
-            dependencies = self._dependencies(connection)
-            sources = {source["id"]: dict(source) for source in connection.execute("SELECT * FROM sources ORDER BY id")}
-        # Rendering and disk I/O happen after the read transaction, using only
-        # the captured immutable state, never later reads of current artifacts.
+        # This reservation serializes the entire filesystem effect, including
+        # cleanup, with source sealing. It writes no domain rows or events.
+        with self._transaction(write=True) as connection:
+            return self._publish(connection, output_dir)
+
+    def _publish(self, connection: sqlite3.Connection, output_dir: str | Path) -> dict[str, Any]:
+        revision = self._revision(connection)
+        row = connection.execute("SELECT * FROM revisions WHERE revision=?", (revision,)).fetchone()
+        if not row:
+            raise WorkbenchError("empty_store", "Bootstrap before exporting")
+        artifacts = json.loads(row["state"])
+        dependencies = self._dependencies(connection)
+        sources = {source["id"]: dict(source) for source in connection.execute("SELECT * FROM sources ORDER BY id")}
+        # Rendering uses the captured immutable state while retaining the
+        # writer reservation through all output and staging cleanup below.
         publication_errors = self._publication_errors(artifacts, dependencies)
         if publication_errors:
             raise WorkbenchError("release_needs_review", canonical(publication_errors))
