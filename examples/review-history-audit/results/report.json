@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-20T11:54:46.371739+02:00",
+  "created_at_utc": "2026-10-20T09:54:46.372430+00:00",
+  "kind": "advisory_incremental_review_history_audit_product_example",
+  "workers": 3,
+  "actors": {
+    "authenticated_local_capability_principals": true,
+    "persons_authenticated": false,
+    "human_review_recorded": false,
+    "independent_people_or_models_established": false,
+    "external_llm_used": false,
+    "proposed_code_executed": false
+  },
+  "main_proposal_id": "p_25a194d4bc2fa81d0cd502b1",
+  "main_audit_id": "rha_28defa4e10c7803ee8429735005b6d5aef3e2323c51895b63b34794afcf14807",
+  "main_source_decision_id": "gvd_ecebfd5421fccc0f5fa13dca7d54ae5580402ae954291bcdff046a2a5151acde",
+  "main_target_packet_id": "cgp_f81b2b6616773358e09d43299b66f143e5e01026e6722b5ccb1e1fca40263dcb",
+  "main_target_governance_generation": 134,
+  "main_completed_checkpoint_id": "rhs_a916f59846f62fd51f8c9c87d790417bbf18053f6c1b3f941f8f5be5c7a16f4d",
+  "main_checkpoint_ids": [
+    "rhs_4e3db1b7d224d1b5136d9b5a8823a15ea44aaee360f7233e6327071068aae660",
+    "rhs_68dd6993b730d8c35bf32cbd81680cbadc5cecde980592bafeecbe8ac78f93a3",
+    "rhs_1a23bef5815fc2fff42e398b5ce235456bc6c9c37c756dcd04b56c327df24927",
+    "rhs_a916f59846f62fd51f8c9c87d790417bbf18053f6c1b3f941f8f5be5c7a16f4d"
+  ],
+  "scope_changed_audit_id": "rha_1313c7c6ed27b9d3b69b9aac706ba88fd7bb34a8042a7794d7419b43883c450f",
+  "governance_reset_audit_id": "rha_39ed68de698fc458d2577592d34e8f416cf13c43bc0b291fd5c3475ac7c70d9b",
+  "accepted_content_packet_id": "cgp_1fa917c2aa03a70f6533223bfe8920190a0622f64af0352f3c29ec99c243c8ae",
+  "final_governance_policy_generation": 138,
+  "final_content_policy_generation": 134,
+  "main_first_chunk_request": {
+    "audit_id": "rha_28defa4e10c7803ee8429735005b6d5aef3e2323c51895b63b34794afcf14807",
+    "expected_checkpoint_id": "rhs_4e3db1b7d224d1b5136d9b5a8823a15ea44aaee360f7233e6327071068aae660",
+    "limit": 64,
+    "operation_id": "history-audit-race-2"
+  },
+  "stages": [
+    {
+      "label": "authenticated-candidate",
+      "explanation": "Three local author jobs and one composition prepare a fictional candidate; formal review is recorded.",
+      "artifact": "stage-01-authenticated-candidate.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "initial-quorum-and-objection",
+      "explanation": "Two reviewers approve both writes; C explicitly requests changes. The audit does not grant review authority.",
+      "artifact": "stage-02-initial-quorum-and-objection.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "long-history-keeps-acceptance-bound",
+      "explanation": "130 unrelated catalog updates exceed the unchanged 64-edge acceptance reader; current heads require reconsideration.",
+      "artifact": "stage-03-long-history-keeps-acceptance-bound.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "audit-freezes-an-exact-target",
+      "explanation": "The administrator starts an advisory audit of C's exact source decision and the current target packet.",
+      "artifact": "stage-04-audit-freezes-an-exact-target.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "live-catalog-does-not-move-target",
+      "explanation": "A later D edit changes live state, while the audit header and its initial checkpoint remain unchanged.",
+      "artifact": "stage-05-live-catalog-does-not-move-target.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "checkpoint-CAS-selects-one-writer",
+      "explanation": "Two operations propose the same checkpoint; one advances 64 edges and the other receives a CAS conflict.",
+      "artifact": "stage-06-checkpoint-CAS-selects-one-writer.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "second-bounded-chunk",
+      "explanation": "A second transaction checks the next 64 transitions and links its immutable checkpoint to the previous segment.",
+      "artifact": "stage-07-second-bounded-chunk.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "frozen-history-completed",
+      "explanation": "The final two transitions complete exactly the frozen target, excluding the later live D edit. Completion stays advisory.",
+      "artifact": "stage-08-frozen-history-completed.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "old-chunk-replay-is-historical",
+      "explanation": "The first operation is replayed after later checkpoints; its old body is returned without new events or head movement.",
+      "artifact": "stage-09-old-chunk-replay-is-historical.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "completed-audit-does-not-authorize",
+      "explanation": "Store.accept retains the MAX64 contract after the advisory audit has completed; no vote or grant was upgraded.",
+      "artifact": "stage-10-completed-audit-does-not-authorize.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "fresh-quorum-does-not-clear-old-head",
+      "explanation": "Fresh A/B approvals supply a quorum, but C's unresolved old head remains a proposal-level blocker.",
+      "artifact": "stage-11-fresh-quorum-does-not-clear-old-head.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "fresh-objection-remains-a-veto",
+      "explanation": "C explicitly records a current request_changes. Historical uncertainty is replaced by an active objection, not an approval.",
+      "artifact": "stage-12-fresh-objection-remains-a-veto.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "selected-change-return-audit-started",
+      "explanation": "A's selected policy changes and returns; a separate audit targets both recorded transitions from a fresh source.",
+      "artifact": "stage-13-selected-change-return-audit-started.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "selected-policy-barrier-is-explained",
+      "explanation": "The audit stops at the selected-context change even though the final selected policy has returned to its former body.",
+      "artifact": "stage-14-selected-policy-barrier-is-explained.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "direct-reset-audit-started",
+      "explanation": "A fresh source precedes an identical direct governance policy update; this is a reset, not a content-only edge.",
+      "artifact": "stage-15-direct-reset-audit-started.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "governance-reset-is-explained",
+      "explanation": "The separate audit terminates at a known direct policy reset. It does not manufacture a successful continuity edge.",
+      "artifact": "stage-16-governance-reset-is-explained.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "fresh-consideration-under-current-policy",
+      "explanation": "Current A/B decisions and C's explicit abstain satisfy the existing policy; no advisory checkpoint is used as a vote.",
+      "artifact": "stage-17-fresh-consideration-under-current-policy.json",
+      "runtime_revision": 1
+    },
+    {
+      "label": "acceptance-uses-existing-authority",
+      "explanation": "One acceptance advances revision 1 to 2 with receipt schema 4 and fresh decisions; the audit remains separate advisory material.",
+      "artifact": "stage-18-acceptance-uses-existing-authority.json",
+      "runtime_revision": 2
+    },
+    {
+      "label": "historical-audits-and-replays-stay-frozen",
+      "explanation": "After acceptance, old checkpoint replays, original decisions and both terminal barrier explanations remain exact historical objects.",
+      "artifact": "stage-19-historical-audits-and-replays-stay-frozen.json",
+      "runtime_revision": 2
+    }
+  ],
+  "initial_runtime_revision": 1,
+  "final_runtime_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 3
+    },
+    "events": 461,
+    "rules_version": "mvp-1"
+  },
+  "summary": {
+    "author_job_count": 3,
+    "composite_proposal_count": 1,
+    "decision_count": 16,
+    "stage_count": 19,
+    "catalog_update_count": 133,
+    "long_history_update_count": 130,
+    "audit_count": 3,
+    "checkpoint_count": 8,
+    "main_checked_transition_count": 130,
+    "main_chunk_sizes": [
+      64,
+      64,
+      2
+    ],
+    "terminal_audit_states": {
+      "main": "history_complete",
+      "selected-scope-return": "scope_changed",
+      "direct-governance-reset": "governance_reset"
+    },
+    "audit_writer_count": 2,
+    "writer_race_success_count": 1,
+    "writer_race_conflict_count": 1,
+    "expected_api_rejection_count": 6,
+    "blocked_acceptance_count": 4,
+    "runtime_event_count": 461,
+    "accepted_proposal_count": 1,
+    "acceptance_receipt_schema": 4,
+    "audit_acceptance_authority": false,
+    "frozen_target_excludes_later_live_edit": true,
+    "completed_audit_did_not_clear_acceptance_blocker": true,
+    "fresh_quorum_did_not_bypass_old_objection": true,
+    "release_created": false,
+    "credential_material_exported": false,
+    "measured_capacity": false,
+    "semantic_equivalence_proved": false
+  },
+  "credential_file_layout": {
+    "administrator": "private/admin.credential",
+    "active_document_author": "private/document-author.credential",
+    "active_code_author": "private/code-author.credential",
+    "active_integrator": "private/integrator.credential",
+    "active_reviewer_a": "private/reviewer-a.credential",
+    "active_reviewer_b": "private/reviewer-b.credential",
+    "active_reviewer_c": "private/reviewer-c.credential",
+    "active_coordinator": "private/coordinator.credential",
+    "private_database": "private/state.sqlite3"
+  },
+  "limitations": [
+    "An audit is advisory and has acceptance_authority=false and authority_evaluated=false; completion does not change Store.accept's 64-transition bound.",
+    "Every chunk observes a separate SQL transaction and the same frozen target; later live policy changes are outside that audit.",
+    "Checkpoint hashes provide internal consistency and CAS/idempotency evidence, not external signatures, human identity or independent expertise.",
+    "The workflow performs no raw SQL corruption, executes no proposed Python and calls no external LLM or person.",
+    "No history_invalid outcome is fabricated; the public examples cover valid complete history and real selected-policy/governance barriers.",
+    "The 130-update sequence and two-writer CAS example are bounded functional examples, not load, throughput or capacity measurements.",
+    "Existing grants, current heads, scope, expiry, revocation, author separation, formal review and runtime checks remain acceptance requirements.",
+    "Declared field equality and historical scope consistency do not establish prose truth, inventory completeness, program behavior or human understanding.",
+    "The SQLite owner, local clock, application implementation and administrative policy remain trusted.",
+    "Credentials, their hashes and SQLite stay private; this command does not publish Git or create a release."
+  ]
+}

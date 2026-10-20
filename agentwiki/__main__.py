@@ -26,6 +26,7 @@ from .governance_cli import register_governance_parser, run_governance_command
 from .authorship_cli import register_authorship_parser, run_authorship_command
 from .content_gate_cli import register_content_parser, run_content_command
 from .review_continuity_cli import register_continuity_parser, run_continuity_command
+from .review_history_audit_cli import register_history_audit_parser, run_history_audit_command
 
 
 def _workers(value: str) -> int:
@@ -158,6 +159,7 @@ def main(argv: list[str] | None = None) -> int:
     register_authorship_parser(commands)
     register_content_parser(commands)
     register_continuity_parser(commands)
+    register_history_audit_parser(commands)
     editorial_demo = commands.add_parser("editorial-demo", help="Показать историю решений программных проверяющих и устаревание оснований.")
     editorial_demo.add_argument("--workspace", type=Path, required=True)
     editorial_demo.add_argument("--workers", default=3, type=_workers)
@@ -197,6 +199,9 @@ def main(argv: list[str] | None = None) -> int:
     continuity_demo = commands.add_parser("continuity-demo", help="Показать сохранение голосов через проверенные изменения несвязанных разделов.")
     continuity_demo.add_argument("--workspace", type=Path, required=True)
     continuity_demo.add_argument("--workers", default=3, type=_workers)
+    history_audit_demo = commands.add_parser("history-audit-demo", help="Разобрать длинную историю рассмотрения пошаговым аудитом.")
+    history_audit_demo.add_argument("--workspace", type=Path, required=True)
+    history_audit_demo.add_argument("--workers", default=3, type=_workers)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -262,6 +267,13 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(run_content_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "continuity":
             print(json.dumps(run_continuity_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "history-audit":
+            print(json.dumps(run_history_audit_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "history-audit-demo":
+            from .review_history_audit_demo import run_history_audit_demo
+
+            report = run_history_audit_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "continuity-demo":
             from .review_continuity_demo import run_continuity_demo
 

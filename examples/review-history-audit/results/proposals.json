@@ -1,0 +1,107 @@
+{
+  "composite": {
+    "id": "p_25a194d4bc2fa81d0cd502b1",
+    "task_id": "history-compose-a",
+    "author": "history-integrator",
+    "token": 1,
+    "payload": {
+      "queries": {},
+      "rationale": "{\"components\":[{\"digest\":\"ee53de5370fd5a25f870633b8f24651f2bff62a3f341b274f1cff9367a36e182\",\"proposal_id\":\"p_ea9db1129834e54f714225fb\",\"write_ids\":[\"docs/continuity-a.md\"]},{\"digest\":\"18a8a50e9a4e70bf08df308ef3939b5293f93536685f8872eb87da7bc5af6d0b\",\"proposal_id\":\"p_4e7b31edd5a4c13bb848aa1a\",\"write_ids\":[\"code/continuity_a.py\"]}],\"text\":\"Compose an exact fictional document and code candidate for the advisory history example.\"}",
+      "readset": {
+        "code/continuity_a.py": "283b8b3f507b499740d77bea1ee59c7bdc1f5093bbcd1e2ca54d06e5cfb67e55",
+        "docs/continuity-a.md": "fae73a70ea6ae2a62acbe795710851eb91d5b6f0dcb0bd3150ccfe90da2d3e67"
+      },
+      "writes": [
+        {
+          "bindings": [],
+          "id": "code/continuity_a.py",
+          "kind": "code",
+          "template": "SAMPLE_LIMIT = 4\n"
+        },
+        {
+          "bindings": [],
+          "id": "docs/continuity-a.md",
+          "kind": "document",
+          "template": "# Fictional continuity contract\n\nThe fictional sample limit is declared below.\n\n```json agentwiki:contract\n{\"limit\":4}\n```\n"
+        }
+      ]
+    },
+    "digest": "27f15bfca277a6b269509d8a512d1a418e6adbe278b30f203b1adfda03becd5a",
+    "status": "accepted",
+    "accepted_revision": 2
+  },
+  "authors": {
+    "alternative-document": {
+      "id": "p_f448bf831d75c2ad01df5c2b",
+      "task_id": "history-author-alternative-document",
+      "author": "history-document-author",
+      "token": 1,
+      "payload": {
+        "queries": {},
+        "rationale": "Fictional history-audit input; proposed Python is stored data only.",
+        "readset": {
+          "docs/continuity-a.md": "fae73a70ea6ae2a62acbe795710851eb91d5b6f0dcb0bd3150ccfe90da2d3e67"
+        },
+        "writes": [
+          {
+            "bindings": [],
+            "id": "docs/continuity-a.md",
+            "kind": "document",
+            "template": "# Fictional continuity contract\n\nThe fictional sample limit is declared below.\n\n```json agentwiki:contract\n{\"limit\":5}\n```\n"
+          }
+        ]
+      },
+      "digest": "cb05c5d44020a23cec3984296c97203eaa2e24dd86a88e6c9bda122a66b493b9",
+      "status": "proposed",
+      "accepted_revision": null
+    },
+    "code-a": {
+      "id": "p_4e7b31edd5a4c13bb848aa1a",
+      "task_id": "history-author-code-a",
+      "author": "history-code-author",
+      "token": 1,
+      "payload": {
+        "queries": {},
+        "rationale": "Fictional history-audit input; proposed Python is stored data only.",
+        "readset": {
+          "code/continuity_a.py": "283b8b3f507b499740d77bea1ee59c7bdc1f5093bbcd1e2ca54d06e5cfb67e55"
+        },
+        "writes": [
+          {
+            "bindings": [],
+            "id": "code/continuity_a.py",
+            "kind": "code",
+            "template": "SAMPLE_LIMIT = 4\n"
+          }
+        ]
+      },
+      "digest": "18a8a50e9a4e70bf08df308ef3939b5293f93536685f8872eb87da7bc5af6d0b",
+      "status": "proposed",
+      "accepted_revision": null
+    },
+    "document-a": {
+      "id": "p_ea9db1129834e54f714225fb",
+      "task_id": "history-author-document-a",
+      "author": "history-document-author",
+      "token": 1,
+      "payload": {
+        "queries": {},
+        "rationale": "Fictional history-audit input; proposed Python is stored data only.",
+        "readset": {
+          "docs/continuity-a.md": "fae73a70ea6ae2a62acbe795710851eb91d5b6f0dcb0bd3150ccfe90da2d3e67"
+        },
+        "writes": [
+          {
+            "bindings": [],
+            "id": "docs/continuity-a.md",
+            "kind": "document",
+            "template": "# Fictional continuity contract\n\nThe fictional sample limit is declared below.\n\n```json agentwiki:contract\n{\"limit\":4}\n```\n"
+          }
+        ]
+      },
+      "digest": "ee53de5370fd5a25f870633b8f24651f2bff62a3f341b274f1cff9367a36e182",
+      "status": "proposed",
+      "accepted_revision": null
+    }
+  }
+}

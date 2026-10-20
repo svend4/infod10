@@ -132,6 +132,8 @@ class Store:
             connection.executescript(content_schema)
             from .review_continuity import SCHEMA as continuity_schema
             connection.executescript(continuity_schema)
+            from .review_history_audit import SCHEMA as history_audit_schema
+            connection.executescript(history_audit_schema)
         finally:
             connection.close()
 
@@ -735,6 +737,34 @@ class Store:
             if proposal_id is not None:
                 self._find_proposal(connection, proposal_id)
             return review_continuity.status(connection, proposal_id)
+
+    def continuity_audit_start(self, decision_id: str, *, credential: str,
+                               expected_policy_generation: int,
+                               expected_target_packet_digest: str,
+                               operation_id: str) -> dict[str, Any]:
+        from . import review_history_audit
+        with self._transaction(write=True) as connection:
+            return review_history_audit.start(
+                connection, decision_id, credential=credential,
+                expected_policy_generation=expected_policy_generation,
+                expected_target_packet_digest=expected_target_packet_digest,
+                operation_id=operation_id)
+
+    def continuity_audit_advance(self, audit_id: str, *, credential: str,
+                                 expected_checkpoint_id: str, operation_id: str,
+                                 limit: int = 64) -> dict[str, Any]:
+        from . import review_history_audit
+        with self._transaction(write=True) as connection:
+            return review_history_audit.advance(
+                connection, audit_id, credential=credential,
+                expected_checkpoint_id=expected_checkpoint_id, limit=limit,
+                operation_id=operation_id)
+
+    def continuity_audit_show(self, audit_id: str,
+                              checkpoint_id: str | None = None) -> dict[str, Any]:
+        from . import review_history_audit
+        with self._transaction() as connection:
+            return review_history_audit.show(connection, audit_id, checkpoint_id)
 
     def governance_grant(self, principal_id: str, role: str, artifact_ids: list[str],
                          expires_at: float, *, credential: str, new_credential: str,

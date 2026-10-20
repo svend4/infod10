@@ -1,0 +1,123 @@
+{
+  "label": "selected-change-return-audit-started",
+  "explanation": "A's selected policy changes and returns; a separate audit targets both recorded transitions from a fresh source.",
+  "runtime_status": {
+    "revision": 1,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4
+    },
+    "proposals": {
+      "proposed": 4
+    },
+    "events": 450,
+    "rules_version": "mvp-1"
+  },
+  "governance_policy_generation": 137,
+  "content_policy_generation": 134,
+  "operation_result": {
+    "changed": {
+      "label": "selected-a-temporary-change",
+      "content_policy_generation": 133,
+      "content_policy_digest": "43815158c476769a808d89cdb8d4ca4e0f6ced9eb6d4035bede0906d52c55d5b",
+      "governance_policy_generation": 136
+    },
+    "restored": {
+      "label": "selected-a-restored",
+      "content_policy_generation": 134,
+      "content_policy_digest": "3555f2a6a7da3e6ceb5111fb4a33b0399fb784ed26c1baa2e94e6f2f27907aba",
+      "governance_policy_generation": 137
+    },
+    "audit": {
+      "audit": {
+        "schema_version": 1,
+        "rules_version": "review-history-audit-1",
+        "activation_generation": 4,
+        "source_decision_id": "gvd_fa7ca2425ac508dde1942c2cb80f9b9e0fd37e370308b9689af6404c6617e7bb",
+        "source_decision_digest": "570394b658d1571ca76285078ade35c34eaf5571f72e98a178773f2abd4ab651",
+        "proposal_id": "p_25a194d4bc2fa81d0cd502b1",
+        "proposal_digest": "27f15bfca277a6b269509d8a512d1a418e6adbe278b30f203b1adfda03becd5a",
+        "source_packet": {
+          "packet_id": "cgp_ccfc3e6eb403ab6042dff5fda483b396c6bdad1260b2c113868b1968cc3e4c04",
+          "packet_digest": "ccfc3e6eb403ab6042dff5fda483b396c6bdad1260b2c113868b1968cc3e4c04",
+          "content_policy_generation": 132,
+          "content_policy_digest": "3555f2a6a7da3e6ceb5111fb4a33b0399fb784ed26c1baa2e94e6f2f27907aba"
+        },
+        "target_packet": {
+          "packet_id": "cgp_42874d2c67925808bc16f7b467cee1dc84b15697b9dea4b874c8c331153eb798",
+          "packet_digest": "42874d2c67925808bc16f7b467cee1dc84b15697b9dea4b874c8c331153eb798",
+          "content_policy_generation": 134,
+          "content_policy_digest": "3555f2a6a7da3e6ceb5111fb4a33b0399fb784ed26c1baa2e94e6f2f27907aba"
+        },
+        "source_governance_generation": 135,
+        "source_governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "target_governance_generation": 137,
+        "target_governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "basis_id": "rcb_f26a9020f746428a65e6b9719fb3ca70439dbd41a5ae9d6408fcc139a3592492",
+        "basis_digest": "f26a9020f746428a65e6b9719fb3ca70439dbd41a5ae9d6408fcc139a3592492",
+        "scope_digest": "8a96a830cc25753e5e9af6cd41e28361efca7b16b3027aa45dd91f2f9c931714",
+        "write_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ],
+        "created_at": 1792490085.6395981,
+        "administrator_grant_id": "gvg_37da721058d22364890fb7f9b8964083",
+        "operation_id": "history-audit-start-selected-scope-return",
+        "advisory_only": true,
+        "acceptance_authority": false,
+        "authority_evaluated": false,
+        "audit_id": "rha_1313c7c6ed27b9d3b69b9aac706ba88fd7bb34a8042a7794d7419b43883c450f",
+        "audit_digest": "1313c7c6ed27b9d3b69b9aac706ba88fd7bb34a8042a7794d7419b43883c450f"
+      },
+      "checkpoint": {
+        "schema_version": 1,
+        "rules_version": "review-history-audit-1",
+        "audit_id": "rha_1313c7c6ed27b9d3b69b9aac706ba88fd7bb34a8042a7794d7419b43883c450f",
+        "audit_digest": "1313c7c6ed27b9d3b69b9aac706ba88fd7bb34a8042a7794d7419b43883c450f",
+        "index": 0,
+        "previous_checkpoint_id": null,
+        "previous_checkpoint_digest": null,
+        "from_cursor": {
+          "governance_generation": 135,
+          "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+          "content_policy_generation": 132,
+          "content_policy_digest": "3555f2a6a7da3e6ceb5111fb4a33b0399fb784ed26c1baa2e94e6f2f27907aba"
+        },
+        "to_cursor": {
+          "governance_generation": 135,
+          "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+          "content_policy_generation": 132,
+          "content_policy_digest": "3555f2a6a7da3e6ceb5111fb4a33b0399fb784ed26c1baa2e94e6f2f27907aba"
+        },
+        "requested_limit": 0,
+        "examined_transition_count": 0,
+        "checked_transition_count": 0,
+        "total_checked_transition_count": 0,
+        "transitions": [],
+        "stopped_at": null,
+        "state": "pending",
+        "operation_id": "history-audit-start-selected-scope-return",
+        "created_at": 1792490085.6395981,
+        "administrator_grant_id": "gvg_37da721058d22364890fb7f9b8964083",
+        "advisory_only": true,
+        "acceptance_authority": false,
+        "authority_evaluated": false,
+        "checkpoint_id": "rhs_f78c062259ea072e500799fc0f1dc1b4c9cf3413410d2750f6c3ed6a1fb9d8e8",
+        "checkpoint_digest": "f78c062259ea072e500799fc0f1dc1b4c9cf3413410d2750f6c3ed6a1fb9d8e8"
+      },
+      "current_checkpoint_id": "rhs_f78c062259ea072e500799fc0f1dc1b4c9cf3413410d2750f6c3ed6a1fb9d8e8",
+      "replayed": false,
+      "advisory_only": true,
+      "acceptance_authority": false,
+      "authority_evaluated": false,
+      "limits": [
+        "This audit describes a frozen source decision and target packet; later catalog or artifact changes do not retarget it.",
+        "Each advance examines at most 64 chronological increments; the journal is not one atomic snapshot across all advances.",
+        "History completion does not validate a current reviewer grant, opinion head, quorum, runtime freshness or acceptance permission.",
+        "The audit does not change review_continuity.MAX_TRANSITIONS or supply an admission certificate.",
+        "The SQLite owner and application remain trusted; addressed hashes are not signatures or external attestations."
+      ]
+    }
+  }
+}

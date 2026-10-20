@@ -1,0 +1,50 @@
+{
+  "main-start": {
+    "decision_id": "gvd_ecebfd5421fccc0f5fa13dca7d54ae5580402ae954291bcdff046a2a5151acde",
+    "expected_policy_generation": 134,
+    "expected_target_packet_digest": "f81b2b6616773358e09d43299b66f143e5e01026e6722b5ccb1e1fca40263dcb",
+    "operation_id": "history-audit-start-main"
+  },
+  "main-first-chunk": {
+    "audit_id": "rha_28defa4e10c7803ee8429735005b6d5aef3e2323c51895b63b34794afcf14807",
+    "expected_checkpoint_id": "rhs_4e3db1b7d224d1b5136d9b5a8823a15ea44aaee360f7233e6327071068aae660",
+    "limit": 64,
+    "operation_id": "history-audit-race-2"
+  },
+  "main-second-chunk": {
+    "audit_id": "rha_28defa4e10c7803ee8429735005b6d5aef3e2323c51895b63b34794afcf14807",
+    "expected_checkpoint_id": "rhs_68dd6993b730d8c35bf32cbd81680cbadc5cecde980592bafeecbe8ac78f93a3",
+    "limit": 64,
+    "operation_id": "history-audit-advance-main-second-chunk"
+  },
+  "main-final-chunk": {
+    "audit_id": "rha_28defa4e10c7803ee8429735005b6d5aef3e2323c51895b63b34794afcf14807",
+    "expected_checkpoint_id": "rhs_1a23bef5815fc2fff42e398b5ce235456bc6c9c37c756dcd04b56c327df24927",
+    "limit": 2,
+    "operation_id": "history-audit-advance-main-final-chunk"
+  },
+  "selected-scope-return-start": {
+    "decision_id": "gvd_fa7ca2425ac508dde1942c2cb80f9b9e0fd37e370308b9689af6404c6617e7bb",
+    "expected_policy_generation": 137,
+    "expected_target_packet_digest": "42874d2c67925808bc16f7b467cee1dc84b15697b9dea4b874c8c331153eb798",
+    "operation_id": "history-audit-start-selected-scope-return"
+  },
+  "selected-scope-return-step": {
+    "audit_id": "rha_1313c7c6ed27b9d3b69b9aac706ba88fd7bb34a8042a7794d7419b43883c450f",
+    "expected_checkpoint_id": "rhs_f78c062259ea072e500799fc0f1dc1b4c9cf3413410d2750f6c3ed6a1fb9d8e8",
+    "limit": 64,
+    "operation_id": "history-audit-advance-selected-scope-return-step"
+  },
+  "direct-governance-reset-start": {
+    "decision_id": "gvd_46f1348aa19bf8d7a3014df380837928baf59942d25e305ce36e0d60414721b4",
+    "expected_policy_generation": 138,
+    "expected_target_packet_digest": "1fa917c2aa03a70f6533223bfe8920190a0622f64af0352f3c29ec99c243c8ae",
+    "operation_id": "history-audit-start-direct-governance-reset"
+  },
+  "direct-governance-reset-step": {
+    "audit_id": "rha_39ed68de698fc458d2577592d34e8f416cf13c43bc0b291fd5c3475ac7c70d9b",
+    "expected_checkpoint_id": "rhs_2ceea1a751f58890e3b0d865e32851ac0c373a6d680b14f5d754a94d22a66d79",
+    "limit": 64,
+    "operation_id": "history-audit-advance-direct-governance-reset-step"
+  }
+}

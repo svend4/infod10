@@ -1,0 +1,116 @@
+{
+  "label": "selected-policy-barrier-is-explained",
+  "explanation": "The audit stops at the selected-context change even though the final selected policy has returned to its former body.",
+  "runtime_status": {
+    "revision": 1,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4
+    },
+    "proposals": {
+      "proposed": 4
+    },
+    "events": 451,
+    "rules_version": "mvp-1"
+  },
+  "governance_policy_generation": 137,
+  "content_policy_generation": 134,
+  "operation_result": {
+    "audit": {
+      "acceptance_authority": false,
+      "activation_generation": 4,
+      "administrator_grant_id": "gvg_37da721058d22364890fb7f9b8964083",
+      "advisory_only": true,
+      "authority_evaluated": false,
+      "basis_digest": "f26a9020f746428a65e6b9719fb3ca70439dbd41a5ae9d6408fcc139a3592492",
+      "basis_id": "rcb_f26a9020f746428a65e6b9719fb3ca70439dbd41a5ae9d6408fcc139a3592492",
+      "created_at": 1792490085.6395981,
+      "operation_id": "history-audit-start-selected-scope-return",
+      "proposal_digest": "27f15bfca277a6b269509d8a512d1a418e6adbe278b30f203b1adfda03becd5a",
+      "proposal_id": "p_25a194d4bc2fa81d0cd502b1",
+      "rules_version": "review-history-audit-1",
+      "schema_version": 1,
+      "scope_digest": "8a96a830cc25753e5e9af6cd41e28361efca7b16b3027aa45dd91f2f9c931714",
+      "source_decision_digest": "570394b658d1571ca76285078ade35c34eaf5571f72e98a178773f2abd4ab651",
+      "source_decision_id": "gvd_fa7ca2425ac508dde1942c2cb80f9b9e0fd37e370308b9689af6404c6617e7bb",
+      "source_governance_generation": 135,
+      "source_governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "source_packet": {
+        "content_policy_digest": "3555f2a6a7da3e6ceb5111fb4a33b0399fb784ed26c1baa2e94e6f2f27907aba",
+        "content_policy_generation": 132,
+        "packet_digest": "ccfc3e6eb403ab6042dff5fda483b396c6bdad1260b2c113868b1968cc3e4c04",
+        "packet_id": "cgp_ccfc3e6eb403ab6042dff5fda483b396c6bdad1260b2c113868b1968cc3e4c04"
+      },
+      "target_governance_generation": 137,
+      "target_governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "target_packet": {
+        "content_policy_digest": "3555f2a6a7da3e6ceb5111fb4a33b0399fb784ed26c1baa2e94e6f2f27907aba",
+        "content_policy_generation": 134,
+        "packet_digest": "42874d2c67925808bc16f7b467cee1dc84b15697b9dea4b874c8c331153eb798",
+        "packet_id": "cgp_42874d2c67925808bc16f7b467cee1dc84b15697b9dea4b874c8c331153eb798"
+      },
+      "write_ids": [
+        "code/continuity_a.py",
+        "docs/continuity-a.md"
+      ],
+      "audit_id": "rha_1313c7c6ed27b9d3b69b9aac706ba88fd7bb34a8042a7794d7419b43883c450f",
+      "audit_digest": "1313c7c6ed27b9d3b69b9aac706ba88fd7bb34a8042a7794d7419b43883c450f"
+    },
+    "checkpoint": {
+      "schema_version": 1,
+      "rules_version": "review-history-audit-1",
+      "audit_id": "rha_1313c7c6ed27b9d3b69b9aac706ba88fd7bb34a8042a7794d7419b43883c450f",
+      "audit_digest": "1313c7c6ed27b9d3b69b9aac706ba88fd7bb34a8042a7794d7419b43883c450f",
+      "index": 1,
+      "previous_checkpoint_id": "rhs_f78c062259ea072e500799fc0f1dc1b4c9cf3413410d2750f6c3ed6a1fb9d8e8",
+      "previous_checkpoint_digest": "f78c062259ea072e500799fc0f1dc1b4c9cf3413410d2750f6c3ed6a1fb9d8e8",
+      "from_cursor": {
+        "content_policy_digest": "3555f2a6a7da3e6ceb5111fb4a33b0399fb784ed26c1baa2e94e6f2f27907aba",
+        "content_policy_generation": 132,
+        "governance_generation": 135,
+        "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f"
+      },
+      "to_cursor": {
+        "content_policy_digest": "3555f2a6a7da3e6ceb5111fb4a33b0399fb784ed26c1baa2e94e6f2f27907aba",
+        "content_policy_generation": 132,
+        "governance_generation": 135,
+        "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f"
+      },
+      "requested_limit": 64,
+      "examined_transition_count": 1,
+      "checked_transition_count": 0,
+      "total_checked_transition_count": 0,
+      "transitions": [],
+      "stopped_at": {
+        "governance_generation": 135,
+        "code": "audit_scope_changed",
+        "transition": {
+          "transition_id": "rct_26a22f4a8a3071ae08fbc54914c5a2d928c660bb571c32cb12a102856fecb690",
+          "transition_digest": "26a22f4a8a3071ae08fbc54914c5a2d928c660bb571c32cb12a102856fecb690"
+        }
+      },
+      "state": "scope_changed",
+      "operation_id": "history-audit-advance-selected-scope-return-step",
+      "created_at": 1792490085.6525571,
+      "administrator_grant_id": "gvg_37da721058d22364890fb7f9b8964083",
+      "advisory_only": true,
+      "acceptance_authority": false,
+      "authority_evaluated": false,
+      "checkpoint_id": "rhs_c94bd7d1de5179dd75e1bdea7890fba2271bafc3cdfc7ef56b2c19d5fc5d5cda",
+      "checkpoint_digest": "c94bd7d1de5179dd75e1bdea7890fba2271bafc3cdfc7ef56b2c19d5fc5d5cda"
+    },
+    "current_checkpoint_id": "rhs_c94bd7d1de5179dd75e1bdea7890fba2271bafc3cdfc7ef56b2c19d5fc5d5cda",
+    "replayed": false,
+    "advisory_only": true,
+    "acceptance_authority": false,
+    "authority_evaluated": false,
+    "limits": [
+      "This audit describes a frozen source decision and target packet; later catalog or artifact changes do not retarget it.",
+      "Each advance examines at most 64 chronological increments; the journal is not one atomic snapshot across all advances.",
+      "History completion does not validate a current reviewer grant, opinion head, quorum, runtime freshness or acceptance permission.",
+      "The audit does not change review_continuity.MAX_TRANSITIONS or supply an admission certificate.",
+      "The SQLite owner and application remain trusted; addressed hashes are not signatures or external attestations."
+    ]
+  }
+}
