@@ -27,6 +27,7 @@ from .authorship_cli import register_authorship_parser, run_authorship_command
 from .content_gate_cli import register_content_parser, run_content_command
 from .review_continuity_cli import register_continuity_parser, run_continuity_command
 from .review_history_audit_cli import register_history_audit_parser, run_history_audit_command
+from .store_backup_cli import register_backup_parser, run_backup_command
 
 
 def _workers(value: str) -> int:
@@ -160,6 +161,7 @@ def main(argv: list[str] | None = None) -> int:
     register_content_parser(commands)
     register_continuity_parser(commands)
     register_history_audit_parser(commands)
+    register_backup_parser(commands)
     editorial_demo = commands.add_parser("editorial-demo", help="Показать историю решений программных проверяющих и устаревание оснований.")
     editorial_demo.add_argument("--workspace", type=Path, required=True)
     editorial_demo.add_argument("--workers", default=3, type=_workers)
@@ -205,6 +207,9 @@ def main(argv: list[str] | None = None) -> int:
     history_recovery_demo = commands.add_parser("history-recovery-demo", help="Восстановить потерянные ответы и найти аудиты в постраничном каталоге.")
     history_recovery_demo.add_argument("--workspace", type=Path, required=True)
     history_recovery_demo.add_argument("--workers", default=3, type=_workers)
+    store_backup_demo = commands.add_parser("store-backup-demo", help="Сохранить согласованный снимок SQLite и восстановить его для изолированного просмотра.")
+    store_backup_demo.add_argument("--workspace", type=Path, required=True)
+    store_backup_demo.add_argument("--workers", default=3, type=_workers)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -272,6 +277,13 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(run_continuity_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "history-audit":
             print(json.dumps(run_history_audit_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "store-backup":
+            print(json.dumps(run_backup_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "store-backup-demo":
+            from .store_backup_demo import run_store_backup_demo
+
+            report = run_store_backup_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "history-recovery-demo":
             from .review_history_recovery_demo import run_history_recovery_demo
 

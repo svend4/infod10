@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "session_id": "session-021",
+  "language": "ru",
+  "archive_method": "manual_transcription_from_available_conversation_context",
+  "scope": "User messages and user-facing assistant commentary/final responses",
+  "previous_session": "session-020",
+  "coverage_start": "Первое пояснение ассистента после запроса продолжения, завершившего session-020",
+  "coverage_end": "Запрос пользователя «Продолжение» после публикации версии 0.18.0 включительно",
+  "rendered_coverage": "запрос пользователя «Продолжение» после публикации версии 0.18.0 включительно.",
+  "message_timestamps_available": false,
+  "message_ids": "Locally assigned chronological IDs scoped to this session; not platform message IDs",
+  "channel_convention": "Assistant commentary/final distinguishes visible progress from final responses; user records use final by archive convention",
+  "integrity_scope": "SHA-256 detects changes relative to this saved snapshot; it does not authenticate a platform export or verify external claims",
+  "repository": {
+    "name": "svend4/infod10",
+    "archive_branch": "archive/session-001",
+    "previous_verified_remote_commit": "1cd8ff89f9f080024f54f233379b79a3b694c869"
+  },
+  "expected_message_count": 9,
+  "expected_role_counts": {
+    "assistant": 8,
+    "user": 1
+  },
+  "expected_assistant_channel_counts": {
+    "commentary": 7,
+    "final": 1
+  },
+  "cumulative_message_count": 196,
+  "parts": [
+    {
+      "part": 1,
+      "title": "Восстановление потерянных ответов по operation ID, постраничный каталог аудитов, выполненный сценарий, публикация версии 0.18.0 и следующий запрос продолжения",
+      "expected_message_count": 9
+    }
+  ],
+  "excluded": [
+    "Messages already preserved in session-001 through session-020",
+    "Development work and visible responses after the final included user message",
+    "Other chats not available in this conversation context",
+    "Hidden system/developer instructions and internal reasoning",
+    "Subagent communications",
+    "Raw tool arguments and results",
+    "Automatic runtime/UI metadata, including environment_context and external_codex_apps_open_page, as conversation messages"
+  ],
+  "limitations": [
+    "Not a platform/API export; fidelity is bounded by the available conversation context.",
+    "No invented per-message timestamps; timestamp fields are null.",
+    "Statements about verification in archived messages describe the historical checks at that point in the conversation.",
+    "The snapshot ends before the next analysis and development stage."
+  ]
+}

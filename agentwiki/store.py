@@ -119,9 +119,20 @@ class Store:
 
     def __init__(self, path: str | Path):
         self.path = Path(path)
+        self._inspection_only = False
+        from . import store_quarantine
+        marker = store_quarantine.probe(self.path)
+        if marker is not None:
+            self._inspection_only = True
+            return
         self.path.parent.mkdir(parents=True, exist_ok=True)
         connection = self._connect()
         try:
+            # A copy may have replaced this path since the initial probe.
+            # Inspect its actual connection before any writable initialization.
+            if store_quarantine.quarantine_info(connection) is not None:
+                self._inspection_only = True
+                return
             connection.execute("PRAGMA journal_mode=WAL")
             connection.executescript(SCHEMA)
             from .governance import SCHEMA as governance_schema
@@ -140,18 +151,42 @@ class Store:
             connection.close()
 
     def _connect(self) -> sqlite3.Connection:
+        from . import store_quarantine
+        marker = store_quarantine.probe(self.path)
+        if marker is not None:
+            self._inspection_only = True
+            return store_quarantine.readonly_connection(self.path)
+        if self._inspection_only:
+            raise WorkbenchError("store_snapshot_invalid", "An inspection-only Store lost its snapshot marker")
         connection = sqlite3.connect(self.path, timeout=30, isolation_level=None)
-        connection.row_factory = sqlite3.Row
-        connection.execute("PRAGMA foreign_keys=ON")
-        connection.execute("PRAGMA busy_timeout=30000")
-        connection.execute("PRAGMA synchronous=FULL")
-        return connection
+        try:
+            connection.row_factory = sqlite3.Row
+            # The read-only probe and this open are separate operations. Check
+            # the opened database again before applying active connection setup.
+            if store_quarantine.quarantine_info(connection) is not None:
+                connection.close()
+                self._inspection_only = True
+                return store_quarantine.readonly_connection(self.path)
+            connection.execute("PRAGMA foreign_keys=ON")
+            connection.execute("PRAGMA busy_timeout=30000")
+            connection.execute("PRAGMA synchronous=FULL")
+            return connection
+        except BaseException:
+            connection.close()
+            raise
 
     @contextmanager
     def _transaction(self, write: bool = False) -> Iterator[sqlite3.Connection]:
         connection = self._connect()
         try:
-            connection.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+            from . import store_quarantine
+            readonly = bool(connection.execute("PRAGMA query_only").fetchone()[0])
+            connection.execute("BEGIN IMMEDIATE" if write and not readonly else "BEGIN")
+            marker = store_quarantine.quarantine_info(connection)
+            if write and (readonly or marker is not None):
+                # This check runs before the action body, including completed
+                # operation replays, and before a write BEGIN on a read-only DB.
+                raise WorkbenchError("store_snapshot_quarantined", "Snapshot copies permit inspection only")
             yield connection
             connection.commit()
         except BaseException:
@@ -159,6 +194,30 @@ class Store:
             raise
         finally:
             connection.close()
+
+    def snapshot_access(self) -> dict[str, Any]:
+        """Describe this path's current access boundary without authorizing it."""
+        from . import store_quarantine
+        with self._transaction() as connection:
+            marker = store_quarantine.quarantine_info(connection)
+            quarantined = marker is not None
+            result = {"rules_version": store_quarantine.RULES_VERSION,
+                      "quarantined": quarantined, "inspection_only": quarantined,
+                      "domain_writes_allowed": not quarantined,
+                      "historical_authorization_only": quarantined,
+                      "live_authorization_allowed": not quarantined,
+                      "trusted_database_owner_can_bypass": True}
+            if marker is not None:
+                result.update({key: marker[key] for key in (
+                    "backup_id", "quarantine_id", "source_revision", "event_high_water", "created_at")})
+            return result
+
+    def create_backup(self, destination: str | Path, *, credential: str) -> dict[str, Any]:
+        """Create a private snapshot bundle; it does not activate another Store."""
+        if self.snapshot_access()["inspection_only"]:
+            raise WorkbenchError("store_snapshot_quarantined", "Snapshot copies cannot authorize a new backup")
+        from . import store_backup
+        return store_backup.create_backup(self.path, destination, credential=credential)
 
     @staticmethod
     def _event(connection: sqlite3.Connection, event: str, data: Any) -> None:
@@ -1020,6 +1079,9 @@ class Store:
     def publish(self, output_dir: str | Path) -> dict[str, Any]:
         """Export a pinned snapshot. No live site or active release is switched."""
         with self._transaction() as connection:
+            from . import store_quarantine
+            if store_quarantine.quarantine_info(connection) is not None:
+                raise WorkbenchError("store_snapshot_quarantined", "Snapshot copies cannot publish a release")
             revision = self._revision(connection)
             row = connection.execute("SELECT * FROM revisions WHERE revision=?", (revision,)).fetchone()
             if not row:
