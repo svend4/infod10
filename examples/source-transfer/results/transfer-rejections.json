@@ -1,0 +1,90 @@
+[
+  {
+    "label": "old-source-secret-cannot-bootstrap-new-administrator",
+    "category": "credential",
+    "code": "source_transfer_credential_reused",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "another-destination-conflicts",
+    "category": "reservation",
+    "code": "source_transfer_conflict",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "another-operation-conflicts",
+    "category": "reservation",
+    "code": "source_transfer_conflict",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "old-administrator-not-authorized-in-destination",
+    "category": "credential",
+    "code": "governance_unauthorized",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "old-author-not-authorized-in-destination",
+    "category": "credential",
+    "code": "governance_unauthorized",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "fresh-grant-cannot-reuse-old-source-secret",
+    "category": "credential",
+    "code": "governance_credential_conflict",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "old-source-proposal-is-not-a-local-destination-proposal",
+    "category": "history",
+    "code": "unknown_proposal",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "source-remains-fenced",
+    "category": "source_boundary",
+    "code": "store_source_fenced",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "history-archive-remains-fenced",
+    "category": "source_boundary",
+    "code": "store_source_fenced",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "bare-active-database-copy-cannot-activate-elsewhere",
+    "category": "path_binding",
+    "code": "store_transfer_invalid",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "restored-new-workspace-stays-quarantined",
+    "category": "snapshot_boundary",
+    "code": "store_snapshot_quarantined",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  }
+]

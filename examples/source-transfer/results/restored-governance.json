@@ -1,0 +1,626 @@
+{
+  "enabled": true,
+  "rules_version": "governance-1",
+  "observed_at": 1792501699.4325123,
+  "enabled_at": 1792501696.0892189,
+  "activation_revision": 1,
+  "administrator_id": "snapshot-administrator",
+  "policy_generation": 7,
+  "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+  "policy": {
+    "minimum_reviewers": 2,
+    "schema_version": 1,
+    "separate_coordinator": true
+  },
+  "policy_history": [
+    {
+      "generation": 1,
+      "policy": {
+        "minimum_reviewers": 2,
+        "schema_version": 1,
+        "separate_coordinator": true
+      },
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "created_at": 1792501696.0892189,
+      "administrator_grant_id": "gvg_1389f061910a4d93db1e1762bfb975cb"
+    },
+    {
+      "generation": 2,
+      "policy": {
+        "minimum_reviewers": 2,
+        "schema_version": 1,
+        "separate_coordinator": true
+      },
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "created_at": 1792501696.1333776,
+      "administrator_grant_id": "gvg_1389f061910a4d93db1e1762bfb975cb"
+    },
+    {
+      "generation": 3,
+      "policy": {
+        "minimum_reviewers": 2,
+        "schema_version": 1,
+        "separate_coordinator": true
+      },
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "created_at": 1792501696.139552,
+      "administrator_grant_id": "gvg_1389f061910a4d93db1e1762bfb975cb"
+    },
+    {
+      "generation": 4,
+      "policy": {
+        "minimum_reviewers": 2,
+        "schema_version": 1,
+        "separate_coordinator": true
+      },
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "created_at": 1792501696.1457107,
+      "administrator_grant_id": "gvg_1389f061910a4d93db1e1762bfb975cb"
+    },
+    {
+      "generation": 5,
+      "policy": {
+        "minimum_reviewers": 2,
+        "schema_version": 1,
+        "separate_coordinator": true
+      },
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "created_at": 1792501696.3620174,
+      "administrator_grant_id": "gvg_1389f061910a4d93db1e1762bfb975cb"
+    },
+    {
+      "generation": 6,
+      "policy": {
+        "minimum_reviewers": 2,
+        "schema_version": 1,
+        "separate_coordinator": true
+      },
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "created_at": 1792501696.374111,
+      "administrator_grant_id": "gvg_1389f061910a4d93db1e1762bfb975cb"
+    },
+    {
+      "generation": 7,
+      "policy": {
+        "minimum_reviewers": 2,
+        "schema_version": 1,
+        "separate_coordinator": true
+      },
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "created_at": 1792501696.3891778,
+      "administrator_grant_id": "gvg_1389f061910a4d93db1e1762bfb975cb"
+    }
+  ],
+  "grants": [
+    {
+      "grant_id": "gvg_1389f061910a4d93db1e1762bfb975cb",
+      "principal_id": "snapshot-administrator",
+      "role": "administrator",
+      "artifact_ids": [],
+      "expires_at": null,
+      "created_at": 1792501696.0892189,
+      "issuer_grant_id": null,
+      "operation_id": null,
+      "revoked": false,
+      "revoked_at": null,
+      "expired": false
+    },
+    {
+      "grant_id": "gvg_9e8d33da797fa91b8b385ea40a3fecec",
+      "principal_id": "snapshot-document-author",
+      "role": "doc_author",
+      "artifact_ids": [
+        "docs/continuity-a.md",
+        "docs/continuity-d.md"
+      ],
+      "expires_at": 1792505296.0897782,
+      "created_at": 1792501696.0946355,
+      "issuer_grant_id": "gvg_1389f061910a4d93db1e1762bfb975cb",
+      "operation_id": "snapshot-grant-document-author",
+      "revoked": false,
+      "revoked_at": null,
+      "expired": false
+    },
+    {
+      "grant_id": "gvg_c68d32d6f3ce90193b10af594b69d6c9",
+      "principal_id": "snapshot-code-author",
+      "role": "code_author",
+      "artifact_ids": [
+        "code/continuity_a.py",
+        "code/continuity_d.py"
+      ],
+      "expires_at": 1792505296.0897782,
+      "created_at": 1792501696.098965,
+      "issuer_grant_id": "gvg_1389f061910a4d93db1e1762bfb975cb",
+      "operation_id": "snapshot-grant-code-author",
+      "revoked": false,
+      "revoked_at": null,
+      "expired": false
+    },
+    {
+      "grant_id": "gvg_9f4fece0a29ee5be150e4a4e55843f28",
+      "principal_id": "snapshot-integrator",
+      "role": "integrator",
+      "artifact_ids": [
+        "code/continuity_a.py",
+        "code/continuity_d.py",
+        "docs/continuity-a.md",
+        "docs/continuity-d.md"
+      ],
+      "expires_at": 1792505296.0897782,
+      "created_at": 1792501696.10529,
+      "issuer_grant_id": "gvg_1389f061910a4d93db1e1762bfb975cb",
+      "operation_id": "snapshot-grant-integrator",
+      "revoked": false,
+      "revoked_at": null,
+      "expired": false
+    },
+    {
+      "grant_id": "gvg_a266eafed7e7a9c8f3330c395859ef84",
+      "principal_id": "snapshot-reviewer-a",
+      "role": "reviewer",
+      "artifact_ids": [
+        "code/continuity_a.py",
+        "code/continuity_d.py",
+        "docs/continuity-a.md",
+        "docs/continuity-d.md"
+      ],
+      "expires_at": 1792505296.0897782,
+      "created_at": 1792501696.1186743,
+      "issuer_grant_id": "gvg_1389f061910a4d93db1e1762bfb975cb",
+      "operation_id": "snapshot-grant-reviewer-a",
+      "revoked": false,
+      "revoked_at": null,
+      "expired": false
+    },
+    {
+      "grant_id": "gvg_f3f13e6f477282f47e4744a49f5aaa44",
+      "principal_id": "snapshot-reviewer-b",
+      "role": "reviewer",
+      "artifact_ids": [
+        "code/continuity_a.py",
+        "code/continuity_d.py",
+        "docs/continuity-a.md",
+        "docs/continuity-d.md"
+      ],
+      "expires_at": 1792505296.0897782,
+      "created_at": 1792501696.1230536,
+      "issuer_grant_id": "gvg_1389f061910a4d93db1e1762bfb975cb",
+      "operation_id": "snapshot-grant-reviewer-b",
+      "revoked": false,
+      "revoked_at": null,
+      "expired": false
+    },
+    {
+      "grant_id": "gvg_e5baee0ef99f446f60f80533eeb31bf8",
+      "principal_id": "snapshot-reviewer-c",
+      "role": "reviewer",
+      "artifact_ids": [
+        "code/continuity_a.py",
+        "code/continuity_d.py",
+        "docs/continuity-a.md",
+        "docs/continuity-d.md"
+      ],
+      "expires_at": 1792505296.0897782,
+      "created_at": 1792501696.1265895,
+      "issuer_grant_id": "gvg_1389f061910a4d93db1e1762bfb975cb",
+      "operation_id": "snapshot-grant-reviewer-c",
+      "revoked": false,
+      "revoked_at": null,
+      "expired": false
+    },
+    {
+      "grant_id": "gvg_05193d0132786d5a1892d6c75efe8b2b",
+      "principal_id": "snapshot-coordinator",
+      "role": "coordinator",
+      "artifact_ids": [
+        "code/continuity_a.py",
+        "code/continuity_d.py",
+        "docs/continuity-a.md",
+        "docs/continuity-d.md"
+      ],
+      "expires_at": 1792505296.0897782,
+      "created_at": 1792501696.1292384,
+      "issuer_grant_id": "gvg_1389f061910a4d93db1e1762bfb975cb",
+      "operation_id": "snapshot-grant-coordinator",
+      "revoked": false,
+      "revoked_at": null,
+      "expired": false
+    }
+  ],
+  "revocations": [],
+  "decisions": [
+    {
+      "artifact_id": "docs/continuity-a.md",
+      "content_packet": {
+        "content_policy_digest": "fcc91d3c8e36f4f67a7966d5dd3b3dce56cac4e1d43040520c8ce89daf2de3eb",
+        "content_policy_generation": 1,
+        "packet_digest": "71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827",
+        "packet_id": "cgp_71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827"
+      },
+      "content_packet_digest": "71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827",
+      "created_at": 1792501696.2544672,
+      "decision_id": "gvd_41bdebd010bfab3cf67e3283d45f7386d957485dc833c390cc02d8f95759de00",
+      "grant_id": "gvg_a266eafed7e7a9c8f3330c395859ef84",
+      "operation_id": "snapshot-decision-initial-a-1",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "previous_decision_id": null,
+      "principal_id": "snapshot-reviewer-a",
+      "proposal_digest": "1768636f2d11c8a58df34448441545a6db6cfd49c112d8db986c90de72e47951",
+      "proposal_id": "p_e383137f6461cc1a7eddb14e",
+      "rationale": "Programmed local decision for initial-a-1; independent human or model review is not established.",
+      "review_continuity": {
+        "activation_generation": 4,
+        "basis_digest": "7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+        "basis_id": "rcb_7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+        "rules_version": "review-continuity-1"
+      },
+      "rules_version": "governance-1",
+      "schema_version": 3,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "code/continuity_a.py",
+      "content_packet": {
+        "content_policy_digest": "fcc91d3c8e36f4f67a7966d5dd3b3dce56cac4e1d43040520c8ce89daf2de3eb",
+        "content_policy_generation": 1,
+        "packet_digest": "71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827",
+        "packet_id": "cgp_71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827"
+      },
+      "content_packet_digest": "71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827",
+      "created_at": 1792501696.2756748,
+      "decision_id": "gvd_b4a60a7538082fe68348d76ed26dca351b5f2ea75dc115062817be2e8f82f137",
+      "grant_id": "gvg_a266eafed7e7a9c8f3330c395859ef84",
+      "operation_id": "snapshot-decision-initial-a-2",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "previous_decision_id": null,
+      "principal_id": "snapshot-reviewer-a",
+      "proposal_digest": "1768636f2d11c8a58df34448441545a6db6cfd49c112d8db986c90de72e47951",
+      "proposal_id": "p_e383137f6461cc1a7eddb14e",
+      "rationale": "Programmed local decision for initial-a-2; independent human or model review is not established.",
+      "review_continuity": {
+        "activation_generation": 4,
+        "basis_digest": "7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+        "basis_id": "rcb_7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+        "rules_version": "review-continuity-1"
+      },
+      "rules_version": "governance-1",
+      "schema_version": 3,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "docs/continuity-a.md",
+      "content_packet": {
+        "content_policy_digest": "fcc91d3c8e36f4f67a7966d5dd3b3dce56cac4e1d43040520c8ce89daf2de3eb",
+        "content_policy_generation": 1,
+        "packet_digest": "71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827",
+        "packet_id": "cgp_71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827"
+      },
+      "content_packet_digest": "71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827",
+      "created_at": 1792501696.299353,
+      "decision_id": "gvd_534d8a861fb0dcd65dd3ec04365ed94046e4b0c11b69251f79163f22887a274f",
+      "grant_id": "gvg_f3f13e6f477282f47e4744a49f5aaa44",
+      "operation_id": "snapshot-decision-initial-b-1",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "previous_decision_id": null,
+      "principal_id": "snapshot-reviewer-b",
+      "proposal_digest": "1768636f2d11c8a58df34448441545a6db6cfd49c112d8db986c90de72e47951",
+      "proposal_id": "p_e383137f6461cc1a7eddb14e",
+      "rationale": "Programmed local decision for initial-b-1; independent human or model review is not established.",
+      "review_continuity": {
+        "activation_generation": 4,
+        "basis_digest": "7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+        "basis_id": "rcb_7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+        "rules_version": "review-continuity-1"
+      },
+      "rules_version": "governance-1",
+      "schema_version": 3,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "code/continuity_a.py",
+      "content_packet": {
+        "content_policy_digest": "fcc91d3c8e36f4f67a7966d5dd3b3dce56cac4e1d43040520c8ce89daf2de3eb",
+        "content_policy_generation": 1,
+        "packet_digest": "71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827",
+        "packet_id": "cgp_71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827"
+      },
+      "content_packet_digest": "71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827",
+      "created_at": 1792501696.3345978,
+      "decision_id": "gvd_fcba884be2f846ccc0b487a57f80b29ace4d6ec08cb559e6b123b2a138e2796a",
+      "grant_id": "gvg_f3f13e6f477282f47e4744a49f5aaa44",
+      "operation_id": "snapshot-decision-initial-b-2",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "previous_decision_id": null,
+      "principal_id": "snapshot-reviewer-b",
+      "proposal_digest": "1768636f2d11c8a58df34448441545a6db6cfd49c112d8db986c90de72e47951",
+      "proposal_id": "p_e383137f6461cc1a7eddb14e",
+      "rationale": "Programmed local decision for initial-b-2; independent human or model review is not established.",
+      "review_continuity": {
+        "activation_generation": 4,
+        "basis_digest": "7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+        "basis_id": "rcb_7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+        "rules_version": "review-continuity-1"
+      },
+      "rules_version": "governance-1",
+      "schema_version": 3,
+      "verdict": "approve"
+    },
+    {
+      "artifact_id": "docs/continuity-a.md",
+      "content_packet": {
+        "content_policy_digest": "fcc91d3c8e36f4f67a7966d5dd3b3dce56cac4e1d43040520c8ce89daf2de3eb",
+        "content_policy_generation": 1,
+        "packet_digest": "71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827",
+        "packet_id": "cgp_71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827"
+      },
+      "content_packet_digest": "71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827",
+      "created_at": 1792501696.3545954,
+      "decision_id": "gvd_7c19b16ff79f7bee2b9c3ae272f1a395f05482d4b38276b4a51d1bf38d793c71",
+      "grant_id": "gvg_e5baee0ef99f446f60f80533eeb31bf8",
+      "operation_id": "snapshot-decision-original-c-objection",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 4,
+      "previous_decision_id": null,
+      "principal_id": "snapshot-reviewer-c",
+      "proposal_digest": "1768636f2d11c8a58df34448441545a6db6cfd49c112d8db986c90de72e47951",
+      "proposal_id": "p_e383137f6461cc1a7eddb14e",
+      "rationale": "Programmed local decision for original-c-objection; independent human or model review is not established.",
+      "review_continuity": {
+        "activation_generation": 4,
+        "basis_digest": "7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+        "basis_id": "rcb_7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+        "rules_version": "review-continuity-1"
+      },
+      "rules_version": "governance-1",
+      "schema_version": 3,
+      "verdict": "request_changes"
+    },
+    {
+      "artifact_id": "docs/continuity-a.md",
+      "content_packet": {
+        "content_policy_digest": "1d3764dd975f89555ef17c4c87ab6d9f69ce3214cfcb15d787df8432b5a7330f",
+        "content_policy_generation": 4,
+        "packet_digest": "4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d",
+        "packet_id": "cgp_4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d"
+      },
+      "content_packet_digest": "4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d",
+      "created_at": 1792501696.5823953,
+      "decision_id": "gvd_7af71bbd2a8e67a32f45863d7fd799ebdf0134c243f03f20bce6b5c825c296f4",
+      "grant_id": "gvg_e5baee0ef99f446f60f80533eeb31bf8",
+      "operation_id": "snapshot-decision-explicit-current-c-abstain",
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 7,
+      "previous_decision_id": "gvd_7c19b16ff79f7bee2b9c3ae272f1a395f05482d4b38276b4a51d1bf38d793c71",
+      "principal_id": "snapshot-reviewer-c",
+      "proposal_digest": "1768636f2d11c8a58df34448441545a6db6cfd49c112d8db986c90de72e47951",
+      "proposal_id": "p_e383137f6461cc1a7eddb14e",
+      "rationale": "Programmed local decision for explicit-current-c-abstain; independent human or model review is not established.",
+      "review_continuity": {
+        "activation_generation": 4,
+        "basis_digest": "7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+        "basis_id": "rcb_7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+        "rules_version": "review-continuity-1"
+      },
+      "rules_version": "governance-1",
+      "schema_version": 3,
+      "verdict": "abstain"
+    }
+  ],
+  "receipts": [
+    {
+      "accepted_at": 1792501697.533015,
+      "authorization_time": 1792501697.533015,
+      "authorship": {
+        "authorship_digest": "dfc457994b2de60fd0be508a536a6732a6600da1a74998684c9d7ca0e2459dcd",
+        "authorship_id": "awp_dfc457994b2de60fd0be508a536a6732a6600da1a74998684c9d7ca0e2459dcd",
+        "contributor_principals": [
+          "snapshot-code-author",
+          "snapshot-document-author",
+          "snapshot-integrator"
+        ],
+        "principal_id": "snapshot-integrator",
+        "write_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ]
+      },
+      "content_packet": {
+        "content_policy_digest": "1d3764dd975f89555ef17c4c87ab6d9f69ce3214cfcb15d787df8432b5a7330f",
+        "content_policy_generation": 4,
+        "packet_digest": "4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d",
+        "packet_id": "cgp_4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d"
+      },
+      "coordinator": {
+        "grant_id": "gvg_05193d0132786d5a1892d6c75efe8b2b",
+        "principal_id": "snapshot-coordinator"
+      },
+      "decisions": {
+        "code/continuity_a.py": [
+          "gvd_b4a60a7538082fe68348d76ed26dca351b5f2ea75dc115062817be2e8f82f137",
+          "gvd_fcba884be2f846ccc0b487a57f80b29ace4d6ec08cb559e6b123b2a138e2796a"
+        ],
+        "docs/continuity-a.md": [
+          "gvd_41bdebd010bfab3cf67e3283d45f7386d957485dc833c390cc02d8f95759de00",
+          "gvd_534d8a861fb0dcd65dd3ec04365ed94046e4b0c11b69251f79163f22887a274f"
+        ]
+      },
+      "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+      "policy_generation": 7,
+      "proposal_digest": "1768636f2d11c8a58df34448441545a6db6cfd49c112d8db986c90de72e47951",
+      "proposal_id": "p_e383137f6461cc1a7eddb14e",
+      "receipt_id": "gvr_214527d536f0e10379a01b990f83d5120b9e53db6f3d34a807b0a6dfc397ecda",
+      "review_continuity": {
+        "activation_generation": 4,
+        "basis_digest": "7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+        "basis_id": "rcb_7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+        "rules_version": "review-continuity-1",
+        "used_decisions": {
+          "gvd_41bdebd010bfab3cf67e3283d45f7386d957485dc833c390cc02d8f95759de00": {
+            "activation_generation": 4,
+            "basis_digest": "7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+            "basis_id": "rcb_7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+            "chain_digest": "81acd4b07a09ae3838ab748be946f25795d20c8ec8ba1773dce154fd79940684",
+            "current_packet": {
+              "content_policy_digest": "1d3764dd975f89555ef17c4c87ab6d9f69ce3214cfcb15d787df8432b5a7330f",
+              "content_policy_generation": 4,
+              "packet_digest": "4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d",
+              "packet_id": "cgp_4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d"
+            },
+            "decision_id": "gvd_41bdebd010bfab3cf67e3283d45f7386d957485dc833c390cc02d8f95759de00",
+            "from_governance_generation": 4,
+            "mode": "preserved_catalog",
+            "old_packet": {
+              "content_policy_digest": "fcc91d3c8e36f4f67a7966d5dd3b3dce56cac4e1d43040520c8ce89daf2de3eb",
+              "content_policy_generation": 1,
+              "packet_digest": "71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827",
+              "packet_id": "cgp_71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827"
+            },
+            "rules_version": "review-continuity-1",
+            "scope_digest": "8a96a830cc25753e5e9af6cd41e28361efca7b16b3027aa45dd91f2f9c931714",
+            "to_governance_generation": 7,
+            "transitions": [
+              {
+                "transition_digest": "a5660524f4b7f71e3fb577ceb92a8367f22a30d9410d16f194d28d7dd1302569",
+                "transition_id": "rct_a5660524f4b7f71e3fb577ceb92a8367f22a30d9410d16f194d28d7dd1302569"
+              },
+              {
+                "transition_digest": "e9590cbeaccff25ced1fcfcec03eede1f90379ed1f890a8fd262b012910a4042",
+                "transition_id": "rct_e9590cbeaccff25ced1fcfcec03eede1f90379ed1f890a8fd262b012910a4042"
+              },
+              {
+                "transition_digest": "633373c3c06989758c5e0014d03b6efc780589e4589f0a3e7428dec96ca7d7a3",
+                "transition_id": "rct_633373c3c06989758c5e0014d03b6efc780589e4589f0a3e7428dec96ca7d7a3"
+              }
+            ]
+          },
+          "gvd_534d8a861fb0dcd65dd3ec04365ed94046e4b0c11b69251f79163f22887a274f": {
+            "activation_generation": 4,
+            "basis_digest": "7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+            "basis_id": "rcb_7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+            "chain_digest": "7813ec6df14775a3c33f05bfa7626aef557e455e33f756d462ecc409bc4e6a48",
+            "current_packet": {
+              "content_policy_digest": "1d3764dd975f89555ef17c4c87ab6d9f69ce3214cfcb15d787df8432b5a7330f",
+              "content_policy_generation": 4,
+              "packet_digest": "4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d",
+              "packet_id": "cgp_4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d"
+            },
+            "decision_id": "gvd_534d8a861fb0dcd65dd3ec04365ed94046e4b0c11b69251f79163f22887a274f",
+            "from_governance_generation": 4,
+            "mode": "preserved_catalog",
+            "old_packet": {
+              "content_policy_digest": "fcc91d3c8e36f4f67a7966d5dd3b3dce56cac4e1d43040520c8ce89daf2de3eb",
+              "content_policy_generation": 1,
+              "packet_digest": "71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827",
+              "packet_id": "cgp_71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827"
+            },
+            "rules_version": "review-continuity-1",
+            "scope_digest": "8a96a830cc25753e5e9af6cd41e28361efca7b16b3027aa45dd91f2f9c931714",
+            "to_governance_generation": 7,
+            "transitions": [
+              {
+                "transition_digest": "a5660524f4b7f71e3fb577ceb92a8367f22a30d9410d16f194d28d7dd1302569",
+                "transition_id": "rct_a5660524f4b7f71e3fb577ceb92a8367f22a30d9410d16f194d28d7dd1302569"
+              },
+              {
+                "transition_digest": "e9590cbeaccff25ced1fcfcec03eede1f90379ed1f890a8fd262b012910a4042",
+                "transition_id": "rct_e9590cbeaccff25ced1fcfcec03eede1f90379ed1f890a8fd262b012910a4042"
+              },
+              {
+                "transition_digest": "633373c3c06989758c5e0014d03b6efc780589e4589f0a3e7428dec96ca7d7a3",
+                "transition_id": "rct_633373c3c06989758c5e0014d03b6efc780589e4589f0a3e7428dec96ca7d7a3"
+              }
+            ]
+          },
+          "gvd_b4a60a7538082fe68348d76ed26dca351b5f2ea75dc115062817be2e8f82f137": {
+            "activation_generation": 4,
+            "basis_digest": "7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+            "basis_id": "rcb_7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+            "chain_digest": "e753a42547bb5725801c43c1ce0adfef34eb6b3f09fe64feecd54bb46d9d57f2",
+            "current_packet": {
+              "content_policy_digest": "1d3764dd975f89555ef17c4c87ab6d9f69ce3214cfcb15d787df8432b5a7330f",
+              "content_policy_generation": 4,
+              "packet_digest": "4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d",
+              "packet_id": "cgp_4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d"
+            },
+            "decision_id": "gvd_b4a60a7538082fe68348d76ed26dca351b5f2ea75dc115062817be2e8f82f137",
+            "from_governance_generation": 4,
+            "mode": "preserved_catalog",
+            "old_packet": {
+              "content_policy_digest": "fcc91d3c8e36f4f67a7966d5dd3b3dce56cac4e1d43040520c8ce89daf2de3eb",
+              "content_policy_generation": 1,
+              "packet_digest": "71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827",
+              "packet_id": "cgp_71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827"
+            },
+            "rules_version": "review-continuity-1",
+            "scope_digest": "8a96a830cc25753e5e9af6cd41e28361efca7b16b3027aa45dd91f2f9c931714",
+            "to_governance_generation": 7,
+            "transitions": [
+              {
+                "transition_digest": "a5660524f4b7f71e3fb577ceb92a8367f22a30d9410d16f194d28d7dd1302569",
+                "transition_id": "rct_a5660524f4b7f71e3fb577ceb92a8367f22a30d9410d16f194d28d7dd1302569"
+              },
+              {
+                "transition_digest": "e9590cbeaccff25ced1fcfcec03eede1f90379ed1f890a8fd262b012910a4042",
+                "transition_id": "rct_e9590cbeaccff25ced1fcfcec03eede1f90379ed1f890a8fd262b012910a4042"
+              },
+              {
+                "transition_digest": "633373c3c06989758c5e0014d03b6efc780589e4589f0a3e7428dec96ca7d7a3",
+                "transition_id": "rct_633373c3c06989758c5e0014d03b6efc780589e4589f0a3e7428dec96ca7d7a3"
+              }
+            ]
+          },
+          "gvd_fcba884be2f846ccc0b487a57f80b29ace4d6ec08cb559e6b123b2a138e2796a": {
+            "activation_generation": 4,
+            "basis_digest": "7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+            "basis_id": "rcb_7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+            "chain_digest": "75cf76635bccb12d3b44fa7f04a299bce0bdefcea80fa0e84fa86bc5a8de06d7",
+            "current_packet": {
+              "content_policy_digest": "1d3764dd975f89555ef17c4c87ab6d9f69ce3214cfcb15d787df8432b5a7330f",
+              "content_policy_generation": 4,
+              "packet_digest": "4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d",
+              "packet_id": "cgp_4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d"
+            },
+            "decision_id": "gvd_fcba884be2f846ccc0b487a57f80b29ace4d6ec08cb559e6b123b2a138e2796a",
+            "from_governance_generation": 4,
+            "mode": "preserved_catalog",
+            "old_packet": {
+              "content_policy_digest": "fcc91d3c8e36f4f67a7966d5dd3b3dce56cac4e1d43040520c8ce89daf2de3eb",
+              "content_policy_generation": 1,
+              "packet_digest": "71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827",
+              "packet_id": "cgp_71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827"
+            },
+            "rules_version": "review-continuity-1",
+            "scope_digest": "8a96a830cc25753e5e9af6cd41e28361efca7b16b3027aa45dd91f2f9c931714",
+            "to_governance_generation": 7,
+            "transitions": [
+              {
+                "transition_digest": "a5660524f4b7f71e3fb577ceb92a8367f22a30d9410d16f194d28d7dd1302569",
+                "transition_id": "rct_a5660524f4b7f71e3fb577ceb92a8367f22a30d9410d16f194d28d7dd1302569"
+              },
+              {
+                "transition_digest": "e9590cbeaccff25ced1fcfcec03eede1f90379ed1f890a8fd262b012910a4042",
+                "transition_id": "rct_e9590cbeaccff25ced1fcfcec03eede1f90379ed1f890a8fd262b012910a4042"
+              },
+              {
+                "transition_digest": "633373c3c06989758c5e0014d03b6efc780589e4589f0a3e7428dec96ca7d7a3",
+                "transition_id": "rct_633373c3c06989758c5e0014d03b6efc780589e4589f0a3e7428dec96ca7d7a3"
+              }
+            ]
+          }
+        }
+      },
+      "revision": 2,
+      "rules_version": "governance-1",
+      "schema_version": 4
+    }
+  ],
+  "credential_mode": "local_bearer",
+  "author_identity_authenticated": false,
+  "human_identity_authenticated": false,
+  "trusted_database_owner_can_bypass": true
+}

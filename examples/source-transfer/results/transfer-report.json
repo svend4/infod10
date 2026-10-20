@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "rules_version": "source-transfer-1",
+  "created_at": "2026-10-20T15:08:33.316395+02:00",
+  "timezone": "Europe/Berlin",
+  "scenario": "Fresh active workspace from one fenced source, preserved provenance and new authority",
+  "summary": {
+    "baseline_public_file_count": 97,
+    "transfer_stage_count": 10,
+    "transfer_cli_child_process_count": 4,
+    "total_cli_child_process_count": 20,
+    "source_events_before_transfer": 63,
+    "source_events_after_transfer": 64,
+    "transfer_reservation_event_count": 1,
+    "imported_revision": 2,
+    "destination_revision_after_new_acceptance": 3,
+    "destination_events_after_new_acceptance": 36,
+    "historical_archive_event_count": 64,
+    "old_snapshot_event_count": 52,
+    "fresh_author_job_count": 3,
+    "fresh_author_pool_workers": 3,
+    "fresh_observed_author_thread_count": 3,
+    "fresh_role_grant_count": 6,
+    "fresh_decision_count": 4,
+    "operator_rejection_count": 11,
+    "exact_transfer_replay_count": 1,
+    "baseline_dependencies_preserved": true,
+    "imported_release_loaded": true,
+    "updated_release_loaded": true,
+    "fresh_acceptance_completed": true,
+    "new_workspace_backup_restored": true,
+    "restored_new_workspace_quarantined": true,
+    "copied_active_database_rejected": true,
+    "old_source_remains_fenced": true,
+    "old_authority_transferred": false,
+    "old_secrets_reissued": false,
+    "private_origin_contents_read_by_demo": false,
+    "private_manifest_contents_read_by_demo": false,
+    "private_fingerprints_exported": false,
+    "older_snapshot_activated": false,
+    "incomplete_import_or_crash_simulated": false,
+    "external_fencing_established": false,
+    "external_llm_used": false,
+    "human_review_recorded": false,
+    "proposed_code_executed": false,
+    "measured_capacity": false
+  },
+  "stages": [
+    {
+      "label": "fenced-source-and-old-copy",
+      "explanation": "The current source is stopped; its earlier snapshot remains quarantined. A new destination has not been created.",
+      "artifact": "transfer-stage-01-fenced-source-and-old-copy.json",
+      "source_event_count": 63
+    },
+    {
+      "label": "old-secret-rejected-before-transfer",
+      "explanation": "A credential already issued in the source cannot become the new administrator's credential.",
+      "artifact": "transfer-stage-02-old-secret-rejected-before-transfer.json",
+      "source_event_count": 63
+    },
+    {
+      "label": "fresh-active-baseline-and-fenced-history",
+      "explanation": "The new workspace imports accepted content and exact dependency records at revision R, starts with only a fresh administrator, and preserves old history separately.",
+      "artifact": "transfer-stage-03-fresh-active-baseline-and-fenced-history.json",
+      "source_event_count": 64
+    },
+    {
+      "label": "completed-replay-and-single-target-binding",
+      "explanation": "The exact request returns its original fact without new events; another destination or operation conflicts.",
+      "artifact": "transfer-stage-04-completed-replay-and-single-target-binding.json",
+      "source_event_count": 64
+    },
+    {
+      "label": "old-authority-and-active-copy-rejected",
+      "explanation": "Old credentials and proposals do not acquire new authority; source and archive stay fenced, and a bare active database copied to another path is rejected.",
+      "artifact": "transfer-stage-05-old-authority-and-active-copy-rejected.json",
+      "source_event_count": 64
+    },
+    {
+      "label": "fresh-authenticated-authors-and-composition",
+      "explanation": "New role grants authorize three new author jobs and one composition. No old lease or opinion is reused.",
+      "artifact": "transfer-stage-06-fresh-authenticated-authors-and-composition.json",
+      "source_event_count": 64
+    },
+    {
+      "label": "fresh-opinions-and-new-acceptance",
+      "explanation": "Four new scoped opinions and a new coordinator authorize a new acceptance in the destination, advancing R to R+1.",
+      "artifact": "transfer-stage-07-fresh-opinions-and-new-acceptance.json",
+      "source_event_count": 64
+    },
+    {
+      "label": "updated-release-retains-provenance",
+      "explanation": "The updated destination release loads with complete dependency records; unchanged imported artifacts still use their original baseline.",
+      "artifact": "transfer-stage-08-updated-release-retains-provenance.json",
+      "source_event_count": 64
+    },
+    {
+      "label": "new-workspace-backup-and-historical-restore",
+      "explanation": "An ordinary backup and restore preserve imported provenance and the new receipt; quarantine takes priority over the live destination's path binding.",
+      "artifact": "transfer-stage-09-new-workspace-backup-and-historical-restore.json",
+      "source_event_count": 64
+    },
+    {
+      "label": "old-source-remains-stopped-and-history-preserved",
+      "explanation": "New work and its backup leave the old source, full history archive and older snapshot unchanged; the completed transfer remains one historical fact.",
+      "artifact": "transfer-stage-10-old-source-remains-stopped-and-history-preserved.json",
+      "source_event_count": 64
+    }
+  ],
+  "artifacts": [
+    "transfer-acceptance.json",
+    "transfer-authors.json",
+    "transfer-cli-outcomes.json",
+    "transfer-composition.json",
+    "transfer-content-policy-history.json",
+    "transfer-decision-requests.json",
+    "transfer-decisions.json",
+    "transfer-dependencies.json",
+    "transfer-destination-observations.json",
+    "transfer-governance-policy-history.json",
+    "transfer-grants.json",
+    "transfer-history-observations.json",
+    "transfer-new-backup.json",
+    "transfer-observation.json",
+    "transfer-old-snapshot-observations.json",
+    "transfer-packets.json",
+    "transfer-rejections.json",
+    "transfer-releases.json",
+    "transfer-results.json",
+    "transfer-source-observations.json"
+  ],
+  "limits": [
+    "The source-side single-target reservation and destination path binding are cooperative local controls, not an external fencing service.",
+    "The active destination contains accepted content and preserved dependency descriptors; old runtime grants, leases, tasks, opinions and receipts remain in the separate fenced archive.",
+    "All new decisions are programmed local opinions under fresh grants; they do not establish independent people, factual truth or semantic equivalence.",
+    "Release loader compatibility and exact baseline dependencies preserve the existing declared freshness checks; a separately induced stale imported read/query case is not performed here.",
+    "Bare destination copying is demonstrated through SQLite backup into a new private file; it is not a corrupted SQL fixture or simulated process crash.",
+    "Public observations omit only governance_status's changing top-level observed_at for equality; raw timestamps and addressed proof bodies remain intact.",
+    "The new destination's ordinary backup stays a quarantined historical snapshot. It does not reactivate a live copied database or any old source authority.",
+    "The destination's ordinary database backup does not embed its separate full ancestral history.sqlite3 archive; that archive remains a separate private transfer artifact.",
+    "Old software and a trusted database owner using raw SQL can bypass the cooperative path. Existing external publication effects are not revoked or replayed by the transfer."
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "label": "safe-operator-rejections",
+  "explanation": "Missing authority, an existing backup destination, an incomplete empty directory and an existing restore destination are rejected without SQL corruption or overwrites.",
+  "source_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 5
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 4
+    },
+    "events": 59,
+    "rules_version": "mvp-1"
+  },
+  "governance_policy_generation": 8,
+  "operation_result": [
+    {
+      "label": "backup-without-administrator",
+      "rejected": true,
+      "code": "governance_unauthorized",
+      "status_unchanged": true
+    },
+    {
+      "label": "backup-existing-destination",
+      "rejected": true,
+      "code": "snapshot_destination_exists",
+      "status_unchanged": true
+    },
+    {
+      "label": "inspect-incomplete-empty-directory",
+      "rejected": true,
+      "code": "snapshot_incomplete",
+      "status_unchanged": null
+    },
+    {
+      "label": "restore-existing-empty-destination",
+      "rejected": true,
+      "code": "snapshot_destination_exists",
+      "status_unchanged": null
+    }
+  ]
+}

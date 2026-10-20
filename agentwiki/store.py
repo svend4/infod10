@@ -133,11 +133,14 @@ class Store:
         self.path = Path(path)
         self._inspection_only = False
         self._source_fenced = False
-        from . import source_fence, store_quarantine
+        self._transfer_workspace_id: str | None = None
+        from . import source_fence, store_quarantine, transfer_origin
         marker = store_quarantine.probe(self.path)
         fence = source_fence.probe(self.path)
+        origin = transfer_origin.probe(self.path)
         self._inspection_only = marker is not None
         self._source_fenced = fence is not None
+        self._transfer_workspace_id = origin["workspace_id"] if origin is not None else None
         if self._inspection_only or self._source_fenced:
             return
         self.path.parent.mkdir(parents=True, exist_ok=True)
@@ -188,27 +191,37 @@ class Store:
 
     def _record_access_markers(self, connection: sqlite3.Connection) -> bool:
         """Check the actual database before any initialization or write body."""
-        from . import source_fence, store_quarantine
+        from . import source_fence, store_quarantine, transfer_origin
         marker = store_quarantine.quarantine_info(connection)
         fence = source_fence.fence_info(connection)
+        origin = transfer_origin.check_access(connection, self.path)
         if self._inspection_only and marker is None:
             raise WorkbenchError("store_snapshot_invalid", "An inspection-only Store lost its snapshot marker")
         if self._source_fenced and fence is None:
             raise WorkbenchError("store_source_fence_invalid", "A fenced Store lost its source marker")
+        if self._transfer_workspace_id is not None and (
+                origin is None or origin["workspace_id"] != self._transfer_workspace_id):
+            raise WorkbenchError("store_transfer_invalid", "An imported Store lost its workspace origin")
         self._inspection_only = marker is not None
         self._source_fenced = fence is not None
+        self._transfer_workspace_id = origin["workspace_id"] if origin is not None else None
         return self._inspection_only or self._source_fenced
 
     def _connect(self) -> sqlite3.Connection:
-        from . import source_fence, store_quarantine
+        from . import source_fence, store_quarantine, transfer_origin
         marker = store_quarantine.probe(self.path)
         fence = source_fence.probe(self.path)
+        origin = transfer_origin.probe(self.path)
         if self._inspection_only and marker is None:
             raise WorkbenchError("store_snapshot_invalid", "An inspection-only Store lost its snapshot marker")
         if self._source_fenced and fence is None:
             raise WorkbenchError("store_source_fence_invalid", "A fenced Store lost its source marker")
+        if self._transfer_workspace_id is not None and (
+                origin is None or origin["workspace_id"] != self._transfer_workspace_id):
+            raise WorkbenchError("store_transfer_invalid", "An imported Store lost its workspace origin")
         self._inspection_only = marker is not None
         self._source_fenced = fence is not None
+        self._transfer_workspace_id = origin["workspace_id"] if origin is not None else None
         if self._inspection_only or self._source_fenced:
             return store_quarantine.readonly_connection(self.path)
         connection = sqlite3.connect(self.path, timeout=30, isolation_level=None)
@@ -250,15 +263,17 @@ class Store:
 
     def snapshot_access(self) -> dict[str, Any]:
         """Describe this path's current access boundary without authorizing it."""
-        from . import source_fence, store_quarantine
+        from . import source_fence, store_quarantine, transfer_origin
         with self._transaction() as connection:
             marker = store_quarantine.quarantine_info(connection)
             fence = source_fence.fence_info(connection)
+            origin = transfer_origin.origin_info(connection)
             quarantined = marker is not None
             fenced = fence is not None
             inspection_only = quarantined or fenced
             result = {"rules_version": store_quarantine.RULES_VERSION,
                       "quarantined": quarantined, "source_fenced": fenced,
+                      "imported_workspace": origin is not None,
                       "inspection_only": inspection_only,
                       "domain_writes_allowed": not inspection_only,
                       "historical_authorization_only": quarantined,
@@ -269,6 +284,8 @@ class Store:
                     "backup_id", "quarantine_id", "source_revision", "event_high_water", "created_at")})
             if fence is not None:
                 result["source_fence"] = fence
+            if origin is not None:
+                result["transfer_origin"] = origin
             return result
 
     def create_backup(self, destination: str | Path, *, credential: str) -> dict[str, Any]:
@@ -411,14 +428,21 @@ class Store:
         checking, retaining conservative cross-artifact dependencies in bundles.
         """
         dependencies = {}
+        from . import transfer_origin
+        origin = transfer_origin.read_origin(connection)
         baseline_cache: dict[int, dict[str, Any]] = {}
         rows = connection.execute(
-            "SELECT a.id,a.revision,r.state,p.id AS proposal_id,p.payload "
+            "SELECT a.id,a.revision,a.digest,r.state,p.id AS proposal_id,p.payload "
             "FROM artifacts a JOIN revisions r ON a.revision=r.revision "
             "LEFT JOIN proposals p ON r.proposal_id=p.id ORDER BY a.id"
         )
         for row in rows:
             if row["proposal_id"] is None:
+                inherited = transfer_origin.dependency_from_origin(
+                    origin, row["id"], row["revision"], row["digest"])
+                if inherited is not None:
+                    dependencies[row["id"]] = inherited
+                    continue
                 dependencies[row["id"]] = {
                     "proposal_id": None, "baseline_revision": row["revision"],
                     "readset": {}, "queries": {}, "write_ids": [row["id"]],

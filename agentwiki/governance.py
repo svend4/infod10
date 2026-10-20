@@ -197,6 +197,8 @@ def grant(connection: sqlite3.Connection, principal_id: Any, role: Any, artifact
     if type(expires_at) not in {int, float} or (type(expires_at) is float and not math.isfinite(expires_at)):
         raise WorkbenchError("invalid_governance_input", "Grant expiry must be finite epoch seconds")
     token_hash = _credential_hash(new_credential)
+    from . import transfer_origin
+    transfer_origin.enforce_credential_fresh(connection, token_hash)
     request = {"principal_id": principal, "role": role, "artifact_ids": scope,
                "expires_at": expires_at, "credential_hash": token_hash,
                "administrator_grant_id": administrator["grant_id"]}

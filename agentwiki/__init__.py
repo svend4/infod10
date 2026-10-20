@@ -1,3 +1,3 @@
 """Local, inspectable coordination for agents proposing documents and code."""
 
-__version__ = "0.21.0"
+__version__ = "0.22.0"
