@@ -28,6 +28,7 @@ from .content_gate_cli import register_content_parser, run_content_command
 from .review_continuity_cli import register_continuity_parser, run_continuity_command
 from .review_history_audit_cli import register_history_audit_parser, run_history_audit_command
 from .store_backup_cli import register_backup_parser, run_backup_command
+from .recovery_reconciliation_cli import register_recovery_parser, run_recovery_command
 
 
 def _workers(value: str) -> int:
@@ -162,6 +163,7 @@ def main(argv: list[str] | None = None) -> int:
     register_continuity_parser(commands)
     register_history_audit_parser(commands)
     register_backup_parser(commands)
+    register_recovery_parser(commands)
     editorial_demo = commands.add_parser("editorial-demo", help="Показать историю решений программных проверяющих и устаревание оснований.")
     editorial_demo.add_argument("--workspace", type=Path, required=True)
     editorial_demo.add_argument("--workers", default=3, type=_workers)
@@ -210,6 +212,9 @@ def main(argv: list[str] | None = None) -> int:
     store_backup_demo = commands.add_parser("store-backup-demo", help="Сохранить согласованный снимок SQLite и восстановить его для изолированного просмотра.")
     store_backup_demo.add_argument("--workspace", type=Path, required=True)
     store_backup_demo.add_argument("--workers", default=3, type=_workers)
+    recovery_demo = commands.add_parser("recovery-reconciliation-demo", help="Сверить снимок с действующим источником и обнаружить устаревание частного плана.")
+    recovery_demo.add_argument("--workspace", type=Path, required=True)
+    recovery_demo.add_argument("--workers", default=3, type=_workers)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -284,6 +289,13 @@ def main(argv: list[str] | None = None) -> int:
 
             report = run_store_backup_demo(arguments.workspace, arguments.workers)
             print(json.dumps({"report": str(arguments.workspace / "report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
+        elif arguments.command == "store-recovery":
+            print(json.dumps(run_recovery_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "recovery-reconciliation-demo":
+            from .recovery_reconciliation_demo import run_recovery_reconciliation_demo
+
+            report = run_recovery_reconciliation_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "recovery-report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "history-recovery-demo":
             from .review_history_recovery_demo import run_history_recovery_demo
 

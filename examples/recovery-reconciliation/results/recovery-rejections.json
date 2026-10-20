@@ -1,0 +1,38 @@
+[
+  {
+    "label": "plan-stale-after-eventless-heartbeat",
+    "code": "recovery_plan_stale",
+    "rejected": true,
+    "source_public_observations_unchanged": true
+  },
+  {
+    "label": "plan-stale-after-later-source-event",
+    "code": "recovery_plan_stale",
+    "rejected": true,
+    "source_public_observations_unchanged": true
+  },
+  {
+    "label": "revoked-reviewer-is-not-live-administrator",
+    "code": "governance_unauthorized",
+    "rejected": true,
+    "source_public_observations_unchanged": true
+  },
+  {
+    "label": "quarantined-copy-cannot-be-live-source",
+    "code": "recovery_source_invalid",
+    "rejected": true,
+    "source_public_observations_unchanged": true
+  },
+  {
+    "label": "existing-plan-is-not-overwritten",
+    "code": "recovery_plan_exists",
+    "rejected": true,
+    "source_public_observations_unchanged": true
+  },
+  {
+    "label": "unrelated-live-source-has-no-original-admin-lineage",
+    "code": "recovery_lineage_mismatch",
+    "rejected": true,
+    "source_public_observations_unchanged": true
+  }
+]

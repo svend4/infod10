@@ -1,0 +1,65 @@
+{
+  "label": "quarantine-persists-in-the-database",
+  "explanation": "Opening the backup DB directly and copying only that marked DB without sidecars both retain the inspection boundary; enqueue is rejected in each copy.",
+  "source_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 5
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 4
+    },
+    "events": 59,
+    "rules_version": "mvp-1"
+  },
+  "governance_policy_generation": 8,
+  "operation_result": {
+    "direct_bundle_access": {
+      "rules_version": "store-snapshot-1",
+      "quarantined": true,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "historical_authorization_only": true,
+      "live_authorization_allowed": false,
+      "trusted_database_owner_can_bypass": true,
+      "backup_id": "sbk_9fa285a2f4e7e72e0ee28133afea53a1",
+      "quarantine_id": "sq_b097bca555fbb171b142ec957e99335e",
+      "source_revision": 2,
+      "event_high_water": 52,
+      "created_at": 1792496408.3386726
+    },
+    "database_only_access": {
+      "rules_version": "store-snapshot-1",
+      "quarantined": true,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "historical_authorization_only": true,
+      "live_authorization_allowed": false,
+      "trusted_database_owner_can_bypass": true,
+      "backup_id": "sbk_9fa285a2f4e7e72e0ee28133afea53a1",
+      "quarantine_id": "sq_b097bca555fbb171b142ec957e99335e",
+      "source_revision": 2,
+      "event_high_water": 52,
+      "created_at": 1792496408.3386726
+    },
+    "database_only_copy_source": "private/backup-01/state.sqlite3",
+    "source_database_raw_copy": false,
+    "rejections": [
+      {
+        "label": "direct-backup-database-enqueue",
+        "rejected": true,
+        "code": "store_snapshot_quarantined",
+        "status_unchanged": true
+      },
+      {
+        "label": "database-only-copy-enqueue",
+        "rejected": true,
+        "code": "store_snapshot_quarantined",
+        "status_unchanged": true
+      }
+    ]
+  }
+}
