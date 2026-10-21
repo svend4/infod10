@@ -1,0 +1,240 @@
+{
+  "label": "fresh-authenticated-authors-and-composition",
+  "explanation": "New role grants authorize three new author jobs and one composition. No old lease or opinion is reused.",
+  "source_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 5,
+      "leased": 1,
+      "pending": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 4
+    },
+    "events": 64,
+    "rules_version": "mvp-1"
+  },
+  "observations": {
+    "grants": {
+      "document-author": {
+        "grant_id": "gvg_e63206838ff599443c547ac5af781f7a",
+        "principal_id": "transfer-document-author",
+        "role": "doc_author",
+        "artifact_ids": [
+          "docs/continuity-a.md",
+          "docs/continuity-d.md"
+        ],
+        "expires_at": 1792619637.7956116,
+        "created_at": 1792616037.8033037,
+        "issuer_grant_id": "gvg_878bf4500066c06cea91b36049fbdecf",
+        "operation_id": "transfer-grant-document-author",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false,
+        "replayed": false
+      },
+      "code-author": {
+        "grant_id": "gvg_2ce5dc5ee6b35af5018d57c35b1315f4",
+        "principal_id": "transfer-code-author",
+        "role": "code_author",
+        "artifact_ids": [
+          "code/continuity_a.py",
+          "code/continuity_d.py"
+        ],
+        "expires_at": 1792619637.7956116,
+        "created_at": 1792616037.819256,
+        "issuer_grant_id": "gvg_878bf4500066c06cea91b36049fbdecf",
+        "operation_id": "transfer-grant-code-author",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false,
+        "replayed": false
+      },
+      "integrator": {
+        "grant_id": "gvg_76344228b3c91bab4a6362c1c274e07a",
+        "principal_id": "transfer-integrator",
+        "role": "integrator",
+        "artifact_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ],
+        "expires_at": 1792619637.7956116,
+        "created_at": 1792616037.8314047,
+        "issuer_grant_id": "gvg_878bf4500066c06cea91b36049fbdecf",
+        "operation_id": "transfer-grant-integrator",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false,
+        "replayed": false
+      },
+      "reviewer-a": {
+        "grant_id": "gvg_8973794dfb5c0ff0ac9627efeb3c9db0",
+        "principal_id": "transfer-reviewer-a",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ],
+        "expires_at": 1792619637.7956116,
+        "created_at": 1792616037.840975,
+        "issuer_grant_id": "gvg_878bf4500066c06cea91b36049fbdecf",
+        "operation_id": "transfer-grant-reviewer-a",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false,
+        "replayed": false
+      },
+      "reviewer-b": {
+        "grant_id": "gvg_6352949621e8390430417c2a9de343b6",
+        "principal_id": "transfer-reviewer-b",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ],
+        "expires_at": 1792619637.7956116,
+        "created_at": 1792616037.848122,
+        "issuer_grant_id": "gvg_878bf4500066c06cea91b36049fbdecf",
+        "operation_id": "transfer-grant-reviewer-b",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false,
+        "replayed": false
+      },
+      "coordinator": {
+        "grant_id": "gvg_a743e6c1a4d92e1111b38e79160bf1b2",
+        "principal_id": "transfer-coordinator",
+        "role": "coordinator",
+        "artifact_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ],
+        "expires_at": 1792619637.7956116,
+        "created_at": 1792616037.8548908,
+        "issuer_grant_id": "gvg_878bf4500066c06cea91b36049fbdecf",
+        "operation_id": "transfer-grant-coordinator",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false,
+        "replayed": false
+      }
+    },
+    "authors": {
+      "alternative-document": {
+        "label": "alternative-document",
+        "principal_id": "transfer-document-author",
+        "thread": "transfer-author_0",
+        "task_id": "transfer-author-alternative-document",
+        "fencing_token": 1,
+        "proposal_id": "p_45112d10d9f3c9414f5f3dc9",
+        "digest": "af49ce10b642c59aa5d127688981770d2491eeebccaf930421ba020b135d1d66",
+        "replayed": false,
+        "authorship": {
+          "authorship_id": "awp_94d1798164335f9b79a68a4df48f9cf8c3be83b9e1ce6f128b8c03b90e0929ab",
+          "authorship_digest": "94d1798164335f9b79a68a4df48f9cf8c3be83b9e1ce6f128b8c03b90e0929ab",
+          "principal_id": "transfer-document-author",
+          "contributor_principals": [
+            "transfer-document-author"
+          ],
+          "write_ids": [
+            "docs/continuity-a.md"
+          ]
+        }
+      },
+      "code-a": {
+        "label": "code-a",
+        "principal_id": "transfer-code-author",
+        "thread": "transfer-author_1",
+        "task_id": "transfer-author-code-a",
+        "fencing_token": 1,
+        "proposal_id": "p_78968c44076b86e1e13703ae",
+        "digest": "ee01ac1bd69946d07b93cfbda481ef25d0eab20674381b1db88df3558ad8d182",
+        "replayed": false,
+        "authorship": {
+          "authorship_id": "awp_4cdf26c975903e0f9d89837600c36f0a586fd2cf628c971394d25753fd265d93",
+          "authorship_digest": "4cdf26c975903e0f9d89837600c36f0a586fd2cf628c971394d25753fd265d93",
+          "principal_id": "transfer-code-author",
+          "contributor_principals": [
+            "transfer-code-author"
+          ],
+          "write_ids": [
+            "code/continuity_a.py"
+          ]
+        }
+      },
+      "document-a": {
+        "label": "document-a",
+        "principal_id": "transfer-document-author",
+        "thread": "transfer-author_2",
+        "task_id": "transfer-author-document-a",
+        "fencing_token": 1,
+        "proposal_id": "p_e13232906c2aec9f91ee92b8",
+        "digest": "02b65f39f813dce5a92029abe997a5b8c7675a374d483d6cafd5d7668adb87d4",
+        "replayed": false,
+        "authorship": {
+          "authorship_id": "awp_703b11ff54dc711a50011dd1eb7a6a99a25939eedeecc56c4e3f75065b9ae4a7",
+          "authorship_digest": "703b11ff54dc711a50011dd1eb7a6a99a25939eedeecc56c4e3f75065b9ae4a7",
+          "principal_id": "transfer-document-author",
+          "contributor_principals": [
+            "transfer-document-author"
+          ],
+          "write_ids": [
+            "docs/continuity-a.md"
+          ]
+        }
+      }
+    },
+    "composition": {
+      "proposal_id": "p_7180468e8a6a0c7fbb1afbd4",
+      "digest": "c423b5ce4cf1dd41b61b8515311c88b8cb3cea6bb986a30ed8227c16f118211a",
+      "replayed": false,
+      "components": [
+        {
+          "position": 1,
+          "proposal_id": "p_e13232906c2aec9f91ee92b8",
+          "digest": "02b65f39f813dce5a92029abe997a5b8c7675a374d483d6cafd5d7668adb87d4",
+          "write_ids": [
+            "docs/continuity-a.md"
+          ]
+        },
+        {
+          "position": 2,
+          "proposal_id": "p_78968c44076b86e1e13703ae",
+          "digest": "ee01ac1bd69946d07b93cfbda481ef25d0eab20674381b1db88df3558ad8d182",
+          "write_ids": [
+            "code/continuity_a.py"
+          ]
+        }
+      ],
+      "authorship": {
+        "authorship_id": "awp_e0973da50956de292ccf725d7bcc56b4f203c34f406f6c7f61ff87e94e4a7fd3",
+        "authorship_digest": "e0973da50956de292ccf725d7bcc56b4f203c34f406f6c7f61ff87e94e4a7fd3",
+        "principal_id": "transfer-integrator",
+        "contributor_principals": [
+          "transfer-code-author",
+          "transfer-document-author",
+          "transfer-integrator"
+        ],
+        "write_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ]
+      }
+    },
+    "formal_review": {
+      "proposal_id": "p_7180468e8a6a0c7fbb1afbd4",
+      "proposal_digest": "c423b5ce4cf1dd41b61b8515311c88b8cb3cea6bb986a30ed8227c16f118211a",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "transfer-reviewer-a",
+      "observed_revision": 2,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 1
+    }
+  }
+}

@@ -36,6 +36,7 @@ from .workspace_restore_job_cli import register_restore_job_parser, run_restore_
 from .workspace_restore_cases_cli import register_restore_cases_parser, run_restore_cases_command
 from .workspace_restore_case_catalog_cli import register_restore_case_catalog_parser, run_restore_case_catalog_command
 from .workspace_restore_case_retention_cli import register_restore_case_retention_parser, run_restore_case_retention_command
+from .workspace_restore_case_retention_review_cli import register_restore_case_retention_review_parser, run_restore_case_retention_review_command
 
 
 def _workers(value: str) -> int:
@@ -178,6 +179,7 @@ def main(argv: list[str] | None = None) -> int:
     register_restore_cases_parser(commands)
     register_restore_case_catalog_parser(commands)
     register_restore_case_retention_parser(commands)
+    register_restore_case_retention_review_parser(commands)
     editorial_demo = commands.add_parser("editorial-demo", help="Показать историю решений программных проверяющих и устаревание оснований.")
     editorial_demo.add_argument("--workspace", type=Path, required=True)
     editorial_demo.add_argument("--workers", default=3, type=_workers)
@@ -262,6 +264,9 @@ def main(argv: list[str] | None = None) -> int:
     restore_case_retention_demo = commands.add_parser("workspace-restore-case-retention-demo", help="Сохранить совещательные планы удержания выбранных случаев восстановления.")
     restore_case_retention_demo.add_argument("--workspace", type=Path, required=True)
     restore_case_retention_demo.add_argument("--workers", default=3, type=_workers)
+    restore_case_retention_review_demo = commands.add_parser("workspace-restore-case-retention-review-demo", help="Сохранить рассмотрение retention plan и отдельно наблюдать актуальность его основания.")
+    restore_case_retention_review_demo.add_argument("--workspace", type=Path, required=True)
+    restore_case_retention_review_demo.add_argument("--workers", default=3, type=_workers)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -342,6 +347,13 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(run_fence_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "store-transfer":
             print(json.dumps(run_transfer_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "workspace-restore-case-retention-review":
+            print(json.dumps(run_restore_case_retention_review_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "workspace-restore-case-retention-review-demo":
+            from .workspace_restore_case_retention_review_demo import run_workspace_restore_case_retention_review_demo
+
+            report = run_workspace_restore_case_retention_review_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "restore-case-retention-review-report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "workspace-restore-case-retention":
             print(json.dumps(run_restore_case_retention_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "workspace-restore-case-retention-demo":

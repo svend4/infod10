@@ -436,6 +436,21 @@ python3 -m agentwiki workspace-restore-case-retention show --plan /path/to/priva
 
 План охватывает до 16 позиций явного каталога и сохраняет доступные подробные наблюдения. Его выводы требуют последующего рассмотрения; полномочия архивирования, удаления или активации старой DB не предоставляются.
 
+## Тридцать первый этап: рассмотрение плана и актуальность основания
+
+`workspace-restore-case-retention-review` сохраняет полный прежний план, самозаявленного участника и решение `reviewed`, `defer` либо `request_fresh_plan`. Исторические show и точный повтор доступны без прежних источников. Отдельный revalidate наблюдает привязки плана и каталога, повторно читает выбранные случаи и вычисляет причины по прежней политике на новом checked_at.
+
+- [Контракт и пошаговый анализ](docs/development/workspace-restore-case-retention-review.md).
+- [Запуск примера](examples/workspace-restore-case-retention-review/README.md).
+- [Фактический отчёт](examples/workspace-restore-case-retention-review/results/restore-case-retention-review-report.md).
+
+~~~sh
+python3 -m agentwiki workspace-restore-case-retention-review-demo --workspace /tmp/agentwiki-restore-case-retention-review-01 --workers 3
+python3 -m agentwiki workspace-restore-case-retention-review revalidate --review /path/to/private/review
+~~~
+
+Равенство недоступных наблюдений не подтверждает неизменность основания. Согласие участника не удостоверяет его личность, не меняет исходный план и не разрешает архивирование или удаление.
+
 ## Начать чтение
 
 - [Каталог всех частей переписки и форматов](docs/sessions/README.md).
@@ -471,12 +486,13 @@ python3 -m agentwiki workspace-restore-case-retention show --plan /path/to/priva
 - [Часть 30: подготовка без источника, результаты двадцать седьмого этапа и продолжение — 14 сообщений](docs/sessions/session-030/transcript.md).
 - [Часть 31: случаи отказа, результаты двадцать восьмого этапа и продолжение — 15 сообщений](docs/sessions/session-031/transcript.md).
 - [Часть 32: каталог случаев, результаты двадцать девятого этапа и продолжение — 12 сообщений](docs/sessions/session-032/transcript.md).
+- [Часть 33: планы удержания, результаты тридцатого этапа и продолжение — 12 сообщений](docs/sessions/session-033/transcript.md).
 - [Границы первого снимка](docs/sessions/session-001/README.md) и [продолжения](docs/sessions/session-002/README.md).
 - [Тематическая база знаний](docs/knowledge/README.md).
 - [Источники и ограничения утверждений](docs/knowledge/sources.md).
 - [Решения, предложения и открытые вопросы](docs/knowledge/decisions.md).
 
-Исходные сообщения сохранены отдельно от конспекта: 325 сообщений в тридцати двух частях, до запроса «Продолжение» после двадцать девятого этапа включительно. Текущая разработка описана в docs/development; прежняя архитектура шире возможностей прототипа. Результаты проверок среды относятся к моменту соответствующего сообщения.
+Исходные сообщения сохранены отдельно от конспекта: 337 сообщений в тридцати трёх частях, до запроса «Продолжение» после тридцатого этапа включительно. Текущая разработка описана в docs/development; прежняя архитектура шире возможностей прототипа. Результаты проверок среды относятся к моменту соответствующего сообщения.
 
 ## Содержимое
 
@@ -513,6 +529,7 @@ python3 -m agentwiki workspace-restore-case-retention show --plan /path/to/priva
 | examples/workspace-restore-cases/ | Исторические случаи раннего отказа и явные связи с новыми попытками |
 | examples/workspace-restore-case-catalog/ | Явный фиксированный состав случаев и ограниченные страницы управляющих наблюдений |
 | examples/workspace-restore-case-retention/ | Совещательные планы удержания выбранных случаев с историческими подробностями и причинами |
+| examples/workspace-restore-case-retention-review/ | Неизменяемое рассмотрение плана и отдельные наблюдения актуальности основания |
 | corpora/urllib3-retry-v2.5.0/ | Закреплённый реальный исходник и авторская адаптация контракта Retry |
 | examples/multi-agent/ | Запуск и фактические результаты с экспортом документов и кода |
 | docs/development/ | Практическое руководство, теория и план следующих этапов |

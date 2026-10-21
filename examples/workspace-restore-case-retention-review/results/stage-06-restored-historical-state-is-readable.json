@@ -1,0 +1,369 @@
+{
+  "label": "restored-historical-state-is-readable",
+  "explanation": "The restored copy preserves receipt, packets, partial checkpoint and the old leased task; B remains historically unrevoked there while the live source has revoked B.",
+  "source_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 5
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 4
+    },
+    "events": 59,
+    "rules_version": "mvp-1"
+  },
+  "governance_policy_generation": 8,
+  "operation_result": {
+    "restore_summary": {
+      "backup_id": "sbk_e7989164cc4b65eebcdfb2e2afb1766e",
+      "created_at": 1792616030.5227327,
+      "domain_writes_allowed": false,
+      "event_count": 52,
+      "event_high_water": 52,
+      "foreign_keys": "ok",
+      "inspection_only": true,
+      "integrity": "ok",
+      "kind": "restore",
+      "revision": 2,
+      "rules_version": "store-snapshot-1",
+      "table_counts": {
+        "artifacts": 4,
+        "authorship_leases": 5,
+        "authorship_settings": 1,
+        "content_packets": 2,
+        "content_policies": 4,
+        "content_settings": 1,
+        "events": 52,
+        "governance_decisions": 6,
+        "governance_grants": 8,
+        "governance_heads": 5,
+        "governance_operations": 13,
+        "governance_policies": 7,
+        "governance_receipts": 1,
+        "governance_revocations": 0,
+        "governance_settings": 1,
+        "meta": 1,
+        "proposal_authorship": 4,
+        "proposal_components": 2,
+        "proposals": 4,
+        "review_continuity_settings": 1,
+        "review_continuity_transitions": 3,
+        "review_history_audit_checkpoints": 2,
+        "review_history_audit_heads": 1,
+        "review_history_audit_operations": 2,
+        "review_history_audits": 1,
+        "reviews": 1,
+        "revisions": 2,
+        "sources": 0,
+        "tasks": 5
+      }
+    },
+    "restore_inspection": {
+      "backup_id": "sbk_e7989164cc4b65eebcdfb2e2afb1766e",
+      "created_at": 1792616030.5227327,
+      "domain_writes_allowed": false,
+      "event_count": 52,
+      "event_high_water": 52,
+      "foreign_keys": "ok",
+      "inspection_only": true,
+      "integrity": "ok",
+      "kind": "restore",
+      "revision": 2,
+      "rules_version": "store-snapshot-1",
+      "table_counts": {
+        "artifacts": 4,
+        "authorship_leases": 5,
+        "authorship_settings": 1,
+        "content_packets": 2,
+        "content_policies": 4,
+        "content_settings": 1,
+        "events": 52,
+        "governance_decisions": 6,
+        "governance_grants": 8,
+        "governance_heads": 5,
+        "governance_operations": 13,
+        "governance_policies": 7,
+        "governance_receipts": 1,
+        "governance_revocations": 0,
+        "governance_settings": 1,
+        "meta": 1,
+        "proposal_authorship": 4,
+        "proposal_components": 2,
+        "proposals": 4,
+        "review_continuity_settings": 1,
+        "review_continuity_transitions": 3,
+        "review_history_audit_checkpoints": 2,
+        "review_history_audit_heads": 1,
+        "review_history_audit_operations": 2,
+        "review_history_audits": 1,
+        "reviews": 1,
+        "revisions": 2,
+        "sources": 0,
+        "tasks": 5
+      }
+    },
+    "access": {
+      "rules_version": "store-snapshot-1",
+      "quarantined": true,
+      "source_fenced": false,
+      "imported_workspace": false,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "historical_authorization_only": true,
+      "live_authorization_allowed": false,
+      "trusted_database_owner_can_bypass": true,
+      "backup_id": "sbk_e7989164cc4b65eebcdfb2e2afb1766e",
+      "quarantine_id": "sq_cc13de3ceecce218921428d0792dcac9",
+      "source_revision": 2,
+      "event_high_water": 52,
+      "created_at": 1792616030.0077229
+    },
+    "grant_comparison": {
+      "captured_b": {
+        "grant_id": "gvg_f6c5c7a845f04c07e797dba970f7d03b",
+        "principal_id": "snapshot-reviewer-b",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/continuity_a.py",
+          "code/continuity_d.py",
+          "docs/continuity-a.md",
+          "docs/continuity-d.md"
+        ],
+        "expires_at": 1792619629.2221916,
+        "created_at": 1792616029.2529132,
+        "issuer_grant_id": "gvg_ebcc6caf5e897aeaa98a420a971c4ff5",
+        "operation_id": "snapshot-grant-reviewer-b",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false
+      },
+      "later_source_b": {
+        "grant_id": "gvg_f6c5c7a845f04c07e797dba970f7d03b",
+        "principal_id": "snapshot-reviewer-b",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/continuity_a.py",
+          "code/continuity_d.py",
+          "docs/continuity-a.md",
+          "docs/continuity-d.md"
+        ],
+        "expires_at": 1792619629.2221916,
+        "created_at": 1792616029.2529132,
+        "issuer_grant_id": "gvg_ebcc6caf5e897aeaa98a420a971c4ff5",
+        "operation_id": "snapshot-grant-reviewer-b",
+        "revoked": true,
+        "revoked_at": 1792616030.2981956,
+        "expired": false
+      },
+      "historical_metadata_only": true,
+      "snapshot_grant_activates_writes": false
+    },
+    "snapshot_audit": {
+      "audit": {
+        "acceptance_authority": false,
+        "activation_generation": 4,
+        "administrator_grant_id": "gvg_ebcc6caf5e897aeaa98a420a971c4ff5",
+        "advisory_only": true,
+        "authority_evaluated": false,
+        "basis_digest": "7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+        "basis_id": "rcb_7cf776df1b3b11a69c763bcba7e357981aa35df2daf0c8f004c718dac130ec84",
+        "created_at": 1792616029.5981128,
+        "operation_id": "snapshot-audit-start",
+        "proposal_digest": "1768636f2d11c8a58df34448441545a6db6cfd49c112d8db986c90de72e47951",
+        "proposal_id": "p_e383137f6461cc1a7eddb14e",
+        "rules_version": "review-history-audit-1",
+        "schema_version": 1,
+        "scope_digest": "8a96a830cc25753e5e9af6cd41e28361efca7b16b3027aa45dd91f2f9c931714",
+        "source_decision_digest": "dd1e404f931003319474e84b901a1297df78671f6d99c9a2bf9915eae6054d60",
+        "source_decision_id": "gvd_9a51a7a1eaa7c6313ed549453899f6a880ab38c859ec69265d0d2c59db6ce8f0",
+        "source_governance_generation": 4,
+        "source_governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "source_packet": {
+          "content_policy_digest": "fcc91d3c8e36f4f67a7966d5dd3b3dce56cac4e1d43040520c8ce89daf2de3eb",
+          "content_policy_generation": 1,
+          "packet_digest": "71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827",
+          "packet_id": "cgp_71d3e6af1a9a7ee2c152f8dead2823903b42a94864b946cb6ffaf3a7c4fdf827"
+        },
+        "target_governance_generation": 7,
+        "target_governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+        "target_packet": {
+          "content_policy_digest": "1d3764dd975f89555ef17c4c87ab6d9f69ce3214cfcb15d787df8432b5a7330f",
+          "content_policy_generation": 4,
+          "packet_digest": "4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d",
+          "packet_id": "cgp_4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d"
+        },
+        "write_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ],
+        "audit_id": "rha_6b612a7da30887a5939e87095c03d4471790941b51c09e4cff8897481914845f",
+        "audit_digest": "6b612a7da30887a5939e87095c03d4471790941b51c09e4cff8897481914845f"
+      },
+      "checkpoint": {
+        "acceptance_authority": false,
+        "administrator_grant_id": "gvg_ebcc6caf5e897aeaa98a420a971c4ff5",
+        "advisory_only": true,
+        "audit_digest": "6b612a7da30887a5939e87095c03d4471790941b51c09e4cff8897481914845f",
+        "audit_id": "rha_6b612a7da30887a5939e87095c03d4471790941b51c09e4cff8897481914845f",
+        "authority_evaluated": false,
+        "checked_transition_count": 1,
+        "created_at": 1792616029.6217897,
+        "examined_transition_count": 1,
+        "from_cursor": {
+          "content_policy_digest": "fcc91d3c8e36f4f67a7966d5dd3b3dce56cac4e1d43040520c8ce89daf2de3eb",
+          "content_policy_generation": 1,
+          "governance_generation": 4,
+          "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f"
+        },
+        "index": 1,
+        "operation_id": "snapshot-audit-first-step",
+        "previous_checkpoint_digest": "c09f6f6b85dca3c204d2eebd7e3d6506723e602c1fbdeeef727cd4549bed671e",
+        "previous_checkpoint_id": "rhs_c09f6f6b85dca3c204d2eebd7e3d6506723e602c1fbdeeef727cd4549bed671e",
+        "requested_limit": 1,
+        "rules_version": "review-history-audit-1",
+        "schema_version": 1,
+        "state": "pending",
+        "stopped_at": null,
+        "to_cursor": {
+          "content_policy_digest": "24f4e1cf19c3c7a49c962eabda0f67e35cc1b6aa79bcf3503ac1ceafe82842da",
+          "content_policy_generation": 2,
+          "governance_generation": 5,
+          "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f"
+        },
+        "total_checked_transition_count": 1,
+        "transitions": [
+          {
+            "activation_generation": 4,
+            "administrator_grant_id": "gvg_ebcc6caf5e897aeaa98a420a971c4ff5",
+            "created_at": 1792616029.4684393,
+            "from_content_policy_digest": "fcc91d3c8e36f4f67a7966d5dd3b3dce56cac4e1d43040520c8ce89daf2de3eb",
+            "from_content_policy_generation": 1,
+            "from_governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "from_governance_policy_generation": 4,
+            "rules_version": "review-continuity-1",
+            "schema_version": 1,
+            "to_content_policy_digest": "24f4e1cf19c3c7a49c962eabda0f67e35cc1b6aa79bcf3503ac1ceafe82842da",
+            "to_content_policy_generation": 2,
+            "to_governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+            "to_governance_policy_generation": 5,
+            "transition_digest": "5de9fd4374d6c9d0ee4c051244b4026051723159df6fa9ebb5ffa9d7bc4d585e",
+            "transition_id": "rct_5de9fd4374d6c9d0ee4c051244b4026051723159df6fa9ebb5ffa9d7bc4d585e"
+          }
+        ],
+        "checkpoint_id": "rhs_536f4673ba59f7b6e8e90455a628574bc51a69d08032fcc241fa4c0d0633f633",
+        "checkpoint_digest": "536f4673ba59f7b6e8e90455a628574bc51a69d08032fcc241fa4c0d0633f633"
+      },
+      "current_checkpoint_id": "rhs_536f4673ba59f7b6e8e90455a628574bc51a69d08032fcc241fa4c0d0633f633",
+      "replayed": false,
+      "advisory_only": true,
+      "acceptance_authority": false,
+      "authority_evaluated": false,
+      "limits": [
+        "This audit describes a frozen source decision and target packet; later catalog or artifact changes do not retarget it.",
+        "Each advance examines at most 64 chronological increments; the journal is not one atomic snapshot across all advances.",
+        "History completion does not validate a current reviewer grant, opinion head, quorum, runtime freshness or acceptance permission.",
+        "The audit does not change review_continuity.MAX_TRANSITIONS or supply an admission certificate.",
+        "The SQLite owner and application remain trusted; addressed hashes are not signatures or external attestations."
+      ]
+    },
+    "source_catalogue": {
+      "rules_version": "review-history-recovery-1",
+      "after_seq": 0,
+      "snapshot_max_seq": 47,
+      "limit": 10,
+      "scanned_count": 1,
+      "returned_count": 1,
+      "entries": [
+        {
+          "event_seq": 47,
+          "audit_id": "rha_6b612a7da30887a5939e87095c03d4471790941b51c09e4cff8897481914845f",
+          "proposal_id": "p_e383137f6461cc1a7eddb14e",
+          "source_decision_id": "gvd_9a51a7a1eaa7c6313ed549453899f6a880ab38c859ec69265d0d2c59db6ce8f0",
+          "target_packet": {
+            "content_policy_digest": "1d3764dd975f89555ef17c4c87ab6d9f69ce3214cfcb15d787df8432b5a7330f",
+            "content_policy_generation": 4,
+            "packet_digest": "4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d",
+            "packet_id": "cgp_4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d"
+          },
+          "source_governance_generation": 4,
+          "target_governance_generation": 7,
+          "start_operation_id": "snapshot-audit-start",
+          "initial_checkpoint_id": "rhs_c09f6f6b85dca3c204d2eebd7e3d6506723e602c1fbdeeef727cd4549bed671e",
+          "observed_head": {
+            "checkpoint_id": "rhs_d4e090dc2912529bccb54819f9bea8ee613e491adb9387a25c81f2350571018f",
+            "index": 2,
+            "state": "history_complete",
+            "total_checked_transition_count": 3,
+            "cursor": {
+              "content_policy_digest": "1d3764dd975f89555ef17c4c87ab6d9f69ce3214cfcb15d787df8432b5a7330f",
+              "content_policy_generation": 4,
+              "governance_generation": 7,
+              "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f"
+            }
+          },
+          "advisory_only": true,
+          "acceptance_authority": false,
+          "authority_evaluated": false
+        }
+      ],
+      "errors": [],
+      "has_more": false,
+      "next_cursor": null,
+      "heads_observed_at": 1792616030.897244,
+      "advisory_only": true,
+      "acceptance_authority": false,
+      "authority_evaluated": false
+    },
+    "snapshot_catalogue": {
+      "rules_version": "review-history-recovery-1",
+      "after_seq": 0,
+      "snapshot_max_seq": 47,
+      "limit": 10,
+      "scanned_count": 1,
+      "returned_count": 1,
+      "entries": [
+        {
+          "event_seq": 47,
+          "audit_id": "rha_6b612a7da30887a5939e87095c03d4471790941b51c09e4cff8897481914845f",
+          "proposal_id": "p_e383137f6461cc1a7eddb14e",
+          "source_decision_id": "gvd_9a51a7a1eaa7c6313ed549453899f6a880ab38c859ec69265d0d2c59db6ce8f0",
+          "target_packet": {
+            "content_policy_digest": "1d3764dd975f89555ef17c4c87ab6d9f69ce3214cfcb15d787df8432b5a7330f",
+            "content_policy_generation": 4,
+            "packet_digest": "4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d",
+            "packet_id": "cgp_4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d"
+          },
+          "source_governance_generation": 4,
+          "target_governance_generation": 7,
+          "start_operation_id": "snapshot-audit-start",
+          "initial_checkpoint_id": "rhs_c09f6f6b85dca3c204d2eebd7e3d6506723e602c1fbdeeef727cd4549bed671e",
+          "observed_head": {
+            "checkpoint_id": "rhs_536f4673ba59f7b6e8e90455a628574bc51a69d08032fcc241fa4c0d0633f633",
+            "index": 1,
+            "state": "pending",
+            "total_checked_transition_count": 1,
+            "cursor": {
+              "content_policy_digest": "24f4e1cf19c3c7a49c962eabda0f67e35cc1b6aa79bcf3503ac1ceafe82842da",
+              "content_policy_generation": 2,
+              "governance_generation": 5,
+              "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f"
+            }
+          },
+          "advisory_only": true,
+          "acceptance_authority": false,
+          "authority_evaluated": false
+        }
+      ],
+      "errors": [],
+      "has_more": false,
+      "next_cursor": null,
+      "heads_observed_at": 1792616030.885074,
+      "advisory_only": true,
+      "acceptance_authority": false,
+      "authority_evaluated": false
+    }
+  }
+}

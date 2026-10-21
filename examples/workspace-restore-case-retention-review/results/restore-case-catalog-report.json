@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "rules_version": "workspace-restore-case-catalog-1",
+  "created_at": "2026-10-21T22:54:56.783166+02:00",
+  "timezone": "Europe/Berlin",
+  "scenario": "Explicit frozen case membership with bounded current metadata pages",
+  "summary": {
+    "baseline_public_file_count": 287,
+    "case_catalog_stage_count": 6,
+    "private_catalog_count": 2,
+    "original_catalog_case_count": 3,
+    "expanded_catalog_case_count": 4,
+    "private_case_count": 4,
+    "private_case_link_count": 4,
+    "new_attempt_count": 0,
+    "case_catalog_cli_child_process_count": 44,
+    "case_catalog_successful_cli_count": 30,
+    "case_catalog_refused_cli_count": 14,
+    "page_response_count": 18,
+    "total_cli_child_process_count": 230,
+    "total_cli_and_interrupt_worker_process_count": 244,
+    "new_interrupt_worker_process_count": 0,
+    "operator_rejection_count": 14,
+    "discarded_catalog_response_count": 1,
+    "discarded_catalog_response_recovered_exactly": true,
+    "later_case_automatically_added": false,
+    "later_link_observed": true,
+    "missing_case_reported_without_losing_membership": true,
+    "different_case_directory_reported_changed": true,
+    "original_case_control_files_unchanged": true,
+    "original_case_directory_identities_preserved": true,
+    "original_blocked_jobs_still_blocked": true,
+    "original_blocked_job_metadata_unchanged": true,
+    "catalog_control_metadata_unchanged": true,
+    "catalog_pages_check_original_evidence": false,
+    "catalog_pages_check_live_jobs": false,
+    "separate_case_detail_reports_unavailable_attempt": true,
+    "captured_revision": 4,
+    "captured_event_count": 36,
+    "live_revision": 5,
+    "live_event_count": 59,
+    "all_detached_paths_restored": true,
+    "private_control_contents_read_by_demo": false,
+    "private_stage_contents_read_by_demo": false,
+    "private_fingerprints_exported": false,
+    "original_identity_reconstructed": false,
+    "request_equivalence_verified": false,
+    "old_authority_activated": false,
+    "external_fencing_established": false,
+    "external_llm_used": false,
+    "human_review_recorded": false,
+    "proposed_code_executed": false,
+    "measured_capacity": false
+  },
+  "stages": [
+    {
+      "label": "fixed-membership-and-recovered-receipt",
+      "explanation": "An explicit ordered three-case catalog preserves its receipt after a real discarded response and pages as two plus one entries.",
+      "artifact": "restore-case-catalog-stage-01-fixed-membership-and-recovered-receipt.json"
+    },
+    {
+      "label": "late-case-and-later-link",
+      "explanation": "A later case stays outside the original catalog; an explicit second catalog includes it and later observes its link to an already completed attempt.",
+      "artifact": "restore-case-catalog-stage-02-late-case-and-later-link.json"
+    },
+    {
+      "label": "missing-case-preserves-membership",
+      "explanation": "A missing case yields a per-entry unavailable observation while pinned historical membership and exact create replay remain available.",
+      "artifact": "restore-case-catalog-stage-03-missing-case-preserves-membership.json"
+    },
+    {
+      "label": "changed-case-preserves-membership",
+      "explanation": "An existing later case temporarily occupies another member path; the different directory is reported changed and both originals are restored.",
+      "artifact": "restore-case-catalog-stage-04-changed-case-preserves-membership.json"
+    },
+    {
+      "label": "metadata-only-pages-and-separate-detail",
+      "explanation": "Case-control pages remain available with linked attempt jobs and source absent; ordinary case show separately reports the unavailable current attempt.",
+      "artifact": "restore-case-catalog-stage-05-metadata-only-pages-and-separate-detail.json"
+    },
+    {
+      "label": "originals-and-domain-history-preserved",
+      "explanation": "Both catalog controls, three original cases and blocked jobs retain their observations; completed details and R4/R5 domain history remain unchanged.",
+      "artifact": "restore-case-catalog-stage-06-originals-and-domain-history-preserved.json"
+    }
+  ],
+  "artifacts": [
+    "restore-case-catalog-cli-outcomes.json",
+    "restore-case-catalog-control-observations.json",
+    "restore-case-catalog-live-observations.json",
+    "restore-case-catalog-membership.json",
+    "restore-case-catalog-pages.json",
+    "restore-case-catalog-receipts.json",
+    "restore-case-catalog-rejections.json",
+    "restore-case-catalog-reply-recovery.json",
+    "restore-case-catalog-restored-detail-observations.json",
+    "restore-case-catalog-source-observations.json"
+  ],
+  "limits": [
+    "Catalog membership and order come from explicit bounded input, not directory discovery. Each private catalog is immutable; a new one is needed to include a later case.",
+    "Membership captures are sequential under individual case locks, not a common snapshot of all cases. Page entries separately observe current case controls and historical link receipts.",
+    "A page reports pinned historical cases even when their path is missing or occupied by a different directory. These are per-entry observations, not repairs or ownership adoption.",
+    "Page metadata does not inspect original evidence, current attempt jobs or DBs. Available case controls do not establish healthy linked attempts; ordinary case show provides separate current detail.",
+    "One actual validated public create response is parsed and discarded, then recovered by exact replay using an ephemeral comparison address. That address and all private fingerprints stay unpublished.",
+    "Temporary directory moves are restored in finally; original case control files and static directory identities are compared, excluding directory times changed by rename. Old blocked job directories never move.",
+    "No new restore attempts, domain grants, credentials or decisions are created beyond the repeated baseline. The later case explicitly links an already completed attempt without proving request equivalence or global uniqueness.",
+    "Partial catalog writes, interruption inside catalog creation, all concurrency schedules, hardware failure, retention/deletion and production capacity are not exercised.",
+    "Programmed participants and local file observations do not establish human independence, semantic truth or external fencing. Public Store comparison excludes only top-level governance observed_at."
+  ]
+}
