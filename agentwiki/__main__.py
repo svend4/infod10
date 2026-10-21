@@ -238,6 +238,10 @@ def main(argv: list[str] | None = None) -> int:
     restore_job_demo = commands.add_parser("workspace-restore-job-demo", help="Продолжить восстановление частного комплекта по неизменяемому плану отдельными шагами.")
     restore_job_demo.add_argument("--workspace", type=Path, required=True)
     restore_job_demo.add_argument("--workers", default=3, type=_workers)
+
+    restore_interrupt_demo = commands.add_parser("workspace-restore-interrupt-demo", help="Показать продолжение карантинного восстановления после SIGKILL в фиксированных файловых точках.")
+    restore_interrupt_demo.add_argument("--workspace", type=Path, required=True)
+    restore_interrupt_demo.add_argument("--workers", default=3, type=_workers)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -320,6 +324,11 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(run_transfer_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "workspace-restore":
             print(json.dumps(run_restore_job_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "workspace-restore-interrupt-demo":
+            from .workspace_restore_interrupt_demo import run_workspace_restore_interrupt_demo
+
+            report = run_workspace_restore_interrupt_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "restore-interrupt-report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "workspace-restore-job-demo":
             from .workspace_restore_job_demo import run_workspace_restore_job_demo
 

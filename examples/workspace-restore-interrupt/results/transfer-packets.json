@@ -1,0 +1,179 @@
+{
+  "cgp_f5943e8676cd058f61635f6020a2241bbeac73a7d908fa7ea0145fa89f744bf4": {
+    "schema_version": 2,
+    "content_rules_version": "content-routing-1",
+    "obligation_rules_version": "obligations-1",
+    "coverage_rules_version": "coverage-1",
+    "content_policy_generation": 1,
+    "content_policy_digest": "ebd28b86b7da86b710424551b288d75dfe1c878b870a6dc196cb7ab246b592ca",
+    "governance_policy_generation": 4,
+    "governance_policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+    "proposal_id": "p_7180468e8a6a0c7fbb1afbd4",
+    "proposal_digest": "c423b5ce4cf1dd41b61b8515311c88b8cb3cea6bb986a30ed8227c16f118211a",
+    "read_set": {
+      "code/continuity_a.py": {
+        "expected": "d5e6eccd85fda41fa62aea2e25a889d5f46dad8ae746e2e33e488e07d6bf9c58",
+        "actual": "d5e6eccd85fda41fa62aea2e25a889d5f46dad8ae746e2e33e488e07d6bf9c58"
+      },
+      "docs/continuity-a.md": {
+        "expected": "0aeccfe1ff373048b4d46234bbfb9745658bfdd4df61a5671da370a3db7adf09",
+        "actual": "0aeccfe1ff373048b4d46234bbfb9745658bfdd4df61a5671da370a3db7adf09"
+      }
+    },
+    "queries": {},
+    "write_ids": [
+      "code/continuity_a.py",
+      "docs/continuity-a.md"
+    ],
+    "required_write_ids": [
+      "code/continuity_a.py",
+      "docs/continuity-a.md"
+    ],
+    "sections": [
+      {
+        "section_id": "section-a",
+        "section_policy_digest": "d3e83edd5ffbfea8efca33f312871a67cd6625ba45667ea632fcd85aedc54e38",
+        "artifact_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ],
+        "relations": [
+          {
+            "id": "sample-limit",
+            "scope": {
+              "sample": "continuity-v1"
+            },
+            "relation": "equals",
+            "value_type": "integer",
+            "status": "match",
+            "reasons": [],
+            "document": {
+              "artifact_id": "docs/continuity-a.md",
+              "kind": "document",
+              "artifact_digest": "0a87cc89eb151a1eaeffc51e8da43a2fe9cd9ad6c58dd28c9d12750e9756bcb2",
+              "rendered_digest": "3f659662747c81c007c91e94c10bca076f96651df2e9d537bfc76fb61c8eac84",
+              "dependencies": {},
+              "snippet": "{\"limit\":5}\n",
+              "snippet_digest": "cc04ebd757a2cbf7ee17f603c7df5f8483eae9422b14368e1e8290e07ec6de16",
+              "location": {
+                "start_offset": 107,
+                "end_offset": 119,
+                "start_line": 6,
+                "end_line": 6
+              },
+              "resolved": true,
+              "value": 5,
+              "normalized_value": 5,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "code": {
+              "artifact_id": "code/continuity_a.py",
+              "kind": "code",
+              "artifact_digest": "4d529b402b1c96b06b9ce758e9ec98de952c5a4e402de20ff20d581982b08763",
+              "rendered_digest": "4d6e4da2e293c884ea67880e046059123a0c4263010050a479c85f1181ca82e9",
+              "dependencies": {},
+              "snippet": "SAMPLE_LIMIT = 5",
+              "snippet_digest": "7df7aedf23b14f636b4ebc27dbdfd4e878685670c4bafb59a1949a4879a2f0d7",
+              "location": {
+                "start_offset": 0,
+                "end_offset": 16,
+                "start_line": 1,
+                "end_line": 1
+              },
+              "resolved": true,
+              "value": 5,
+              "normalized_value": 5,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            }
+          }
+        ],
+        "promises": [
+          {
+            "id": "sample-promise",
+            "requirement_digest": "7d8bb16f545884ce0040c32f89462df9b7bbdfa12fdc94a6909cdb911a462cb6",
+            "anchor": {
+              "artifact_id": "docs/continuity-a.md",
+              "artifact_digest": "0a87cc89eb151a1eaeffc51e8da43a2fe9cd9ad6c58dd28c9d12750e9756bcb2",
+              "rendered_digest": "3f659662747c81c007c91e94c10bca076f96651df2e9d537bfc76fb61c8eac84",
+              "dependencies": {},
+              "quote": "The fictional sample limit is declared below.",
+              "quote_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707",
+              "snippet": "The fictional sample limit is declared below.",
+              "snippet_digest": "3b82c53cffb7092cd59892802410670f21d531bd115be3b9fcb7e6046b3ab707",
+              "location": {
+                "start_offset": 33,
+                "end_offset": 78,
+                "start_line": 3,
+                "end_line": 3
+              },
+              "resolved": true,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "document": {
+              "artifact_id": "docs/continuity-a.md",
+              "kind": "document",
+              "artifact_digest": "0a87cc89eb151a1eaeffc51e8da43a2fe9cd9ad6c58dd28c9d12750e9756bcb2",
+              "rendered_digest": "3f659662747c81c007c91e94c10bca076f96651df2e9d537bfc76fb61c8eac84",
+              "dependencies": {},
+              "snippet": "{\"limit\":5}\n",
+              "snippet_digest": "cc04ebd757a2cbf7ee17f603c7df5f8483eae9422b14368e1e8290e07ec6de16",
+              "location": {
+                "start_offset": 107,
+                "end_offset": 119,
+                "start_line": 6,
+                "end_line": 6
+              },
+              "resolved": true,
+              "value": 5,
+              "normalized_value": 5,
+              "reasons": [],
+              "render_basis": "captured_candidate_current_claims"
+            },
+            "mappings": [
+              {
+                "obligation_id": "sample-limit",
+                "requirement_digest": "7d8bb16f545884ce0040c32f89462df9b7bbdfa12fdc94a6909cdb911a462cb6",
+                "valid": true,
+                "comparison_status": "match"
+              }
+            ],
+            "anchor_verified": true,
+            "eligible": true,
+            "reasons": []
+          }
+        ],
+        "dependencies": {},
+        "eligible": true,
+        "reasons": []
+      }
+    ],
+    "routing": {
+      "initial_section_ids": [
+        "section-a"
+      ],
+      "selected_section_ids": [
+        "section-a"
+      ],
+      "uncovered_write_ids": [],
+      "missing_write_ids": [],
+      "extra_write_ids": []
+    },
+    "dependencies": {},
+    "eligible": true,
+    "reasons": [],
+    "limits": [
+      "Routing covers only administrator-declared sections; completeness over other text or project requirements is not established.",
+      "Every touched section and its complete transitive overlap component is required; disjoint sections remain separate bundles.",
+      "Exact unique quotations and resolved fields pin declared locations; correspondence between prose and those fields is not inferred or verified.",
+      "Literal Python declarations do not establish program behavior; proposed code is parsed with bounded AST rules and is never executed.",
+      "Matches do not establish prose truth, external evidence, human identity, independent people or independent models.",
+      "A standalone packet does not authorize acceptance; formal review, current runtime bases, authorship and governance remain separate requirements.",
+      "The SQLite owner and application implementation remain trusted; hashes provide internal consistency rather than external certification."
+    ],
+    "packet_id": "cgp_f5943e8676cd058f61635f6020a2241bbeac73a7d908fa7ea0145fa89f744bf4",
+    "packet_digest": "f5943e8676cd058f61635f6020a2241bbeac73a7d908fa7ea0145fa89f744bf4"
+  }
+}

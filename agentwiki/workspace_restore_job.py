@@ -51,6 +51,17 @@ PUBLIC_FIELDS = {
 }
 
 
+def _checkpoint(boundary: str, *, item_index: int | None = None) -> None:
+    """Observe a fixed internal boundary; the production implementation is inert.
+
+    Only a trusted development worker may replace this function in its own
+    process. No user data, environment setting or public command selects code.
+    Arguments contain a fixed boundary name and an ordinal, never private paths
+    or manifests. This is observation, not a durable progress record.
+    """
+    return None
+
+
 def _require(condition: bool, code: str, message: str) -> None:
     if not condition:
         raise WorkbenchError("workspace_restore_job_" + code, message)
@@ -345,6 +356,7 @@ def _install(plan: dict[str, Any], index: int, deadline: float) -> None:
                 source = Path(plan["source_path"]) / item["relative"]
                 with store_backup._regular_file(source) as source_descriptor:
                     hasher, size = hashlib.sha256(), 0
+                    prefix_observed = False
                     while True:
                         _deadline(deadline)
                         block = os.read(source_descriptor, store_backup.COPY_BLOCK_BYTES)
@@ -353,7 +365,19 @@ def _install(plan: dict[str, Any], index: int, deadline: float) -> None:
                         size += len(block)
                         _require(size <= item["record"]["bytes"], "source_changed", "Restore source exceeds its pinned size")
                         hasher.update(block)
-                        output.write(block)
+                        if not prefix_observed and len(block) > 1:
+                            split = len(block) // 2
+                            output.write(block[:split])
+                            output.flush()
+                            # This additional flush/fsync makes the proper
+                            # prefix observable even for a one-block database.
+                            # Its runtime cost has not been measured.
+                            os.fsync(output.fileno())
+                            _checkpoint("staging_partial", item_index=index)
+                            output.write(block[split:])
+                            prefix_observed = True
+                        else:
+                            output.write(block)
                     _require(size == item["record"]["bytes"] and hasher.hexdigest() == item["record"]["sha256"],
                              "source_changed", "Restore source differs from its pinned bytes")
             else:
@@ -363,8 +387,12 @@ def _install(plan: dict[str, Any], index: int, deadline: float) -> None:
     finally:
         os.close(descriptor)
     _deadline(deadline)
+    if item["data"]:
+        _checkpoint("staging_synced", item_index=index)
     os.link(stage, target, follow_symlinks=False)
     store_backup._fsync_directory(target.parent)
+    if item["data"]:
+        _checkpoint("target_linked", item_index=index)
     stage.unlink()
     store_backup._fsync_directory(Path(plan["job_path"]))
     _verify_file(plan, index, deadline)
@@ -490,11 +518,14 @@ def step_restore(job_directory: str | Path, *, limit: Any = 1) -> dict[str, Any]
                 count += 1
             status = _status(plan, deadline)
             if status["copied_file_count"] == status["total_file_count"] and not status["completed"]:
+                _checkpoint("data_ready")
                 destination = Path(plan["destination_path"])
                 workspace_backup._inspect_contents(destination, plan["restore_manifest"], deadline, complete=False)
                 _install(plan, len(items) - 1, deadline)
                 store_backup._fsync_directory(destination)
                 status = _status(plan, deadline)
+            if status["completed"]:
+                _checkpoint("completed")
             return status
     except WorkbenchError as error:
         raise _translate(error) from error

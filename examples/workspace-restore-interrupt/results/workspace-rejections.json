@@ -1,0 +1,122 @@
+[
+  {
+    "label": "original-administrator-cannot-authorize-current-backup",
+    "category": "authorization",
+    "code": "governance_unauthorized",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "live-code-author-cannot-authorize-administrative-backup",
+    "category": "authorization",
+    "code": "governance_unauthorized",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "fenced-workspace-cannot-authorize-full-backup",
+    "category": "source_boundary",
+    "code": "store_source_fenced",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "quarantined-copy-cannot-authorize-full-backup",
+    "category": "source_boundary",
+    "code": "workspace_backup_source_invalid",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "existing-backup-destination-is-preserved",
+    "category": "destination",
+    "code": "workspace_backup_destination_exists",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "revoked-reviewer-cannot-authorize-full-backup",
+    "category": "authorization",
+    "code": "governance_unauthorized",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "existing-full-restore-destination-is-preserved",
+    "category": "destination",
+    "code": "workspace_backup_destination_exists",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "db-only-inspector-does-not-accept-full-workspace-layout",
+    "category": "format_boundary",
+    "code": "snapshot_manifest_invalid",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "restored-enqueue-remains-blocked",
+    "category": "quarantine",
+    "code": "store_snapshot_quarantined",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "restored-acceptance-replay-remains-blocked",
+    "category": "quarantine",
+    "code": "store_snapshot_quarantined",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "restored-submission-remains-blocked",
+    "category": "quarantine",
+    "code": "store_snapshot_quarantined",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "restored-publish-remains-blocked",
+    "category": "quarantine",
+    "code": "store_snapshot_quarantined",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "restored-db-only-backup-remains-blocked",
+    "category": "quarantine",
+    "code": "store_snapshot_quarantined",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "restored-full-backup-remains-blocked",
+    "category": "quarantine",
+    "code": "workspace_backup_source_invalid",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "restored-copy-cannot-authorize-source-transfer",
+    "category": "quarantine",
+    "code": "source_transfer_source_invalid",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  }
+]

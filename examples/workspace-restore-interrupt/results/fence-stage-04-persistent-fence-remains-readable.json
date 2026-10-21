@@ -1,0 +1,127 @@
+{
+  "label": "persistent-fence-remains-readable",
+  "explanation": "An existing Store and a reopened Store read the current history and observe the same irreversible source fence.",
+  "source_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 5,
+      "leased": 1,
+      "pending": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 4
+    },
+    "events": 63,
+    "rules_version": "mvp-1"
+  },
+  "snapshot_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4,
+      "leased": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 3
+    },
+    "events": 52,
+    "rules_version": "mvp-1"
+  },
+  "observations": {
+    "status": {
+      "rules_version": "source-fence-1",
+      "source_fenced": true,
+      "source_writes_blocked": true,
+      "publication_blocked": true,
+      "irreversible": true,
+      "receipt": {
+        "administrator_grant_id": "gvg_fc2fd6954d27d7049e3db219dc37c6ca",
+        "created_at": 1792595647.4404404,
+        "event_count_before": 62,
+        "event_high_water_before": 62,
+        "external_fencing_established": false,
+        "fence_event_seq": 63,
+        "fence_id": "sfn_1d88e33adf7a488d316bb191fbaea37f",
+        "irreversible": true,
+        "operation_id": "source-fence-demo-seal",
+        "plan_id": "rcp_8fcabcf1260a64a833ca303cf924f801",
+        "publication_blocked": true,
+        "revision": 2,
+        "rules_version": "source-fence-1",
+        "schema_version": 1,
+        "snapshot_activation_allowed": false,
+        "source_epoch": "sfe_9ffaf7815425853dad2349a3ab82f13a",
+        "source_writes_blocked": true,
+        "trusted_database_owner_can_bypass": true
+      }
+    },
+    "existing_access": {
+      "rules_version": "store-snapshot-1",
+      "quarantined": false,
+      "source_fenced": true,
+      "imported_workspace": false,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "historical_authorization_only": false,
+      "live_authorization_allowed": false,
+      "trusted_database_owner_can_bypass": true,
+      "source_fence": {
+        "administrator_grant_id": "gvg_fc2fd6954d27d7049e3db219dc37c6ca",
+        "created_at": 1792595647.4404404,
+        "event_count_before": 62,
+        "event_high_water_before": 62,
+        "external_fencing_established": false,
+        "fence_event_seq": 63,
+        "fence_id": "sfn_1d88e33adf7a488d316bb191fbaea37f",
+        "irreversible": true,
+        "operation_id": "source-fence-demo-seal",
+        "plan_id": "rcp_8fcabcf1260a64a833ca303cf924f801",
+        "publication_blocked": true,
+        "revision": 2,
+        "rules_version": "source-fence-1",
+        "schema_version": 1,
+        "snapshot_activation_allowed": false,
+        "source_epoch": "sfe_9ffaf7815425853dad2349a3ab82f13a",
+        "source_writes_blocked": true,
+        "trusted_database_owner_can_bypass": true
+      }
+    },
+    "reopened_access": {
+      "rules_version": "store-snapshot-1",
+      "quarantined": false,
+      "source_fenced": true,
+      "imported_workspace": false,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "historical_authorization_only": false,
+      "live_authorization_allowed": false,
+      "trusted_database_owner_can_bypass": true,
+      "source_fence": {
+        "administrator_grant_id": "gvg_fc2fd6954d27d7049e3db219dc37c6ca",
+        "created_at": 1792595647.4404404,
+        "event_count_before": 62,
+        "event_high_water_before": 62,
+        "external_fencing_established": false,
+        "fence_event_seq": 63,
+        "fence_id": "sfn_1d88e33adf7a488d316bb191fbaea37f",
+        "irreversible": true,
+        "operation_id": "source-fence-demo-seal",
+        "plan_id": "rcp_8fcabcf1260a64a833ca303cf924f801",
+        "publication_blocked": true,
+        "revision": 2,
+        "rules_version": "source-fence-1",
+        "schema_version": 1,
+        "snapshot_activation_allowed": false,
+        "source_epoch": "sfe_9ffaf7815425853dad2349a3ab82f13a",
+        "source_writes_blocked": true,
+        "trusted_database_owner_can_bypass": true
+      }
+    },
+    "content_and_tasks_preserved": true
+  }
+}

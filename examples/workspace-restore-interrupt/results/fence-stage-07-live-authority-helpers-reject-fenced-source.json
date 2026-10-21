@@ -1,0 +1,72 @@
+{
+  "label": "live-authority-helpers-reject-fenced-source",
+  "explanation": "A fenced source cannot authorize new backup or recovery assessment through the live-source APIs.",
+  "source_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 5,
+      "leased": 1,
+      "pending": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 4
+    },
+    "events": 63,
+    "rules_version": "mvp-1"
+  },
+  "snapshot_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4,
+      "leased": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 3
+    },
+    "events": 52,
+    "rules_version": "mvp-1"
+  },
+  "observations": {
+    "rejections": [
+      {
+        "label": "direct-backup-of-fenced-source",
+        "category": "source_helper",
+        "code": "store_source_fenced",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "store-backup-of-fenced-source",
+        "category": "source_helper",
+        "code": "store_source_fenced",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "assessment-cannot-use-fenced-live-authority",
+        "category": "source_helper",
+        "code": "recovery_source_invalid",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "revalidation-cannot-use-fenced-live-authority",
+        "category": "source_helper",
+        "code": "recovery_source_invalid",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      }
+    ],
+    "new_private_results_created": false
+  }
+}

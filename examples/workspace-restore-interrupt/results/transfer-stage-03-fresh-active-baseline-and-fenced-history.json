@@ -1,0 +1,280 @@
+{
+  "label": "fresh-active-baseline-and-fenced-history",
+  "explanation": "The new workspace imports accepted content and exact dependency records at revision R, starts with only a fresh administrator, and preserves old history separately.",
+  "source_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 5,
+      "leased": 1,
+      "pending": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 4
+    },
+    "events": 64,
+    "rules_version": "mvp-1"
+  },
+  "observations": {
+    "transfer": {
+      "dependencies_preserved": true,
+      "destination": {
+        "artifact_count": 4,
+        "authorship_enabled": true,
+        "content_enabled": true,
+        "continuity_enabled": true,
+        "governance_enabled": true,
+        "revision": 2,
+        "source_count": 0,
+        "workspace_id": "wsp_48db3a610f93382e80f63623a38273f9"
+      },
+      "external_fencing_established": false,
+      "old_authority_transferred": false,
+      "receipt": {
+        "artifact_count": 4,
+        "created_at": 1792595650.5868542,
+        "dependencies_preserved": true,
+        "external_fencing_established": false,
+        "new_administrator_id": "transfer-administrator",
+        "old_authority_transferred": false,
+        "operation_id": "source-transfer-demo-create",
+        "rules_version": "source-transfer-1",
+        "schema_version": 1,
+        "source_count": 0,
+        "source_epoch": "sfe_9ffaf7815425853dad2349a3ab82f13a",
+        "source_event_high_water_before": 63,
+        "source_fence_id": "sfn_1d88e33adf7a488d316bb191fbaea37f",
+        "source_revision": 2,
+        "transfer_event_seq": 64,
+        "transfer_id": "sft_bdf920ba4efdea5d175c11c9a4d98edd",
+        "workspace_id": "wsp_48db3a610f93382e80f63623a38273f9"
+      },
+      "replayed": false,
+      "resumed": false,
+      "rules_version": "source-transfer-1"
+    },
+    "destination_status": {
+      "revision": 2,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {},
+      "proposals": {},
+      "events": 8,
+      "rules_version": "mvp-1"
+    },
+    "destination_access": {
+      "rules_version": "store-snapshot-1",
+      "quarantined": false,
+      "source_fenced": false,
+      "imported_workspace": true,
+      "inspection_only": false,
+      "domain_writes_allowed": true,
+      "historical_authorization_only": false,
+      "live_authorization_allowed": true,
+      "trusted_database_owner_can_bypass": true,
+      "transfer_origin": {
+        "rules_version": "source-transfer-1",
+        "transfer_id": "sft_bdf920ba4efdea5d175c11c9a4d98edd",
+        "workspace_id": "wsp_48db3a610f93382e80f63623a38273f9",
+        "import_revision": 2,
+        "new_administrator_grant_id": "gvg_083def66cf17afaa927f1156e7c7ea5d",
+        "dependencies_preserved": true,
+        "old_authority_transferred": false,
+        "path_bound": true
+      }
+    },
+    "dependencies": {
+      "code/continuity_a.py": {
+        "baseline_revision": 2,
+        "proposal_id": "p_e383137f6461cc1a7eddb14e",
+        "queries": {},
+        "readset": {
+          "code/continuity_a.py": "d5e6eccd85fda41fa62aea2e25a889d5f46dad8ae746e2e33e488e07d6bf9c58",
+          "docs/continuity-a.md": "0aeccfe1ff373048b4d46234bbfb9745658bfdd4df61a5671da370a3db7adf09"
+        },
+        "write_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ]
+      },
+      "code/continuity_d.py": {
+        "baseline_revision": 1,
+        "proposal_id": null,
+        "queries": {},
+        "readset": {},
+        "write_ids": [
+          "code/continuity_d.py"
+        ]
+      },
+      "docs/continuity-a.md": {
+        "baseline_revision": 2,
+        "proposal_id": "p_e383137f6461cc1a7eddb14e",
+        "queries": {},
+        "readset": {
+          "code/continuity_a.py": "d5e6eccd85fda41fa62aea2e25a889d5f46dad8ae746e2e33e488e07d6bf9c58",
+          "docs/continuity-a.md": "0aeccfe1ff373048b4d46234bbfb9745658bfdd4df61a5671da370a3db7adf09"
+        },
+        "write_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ]
+      },
+      "docs/continuity-d.md": {
+        "baseline_revision": 1,
+        "proposal_id": null,
+        "queries": {},
+        "readset": {},
+        "write_ids": [
+          "docs/continuity-d.md"
+        ]
+      }
+    },
+    "history_status": {
+      "revision": 2,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 5,
+        "leased": 1,
+        "pending": 1
+      },
+      "proposals": {
+        "accepted": 1,
+        "proposed": 4
+      },
+      "events": 64,
+      "rules_version": "mvp-1"
+    },
+    "history_access": {
+      "rules_version": "store-snapshot-1",
+      "quarantined": false,
+      "source_fenced": true,
+      "imported_workspace": false,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "historical_authorization_only": false,
+      "live_authorization_allowed": false,
+      "trusted_database_owner_can_bypass": true,
+      "source_fence": {
+        "administrator_grant_id": "gvg_fc2fd6954d27d7049e3db219dc37c6ca",
+        "created_at": 1792595647.4404404,
+        "event_count_before": 62,
+        "event_high_water_before": 62,
+        "external_fencing_established": false,
+        "fence_event_seq": 63,
+        "fence_id": "sfn_1d88e33adf7a488d316bb191fbaea37f",
+        "irreversible": true,
+        "operation_id": "source-fence-demo-seal",
+        "plan_id": "rcp_8fcabcf1260a64a833ca303cf924f801",
+        "publication_blocked": true,
+        "revision": 2,
+        "rules_version": "source-fence-1",
+        "schema_version": 1,
+        "snapshot_activation_allowed": false,
+        "source_epoch": "sfe_9ffaf7815425853dad2349a3ab82f13a",
+        "source_writes_blocked": true,
+        "trusted_database_owner_can_bypass": true
+      }
+    },
+    "initial_release": {
+      "label": "imported",
+      "release_id": "r2-c6edc44b6754ad41",
+      "revision": 2,
+      "manifest_schema_version": 2,
+      "manifest_content_file_count": 8,
+      "release_loader_dependencies_equal_live": true,
+      "snapshot": {
+        "revision": 2,
+        "artifacts": {
+          "code/continuity_a.py": {
+            "bindings": [],
+            "id": "code/continuity_a.py",
+            "kind": "code",
+            "template": "SAMPLE_LIMIT = 4\n"
+          },
+          "code/continuity_d.py": {
+            "bindings": [],
+            "id": "code/continuity_d.py",
+            "kind": "code",
+            "template": "SAMPLE_LIMIT = 3\n"
+          },
+          "docs/continuity-a.md": {
+            "bindings": [],
+            "id": "docs/continuity-a.md",
+            "kind": "document",
+            "template": "# Fictional continuity contract\n\nThe fictional sample limit is declared below.\n\n```json agentwiki:contract\n{\"limit\":4}\n```\n"
+          },
+          "docs/continuity-d.md": {
+            "bindings": [],
+            "id": "docs/continuity-d.md",
+            "kind": "document",
+            "template": "# Fictional continuity contract\n\nThe fictional sample limit is declared below.\n\n```json agentwiki:contract\n{\"limit\":3}\n```\n"
+          }
+        },
+        "digests": {
+          "code/continuity_a.py": "d5e6eccd85fda41fa62aea2e25a889d5f46dad8ae746e2e33e488e07d6bf9c58",
+          "code/continuity_d.py": "8ec6948a16b09e251a3145d6e32cea9ed3b2c5f25c531966cd7e2384f41c457e",
+          "docs/continuity-a.md": "0aeccfe1ff373048b4d46234bbfb9745658bfdd4df61a5671da370a3db7adf09",
+          "docs/continuity-d.md": "cb32fda65a18d0b02826d2129b5308e3f096dd30ced0f3a912e993be5fb4974b"
+        },
+        "queries": {
+          "api:v1": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "platforms:api-v1": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        "dependencies": {
+          "code/continuity_a.py": {
+            "baseline_revision": 2,
+            "proposal_id": "p_e383137f6461cc1a7eddb14e",
+            "queries": {},
+            "readset": {
+              "code/continuity_a.py": "d5e6eccd85fda41fa62aea2e25a889d5f46dad8ae746e2e33e488e07d6bf9c58",
+              "docs/continuity-a.md": "0aeccfe1ff373048b4d46234bbfb9745658bfdd4df61a5671da370a3db7adf09"
+            },
+            "write_ids": [
+              "code/continuity_a.py",
+              "docs/continuity-a.md"
+            ]
+          },
+          "code/continuity_d.py": {
+            "baseline_revision": 1,
+            "proposal_id": null,
+            "queries": {},
+            "readset": {},
+            "write_ids": [
+              "code/continuity_d.py"
+            ]
+          },
+          "docs/continuity-a.md": {
+            "baseline_revision": 2,
+            "proposal_id": "p_e383137f6461cc1a7eddb14e",
+            "queries": {},
+            "readset": {
+              "code/continuity_a.py": "d5e6eccd85fda41fa62aea2e25a889d5f46dad8ae746e2e33e488e07d6bf9c58",
+              "docs/continuity-a.md": "0aeccfe1ff373048b4d46234bbfb9745658bfdd4df61a5671da370a3db7adf09"
+            },
+            "write_ids": [
+              "code/continuity_a.py",
+              "docs/continuity-a.md"
+            ]
+          },
+          "docs/continuity-d.md": {
+            "baseline_revision": 1,
+            "proposal_id": null,
+            "queries": {},
+            "readset": {},
+            "write_ids": [
+              "docs/continuity-d.md"
+            ]
+          }
+        },
+        "sources": {},
+        "dependency_provenance_available": true,
+        "dependency_coverage": "complete"
+      },
+      "release_files_exported_with_this_report": false,
+      "relative_directory": "transfer-imported-release/r2-c6edc44b6754ad41"
+    }
+  }
+}
