@@ -1,0 +1,350 @@
+{
+  "label": "fresh-active-baseline-and-fenced-history",
+  "explanation": "The new workspace imports accepted content and exact dependency records at revision R, starts with only a fresh administrator, and preserves old history separately.",
+  "source_status": {
+    "revision": 3,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 3
+    },
+    "events": 38,
+    "rules_version": "mvp-1"
+  },
+  "observations": {
+    "transfer": {
+      "dependencies_preserved": true,
+      "destination": {
+        "artifact_count": 4,
+        "authorship_enabled": true,
+        "content_enabled": true,
+        "continuity_enabled": true,
+        "governance_enabled": true,
+        "revision": 3,
+        "source_count": 0,
+        "workspace_id": "wsp_634f04510f9c3d7e90237e3739c1c399"
+      },
+      "external_fencing_established": false,
+      "old_authority_transferred": false,
+      "receipt": {
+        "artifact_count": 4,
+        "created_at": 1792586323.796838,
+        "dependencies_preserved": true,
+        "external_fencing_established": false,
+        "new_administrator_id": "chain-administrator",
+        "old_authority_transferred": false,
+        "operation_id": "source-transfer-chain-demo-create",
+        "rules_version": "source-transfer-1",
+        "schema_version": 1,
+        "source_count": 0,
+        "source_epoch": "sfe_ee9b2bdc8a9953008e4b4269e0b648e2",
+        "source_event_high_water_before": 37,
+        "source_fence_id": "sfn_cad2a94670641169bd796bc2c4c1345d",
+        "source_revision": 3,
+        "transfer_event_seq": 38,
+        "transfer_id": "sft_6894c1992d4097eeb4a791e133908316",
+        "workspace_id": "wsp_634f04510f9c3d7e90237e3739c1c399"
+      },
+      "replayed": false,
+      "resumed": false,
+      "rules_version": "source-transfer-1"
+    },
+    "destination_status": {
+      "revision": 3,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {},
+      "proposals": {},
+      "events": 8,
+      "rules_version": "mvp-1"
+    },
+    "destination_access": {
+      "rules_version": "store-snapshot-1",
+      "quarantined": false,
+      "source_fenced": false,
+      "imported_workspace": true,
+      "inspection_only": false,
+      "domain_writes_allowed": true,
+      "historical_authorization_only": false,
+      "live_authorization_allowed": true,
+      "trusted_database_owner_can_bypass": true,
+      "transfer_origin": {
+        "rules_version": "source-transfer-1",
+        "transfer_id": "sft_6894c1992d4097eeb4a791e133908316",
+        "workspace_id": "wsp_634f04510f9c3d7e90237e3739c1c399",
+        "import_revision": 3,
+        "new_administrator_grant_id": "gvg_37f0422d52c9a033d0d80fe2c8583d42",
+        "dependencies_preserved": true,
+        "old_authority_transferred": false,
+        "path_bound": true
+      }
+    },
+    "dependencies": {
+      "code/continuity_a.py": {
+        "baseline_revision": 3,
+        "proposal_id": "p_7180468e8a6a0c7fbb1afbd4",
+        "queries": {},
+        "readset": {
+          "code/continuity_a.py": "4d529b402b1c96b06b9ce758e9ec98de952c5a4e402de20ff20d581982b08763",
+          "docs/continuity-a.md": "0a87cc89eb151a1eaeffc51e8da43a2fe9cd9ad6c58dd28c9d12750e9756bcb2"
+        },
+        "write_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ]
+      },
+      "code/continuity_d.py": {
+        "baseline_revision": 1,
+        "proposal_id": null,
+        "queries": {},
+        "readset": {},
+        "write_ids": [
+          "code/continuity_d.py"
+        ]
+      },
+      "docs/continuity-a.md": {
+        "baseline_revision": 3,
+        "proposal_id": "p_7180468e8a6a0c7fbb1afbd4",
+        "queries": {},
+        "readset": {
+          "code/continuity_a.py": "4d529b402b1c96b06b9ce758e9ec98de952c5a4e402de20ff20d581982b08763",
+          "docs/continuity-a.md": "0a87cc89eb151a1eaeffc51e8da43a2fe9cd9ad6c58dd28c9d12750e9756bcb2"
+        },
+        "write_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ]
+      },
+      "docs/continuity-d.md": {
+        "baseline_revision": 1,
+        "proposal_id": null,
+        "queries": {},
+        "readset": {},
+        "write_ids": [
+          "docs/continuity-d.md"
+        ]
+      }
+    },
+    "history_status": {
+      "revision": 3,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 4
+      },
+      "proposals": {
+        "accepted": 1,
+        "proposed": 3
+      },
+      "events": 38,
+      "rules_version": "mvp-1"
+    },
+    "history_access": {
+      "rules_version": "store-snapshot-1",
+      "quarantined": false,
+      "source_fenced": true,
+      "imported_workspace": true,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "historical_authorization_only": false,
+      "live_authorization_allowed": false,
+      "trusted_database_owner_can_bypass": true,
+      "source_fence": {
+        "administrator_grant_id": "gvg_a55fa879b3a82c437f10cfce3a9e3afa",
+        "created_at": 1792586323.454664,
+        "event_count_before": 36,
+        "event_high_water_before": 36,
+        "external_fencing_established": false,
+        "fence_event_seq": 37,
+        "fence_id": "sfn_cad2a94670641169bd796bc2c4c1345d",
+        "irreversible": true,
+        "operation_id": "chain-seal-first-workspace",
+        "plan_id": "rcp_d5938c9a9c094fe84e0b2810169da1cd",
+        "publication_blocked": true,
+        "revision": 3,
+        "rules_version": "source-fence-1",
+        "schema_version": 1,
+        "snapshot_activation_allowed": false,
+        "source_epoch": "sfe_ee9b2bdc8a9953008e4b4269e0b648e2",
+        "source_writes_blocked": true,
+        "trusted_database_owner_can_bypass": true
+      },
+      "transfer_origin": {
+        "rules_version": "source-transfer-1",
+        "transfer_id": "sft_4c1b4fd04271a82bdf0b0f2b5d7929b3",
+        "workspace_id": "wsp_930d1015cc41cfa38d46ef44800a5538",
+        "import_revision": 2,
+        "new_administrator_grant_id": "gvg_a55fa879b3a82c437f10cfce3a9e3afa",
+        "dependencies_preserved": true,
+        "old_authority_transferred": false,
+        "path_bound": true
+      }
+    },
+    "initial_release": {
+      "label": "imported",
+      "release_id": "r3-bd90981cb3a09151",
+      "revision": 3,
+      "manifest_schema_version": 2,
+      "manifest_content_file_count": 8,
+      "release_loader_dependencies_equal_live": true,
+      "snapshot": {
+        "revision": 3,
+        "artifacts": {
+          "code/continuity_a.py": {
+            "bindings": [],
+            "id": "code/continuity_a.py",
+            "kind": "code",
+            "template": "SAMPLE_LIMIT = 5\n"
+          },
+          "code/continuity_d.py": {
+            "bindings": [],
+            "id": "code/continuity_d.py",
+            "kind": "code",
+            "template": "SAMPLE_LIMIT = 3\n"
+          },
+          "docs/continuity-a.md": {
+            "bindings": [],
+            "id": "docs/continuity-a.md",
+            "kind": "document",
+            "template": "# Fictional continuity contract\n\nThe fictional sample limit is declared below.\n\n```json agentwiki:contract\n{\"limit\":5}\n```\n"
+          },
+          "docs/continuity-d.md": {
+            "bindings": [],
+            "id": "docs/continuity-d.md",
+            "kind": "document",
+            "template": "# Fictional continuity contract\n\nThe fictional sample limit is declared below.\n\n```json agentwiki:contract\n{\"limit\":3}\n```\n"
+          }
+        },
+        "digests": {
+          "code/continuity_a.py": "4d529b402b1c96b06b9ce758e9ec98de952c5a4e402de20ff20d581982b08763",
+          "code/continuity_d.py": "8ec6948a16b09e251a3145d6e32cea9ed3b2c5f25c531966cd7e2384f41c457e",
+          "docs/continuity-a.md": "0a87cc89eb151a1eaeffc51e8da43a2fe9cd9ad6c58dd28c9d12750e9756bcb2",
+          "docs/continuity-d.md": "cb32fda65a18d0b02826d2129b5308e3f096dd30ced0f3a912e993be5fb4974b"
+        },
+        "queries": {
+          "api:v1": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "platforms:api-v1": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+        },
+        "dependencies": {
+          "code/continuity_a.py": {
+            "baseline_revision": 3,
+            "proposal_id": "p_7180468e8a6a0c7fbb1afbd4",
+            "queries": {},
+            "readset": {
+              "code/continuity_a.py": "4d529b402b1c96b06b9ce758e9ec98de952c5a4e402de20ff20d581982b08763",
+              "docs/continuity-a.md": "0a87cc89eb151a1eaeffc51e8da43a2fe9cd9ad6c58dd28c9d12750e9756bcb2"
+            },
+            "write_ids": [
+              "code/continuity_a.py",
+              "docs/continuity-a.md"
+            ]
+          },
+          "code/continuity_d.py": {
+            "baseline_revision": 1,
+            "proposal_id": null,
+            "queries": {},
+            "readset": {},
+            "write_ids": [
+              "code/continuity_d.py"
+            ]
+          },
+          "docs/continuity-a.md": {
+            "baseline_revision": 3,
+            "proposal_id": "p_7180468e8a6a0c7fbb1afbd4",
+            "queries": {},
+            "readset": {
+              "code/continuity_a.py": "4d529b402b1c96b06b9ce758e9ec98de952c5a4e402de20ff20d581982b08763",
+              "docs/continuity-a.md": "0a87cc89eb151a1eaeffc51e8da43a2fe9cd9ad6c58dd28c9d12750e9756bcb2"
+            },
+            "write_ids": [
+              "code/continuity_a.py",
+              "docs/continuity-a.md"
+            ]
+          },
+          "docs/continuity-d.md": {
+            "baseline_revision": 1,
+            "proposal_id": null,
+            "queries": {},
+            "readset": {},
+            "write_ids": [
+              "docs/continuity-d.md"
+            ]
+          }
+        },
+        "sources": {},
+        "dependency_provenance_available": true,
+        "dependency_coverage": "complete"
+      },
+      "release_files_exported_with_this_report": false,
+      "relative_directory": "chain-imported-release/r3-bd90981cb3a09151"
+    },
+    "ancestor_status": {
+      "revision": 2,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 5,
+        "leased": 1,
+        "pending": 1
+      },
+      "proposals": {
+        "accepted": 1,
+        "proposed": 4
+      },
+      "events": 64,
+      "rules_version": "mvp-1"
+    },
+    "lineage": {
+      "rules_version": "source-transfer-lineage-1",
+      "workspace_id": "wsp_634f04510f9c3d7e90237e3739c1c399",
+      "archive_count": 2,
+      "receipts": [
+        {
+          "artifact_count": 4,
+          "created_at": 1792586320.9077497,
+          "dependencies_preserved": true,
+          "external_fencing_established": false,
+          "new_administrator_id": "transfer-administrator",
+          "old_authority_transferred": false,
+          "operation_id": "source-transfer-demo-create",
+          "rules_version": "source-transfer-1",
+          "schema_version": 1,
+          "source_count": 0,
+          "source_epoch": "sfe_1e45e5f503098cbf3cfbea966ce1f365",
+          "source_event_high_water_before": 63,
+          "source_fence_id": "sfn_9249a1ff7962e5df81cd94068317ddcc",
+          "source_revision": 2,
+          "transfer_event_seq": 64,
+          "transfer_id": "sft_4c1b4fd04271a82bdf0b0f2b5d7929b3",
+          "workspace_id": "wsp_930d1015cc41cfa38d46ef44800a5538"
+        },
+        {
+          "artifact_count": 4,
+          "created_at": 1792586323.796838,
+          "dependencies_preserved": true,
+          "external_fencing_established": false,
+          "new_administrator_id": "chain-administrator",
+          "old_authority_transferred": false,
+          "operation_id": "source-transfer-chain-demo-create",
+          "rules_version": "source-transfer-1",
+          "schema_version": 1,
+          "source_count": 0,
+          "source_epoch": "sfe_ee9b2bdc8a9953008e4b4269e0b648e2",
+          "source_event_high_water_before": 37,
+          "source_fence_id": "sfn_cad2a94670641169bd796bc2c4c1345d",
+          "source_revision": 3,
+          "transfer_event_seq": 38,
+          "transfer_id": "sft_6894c1992d4097eeb4a791e133908316",
+          "workspace_id": "wsp_634f04510f9c3d7e90237e3739c1c399"
+        }
+      ],
+      "old_authority_transferred": false,
+      "dependencies_preserved": true,
+      "external_fencing_established": false
+    }
+  }
+}

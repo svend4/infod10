@@ -1,0 +1,112 @@
+{
+  "label": "completed-replay-and-single-target-binding",
+  "explanation": "The exact request returns its original fact without new events; another destination or operation conflicts.",
+  "source_status": {
+    "revision": 3,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 3
+    },
+    "events": 38,
+    "rules_version": "mvp-1"
+  },
+  "observations": {
+    "status": {
+      "dependencies_preserved": true,
+      "destination": {
+        "artifact_count": 4,
+        "authorship_enabled": true,
+        "content_enabled": true,
+        "continuity_enabled": true,
+        "governance_enabled": true,
+        "revision": 3,
+        "source_count": 0,
+        "workspace_id": "wsp_634f04510f9c3d7e90237e3739c1c399"
+      },
+      "external_fencing_established": false,
+      "old_authority_transferred": false,
+      "receipt": {
+        "artifact_count": 4,
+        "created_at": 1792586323.796838,
+        "dependencies_preserved": true,
+        "external_fencing_established": false,
+        "new_administrator_id": "chain-administrator",
+        "old_authority_transferred": false,
+        "operation_id": "source-transfer-chain-demo-create",
+        "rules_version": "source-transfer-1",
+        "schema_version": 1,
+        "source_count": 0,
+        "source_epoch": "sfe_ee9b2bdc8a9953008e4b4269e0b648e2",
+        "source_event_high_water_before": 37,
+        "source_fence_id": "sfn_cad2a94670641169bd796bc2c4c1345d",
+        "source_revision": 3,
+        "transfer_event_seq": 38,
+        "transfer_id": "sft_6894c1992d4097eeb4a791e133908316",
+        "workspace_id": "wsp_634f04510f9c3d7e90237e3739c1c399"
+      },
+      "replayed": true,
+      "resumed": false,
+      "rules_version": "source-transfer-1"
+    },
+    "replayed": {
+      "dependencies_preserved": true,
+      "destination": {
+        "artifact_count": 4,
+        "authorship_enabled": true,
+        "content_enabled": true,
+        "continuity_enabled": true,
+        "governance_enabled": true,
+        "revision": 3,
+        "source_count": 0,
+        "workspace_id": "wsp_634f04510f9c3d7e90237e3739c1c399"
+      },
+      "external_fencing_established": false,
+      "old_authority_transferred": false,
+      "receipt": {
+        "artifact_count": 4,
+        "created_at": 1792586323.796838,
+        "dependencies_preserved": true,
+        "external_fencing_established": false,
+        "new_administrator_id": "chain-administrator",
+        "old_authority_transferred": false,
+        "operation_id": "source-transfer-chain-demo-create",
+        "rules_version": "source-transfer-1",
+        "schema_version": 1,
+        "source_count": 0,
+        "source_epoch": "sfe_ee9b2bdc8a9953008e4b4269e0b648e2",
+        "source_event_high_water_before": 37,
+        "source_fence_id": "sfn_cad2a94670641169bd796bc2c4c1345d",
+        "source_revision": 3,
+        "transfer_event_seq": 38,
+        "transfer_id": "sft_6894c1992d4097eeb4a791e133908316",
+        "workspace_id": "wsp_634f04510f9c3d7e90237e3739c1c399"
+      },
+      "replayed": true,
+      "resumed": false,
+      "rules_version": "source-transfer-1"
+    },
+    "conflicts": [
+      {
+        "label": "another-destination-conflicts",
+        "category": "reservation",
+        "code": "source_transfer_conflict",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "another-operation-conflicts",
+        "category": "reservation",
+        "code": "source_transfer_conflict",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      }
+    ]
+  }
+}

@@ -31,6 +31,7 @@ from .store_backup_cli import register_backup_parser, run_backup_command
 from .recovery_reconciliation_cli import register_recovery_parser, run_recovery_command
 from .source_fence_cli import register_fence_parser, run_fence_command
 from .source_transfer_cli import register_transfer_parser, run_transfer_command
+from .workspace_backup_cli import register_workspace_backup_parser, run_workspace_backup_command
 
 
 def _workers(value: str) -> int:
@@ -168,6 +169,7 @@ def main(argv: list[str] | None = None) -> int:
     register_recovery_parser(commands)
     register_fence_parser(commands)
     register_transfer_parser(commands)
+    register_workspace_backup_parser(commands)
     editorial_demo = commands.add_parser("editorial-demo", help="Показать историю решений программных проверяющих и устаревание оснований.")
     editorial_demo.add_argument("--workspace", type=Path, required=True)
     editorial_demo.add_argument("--workers", default=3, type=_workers)
@@ -228,6 +230,9 @@ def main(argv: list[str] | None = None) -> int:
     transfer_chain_demo = commands.add_parser("source-transfer-chain-demo", help="Сохранить цепочку архивов при повторном переносе и продолжить работу со свежими полномочиями.")
     transfer_chain_demo.add_argument("--workspace", type=Path, required=True)
     transfer_chain_demo.add_argument("--workers", default=3, type=_workers)
+    workspace_backup_demo = commands.add_parser("workspace-backup-demo", help="Сохранить и восстановить рабочую базу со всей цепочкой архивов в карантине.")
+    workspace_backup_demo.add_argument("--workspace", type=Path, required=True)
+    workspace_backup_demo.add_argument("--workers", default=3, type=_workers)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -308,6 +313,13 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(run_fence_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "store-transfer":
             print(json.dumps(run_transfer_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "workspace-backup":
+            print(json.dumps(run_workspace_backup_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "workspace-backup-demo":
+            from .workspace_backup_demo import run_workspace_backup_demo
+
+            report = run_workspace_backup_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "workspace-report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "source-transfer-chain-demo":
             from .source_transfer_chain_demo import run_source_transfer_chain_demo
 

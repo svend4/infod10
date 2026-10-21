@@ -1,0 +1,83 @@
+{
+  "label": "later-revocation-does-not-rewrite-captured-history",
+  "explanation": "The live reviewer grant is now revoked; the quarantined R4 copy retains its earlier historical state.",
+  "observations": {
+    "revocation": {
+      "grant_id": "gvg_d8b7965cfb76f1e4f4089e18b5d270fb",
+      "principal_id": "chain-reviewer-b",
+      "role": "reviewer",
+      "artifact_ids": [
+        "code/continuity_a.py",
+        "docs/continuity-a.md"
+      ],
+      "expires_at": 1792589926.1792536,
+      "created_at": 1792586326.229395,
+      "issuer_grant_id": "gvg_37f0422d52c9a033d0d80fe2c8583d42",
+      "operation_id": "chain-grant-reviewer-b",
+      "revoked": true,
+      "revoked_at": 1792586329.5911508,
+      "expired": false,
+      "replayed": false
+    },
+    "captured_reviewer_grant": {
+      "grant_id": "gvg_d8b7965cfb76f1e4f4089e18b5d270fb",
+      "principal_id": "chain-reviewer-b",
+      "role": "reviewer",
+      "artifact_ids": [
+        "code/continuity_a.py",
+        "docs/continuity-a.md"
+      ],
+      "expires_at": 1792589926.1792536,
+      "created_at": 1792586326.229395,
+      "issuer_grant_id": "gvg_37f0422d52c9a033d0d80fe2c8583d42",
+      "operation_id": "chain-grant-reviewer-b",
+      "revoked": false,
+      "revoked_at": null,
+      "expired": false
+    },
+    "current_reviewer_grant": {
+      "grant_id": "gvg_d8b7965cfb76f1e4f4089e18b5d270fb",
+      "principal_id": "chain-reviewer-b",
+      "role": "reviewer",
+      "artifact_ids": [
+        "code/continuity_a.py",
+        "docs/continuity-a.md"
+      ],
+      "expires_at": 1792589926.1792536,
+      "created_at": 1792586326.229395,
+      "issuer_grant_id": "gvg_37f0422d52c9a033d0d80fe2c8583d42",
+      "operation_id": "chain-grant-reviewer-b",
+      "revoked": true,
+      "revoked_at": 1792586329.5911508,
+      "expired": false
+    },
+    "source_status": {
+      "revision": 5,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 8
+      },
+      "proposals": {
+        "accepted": 2,
+        "proposed": 6
+      },
+      "events": 59,
+      "rules_version": "mvp-1"
+    },
+    "captured_status": {
+      "revision": 4,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 4
+      },
+      "proposals": {
+        "accepted": 1,
+        "proposed": 3
+      },
+      "events": 36,
+      "rules_version": "mvp-1"
+    }
+  }
+}
