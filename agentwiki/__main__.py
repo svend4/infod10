@@ -34,6 +34,7 @@ from .source_transfer_cli import register_transfer_parser, run_transfer_command
 from .workspace_backup_cli import register_workspace_backup_parser, run_workspace_backup_command
 from .workspace_restore_job_cli import register_restore_job_parser, run_restore_job_command
 from .workspace_restore_cases_cli import register_restore_cases_parser, run_restore_cases_command
+from .workspace_restore_case_catalog_cli import register_restore_case_catalog_parser, run_restore_case_catalog_command
 
 
 def _workers(value: str) -> int:
@@ -174,6 +175,7 @@ def main(argv: list[str] | None = None) -> int:
     register_workspace_backup_parser(commands)
     register_restore_job_parser(commands)
     register_restore_cases_parser(commands)
+    register_restore_case_catalog_parser(commands)
     editorial_demo = commands.add_parser("editorial-demo", help="Показать историю решений программных проверяющих и устаревание оснований.")
     editorial_demo.add_argument("--workspace", type=Path, required=True)
     editorial_demo.add_argument("--workers", default=3, type=_workers)
@@ -252,6 +254,9 @@ def main(argv: list[str] | None = None) -> int:
     restore_case_demo = commands.add_parser("workspace-restore-case-demo", help="Сохранить случаи заблокированного восстановления и явные связи с новыми попытками.")
     restore_case_demo.add_argument("--workspace", type=Path, required=True)
     restore_case_demo.add_argument("--workers", default=3, type=_workers)
+    restore_case_catalog_demo = commands.add_parser("workspace-restore-case-catalog-demo", help="Обойти явный каталог случаев ограниченными страницами управляющих наблюдений.")
+    restore_case_catalog_demo.add_argument("--workspace", type=Path, required=True)
+    restore_case_catalog_demo.add_argument("--workers", default=3, type=_workers)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -332,6 +337,13 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(run_fence_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "store-transfer":
             print(json.dumps(run_transfer_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "workspace-restore-case-catalog":
+            print(json.dumps(run_restore_case_catalog_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "workspace-restore-case-catalog-demo":
+            from .workspace_restore_case_catalog_demo import run_workspace_restore_case_catalog_demo
+
+            report = run_workspace_restore_case_catalog_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "restore-case-catalog-report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "workspace-restore-case":
             print(json.dumps(run_restore_cases_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "workspace-restore-case-demo":

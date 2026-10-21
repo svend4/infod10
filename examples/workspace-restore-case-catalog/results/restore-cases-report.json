@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "rules_version": "workspace-restore-case-1",
+  "created_at": "2026-10-21T19:56:16.785688+02:00",
+  "timezone": "Europe/Berlin",
+  "scenario": "Immutable blocked observations linked to explicitly and separately prepared attempts",
+  "summary": {
+    "baseline_public_file_count": 269,
+    "restore_cases_stage_count": 5,
+    "blocked_case_count": 3,
+    "separately_prepared_attempt_count": 3,
+    "restore_cases_cli_child_process_count": 50,
+    "total_cli_child_process_count": 186,
+    "total_cli_and_interrupt_worker_process_count": 200,
+    "new_interrupt_worker_process_count": 0,
+    "operator_rejection_count": 17,
+    "discarded_link_response_count": 3,
+    "discarded_link_responses_recovered_exactly": true,
+    "original_jobs_still_blocked": true,
+    "original_files_modified": false,
+    "original_identity_reconstructed": false,
+    "attempts_created_by_case_feature": false,
+    "request_equivalence_verified": false,
+    "operator_association": true,
+    "captured_revision": 4,
+    "captured_event_count": 36,
+    "live_revision": 5,
+    "live_event_count": 59,
+    "complete_archive_count": 2,
+    "restored_workspace_quarantined": true,
+    "completed_reads_without_source": true,
+    "all_original_paths_restored": true,
+    "private_control_contents_read_by_demo": false,
+    "private_stage_contents_read_by_demo": false,
+    "private_fingerprints_exported": false,
+    "old_authority_activated": false,
+    "external_fencing_established": false,
+    "external_llm_used": false,
+    "human_review_recorded": false,
+    "proposed_code_executed": false,
+    "measured_capacity": false
+  },
+  "stages": [
+    {
+      "label": "blocked-observations-before-registration",
+      "explanation": "Three blocked jobs remain historical evidence; a case is recorded separately and a new attempt will use an explicitly supplied source.",
+      "artifact": "restore-cases-stage-01-blocked-observations-before-registration.json"
+    },
+    {
+      "label": "plan-invalid",
+      "explanation": "The immutable blocked observation is linked to a separately prepared attempt; replay preserves the historical receipt while show reports its completed current status.",
+      "artifact": "restore-cases-stage-02-plan-invalid.json"
+    },
+    {
+      "label": "ownership-unproven",
+      "explanation": "The immutable blocked observation is linked to a separately prepared attempt; replay preserves the historical receipt while show reports its completed current status.",
+      "artifact": "restore-cases-stage-03-ownership-unproven.json"
+    },
+    {
+      "label": "owner-invalid",
+      "explanation": "The immutable blocked observation is linked to a separately prepared attempt; replay preserves the historical receipt while show reports its completed current status.",
+      "artifact": "restore-cases-stage-04-owner-invalid.json"
+    },
+    {
+      "label": "historical-evidence-and-completed-reads-preserved",
+      "explanation": "The original three jobs still refuse; completed case/attempt observations work with the source bundle unavailable and all original paths are restored.",
+      "artifact": "restore-cases-stage-05-historical-evidence-and-completed-reads-preserved.json"
+    }
+  ],
+  "artifacts": [
+    "restore-cases-archive-observations.json",
+    "restore-cases-cases.json",
+    "restore-cases-cli-outcomes.json",
+    "restore-cases-completed-summaries.json",
+    "restore-cases-live-observations.json",
+    "restore-cases-original-observations.json",
+    "restore-cases-rejections.json",
+    "restore-cases-reply-recovery.json",
+    "restore-cases-source-observations.json",
+    "restore-cases-source-summary.json",
+    "restore-cases-target-observations.json"
+  ],
+  "limits": [
+    "Cases record three blocked observations outside the old jobs. Case and link receipts are historical; show reports current evidence and current attempt status separately.",
+    "Each new attempt is created by ordinary prepare with an explicitly supplied source bundle and separate operation/job/target. Linking only records an operator association; fresh creation and original request equivalence are not verified by that feature.",
+    "An invalid original plan does not yield a reconstructed identity or inferred source. Known identity from a valid plan remains historical and does not grant authority.",
+    "Actual validated public link responses are parsed and discarded; exact replay is compared using ephemeral addresses of those public responses. No comparison address or private fingerprint is published.",
+    "The three original jobs remain blocked and unchanged under narrow lstat observation. The driver never reads private plan, owner, manifest, case-control, staging or checksum contents, and performs no manual repair.",
+    "Operation-length bounds and competing operation/job links are refused. New case-control partial writes, process interruption during registration/linking, changed evidence and unavailable original-job cases are not injected in this demonstration.",
+    "Completed reads temporarily rename only the source bundle and restore it in finally. This does not model hardware, kernel, storage or power-loss durability, all schedules or production capacity.",
+    "Public observation equality excludes only the top-level governance observed_at wrapper, preserving expired flags and addressed proof bodies. Restored history stays quarantined; old credentials and leases are inactive.",
+    "Programmed roles and local checksums do not establish human independence, factual truth, external fencing or measured production capacity."
+  ]
+}

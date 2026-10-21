@@ -1,0 +1,61 @@
+{
+  "label": "fresh-live-author-lease",
+  "explanation": "A new authenticated task and lease exist only in the continuing source, not in the historical copy.",
+  "source_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 5,
+      "leased": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 4
+    },
+    "events": 61,
+    "rules_version": "mvp-1"
+  },
+  "snapshot_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4,
+      "leased": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 3
+    },
+    "events": 52,
+    "rules_version": "mvp-1"
+  },
+  "observations": {
+    "lease": {
+      "task_id": "recovery-live-heartbeat-task",
+      "role": "code_author",
+      "payload": {
+        "artifact_id": "code/continuity_d.py",
+        "purpose": "live lease observation"
+      },
+      "token": 1,
+      "worker": "snapshot-code-author",
+      "lease_until": 1792608928.0624545
+    },
+    "task": {
+      "role": "code_author",
+      "payload": {
+        "artifact_id": "code/continuity_d.py",
+        "purpose": "live lease observation"
+      },
+      "dependencies": [],
+      "state": "leased",
+      "token": 1,
+      "worker": "snapshot-code-author",
+      "lease_until": 1792608928.0624545,
+      "result_id": null,
+      "task_id": "recovery-live-heartbeat-task"
+    }
+  }
+}

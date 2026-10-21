@@ -1,0 +1,149 @@
+{
+  "label": "complete-source-and-current-live-state",
+  "explanation": "A complete historical R4 bundle with two archives is available; the live source has continued to R5.",
+  "observations": {
+    "source_summary": {
+      "archive_count": 2,
+      "created_at": 1792605340.5682297,
+      "domain_writes_allowed": false,
+      "event_count": 36,
+      "event_high_water": 36,
+      "external_fencing_established": false,
+      "foreign_keys": "ok",
+      "full_history_preserved": true,
+      "inspection_only": true,
+      "integrity": "ok",
+      "kind": "backup",
+      "old_authority_activated": false,
+      "receipts": [
+        {
+          "artifact_count": 4,
+          "created_at": 1792605332.9669602,
+          "dependencies_preserved": true,
+          "external_fencing_established": false,
+          "new_administrator_id": "transfer-administrator",
+          "old_authority_transferred": false,
+          "operation_id": "source-transfer-demo-create",
+          "rules_version": "source-transfer-1",
+          "schema_version": 1,
+          "source_count": 0,
+          "source_epoch": "sfe_a6096102fb5f41a652af93420eeb7a9f",
+          "source_event_high_water_before": 63,
+          "source_fence_id": "sfn_11b4068af20d562007d440aa7253b8fb",
+          "source_revision": 2,
+          "transfer_event_seq": 64,
+          "transfer_id": "sft_03b430654b37278981f3d164fe96d96f",
+          "workspace_id": "wsp_028648527aec12684aa3486e014860ec"
+        },
+        {
+          "artifact_count": 4,
+          "created_at": 1792605335.8244655,
+          "dependencies_preserved": true,
+          "external_fencing_established": false,
+          "new_administrator_id": "chain-administrator",
+          "old_authority_transferred": false,
+          "operation_id": "source-transfer-chain-demo-create",
+          "rules_version": "source-transfer-1",
+          "schema_version": 1,
+          "source_count": 0,
+          "source_epoch": "sfe_dc4903a472c9a6e12ea53b009bd0ce19",
+          "source_event_high_water_before": 37,
+          "source_fence_id": "sfn_72025182b724a2e2160a742940d7b5e7",
+          "source_revision": 3,
+          "transfer_event_seq": 38,
+          "transfer_id": "sft_3228d698fb379e89d168767a80bbf84f",
+          "workspace_id": "wsp_93d5f4e79c7ddf93325ee58c865be08d"
+        }
+      ],
+      "revision": 4,
+      "rules_version": "workspace-backup-1",
+      "table_counts": {
+        "artifacts": 4,
+        "authorship_leases": 4,
+        "authorship_settings": 1,
+        "content_packets": 1,
+        "content_policies": 1,
+        "content_settings": 1,
+        "events": 36,
+        "governance_decisions": 4,
+        "governance_grants": 7,
+        "governance_heads": 4,
+        "governance_operations": 10,
+        "governance_policies": 4,
+        "governance_receipts": 1,
+        "governance_revocations": 0,
+        "governance_settings": 1,
+        "meta": 2,
+        "proposal_authorship": 4,
+        "proposal_components": 2,
+        "proposals": 4,
+        "review_continuity_settings": 1,
+        "review_continuity_transitions": 0,
+        "review_history_audit_checkpoints": 0,
+        "review_history_audit_heads": 0,
+        "review_history_audit_operations": 0,
+        "review_history_audits": 0,
+        "reviews": 1,
+        "revisions": 2,
+        "sources": 0,
+        "tasks": 4
+      },
+      "workspace_backup_id": "wbk_1ebca1f1090a4496e07ac95acfab2df5",
+      "workspace_id": "wsp_93d5f4e79c7ddf93325ee58c865be08d"
+    },
+    "captured_status": {
+      "revision": 4,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 4
+      },
+      "proposals": {
+        "accepted": 1,
+        "proposed": 3
+      },
+      "events": 36,
+      "rules_version": "mvp-1"
+    },
+    "live_status": {
+      "revision": 5,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 8
+      },
+      "proposals": {
+        "accepted": 2,
+        "proposed": 6
+      },
+      "events": 59,
+      "rules_version": "mvp-1"
+    },
+    "captured_access": {
+      "rules_version": "store-snapshot-1",
+      "quarantined": true,
+      "source_fenced": false,
+      "imported_workspace": true,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "historical_authorization_only": true,
+      "live_authorization_allowed": false,
+      "trusted_database_owner_can_bypass": true,
+      "backup_id": "sbk_3d516c52a4f2c3993e6c73d1a72152a4",
+      "quarantine_id": "sq_745d9c9ae637996ad600fdd98a423422",
+      "source_revision": 4,
+      "event_high_water": 36,
+      "created_at": 1792605340.5682297,
+      "transfer_origin": {
+        "rules_version": "source-transfer-1",
+        "transfer_id": "sft_3228d698fb379e89d168767a80bbf84f",
+        "workspace_id": "wsp_93d5f4e79c7ddf93325ee58c865be08d",
+        "import_revision": 3,
+        "new_administrator_grant_id": "gvg_164950a911f9d6f41433d1ce5ff5a4a7",
+        "dependencies_preserved": true,
+        "old_authority_transferred": false,
+        "path_bound": true
+      }
+    }
+  }
+}

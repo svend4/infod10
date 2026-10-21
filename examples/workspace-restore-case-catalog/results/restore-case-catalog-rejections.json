@@ -1,0 +1,100 @@
+[
+  {
+    "label": "duplicate-case-path",
+    "command": "workspace-restore-case-catalog",
+    "action": "create",
+    "code": "workspace_restore_case_catalog_invalid_input",
+    "rejected": true
+  },
+  {
+    "label": "page-limit-zero",
+    "command": "workspace-restore-case-catalog",
+    "action": "page",
+    "code": "workspace_restore_case_catalog_invalid_input",
+    "rejected": true
+  },
+  {
+    "label": "page-limit-seventeen",
+    "command": "workspace-restore-case-catalog",
+    "action": "page",
+    "code": "workspace_restore_case_catalog_invalid_input",
+    "rejected": true
+  },
+  {
+    "label": "negative-cursor-index",
+    "command": "workspace-restore-case-catalog",
+    "action": "page",
+    "code": "workspace_restore_case_catalog_invalid_input",
+    "rejected": true
+  },
+  {
+    "label": "cursor-beyond-membership",
+    "command": "workspace-restore-case-catalog",
+    "action": "page",
+    "code": "workspace_restore_case_catalog_invalid_input",
+    "rejected": true
+  },
+  {
+    "label": "cursor-from-another-catalog",
+    "command": "workspace-restore-case-catalog",
+    "action": "page",
+    "code": "workspace_restore_case_catalog_invalid_input",
+    "rejected": true
+  },
+  {
+    "label": "conflicting-operation",
+    "command": "workspace-restore-case-catalog",
+    "action": "create",
+    "code": "workspace_restore_case_catalog_conflict",
+    "rejected": true
+  },
+  {
+    "label": "conflicting-explicit-order",
+    "command": "workspace-restore-case-catalog",
+    "action": "create",
+    "code": "workspace_restore_case_catalog_conflict",
+    "rejected": true
+  },
+  {
+    "label": "operation-length-bound",
+    "command": "workspace-restore-case-catalog",
+    "action": "create",
+    "code": "workspace_restore_case_catalog_invalid_input",
+    "rejected": true
+  },
+  {
+    "label": "malformed-catalog-id",
+    "command": "workspace-restore-case-catalog",
+    "action": "page",
+    "code": "workspace_restore_case_catalog_invalid_input",
+    "rejected": true
+  },
+  {
+    "label": "incomplete-cursor-pair",
+    "command": "workspace-restore-case-catalog",
+    "action": "page",
+    "code": "workspace_restore_case_catalog_invalid_input",
+    "rejected": true
+  },
+  {
+    "label": "original-job-still-blocked-01",
+    "command": "workspace-restore",
+    "action": "status",
+    "code": "workspace_restore_job_manifest_invalid",
+    "rejected": true
+  },
+  {
+    "label": "original-job-still-blocked-03",
+    "command": "workspace-restore",
+    "action": "status",
+    "code": "workspace_restore_job_conflict",
+    "rejected": true
+  },
+  {
+    "label": "original-job-still-blocked-04",
+    "command": "workspace-restore",
+    "action": "status",
+    "code": "workspace_restore_job_manifest_invalid",
+    "rejected": true
+  }
+]
