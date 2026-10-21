@@ -1,0 +1,92 @@
+{
+  "label": "continuing-source-and-historical-copy",
+  "explanation": "The live source has continued after capture; its old snapshot stays quarantined and readable.",
+  "source_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 5
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 4
+    },
+    "events": 59,
+    "rules_version": "mvp-1"
+  },
+  "snapshot_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4,
+      "leased": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 3
+    },
+    "events": 52,
+    "rules_version": "mvp-1"
+  },
+  "observations": {
+    "source": {
+      "revision": 2,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 5
+      },
+      "proposals": {
+        "accepted": 1,
+        "proposed": 4
+      },
+      "events": 59,
+      "rules_version": "mvp-1"
+    },
+    "snapshot": {
+      "revision": 2,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 4,
+        "leased": 1
+      },
+      "proposals": {
+        "accepted": 1,
+        "proposed": 3
+      },
+      "events": 52,
+      "rules_version": "mvp-1"
+    },
+    "source_access": {
+      "rules_version": "store-snapshot-1",
+      "quarantined": false,
+      "source_fenced": false,
+      "imported_workspace": false,
+      "inspection_only": false,
+      "domain_writes_allowed": true,
+      "historical_authorization_only": false,
+      "live_authorization_allowed": true,
+      "trusted_database_owner_can_bypass": true
+    },
+    "snapshot_access": {
+      "rules_version": "store-snapshot-1",
+      "quarantined": true,
+      "source_fenced": false,
+      "imported_workspace": false,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "historical_authorization_only": true,
+      "live_authorization_allowed": false,
+      "trusted_database_owner_can_bypass": true,
+      "backup_id": "sbk_329069d0cd40de919a1064f3de9f055a",
+      "quarantine_id": "sq_13d11dc913f046b2d7d83486781c1e58",
+      "source_revision": 2,
+      "event_high_water": 52,
+      "created_at": 1792592973.396226
+    },
+    "captured_events_are_exact_source_prefix": true
+  }
+}

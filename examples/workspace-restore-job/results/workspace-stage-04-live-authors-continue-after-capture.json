@@ -1,0 +1,120 @@
+{
+  "label": "live-authors-continue-after-capture",
+  "explanation": "Three live author jobs and one new composition use current source grants after the full backup.",
+  "observations": {
+    "authors": {
+      "document-a": {
+        "label": "document-a",
+        "principal_id": "chain-document-author",
+        "thread": "workspace-author_0",
+        "task_id": "workspace-author-document-a",
+        "fencing_token": 1,
+        "proposal_id": "p_1b421cf4e117f3dfd76d9684",
+        "digest": "d54a7f7f027d2bd869e8efca762970077bbc0c4fc0432e51d2773e3b1feeadb3",
+        "replayed": false,
+        "authorship": {
+          "authorship_id": "awp_17f2d81ef86ecb7c925c2e5ab085ef684865889e3aece2f046b7273321c2f56c",
+          "authorship_digest": "17f2d81ef86ecb7c925c2e5ab085ef684865889e3aece2f046b7273321c2f56c",
+          "principal_id": "chain-document-author",
+          "contributor_principals": [
+            "chain-document-author"
+          ],
+          "write_ids": [
+            "docs/continuity-a.md"
+          ]
+        }
+      },
+      "code-a": {
+        "label": "code-a",
+        "principal_id": "chain-code-author",
+        "thread": "workspace-author_1",
+        "task_id": "workspace-author-code-a",
+        "fencing_token": 1,
+        "proposal_id": "p_eff352908d328d98c3590820",
+        "digest": "0978095e98a00f2877d743341de3326e28930332f5e400b7c74a16ca285e11e7",
+        "replayed": false,
+        "authorship": {
+          "authorship_id": "awp_c5213eb9588037eff9c266e0fcd248c4ef243750152fe639396d0b75a11e5049",
+          "authorship_digest": "c5213eb9588037eff9c266e0fcd248c4ef243750152fe639396d0b75a11e5049",
+          "principal_id": "chain-code-author",
+          "contributor_principals": [
+            "chain-code-author"
+          ],
+          "write_ids": [
+            "code/continuity_a.py"
+          ]
+        }
+      },
+      "alternative-document": {
+        "label": "alternative-document",
+        "principal_id": "chain-document-author",
+        "thread": "workspace-author_2",
+        "task_id": "workspace-author-alternative-document",
+        "fencing_token": 1,
+        "proposal_id": "p_8405547f8da8fa69de55ca68",
+        "digest": "bf8fb7bad3019e6db34a7878ea2e17a24028090c015095965e5ebe0b3644d17b",
+        "replayed": false,
+        "authorship": {
+          "authorship_id": "awp_57088668c3dfa5448a3ee448ee4cd8091ae8ee10b5679491a944326917ce993f",
+          "authorship_digest": "57088668c3dfa5448a3ee448ee4cd8091ae8ee10b5679491a944326917ce993f",
+          "principal_id": "chain-document-author",
+          "contributor_principals": [
+            "chain-document-author"
+          ],
+          "write_ids": [
+            "docs/continuity-a.md"
+          ]
+        }
+      }
+    },
+    "composition": {
+      "proposal_id": "p_20f1633ab6867efa322fed06",
+      "digest": "f28607e54fba364673223556cdb69bfe091fe67654c07853c56979798c4d9f03",
+      "replayed": false,
+      "components": [
+        {
+          "position": 1,
+          "proposal_id": "p_1b421cf4e117f3dfd76d9684",
+          "digest": "d54a7f7f027d2bd869e8efca762970077bbc0c4fc0432e51d2773e3b1feeadb3",
+          "write_ids": [
+            "docs/continuity-a.md"
+          ]
+        },
+        {
+          "position": 2,
+          "proposal_id": "p_eff352908d328d98c3590820",
+          "digest": "0978095e98a00f2877d743341de3326e28930332f5e400b7c74a16ca285e11e7",
+          "write_ids": [
+            "code/continuity_a.py"
+          ]
+        }
+      ],
+      "authorship": {
+        "authorship_id": "awp_4c7e126881adbfed1c1cf3ceaa0ef0b27c47e014cddd161381f988a5559ce24b",
+        "authorship_digest": "4c7e126881adbfed1c1cf3ceaa0ef0b27c47e014cddd161381f988a5559ce24b",
+        "principal_id": "chain-integrator",
+        "contributor_principals": [
+          "chain-code-author",
+          "chain-document-author",
+          "chain-integrator"
+        ],
+        "write_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ]
+      }
+    },
+    "formal_review": {
+      "proposal_id": "p_20f1633ab6867efa322fed06",
+      "proposal_digest": "f28607e54fba364673223556cdb69bfe091fe67654c07853c56979798c4d9f03",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "chain-reviewer-a",
+      "observed_revision": 4,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 2
+    }
+  }
+}
