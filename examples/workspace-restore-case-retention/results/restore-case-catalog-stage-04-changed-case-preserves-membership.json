@@ -1,0 +1,370 @@
+{
+  "label": "changed-case-preserves-membership",
+  "explanation": "An existing later case temporarily occupies another member path; the different directory is reported changed and both originals are restored.",
+  "observations": {
+    "changed": {
+      "rules_version": "workspace-restore-case-catalog-1",
+      "catalog": {
+        "case_count": 3,
+        "catalog_id": "wrcat_1a4c7c816319da3f31335e2ca40c23a9",
+        "created_at": 1792608743.3386137,
+        "domain_writes_allowed": false,
+        "external_fencing_established": false,
+        "inspection_only": true,
+        "membership_frozen": true,
+        "old_authority_activated": false,
+        "operation_id": "restore-case-catalog-main",
+        "order_frozen": true,
+        "original_files_modified": false,
+        "rules_version": "workspace-restore-case-catalog-1"
+      },
+      "after_index": 0,
+      "limit": 3,
+      "entries": [
+        {
+          "index": 1,
+          "case": {
+            "case_id": "wrc_fbeda976ff2d8528c6fc9ca1498b2921",
+            "cause": "owner_invalid",
+            "created_at": 1792608735.2465189,
+            "domain_writes_allowed": false,
+            "external_fencing_established": false,
+            "inspection_only": true,
+            "old_authority_activated": false,
+            "operation_id": "restore-cases-record-03",
+            "original_error_code": "workspace_restore_job_manifest_invalid",
+            "original_files_modified": false,
+            "original_identity": {
+              "created_at": 1792608724.8750644,
+              "job_id": "wrj_fc40c8b4402bc405af99e85c3acb06ee",
+              "operation_id": "restore-prepare-owner-partial",
+              "workspace_id": "wsp_1ada347b262d3076a4b4455cb3377ae7"
+            },
+            "original_identity_reconstructed": false,
+            "rules_version": "workspace-restore-case-1"
+          },
+          "current_case": {
+            "state": "available",
+            "link": {
+              "attempt_status": {
+                "completed": false,
+                "copied_file_count": 0,
+                "created_at": 1792608736.0094264,
+                "domain_writes_allowed": false,
+                "external_fencing_established": false,
+                "full_history_preserved": false,
+                "inspection_only": true,
+                "job_id": "wrj_ce7bc4b3b9872df504140afc2faa38fd",
+                "old_authority_activated": false,
+                "operation_id": "restore-cases-new-attempt-03",
+                "result": null,
+                "rules_version": "workspace-restore-job-1",
+                "state": "prepared",
+                "total_file_count": 3,
+                "workspace_id": "wsp_1ada347b262d3076a4b4455cb3377ae7"
+              },
+              "case_id": "wrc_fbeda976ff2d8528c6fc9ca1498b2921",
+              "created_at": 1792608739.6749563,
+              "domain_writes_allowed": false,
+              "external_fencing_established": false,
+              "fresh_creation_verified": false,
+              "inspection_only": true,
+              "link_id": "wrl_9541ea16ede12375af88a923891fead0",
+              "old_authority_activated": false,
+              "operation_id": "restore-cases-link-03",
+              "operator_association": true,
+              "original_files_modified": false,
+              "request_equivalence_verified": false,
+              "rules_version": "workspace-restore-case-1"
+            },
+            "error_code": null
+          }
+        },
+        {
+          "index": 2,
+          "case": {
+            "case_id": "wrc_62fb5388c6fce17a535bbcf260378e93",
+            "cause": "plan_invalid",
+            "created_at": 1792608734.3709671,
+            "domain_writes_allowed": false,
+            "external_fencing_established": false,
+            "inspection_only": true,
+            "old_authority_activated": false,
+            "operation_id": "restore-cases-record-01",
+            "original_error_code": "workspace_restore_job_manifest_invalid",
+            "original_files_modified": false,
+            "original_identity": null,
+            "original_identity_reconstructed": false,
+            "rules_version": "workspace-restore-case-1"
+          },
+          "current_case": {
+            "state": "available",
+            "link": {
+              "attempt_status": {
+                "completed": false,
+                "copied_file_count": 0,
+                "created_at": 1792608735.6870687,
+                "domain_writes_allowed": false,
+                "external_fencing_established": false,
+                "full_history_preserved": false,
+                "inspection_only": true,
+                "job_id": "wrj_a7eb0d3b1a132cb0938b4c89e837768f",
+                "old_authority_activated": false,
+                "operation_id": "restore-cases-new-attempt-01",
+                "result": null,
+                "rules_version": "workspace-restore-job-1",
+                "state": "prepared",
+                "total_file_count": 3,
+                "workspace_id": "wsp_1ada347b262d3076a4b4455cb3377ae7"
+              },
+              "case_id": "wrc_62fb5388c6fce17a535bbcf260378e93",
+              "created_at": 1792608736.4184785,
+              "domain_writes_allowed": false,
+              "external_fencing_established": false,
+              "fresh_creation_verified": false,
+              "inspection_only": true,
+              "link_id": "wrl_cd003ce0724db49f23e807b300644df7",
+              "old_authority_activated": false,
+              "operation_id": "restore-cases-link-01",
+              "operator_association": true,
+              "original_files_modified": false,
+              "request_equivalence_verified": false,
+              "rules_version": "workspace-restore-case-1"
+            },
+            "error_code": null
+          }
+        },
+        {
+          "index": 3,
+          "case": {
+            "case_id": "wrc_2ee54fd93dd76f9a5b5f127f68869de2",
+            "cause": "ownership_unproven",
+            "created_at": 1792608734.8511488,
+            "domain_writes_allowed": false,
+            "external_fencing_established": false,
+            "inspection_only": true,
+            "old_authority_activated": false,
+            "operation_id": "restore-cases-record-02",
+            "original_error_code": "workspace_restore_job_conflict",
+            "original_files_modified": false,
+            "original_identity": {
+              "created_at": 1792608724.2013402,
+              "job_id": "wrj_663ff78f50d516ca9d237063288d3a1d",
+              "operation_id": "restore-prepare-intent-durable",
+              "workspace_id": "wsp_1ada347b262d3076a4b4455cb3377ae7"
+            },
+            "original_identity_reconstructed": false,
+            "rules_version": "workspace-restore-case-1"
+          },
+          "current_case": {
+            "state": "changed",
+            "link": null,
+            "error_code": "workspace_restore_case_catalog_entry_changed"
+          }
+        }
+      ],
+      "next_cursor": null,
+      "original_evidence_checked": false,
+      "live_jobs_checked": false
+    },
+    "restored": {
+      "rules_version": "workspace-restore-case-catalog-1",
+      "catalog": {
+        "case_count": 3,
+        "catalog_id": "wrcat_1a4c7c816319da3f31335e2ca40c23a9",
+        "created_at": 1792608743.3386137,
+        "domain_writes_allowed": false,
+        "external_fencing_established": false,
+        "inspection_only": true,
+        "membership_frozen": true,
+        "old_authority_activated": false,
+        "operation_id": "restore-case-catalog-main",
+        "order_frozen": true,
+        "original_files_modified": false,
+        "rules_version": "workspace-restore-case-catalog-1"
+      },
+      "after_index": 0,
+      "limit": 3,
+      "entries": [
+        {
+          "index": 1,
+          "case": {
+            "case_id": "wrc_fbeda976ff2d8528c6fc9ca1498b2921",
+            "cause": "owner_invalid",
+            "created_at": 1792608735.2465189,
+            "domain_writes_allowed": false,
+            "external_fencing_established": false,
+            "inspection_only": true,
+            "old_authority_activated": false,
+            "operation_id": "restore-cases-record-03",
+            "original_error_code": "workspace_restore_job_manifest_invalid",
+            "original_files_modified": false,
+            "original_identity": {
+              "created_at": 1792608724.8750644,
+              "job_id": "wrj_fc40c8b4402bc405af99e85c3acb06ee",
+              "operation_id": "restore-prepare-owner-partial",
+              "workspace_id": "wsp_1ada347b262d3076a4b4455cb3377ae7"
+            },
+            "original_identity_reconstructed": false,
+            "rules_version": "workspace-restore-case-1"
+          },
+          "current_case": {
+            "state": "available",
+            "link": {
+              "attempt_status": {
+                "completed": false,
+                "copied_file_count": 0,
+                "created_at": 1792608736.0094264,
+                "domain_writes_allowed": false,
+                "external_fencing_established": false,
+                "full_history_preserved": false,
+                "inspection_only": true,
+                "job_id": "wrj_ce7bc4b3b9872df504140afc2faa38fd",
+                "old_authority_activated": false,
+                "operation_id": "restore-cases-new-attempt-03",
+                "result": null,
+                "rules_version": "workspace-restore-job-1",
+                "state": "prepared",
+                "total_file_count": 3,
+                "workspace_id": "wsp_1ada347b262d3076a4b4455cb3377ae7"
+              },
+              "case_id": "wrc_fbeda976ff2d8528c6fc9ca1498b2921",
+              "created_at": 1792608739.6749563,
+              "domain_writes_allowed": false,
+              "external_fencing_established": false,
+              "fresh_creation_verified": false,
+              "inspection_only": true,
+              "link_id": "wrl_9541ea16ede12375af88a923891fead0",
+              "old_authority_activated": false,
+              "operation_id": "restore-cases-link-03",
+              "operator_association": true,
+              "original_files_modified": false,
+              "request_equivalence_verified": false,
+              "rules_version": "workspace-restore-case-1"
+            },
+            "error_code": null
+          }
+        },
+        {
+          "index": 2,
+          "case": {
+            "case_id": "wrc_62fb5388c6fce17a535bbcf260378e93",
+            "cause": "plan_invalid",
+            "created_at": 1792608734.3709671,
+            "domain_writes_allowed": false,
+            "external_fencing_established": false,
+            "inspection_only": true,
+            "old_authority_activated": false,
+            "operation_id": "restore-cases-record-01",
+            "original_error_code": "workspace_restore_job_manifest_invalid",
+            "original_files_modified": false,
+            "original_identity": null,
+            "original_identity_reconstructed": false,
+            "rules_version": "workspace-restore-case-1"
+          },
+          "current_case": {
+            "state": "available",
+            "link": {
+              "attempt_status": {
+                "completed": false,
+                "copied_file_count": 0,
+                "created_at": 1792608735.6870687,
+                "domain_writes_allowed": false,
+                "external_fencing_established": false,
+                "full_history_preserved": false,
+                "inspection_only": true,
+                "job_id": "wrj_a7eb0d3b1a132cb0938b4c89e837768f",
+                "old_authority_activated": false,
+                "operation_id": "restore-cases-new-attempt-01",
+                "result": null,
+                "rules_version": "workspace-restore-job-1",
+                "state": "prepared",
+                "total_file_count": 3,
+                "workspace_id": "wsp_1ada347b262d3076a4b4455cb3377ae7"
+              },
+              "case_id": "wrc_62fb5388c6fce17a535bbcf260378e93",
+              "created_at": 1792608736.4184785,
+              "domain_writes_allowed": false,
+              "external_fencing_established": false,
+              "fresh_creation_verified": false,
+              "inspection_only": true,
+              "link_id": "wrl_cd003ce0724db49f23e807b300644df7",
+              "old_authority_activated": false,
+              "operation_id": "restore-cases-link-01",
+              "operator_association": true,
+              "original_files_modified": false,
+              "request_equivalence_verified": false,
+              "rules_version": "workspace-restore-case-1"
+            },
+            "error_code": null
+          }
+        },
+        {
+          "index": 3,
+          "case": {
+            "case_id": "wrc_2ee54fd93dd76f9a5b5f127f68869de2",
+            "cause": "ownership_unproven",
+            "created_at": 1792608734.8511488,
+            "domain_writes_allowed": false,
+            "external_fencing_established": false,
+            "inspection_only": true,
+            "old_authority_activated": false,
+            "operation_id": "restore-cases-record-02",
+            "original_error_code": "workspace_restore_job_conflict",
+            "original_files_modified": false,
+            "original_identity": {
+              "created_at": 1792608724.2013402,
+              "job_id": "wrj_663ff78f50d516ca9d237063288d3a1d",
+              "operation_id": "restore-prepare-intent-durable",
+              "workspace_id": "wsp_1ada347b262d3076a4b4455cb3377ae7"
+            },
+            "original_identity_reconstructed": false,
+            "rules_version": "workspace-restore-case-1"
+          },
+          "current_case": {
+            "state": "available",
+            "link": {
+              "attempt_status": {
+                "completed": false,
+                "copied_file_count": 0,
+                "created_at": 1792608735.8430464,
+                "domain_writes_allowed": false,
+                "external_fencing_established": false,
+                "full_history_preserved": false,
+                "inspection_only": true,
+                "job_id": "wrj_f471377b81f6a2dc93f2ba3ce047b4a9",
+                "old_authority_activated": false,
+                "operation_id": "restore-cases-new-attempt-02",
+                "result": null,
+                "rules_version": "workspace-restore-job-1",
+                "state": "prepared",
+                "total_file_count": 3,
+                "workspace_id": "wsp_1ada347b262d3076a4b4455cb3377ae7"
+              },
+              "case_id": "wrc_2ee54fd93dd76f9a5b5f127f68869de2",
+              "created_at": 1792608738.0031471,
+              "domain_writes_allowed": false,
+              "external_fencing_established": false,
+              "fresh_creation_verified": false,
+              "inspection_only": true,
+              "link_id": "wrl_5af25e4fab0f5aba913466c88edd4aaf",
+              "old_authority_activated": false,
+              "operation_id": "restore-cases-link-02",
+              "operator_association": true,
+              "original_files_modified": false,
+              "request_equivalence_verified": false,
+              "rules_version": "workspace-restore-case-1"
+            },
+            "error_code": null
+          }
+        }
+      ],
+      "next_cursor": null,
+      "original_evidence_checked": false,
+      "live_jobs_checked": false
+    },
+    "historical_create_receipt_equal": true,
+    "case_files_edited": false,
+    "both_original_paths_restored": true
+  }
+}

@@ -421,6 +421,21 @@ python3 -m agentwiki workspace-restore-case-catalog page --catalog /path/to/priv
 
 Состав содержит от 1 до 256 случаев; страница — от 1 до 16 строк. Cursor закрепляет catalog ID и позицию, а текущие управляющие наблюдения выполняются заново на каждой странице. Общий снимок всех случаев и автоматическое обнаружение новых записей этим не устанавливаются.
 
+## Тридцатый этап: сохраняемая оценка удержания
+
+`workspace-restore-case-retention` фиксирует совещательный план для выбранного диапазона каталога. Возраст случая, исходная identity, сохранность свидетельств и состояние связанной попытки дают `review_candidate` либо `held` с полным упорядоченным перечнем причин. Один момент оценки сохраняется для всех строк; точный повтор и show возвращают исторический снимок.
+
+- [Контракт и анализ](docs/development/workspace-restore-case-retention.md).
+- [Запуск примера](examples/workspace-restore-case-retention/README.md).
+- [Фактический отчёт](examples/workspace-restore-case-retention/results/restore-case-retention-report.md).
+
+~~~sh
+python3 -m agentwiki workspace-restore-case-retention-demo --workspace /tmp/agentwiki-restore-case-retention-01 --workers 3
+python3 -m agentwiki workspace-restore-case-retention show --plan /path/to/private/retention-plan
+~~~
+
+План охватывает до 16 позиций явного каталога и сохраняет доступные подробные наблюдения. Его выводы требуют последующего рассмотрения; полномочия архивирования, удаления или активации старой DB не предоставляются.
+
 ## Начать чтение
 
 - [Каталог всех частей переписки и форматов](docs/sessions/README.md).
@@ -455,12 +470,13 @@ python3 -m agentwiki workspace-restore-case-catalog page --catalog /path/to/priv
 - [Часть 29: прерывания процесса, результаты двадцать шестого этапа и продолжение — 17 сообщений](docs/sessions/session-029/transcript.md).
 - [Часть 30: подготовка без источника, результаты двадцать седьмого этапа и продолжение — 14 сообщений](docs/sessions/session-030/transcript.md).
 - [Часть 31: случаи отказа, результаты двадцать восьмого этапа и продолжение — 15 сообщений](docs/sessions/session-031/transcript.md).
+- [Часть 32: каталог случаев, результаты двадцать девятого этапа и продолжение — 12 сообщений](docs/sessions/session-032/transcript.md).
 - [Границы первого снимка](docs/sessions/session-001/README.md) и [продолжения](docs/sessions/session-002/README.md).
 - [Тематическая база знаний](docs/knowledge/README.md).
 - [Источники и ограничения утверждений](docs/knowledge/sources.md).
 - [Решения, предложения и открытые вопросы](docs/knowledge/decisions.md).
 
-Исходные сообщения сохранены отдельно от конспекта: 313 сообщений в тридцати одной части, до запроса «Продолжение» после двадцать восьмого этапа включительно. Текущая разработка описана в docs/development; прежняя архитектура шире возможностей прототипа. Результаты проверок среды относятся к моменту соответствующего сообщения.
+Исходные сообщения сохранены отдельно от конспекта: 325 сообщений в тридцати двух частях, до запроса «Продолжение» после двадцать девятого этапа включительно. Текущая разработка описана в docs/development; прежняя архитектура шире возможностей прототипа. Результаты проверок среды относятся к моменту соответствующего сообщения.
 
 ## Содержимое
 
@@ -496,6 +512,7 @@ python3 -m agentwiki workspace-restore-case-catalog page --catalog /path/to/priv
 | examples/workspace-restore-prepare/ | Подготовка метаданных без исходного bundle и сохранение staging данных |
 | examples/workspace-restore-cases/ | Исторические случаи раннего отказа и явные связи с новыми попытками |
 | examples/workspace-restore-case-catalog/ | Явный фиксированный состав случаев и ограниченные страницы управляющих наблюдений |
+| examples/workspace-restore-case-retention/ | Совещательные планы удержания выбранных случаев с историческими подробностями и причинами |
 | corpora/urllib3-retry-v2.5.0/ | Закреплённый реальный исходник и авторская адаптация контракта Retry |
 | examples/multi-agent/ | Запуск и фактические результаты с экспортом документов и кода |
 | docs/development/ | Практическое руководство, теория и план следующих этапов |

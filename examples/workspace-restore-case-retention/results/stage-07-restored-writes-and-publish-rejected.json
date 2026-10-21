@@ -1,0 +1,54 @@
+{
+  "label": "restored-writes-and-publish-rejected",
+  "explanation": "The restored copy rejects acceptance replay, B's old decision, the old lease submit, enqueue and publish before domain changes; publish creates no output directory.",
+  "source_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 5
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 4
+    },
+    "events": 59,
+    "rules_version": "mvp-1"
+  },
+  "governance_policy_generation": 8,
+  "operation_result": {
+    "rejections": [
+      {
+        "label": "restored-accept-historical-replay",
+        "rejected": true,
+        "code": "store_snapshot_quarantined",
+        "status_unchanged": true
+      },
+      {
+        "label": "restored-reviewer-b-decision-replay",
+        "rejected": true,
+        "code": "store_snapshot_quarantined",
+        "status_unchanged": true
+      },
+      {
+        "label": "restored-old-author-lease-submit",
+        "rejected": true,
+        "code": "store_snapshot_quarantined",
+        "status_unchanged": true
+      },
+      {
+        "label": "restored-enqueue",
+        "rejected": true,
+        "code": "store_snapshot_quarantined",
+        "status_unchanged": true
+      },
+      {
+        "label": "restored-publish",
+        "rejected": true,
+        "code": "store_snapshot_quarantined",
+        "status_unchanged": true
+      }
+    ],
+    "publication_directory_created": false
+  }
+}
