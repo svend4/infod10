@@ -118,12 +118,13 @@ def _job_argument(parser: argparse.ArgumentParser) -> None:
 
 
 def register_restore_job_parser(subparsers: argparse._SubParsersAction) -> None:
-    """Register preparation, bounded continuation and verified progress."""
+    """Register preparation recovery, bounded copying and verified progress."""
     parser = subparsers.add_parser(
         "workspace-restore", help="Пошагово восстановить полный комплект истории в карантине.",
         description=(
             "Prepare закрепляет исходный полный комплект, назначение и operation ID в частной операции. "
             "Каталоги job и destination должны быть соседями в одном частном родительском каталоге. "
+            "Resume-prepare завершает подготовку metadata без исходного комплекта и копирования данных. "
             "Step переносит ограниченное число файлов; status показывает проверенный прогресс. "
             "Восстановленная база сохраняет карантин. Частные планы, пути и контрольные суммы не выводятся."
         ),
@@ -137,6 +138,15 @@ def register_restore_job_parser(subparsers: argparse._SubParsersAction) -> None:
     _job_argument(prepare)
     prepare.add_argument("--operation-id", required=True,
                          help="Сохранённый ID точного запроса для его повтора и продолжения.")
+    resume_prepare = commands.add_parser(
+        "resume-prepare", help="Завершить собственную подготовку metadata без копирования данных.",
+        description=(
+            "Продолжить подготовку по сохранённому частному плану без исходного комплекта. "
+            "Команда восстанавливает только предусмотренные metadata собственного назначения; "
+            "DB и архивы переносятся отдельной командой step. Карантин сохраняется."
+        ),
+    )
+    _job_argument(resume_prepare)
     step = commands.add_parser("step", help="Перенести следующий ограниченный набор файлов и сохранить прогресс.")
     _job_argument(step)
     step.add_argument("--limit", type=_file_limit, default=1,
@@ -148,7 +158,7 @@ def register_restore_job_parser(subparsers: argparse._SubParsersAction) -> None:
 def run_restore_job_command(args: argparse.Namespace) -> dict[str, Any]:
     """Dispatch without SQL initialization or forwarding private core details."""
     action = args.restore_job_command
-    if action not in {"prepare", "step", "status"}:
+    if action not in {"prepare", "resume-prepare", "step", "status"}:
         raise WorkbenchError("unknown_restore_job_command", "Unknown restore job command")
     try:
         from . import workspace_restore_job
@@ -157,6 +167,8 @@ def run_restore_job_command(args: argparse.Namespace) -> dict[str, Any]:
             result = workspace_restore_job.prepare_restore(
                 args.bundle, args.destination, args.job, operation_id=args.operation_id,
             )
+        elif action == "resume-prepare":
+            result = workspace_restore_job.resume_preparation(args.job)
         elif action == "step":
             result = workspace_restore_job.step_restore(args.job, limit=args.limit)
         else:

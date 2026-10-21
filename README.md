@@ -376,6 +376,21 @@ python3 -m agentwiki workspace-restore-interrupt-demo --workspace /tmp/agentwiki
 
 Сценарий различает частичный staging, подготовленный файл, временную пару ссылок, готовые данные до manifest и завершение до ответа. SIGKILL процесса оставляет работающими ядро и хранилище; аппаратные аварии и произвольный ремонт этим не подтверждаются.
 
+## Двадцать седьмой этап: подготовка восстановления без исходного backup
+
+`workspace-restore resume-prepare` завершает только метаданные подготовки по сохранённому плану. Исходный bundle для этой операции не требуется; перенос DB и архивов остаётся отдельным шагом. Команда сохраняет staging данных и возвращает прежние 15 полей status.
+
+- [Контракт, ранние окна и ограничения](docs/development/workspace-restore-prepare.md).
+- [Запуск примера](examples/workspace-restore-prepare/README.md).
+- [Фактический отчёт](examples/workspace-restore-prepare/results/restore-prepare-report.md).
+
+~~~sh
+python3 -m agentwiki workspace-restore-prepare-demo --workspace /tmp/agentwiki-restore-prepare-01 --workers 3
+python3 -m agentwiki workspace-restore resume-prepare --job /path/to/private/job
+~~~
+
+Действительный план без назначения и доказанное собственное назначение допускают подготовку. Частичные неизменяемые control records и назначение без owner остаются блокирующими. Доступность метаданных не означает готовности данных или права записи.
+
 ## Начать чтение
 
 - [Каталог всех частей переписки и форматов](docs/sessions/README.md).
@@ -407,12 +422,13 @@ python3 -m agentwiki workspace-restore-interrupt-demo --workspace /tmp/agentwiki
 - [Часть 26: цепочка переносов, результаты двадцать третьего этапа и продолжение — 11 сообщений](docs/sessions/session-026/transcript.md).
 - [Часть 27: полный backup, результаты двадцать четвёртого этапа и продолжение — 11 сообщений](docs/sessions/session-027/transcript.md).
 - [Часть 28: пошаговое восстановление, результаты двадцать пятого этапа и продолжение — 11 сообщений](docs/sessions/session-028/transcript.md).
+- [Часть 29: прерывания процесса, результаты двадцать шестого этапа и продолжение — 17 сообщений](docs/sessions/session-029/transcript.md).
 - [Границы первого снимка](docs/sessions/session-001/README.md) и [продолжения](docs/sessions/session-002/README.md).
 - [Тематическая база знаний](docs/knowledge/README.md).
 - [Источники и ограничения утверждений](docs/knowledge/sources.md).
 - [Решения, предложения и открытые вопросы](docs/knowledge/decisions.md).
 
-Исходные сообщения сохранены отдельно от конспекта: 267 сообщений в двадцати восьми частях, до запроса «Продолжение» после двадцать пятого этапа включительно. Текущая разработка описана в docs/development; прежняя архитектура шире возможностей прототипа. Результаты проверок среды относятся к моменту соответствующего сообщения.
+Исходные сообщения сохранены отдельно от конспекта: 284 сообщения в двадцати девяти частях, до запроса «Продолжение» после двадцать шестого этапа включительно. Текущая разработка описана в docs/development; прежняя архитектура шире возможностей прототипа. Результаты проверок среды относятся к моменту соответствующего сообщения.
 
 ## Содержимое
 
@@ -445,6 +461,7 @@ python3 -m agentwiki workspace-restore-interrupt-demo --workspace /tmp/agentwiki
 | examples/workspace-backup/ | Резервное копирование всей рабочей среды с архивами и восстановлением в карантине |
 | examples/workspace-restore-job/ | Восстановление полных комплектов по частному плану ограниченными шагами |
 | examples/workspace-restore-interrupt/ | Продолжение восстановления после SIGKILL на фиксированных внутренних границах |
+| examples/workspace-restore-prepare/ | Подготовка метаданных без исходного bundle и сохранение staging данных |
 | corpora/urllib3-retry-v2.5.0/ | Закреплённый реальный исходник и авторская адаптация контракта Retry |
 | examples/multi-agent/ | Запуск и фактические результаты с экспортом документов и кода |
 | docs/development/ | Практическое руководство, теория и план следующих этапов |

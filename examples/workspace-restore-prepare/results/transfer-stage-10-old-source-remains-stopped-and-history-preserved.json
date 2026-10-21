@@ -1,0 +1,106 @@
+{
+  "label": "old-source-remains-stopped-and-history-preserved",
+  "explanation": "New work and its backup leave the old source, full history archive and older snapshot unchanged; the completed transfer remains one historical fact.",
+  "source_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 5,
+      "leased": 1,
+      "pending": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 4
+    },
+    "events": 64,
+    "rules_version": "mvp-1"
+  },
+  "observations": {
+    "source_status": {
+      "revision": 2,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 5,
+        "leased": 1,
+        "pending": 1
+      },
+      "proposals": {
+        "accepted": 1,
+        "proposed": 4
+      },
+      "events": 64,
+      "rules_version": "mvp-1"
+    },
+    "history_status": {
+      "revision": 2,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 5,
+        "leased": 1,
+        "pending": 1
+      },
+      "proposals": {
+        "accepted": 1,
+        "proposed": 4
+      },
+      "events": 64,
+      "rules_version": "mvp-1"
+    },
+    "old_snapshot_status": {
+      "revision": 2,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 4,
+        "leased": 1
+      },
+      "proposals": {
+        "accepted": 1,
+        "proposed": 3
+      },
+      "events": 52,
+      "rules_version": "mvp-1"
+    },
+    "completed_transfer_status": {
+      "dependencies_preserved": true,
+      "destination": {
+        "artifact_count": 4,
+        "authorship_enabled": true,
+        "content_enabled": true,
+        "continuity_enabled": true,
+        "governance_enabled": true,
+        "revision": 2,
+        "source_count": 0,
+        "workspace_id": "wsp_214e28721d985517ee4d189d1935a500"
+      },
+      "external_fencing_established": false,
+      "old_authority_transferred": false,
+      "receipt": {
+        "artifact_count": 4,
+        "created_at": 1792598090.3876283,
+        "dependencies_preserved": true,
+        "external_fencing_established": false,
+        "new_administrator_id": "transfer-administrator",
+        "old_authority_transferred": false,
+        "operation_id": "source-transfer-demo-create",
+        "rules_version": "source-transfer-1",
+        "schema_version": 1,
+        "source_count": 0,
+        "source_epoch": "sfe_249f2c74cb0a50da68ed15309be00c15",
+        "source_event_high_water_before": 63,
+        "source_fence_id": "sfn_6749dea843eb5d4823809a1d4c5e5840",
+        "source_revision": 2,
+        "transfer_event_seq": 64,
+        "transfer_id": "sft_7f98eaeb34661c3148e9bc291468405e",
+        "workspace_id": "wsp_214e28721d985517ee4d189d1935a500"
+      },
+      "replayed": true,
+      "resumed": false,
+      "rules_version": "source-transfer-1"
+    }
+  }
+}

@@ -1,0 +1,130 @@
+[
+  {
+    "label": "missing-target-db-cannot-initialize-active-store",
+    "category": "incomplete_boundary",
+    "code": "store_snapshot_incomplete",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "prepared-full-bundle-is-incomplete",
+    "category": "incomplete_boundary",
+    "code": "workspace_backup_incomplete",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "different-operation-cannot-rebind-job",
+    "category": "request_binding",
+    "code": "workspace_restore_job_conflict",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "different-destination-cannot-rebind-job",
+    "category": "request_binding",
+    "code": "workspace_restore_job_conflict",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "different-source-cannot-rebind-job",
+    "category": "request_binding",
+    "code": "workspace_restore_job_conflict",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "completed-unrelated-destination-is-not-adopted",
+    "category": "destination",
+    "code": "workspace_restore_job_destination_exists",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "unrelated-existing-job-directory-is-not-adopted",
+    "category": "destination",
+    "code": "workspace_restore_job_incomplete",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "unsupported-file-limit-0",
+    "category": "input_bound",
+    "code": "workspace_restore_job_invalid_input",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "unsupported-file-limit-17",
+    "category": "input_bound",
+    "code": "workspace_restore_job_invalid_input",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "partial-db-enqueue-remains-quarantined",
+    "category": "partial_quarantine",
+    "code": "store_snapshot_quarantined",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "partial-history-full-inspection-remains-blocked",
+    "category": "incomplete_boundary",
+    "code": "workspace_backup_incomplete",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "restored-job-enqueue-remains-blocked",
+    "category": "quarantine",
+    "code": "store_snapshot_quarantined",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "restored-job-submit-remains-blocked",
+    "category": "quarantine",
+    "code": "store_snapshot_quarantined",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "restored-job-publish-remains-blocked",
+    "category": "quarantine",
+    "code": "store_snapshot_quarantined",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "restored-job-cannot-authorize-new-full-backup",
+    "category": "quarantine",
+    "code": "workspace_backup_source_invalid",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  },
+  {
+    "label": "restored-job-cannot-authorize-new-transfer",
+    "category": "quarantine",
+    "code": "source_transfer_source_invalid",
+    "rejected": true,
+    "public_observations_unchanged": true,
+    "comparison_excludes_only_governance_wrapper_observed_at": true
+  }
+]

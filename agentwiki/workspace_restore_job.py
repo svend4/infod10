@@ -62,6 +62,34 @@ def _checkpoint(boundary: str, *, item_index: int | None = None) -> None:
     return None
 
 
+def _write_control(location: Path, body: dict[str, Any], maximum: int, *, owner: bool = False) -> None:
+    """Write one immutable plan or owner record; partial final records block reuse.
+
+    The additional prefix flush/fsync exposes a deterministic interruption
+    boundary. Its runtime cost has not been measured. Only these two fixed
+    control records use this writer; no input chooses a callback or boundary.
+    """
+    encoded = canonical(body).encode("utf-8")
+    _require(1 < len(encoded) <= maximum, "manifest_invalid", "Restore control record exceeds its byte bound")
+    descriptor = os.open(location, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW | os.O_CLOEXEC, 0o600)
+    try:
+        os.fchmod(descriptor, 0o600)
+        with os.fdopen(descriptor, "wb", closefd=False) as output:
+            split = len(encoded) // 2
+            output.write(encoded[:split])
+            output.flush()
+            os.fsync(output.fileno())
+            if owner:
+                _checkpoint("owner_partial")
+            else:
+                _checkpoint("plan_partial")
+            output.write(encoded[split:])
+            output.flush()
+            os.fsync(output.fileno())
+    finally:
+        os.close(descriptor)
+
+
 def _require(condition: bool, code: str, message: str) -> None:
     if not condition:
         raise WorkbenchError("workspace_restore_job_" + code, message)
@@ -324,9 +352,11 @@ def _status(plan: dict[str, Any], deadline: float) -> dict[str, Any]:
             "result": workspace_backup._summary(plan["restore_manifest"]) if completed else None}
 
 
-def _repair_staging(plan: dict[str, Any], deadline: float) -> None:
+def _repair_staging(plan: dict[str, Any], deadline: float, *, preparation_only: bool = False) -> None:
     _job_entries(plan, deadline)
     for index, item in enumerate(_items(plan)):
+        if preparation_only and index not in (0, 1, 2):
+            continue
         stage = _stage(plan, index)
         if not os.path.lexists(stage):
             continue
@@ -381,7 +411,18 @@ def _install(plan: dict[str, Any], index: int, deadline: float) -> None:
                     _require(size == item["record"]["bytes"] and hasher.hexdigest() == item["record"]["sha256"],
                              "source_changed", "Restore source differs from its pinned bytes")
             else:
-                output.write(canonical(item["body"]).encode("utf-8"))
+                encoded = canonical(item["body"]).encode("utf-8")
+                if index == 1:
+                    split = len(encoded) // 2
+                    output.write(encoded[:split])
+                    output.flush()
+                    # The extra prefix fsync is limited to the outer intent;
+                    # its runtime cost has not been measured.
+                    os.fsync(output.fileno())
+                    _checkpoint("metadata_partial", item_index=index)
+                    output.write(encoded[split:])
+                else:
+                    output.write(encoded)
             output.flush()
             os.fsync(output.fileno())
     finally:
@@ -393,6 +434,8 @@ def _install(plan: dict[str, Any], index: int, deadline: float) -> None:
     store_backup._fsync_directory(target.parent)
     if item["data"]:
         _checkpoint("target_linked", item_index=index)
+    elif index == 1:
+        _checkpoint("metadata_linked", item_index=index)
     stage.unlink()
     store_backup._fsync_directory(Path(plan["job_path"]))
     _verify_file(plan, index, deadline)
@@ -412,12 +455,14 @@ def _ensure_target(plan: dict[str, Any], deadline: float) -> None:
         # Guard the path through the established Store quarantine protocol
         # before persisting the separate proof of this exclusive mkdir.
         _install(plan, 0, deadline)
+        _checkpoint("intent_durable")
         details = destination.lstat()
         owner = {"schema_version": 1, "rules_version": RULES_VERSION, "job_id": plan["job_id"],
                  "request_digest": plan["request_digest"], "destination_path": plan["destination_path"],
                  "device": details.st_dev, "inode": details.st_ino}
-        store_backup._write_json(Path(plan["job_path"]) / OWNER_NAME, owner, MAX_OWNER_BYTES)
+        _write_control(Path(plan["job_path"]) / OWNER_NAME, owner, MAX_OWNER_BYTES, owner=True)
         store_backup._fsync_directory(Path(plan["job_path"]))
+        _checkpoint("owner_durable")
     else:
         _target_state(plan, deadline)
     # The ordinary snapshot intent is always the first destination file.
@@ -481,15 +526,44 @@ def prepare_restore(bundle_path: str | Path, destination: str | Path, job_direct
                 return _status(existing, deadline)
         job.chmod(0o700)
         with _lock(job, deadline, create=True):
-            store_backup._write_json(job / PLAN_NAME, plan, MAX_PLAN_BYTES)
+            _write_control(job / PLAN_NAME, plan, MAX_PLAN_BYTES)
             store_backup._fsync_directory(job)
             store_backup._fsync_directory(job.parent)
+            _checkpoint("plan_durable")
+            _ensure_target(plan, deadline)
+            status = _status(plan, deadline)
+            _checkpoint("preparation_ready")
+            return status
+    except WorkbenchError as error:
+        raise _translate(error) from error
+    except (OSError, sqlite3.Error, ValueError, TypeError, KeyError, OverflowError, UnicodeError, RecursionError) as error:
+        raise WorkbenchError("workspace_restore_job_io_failed", "Restore job could not be prepared") from error
+
+
+def resume_preparation(job_directory: str | Path) -> dict[str, Any]:
+    """Finish proven preparation metadata without opening the source bundle.
+
+    Initial status validation can read already committed data or inspect a
+    completed bundle. Such jobs return unchanged. With no committed data, only
+    staging indices 0, 1 and 2 may be reconciled; data cache and the completion
+    manifest are never changed by this operation.
+    """
+    deadline = time.monotonic() + DEADLINE_SECONDS
+    try:
+        store_backup._support()
+        job = _path(job_directory)
+        with _lock(job, deadline):
+            plan = _read_plan(job)
+            status = _status(plan, deadline)
+            if status["copied_file_count"] > 0 or status["completed"]:
+                return status
+            _repair_staging(plan, deadline, preparation_only=True)
             _ensure_target(plan, deadline)
             return _status(plan, deadline)
     except WorkbenchError as error:
         raise _translate(error) from error
     except (OSError, sqlite3.Error, ValueError, TypeError, KeyError, OverflowError, UnicodeError, RecursionError) as error:
-        raise WorkbenchError("workspace_restore_job_io_failed", "Restore job could not be prepared") from error
+        raise WorkbenchError("workspace_restore_job_io_failed", "Restore preparation could not be resumed") from error
 
 
 def step_restore(job_directory: str | Path, *, limit: Any = 1) -> dict[str, Any]:

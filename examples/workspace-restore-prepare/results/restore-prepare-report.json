@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "rules_version": "workspace-restore-prepare-1",
+  "created_at": "2026-10-21T17:55:38.114012+02:00",
+  "timezone": "Europe/Berlin",
+  "scenario": "Source-independent metadata preparation with fail-closed immutable control records",
+  "summary": {
+    "baseline_public_file_count": 246,
+    "restore_prepare_stage_count": 11,
+    "restore_prepare_case_count": 9,
+    "restore_prepare_blocked_case_count": 3,
+    "restore_prepare_completed_case_count": 6,
+    "restore_prepare_worker_process_count": 9,
+    "restore_prepare_cli_child_process_count": 60,
+    "restore_prepare_child_process_count": 69,
+    "total_cli_child_process_count": 136,
+    "total_cli_and_interrupt_worker_process_count": 150,
+    "actual_sigkill_count": 9,
+    "metadata_resume_without_source_case_count": 6,
+    "operator_rejection_count": 26,
+    "data_staging_metadata_preserved": true,
+    "unproven_destination_adopted": false,
+    "manual_control_record_repair_performed": false,
+    "metadata_resume_copied_data": false,
+    "all_original_paths_restored": true,
+    "captured_revision": 4,
+    "captured_event_count": 36,
+    "live_revision": 5,
+    "live_event_count": 59,
+    "complete_archive_count": 2,
+    "restored_workspace_quarantined": true,
+    "full_history_preserved": true,
+    "old_authority_activated": false,
+    "private_plan_contents_read_by_demo": false,
+    "private_owner_contents_read_by_demo": false,
+    "private_manifest_contents_read_by_demo": false,
+    "private_origin_contents_read_by_demo": false,
+    "private_stage_contents_read_by_demo": false,
+    "private_fingerprints_exported": false,
+    "hardware_or_power_failure_simulated": false,
+    "external_fencing_established": false,
+    "external_llm_used": false,
+    "human_review_recorded": false,
+    "proposed_code_executed": false,
+    "measured_capacity": false
+  },
+  "stages": [
+    {
+      "label": "historical-source-before-preparation",
+      "explanation": "The preceding interruption scenario remains intact; nine fresh jobs use the same quarantined R4 bundle with two archives.",
+      "artifact": "restore-prepare-stage-01-historical-source-before-preparation.json"
+    },
+    {
+      "label": "plan-partial",
+      "explanation": "An incomplete immutable control record or missing ownership proof remains refused by all four ordinary commands; no manual repair is attempted.",
+      "artifact": "restore-prepare-stage-02-plan-partial.json"
+    },
+    {
+      "label": "plan-durable",
+      "explanation": "Without the source bundle, ordinary readonly calls preserve metadata and resume-prepare finishes only metadata; the returned source then supports ordinary full data continuation.",
+      "artifact": "restore-prepare-stage-03-plan-durable.json"
+    },
+    {
+      "label": "intent-durable",
+      "explanation": "An incomplete immutable control record or missing ownership proof remains refused by all four ordinary commands; no manual repair is attempted.",
+      "artifact": "restore-prepare-stage-04-intent-durable.json"
+    },
+    {
+      "label": "owner-partial",
+      "explanation": "An incomplete immutable control record or missing ownership proof remains refused by all four ordinary commands; no manual repair is attempted.",
+      "artifact": "restore-prepare-stage-05-owner-partial.json"
+    },
+    {
+      "label": "owner-durable",
+      "explanation": "Without the source bundle, ordinary readonly calls preserve metadata and resume-prepare finishes only metadata; the returned source then supports ordinary full data continuation.",
+      "artifact": "restore-prepare-stage-06-owner-durable.json"
+    },
+    {
+      "label": "metadata-partial",
+      "explanation": "Without the source bundle, ordinary readonly calls preserve metadata and resume-prepare finishes only metadata; the returned source then supports ordinary full data continuation.",
+      "artifact": "restore-prepare-stage-07-metadata-partial.json"
+    },
+    {
+      "label": "metadata-linked",
+      "explanation": "Without the source bundle, ordinary readonly calls preserve metadata and resume-prepare finishes only metadata; the returned source then supports ordinary full data continuation.",
+      "artifact": "restore-prepare-stage-08-metadata-linked.json"
+    },
+    {
+      "label": "preparation-ready",
+      "explanation": "Without the source bundle, ordinary readonly calls preserve metadata and resume-prepare finishes only metadata; the returned source then supports ordinary full data continuation.",
+      "artifact": "restore-prepare-stage-09-preparation-ready.json"
+    },
+    {
+      "label": "data-staging-preserved",
+      "explanation": "Without the source bundle, ordinary readonly calls preserve metadata and resume-prepare finishes only metadata; the returned source then supports ordinary full data continuation.",
+      "artifact": "restore-prepare-stage-10-data-staging-preserved.json"
+    },
+    {
+      "label": "historical-and-live-records-preserved",
+      "explanation": "Three unproven operations remain refused; six completed targets preserve quarantine, captured history, both archives and the live R5 workspace.",
+      "artifact": "restore-prepare-stage-11-historical-and-live-records-preserved.json"
+    }
+  ],
+  "artifacts": [
+    "restore-prepare-archive-observations.json",
+    "restore-prepare-cases.json",
+    "restore-prepare-cli-outcomes.json",
+    "restore-prepare-live-observations.json",
+    "restore-prepare-previous-observations.json",
+    "restore-prepare-rejections.json",
+    "restore-prepare-source-observations.json",
+    "restore-prepare-source-summary.json",
+    "restore-prepare-target-observations.json",
+    "restore-prepare-worker-outcomes.json"
+  ],
+  "limits": [
+    "Nine fresh three-data-file jobs are interrupted only after a fixed trusted acknowledgement, then killed with SIGKILL and reaped. Local process interruption does not simulate power, kernel or storage failure.",
+    "A partial immutable plan, an intent without its owner record and a partial immutable owner record remain refused by prepare, status, step and resume-prepare. The driver never manufactures or repairs those records.",
+    "Six proven plans resume preparation with the source bundle temporarily unavailable. Resume-prepare installs only metadata ordinals zero through two and an empty archive directory, without copying database or archive data or issuing new authority.",
+    "Status and exact prepare replay remain readonly; only resume-prepare completes metadata. An ordinary step runs after the source bundle is restored and then copies the three data files.",
+    "The data-cache guard compares only ephemeral inode, size and timestamps. Unchanged lstat metadata is reported, without asserting independent byte-for-byte equality or reading private staging contents.",
+    "Store probes are limited to guarded intent-bearing targets; no Store is constructed for a partial plan or an empty target before the first intent. The mkdir-before-intent gap is not exercised as a safe Store boundary.",
+    "The driver reads no plan, owner, manifest, checksum, origin or staging contents. Narrow filesystem metadata identities remain ephemeral and only allowlisted equality/topology booleans are published.",
+    "The worker is fixed to this fixture's current database and two archives; all possible crash points, schedules, hostile filesystem mutations and the maximum seventeen-file bundle are outside this demonstration.",
+    "Public observation equality excludes only the top-level governance observed_at wrapper, preserving expired flags and addressed proof bodies. Historical credentials and leases remain inactive under quarantine.",
+    "Programmed roles, local checksums and writer controls do not establish human independence, factual truth, external fencing or measured production capacity."
+  ]
+}

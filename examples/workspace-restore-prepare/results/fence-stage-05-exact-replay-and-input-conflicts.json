@@ -1,0 +1,77 @@
+{
+  "label": "exact-replay-and-input-conflicts",
+  "explanation": "The original operation returns the saved receipt without another event; a different operation or plan conflicts.",
+  "source_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 5,
+      "leased": 1,
+      "pending": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 4
+    },
+    "events": 63,
+    "rules_version": "mvp-1"
+  },
+  "snapshot_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4,
+      "leased": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 3
+    },
+    "events": 52,
+    "rules_version": "mvp-1"
+  },
+  "observations": {
+    "replayed_receipt": {
+      "administrator_grant_id": "gvg_a97cf67c8a25b2f46ecb36e348cb74d2",
+      "created_at": 1792598088.3955646,
+      "event_count_before": 62,
+      "event_high_water_before": 62,
+      "external_fencing_established": false,
+      "fence_event_seq": 63,
+      "fence_id": "sfn_6749dea843eb5d4823809a1d4c5e5840",
+      "irreversible": true,
+      "operation_id": "source-fence-demo-seal",
+      "plan_id": "rcp_54b4c013492b8a268c0802917ee3c67f",
+      "publication_blocked": true,
+      "replayed": true,
+      "revision": 2,
+      "rules_version": "source-fence-1",
+      "schema_version": 1,
+      "snapshot_activation_allowed": false,
+      "source_epoch": "sfe_249f2c74cb0a50da68ed15309be00c15",
+      "source_writes_blocked": true,
+      "trusted_database_owner_can_bypass": true
+    },
+    "conflicts": [
+      {
+        "label": "another-seal-operation-conflicts",
+        "category": "conflict",
+        "code": "source_fence_conflict",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "same-operation-with-another-plan-conflicts",
+        "category": "conflict",
+        "code": "source_fence_conflict",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      }
+    ],
+    "events_unchanged_by_exact_replay": true
+  }
+}
