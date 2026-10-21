@@ -1,0 +1,104 @@
+{
+  "label": "normal-source-writes-and-replays-blocked",
+  "explanation": "Existing and reopened Store paths reject ordinary writes, old leases, historical write replays and publication before their action bodies.",
+  "source_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 5,
+      "leased": 1,
+      "pending": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 4
+    },
+    "events": 63,
+    "rules_version": "mvp-1"
+  },
+  "snapshot_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4,
+      "leased": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 3
+    },
+    "events": 52,
+    "rules_version": "mvp-1"
+  },
+  "observations": {
+    "rejections": [
+      {
+        "label": "existing-store-enqueue",
+        "category": "source_write",
+        "code": "store_source_fenced",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "existing-store-heartbeat",
+        "category": "source_write",
+        "code": "store_source_fenced",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "existing-store-claim",
+        "category": "source_write",
+        "code": "store_source_fenced",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "existing-store-submit",
+        "category": "source_write",
+        "code": "store_source_fenced",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "original-grant-operation-replay",
+        "category": "source_write",
+        "code": "store_source_fenced",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "accepted-proposal-operation-replay",
+        "category": "source_write",
+        "code": "store_source_fenced",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "publication-after-fence",
+        "category": "source_write",
+        "code": "store_source_fenced",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "reopened-store-enqueue",
+        "category": "source_write",
+        "code": "store_source_fenced",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      }
+    ],
+    "blocked_publication_directory_created": false
+  }
+}

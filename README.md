@@ -451,6 +451,22 @@ python3 -m agentwiki workspace-restore-case-retention-review revalidate --review
 
 Равенство недоступных наблюдений не подтверждает неизменность основания. Согласие участника не удостоверяет его личность, не меняет исходный план и не разрешает архивирование или удаление.
 
+## Тридцать второй этап: поэтапная запись рассмотрения
+
+`workspace-restore-case-retention-review-write` сохраняет неизменяемое намерение в отдельном частном job. Три вызова step заполняют собственный staging, устанавливают ссылку без перезаписи и завершают совместимую review record. После prepare исходные plan/catalog/case/job paths для продолжения не нужны. Status наблюдает состояние без ремонта, а завершённый step возвращает прежний результат.
+
+- [Контракт, анализ и ограничения](docs/development/workspace-restore-case-retention-review-write.md).
+- [Запуск примера](examples/workspace-restore-case-retention-review-write/README.md).
+- [Фактический отчёт](examples/workspace-restore-case-retention-review-write/results/restore-case-retention-review-write-report.md).
+
+~~~sh
+python3 -m agentwiki workspace-restore-case-retention-review-write-demo --workspace /tmp/agentwiki-retention-review-write-01 --workers 3
+python3 -m agentwiki workspace-restore-case-retention-review-write status --job /path/to/private/write-job
+python3 -m agentwiki workspace-restore-case-retention-review-write step --job /path/to/private/write-job
+~~~
+
+Пока сохранены два alias одного файла, прежний review reader отказывает; завершение удаляет только доказанный собственный staging alias. Окна до durable intent и частичный intent остаются неподдерживаемыми. Сохранение review не удостоверяет участника и не разрешает доменных действий.
+
 ## Начать чтение
 
 - [Каталог всех частей переписки и форматов](docs/sessions/README.md).
@@ -487,12 +503,13 @@ python3 -m agentwiki workspace-restore-case-retention-review revalidate --review
 - [Часть 31: случаи отказа, результаты двадцать восьмого этапа и продолжение — 15 сообщений](docs/sessions/session-031/transcript.md).
 - [Часть 32: каталог случаев, результаты двадцать девятого этапа и продолжение — 12 сообщений](docs/sessions/session-032/transcript.md).
 - [Часть 33: планы удержания, результаты тридцатого этапа и продолжение — 12 сообщений](docs/sessions/session-033/transcript.md).
+- [Часть 34: рассмотрение планов, результаты тридцать первого этапа и продолжение — 15 сообщений](docs/sessions/session-034/transcript.md).
 - [Границы первого снимка](docs/sessions/session-001/README.md) и [продолжения](docs/sessions/session-002/README.md).
 - [Тематическая база знаний](docs/knowledge/README.md).
 - [Источники и ограничения утверждений](docs/knowledge/sources.md).
 - [Решения, предложения и открытые вопросы](docs/knowledge/decisions.md).
 
-Исходные сообщения сохранены отдельно от конспекта: 337 сообщений в тридцати трёх частях, до запроса «Продолжение» после тридцатого этапа включительно. Текущая разработка описана в docs/development; прежняя архитектура шире возможностей прототипа. Результаты проверок среды относятся к моменту соответствующего сообщения.
+Исходные сообщения сохранены отдельно от конспекта: 352 сообщения в тридцати четырёх частях, до запроса «продолжение» после тридцать первого этапа включительно. Текущая разработка описана в docs/development; прежняя архитектура шире возможностей прототипа. Результаты проверок среды относятся к моменту соответствующего сообщения.
 
 ## Содержимое
 
@@ -530,6 +547,7 @@ python3 -m agentwiki workspace-restore-case-retention-review revalidate --review
 | examples/workspace-restore-case-catalog/ | Явный фиксированный состав случаев и ограниченные страницы управляющих наблюдений |
 | examples/workspace-restore-case-retention/ | Совещательные планы удержания выбранных случаев с историческими подробностями и причинами |
 | examples/workspace-restore-case-retention-review/ | Неизменяемое рассмотрение плана и отдельные наблюдения актуальности основания |
+| examples/workspace-restore-case-retention-review-write/ | Поэтапная совместимая запись рассмотрения с частным intent и собственным staging |
 | corpora/urllib3-retry-v2.5.0/ | Закреплённый реальный исходник и авторская адаптация контракта Retry |
 | examples/multi-agent/ | Запуск и фактические результаты с экспортом документов и кода |
 | docs/development/ | Практическое руководство, теория и план следующих этапов |
