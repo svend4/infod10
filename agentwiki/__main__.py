@@ -225,6 +225,9 @@ def main(argv: list[str] | None = None) -> int:
     transfer_demo = commands.add_parser("source-transfer-demo", help="Создать новую рабочую среду из остановленного источника с новыми полномочиями.")
     transfer_demo.add_argument("--workspace", type=Path, required=True)
     transfer_demo.add_argument("--workers", default=3, type=_workers)
+    transfer_chain_demo = commands.add_parser("source-transfer-chain-demo", help="Сохранить цепочку архивов при повторном переносе и продолжить работу со свежими полномочиями.")
+    transfer_chain_demo.add_argument("--workspace", type=Path, required=True)
+    transfer_chain_demo.add_argument("--workers", default=3, type=_workers)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -305,6 +308,11 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(run_fence_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "store-transfer":
             print(json.dumps(run_transfer_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "source-transfer-chain-demo":
+            from .source_transfer_chain_demo import run_source_transfer_chain_demo
+
+            report = run_source_transfer_chain_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "chain-report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "source-transfer-demo":
             from .source_transfer_demo import run_source_transfer_demo
 

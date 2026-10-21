@@ -36,6 +36,8 @@ MAX_JSON_BYTES = 65_536
 MAX_MANIFEST_BYTES = 65_536
 MAX_INTENT_BYTES = 4_000
 MAX_ORIGIN_BYTES = 1024 * 1024
+PRIVATE_SCHEMA_VERSION = 2
+LINEAGE_RULES_VERSION = "source-transfer-lineage-1"
 TRANSFER_ID = re.compile(r"sft_[0-9a-f]{32}\Z")
 WORKSPACE_ID = re.compile(r"wsp_[0-9a-f]{32}\Z")
 IDENTIFIER = re.compile(r"[a-z][a-z0-9_.-]{0,100}\Z")
@@ -104,8 +106,9 @@ def _receipt(value: Any) -> dict[str, Any]:
 
 
 def _envelope(value: Any) -> dict[str, Any]:
-    _require(isinstance(value, dict) and set(value) == ENVELOPE_FIELDS
-             and type(value["schema_version"]) is int and value["schema_version"] == 1
+    _require(isinstance(value, dict)
+             and type(value["schema_version"]) is int and value["schema_version"] in {1, 2}
+             and set(value) == ENVELOPE_FIELDS | ({"archives"} if value["schema_version"] == 2 else set())
              and value["rules_version"] == RULES_VERSION
              and isinstance(value["request_digest"], str) and HASH.fullmatch(value["request_digest"])
              and isinstance(value["new_administrator_hash"], str) and HASH.fullmatch(value["new_administrator_hash"])
@@ -114,6 +117,8 @@ def _envelope(value: Any) -> dict[str, Any]:
              and Path(value["destination_path"]).name == DATABASE_NAME,
              "source_transfer_manifest_invalid", "Source transfer reservation is malformed")
     _receipt(value["receipt"])
+    if value["schema_version"] == 2:
+        _inherited_records(value["archives"])
     _require(len(canonical(value).encode()) <= MAX_JSON_BYTES,
              "source_transfer_limit_exceeded", "Transfer reservation exceeds its byte bound")
     return dict(value)
@@ -145,19 +150,25 @@ def _read_binding(connection: sqlite3.Connection) -> dict[str, Any] | None:
     return value
 
 
-def _old_hashes(connection: sqlite3.Connection, deadline: float) -> list[str]:
-    from . import transfer_origin
+def _grant_hashes(connection: sqlite3.Connection, deadline: float) -> set[str]:
     values = []
+    columns, _, _ = recovery._columns(connection, "governance_grants")
+    credential_index = columns.index("credential_hash")
     for _, _, row in recovery._rows(connection, "governance_grants", deadline):
-        columns, _, _ = recovery._columns(connection, "governance_grants")
-        value = row[columns.index("credential_hash")]
+        value = row[credential_index]
         _require(isinstance(value, str) and HASH.fullmatch(value),
                  "source_transfer_source_invalid", "Source credential metadata is malformed")
         values.append(value)
+    return set(values)
+
+
+def _old_hashes(connection: sqlite3.Connection, deadline: float) -> list[str]:
+    from . import transfer_origin
+    values = _grant_hashes(connection, deadline)
     inherited = transfer_origin.read_origin(connection)
     if inherited is not None:
-        values.extend(inherited["old_credential_hashes"])
-    return sorted(set(values))
+        values.update(inherited["old_credential_hashes"])
+    return sorted(values)
 
 
 def _dependencies(connection: sqlite3.Connection, deadline: float) -> dict[str, Any]:
@@ -211,9 +222,175 @@ def _capture(connection: sqlite3.Connection, deadline: float, forbidden: tuple[s
             "continuity_enabled": review_continuity.enabled(connection)}
 
 
+def _pins(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [{key: value for key, value in item.items() if key != "name"} for item in records]
+
+
+def _inherited_records(records: Any) -> list[dict[str, Any]]:
+    """Validate the source reservation's future, renamed ancestor inventory."""
+    from . import transfer_origin
+    _require(isinstance(records, list) and len(records) < transfer_origin.MAX_ARCHIVES,
+             "source_transfer_limit_exceeded", "Inherited archive depth exceeds its bound")
+    if not records:
+        return []
+    _require(all(isinstance(item, dict) and item.get("name") == f"history-{index + 1:04d}.sqlite3"
+                 for index, item in enumerate(records)),
+             "source_transfer_manifest_invalid", "Inherited archive names are not canonical")
+    normalized = [dict(item, name=transfer_origin.archive_name(index, len(records)))
+                  for index, item in enumerate(records)]
+    transfer_origin.validate_archives(normalized)
+    return store_quarantine._strict_json(canonical(records))
+
+
+def _archive_records(manifest: dict[str, Any]) -> list[dict[str, Any]]:
+    from . import transfer_origin
+    records = (manifest["archives"] if manifest["schema_version"] == 2 else
+               [{**manifest["history"], "receipt": manifest["receipt"]}])
+    return transfer_origin.validate_archives(records)
+
+
+def _full_records(envelope: dict[str, Any], history: dict[str, Any]) -> list[dict[str, Any]]:
+    from . import transfer_origin
+    records = [*envelope.get("archives", []), {**history, "receipt": envelope["receipt"]}]
+    _require(len(records) <= transfer_origin.MAX_ARCHIVES
+             and sum(record["bytes"] for record in records) <= transfer_origin.MAX_ARCHIVE_BYTES_TOTAL,
+             "source_transfer_limit_exceeded", "Complete archive inventory exceeds its aggregate bound")
+    return transfer_origin.validate_archives(records)
+
+
+def _import_matches(connection: sqlite3.Connection, origin: dict[str, Any],
+                    previous: dict[str, Any], previous_anchors: dict[str, Any],
+                    prefix: list[dict[str, Any]], retired: set[str]) -> None:
+    """Relate immutable imported metadata to the earlier archived source."""
+    receipt = previous["receipt"]
+    _require(origin["transfer_id"] == receipt["transfer_id"]
+             and origin["workspace_id"] == receipt["workspace_id"]
+             and origin["import_revision"] == receipt["source_revision"]
+             and origin["request_digest"] == previous["request_digest"]
+             and canonical(origin["artifact_anchors"]) == canonical(previous_anchors)
+             and origin["old_credential_hashes"] == sorted(retired),
+             "source_transfer_source_invalid", "Imported origin does not match its complete ancestral source")
+    if origin["schema_version"] == 1:
+        _require(len(prefix) == 1, "source_transfer_source_invalid", "Legacy origin cannot describe a deeper archive chain")
+    else:
+        _require(canonical(_pins(origin["archives"])) == canonical(_pins(prefix)),
+                 "source_transfer_source_invalid", "Imported origin loses or changes ancestral archive pins")
+    administrator = connection.execute(
+        "SELECT credential_hash FROM governance_grants WHERE grant_id=?", (origin["new_administrator_grant_id"],)).fetchone()
+    _require(administrator is not None and administrator[0] == previous["new_administrator_hash"],
+             "source_transfer_source_invalid", "Imported administrator differs from its archived transfer binding")
+
+
+def _verify_archives(directory: Path, records: list[dict[str, Any]], deadline: float) -> dict[str, Any]:
+    """Hash each standalone archive once and prove the complete ordered chain."""
+    from . import transfer_origin
+    records = transfer_origin.validate_archives(records)
+    retired: set[str] = set()
+    previous = None
+    previous_anchors: dict[str, Any] = {}
+    flags: dict[str, Any] = {}
+    for index, record in enumerate(records):
+        _deadline(deadline)
+        path = directory / record["name"]
+        size, checksum = store_backup._file_digest(path, deadline)
+        _require(size == record["bytes"] and checksum == record["sha256"],
+                 "source_transfer_checksum_mismatch", "An ancestral archive differs from its immutable pins")
+        with store_backup._connection(path, deadline, readonly=True, immutable=True) as archive:
+            archive.execute("BEGIN")
+            metadata = source_fence._database(archive, deadline)
+            _require(archive.execute("PRAGMA journal_mode").fetchone()[0] == "delete",
+                     "source_transfer_source_invalid", "An ancestral archive is not a standalone database")
+            store_backup._integrity(archive, deadline)
+            binding, fence = _read_binding(archive), source_fence.fence_info(archive)
+            receipt = record["receipt"]
+            _require(binding is not None and fence is not None
+                     and canonical(binding["receipt"]) == canonical(receipt)
+                     and fence["fence_id"] == receipt["source_fence_id"]
+                     and fence["source_epoch"] == receipt["source_epoch"]
+                     and metadata["revision"] == receipt["source_revision"]
+                     and metadata["event_high_water"] == receipt["transfer_event_seq"]
+                     and metadata["table_counts"]["artifacts"] == receipt["artifact_count"]
+                     and metadata["table_counts"]["sources"] == receipt["source_count"],
+                     "source_transfer_source_invalid", "An ancestral archive differs from its transfer and fence facts")
+            prefix = records[:index]
+            if binding["schema_version"] == 1:
+                _require(index == 0, "source_transfer_source_invalid", "Legacy transfer cannot omit an ancestral chain")
+            else:
+                _require(canonical(_pins(binding["archives"])) == canonical(_pins(prefix)),
+                         "source_transfer_source_invalid", "An archived source reservation loses ancestral pins")
+            origin = transfer_origin.read_origin(archive)
+            if previous is None:
+                _require(origin is None, "source_transfer_source_invalid", "The oldest archive has an unpreserved imported ancestor")
+            else:
+                _require(origin is not None, "source_transfer_source_invalid", "An ancestral archive lost its imported origin")
+                _import_matches(archive, origin, previous, previous_anchors, prefix, retired)
+            retired.update(_grant_hashes(archive, deadline))
+            _require(len(retired) <= transfer_origin.MAX_OLD_CREDENTIALS,
+                     "source_transfer_limit_exceeded", "Retired credentials exceed their total count bound")
+            dependencies = _dependencies(archive, deadline)
+            previous_anchors = {row["id"]: {"digest": row["digest"], "dependency": dependencies[row["id"]]}
+                                for row in archive.execute("SELECT id,digest FROM artifacts ORDER BY id")}
+            previous = binding
+            flags = {"governance_enabled": governance.enabled(archive), "authorship_enabled": authorship.enabled(archive),
+                     "content_enabled": content_gate.enabled(archive), "continuity_enabled": review_continuity.enabled(archive)}
+    return {"retired_hashes": retired, "last_binding": previous, "last_anchors": previous_anchors, "flags": flags}
+
+
+def _source_archives(connection: sqlite3.Connection, database: Path, deadline: float) -> dict[str, Any]:
+    """Require a complete source workspace even though it is already fenced."""
+    from . import transfer_origin
+    origin = transfer_origin.read_origin(connection)
+    if origin is None:
+        _require(not any(os.path.lexists(database.parent / name) for name in (INTENT_NAME, MANIFEST_NAME)),
+                 "source_transfer_source_invalid", "An unimported source has unrelated transfer completion files")
+        return {"records": [], "paths": {}}
+    manifest = _manifest_valid(transfer_origin.completion_manifest(connection, database), database.parent)
+    records = _archive_records(manifest)
+    _require(len(records) < transfer_origin.MAX_ARCHIVES,
+             "source_transfer_limit_exceeded", "A further transfer would exceed the archive depth bound")
+    verified = _verify_archives(database.parent, records, deadline)
+    _import_matches(connection, origin, verified["last_binding"], verified["last_anchors"],
+                    records, verified["retired_hashes"])
+    renamed = [dict(record, name=f"history-{index + 1:04d}.sqlite3") for index, record in enumerate(records)]
+    return {"records": _inherited_records(renamed),
+            "paths": {renamed[index]["name"]: database.parent / record["name"] for index, record in enumerate(records)}}
+
+
+def _copy_archive(source: Path, destination: Path, record: dict[str, Any], deadline: float) -> None:
+    """Copy exact verified ancestor bytes; never overwrite unknown leftovers."""
+    if os.path.lexists(destination):
+        size, checksum = store_backup._file_digest(destination, deadline)
+        _require(size == record["bytes"] and checksum == record["sha256"],
+                 "source_transfer_destination_exists", "Existing ancestral archive differs from this transfer")
+        return
+    descriptor = os.open(destination, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW | os.O_CLOEXEC, 0o600)
+    try:
+        os.fchmod(descriptor, 0o600)
+        copied, hasher = 0, hashlib.sha256()
+        with store_backup._regular_file(source) as original, os.fdopen(descriptor, "wb", closefd=False) as output:
+            while True:
+                _deadline(deadline)
+                block = os.read(original, store_backup.COPY_BLOCK_BYTES)
+                if not block:
+                    break
+                copied += len(block)
+                _require(copied <= record["bytes"], "source_transfer_checksum_mismatch", "Ancestral archive grew during copying")
+                hasher.update(block)
+                output.write(block)
+            output.flush()
+            os.fsync(output.fileno())
+        _require(copied == record["bytes"] and hasher.hexdigest() == record["sha256"],
+                 "source_transfer_checksum_mismatch", "Copied ancestral archive differs from its pinned input")
+    finally:
+        os.close(descriptor)
+    size, checksum = store_backup._file_digest(destination, deadline)
+    _require(size == record["bytes"] and checksum == record["sha256"],
+             "source_transfer_checksum_mismatch", "Copied ancestral archive differs after synchronization")
+
+
 def _intent(envelope: dict[str, Any]) -> dict[str, Any]:
     receipt = envelope["receipt"]
-    value = {"schema_version": 1, "rules_version": RULES_VERSION,
+    value = {"schema_version": envelope["schema_version"], "rules_version": RULES_VERSION,
              "transfer_id": receipt["transfer_id"], "workspace_id": receipt["workspace_id"],
              "operation_id": receipt["operation_id"], "destination_path": envelope["destination_path"],
              "request_digest": envelope["request_digest"]}
@@ -226,12 +403,14 @@ def _origin(envelope: dict[str, Any], data: dict[str, Any], path: Path, history:
             source_path: Path, administrator_grant_id: str) -> dict[str, Any]:
     from . import transfer_origin
     receipt = envelope["receipt"]
-    value = {"schema_version": 1, "rules_version": RULES_VERSION,
+    value = {"schema_version": envelope["schema_version"], "rules_version": RULES_VERSION,
              "transfer_id": receipt["transfer_id"], "workspace_id": receipt["workspace_id"],
              "destination_path": str(path), "source_path": str(source_path), "history_path": str(history),
              "import_revision": receipt["source_revision"], "artifact_anchors": data["anchors"],
              "old_credential_hashes": data["old_hashes"], "request_digest": envelope["request_digest"],
              "new_administrator_grant_id": administrator_grant_id, "ready": True}
+    if envelope["schema_version"] == 2:
+        value["archives"] = data["archives"]
     _require(len(canonical(value).encode("utf-8")) <= MAX_ORIGIN_BYTES,
              "source_transfer_limit_exceeded", "Imported origin exceeds its byte bound")
     return transfer_origin.validate_origin(value)
@@ -330,6 +509,9 @@ def _build_active(path: Path, history: Path, source_path: Path, envelope: dict[s
                          and origin["workspace_id"] == envelope["receipt"]["workspace_id"]
                          and origin["destination_path"] == str(path),
                          "source_transfer_destination_exists", "Existing active database belongs to another transfer")
+                _require(origin["schema_version"] == envelope["schema_version"]
+                         and (envelope["schema_version"] == 1 or canonical(origin["archives"]) == canonical(data["archives"])),
+                         "source_transfer_conflict", "Existing imported database pins a different archive inventory")
                 transfer_origin.check_access(existing, path, require_complete=False)
                 return
     else:
@@ -383,8 +565,10 @@ def _file_record(path: Path, deadline: float) -> dict[str, Any]:
 
 
 def _manifest_valid(value: Any, directory: Path) -> dict[str, Any]:
-    _require(isinstance(value, dict) and set(value) == MANIFEST_FIELDS
-             and type(value["schema_version"]) is int and value["schema_version"] == 1
+    from . import transfer_origin
+    _require(isinstance(value, dict)
+             and type(value["schema_version"]) is int and value["schema_version"] in {1, 2}
+             and set(value) == MANIFEST_FIELDS | ({"archives"} if value["schema_version"] == 2 else set())
              and value["rules_version"] == RULES_VERSION
              and isinstance(value["transfer_id"], str) and TRANSFER_ID.fullmatch(value["transfer_id"])
              and isinstance(value["workspace_id"], str) and WORKSPACE_ID.fullmatch(value["workspace_id"])
@@ -400,47 +584,43 @@ def _manifest_valid(value: Any, directory: Path) -> dict[str, Any]:
                  and record["name"] == name and _integer(record["bytes"]) and 0 < record["bytes"] <= store_backup.MAX_DATABASE_BYTES
                  and isinstance(record["sha256"], str) and HASH.fullmatch(record["sha256"]),
                  "source_transfer_manifest_invalid", "Transfer completion file record is malformed")
-    return dict(value)
+    if value["schema_version"] == 2:
+        archives = transfer_origin.validate_archives(value["archives"])
+        _require(canonical(archives[-1]) == canonical({**value["history"], "receipt": receipt}),
+                 "source_transfer_manifest_invalid", "The immediate history differs from its complete archive inventory")
+    _require(len(canonical(value).encode("utf-8")) <= MAX_MANIFEST_BYTES,
+             "source_transfer_limit_exceeded", "Transfer completion metadata exceeds its byte bound")
+    return store_quarantine._strict_json(canonical(value))
 
 
 def _completed(directory: Path, deadline: float) -> tuple[dict[str, Any], dict[str, Any]]:
     from . import transfer_origin
     store_backup._private_directory(directory)
     manifest = _manifest_valid(store_backup._read_json(directory / MANIFEST_NAME, MAX_MANIFEST_BYTES), directory)
-    envelope = {"schema_version": 1, "rules_version": RULES_VERSION,
-                "request_digest": manifest["request_digest"], "destination_path": manifest["destination_path"],
-                "new_administrator_hash": "0" * 64, "receipt": manifest["receipt"]}
-    _read_intent(directory, envelope)
-    database, history = directory / DATABASE_NAME, directory / HISTORY_NAME
+    database = directory / DATABASE_NAME
     with store_backup._regular_file(database):
         pass
     with store_backup._connection(database, deadline, readonly=True) as active:
         active.execute("BEGIN")
         source_fence._database(active, deadline)
-        _require(source_fence.fence_info(active) is None and not store_quarantine.quarantine_present(active),
-                 "source_transfer_manifest_invalid", "Imported active baseline has a stop marker")
-        transfer_origin.check_access(active, database, require_complete=True)
+        # A subsequently fenced workspace retains its immutable import fact.
+        # The strict helper still requires its original path and full files.
+        actual_manifest = transfer_origin.completion_manifest(active, database)
+        _require(canonical(actual_manifest) == canonical(manifest),
+                 "source_transfer_manifest_invalid", "Completion metadata changed during observation")
         origin = transfer_origin.read_origin(active)
         _require(origin is not None and origin["request_digest"] == manifest["request_digest"]
                  and origin["workspace_id"] == manifest["workspace_id"]
                  and origin["transfer_id"] == manifest["transfer_id"],
                  "source_transfer_manifest_invalid", "Imported origin differs from completion metadata")
         store_backup._integrity(active, deadline)
-    size, checksum = store_backup._file_digest(history, deadline)
-    _require(size == manifest["history"]["bytes"] and checksum == manifest["history"]["sha256"],
-             "source_transfer_checksum_mismatch", "History archive differs from its completion metadata")
-    with store_backup._connection(history, deadline, readonly=True, immutable=True) as archive:
-        archive.execute("BEGIN")
-        source_fence._database(archive, deadline)
-        binding = _read_binding(archive)
-        _require(binding is not None and binding["request_digest"] == manifest["request_digest"]
-                 and canonical(binding["receipt"]) == canonical(manifest["receipt"]),
-                 "source_transfer_manifest_invalid", "History archive does not contain the completed transfer")
-        flags = {"governance_enabled": governance.enabled(archive), "authorship_enabled": authorship.enabled(archive),
-                 "content_enabled": content_gate.enabled(archive), "continuity_enabled": review_continuity.enabled(archive)}
+        records = _archive_records(manifest)
+        verified = _verify_archives(directory, records, deadline)
+        _import_matches(active, origin, verified["last_binding"], verified["last_anchors"],
+                        records, verified["retired_hashes"])
     receipt = manifest["receipt"]
     destination = {"workspace_id": receipt["workspace_id"], "revision": receipt["source_revision"],
-                   "artifact_count": receipt["artifact_count"], "source_count": receipt["source_count"], **flags}
+                   "artifact_count": receipt["artifact_count"], "source_count": receipt["source_count"], **verified["flags"]}
     return manifest, destination
 
 
@@ -476,9 +656,34 @@ def _destination_lock(directory: Path, deadline: float):
         os.close(descriptor)
 
 
+def _completion(envelope: dict[str, Any], database: dict[str, Any], history: dict[str, Any],
+                archives: list[dict[str, Any]]) -> dict[str, Any]:
+    body = {"schema_version": envelope["schema_version"], "rules_version": RULES_VERSION,
+            "transfer_id": envelope["receipt"]["transfer_id"], "workspace_id": envelope["receipt"]["workspace_id"],
+            "destination_path": envelope["destination_path"], "request_digest": envelope["request_digest"],
+            "database": database, "history": history, "receipt": envelope["receipt"]}
+    if envelope["schema_version"] == 2:
+        body["archives"] = archives
+    return body
+
+
+def _projection(source: sqlite3.Connection, envelope: dict[str, Any], data: dict[str, Any],
+                target: Path, database: Path, *, history_bytes: int) -> None:
+    """Check full private bodies while the source reservation can roll back."""
+    _require(all(len(str(target.parent / record["name"]).encode("utf-8")) <= 4096
+                 for record in envelope.get("archives", [])),
+             "source_transfer_invalid_input", "Ancestral archive path exceeds its byte bound")
+    history = {"name": HISTORY_NAME, "bytes": history_bytes, "sha256": "0" * 64}
+    data["archives"] = _full_records(envelope, history)
+    _origin(envelope, data, target, target.parent / HISTORY_NAME, database, "gvg_" + "0" * 32)
+    _manifest_valid(_completion(envelope,
+                               {"name": DATABASE_NAME, "bytes": store_backup.MAX_DATABASE_BYTES, "sha256": "0" * 64},
+                               history, data["archives"]), target.parent)
+
+
 def transfer_source(database_path: str | Path, destination: str | Path, *, credential: Any,
                     new_administrator_id: Any, new_credential: Any, operation_id: Any) -> dict[str, Any]:
-    """Bind one destination, retain fenced history and import a fresh active baseline."""
+    """Bind one fresh workspace while preserving every fenced ancestor."""
     deadline = time.monotonic() + store_backup.DEADLINE_SECONDS
     try:
         store_backup._support()
@@ -501,25 +706,26 @@ def transfer_source(database_path: str | Path, destination: str | Path, *, crede
         with store_backup._connection(database, deadline, readonly=False) as source:
             source.execute("BEGIN IMMEDIATE")
             try:
-                from . import transfer_origin
                 metadata = source_fence._database(source, deadline)
-                _require(source.execute("SELECT 1 FROM meta WHERE CAST(key AS TEXT)=? COLLATE NOCASE LIMIT 1",
-                                        (transfer_origin.METAKEY,)).fetchone() is None,
-                         "source_transfer_source_invalid", "This transfer supports an original source with no imported ancestry")
                 recovery._guard_authorization(source, deadline)
                 administrator = governance.authorize(source, credential, "administrator", now=time.time())
                 fence = source_fence.fence_info(source)
                 _require(fence is not None, "source_transfer_source_invalid", "Transfer requires a permanently fenced source")
                 _require(administrator["grant_id"] == fence["administrator_grant_id"],
                          "source_transfer_conflict", "The original fence administrator must authorize transfer")
+                lineage = _source_archives(source, database, deadline)
                 request = {"source_path": str(database), "destination_path": str(target),
                            "new_administrator_id": new_administrator_id, "new_administrator_hash": new_hash,
                            "operation_id": operation_id, "source_fence_id": fence["fence_id"], "source_epoch": fence["source_epoch"]}
-                request_digest = digest(request)
                 envelope = _read_binding(source)
+                # Existing private-v1 requests retain their original descriptor.
+                if envelope is None or envelope["schema_version"] == 2:
+                    request["archives"] = lineage["records"]
+                request_digest = digest(request)
                 if envelope is not None:
                     _require(envelope["request_digest"] == request_digest and envelope["destination_path"] == str(target)
-                             and envelope["new_administrator_hash"] == new_hash,
+                             and envelope["new_administrator_hash"] == new_hash
+                             and (envelope["schema_version"] == 1 or canonical(envelope["archives"]) == canonical(lineage["records"])),
                              "source_transfer_conflict", "Source is permanently reserved for another exact transfer")
                 else:
                     data = _capture(source, deadline, forbidden)
@@ -535,19 +741,23 @@ def transfer_source(database_path: str | Path, destination: str | Path, *, crede
                                "source_revision": metadata["revision"], "source_event_high_water_before": metadata["event_high_water"],
                                "transfer_event_seq": next_seq, "artifact_count": len(data["artifacts"]),
                                "source_count": len(data["sources"]), "new_administrator_id": new_administrator_id, **FLAGS}
-                    envelope = {"schema_version": 1, "rules_version": RULES_VERSION, "request_digest": request_digest,
-                                "destination_path": str(target), "new_administrator_hash": new_hash, "receipt": receipt}
+                    envelope = {"schema_version": PRIVATE_SCHEMA_VERSION, "rules_version": RULES_VERSION,
+                                "request_digest": request_digest, "destination_path": str(target),
+                                "new_administrator_hash": new_hash, "receipt": receipt, "archives": lineage["records"]}
                     _envelope(envelope)
                     _intent(envelope)
-                    _origin(envelope, data, target, directory / HISTORY_NAME, database, "gvg_" + "0" * 32)
+                    _projection(source, envelope, data, target, database, history_bytes=1)
                     if existed:
                         _read_intent(directory, envelope)
                     governance.authorize(source, credential, "administrator", now=time.time())
                     source.execute("INSERT INTO meta VALUES (?,?)", (METAKEY, canonical(envelope)))
                     cursor = source.execute("INSERT INTO events(type,data) VALUES (?,?)", ("source_transferred", canonical(receipt)))
                     _require(cursor.lastrowid == next_seq, "source_transfer_source_invalid", "Transfer event sequence differs from receipt")
-                    _, tables = store_backup._expected_schema(False)
-                    recovery._row_bounds(source, tables, deadline)
+                    # Inserts can allocate pages. Recheck final bounds before the
+                    # transaction becomes an irreversible source reservation.
+                    source_fence._database(source, deadline)
+                    final_bytes = source.execute("PRAGMA page_count").fetchone()[0] * source.execute("PRAGMA page_size").fetchone()[0]
+                    _projection(source, envelope, data, target, database, history_bytes=final_bytes)
                 _deadline(deadline)
                 source.commit()
             except BaseException:
@@ -567,17 +777,22 @@ def transfer_source(database_path: str | Path, destination: str | Path, *, crede
                 governance.authorize(source, credential, "administrator", now=time.time())
                 _require(canonical(_read_binding(source)) == canonical(envelope),
                          "source_transfer_conflict", "Source reservation changed during transfer")
+                lineage = _source_archives(source, database, deadline)
+                _require(envelope["schema_version"] == 1 and not lineage["records"]
+                         or envelope["schema_version"] == 2 and canonical(lineage["records"]) == canonical(envelope["archives"]),
+                         "source_transfer_conflict", "Source ancestral inventory changed during transfer")
                 data = _capture(source, deadline, forbidden)
                 _require(new_hash not in data["old_hashes"], "source_transfer_credential_reused", "Historical credential reuse is forbidden")
+                for record in lineage["records"]:
+                    _copy_archive(lineage["paths"][record["name"]], directory / record["name"], record, deadline)
                 history = directory / HISTORY_NAME
                 _build_history(source, history, envelope, deadline, data["state_fingerprint"])
+                history_record = _file_record(history, deadline)
+                data["archives"] = _full_records(envelope, history_record)
+                _verify_archives(directory, data["archives"], deadline)
                 _build_active(target, history, database, envelope, data, new_credential, deadline)
                 governance.authorize(source, credential, "administrator", now=time.time())
-            manifest = {"schema_version": 1, "rules_version": RULES_VERSION,
-                        "transfer_id": envelope["receipt"]["transfer_id"], "workspace_id": envelope["receipt"]["workspace_id"],
-                        "destination_path": str(target), "request_digest": envelope["request_digest"],
-                        "database": _file_record(target, deadline), "history": _file_record(directory / HISTORY_NAME, deadline),
-                        "receipt": envelope["receipt"]}
+            manifest = _completion(envelope, _file_record(target, deadline), history_record, data["archives"])
             _manifest_valid(manifest, directory)
             _deadline(deadline)
             store_backup._write_json(directory / MANIFEST_NAME, manifest, MAX_MANIFEST_BYTES)
@@ -601,6 +816,21 @@ def transfer_status(destination: str | Path) -> dict[str, Any]:
         raise _translate(error) from error
     except (OSError, sqlite3.Error, ValueError, TypeError, KeyError, OverflowError, UnicodeError, RecursionError) as error:
         raise WorkbenchError("source_transfer_io_failed", "Transfer status could not be observed") from error
+
+
+def transfer_lineage_status(destination: str | Path) -> dict[str, Any]:
+    """Return safe immutable receipts after verifying every local ancestor."""
+    deadline = time.monotonic() + store_backup.DEADLINE_SECONDS
+    try:
+        store_backup._support()
+        manifest, _ = _completed(_path(destination), deadline)
+        records = _archive_records(manifest)
+        return {"rules_version": LINEAGE_RULES_VERSION, "workspace_id": manifest["workspace_id"],
+                "archive_count": len(records), "receipts": [_receipt(record["receipt"]) for record in records], **FLAGS}
+    except WorkbenchError as error:
+        raise _translate(error) from error
+    except (OSError, sqlite3.Error, ValueError, TypeError, KeyError, OverflowError, UnicodeError, RecursionError) as error:
+        raise WorkbenchError("source_transfer_io_failed", "Transfer lineage could not be observed") from error
 
 
 def _translate(error: WorkbenchError) -> WorkbenchError:

@@ -41,6 +41,7 @@ _DESTINATION_FIELDS = {
     "authorship_enabled", "content_enabled", "continuity_enabled",
 }
 _REPORT_FIELDS = {"rules_version", "receipt", "destination", "replayed", "resumed", *_FLAGS}
+_LINEAGE_FIELDS = {"rules_version", "workspace_id", "archive_count", "receipts", *_FLAGS}
 _IDENTIFIER = re.compile(r"[a-z][a-z0-9_.-]{0,100}\Z")
 _BEARER = re.compile(r"awg_[A-Za-z0-9_-]{43}")
 _HASH = re.compile(r"[0-9a-f]{64}\Z")
@@ -118,6 +119,25 @@ def _public_response(value: Any, action: str, secrets: list[str]) -> dict[str, A
     return _redact_value(result, secrets)
 
 
+def _public_lineage(value: Any, secrets: list[str]) -> dict[str, Any]:
+    """Forward only the bounded safe receipts of a verified private chain."""
+    value = _object(value, _LINEAGE_FIELDS)
+    _require(value["rules_version"] == "source-transfer-lineage-1"
+             and _address(value["workspace_id"], "wsp")
+             and _integer(value["archive_count"], positive=True)
+             and value["archive_count"] <= 16
+             and isinstance(value["receipts"], list)
+             and len(value["receipts"]) == value["archive_count"]
+             and all(type(value[key]) is bool and value[key] is expected for key, expected in _FLAGS.items()))
+    receipts = [_public_receipt(receipt) for receipt in value["receipts"]]
+    _require(len({receipt["transfer_id"] for receipt in receipts}) == len(receipts)
+             and len({receipt["workspace_id"] for receipt in receipts}) == len(receipts)
+             and receipts[-1]["workspace_id"] == value["workspace_id"])
+    return _redact_value({"rules_version": "source-transfer-lineage-1",
+                          "workspace_id": value["workspace_id"], "archive_count": value["archive_count"],
+                          "receipts": receipts, **_FLAGS}, secrets)
+
+
 def register_transfer_parser(subparsers: argparse._SubParsersAction) -> None:
     """Register fresh-authority transfer and read-only completion status."""
     parser = subparsers.add_parser(
@@ -143,12 +163,14 @@ def register_transfer_parser(subparsers: argparse._SubParsersAction) -> None:
                         help="Сохранённый ID точного запроса для повтора или продолжения переноса.")
     status = commands.add_parser("status", help="Прочитать сохранённый факт завершённого переноса.")
     _workspace_argument(status)
+    lineage = commands.add_parser("lineage", help="Проверить частную цепочку архивов и показать безопасные квитанции.")
+    _workspace_argument(lineage)
 
 
 def run_transfer_command(args: argparse.Namespace) -> dict[str, Any]:
     """Use existing private inputs without initializing either workspace."""
     action = args.transfer_command
-    if action not in {"create", "status"}:
+    if action not in {"create", "status", "lineage"}:
         raise WorkbenchError("unknown_source_transfer_command", "Unknown source transfer command")
     secrets: list[str] = []
     try:
@@ -177,8 +199,10 @@ def run_transfer_command(args: argparse.Namespace) -> dict[str, Any]:
                 database, args.destination, credential=credential,
                 new_administrator_id=args.new_administrator, new_credential=new_credential,
                 operation_id=args.operation_id)
-        else:
+        elif action == "status":
             result = source_transfer.transfer_status(args.workspace)
+        else:
+            return _public_lineage(source_transfer.transfer_lineage_status(args.workspace), secrets)
         return _public_response(result, action, secrets)
     except WorkbenchError as error:
         raise WorkbenchError(_redact_text(error.code, secrets), _redact_text(str(error), secrets)) from error

@@ -28,6 +28,8 @@ MAX_ORIGIN_BYTES = 1024 * 1024
 MAX_SIDECAR_BYTES = 65_536
 MAX_ARTIFACTS = 10_000
 MAX_OLD_CREDENTIALS = 10_000
+MAX_ARCHIVES = 16
+MAX_ARCHIVE_BYTES_TOTAL = 1024 * 1024 * 1024
 TRANSFER_ID = re.compile(r"sft_[0-9a-f]{32}\Z")
 WORKSPACE_ID = re.compile(r"wsp_[0-9a-f]{32}\Z")
 GRANT_ID = re.compile(r"gvg_[0-9a-f]{32}\Z")
@@ -38,6 +40,8 @@ ORIGIN_FIELDS = {
     "source_path", "history_path", "import_revision", "artifact_anchors",
     "old_credential_hashes", "request_digest", "new_administrator_grant_id", "ready",
 }
+ORIGIN_FIELDS_V2 = ORIGIN_FIELDS | {"archives"}
+ARCHIVE_FIELDS = {"name", "bytes", "sha256", "receipt"}
 INTENT_FIELDS = {
     "schema_version", "rules_version", "transfer_id", "workspace_id", "operation_id",
     "destination_path", "request_digest",
@@ -46,6 +50,7 @@ MANIFEST_FIELDS = {
     "schema_version", "rules_version", "transfer_id", "workspace_id", "destination_path",
     "request_digest", "database", "history", "receipt",
 }
+MANIFEST_FIELDS_V2 = MANIFEST_FIELDS | {"archives"}
 RECEIPT_FIELDS = {
     "schema_version", "rules_version", "transfer_id", "workspace_id", "operation_id", "created_at",
     "source_fence_id", "source_epoch", "source_revision", "source_event_high_water_before",
@@ -112,10 +117,11 @@ def validate_origin(body: Any) -> dict[str, Any]:
     from . import store_quarantine
 
     try:
-        _require(isinstance(body, dict) and set(body) == ORIGIN_FIELDS,
+        _require(isinstance(body, dict) and type(body.get("schema_version")) is int
+                 and body["schema_version"] in {1, 2}
+                 and set(body) == (ORIGIN_FIELDS if body["schema_version"] == 1 else ORIGIN_FIELDS_V2),
                  "Transfer origin has unsupported fields")
-        _require(type(body["schema_version"]) is int and body["schema_version"] == 1
-                 and body["rules_version"] == RULES_VERSION and body["ready"] is True
+        _require(body["rules_version"] == RULES_VERSION and body["ready"] is True
                  and isinstance(body["transfer_id"], str) and TRANSFER_ID.fullmatch(body["transfer_id"])
                  and isinstance(body["workspace_id"], str) and WORKSPACE_ID.fullmatch(body["workspace_id"])
                  and _integer(body["import_revision"], positive=True)
@@ -140,6 +146,14 @@ def validate_origin(body: Any) -> dict[str, Any]:
                      and set(anchor) == {"digest", "dependency"} and _hash(anchor["digest"]),
                      "Transfer origin has an invalid artifact anchor")
             _dependency(anchor["dependency"], identifier, body["import_revision"])
+        if body["schema_version"] == 2:
+            archives = validate_archives(body["archives"])
+            last = archives[-1]["receipt"]
+            _require(last["transfer_id"] == body["transfer_id"]
+                     and last["workspace_id"] == body["workspace_id"]
+                     and last["source_revision"] == body["import_revision"]
+                     and last["artifact_count"] == len(anchors),
+                     "Transfer origin archives pin another imported baseline")
         encoded = canonical(body)
         _require(len(encoded.encode("utf-8")) <= MAX_ORIGIN_BYTES,
                  "Transfer origin exceeds its supported byte bound")
@@ -223,7 +237,7 @@ def _sidecar(path: Path) -> dict[str, Any]:
 
 def _identity(body: Any, fields: set[str]) -> None:
     _require(isinstance(body, dict) and set(body) == fields
-             and type(body["schema_version"]) is int and body["schema_version"] == 1
+             and type(body["schema_version"]) is int and body["schema_version"] in {1, 2}
              and body["rules_version"] == RULES_VERSION
              and isinstance(body["transfer_id"], str) and TRANSFER_ID.fullmatch(body["transfer_id"])
              and isinstance(body["workspace_id"], str) and WORKSPACE_ID.fullmatch(body["workspace_id"])
@@ -270,7 +284,44 @@ def _file_header(value: Any, name: str) -> None:
              "Transfer completion database header is invalid")
 
 
-def _complete(path: Path, body: dict[str, Any]) -> None:
+def archive_name(index: int, count: int) -> str:
+    """Return the canonical flat filename for one oldest-to-newest archive."""
+    _require(type(index) is int and type(count) is int
+             and 1 <= count <= MAX_ARCHIVES and 0 <= index < count,
+             "Transfer archive index is outside its supported inventory")
+    return HISTORY_NAME if index == count - 1 else f"history-{index + 1:04d}.sqlite3"
+
+
+def validate_archives(records: Any) -> list[dict[str, Any]]:
+    """Validate private full-chain pins without opening files or source paths."""
+    from . import store_quarantine
+
+    try:
+        _require(isinstance(records, list) and 1 <= len(records) <= MAX_ARCHIVES,
+                 "Transfer archive inventory exceeds its supported count")
+        total = 0
+        transfers, workspaces = set(), set()
+        for index, record in enumerate(records):
+            _require(isinstance(record, dict) and set(record) == ARCHIVE_FIELDS,
+                     "Transfer archive record has unsupported fields")
+            _file_header({key: record[key] for key in ("name", "bytes", "sha256")},
+                         archive_name(index, len(records)))
+            receipt = validate_receipt(record["receipt"])
+            _require(receipt["transfer_id"] not in transfers and receipt["workspace_id"] not in workspaces,
+                     "Transfer archive inventory repeats a workspace or transfer")
+            transfers.add(receipt["transfer_id"])
+            workspaces.add(receipt["workspace_id"])
+            total += record["bytes"]
+            _require(total <= MAX_ARCHIVE_BYTES_TOTAL,
+                     "Transfer archive inventory exceeds its aggregate byte bound")
+        return store_quarantine._strict_json(canonical(records))
+    except WorkbenchError:
+        raise
+    except (KeyError, TypeError, ValueError, OverflowError, UnicodeError, RecursionError) as error:
+        raise WorkbenchError("store_transfer_invalid", "Transfer archive inventory is malformed") from error
+
+
+def _complete(path: Path, body: dict[str, Any]) -> dict[str, Any]:
     from . import store_backup
 
     try:
@@ -281,7 +332,7 @@ def _complete(path: Path, body: dict[str, Any]) -> None:
                  "Transfer destination is not complete", incomplete=True)
         intent, manifest = _sidecar(intent_path), _sidecar(manifest_path)
         _identity(intent, INTENT_FIELDS)
-        _identity(manifest, MANIFEST_FIELDS)
+        _identity(manifest, MANIFEST_FIELDS if body["schema_version"] == 1 else MANIFEST_FIELDS_V2)
         common = ("schema_version", "rules_version", "transfer_id", "workspace_id", "destination_path", "request_digest")
         _require(all(intent[key] == manifest[key] == body[key] for key in common),
                  "Transfer origin and completion identities disagree")
@@ -299,18 +350,43 @@ def _complete(path: Path, body: dict[str, Any]) -> None:
                  "Transfer completion receipt pins another imported baseline")
         with store_backup._regular_file(path, maximum=2**63 - 1):
             pass
-        history = Path(body["history_path"])
-        with store_backup._regular_file(history) as descriptor:
-            _require(os.fstat(descriptor).st_size == manifest["history"]["bytes"],
-                     "Transfer history file differs from its completion size")
+        if body["schema_version"] == 2:
+            archives = validate_archives(manifest["archives"])
+            _require(canonical(archives) == canonical(body["archives"])
+                     and archives[-1]["receipt"] == receipt
+                     and {key: archives[-1][key] for key in ("name", "bytes", "sha256")} == manifest["history"],
+                     "Transfer origin and completion archive inventories disagree")
+        else:
+            archives = [{**manifest["history"], "receipt": receipt}]
+        for archive in archives:
+            history = path.parent / archive["name"]
+            with store_backup._regular_file(history) as descriptor:
+                _require(os.fstat(descriptor).st_size == archive["bytes"],
+                         "Transfer history file differs from its completion size")
         # The destination is mutable after activation: its initial checksum and
         # byte size are not compared with current state on every transaction.
+        return manifest
     except WorkbenchError as error:
         if error.code in {"store_transfer_incomplete", "store_transfer_invalid"}:
             raise
         raise WorkbenchError("store_transfer_invalid", "Transfer completion files cannot be validated") from error
     except (OSError, KeyError, ValueError, TypeError, OverflowError, UnicodeError, RecursionError) as error:
         raise WorkbenchError("store_transfer_invalid", "Transfer completion metadata is malformed") from error
+
+
+def completion_manifest(connection: sqlite3.Connection, path: str | Path) -> dict[str, Any]:
+    """Read private completion pins at the original path, including fenced Stores.
+
+    Ordinary historical inspection skips filesystem completion. A new transfer
+    must call this strict helper before trusting all ancestral archive files.
+    This helper checks bounded metadata and private file sizes, not their hashes.
+    """
+    body = read_origin(connection)
+    _require(body is not None, "Transfer completion has no imported origin")
+    location = Path(path).absolute()
+    _require(str(location) == body["destination_path"],
+             "Imported database is bound to another canonical destination")
+    return _complete(location, body)
 
 
 def check_access(connection: sqlite3.Connection, path: str | Path, *, require_complete: bool = True) -> dict[str, Any] | None:

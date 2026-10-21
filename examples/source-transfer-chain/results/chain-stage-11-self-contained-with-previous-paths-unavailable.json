@@ -1,0 +1,76 @@
+{
+  "label": "self-contained-with-previous-paths-unavailable",
+  "explanation": "Both previous workspace paths are temporarily renamed; a fresh next-workspace Store, lineage command and release loader still succeed, and the old names are restored in finally.",
+  "source_status": {
+    "revision": 3,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 3
+    },
+    "events": 38,
+    "rules_version": "mvp-1"
+  },
+  "observations": {
+    "previous_workspace_directory_count": 2,
+    "mechanism": "reversible directory rename with finally restoration",
+    "old_paths_unavailable_during_observation": true,
+    "fresh_store_open_and_snapshot_equal": true,
+    "lineage": {
+      "rules_version": "source-transfer-lineage-1",
+      "workspace_id": "wsp_6bf755f888892bf92be83b6d9d5c83ad",
+      "archive_count": 2,
+      "receipts": [
+        {
+          "artifact_count": 4,
+          "created_at": 1792583984.0258188,
+          "dependencies_preserved": true,
+          "external_fencing_established": false,
+          "new_administrator_id": "transfer-administrator",
+          "old_authority_transferred": false,
+          "operation_id": "source-transfer-demo-create",
+          "rules_version": "source-transfer-1",
+          "schema_version": 1,
+          "source_count": 0,
+          "source_epoch": "sfe_8a0e6aafe7703d7be83e3c5ecd1330b9",
+          "source_event_high_water_before": 63,
+          "source_fence_id": "sfn_a22341b3b473804dd3a357152adc1581",
+          "source_revision": 2,
+          "transfer_event_seq": 64,
+          "transfer_id": "sft_915ed96e27d8002b0b9598b6a8cd14ce",
+          "workspace_id": "wsp_ceb9600d21e0c2f5639518cf49da6b4a"
+        },
+        {
+          "artifact_count": 4,
+          "created_at": 1792583987.409483,
+          "dependencies_preserved": true,
+          "external_fencing_established": false,
+          "new_administrator_id": "chain-administrator",
+          "old_authority_transferred": false,
+          "operation_id": "source-transfer-chain-demo-create",
+          "rules_version": "source-transfer-1",
+          "schema_version": 1,
+          "source_count": 0,
+          "source_epoch": "sfe_01125dccac0c7d924043e31231990aae",
+          "source_event_high_water_before": 37,
+          "source_fence_id": "sfn_ffc8a87c82cc82c9c5b7de89276c67cb",
+          "source_revision": 3,
+          "transfer_event_seq": 38,
+          "transfer_id": "sft_089d2cab62f4887a7528f9ab4411f55f",
+          "workspace_id": "wsp_6bf755f888892bf92be83b6d9d5c83ad"
+        }
+      ],
+      "old_authority_transferred": false,
+      "dependencies_preserved": true,
+      "external_fencing_established": false
+    },
+    "release_loader_snapshot_equal": true,
+    "old_paths_restored": true,
+    "private_origin_or_manifest_contents_read_by_demo": false,
+    "process_crash_simulated": false
+  }
+}
