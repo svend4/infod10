@@ -1,0 +1,218 @@
+{
+  "label": "historical-and-live-records-preserved",
+  "explanation": "Three unproven operations remain refused; six completed targets preserve quarantine, captured history, both archives and the live R5 workspace.",
+  "observations": {
+    "source_unchanged": true,
+    "live_unchanged": true,
+    "previous_restore_unchanged": true,
+    "archives_unchanged": true,
+    "rejections": [
+      {
+        "label": "plan_partial-refuse-prepare",
+        "category": "unproven_preparation",
+        "action": "prepare",
+        "code": "workspace_restore_job_manifest_invalid",
+        "rejected": true,
+        "private_metadata_unchanged": true
+      },
+      {
+        "label": "plan_partial-refuse-status",
+        "category": "unproven_preparation",
+        "action": "status",
+        "code": "workspace_restore_job_manifest_invalid",
+        "rejected": true,
+        "private_metadata_unchanged": true
+      },
+      {
+        "label": "plan_partial-refuse-step",
+        "category": "unproven_preparation",
+        "action": "step",
+        "code": "workspace_restore_job_manifest_invalid",
+        "rejected": true,
+        "private_metadata_unchanged": true
+      },
+      {
+        "label": "plan_partial-refuse-resume-prepare",
+        "category": "unproven_preparation",
+        "action": "resume-prepare",
+        "code": "workspace_restore_job_manifest_invalid",
+        "rejected": true,
+        "private_metadata_unchanged": true
+      },
+      {
+        "label": "plan_durable-quarantine-enqueue",
+        "category": "quarantine",
+        "action": "enqueue",
+        "code": "store_snapshot_quarantined",
+        "rejected": true,
+        "public_observations_unchanged": true
+      },
+      {
+        "label": "plan_durable-quarantine-publish",
+        "category": "quarantine",
+        "action": "publish",
+        "code": "store_snapshot_quarantined",
+        "rejected": true,
+        "public_observations_unchanged": true
+      },
+      {
+        "label": "intent_durable-refuse-prepare",
+        "category": "unproven_preparation",
+        "action": "prepare",
+        "code": "workspace_restore_job_conflict",
+        "rejected": true,
+        "private_metadata_unchanged": true
+      },
+      {
+        "label": "intent_durable-refuse-status",
+        "category": "unproven_preparation",
+        "action": "status",
+        "code": "workspace_restore_job_conflict",
+        "rejected": true,
+        "private_metadata_unchanged": true
+      },
+      {
+        "label": "intent_durable-refuse-step",
+        "category": "unproven_preparation",
+        "action": "step",
+        "code": "workspace_restore_job_conflict",
+        "rejected": true,
+        "private_metadata_unchanged": true
+      },
+      {
+        "label": "intent_durable-refuse-resume-prepare",
+        "category": "unproven_preparation",
+        "action": "resume-prepare",
+        "code": "workspace_restore_job_conflict",
+        "rejected": true,
+        "private_metadata_unchanged": true
+      },
+      {
+        "label": "intent_durable-store-incomplete",
+        "category": "incomplete_snapshot",
+        "action": "Store",
+        "code": "store_snapshot_incomplete",
+        "rejected": true
+      },
+      {
+        "label": "owner_partial-refuse-prepare",
+        "category": "unproven_preparation",
+        "action": "prepare",
+        "code": "workspace_restore_job_manifest_invalid",
+        "rejected": true,
+        "private_metadata_unchanged": true
+      },
+      {
+        "label": "owner_partial-refuse-status",
+        "category": "unproven_preparation",
+        "action": "status",
+        "code": "workspace_restore_job_manifest_invalid",
+        "rejected": true,
+        "private_metadata_unchanged": true
+      },
+      {
+        "label": "owner_partial-refuse-step",
+        "category": "unproven_preparation",
+        "action": "step",
+        "code": "workspace_restore_job_manifest_invalid",
+        "rejected": true,
+        "private_metadata_unchanged": true
+      },
+      {
+        "label": "owner_partial-refuse-resume-prepare",
+        "category": "unproven_preparation",
+        "action": "resume-prepare",
+        "code": "workspace_restore_job_manifest_invalid",
+        "rejected": true,
+        "private_metadata_unchanged": true
+      },
+      {
+        "label": "owner_partial-store-incomplete",
+        "category": "incomplete_snapshot",
+        "action": "Store",
+        "code": "store_snapshot_incomplete",
+        "rejected": true
+      },
+      {
+        "label": "owner_durable-quarantine-enqueue",
+        "category": "quarantine",
+        "action": "enqueue",
+        "code": "store_snapshot_quarantined",
+        "rejected": true,
+        "public_observations_unchanged": true
+      },
+      {
+        "label": "owner_durable-quarantine-publish",
+        "category": "quarantine",
+        "action": "publish",
+        "code": "store_snapshot_quarantined",
+        "rejected": true,
+        "public_observations_unchanged": true
+      },
+      {
+        "label": "metadata_partial-quarantine-enqueue",
+        "category": "quarantine",
+        "action": "enqueue",
+        "code": "store_snapshot_quarantined",
+        "rejected": true,
+        "public_observations_unchanged": true
+      },
+      {
+        "label": "metadata_partial-quarantine-publish",
+        "category": "quarantine",
+        "action": "publish",
+        "code": "store_snapshot_quarantined",
+        "rejected": true,
+        "public_observations_unchanged": true
+      },
+      {
+        "label": "metadata_linked-quarantine-enqueue",
+        "category": "quarantine",
+        "action": "enqueue",
+        "code": "store_snapshot_quarantined",
+        "rejected": true,
+        "public_observations_unchanged": true
+      },
+      {
+        "label": "metadata_linked-quarantine-publish",
+        "category": "quarantine",
+        "action": "publish",
+        "code": "store_snapshot_quarantined",
+        "rejected": true,
+        "public_observations_unchanged": true
+      },
+      {
+        "label": "preparation_ready-quarantine-enqueue",
+        "category": "quarantine",
+        "action": "enqueue",
+        "code": "store_snapshot_quarantined",
+        "rejected": true,
+        "public_observations_unchanged": true
+      },
+      {
+        "label": "preparation_ready-quarantine-publish",
+        "category": "quarantine",
+        "action": "publish",
+        "code": "store_snapshot_quarantined",
+        "rejected": true,
+        "public_observations_unchanged": true
+      },
+      {
+        "label": "data_staging_preserved-quarantine-enqueue",
+        "category": "quarantine",
+        "action": "enqueue",
+        "code": "store_snapshot_quarantined",
+        "rejected": true,
+        "public_observations_unchanged": true
+      },
+      {
+        "label": "data_staging_preserved-quarantine-publish",
+        "category": "quarantine",
+        "action": "publish",
+        "code": "store_snapshot_quarantined",
+        "rejected": true,
+        "public_observations_unchanged": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "rules_version": "workspace-restore-case-retention-review-1",
+  "created_at": "2026-10-22T19:09:21.633038+02:00",
+  "timezone": "Europe/Berlin",
+  "scenario": "Immutable self-declared advisory reviews and separate current-basis revalidation",
+  "summary": {
+    "baseline_public_file_count": 323,
+    "retention_review_stage_count": 6,
+    "private_retention_review_count": 2,
+    "revalidation_count": 15,
+    "selected_case_count_per_review": 4,
+    "simulated_self_declared_actor_count": 2,
+    "retention_review_cli_child_process_count": 45,
+    "retention_review_successful_cli_count": 34,
+    "retention_review_refused_cli_count": 11,
+    "total_cli_child_process_count": 313,
+    "total_cli_and_interrupt_worker_process_count": 327,
+    "new_interrupt_worker_process_count": 0,
+    "operator_rejection_count": 11,
+    "discarded_review_response_count": 1,
+    "discarded_review_response_recovered_exactly": true,
+    "minimum_current_basis_unchanged": true,
+    "historical_missing_attempt_current_basis_unchanged": false,
+    "current_candidate_implies_historical_basis_verified": false,
+    "show_and_replay_with_live_paths_unavailable": true,
+    "offline_live_path_count": 14,
+    "all_detached_paths_restored": true,
+    "original_control_metadata_unchanged": true,
+    "old_blocked_job_metadata_unchanged": true,
+    "original_blocked_jobs_still_blocked": true,
+    "plan_control_metadata_unchanged": true,
+    "review_control_metadata_unchanged": true,
+    "original_identity_reconstructed": false,
+    "request_equivalence_verified": false,
+    "new_restore_attempt_count": 0,
+    "archival_performed": false,
+    "deletion_performed": false,
+    "captured_revision": 4,
+    "captured_event_count": 36,
+    "live_revision": 5,
+    "live_event_count": 59,
+    "private_control_contents_read_by_demo": false,
+    "private_stage_contents_read_by_demo": false,
+    "private_fingerprints_exported": false,
+    "actor_authenticated": false,
+    "old_authority_activated": false,
+    "external_fencing_established": false,
+    "external_llm_used": false,
+    "human_review_recorded": false,
+    "proposed_code_executed": false,
+    "measured_capacity": false
+  },
+  "stages": [
+    {
+      "label": "review-preserves-history-without-authority",
+      "explanation": "A simulated self-declared actor records reviewed for the whole minimum plan; exact replay recovers a discarded response, while separate revalidation observes unchanged basis.",
+      "artifact": "restore-case-retention-review-stage-01-review-preserves-history-without-authority.json"
+    },
+    {
+      "label": "restored-path-does-not-rewrite-earlier-basis",
+      "explanation": "A second simulated actor requests a fresh plan: a historically unavailable attempt is currently available and potentially a candidate, but the earlier observed basis remains unverifiable.",
+      "artifact": "restore-case-retention-review-stage-02-restored-path-does-not-rewrite-earlier-basis.json"
+    },
+    {
+      "label": "current-member-availability-is-separate",
+      "explanation": "Unavailable attempt and unavailable case produce distinct current holds and false comparison booleans; every path is restored and the historical review stays fixed.",
+      "artifact": "restore-case-retention-review-stage-03-current-member-availability-is-separate.json"
+    },
+    {
+      "label": "binding-checks-survive-cached-member-observation",
+      "explanation": "Missing catalog, missing plan and a different valid plan directory give explicit binding failures while cached members remain independently observable; historical show/replay still return the saved review.",
+      "artifact": "restore-case-retention-review-stage-04-binding-checks-survive-cached-member-observation.json"
+    },
+    {
+      "label": "historical-review-outlives-all-live-inputs",
+      "explanation": "With fourteen live paths temporarily absent, both shows and exact replay remain historical; separate revalidation reports missing bindings, unavailable cases and false comparisons. Every path returns in finally.",
+      "artifact": "restore-case-retention-review-stage-05-historical-review-outlives-all-live-inputs.json"
+    },
+    {
+      "label": "reviews-do-not-authorize-domain-actions",
+      "explanation": "Invalid or conflicting requests refuse safely; saved reviews, source plans, catalog pages, case details, blocked jobs and source/live history remain unchanged, with no archive or deletion.",
+      "artifact": "restore-case-retention-review-stage-06-reviews-do-not-authorize-domain-actions.json"
+    }
+  ],
+  "artifacts": [
+    "restore-case-retention-review-cli-outcomes.json",
+    "restore-case-retention-review-comparisons.json",
+    "restore-case-retention-review-control-observations.json",
+    "restore-case-retention-review-live-observations.json",
+    "restore-case-retention-review-records.json",
+    "restore-case-retention-review-rejections.json",
+    "restore-case-retention-review-reply-recovery.json",
+    "restore-case-retention-review-restored-detail-observations.json",
+    "restore-case-retention-review-revalidations.json",
+    "restore-case-retention-review-source-observations.json"
+  ],
+  "limits": [
+    "Actors and verdicts are simulated self-declarations over one whole saved plan. They establish no authentication, independent expertise, semantic truth or authorization.",
+    "Show and exact record replay return an immutable historical review without observing current source paths. Revalidation is a separate dated sequential observation, not a common filesystem transaction or continuing guarantee.",
+    "Revalidation independently checks source plan/catalog bindings, cached member detail, fresh age classification and three comparison booleans. Matching unavailable observations do not establish a verifiable basis.",
+    "Restoring a historically unavailable attempt can yield a current candidate while the earlier observation and classification differ and its historical basis remains unverifiable.",
+    "Current candidates, reviewed, defer, request_fresh_plan and observed_basis_unchanged never authorize archival, deletion, domain writes, old authority activation or external fencing.",
+    "A real validated successful record response is discarded and recovered by exact replay; the ephemeral comparison digest is unpublished.",
+    "Fourteen live paths are moved temporarily and restored in finally. Static directory identities and full contained file metadata are compared, excluding directory times changed by rename. Original blocked job directories never move.",
+    "No new jobs, credentials, grants or domain decisions occur beyond the repeated baseline. Public Store comparison excludes only the top-level governance observed_at.",
+    "No new interruption, partial review write, changed case evidence, changed catalog binding, concurrency schedule, storage failure, all fault schedules or production capacity is exercised."
+  ]
+}

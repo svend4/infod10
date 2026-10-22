@@ -527,6 +527,20 @@ python3 -m agentwiki workspace-restore-case-retention-review-write-permit execut
 
 Это локальная проверка владения ключом допуска. Principal/worker остаются самозаявленными, выдача доверяет владельцу частной файловой среды, а прежние action API и direct step доступны отдельно. Credential и его хеш находятся вне публикации. Защищённая выдача не удостоверяет автора исторического эффекта или истинность документации.
 
+## Тридцать седьмой этап: явная политика издателя допусков
+
+`workspace-restore-case-retention-review-write-issuer` отделяет ключ оператора выдачи от ключа держателя permit. Неизменяемые правила явно задают principal, worker, ledger, индекс и фазу. Новая выдача сохраняет отдельную квитанцию с точным native permit; повтор возвращает прежнюю историю после проверки исходного запроса.
+
+- [Протокол и анализ](docs/development/workspace-restore-case-retention-review-write-issuer.md).
+- [Прикладной сценарий](examples/workspace-restore-case-retention-review-write-issuer/README.md).
+- [Фактический отчёт](examples/workspace-restore-case-retention-review-write-issuer/results/restore-case-retention-review-write-issuer-report.md).
+
+~~~sh
+python3 -m agentwiki workspace-restore-case-retention-review-write-issuer-demo --workspace /tmp/agentwiki-review-write-issuer-01 --workers 3
+~~~
+
+Отзыв издателя блокирует новую выдачу. Точный исторический replay и уже выданные permits сохраняют свои правила. Общего реестра, атомарной записи между каталогами, обязательной изоляции writers и внешнего удостоверения личности нет. Сохранность квитанции не устанавливает смысловую истинность документации.
+
 ## Начать чтение
 
 - [Каталог всех частей переписки и форматов](docs/sessions/README.md).
@@ -568,12 +582,13 @@ python3 -m agentwiki workspace-restore-case-retention-review-write-permit execut
 - [Часть 36: каталог заданий, результаты тридцать третьего этапа и продолжение — 21 сообщение](docs/sessions/session-036/transcript.md).
 - [Часть 37: локальные аренды, результаты тридцать четвёртого этапа и продолжение — 15 сообщений](docs/sessions/session-037/transcript.md).
 - [Часть 38: действия одной фазы, результаты тридцать пятого этапа и продолжение — 14 сообщений](docs/sessions/session-038/transcript.md).
+- [Часть 39: локальные permits, результаты тридцать шестого этапа и продолжение — 18 сообщений](docs/sessions/session-039/transcript.md).
 - [Границы первого снимка](docs/sessions/session-001/README.md) и [продолжения](docs/sessions/session-002/README.md).
 - [Тематическая база знаний](docs/knowledge/README.md).
 - [Источники и ограничения утверждений](docs/knowledge/sources.md).
 - [Решения, предложения и открытые вопросы](docs/knowledge/decisions.md).
 
-Исходные сообщения сохранены отдельно от конспекта: 417 сообщений в тридцати восьми частях, до запроса «Продолжение» после тридцать пятого этапа включительно. Текущая разработка описана в docs/development; прежняя архитектура шире возможностей прототипа. Результаты проверок среды относятся к моменту соответствующего сообщения.
+Исходные сообщения сохранены отдельно от конспекта: 435 сообщений в тридцати девяти частях, до запроса «Продолжение» после тридцать шестого этапа включительно. Текущая разработка описана в docs/development; прежняя архитектура шире возможностей прототипа. Результаты проверок среды относятся к моменту соответствующего сообщения.
 
 ## Содержимое
 
@@ -616,6 +631,7 @@ python3 -m agentwiki workspace-restore-case-retention-review-write-permit execut
 | examples/workspace-restore-case-retention-review-write-leases/ | Частный локальный журнал назначений позиций, поколения и исторический replay |
 | examples/workspace-restore-case-retention-review-write-action/ | Одна закреплённая фаза с проверкой аренды, отдельным наблюдением и историческим результатом |
 | examples/workspace-restore-case-retention-review-write-permit/ | Локальный ключ допуска к точному action, отзыв и защищённая выдача результата |
+| examples/workspace-restore-case-retention-review-write-issuer/ | Явная политика локальной выдачи и отдельные исторические квитанции permits |
 | corpora/urllib3-retry-v2.5.0/ | Закреплённый реальный исходник и авторская адаптация контракта Retry |
 | examples/multi-agent/ | Запуск и фактические результаты с экспортом документов и кода |
 | docs/development/ | Практическое руководство, теория и план следующих этапов |

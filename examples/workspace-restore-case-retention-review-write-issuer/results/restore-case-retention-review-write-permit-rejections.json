@@ -1,0 +1,135 @@
+[
+  {
+    "label": "fill-wrong-credential-execute",
+    "command": "workspace-restore-case-retention-review-write-permit",
+    "action": "execute",
+    "code": "workspace_restore_case_retention_review_write_permit_credential_invalid",
+    "rejected": true
+  },
+  {
+    "label": "fill-wrong-credential-revoke",
+    "command": "workspace-restore-case-retention-review-write-permit",
+    "action": "revoke",
+    "code": "workspace_restore_case_retention_review_write_permit_credential_invalid",
+    "rejected": true
+  },
+  {
+    "label": "fill-revoked-protected-replay",
+    "command": "workspace-restore-case-retention-review-write-permit",
+    "action": "execute",
+    "code": "workspace_restore_case_retention_review_write_permit_revoked",
+    "rejected": true
+  },
+  {
+    "label": "old-link-revoked-before-effect",
+    "command": "workspace-restore-case-retention-review-write-permit",
+    "action": "execute",
+    "code": "workspace_restore_case_retention_review_write_permit_revoked",
+    "rejected": true
+  },
+  {
+    "label": "old-link-still-revoked-after-replacement",
+    "command": "workspace-restore-case-retention-review-write-permit",
+    "action": "execute",
+    "code": "workspace_restore_case_retention_review_write_permit_revoked",
+    "rejected": true
+  },
+  {
+    "label": "replacement-link-wrong-credential-revoke",
+    "command": "workspace-restore-case-retention-review-write-permit",
+    "action": "revoke",
+    "code": "workspace_restore_case_retention_review_write_permit_credential_invalid",
+    "rejected": true
+  },
+  {
+    "label": "finish-other-permit-credential-execute",
+    "command": "workspace-restore-case-retention-review-write-permit",
+    "action": "execute",
+    "code": "workspace_restore_case_retention_review_write_permit_credential_invalid",
+    "rejected": true
+  },
+  {
+    "label": "offline-revoked-fill-before-missing-action",
+    "command": "workspace-restore-case-retention-review-write-permit",
+    "action": "execute",
+    "code": "workspace_restore_case_retention_review_write_permit_revoked",
+    "rejected": true
+  },
+  {
+    "label": "offline-revoked-finish-before-missing-action",
+    "command": "workspace-restore-case-retention-review-write-permit",
+    "action": "execute",
+    "code": "workspace_restore_case_retention_review_write_permit_revoked",
+    "rejected": true
+  },
+  {
+    "label": "issue-replay-other-principal",
+    "command": "workspace-restore-case-retention-review-write-permit",
+    "action": "issue",
+    "code": "workspace_restore_case_retention_review_write_permit_conflict",
+    "rejected": true
+  },
+  {
+    "label": "issue-replay-other-action",
+    "command": "workspace-restore-case-retention-review-write-permit",
+    "action": "issue",
+    "code": "workspace_restore_case_retention_review_write_permit_conflict",
+    "rejected": true
+  },
+  {
+    "label": "issue-replay-other-operation",
+    "command": "workspace-restore-case-retention-review-write-permit",
+    "action": "issue",
+    "code": "workspace_restore_case_retention_review_write_permit_conflict",
+    "rejected": true
+  },
+  {
+    "label": "revoke-replay-other-operation",
+    "command": "workspace-restore-case-retention-review-write-permit",
+    "action": "revoke",
+    "code": "workspace_restore_case_retention_review_write_permit_conflict",
+    "rejected": true
+  },
+  {
+    "label": "issue-malformed-principal",
+    "command": "workspace-restore-case-retention-review-write-permit",
+    "action": "issue",
+    "code": "workspace_restore_case_retention_review_write_permit_invalid_input",
+    "rejected": true
+  },
+  {
+    "label": "issue-malformed-operation",
+    "command": "workspace-restore-case-retention-review-write-permit",
+    "action": "issue",
+    "code": "workspace_restore_case_retention_review_write_permit_invalid_input",
+    "rejected": true
+  },
+  {
+    "label": "issue-overlong-operation",
+    "command": "workspace-restore-case-retention-review-write-permit",
+    "action": "issue",
+    "code": "workspace_restore_case_retention_review_write_permit_invalid_input",
+    "rejected": true
+  },
+  {
+    "label": "original-job-still-blocked-01",
+    "command": "workspace-restore",
+    "action": "status",
+    "code": "workspace_restore_job_manifest_invalid",
+    "rejected": true
+  },
+  {
+    "label": "original-job-still-blocked-03",
+    "command": "workspace-restore",
+    "action": "status",
+    "code": "workspace_restore_job_conflict",
+    "rejected": true
+  },
+  {
+    "label": "original-job-still-blocked-04",
+    "command": "workspace-restore",
+    "action": "status",
+    "code": "workspace_restore_job_manifest_invalid",
+    "rejected": true
+  }
+]

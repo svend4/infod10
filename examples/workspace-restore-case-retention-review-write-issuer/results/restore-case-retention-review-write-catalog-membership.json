@@ -1,0 +1,63 @@
+{
+  "explicit_initial_order": [
+    {
+      "rules_version": "workspace-restore-case-retention-review-write-1",
+      "write_id": "wrrw_5e41281bb69dac939e69a3a286f7a068",
+      "operation_id": "restore-case-retention-review-write-long",
+      "created_at": 1792688962.5848165,
+      "review_id": "wrrv_337c00c9dd829f767e29c0fa59a62330",
+      "actor": "simulated-write-operator-b",
+      "verdict": "defer"
+    },
+    {
+      "rules_version": "workspace-restore-case-retention-review-write-1",
+      "write_id": "wrrw_60920efe07ab7e07957cfb065a7567f3",
+      "operation_id": "restore-case-retention-review-write-minimum",
+      "created_at": 1792688961.8791502,
+      "review_id": "wrrv_f40373882021ca6ce543301115f2daad",
+      "actor": "simulated-write-operator-a",
+      "verdict": "reviewed"
+    }
+  ],
+  "explicit_expanded_order": [
+    {
+      "rules_version": "workspace-restore-case-retention-review-write-1",
+      "write_id": "wrrw_5e41281bb69dac939e69a3a286f7a068",
+      "operation_id": "restore-case-retention-review-write-long",
+      "created_at": 1792688962.5848165,
+      "review_id": "wrrv_337c00c9dd829f767e29c0fa59a62330",
+      "actor": "simulated-write-operator-b",
+      "verdict": "defer"
+    },
+    {
+      "rules_version": "workspace-restore-case-retention-review-write-1",
+      "write_id": "wrrw_dcb3e0b5b0bfad47f2db5f68124f1c98",
+      "operation_id": "restore-case-retention-review-write-catalog-late-write",
+      "created_at": 1792688973.4685054,
+      "review_id": "wrrv_0eea65e4e40bcfe08b0cfa737fb2b086",
+      "actor": "simulated-catalog-operator-c",
+      "verdict": "request_fresh_plan"
+    },
+    {
+      "rules_version": "workspace-restore-case-retention-review-write-1",
+      "write_id": "wrrw_60920efe07ab7e07957cfb065a7567f3",
+      "operation_id": "restore-case-retention-review-write-minimum",
+      "created_at": 1792688961.8791502,
+      "review_id": "wrrv_f40373882021ca6ce543301115f2daad",
+      "actor": "simulated-write-operator-a",
+      "verdict": "reviewed"
+    }
+  ],
+  "later_job": {
+    "rules_version": "workspace-restore-case-retention-review-write-1",
+    "write_id": "wrrw_dcb3e0b5b0bfad47f2db5f68124f1c98",
+    "operation_id": "restore-case-retention-review-write-catalog-late-write",
+    "created_at": 1792688973.4685054,
+    "review_id": "wrrv_0eea65e4e40bcfe08b0cfa737fb2b086",
+    "actor": "simulated-catalog-operator-c",
+    "verdict": "request_fresh_plan"
+  },
+  "later_job_automatically_added": false,
+  "initial_write_count": 2,
+  "expanded_write_count": 3
+}

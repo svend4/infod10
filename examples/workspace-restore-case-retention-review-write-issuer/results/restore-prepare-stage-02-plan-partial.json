@@ -1,0 +1,111 @@
+{
+  "label": "plan-partial",
+  "explanation": "An incomplete immutable control record or missing ownership proof remains refused by all four ordinary commands; no manual repair is attempted.",
+  "observations": {
+    "boundary": "plan_partial",
+    "worker": {
+      "boundary": "plan_partial",
+      "acknowledgement": {
+        "rules_version": "workspace-restore-prepare-1",
+        "boundary": "plan_partial",
+        "checkpoint_reached": true
+      },
+      "child_process_id": 393833,
+      "child_alive_after_acknowledgement": true,
+      "signal_name": "SIGKILL",
+      "signal_number": 9,
+      "returncode": -9,
+      "completed_child_process": true,
+      "business_response_received": false,
+      "additional_stdout_empty": true,
+      "stderr_empty": true,
+      "shell": false,
+      "worker_alarm_seconds": 90,
+      "acknowledgement_deadline_seconds": 60
+    },
+    "outcome": "refused",
+    "expected_error_code": "workspace_restore_job_manifest_invalid",
+    "refusals": [
+      {
+        "label": "plan_partial-refuse-prepare",
+        "category": "unproven_preparation",
+        "action": "prepare",
+        "code": "workspace_restore_job_manifest_invalid",
+        "rejected": true,
+        "private_metadata_unchanged": true
+      },
+      {
+        "label": "plan_partial-refuse-status",
+        "category": "unproven_preparation",
+        "action": "status",
+        "code": "workspace_restore_job_manifest_invalid",
+        "rejected": true,
+        "private_metadata_unchanged": true
+      },
+      {
+        "label": "plan_partial-refuse-step",
+        "category": "unproven_preparation",
+        "action": "step",
+        "code": "workspace_restore_job_manifest_invalid",
+        "rejected": true,
+        "private_metadata_unchanged": true
+      },
+      {
+        "label": "plan_partial-refuse-resume-prepare",
+        "category": "unproven_preparation",
+        "action": "resume-prepare",
+        "code": "workspace_restore_job_manifest_invalid",
+        "rejected": true,
+        "private_metadata_unchanged": true
+      }
+    ],
+    "topology_after_kill": {
+      "plan_present": true,
+      "plan_nonempty": true,
+      "owner_record_present": false,
+      "owner_record_nonempty": false,
+      "target_directory_present": false,
+      "snapshot_intent_present": false,
+      "workspace_intent_present": false,
+      "snapshot_manifest_present": false,
+      "archives_directory_present": false,
+      "archive_data_absent": true,
+      "database_present": false,
+      "outer_manifest_present": false,
+      "metadata_stage_present": false,
+      "metadata_stage_nonempty": false,
+      "metadata_stage_single_link": false,
+      "metadata_own_hardlink_pair": false,
+      "data_stage_present": false,
+      "data_stage_proper_prefix": false,
+      "data_stage_single_link": false,
+      "all_observed_files_private": true
+    },
+    "topology_after_refusals": {
+      "plan_present": true,
+      "plan_nonempty": true,
+      "owner_record_present": false,
+      "owner_record_nonempty": false,
+      "target_directory_present": false,
+      "snapshot_intent_present": false,
+      "workspace_intent_present": false,
+      "snapshot_manifest_present": false,
+      "archives_directory_present": false,
+      "archive_data_absent": true,
+      "database_present": false,
+      "outer_manifest_present": false,
+      "metadata_stage_present": false,
+      "metadata_stage_nonempty": false,
+      "metadata_stage_single_link": false,
+      "metadata_own_hardlink_pair": false,
+      "data_stage_present": false,
+      "data_stage_proper_prefix": false,
+      "data_stage_single_link": false,
+      "all_observed_files_private": true
+    },
+    "private_metadata_unchanged": true,
+    "destination_adopted": false,
+    "manual_repair_performed": false,
+    "Store_probe_performed": false
+  }
+}

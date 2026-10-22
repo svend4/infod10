@@ -42,6 +42,7 @@ from .workspace_restore_case_retention_review_write_catalog_cli import register_
 from .workspace_restore_case_retention_review_write_leases_cli import register_restore_case_retention_review_write_leases_parser, run_restore_case_retention_review_write_leases_command
 from .workspace_restore_case_retention_review_write_action_cli import register_restore_case_retention_review_write_action_parser, run_restore_case_retention_review_write_action_command
 from .workspace_restore_case_retention_review_write_permit_cli import register_restore_case_retention_review_write_permit_parser, run_restore_case_retention_review_write_permit_command
+from .workspace_restore_case_retention_review_write_issuer_cli import register_restore_case_retention_review_write_issuer_parser, run_restore_case_retention_review_write_issuer_command
 
 
 def _workers(value: str) -> int:
@@ -190,6 +191,7 @@ def main(argv: list[str] | None = None) -> int:
     register_restore_case_retention_review_write_leases_parser(commands)
     register_restore_case_retention_review_write_action_parser(commands)
     register_restore_case_retention_review_write_permit_parser(commands)
+    register_restore_case_retention_review_write_issuer_parser(commands)
     editorial_demo = commands.add_parser("editorial-demo", help="Показать историю решений программных проверяющих и устаревание оснований.")
     editorial_demo.add_argument("--workspace", type=Path, required=True)
     editorial_demo.add_argument("--workers", default=3, type=_workers)
@@ -292,6 +294,9 @@ def main(argv: list[str] | None = None) -> int:
     restore_case_retention_review_write_permit_demo = commands.add_parser("workspace-restore-case-retention-review-write-permit-demo", help="Использовать отдельный локальный ключ допуска и отзыв для точного write action.")
     restore_case_retention_review_write_permit_demo.add_argument("--workspace", type=Path, required=True)
     restore_case_retention_review_write_permit_demo.add_argument("--workers", default=3, type=_workers)
+    restore_case_retention_review_write_issuer_demo = commands.add_parser("workspace-restore-case-retention-review-write-issuer-demo", help="Выдавать permits по явной локальной политике отдельного издателя.")
+    restore_case_retention_review_write_issuer_demo.add_argument("--workspace", type=Path, required=True)
+    restore_case_retention_review_write_issuer_demo.add_argument("--workers", default=3, type=_workers)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -372,6 +377,13 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(run_fence_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "store-transfer":
             print(json.dumps(run_transfer_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "workspace-restore-case-retention-review-write-issuer":
+            print(json.dumps(run_restore_case_retention_review_write_issuer_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "workspace-restore-case-retention-review-write-issuer-demo":
+            from .workspace_restore_case_retention_review_write_issuer_demo import run_workspace_restore_case_retention_review_write_issuer_demo
+
+            report = run_workspace_restore_case_retention_review_write_issuer_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "restore-case-retention-review-write-issuer-report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "workspace-restore-case-retention-review-write-permit":
             print(json.dumps(run_restore_case_retention_review_write_permit_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "workspace-restore-case-retention-review-write-permit-demo":
