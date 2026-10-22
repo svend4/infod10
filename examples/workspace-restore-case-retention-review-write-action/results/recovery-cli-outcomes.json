@@ -1,0 +1,98 @@
+[
+  {
+    "label": "initial-assessment",
+    "command": "store-recovery",
+    "action": "assess",
+    "child_process_id": 362529,
+    "returncode": 0,
+    "error_code": null,
+    "stdout_empty": false,
+    "stderr_empty": true,
+    "shell": false,
+    "completed_child_process": true
+  },
+  {
+    "label": "initial-revalidation",
+    "command": "store-recovery",
+    "action": "revalidate",
+    "child_process_id": 362530,
+    "returncode": 0,
+    "error_code": null,
+    "stdout_empty": false,
+    "stderr_empty": true,
+    "shell": false,
+    "completed_child_process": true
+  },
+  {
+    "label": "plan-stale-after-eventless-heartbeat",
+    "command": "store-recovery",
+    "action": "revalidate",
+    "child_process_id": 362531,
+    "returncode": 1,
+    "error_code": "recovery_plan_stale",
+    "stdout_empty": true,
+    "stderr_empty": false,
+    "shell": false,
+    "completed_child_process": true
+  },
+  {
+    "label": "assessment-after-heartbeat",
+    "command": "store-recovery",
+    "action": "assess",
+    "child_process_id": 362532,
+    "returncode": 0,
+    "error_code": null,
+    "stdout_empty": false,
+    "stderr_empty": true,
+    "shell": false,
+    "completed_child_process": true
+  },
+  {
+    "label": "revalidation-after-heartbeat",
+    "command": "store-recovery",
+    "action": "revalidate",
+    "child_process_id": 362533,
+    "returncode": 0,
+    "error_code": null,
+    "stdout_empty": false,
+    "stderr_empty": true,
+    "shell": false,
+    "completed_child_process": true
+  },
+  {
+    "label": "plan-stale-after-later-source-event",
+    "command": "store-recovery",
+    "action": "revalidate",
+    "child_process_id": 362534,
+    "returncode": 1,
+    "error_code": "recovery_plan_stale",
+    "stdout_empty": true,
+    "stderr_empty": false,
+    "shell": false,
+    "completed_child_process": true
+  },
+  {
+    "label": "final-assessment",
+    "command": "store-recovery",
+    "action": "assess",
+    "child_process_id": 362535,
+    "returncode": 0,
+    "error_code": null,
+    "stdout_empty": false,
+    "stderr_empty": true,
+    "shell": false,
+    "completed_child_process": true
+  },
+  {
+    "label": "final-revalidation",
+    "command": "store-recovery",
+    "action": "revalidate",
+    "child_process_id": 362536,
+    "returncode": 0,
+    "error_code": null,
+    "stdout_empty": false,
+    "stderr_empty": true,
+    "shell": false,
+    "completed_child_process": true
+  }
+]

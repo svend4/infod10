@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "rules_version": "source-transfer-chain-1",
+  "created_at": "2026-10-22T17:16:24.924962+02:00",
+  "timezone": "Europe/Berlin",
+  "scenario": "Second active transfer with complete archived lineage, preserved provenance and new authority",
+  "summary": {
+    "baseline_public_file_count": 129,
+    "transfer_stage_count": 13,
+    "transfer_cli_child_process_count": 11,
+    "total_cli_child_process_count": 31,
+    "source_events_before_transfer": 37,
+    "source_events_after_transfer": 38,
+    "transfer_reservation_event_count": 1,
+    "imported_revision": 3,
+    "destination_revision_after_new_acceptance": 4,
+    "destination_events_after_new_acceptance": 36,
+    "historical_archive_event_count": 38,
+    "complete_archive_count": 2,
+    "ancestor_archive_event_count": 64,
+    "original_source_event_count": 64,
+    "old_snapshot_event_count": 52,
+    "fresh_author_job_count": 3,
+    "fresh_author_pool_workers": 3,
+    "fresh_observed_author_thread_count": 3,
+    "fresh_role_grant_count": 6,
+    "fresh_decision_count": 4,
+    "operator_rejection_count": 15,
+    "exact_transfer_replay_count": 2,
+    "first_transfer_replayed_after_fencing": true,
+    "old_workspace_paths_temporarily_unavailable": true,
+    "old_workspace_paths_restored": true,
+    "self_contained_archive_chain_observed": true,
+    "baseline_dependencies_preserved": true,
+    "imported_release_loaded": true,
+    "updated_release_loaded": true,
+    "fresh_acceptance_completed": true,
+    "new_workspace_backup_restored": true,
+    "restored_new_workspace_quarantined": true,
+    "copied_active_database_rejected": true,
+    "old_source_remains_fenced": true,
+    "old_authority_transferred": false,
+    "old_secrets_reissued": false,
+    "private_origin_contents_read_by_demo": false,
+    "private_manifest_contents_read_by_demo": false,
+    "private_fingerprints_exported": false,
+    "older_snapshot_activated": false,
+    "incomplete_import_or_crash_simulated": false,
+    "external_fencing_established": false,
+    "external_llm_used": false,
+    "human_review_recorded": false,
+    "proposed_code_executed": false,
+    "measured_capacity": false
+  },
+  "stages": [
+    {
+      "label": "first-imported-workspace-is-active",
+      "explanation": "The previously imported workspace has fresh accepted work at R=3 and one preserved archived hop.",
+      "artifact": "chain-stage-01-first-imported-workspace-is-active.json",
+      "source_event_count": 36
+    },
+    {
+      "label": "first-workspace-fenced-by-current-administrator",
+      "explanation": "A new private recovery assessment and ordinary seal stop the first workspace before its second transfer.",
+      "artifact": "chain-stage-02-first-workspace-fenced-by-current-administrator.json",
+      "source_event_count": 37
+    },
+    {
+      "label": "fenced-source-and-old-copy",
+      "explanation": "The current source is stopped; its earlier snapshot remains quarantined. A new destination has not been created.",
+      "artifact": "chain-stage-03-fenced-source-and-old-copy.json",
+      "source_event_count": 37
+    },
+    {
+      "label": "old-secret-rejected-before-transfer",
+      "explanation": "A credential already issued in the source cannot become the new administrator's credential.",
+      "artifact": "chain-stage-04-old-secret-rejected-before-transfer.json",
+      "source_event_count": 37
+    },
+    {
+      "label": "fresh-active-baseline-and-fenced-history",
+      "explanation": "The new workspace imports accepted content and exact dependency records at revision R, starts with only a fresh administrator, and preserves old history separately.",
+      "artifact": "chain-stage-05-fresh-active-baseline-and-fenced-history.json",
+      "source_event_count": 38
+    },
+    {
+      "label": "completed-replay-and-single-target-binding",
+      "explanation": "The exact request returns its original fact without new events; another destination or operation conflicts.",
+      "artifact": "chain-stage-06-completed-replay-and-single-target-binding.json",
+      "source_event_count": 38
+    },
+    {
+      "label": "old-authority-and-active-copy-rejected",
+      "explanation": "Old credentials and proposals do not acquire new authority; source and archive stay fenced, and a bare active database copied to another path is rejected.",
+      "artifact": "chain-stage-07-old-authority-and-active-copy-rejected.json",
+      "source_event_count": 38
+    },
+    {
+      "label": "fresh-authenticated-authors-and-composition",
+      "explanation": "New role grants authorize three new author jobs and one composition. No old lease or opinion is reused.",
+      "artifact": "chain-stage-08-fresh-authenticated-authors-and-composition.json",
+      "source_event_count": 38
+    },
+    {
+      "label": "fresh-opinions-and-new-acceptance",
+      "explanation": "Four new scoped opinions and a new coordinator authorize a new acceptance in the destination, advancing R to R+1.",
+      "artifact": "chain-stage-09-fresh-opinions-and-new-acceptance.json",
+      "source_event_count": 38
+    },
+    {
+      "label": "updated-release-retains-provenance",
+      "explanation": "The updated destination release loads with complete dependency records; unchanged imported artifacts still use their original baseline.",
+      "artifact": "chain-stage-10-updated-release-retains-provenance.json",
+      "source_event_count": 38
+    },
+    {
+      "label": "self-contained-with-previous-paths-unavailable",
+      "explanation": "Both previous workspace paths are temporarily renamed; a fresh next-workspace Store, lineage command and release loader still succeed, and the old names are restored in finally.",
+      "artifact": "chain-stage-11-self-contained-with-previous-paths-unavailable.json",
+      "source_event_count": 38
+    },
+    {
+      "label": "new-workspace-backup-and-historical-restore",
+      "explanation": "An ordinary backup and restore preserve imported provenance and the new receipt; quarantine takes priority over the live destination's path binding.",
+      "artifact": "chain-stage-12-new-workspace-backup-and-historical-restore.json",
+      "source_event_count": 38
+    },
+    {
+      "label": "old-source-remains-stopped-and-history-preserved",
+      "explanation": "New work and its backup leave the old source, full history archive and older snapshot unchanged; the completed transfer remains one historical fact.",
+      "artifact": "chain-stage-13-old-source-remains-stopped-and-history-preserved.json",
+      "source_event_count": 38
+    }
+  ],
+  "artifacts": [
+    "chain-acceptance.json",
+    "chain-ancestor-observations.json",
+    "chain-authors.json",
+    "chain-cli-outcomes.json",
+    "chain-composition.json",
+    "chain-content-policy-history.json",
+    "chain-decision-requests.json",
+    "chain-decisions.json",
+    "chain-dependencies.json",
+    "chain-destination-observations.json",
+    "chain-detached-path-observations.json",
+    "chain-governance-policy-history.json",
+    "chain-grants.json",
+    "chain-history-observations.json",
+    "chain-lineages.json",
+    "chain-new-backup.json",
+    "chain-observation.json",
+    "chain-old-snapshot-observations.json",
+    "chain-original-source-observations.json",
+    "chain-packets.json",
+    "chain-preparation.json",
+    "chain-rejections.json",
+    "chain-releases.json",
+    "chain-results.json",
+    "chain-source-observations.json"
+  ],
+  "limits": [
+    "The source-side single-target reservation and destination path binding are cooperative local controls, not an external fencing service.",
+    "The active destination contains accepted content and preserved dependency descriptors; old runtime grants, leases, tasks, opinions and receipts remain in the separate fenced archive.",
+    "All new decisions are programmed local opinions under fresh grants; they do not establish independent people, factual truth or semantic equivalence.",
+    "Release loader compatibility and exact baseline dependencies preserve the existing declared freshness checks; a separately induced stale imported read/query case is not performed here.",
+    "Bare destination copying is demonstrated through SQLite backup into a new private file; it is not a corrupted SQL fixture or simulated process crash.",
+    "Public observations omit only governance_status's changing top-level observed_at for equality; raw timestamps and addressed proof bodies remain intact.",
+    "The new destination's ordinary backup stays a quarantined historical snapshot. It does not reactivate a live copied database or any old source authority.",
+    "The destination's ordinary database backup does not embed its separate complete archive chain; all history files remain separate private transfer artifacts.",
+    "Both previous workspace directories are temporarily renamed and restored in finally. This demonstrates local path unavailability, not process crash recovery or distributed failover.",
+    "Old software and a trusted database owner using raw SQL can bypass the cooperative path. Existing external publication effects are not revoked or replayed by the transfer."
+  ]
+}

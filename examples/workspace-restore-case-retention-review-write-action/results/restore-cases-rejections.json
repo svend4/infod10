@@ -1,0 +1,121 @@
+[
+  {
+    "label": "record-operation-length-bound",
+    "command": "workspace-restore-case",
+    "action": "record",
+    "code": "workspace_restore_case_invalid_input",
+    "rejected": true
+  },
+  {
+    "label": "link-operation-length-bound",
+    "command": "workspace-restore-case",
+    "action": "link-attempt",
+    "code": "workspace_restore_case_invalid_input",
+    "rejected": true
+  },
+  {
+    "label": "plan_invalid-conflicting-link-operation",
+    "command": "workspace-restore-case",
+    "action": "link-attempt",
+    "code": "workspace_restore_case_conflict",
+    "rejected": true
+  },
+  {
+    "label": "plan_invalid-conflicting-link-job",
+    "command": "workspace-restore-case",
+    "action": "link-attempt",
+    "code": "workspace_restore_case_conflict",
+    "rejected": true
+  },
+  {
+    "label": "plan_invalid-quarantine-enqueue",
+    "action": "enqueue",
+    "code": "store_snapshot_quarantined",
+    "rejected": true,
+    "public_observations_unchanged": true
+  },
+  {
+    "label": "plan_invalid-quarantine-publish",
+    "action": "publish",
+    "code": "store_snapshot_quarantined",
+    "rejected": true,
+    "public_observations_unchanged": true
+  },
+  {
+    "label": "ownership_unproven-conflicting-link-operation",
+    "command": "workspace-restore-case",
+    "action": "link-attempt",
+    "code": "workspace_restore_case_conflict",
+    "rejected": true
+  },
+  {
+    "label": "ownership_unproven-conflicting-link-job",
+    "command": "workspace-restore-case",
+    "action": "link-attempt",
+    "code": "workspace_restore_case_conflict",
+    "rejected": true
+  },
+  {
+    "label": "ownership_unproven-quarantine-enqueue",
+    "action": "enqueue",
+    "code": "store_snapshot_quarantined",
+    "rejected": true,
+    "public_observations_unchanged": true
+  },
+  {
+    "label": "ownership_unproven-quarantine-publish",
+    "action": "publish",
+    "code": "store_snapshot_quarantined",
+    "rejected": true,
+    "public_observations_unchanged": true
+  },
+  {
+    "label": "owner_invalid-conflicting-link-operation",
+    "command": "workspace-restore-case",
+    "action": "link-attempt",
+    "code": "workspace_restore_case_conflict",
+    "rejected": true
+  },
+  {
+    "label": "owner_invalid-conflicting-link-job",
+    "command": "workspace-restore-case",
+    "action": "link-attempt",
+    "code": "workspace_restore_case_conflict",
+    "rejected": true
+  },
+  {
+    "label": "owner_invalid-quarantine-enqueue",
+    "action": "enqueue",
+    "code": "store_snapshot_quarantined",
+    "rejected": true,
+    "public_observations_unchanged": true
+  },
+  {
+    "label": "owner_invalid-quarantine-publish",
+    "action": "publish",
+    "code": "store_snapshot_quarantined",
+    "rejected": true,
+    "public_observations_unchanged": true
+  },
+  {
+    "label": "plan_invalid-original-job-still-blocked",
+    "command": "workspace-restore",
+    "action": "status",
+    "code": "workspace_restore_job_manifest_invalid",
+    "rejected": true
+  },
+  {
+    "label": "ownership_unproven-original-job-still-blocked",
+    "command": "workspace-restore",
+    "action": "status",
+    "code": "workspace_restore_job_conflict",
+    "rejected": true
+  },
+  {
+    "label": "owner_invalid-original-job-still-blocked",
+    "command": "workspace-restore",
+    "action": "status",
+    "code": "workspace_restore_job_manifest_invalid",
+    "rejected": true
+  }
+]
