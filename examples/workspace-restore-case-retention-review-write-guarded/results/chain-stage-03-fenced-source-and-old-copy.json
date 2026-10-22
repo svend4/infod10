@@ -1,0 +1,91 @@
+{
+  "label": "fenced-source-and-old-copy",
+  "explanation": "The current source is stopped; its earlier snapshot remains quarantined. A new destination has not been created.",
+  "source_status": {
+    "revision": 3,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 3
+    },
+    "events": 37,
+    "rules_version": "mvp-1"
+  },
+  "observations": {
+    "source": {
+      "revision": 3,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 4
+      },
+      "proposals": {
+        "accepted": 1,
+        "proposed": 3
+      },
+      "events": 37,
+      "rules_version": "mvp-1"
+    },
+    "source_access": {
+      "rules_version": "store-snapshot-1",
+      "quarantined": false,
+      "source_fenced": true,
+      "imported_workspace": true,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "historical_authorization_only": false,
+      "live_authorization_allowed": false,
+      "trusted_database_owner_can_bypass": true,
+      "source_fence": {
+        "administrator_grant_id": "gvg_6a30f15baebc3f5360d28e01393a2c40",
+        "created_at": 1792694142.1478045,
+        "event_count_before": 36,
+        "event_high_water_before": 36,
+        "external_fencing_established": false,
+        "fence_event_seq": 37,
+        "fence_id": "sfn_4a335e7d574f892ae5a54554caa2e8e5",
+        "irreversible": true,
+        "operation_id": "chain-seal-first-workspace",
+        "plan_id": "rcp_a4cd693088e1b19aaaf2f6d2211a2039",
+        "publication_blocked": true,
+        "revision": 3,
+        "rules_version": "source-fence-1",
+        "schema_version": 1,
+        "snapshot_activation_allowed": false,
+        "source_epoch": "sfe_0b36de2120730db5f0dc8cd2cf253900",
+        "source_writes_blocked": true,
+        "trusted_database_owner_can_bypass": true
+      },
+      "transfer_origin": {
+        "rules_version": "source-transfer-1",
+        "transfer_id": "sft_1686d43d0debf06b41a964792e0401e3",
+        "workspace_id": "wsp_6d0febb61a314ddbaa61091205846ec5",
+        "import_revision": 2,
+        "new_administrator_grant_id": "gvg_6a30f15baebc3f5360d28e01393a2c40",
+        "dependencies_preserved": true,
+        "old_authority_transferred": false,
+        "path_bound": true
+      }
+    },
+    "old_snapshot_access": {
+      "rules_version": "store-snapshot-1",
+      "quarantined": true,
+      "source_fenced": false,
+      "imported_workspace": false,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "historical_authorization_only": true,
+      "live_authorization_allowed": false,
+      "trusted_database_owner_can_bypass": true,
+      "backup_id": "sbk_4816c457d9bf7f6892f6bd08597ec57f",
+      "quarantine_id": "sq_c26cbeb27ad9a8ee547a4a308261bc3a",
+      "source_revision": 2,
+      "event_high_water": 52,
+      "created_at": 1792694132.9662275
+    }
+  }
+}

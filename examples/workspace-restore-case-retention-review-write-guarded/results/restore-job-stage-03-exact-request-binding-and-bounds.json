@@ -1,0 +1,65 @@
+{
+  "label": "exact-request-binding-and-bounds",
+  "explanation": "Another request or preexisting unrelated destination is rejected; step limits remain within the explicit file bound.",
+  "observations": {
+    "prepared_status_unchanged": true,
+    "rejections": [
+      {
+        "label": "different-operation-cannot-rebind-job",
+        "category": "request_binding",
+        "code": "workspace_restore_job_conflict",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "different-destination-cannot-rebind-job",
+        "category": "request_binding",
+        "code": "workspace_restore_job_conflict",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "different-source-cannot-rebind-job",
+        "category": "request_binding",
+        "code": "workspace_restore_job_conflict",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "completed-unrelated-destination-is-not-adopted",
+        "category": "destination",
+        "code": "workspace_restore_job_destination_exists",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "unrelated-existing-job-directory-is-not-adopted",
+        "category": "destination",
+        "code": "workspace_restore_job_incomplete",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "unsupported-file-limit-0",
+        "category": "input_bound",
+        "code": "workspace_restore_job_invalid_input",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "unsupported-file-limit-17",
+        "category": "input_bound",
+        "code": "workspace_restore_job_invalid_input",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      }
+    ]
+  }
+}

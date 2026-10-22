@@ -1,0 +1,238 @@
+{
+  "label": "fresh-authenticated-authors-and-composition",
+  "explanation": "New role grants authorize three new author jobs and one composition. No old lease or opinion is reused.",
+  "source_status": {
+    "revision": 3,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 3
+    },
+    "events": 38,
+    "rules_version": "mvp-1"
+  },
+  "observations": {
+    "grants": {
+      "document-author": {
+        "grant_id": "gvg_3a75b78be48883fdc163d4a52a0e1233",
+        "principal_id": "chain-document-author",
+        "role": "doc_author",
+        "artifact_ids": [
+          "docs/continuity-a.md",
+          "docs/continuity-d.md"
+        ],
+        "expires_at": 1792697744.9903538,
+        "created_at": 1792694144.9975164,
+        "issuer_grant_id": "gvg_6062552e795afd0924a6fe790d35404a",
+        "operation_id": "chain-grant-document-author",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false,
+        "replayed": false
+      },
+      "code-author": {
+        "grant_id": "gvg_746fb7a5376d86fd152cc662e52b3f7d",
+        "principal_id": "chain-code-author",
+        "role": "code_author",
+        "artifact_ids": [
+          "code/continuity_a.py",
+          "code/continuity_d.py"
+        ],
+        "expires_at": 1792697744.9903538,
+        "created_at": 1792694145.0061736,
+        "issuer_grant_id": "gvg_6062552e795afd0924a6fe790d35404a",
+        "operation_id": "chain-grant-code-author",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false,
+        "replayed": false
+      },
+      "integrator": {
+        "grant_id": "gvg_64280cfd4866e328f0c1883e9f1e0869",
+        "principal_id": "chain-integrator",
+        "role": "integrator",
+        "artifact_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ],
+        "expires_at": 1792697744.9903538,
+        "created_at": 1792694145.0156748,
+        "issuer_grant_id": "gvg_6062552e795afd0924a6fe790d35404a",
+        "operation_id": "chain-grant-integrator",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false,
+        "replayed": false
+      },
+      "reviewer-a": {
+        "grant_id": "gvg_20a3a117a019b73965aac84e163b4600",
+        "principal_id": "chain-reviewer-a",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ],
+        "expires_at": 1792697744.9903538,
+        "created_at": 1792694145.0279262,
+        "issuer_grant_id": "gvg_6062552e795afd0924a6fe790d35404a",
+        "operation_id": "chain-grant-reviewer-a",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false,
+        "replayed": false
+      },
+      "reviewer-b": {
+        "grant_id": "gvg_93b979b4e671b999eca69ad1b602dfc4",
+        "principal_id": "chain-reviewer-b",
+        "role": "reviewer",
+        "artifact_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ],
+        "expires_at": 1792697744.9903538,
+        "created_at": 1792694145.047197,
+        "issuer_grant_id": "gvg_6062552e795afd0924a6fe790d35404a",
+        "operation_id": "chain-grant-reviewer-b",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false,
+        "replayed": false
+      },
+      "coordinator": {
+        "grant_id": "gvg_38a9c677fc72ba111d9ad60c7e77616a",
+        "principal_id": "chain-coordinator",
+        "role": "coordinator",
+        "artifact_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ],
+        "expires_at": 1792697744.9903538,
+        "created_at": 1792694145.0564203,
+        "issuer_grant_id": "gvg_6062552e795afd0924a6fe790d35404a",
+        "operation_id": "chain-grant-coordinator",
+        "revoked": false,
+        "revoked_at": null,
+        "expired": false,
+        "replayed": false
+      }
+    },
+    "authors": {
+      "document-a": {
+        "label": "document-a",
+        "principal_id": "chain-document-author",
+        "thread": "chain-author_0",
+        "task_id": "chain-author-document-a",
+        "fencing_token": 1,
+        "proposal_id": "p_4254a0e154fead3b2dd9e6bf",
+        "digest": "d978d09ebee27b3b83abb1a29939f750f921e37ea9652674375c01848b5b45dd",
+        "replayed": false,
+        "authorship": {
+          "authorship_id": "awp_4d790072bff73a1e2298da2478f3da5d2123b12f6c02fa9d7b1e727b79cd10db",
+          "authorship_digest": "4d790072bff73a1e2298da2478f3da5d2123b12f6c02fa9d7b1e727b79cd10db",
+          "principal_id": "chain-document-author",
+          "contributor_principals": [
+            "chain-document-author"
+          ],
+          "write_ids": [
+            "docs/continuity-a.md"
+          ]
+        }
+      },
+      "code-a": {
+        "label": "code-a",
+        "principal_id": "chain-code-author",
+        "thread": "chain-author_1",
+        "task_id": "chain-author-code-a",
+        "fencing_token": 1,
+        "proposal_id": "p_abe90ca31647e967f049fc63",
+        "digest": "3b3cbb6ffe860a7d43cf0d262a00018a443e7c58221883eb40c2297b1795aa2d",
+        "replayed": false,
+        "authorship": {
+          "authorship_id": "awp_14f031dab63e707d415a675b1a99630736e3c1199dd524a6f71e35b160078c3c",
+          "authorship_digest": "14f031dab63e707d415a675b1a99630736e3c1199dd524a6f71e35b160078c3c",
+          "principal_id": "chain-code-author",
+          "contributor_principals": [
+            "chain-code-author"
+          ],
+          "write_ids": [
+            "code/continuity_a.py"
+          ]
+        }
+      },
+      "alternative-document": {
+        "label": "alternative-document",
+        "principal_id": "chain-document-author",
+        "thread": "chain-author_2",
+        "task_id": "chain-author-alternative-document",
+        "fencing_token": 1,
+        "proposal_id": "p_a52ff23dcfbbf392d78f8b30",
+        "digest": "37dcee72abc1622a5b3ff74e07b8f7af0489486b12b78ba358287b86d887ccec",
+        "replayed": false,
+        "authorship": {
+          "authorship_id": "awp_4644a1906437d3e023849dee138818b08f76cff1274f0d8219caf0e8842c9c59",
+          "authorship_digest": "4644a1906437d3e023849dee138818b08f76cff1274f0d8219caf0e8842c9c59",
+          "principal_id": "chain-document-author",
+          "contributor_principals": [
+            "chain-document-author"
+          ],
+          "write_ids": [
+            "docs/continuity-a.md"
+          ]
+        }
+      }
+    },
+    "composition": {
+      "proposal_id": "p_7e2158ec04b7256fe35669bc",
+      "digest": "83025e821f7f5898b45827624881c3abbd1d469a8a4d813b01ce8e8aa79c0973",
+      "replayed": false,
+      "components": [
+        {
+          "position": 1,
+          "proposal_id": "p_4254a0e154fead3b2dd9e6bf",
+          "digest": "d978d09ebee27b3b83abb1a29939f750f921e37ea9652674375c01848b5b45dd",
+          "write_ids": [
+            "docs/continuity-a.md"
+          ]
+        },
+        {
+          "position": 2,
+          "proposal_id": "p_abe90ca31647e967f049fc63",
+          "digest": "3b3cbb6ffe860a7d43cf0d262a00018a443e7c58221883eb40c2297b1795aa2d",
+          "write_ids": [
+            "code/continuity_a.py"
+          ]
+        }
+      ],
+      "authorship": {
+        "authorship_id": "awp_8fb9bbf7dd1c4d3def4b7efb5d2ecd9636ac325ba38119a86c6150c295195690",
+        "authorship_digest": "8fb9bbf7dd1c4d3def4b7efb5d2ecd9636ac325ba38119a86c6150c295195690",
+        "principal_id": "chain-integrator",
+        "contributor_principals": [
+          "chain-code-author",
+          "chain-document-author",
+          "chain-integrator"
+        ],
+        "write_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ]
+      }
+    },
+    "formal_review": {
+      "proposal_id": "p_7e2158ec04b7256fe35669bc",
+      "proposal_digest": "83025e821f7f5898b45827624881c3abbd1d469a8a4d813b01ce8e8aa79c0973",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "chain-reviewer-a",
+      "observed_revision": 3,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 1
+    }
+  }
+}

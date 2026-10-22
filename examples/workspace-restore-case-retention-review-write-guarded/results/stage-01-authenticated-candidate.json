@@ -1,0 +1,134 @@
+{
+  "label": "authenticated-candidate",
+  "explanation": "Three author jobs and one composition prepare the fictional A document/code candidate; no proposed code is executed.",
+  "source_status": {
+    "revision": 1,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4
+    },
+    "proposals": {
+      "proposed": 4
+    },
+    "events": 32,
+    "rules_version": "mvp-1"
+  },
+  "governance_policy_generation": 4,
+  "operation_result": {
+    "authors": {
+      "document-a": {
+        "label": "document-a",
+        "principal_id": "snapshot-document-author",
+        "thread": "snapshot-author_0",
+        "task_id": "snapshot-author-document-a",
+        "fencing_token": 1,
+        "proposal_id": "p_d4b6fc7ec0a1c93a4e7652f3",
+        "digest": "2710b6bb4d0625e69dd0828ba747d7a97e3972bc28d76ff1fbcc455f83932a55",
+        "replayed": false,
+        "authorship": {
+          "authorship_id": "awp_973dcb6af96a64c2736c78f8c5d4e79a11ae155e4b13a796256d66fb52ae79ba",
+          "authorship_digest": "973dcb6af96a64c2736c78f8c5d4e79a11ae155e4b13a796256d66fb52ae79ba",
+          "principal_id": "snapshot-document-author",
+          "contributor_principals": [
+            "snapshot-document-author"
+          ],
+          "write_ids": [
+            "docs/continuity-a.md"
+          ]
+        }
+      },
+      "code-a": {
+        "label": "code-a",
+        "principal_id": "snapshot-code-author",
+        "thread": "snapshot-author_1",
+        "task_id": "snapshot-author-code-a",
+        "fencing_token": 1,
+        "proposal_id": "p_b9d9457bf7835dfc8eb64466",
+        "digest": "960ac8aba7bf301ab521dbcb4aa6ff6abacbbc8cc61d4244ce8895785bfa589b",
+        "replayed": false,
+        "authorship": {
+          "authorship_id": "awp_997f18e5986b8a442cc4ac2378dfb8fbbd3feb78e7b7af815814c69085509658",
+          "authorship_digest": "997f18e5986b8a442cc4ac2378dfb8fbbd3feb78e7b7af815814c69085509658",
+          "principal_id": "snapshot-code-author",
+          "contributor_principals": [
+            "snapshot-code-author"
+          ],
+          "write_ids": [
+            "code/continuity_a.py"
+          ]
+        }
+      },
+      "alternative-document": {
+        "label": "alternative-document",
+        "principal_id": "snapshot-document-author",
+        "thread": "snapshot-author_2",
+        "task_id": "snapshot-author-alternative-document",
+        "fencing_token": 1,
+        "proposal_id": "p_be0fdb1dfb9c654d0cd28211",
+        "digest": "2dacc5ba747f479f75c2abaa4ecbea1bfbbc339cfc6cb8d9f75248bd537b66fe",
+        "replayed": false,
+        "authorship": {
+          "authorship_id": "awp_c6c1800364483c41ffc51348cd72f3b5e2e4d4337e1096b2abcba7fb33b7c815",
+          "authorship_digest": "c6c1800364483c41ffc51348cd72f3b5e2e4d4337e1096b2abcba7fb33b7c815",
+          "principal_id": "snapshot-document-author",
+          "contributor_principals": [
+            "snapshot-document-author"
+          ],
+          "write_ids": [
+            "docs/continuity-a.md"
+          ]
+        }
+      }
+    },
+    "composition": {
+      "proposal_id": "p_e383137f6461cc1a7eddb14e",
+      "digest": "1768636f2d11c8a58df34448441545a6db6cfd49c112d8db986c90de72e47951",
+      "replayed": false,
+      "components": [
+        {
+          "position": 1,
+          "proposal_id": "p_d4b6fc7ec0a1c93a4e7652f3",
+          "digest": "2710b6bb4d0625e69dd0828ba747d7a97e3972bc28d76ff1fbcc455f83932a55",
+          "write_ids": [
+            "docs/continuity-a.md"
+          ]
+        },
+        {
+          "position": 2,
+          "proposal_id": "p_b9d9457bf7835dfc8eb64466",
+          "digest": "960ac8aba7bf301ab521dbcb4aa6ff6abacbbc8cc61d4244ce8895785bfa589b",
+          "write_ids": [
+            "code/continuity_a.py"
+          ]
+        }
+      ],
+      "authorship": {
+        "authorship_id": "awp_12182aa1459b69bf956de35267b64566066f95f3157e8a3b9a0178fb6778abd4",
+        "authorship_digest": "12182aa1459b69bf956de35267b64566066f95f3157e8a3b9a0178fb6778abd4",
+        "principal_id": "snapshot-integrator",
+        "contributor_principals": [
+          "snapshot-code-author",
+          "snapshot-document-author",
+          "snapshot-integrator"
+        ],
+        "write_ids": [
+          "code/continuity_a.py",
+          "docs/continuity-a.md"
+        ]
+      }
+    },
+    "formal_review": {
+      "proposal_id": "p_e383137f6461cc1a7eddb14e",
+      "proposal_digest": "1768636f2d11c8a58df34448441545a6db6cfd49c112d8db986c90de72e47951",
+      "rules_version": "mvp-1",
+      "approved": true,
+      "reasons": [],
+      "reviewer": "snapshot-reviewer-a",
+      "observed_revision": 1,
+      "source_digests": {},
+      "meaning_check": "Exact quote presence only; not an entailment or truth judgment",
+      "review_id": 1
+    }
+  }
+}

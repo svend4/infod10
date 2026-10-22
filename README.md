@@ -541,6 +541,20 @@ python3 -m agentwiki workspace-restore-case-retention-review-write-issuer-demo -
 
 Отзыв издателя блокирует новую выдачу. Точный исторический replay и уже выданные permits сохраняют свои правила. Общего реестра, атомарной записи между каталогами, обязательной изоляции writers и внешнего удостоверения личности нет. Сохранность квитанции не устанавливает смысловую истинность документации.
 
+## Тридцать восьмой этап: обязательный ключ нового формата задания
+
+`workspace-restore-case-retention-review-write-guarded` создаёт отдельное задание, которое прежние writer API не принимают. Новый `step` требует локальный bearer credential и проверку отзыва перед чтением сохранённого результата либо текущего назначения. Каждая из трёх фаз сохраняет отдельную историческую квитанцию.
+
+- [Протокол, анализ и границы](docs/development/workspace-restore-case-retention-review-write-guarded.md).
+- [Прикладной сценарий](examples/workspace-restore-case-retention-review-write-guarded/README.md).
+- [Фактический отчёт](examples/workspace-restore-case-retention-review-write-guarded/results/restore-case-retention-review-write-guarded-report.md).
+
+~~~sh
+python3 -m agentwiki workspace-restore-case-retention-review-write-guarded-demo --workspace /tmp/agentwiki-review-write-guarded-01 --workers 3
+~~~
+
+Обязательность относится к поддержанным API нового формата. Произвольный код владельца файлов не изолирован; прежние leases и issuer policy не применяются автоматически. Историческая квитанция не удостоверяет автора либо истинность содержания документации.
+
 ## Начать чтение
 
 - [Каталог всех частей переписки и форматов](docs/sessions/README.md).
@@ -583,12 +597,13 @@ python3 -m agentwiki workspace-restore-case-retention-review-write-issuer-demo -
 - [Часть 37: локальные аренды, результаты тридцать четвёртого этапа и продолжение — 15 сообщений](docs/sessions/session-037/transcript.md).
 - [Часть 38: действия одной фазы, результаты тридцать пятого этапа и продолжение — 14 сообщений](docs/sessions/session-038/transcript.md).
 - [Часть 39: локальные permits, результаты тридцать шестого этапа и продолжение — 18 сообщений](docs/sessions/session-039/transcript.md).
+- [Часть 40: политика издателя, результаты тридцать седьмого этапа и продолжение — 14 сообщений](docs/sessions/session-040/transcript.md).
 - [Границы первого снимка](docs/sessions/session-001/README.md) и [продолжения](docs/sessions/session-002/README.md).
 - [Тематическая база знаний](docs/knowledge/README.md).
 - [Источники и ограничения утверждений](docs/knowledge/sources.md).
 - [Решения, предложения и открытые вопросы](docs/knowledge/decisions.md).
 
-Исходные сообщения сохранены отдельно от конспекта: 435 сообщений в тридцати девяти частях, до запроса «Продолжение» после тридцать шестого этапа включительно. Текущая разработка описана в docs/development; прежняя архитектура шире возможностей прототипа. Результаты проверок среды относятся к моменту соответствующего сообщения.
+Исходные сообщения сохранены отдельно от конспекта: 449 сообщений в сорока частях, до запроса «Продолжение» после тридцать седьмого этапа включительно. Текущая разработка описана в docs/development; прежняя архитектура шире возможностей прототипа. Результаты проверок среды относятся к моменту соответствующего сообщения.
 
 ## Содержимое
 
@@ -632,6 +647,7 @@ python3 -m agentwiki workspace-restore-case-retention-review-write-issuer-demo -
 | examples/workspace-restore-case-retention-review-write-action/ | Одна закреплённая фаза с проверкой аренды, отдельным наблюдением и историческим результатом |
 | examples/workspace-restore-case-retention-review-write-permit/ | Локальный ключ допуска к точному action, отзыв и защищённая выдача результата |
 | examples/workspace-restore-case-retention-review-write-issuer/ | Явная политика локальной выдачи и отдельные исторические квитанции permits |
+| examples/workspace-restore-case-retention-review-write-guarded/ | Отдельный формат задания с обязательным ключом для step и историческими квитанциями фаз |
 | corpora/urllib3-retry-v2.5.0/ | Закреплённый реальный исходник и авторская адаптация контракта Retry |
 | examples/multi-agent/ | Запуск и фактические результаты с экспортом документов и кода |
 | docs/development/ | Практическое руководство, теория и план следующих этапов |

@@ -1,0 +1,69 @@
+{
+  "label": "quarantine-persists-in-the-database",
+  "explanation": "Opening the backup DB directly and copying only that marked DB without sidecars both retain the inspection boundary; enqueue is rejected in each copy.",
+  "source_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 5
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 4
+    },
+    "events": 59,
+    "rules_version": "mvp-1"
+  },
+  "governance_policy_generation": 8,
+  "operation_result": {
+    "direct_bundle_access": {
+      "rules_version": "store-snapshot-1",
+      "quarantined": true,
+      "source_fenced": false,
+      "imported_workspace": false,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "historical_authorization_only": true,
+      "live_authorization_allowed": false,
+      "trusted_database_owner_can_bypass": true,
+      "backup_id": "sbk_4816c457d9bf7f6892f6bd08597ec57f",
+      "quarantine_id": "sq_c26cbeb27ad9a8ee547a4a308261bc3a",
+      "source_revision": 2,
+      "event_high_water": 52,
+      "created_at": 1792694132.9662275
+    },
+    "database_only_access": {
+      "rules_version": "store-snapshot-1",
+      "quarantined": true,
+      "source_fenced": false,
+      "imported_workspace": false,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "historical_authorization_only": true,
+      "live_authorization_allowed": false,
+      "trusted_database_owner_can_bypass": true,
+      "backup_id": "sbk_4816c457d9bf7f6892f6bd08597ec57f",
+      "quarantine_id": "sq_c26cbeb27ad9a8ee547a4a308261bc3a",
+      "source_revision": 2,
+      "event_high_water": 52,
+      "created_at": 1792694132.9662275
+    },
+    "database_only_copy_source": "private/backup-01/state.sqlite3",
+    "source_database_raw_copy": false,
+    "rejections": [
+      {
+        "label": "direct-backup-database-enqueue",
+        "rejected": true,
+        "code": "store_snapshot_quarantined",
+        "status_unchanged": true
+      },
+      {
+        "label": "database-only-copy-enqueue",
+        "rejected": true,
+        "code": "store_snapshot_quarantined",
+        "status_unchanged": true
+      }
+    ]
+  }
+}

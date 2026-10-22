@@ -1,0 +1,38 @@
+{
+  "label": "current-authorization-and-source-boundaries",
+  "explanation": "Only the live imported workspace and its current administrator may authorize a new full backup.",
+  "observations": [
+    {
+      "label": "original-administrator-cannot-authorize-current-backup",
+      "category": "authorization",
+      "code": "governance_unauthorized",
+      "rejected": true,
+      "public_observations_unchanged": true,
+      "comparison_excludes_only_governance_wrapper_observed_at": true
+    },
+    {
+      "label": "live-code-author-cannot-authorize-administrative-backup",
+      "category": "authorization",
+      "code": "governance_unauthorized",
+      "rejected": true,
+      "public_observations_unchanged": true,
+      "comparison_excludes_only_governance_wrapper_observed_at": true
+    },
+    {
+      "label": "fenced-workspace-cannot-authorize-full-backup",
+      "category": "source_boundary",
+      "code": "store_source_fenced",
+      "rejected": true,
+      "public_observations_unchanged": true,
+      "comparison_excludes_only_governance_wrapper_observed_at": true
+    },
+    {
+      "label": "quarantined-copy-cannot-authorize-full-backup",
+      "category": "source_boundary",
+      "code": "workspace_backup_source_invalid",
+      "rejected": true,
+      "public_observations_unchanged": true,
+      "comparison_excludes_only_governance_wrapper_observed_at": true
+    }
+  ]
+}

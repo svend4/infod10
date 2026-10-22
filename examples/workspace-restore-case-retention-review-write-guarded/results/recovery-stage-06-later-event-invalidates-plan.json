@@ -1,0 +1,74 @@
+{
+  "label": "later-event-invalidates-plan",
+  "explanation": "An ordinary task enqueue adds an event without an accepted revision; the previous plan is stale again.",
+  "source_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 5,
+      "leased": 1,
+      "pending": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 4
+    },
+    "events": 62,
+    "rules_version": "mvp-1"
+  },
+  "snapshot_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4,
+      "leased": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 3
+    },
+    "events": 52,
+    "rules_version": "mvp-1"
+  },
+  "observations": {
+    "source_before": {
+      "revision": 2,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 5,
+        "leased": 1
+      },
+      "proposals": {
+        "accepted": 1,
+        "proposed": 4
+      },
+      "events": 61,
+      "rules_version": "mvp-1"
+    },
+    "source_after": {
+      "revision": 2,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 5,
+        "leased": 1,
+        "pending": 1
+      },
+      "proposals": {
+        "accepted": 1,
+        "proposed": 4
+      },
+      "events": 62,
+      "rules_version": "mvp-1"
+    },
+    "old_plan_rejected": {
+      "label": "plan-stale-after-later-source-event",
+      "code": "recovery_plan_stale",
+      "rejected": true,
+      "source_public_observations_unchanged": true
+    }
+  }
+}
