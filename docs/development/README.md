@@ -70,6 +70,8 @@
 
 **Тридцать третий этап:** [каталог заданий записи review](workspace-restore-case-retention-review-write-catalog.md) фиксирует явно выбранную membership и порядок до 256 jobs. Страницы до 16 позиций сохраняют исторические descriptor7 рядом с текущим status17 либо changed/unavailable. [Прикладной сценарий](../../examples/workspace-restore-case-retention-review-write-catalog/README.md) показывает отдельный прогресс задания, недоступность, смену привязки и исторический replay без автоматического выполнения шагов.
 
+**Тридцать четвёртый этап:** [локальные аренды позиций](workspace-restore-case-retention-review-write-leases.md) добавляют отдельный SQLite-журнал claim/release с поколениями и историческим replay. [Прикладной сценарий](../../examples/workspace-restore-case-retention-review-write-leases/README.md) показывает конкурирующие callers, повтор после потерянного ответа и границу независимых журналов. Аренды не проверяются прежним step и не устанавливают аутентификацию либо смысловое качество содержания.
+
 ## 1. Что уже сделано
 
 | Область | Реализация | Свидетельство |

@@ -1,0 +1,228 @@
+{
+  "governance": {
+    "enabled": true,
+    "rules_version": "governance-1",
+    "policy_generation": 1,
+    "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+    "policy": {
+      "schema_version": 1,
+      "minimum_reviewers": 2,
+      "separate_coordinator": true
+    },
+    "activation_revision": 1,
+    "enabled_at": 1792679649.8591268,
+    "administrator": {
+      "grant_id": "gvg_84e13254ebbbded697735778d490e259",
+      "principal_id": "snapshot-administrator",
+      "role": "administrator",
+      "artifact_ids": [],
+      "expires_at": null,
+      "created_at": 1792679649.8591268,
+      "issuer_grant_id": null,
+      "operation_id": null,
+      "revoked": false,
+      "revoked_at": null,
+      "expired": false
+    }
+  },
+  "authorship": {
+    "enabled": true,
+    "rules_version": "authorship-1",
+    "activation": {
+      "rules_version": "authorship-1",
+      "epoch": 1,
+      "enabled_at": 1792679649.8892944,
+      "activation_revision": 1,
+      "policy_generation": 2,
+      "administrator_grant_id": "gvg_84e13254ebbbded697735778d490e259"
+    },
+    "policy_generation": 2,
+    "policy_digest": "04ad8eeb081db54c2be55ef192e320e1513cbfe57388bbc3c22a0999ce8a449f",
+    "credential_mode": "local_bearer",
+    "human_identity_authenticated": false
+  },
+  "content": {
+    "enabled": true,
+    "rules_version": "content-gate-1",
+    "current_policy": {
+      "generation": 1,
+      "policy": {
+        "schema_version": 2,
+        "sections": [
+          {
+            "id": "section-a",
+            "policy": {
+              "artifact_ids": [
+                "code/continuity_a.py",
+                "docs/continuity-a.md"
+              ],
+              "inventory": {
+                "promises": [
+                  {
+                    "anchor": {
+                      "artifact_id": "docs/continuity-a.md",
+                      "quote": "The fictional sample limit is declared below."
+                    },
+                    "description": "The declared fictional sample limit.",
+                    "id": "sample-promise",
+                    "obligation_ids": [
+                      "sample-limit"
+                    ],
+                    "requirement": {
+                      "code": {
+                        "artifact_id": "code/continuity_a.py",
+                        "symbol": "SAMPLE_LIMIT"
+                      },
+                      "document": {
+                        "artifact_id": "docs/continuity-a.md",
+                        "fence_id": "contract",
+                        "path": [
+                          "limit"
+                        ]
+                      },
+                      "relation": "equals",
+                      "scope": {
+                        "sample": "continuity-v1"
+                      },
+                      "value_type": "integer"
+                    }
+                  }
+                ],
+                "schema_version": 1
+              },
+              "schema_version": 1,
+              "spec": {
+                "obligations": [
+                  {
+                    "code": {
+                      "artifact_id": "code/continuity_a.py",
+                      "symbol": "SAMPLE_LIMIT"
+                    },
+                    "description": "The fictional literal sample limit must match.",
+                    "document": {
+                      "artifact_id": "docs/continuity-a.md",
+                      "fence_id": "contract",
+                      "path": [
+                        "limit"
+                      ]
+                    },
+                    "id": "sample-limit",
+                    "relation": "equals",
+                    "scope": {
+                      "sample": "continuity-v1"
+                    },
+                    "value_type": "integer"
+                  }
+                ],
+                "schema_version": 1
+              }
+            }
+          },
+          {
+            "id": "section-d",
+            "policy": {
+              "artifact_ids": [
+                "code/continuity_d.py",
+                "docs/continuity-d.md"
+              ],
+              "inventory": {
+                "promises": [
+                  {
+                    "anchor": {
+                      "artifact_id": "docs/continuity-d.md",
+                      "quote": "The fictional sample limit is declared below."
+                    },
+                    "description": "The declared fictional sample limit.",
+                    "id": "sample-promise",
+                    "obligation_ids": [
+                      "sample-limit"
+                    ],
+                    "requirement": {
+                      "code": {
+                        "artifact_id": "code/continuity_d.py",
+                        "symbol": "SAMPLE_LIMIT"
+                      },
+                      "document": {
+                        "artifact_id": "docs/continuity-d.md",
+                        "fence_id": "contract",
+                        "path": [
+                          "limit"
+                        ]
+                      },
+                      "relation": "equals",
+                      "scope": {
+                        "sample": "continuity-v1"
+                      },
+                      "value_type": "integer"
+                    }
+                  }
+                ],
+                "schema_version": 1
+              },
+              "schema_version": 1,
+              "spec": {
+                "obligations": [
+                  {
+                    "code": {
+                      "artifact_id": "code/continuity_d.py",
+                      "symbol": "SAMPLE_LIMIT"
+                    },
+                    "description": "The fictional literal sample limit must match.",
+                    "document": {
+                      "artifact_id": "docs/continuity-d.md",
+                      "fence_id": "contract",
+                      "path": [
+                        "limit"
+                      ]
+                    },
+                    "id": "sample-limit",
+                    "relation": "equals",
+                    "scope": {
+                      "sample": "continuity-v1"
+                    },
+                    "value_type": "integer"
+                  }
+                ],
+                "schema_version": 1
+              }
+            }
+          }
+        ]
+      },
+      "policy_digest": "fcc91d3c8e36f4f67a7966d5dd3b3dce56cac4e1d43040520c8ce89daf2de3eb",
+      "created_at": 1792679649.8937333,
+      "governance_policy_generation": 3,
+      "administrator_grant_id": "gvg_84e13254ebbbded697735778d490e259"
+    },
+    "policy_generation": 3,
+    "content_policy_generation": 1,
+    "content_policy_digest": "fcc91d3c8e36f4f67a7966d5dd3b3dce56cac4e1d43040520c8ce89daf2de3eb",
+    "activation_revision": 1,
+    "enabled_at": 1792679649.8938148
+  },
+  "continuity": {
+    "enabled": true,
+    "rules_version": "review-continuity-1",
+    "activation_generation": 4,
+    "policy_generation": 4,
+    "activation": {
+      "rules_version": "review-continuity-1",
+      "activation_generation": 4,
+      "content_policy_generation": 1,
+      "content_policy_digest": "fcc91d3c8e36f4f67a7966d5dd3b3dce56cac4e1d43040520c8ce89daf2de3eb",
+      "enabled_at": 1792679649.9002054,
+      "activation_revision": 1,
+      "administrator_grant_id": "gvg_84e13254ebbbded697735778d490e259"
+    },
+    "maximum_transitions": 64,
+    "limits": [
+      "Continuity covers the same immutable proposal and the entire selected review basis, not another proposal or a claim of prose truth.",
+      "Every intervening governance increment must be a recorded content-policy transition preserving the selected catalog context on both sides.",
+      "A selected-policy change followed by a return to its old value does not restore the old opinion.",
+      "A direct governance policy update, even with the same body, is a barrier rather than a continuity transition.",
+      "At most 64 intervening transitions are examined; a recent verified direct-policy barrier invalidates older opinions, while otherwise unresolved history requires reconsideration or grant revocation.",
+      "Original grant validity, current heads, scope, contributor separation, formal review and runtime freshness remain separate requirements.",
+      "The SQLite owner and local clock remain trusted; hashes do not authenticate people, establish independent expertise or externally attest history."
+    ]
+  }
+}

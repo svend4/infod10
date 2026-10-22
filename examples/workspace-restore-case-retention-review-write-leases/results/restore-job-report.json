@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "rules_version": "workspace-restore-job-1",
+  "created_at": "2026-10-22T16:34:48.647586+02:00",
+  "timezone": "Europe/Berlin",
+  "scenario": "File-sized resumable restore with stable result recovery and historical quarantine",
+  "summary": {
+    "baseline_public_file_count": 203,
+    "restore_job_stage_count": 9,
+    "restore_job_cli_child_process_count": 18,
+    "total_cli_child_process_count": 56,
+    "main_job_total_data_file_count": 3,
+    "observed_serial_file_counts": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "captured_revision": 4,
+    "restored_revision": 4,
+    "live_revision": 5,
+    "captured_event_count": 36,
+    "restored_event_count": 36,
+    "live_event_count": 59,
+    "complete_archive_count": 2,
+    "operator_rejection_count": 16,
+    "discarded_business_response_count": 1,
+    "completed_response_recovered_exactly": true,
+    "completed_step_replayed_without_source": true,
+    "directories_temporarily_unavailable": 4,
+    "all_original_paths_restored": true,
+    "concurrent_cli_child_process_count": 2,
+    "concurrent_file_counts": [
+      1,
+      2
+    ],
+    "restored_workspace_quarantined": true,
+    "old_authority_activated": false,
+    "full_history_preserved": true,
+    "partial_checkpoint_is_ordinary_completed_step": true,
+    "partial_staging_file_or_hardlink_alias_simulated": false,
+    "process_or_hardware_crash_simulated": false,
+    "private_origin_contents_read_by_demo": false,
+    "private_manifest_contents_read_by_demo": false,
+    "private_plan_contents_read_by_demo": false,
+    "private_fingerprints_exported": false,
+    "external_fencing_established": false,
+    "external_llm_used": false,
+    "human_review_recorded": false,
+    "proposed_code_executed": false,
+    "measured_capacity": false
+  },
+  "stages": [
+    {
+      "label": "complete-source-and-current-live-state",
+      "explanation": "A complete historical R4 bundle with two archives is available; the live source has continued to R5.",
+      "artifact": "restore-job-stage-01-complete-source-and-current-live-state.json"
+    },
+    {
+      "label": "prepared-job-blocks-uninitialized-store",
+      "explanation": "Prepare records one operation; no current DB is copied yet, and Store cannot initialize an active database at that path.",
+      "artifact": "restore-job-stage-02-prepared-job-blocks-uninitialized-store.json"
+    },
+    {
+      "label": "exact-request-binding-and-bounds",
+      "explanation": "Another request or preexisting unrelated destination is rejected; step limits remain within the explicit file bound.",
+      "artifact": "restore-job-stage-03-exact-request-binding-and-bounds.json"
+    },
+    {
+      "label": "first-file-is-readable-quarantined-history",
+      "explanation": "One CLI process copies only the current DB. A new Store reads R4 in quarantine, while full history inspection remains incomplete.",
+      "artifact": "restore-job-stage-04-first-file-is-readable-quarantined-history.json"
+    },
+    {
+      "label": "separate-process-resumes-next-file",
+      "explanation": "A later CLI process resumes from the copied DB and adds one older archive; it does not recreate the restore identity.",
+      "artifact": "restore-job-stage-05-separate-process-resumes-next-file.json"
+    },
+    {
+      "label": "lost-business-reply-recovered-without-new-restore",
+      "explanation": "The final step completes the full bundle; its business reply is discarded, and a new status process recovers the exact same public result.",
+      "artifact": "restore-job-stage-06-lost-business-reply-recovered-without-new-restore.json"
+    },
+    {
+      "label": "completed-operation-needs-no-original-source-path",
+      "explanation": "The source bundle and all three former workspace directories are temporarily unavailable. Completed status, replay and all target history still read successfully.",
+      "artifact": "restore-job-stage-07-completed-operation-needs-no-original-source-path.json"
+    },
+    {
+      "label": "concurrent-callers-share-one-file-progress",
+      "explanation": "Two separate CLI processes are launched before waiting. Their one-file steps return successive checkpoints, followed by one complete quarantined restore.",
+      "artifact": "restore-job-stage-08-concurrent-callers-share-one-file-progress.json"
+    },
+    {
+      "label": "completed-history-stays-inspection-only",
+      "explanation": "Repeated recovery and refused writes preserve the completed target, the source bundle, the live R5 workspace and the earlier restore.",
+      "artifact": "restore-job-stage-09-completed-history-stays-inspection-only.json"
+    }
+  ],
+  "artifacts": [
+    "restore-job-archive-observations.json",
+    "restore-job-cli-outcomes.json",
+    "restore-job-completed-summary.json",
+    "restore-job-concurrency.json",
+    "restore-job-detached-path-observations.json",
+    "restore-job-live-observations.json",
+    "restore-job-partial-observations.json",
+    "restore-job-rejections.json",
+    "restore-job-reply-recovery.json",
+    "restore-job-source-observations.json",
+    "restore-job-source-summary.json",
+    "restore-job-statuses.json",
+    "restore-job-target-observations.json"
+  ],
+  "limits": [
+    "The demonstration pauses at successful ordinary one-file step boundaries; it does not kill a process or reproduce an in-flight filesystem crash.",
+    "The final CLI response is parsed and validated, then its business value is discarded. An internal address of that already public response is compared with recovery and is never exported.",
+    "Two CLI callers are launched before waiting; lock-acquisition overlap and all possible schedules are not measured or forced.",
+    "The source bundle and three old workspace directories are reversibly renamed only after completion, and restored in finally.",
+    "The immutable private plan and known staging cache are not parsed by the demonstration. Partial staging files, hardlink aliases and malformed metadata are not simulated.",
+    "Existing unknown destinations and mismatching committed data are never adopted or overwritten by the operation API; only the refusal of ordinary existing/request-conflict cases is exercised here.",
+    "The target remains a historical quarantined bundle. Copied credentials, leases and opinions are not active authority.",
+    "Declared dependency provenance is retained, but query maps remain empty and no separate stale imported read/query case is induced.",
+    "Public equality excludes only the changing top-level governance observed_at wrapper, preserving expired flags and full addressed proof bodies.",
+    "Programmed roles, private checksums and local writer controls do not establish human independence, factual truth, external fencing or measured production capacity."
+  ]
+}

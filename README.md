@@ -482,6 +482,21 @@ python3 -m agentwiki workspace-restore-case-retention-review-write-catalog page 
 
 Membership сохраняется отдельно от прогресса. Page читает текущие job/review controls после освобождения catalog lock; исходные планы и данные не перечитываются. Обход не выполняет step, не выдаёт аренды и не разрешает доменных действий.
 
+## Тридцать четвёртый этап: локальные аренды позиций каталога
+
+`workspace-restore-case-retention-review-write-leases` сохраняет назначения явно выбранных позиций в отдельном частном SQLite-журнале. Транзакция выдаёт одну действующую аренду позиции внутри данного журнала. После освобождения либо истечения срока новое назначение получает следующее поколение; точный повтор возвращает историческую квитанцию без продления.
+
+- [Контракт и анализ](docs/development/workspace-restore-case-retention-review-write-leases.md).
+- [Запуск примера](examples/workspace-restore-case-retention-review-write-leases/README.md).
+- [Фактический отчёт](examples/workspace-restore-case-retention-review-write-leases/results/restore-case-retention-review-write-leases-report.md).
+
+~~~sh
+python3 -m agentwiki workspace-restore-case-retention-review-write-leases-demo --workspace /tmp/agentwiki-review-write-leases-01 --workers 3
+python3 -m agentwiki workspace-restore-case-retention-review-write-leases claim --ledger /path/to/private/ledger --index 1 --worker editor-a --lease-seconds 300 --operation-id assignment-001
+~~~
+
+Это координация выбора работы с самозаявленным worker. Прежний write step не проверяет аренду; несколько независимых журналов могут назначить один job. Истечение зависит от локальных часов. Здесь не устанавливаются аутентификация, внешнее fencing, смысловое одобрение текста или измеренная ёмкость агентов.
+
 ## Начать чтение
 
 - [Каталог всех частей переписки и форматов](docs/sessions/README.md).
@@ -520,12 +535,13 @@ Membership сохраняется отдельно от прогресса. Page
 - [Часть 33: планы удержания, результаты тридцатого этапа и продолжение — 12 сообщений](docs/sessions/session-033/transcript.md).
 - [Часть 34: рассмотрение планов, результаты тридцать первого этапа и продолжение — 15 сообщений](docs/sessions/session-034/transcript.md).
 - [Часть 35: поэтапная запись, результаты тридцать второго этапа и продолжение — 15 сообщений](docs/sessions/session-035/transcript.md).
+- [Часть 36: каталог заданий, результаты тридцать третьего этапа и продолжение — 21 сообщение](docs/sessions/session-036/transcript.md).
 - [Границы первого снимка](docs/sessions/session-001/README.md) и [продолжения](docs/sessions/session-002/README.md).
 - [Тематическая база знаний](docs/knowledge/README.md).
 - [Источники и ограничения утверждений](docs/knowledge/sources.md).
 - [Решения, предложения и открытые вопросы](docs/knowledge/decisions.md).
 
-Исходные сообщения сохранены отдельно от конспекта: 367 сообщений в тридцати пяти частях, до запроса «Продолжение» после тридцать второго этапа включительно. Текущая разработка описана в docs/development; прежняя архитектура шире возможностей прототипа. Результаты проверок среды относятся к моменту соответствующего сообщения.
+Исходные сообщения сохранены отдельно от конспекта: 388 сообщений в тридцати шести частях, до запроса «Продолжение» после тридцать третьего этапа включительно. Текущая разработка описана в docs/development; прежняя архитектура шире возможностей прототипа. Результаты проверок среды относятся к моменту соответствующего сообщения.
 
 ## Содержимое
 
@@ -565,6 +581,7 @@ Membership сохраняется отдельно от прогресса. Page
 | examples/workspace-restore-case-retention-review/ | Неизменяемое рассмотрение плана и отдельные наблюдения актуальности основания |
 | examples/workspace-restore-case-retention-review-write/ | Поэтапная совместимая запись рассмотрения с частным intent и собственным staging |
 | examples/workspace-restore-case-retention-review-write-catalog/ | Явный неизменяемый состав write jobs и отдельные страницы текущих состояний |
+| examples/workspace-restore-case-retention-review-write-leases/ | Частный локальный журнал назначений позиций, поколения и исторический replay |
 | corpora/urllib3-retry-v2.5.0/ | Закреплённый реальный исходник и авторская адаптация контракта Retry |
 | examples/multi-agent/ | Запуск и фактические результаты с экспортом документов и кода |
 | docs/development/ | Практическое руководство, теория и план следующих этапов |

@@ -1,0 +1,81 @@
+{
+  "label": "different-requests-do-not-rebind-an-intent",
+  "explanation": "Five malformed inputs and five different exact requests refuse without creating unsupported targets or changing either completed job. The immutable operation, actor, verdict, plan and target remain fixed.",
+  "observations": {
+    "write_rejections": [
+      {
+        "label": "write-actor-too-long",
+        "command": "workspace-restore-case-retention-review-write",
+        "action": "prepare",
+        "code": "workspace_restore_case_retention_review_write_invalid_input",
+        "rejected": true
+      },
+      {
+        "label": "write-operation-too-long",
+        "command": "workspace-restore-case-retention-review-write",
+        "action": "prepare",
+        "code": "workspace_restore_case_retention_review_write_invalid_input",
+        "rejected": true
+      },
+      {
+        "label": "write-actor-malformed",
+        "command": "workspace-restore-case-retention-review-write",
+        "action": "prepare",
+        "code": "workspace_restore_case_retention_review_write_invalid_input",
+        "rejected": true
+      },
+      {
+        "label": "write-job-aliases-review",
+        "command": "workspace-restore-case-retention-review-write",
+        "action": "prepare",
+        "code": "workspace_restore_case_retention_review_write_invalid_input",
+        "rejected": true
+      },
+      {
+        "label": "write-review-aliases-plan",
+        "command": "workspace-restore-case-retention-review-write",
+        "action": "prepare",
+        "code": "workspace_restore_case_retention_review_write_invalid_input",
+        "rejected": true
+      },
+      {
+        "label": "write-operation-conflict",
+        "command": "workspace-restore-case-retention-review-write",
+        "action": "prepare",
+        "code": "workspace_restore_case_retention_review_write_conflict",
+        "rejected": true
+      },
+      {
+        "label": "write-actor-conflict",
+        "command": "workspace-restore-case-retention-review-write",
+        "action": "prepare",
+        "code": "workspace_restore_case_retention_review_write_conflict",
+        "rejected": true
+      },
+      {
+        "label": "write-verdict-conflict",
+        "command": "workspace-restore-case-retention-review-write",
+        "action": "prepare",
+        "code": "workspace_restore_case_retention_review_write_conflict",
+        "rejected": true
+      },
+      {
+        "label": "write-plan-conflict",
+        "command": "workspace-restore-case-retention-review-write",
+        "action": "prepare",
+        "code": "workspace_restore_case_retention_review_write_conflict",
+        "rejected": true
+      },
+      {
+        "label": "write-target-review-conflict",
+        "command": "workspace-restore-case-retention-review-write",
+        "action": "prepare",
+        "code": "workspace_restore_case_retention_review_write_conflict",
+        "rejected": true
+      }
+    ],
+    "invalid_paths_created": false,
+    "completed_control_metadata_unchanged": true,
+    "private_control_contents_read_by_demo": false
+  }
+}

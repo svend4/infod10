@@ -1,0 +1,95 @@
+{
+  "label": "first-imported-workspace-is-active",
+  "explanation": "The previously imported workspace has fresh accepted work at R=3 and one preserved archived hop.",
+  "source_status": {
+    "revision": 3,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 3
+    },
+    "events": 36,
+    "rules_version": "mvp-1"
+  },
+  "observations": {
+    "workspace": {
+      "revision": 3,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 4
+      },
+      "proposals": {
+        "accepted": 1,
+        "proposed": 3
+      },
+      "events": 36,
+      "rules_version": "mvp-1"
+    },
+    "lineage": {
+      "rules_version": "source-transfer-lineage-1",
+      "workspace_id": "wsp_552a89d6501e3d8d96472f9944f46377",
+      "archive_count": 1,
+      "receipts": [
+        {
+          "artifact_count": 4,
+          "created_at": 1792679657.0475562,
+          "dependencies_preserved": true,
+          "external_fencing_established": false,
+          "new_administrator_id": "transfer-administrator",
+          "old_authority_transferred": false,
+          "operation_id": "source-transfer-demo-create",
+          "rules_version": "source-transfer-1",
+          "schema_version": 1,
+          "source_count": 0,
+          "source_epoch": "sfe_603ff7c4cde5d03fd1f229ccaf19052d",
+          "source_event_high_water_before": 63,
+          "source_fence_id": "sfn_457d4f27adcfe091d9b9ec13b7f2f424",
+          "source_revision": 2,
+          "transfer_event_seq": 64,
+          "transfer_id": "sft_63b908830aaa8754f699357ea815d237",
+          "workspace_id": "wsp_552a89d6501e3d8d96472f9944f46377"
+        }
+      ],
+      "old_authority_transferred": false,
+      "dependencies_preserved": true,
+      "external_fencing_established": false
+    },
+    "original_source": {
+      "revision": 2,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 5,
+        "leased": 1,
+        "pending": 1
+      },
+      "proposals": {
+        "accepted": 1,
+        "proposed": 4
+      },
+      "events": 64,
+      "rules_version": "mvp-1"
+    },
+    "original_history": {
+      "revision": 2,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 5,
+        "leased": 1,
+        "pending": 1
+      },
+      "proposals": {
+        "accepted": 1,
+        "proposed": 4
+      },
+      "events": 64,
+      "rules_version": "mvp-1"
+    }
+  }
+}
