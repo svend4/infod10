@@ -1,0 +1,723 @@
+{
+  "created": {
+    "main": {
+      "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+      "issuer_id": "wrrwpir_d1a7166d4eb335a8a8fcc2389dbc59f0",
+      "operation_id": "restore-case-retention-review-write-issuer-create-main",
+      "created_at": 1792701435.5673926,
+      "administrator": "simulated-issuer-administrator",
+      "policy": [
+        {
+          "before_state": "prepared",
+          "index": 1,
+          "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+          "principal": "simulated-issuer-holder",
+          "rule_id": "allow-fill",
+          "target_state": "ready",
+          "worker": "simulated-issuer-worker"
+        },
+        {
+          "before_state": "ready",
+          "index": 1,
+          "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+          "principal": "simulated-issuer-holder",
+          "rule_id": "allow-link",
+          "target_state": "linked",
+          "worker": "simulated-issuer-worker"
+        },
+        {
+          "before_state": "linked",
+          "index": 1,
+          "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+          "principal": "simulated-issuer-holder",
+          "rule_id": "allow-finish",
+          "target_state": "completed",
+          "worker": "simulated-issuer-worker"
+        }
+      ],
+      "advisory_only": true,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "original_files_modified": false,
+      "archival_authorized": false,
+      "deletion_authorized": false,
+      "actor_authenticated": false,
+      "old_authority_activated": false,
+      "external_fencing_established": false,
+      "worker_authenticated": false,
+      "local_capability_only": true,
+      "external_identity_verified": false,
+      "issuance_policy_only": true,
+      "existing_permits_revoked": false
+    },
+    "deny": {
+      "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+      "issuer_id": "wrrwpir_0fef365166816ae94b296d50e178ba4b",
+      "operation_id": "restore-case-retention-review-write-issuer-create-deny",
+      "created_at": 1792701435.7372508,
+      "administrator": "simulated-deny-administrator",
+      "policy": [
+        {
+          "before_state": "prepared",
+          "index": 1,
+          "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+          "principal": "simulated-issuer-holder",
+          "rule_id": "deny-other-worker",
+          "target_state": "ready",
+          "worker": "simulated-issuer-other-worker"
+        }
+      ],
+      "advisory_only": true,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "original_files_modified": false,
+      "archival_authorized": false,
+      "deletion_authorized": false,
+      "actor_authenticated": false,
+      "old_authority_activated": false,
+      "external_fencing_established": false,
+      "worker_authenticated": false,
+      "local_capability_only": true,
+      "external_identity_verified": false,
+      "issuance_policy_only": true,
+      "existing_permits_revoked": false
+    }
+  },
+  "policies": {
+    "main": [
+      {
+        "rule_id": "allow-fill",
+        "principal": "simulated-issuer-holder",
+        "worker": "simulated-issuer-worker",
+        "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+        "index": 1,
+        "before_state": "prepared",
+        "target_state": "ready"
+      },
+      {
+        "rule_id": "allow-link",
+        "principal": "simulated-issuer-holder",
+        "worker": "simulated-issuer-worker",
+        "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+        "index": 1,
+        "before_state": "ready",
+        "target_state": "linked"
+      },
+      {
+        "rule_id": "allow-finish",
+        "principal": "simulated-issuer-holder",
+        "worker": "simulated-issuer-worker",
+        "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+        "index": 1,
+        "before_state": "linked",
+        "target_state": "completed"
+      }
+    ],
+    "deny": [
+      {
+        "rule_id": "deny-other-worker",
+        "principal": "simulated-issuer-holder",
+        "worker": "simulated-issuer-other-worker",
+        "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+        "index": 1,
+        "before_state": "prepared",
+        "target_state": "ready"
+      }
+    ]
+  },
+  "observations": {
+    "main-initial-show": {
+      "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+      "issuer": {
+        "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+        "issuer_id": "wrrwpir_d1a7166d4eb335a8a8fcc2389dbc59f0",
+        "operation_id": "restore-case-retention-review-write-issuer-create-main",
+        "created_at": 1792701435.5673926,
+        "administrator": "simulated-issuer-administrator",
+        "policy": [
+          {
+            "before_state": "prepared",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "allow-fill",
+            "target_state": "ready",
+            "worker": "simulated-issuer-worker"
+          },
+          {
+            "before_state": "ready",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "allow-link",
+            "target_state": "linked",
+            "worker": "simulated-issuer-worker"
+          },
+          {
+            "before_state": "linked",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "allow-finish",
+            "target_state": "completed",
+            "worker": "simulated-issuer-worker"
+          }
+        ],
+        "advisory_only": true,
+        "inspection_only": true,
+        "domain_writes_allowed": false,
+        "original_files_modified": false,
+        "archival_authorized": false,
+        "deletion_authorized": false,
+        "actor_authenticated": false,
+        "old_authority_activated": false,
+        "external_fencing_established": false,
+        "worker_authenticated": false,
+        "local_capability_only": true,
+        "external_identity_verified": false,
+        "issuance_policy_only": true,
+        "existing_permits_revoked": false
+      },
+      "state": "active",
+      "revocation": null,
+      "advisory_only": true,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "original_files_modified": false,
+      "archival_authorized": false,
+      "deletion_authorized": false,
+      "actor_authenticated": false,
+      "old_authority_activated": false,
+      "external_fencing_established": false,
+      "worker_authenticated": false,
+      "local_capability_only": true,
+      "external_identity_verified": false,
+      "issuance_policy_only": true,
+      "existing_permits_revoked": false
+    },
+    "deny-initial-show": {
+      "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+      "issuer": {
+        "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+        "issuer_id": "wrrwpir_0fef365166816ae94b296d50e178ba4b",
+        "operation_id": "restore-case-retention-review-write-issuer-create-deny",
+        "created_at": 1792701435.7372508,
+        "administrator": "simulated-deny-administrator",
+        "policy": [
+          {
+            "before_state": "prepared",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "deny-other-worker",
+            "target_state": "ready",
+            "worker": "simulated-issuer-other-worker"
+          }
+        ],
+        "advisory_only": true,
+        "inspection_only": true,
+        "domain_writes_allowed": false,
+        "original_files_modified": false,
+        "archival_authorized": false,
+        "deletion_authorized": false,
+        "actor_authenticated": false,
+        "old_authority_activated": false,
+        "external_fencing_established": false,
+        "worker_authenticated": false,
+        "local_capability_only": true,
+        "external_identity_verified": false,
+        "issuance_policy_only": true,
+        "existing_permits_revoked": false
+      },
+      "state": "active",
+      "revocation": null,
+      "advisory_only": true,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "original_files_modified": false,
+      "archival_authorized": false,
+      "deletion_authorized": false,
+      "actor_authenticated": false,
+      "old_authority_activated": false,
+      "external_fencing_established": false,
+      "worker_authenticated": false,
+      "local_capability_only": true,
+      "external_identity_verified": false,
+      "issuance_policy_only": true,
+      "existing_permits_revoked": false
+    },
+    "main-revoked-show": {
+      "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+      "issuer": {
+        "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+        "issuer_id": "wrrwpir_d1a7166d4eb335a8a8fcc2389dbc59f0",
+        "operation_id": "restore-case-retention-review-write-issuer-create-main",
+        "created_at": 1792701435.5673926,
+        "administrator": "simulated-issuer-administrator",
+        "policy": [
+          {
+            "before_state": "prepared",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "allow-fill",
+            "target_state": "ready",
+            "worker": "simulated-issuer-worker"
+          },
+          {
+            "before_state": "ready",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "allow-link",
+            "target_state": "linked",
+            "worker": "simulated-issuer-worker"
+          },
+          {
+            "before_state": "linked",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "allow-finish",
+            "target_state": "completed",
+            "worker": "simulated-issuer-worker"
+          }
+        ],
+        "advisory_only": true,
+        "inspection_only": true,
+        "domain_writes_allowed": false,
+        "original_files_modified": false,
+        "archival_authorized": false,
+        "deletion_authorized": false,
+        "actor_authenticated": false,
+        "old_authority_activated": false,
+        "external_fencing_established": false,
+        "worker_authenticated": false,
+        "local_capability_only": true,
+        "external_identity_verified": false,
+        "issuance_policy_only": true,
+        "existing_permits_revoked": false
+      },
+      "state": "revoked",
+      "revocation": {
+        "issuer_id": "wrrwpir_d1a7166d4eb335a8a8fcc2389dbc59f0",
+        "operation_id": "restore-case-retention-review-write-issuer-revoke-main",
+        "reason": "administrator_revoked",
+        "revoked_at": 1792701442.4022143,
+        "rules_version": "workspace-restore-case-retention-review-write-issuer-1"
+      },
+      "advisory_only": true,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "original_files_modified": false,
+      "archival_authorized": false,
+      "deletion_authorized": false,
+      "actor_authenticated": false,
+      "old_authority_activated": false,
+      "external_fencing_established": false,
+      "worker_authenticated": false,
+      "local_capability_only": true,
+      "external_identity_verified": false,
+      "issuance_policy_only": true,
+      "existing_permits_revoked": false
+    },
+    "deny-revoked-show": {
+      "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+      "issuer": {
+        "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+        "issuer_id": "wrrwpir_0fef365166816ae94b296d50e178ba4b",
+        "operation_id": "restore-case-retention-review-write-issuer-create-deny",
+        "created_at": 1792701435.7372508,
+        "administrator": "simulated-deny-administrator",
+        "policy": [
+          {
+            "before_state": "prepared",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "deny-other-worker",
+            "target_state": "ready",
+            "worker": "simulated-issuer-other-worker"
+          }
+        ],
+        "advisory_only": true,
+        "inspection_only": true,
+        "domain_writes_allowed": false,
+        "original_files_modified": false,
+        "archival_authorized": false,
+        "deletion_authorized": false,
+        "actor_authenticated": false,
+        "old_authority_activated": false,
+        "external_fencing_established": false,
+        "worker_authenticated": false,
+        "local_capability_only": true,
+        "external_identity_verified": false,
+        "issuance_policy_only": true,
+        "existing_permits_revoked": false
+      },
+      "state": "revoked",
+      "revocation": {
+        "issuer_id": "wrrwpir_0fef365166816ae94b296d50e178ba4b",
+        "operation_id": "restore-case-retention-review-write-issuer-revoke-deny",
+        "reason": "administrator_revoked",
+        "revoked_at": 1792701442.952424,
+        "rules_version": "workspace-restore-case-retention-review-write-issuer-1"
+      },
+      "advisory_only": true,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "original_files_modified": false,
+      "archival_authorized": false,
+      "deletion_authorized": false,
+      "actor_authenticated": false,
+      "old_authority_activated": false,
+      "external_fencing_established": false,
+      "worker_authenticated": false,
+      "local_capability_only": true,
+      "external_identity_verified": false,
+      "issuance_policy_only": true,
+      "existing_permits_revoked": false
+    },
+    "main-still-revoked-show": {
+      "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+      "issuer": {
+        "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+        "issuer_id": "wrrwpir_d1a7166d4eb335a8a8fcc2389dbc59f0",
+        "operation_id": "restore-case-retention-review-write-issuer-create-main",
+        "created_at": 1792701435.5673926,
+        "administrator": "simulated-issuer-administrator",
+        "policy": [
+          {
+            "before_state": "prepared",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "allow-fill",
+            "target_state": "ready",
+            "worker": "simulated-issuer-worker"
+          },
+          {
+            "before_state": "ready",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "allow-link",
+            "target_state": "linked",
+            "worker": "simulated-issuer-worker"
+          },
+          {
+            "before_state": "linked",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "allow-finish",
+            "target_state": "completed",
+            "worker": "simulated-issuer-worker"
+          }
+        ],
+        "advisory_only": true,
+        "inspection_only": true,
+        "domain_writes_allowed": false,
+        "original_files_modified": false,
+        "archival_authorized": false,
+        "deletion_authorized": false,
+        "actor_authenticated": false,
+        "old_authority_activated": false,
+        "external_fencing_established": false,
+        "worker_authenticated": false,
+        "local_capability_only": true,
+        "external_identity_verified": false,
+        "issuance_policy_only": true,
+        "existing_permits_revoked": false
+      },
+      "state": "revoked",
+      "revocation": {
+        "issuer_id": "wrrwpir_d1a7166d4eb335a8a8fcc2389dbc59f0",
+        "operation_id": "restore-case-retention-review-write-issuer-revoke-main",
+        "reason": "administrator_revoked",
+        "revoked_at": 1792701442.4022143,
+        "rules_version": "workspace-restore-case-retention-review-write-issuer-1"
+      },
+      "advisory_only": true,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "original_files_modified": false,
+      "archival_authorized": false,
+      "deletion_authorized": false,
+      "actor_authenticated": false,
+      "old_authority_activated": false,
+      "external_fencing_established": false,
+      "worker_authenticated": false,
+      "local_capability_only": true,
+      "external_identity_verified": false,
+      "issuance_policy_only": true,
+      "existing_permits_revoked": false
+    },
+    "final-main-issuer-show": {
+      "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+      "issuer": {
+        "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+        "issuer_id": "wrrwpir_d1a7166d4eb335a8a8fcc2389dbc59f0",
+        "operation_id": "restore-case-retention-review-write-issuer-create-main",
+        "created_at": 1792701435.5673926,
+        "administrator": "simulated-issuer-administrator",
+        "policy": [
+          {
+            "before_state": "prepared",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "allow-fill",
+            "target_state": "ready",
+            "worker": "simulated-issuer-worker"
+          },
+          {
+            "before_state": "ready",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "allow-link",
+            "target_state": "linked",
+            "worker": "simulated-issuer-worker"
+          },
+          {
+            "before_state": "linked",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "allow-finish",
+            "target_state": "completed",
+            "worker": "simulated-issuer-worker"
+          }
+        ],
+        "advisory_only": true,
+        "inspection_only": true,
+        "domain_writes_allowed": false,
+        "original_files_modified": false,
+        "archival_authorized": false,
+        "deletion_authorized": false,
+        "actor_authenticated": false,
+        "old_authority_activated": false,
+        "external_fencing_established": false,
+        "worker_authenticated": false,
+        "local_capability_only": true,
+        "external_identity_verified": false,
+        "issuance_policy_only": true,
+        "existing_permits_revoked": false
+      },
+      "state": "revoked",
+      "revocation": {
+        "issuer_id": "wrrwpir_d1a7166d4eb335a8a8fcc2389dbc59f0",
+        "operation_id": "restore-case-retention-review-write-issuer-revoke-main",
+        "reason": "administrator_revoked",
+        "revoked_at": 1792701442.4022143,
+        "rules_version": "workspace-restore-case-retention-review-write-issuer-1"
+      },
+      "advisory_only": true,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "original_files_modified": false,
+      "archival_authorized": false,
+      "deletion_authorized": false,
+      "actor_authenticated": false,
+      "old_authority_activated": false,
+      "external_fencing_established": false,
+      "worker_authenticated": false,
+      "local_capability_only": true,
+      "external_identity_verified": false,
+      "issuance_policy_only": true,
+      "existing_permits_revoked": false
+    },
+    "final-deny-issuer-show": {
+      "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+      "issuer": {
+        "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+        "issuer_id": "wrrwpir_0fef365166816ae94b296d50e178ba4b",
+        "operation_id": "restore-case-retention-review-write-issuer-create-deny",
+        "created_at": 1792701435.7372508,
+        "administrator": "simulated-deny-administrator",
+        "policy": [
+          {
+            "before_state": "prepared",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "deny-other-worker",
+            "target_state": "ready",
+            "worker": "simulated-issuer-other-worker"
+          }
+        ],
+        "advisory_only": true,
+        "inspection_only": true,
+        "domain_writes_allowed": false,
+        "original_files_modified": false,
+        "archival_authorized": false,
+        "deletion_authorized": false,
+        "actor_authenticated": false,
+        "old_authority_activated": false,
+        "external_fencing_established": false,
+        "worker_authenticated": false,
+        "local_capability_only": true,
+        "external_identity_verified": false,
+        "issuance_policy_only": true,
+        "existing_permits_revoked": false
+      },
+      "state": "revoked",
+      "revocation": {
+        "issuer_id": "wrrwpir_0fef365166816ae94b296d50e178ba4b",
+        "operation_id": "restore-case-retention-review-write-issuer-revoke-deny",
+        "reason": "administrator_revoked",
+        "revoked_at": 1792701442.952424,
+        "rules_version": "workspace-restore-case-retention-review-write-issuer-1"
+      },
+      "advisory_only": true,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "original_files_modified": false,
+      "archival_authorized": false,
+      "deletion_authorized": false,
+      "actor_authenticated": false,
+      "old_authority_activated": false,
+      "external_fencing_established": false,
+      "worker_authenticated": false,
+      "local_capability_only": true,
+      "external_identity_verified": false,
+      "issuance_policy_only": true,
+      "existing_permits_revoked": false
+    }
+  },
+  "revocations": {
+    "main": {
+      "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+      "issuer": {
+        "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+        "issuer_id": "wrrwpir_d1a7166d4eb335a8a8fcc2389dbc59f0",
+        "operation_id": "restore-case-retention-review-write-issuer-create-main",
+        "created_at": 1792701435.5673926,
+        "administrator": "simulated-issuer-administrator",
+        "policy": [
+          {
+            "before_state": "prepared",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "allow-fill",
+            "target_state": "ready",
+            "worker": "simulated-issuer-worker"
+          },
+          {
+            "before_state": "ready",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "allow-link",
+            "target_state": "linked",
+            "worker": "simulated-issuer-worker"
+          },
+          {
+            "before_state": "linked",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "allow-finish",
+            "target_state": "completed",
+            "worker": "simulated-issuer-worker"
+          }
+        ],
+        "advisory_only": true,
+        "inspection_only": true,
+        "domain_writes_allowed": false,
+        "original_files_modified": false,
+        "archival_authorized": false,
+        "deletion_authorized": false,
+        "actor_authenticated": false,
+        "old_authority_activated": false,
+        "external_fencing_established": false,
+        "worker_authenticated": false,
+        "local_capability_only": true,
+        "external_identity_verified": false,
+        "issuance_policy_only": true,
+        "existing_permits_revoked": false
+      },
+      "state": "revoked",
+      "revocation": {
+        "issuer_id": "wrrwpir_d1a7166d4eb335a8a8fcc2389dbc59f0",
+        "operation_id": "restore-case-retention-review-write-issuer-revoke-main",
+        "reason": "administrator_revoked",
+        "revoked_at": 1792701442.4022143,
+        "rules_version": "workspace-restore-case-retention-review-write-issuer-1"
+      },
+      "advisory_only": true,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "original_files_modified": false,
+      "archival_authorized": false,
+      "deletion_authorized": false,
+      "actor_authenticated": false,
+      "old_authority_activated": false,
+      "external_fencing_established": false,
+      "worker_authenticated": false,
+      "local_capability_only": true,
+      "external_identity_verified": false,
+      "issuance_policy_only": true,
+      "existing_permits_revoked": false
+    },
+    "deny": {
+      "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+      "issuer": {
+        "rules_version": "workspace-restore-case-retention-review-write-issuer-1",
+        "issuer_id": "wrrwpir_0fef365166816ae94b296d50e178ba4b",
+        "operation_id": "restore-case-retention-review-write-issuer-create-deny",
+        "created_at": 1792701435.7372508,
+        "administrator": "simulated-deny-administrator",
+        "policy": [
+          {
+            "before_state": "prepared",
+            "index": 1,
+            "ledger_id": "wrrwlgr_c8354e1c15750864a30d2ddf428de0d7",
+            "principal": "simulated-issuer-holder",
+            "rule_id": "deny-other-worker",
+            "target_state": "ready",
+            "worker": "simulated-issuer-other-worker"
+          }
+        ],
+        "advisory_only": true,
+        "inspection_only": true,
+        "domain_writes_allowed": false,
+        "original_files_modified": false,
+        "archival_authorized": false,
+        "deletion_authorized": false,
+        "actor_authenticated": false,
+        "old_authority_activated": false,
+        "external_fencing_established": false,
+        "worker_authenticated": false,
+        "local_capability_only": true,
+        "external_identity_verified": false,
+        "issuance_policy_only": true,
+        "existing_permits_revoked": false
+      },
+      "state": "revoked",
+      "revocation": {
+        "issuer_id": "wrrwpir_0fef365166816ae94b296d50e178ba4b",
+        "operation_id": "restore-case-retention-review-write-issuer-revoke-deny",
+        "reason": "administrator_revoked",
+        "revoked_at": 1792701442.952424,
+        "rules_version": "workspace-restore-case-retention-review-write-issuer-1"
+      },
+      "advisory_only": true,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "original_files_modified": false,
+      "archival_authorized": false,
+      "deletion_authorized": false,
+      "actor_authenticated": false,
+      "old_authority_activated": false,
+      "external_fencing_established": false,
+      "worker_authenticated": false,
+      "local_capability_only": true,
+      "external_identity_verified": false,
+      "issuance_policy_only": true,
+      "existing_permits_revoked": false
+    }
+  }
+}

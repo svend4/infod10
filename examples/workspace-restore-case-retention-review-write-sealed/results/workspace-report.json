@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "rules_version": "workspace-backup-1",
+  "created_at": "2026-10-22T22:34:07.885887+02:00",
+  "timezone": "Europe/Berlin",
+  "scenario": "Full quarantined workspace backup with all ancestral archives and continuing live source",
+  "summary": {
+    "baseline_public_file_count": 169,
+    "workspace_stage_count": 10,
+    "workspace_cli_child_process_count": 7,
+    "total_cli_child_process_count": 38,
+    "captured_revision": 4,
+    "restored_revision": 4,
+    "source_revision_after_continuation": 5,
+    "captured_event_count": 36,
+    "source_event_count_after_continuation": 59,
+    "restored_event_count": 36,
+    "complete_archive_count": 2,
+    "oldest_archive_event_count": 64,
+    "nearest_archive_event_count": 38,
+    "fresh_author_job_count": 3,
+    "fresh_author_pool_workers": 3,
+    "fresh_observed_author_thread_count": 3,
+    "fresh_decision_count": 4,
+    "new_role_grants_issued": 0,
+    "operator_rejection_count": 15,
+    "source_workspace_directories_temporarily_unavailable": 3,
+    "all_source_paths_restored": true,
+    "full_backup_restored_without_original_paths": true,
+    "captured_dependencies_preserved": true,
+    "captured_receipts_preserved": true,
+    "historical_reviewer_unrevoked_in_copy": true,
+    "later_live_reviewer_revoked": true,
+    "restored_workspace_quarantined": true,
+    "old_authority_activated": false,
+    "full_history_preserved": true,
+    "db_only_inspector_accepts_full_bundle": false,
+    "private_origin_contents_read_by_demo": false,
+    "private_manifest_contents_read_by_demo": false,
+    "private_plan_contents_read_by_demo": false,
+    "private_fingerprints_exported": false,
+    "partial_bundle_or_crash_simulated": false,
+    "external_fencing_established": false,
+    "external_llm_used": false,
+    "human_review_recorded": false,
+    "proposed_code_executed": false,
+    "measured_capacity": false
+  },
+  "stages": [
+    {
+      "label": "active-workspace-with-two-archived-hops",
+      "explanation": "The active R4 workspace has two complete ancestral archives and a normally loadable release.",
+      "artifact": "workspace-stage-01-active-workspace-with-two-archived-hops.json"
+    },
+    {
+      "label": "current-authorization-and-source-boundaries",
+      "explanation": "Only the live imported workspace and its current administrator may authorize a new full backup.",
+      "artifact": "workspace-stage-02-current-authorization-and-source-boundaries.json"
+    },
+    {
+      "label": "full-backup-captures-current-state-and-all-archives",
+      "explanation": "The completed full bundle contains quarantined R4 records and both unchanged fenced ancestral archives.",
+      "artifact": "workspace-stage-03-full-backup-captures-current-state-and-all-archives.json"
+    },
+    {
+      "label": "live-authors-continue-after-capture",
+      "explanation": "Three live author jobs and one new composition use current source grants after the full backup.",
+      "artifact": "workspace-stage-04-live-authors-continue-after-capture.json"
+    },
+    {
+      "label": "fresh-source-decisions-and-acceptance",
+      "explanation": "Four fresh decisions authorize revision 5 only in the live source; the full backup still describes R4.",
+      "artifact": "workspace-stage-05-fresh-source-decisions-and-acceptance.json"
+    },
+    {
+      "label": "later-revocation-does-not-rewrite-captured-history",
+      "explanation": "The live reviewer grant is now revoked; the quarantined R4 copy retains its earlier historical state.",
+      "artifact": "workspace-stage-06-later-revocation-does-not-rewrite-captured-history.json"
+    },
+    {
+      "label": "full-inspection-and-restore-with-all-source-paths-unavailable",
+      "explanation": "All three original workspace paths are temporarily renamed; the full bundle still inspects and restores complete quarantined history.",
+      "artifact": "workspace-stage-07-full-inspection-and-restore-with-all-source-paths-unavailable.json"
+    },
+    {
+      "label": "restored-point-in-time-records-remain-quarantined",
+      "explanation": "The restored current DB retains R4 content, dependencies, tasks, events and receipts; live R5 and the later revocation remain separate.",
+      "artifact": "workspace-stage-08-restored-point-in-time-records-remain-quarantined.json"
+    },
+    {
+      "label": "restored-authority-and-format-boundaries",
+      "explanation": "Current credentials cannot turn historical copied rows into writes, publication, backup authority or transfer authority.",
+      "artifact": "workspace-stage-09-restored-authority-and-format-boundaries.json"
+    },
+    {
+      "label": "complete-history-remains-stable-after-live-continuation",
+      "explanation": "Repeated full inspection preserves the captured identity, both archives and quarantined restore while the original source stays active at R5.",
+      "artifact": "workspace-stage-10-complete-history-remains-stable-after-live-continuation.json"
+    }
+  ],
+  "artifacts": [
+    "workspace-acceptance.json",
+    "workspace-archive-observations.json",
+    "workspace-authors.json",
+    "workspace-backup-observations.json",
+    "workspace-cli-outcomes.json",
+    "workspace-composition.json",
+    "workspace-content-policy-history.json",
+    "workspace-decision-requests.json",
+    "workspace-decisions.json",
+    "workspace-dependencies.json",
+    "workspace-detached-path-observations.json",
+    "workspace-governance-policy-history.json",
+    "workspace-lineage.json",
+    "workspace-observation.json",
+    "workspace-old-snapshot-observations.json",
+    "workspace-packets.json",
+    "workspace-rejections.json",
+    "workspace-releases.json",
+    "workspace-restored-observations.json",
+    "workspace-revocation.json",
+    "workspace-source-observations.json",
+    "workspace-summaries.json"
+  ],
+  "limits": [
+    "The complete backup remains a private inspection bundle; restoring it never activates old runtime authority or renews leases.",
+    "Only the original live source performs fresh author work and a new acceptance. Its later revocation is separate from historical copied grant state.",
+    "Source-path unavailability is a reversible rename of three private directories with finally restoration, not a process or hardware crash.",
+    "The full bundle verifier checks all ancestral archives; the ordinary database-only inspector retains its separate exact layout contract.",
+    "Public equality omits only the changing top-level governance observed_at wrapper. Expired flags and full addressed proof bodies remain intact.",
+    "Declared dependency provenance is preserved. Query maps in the fictional source are empty; no separate stale read/query case is induced here.",
+    "Incomplete bundle points, concurrent source policy changes, byte corruption and input-limit exhaustion are not simulated by this ordinary scenario.",
+    "Programmed local roles do not establish independent human or model expertise, factual truth, external fencing or measured production capacity."
+  ]
+}

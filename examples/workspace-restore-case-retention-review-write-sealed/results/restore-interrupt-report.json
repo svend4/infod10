@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "rules_version": "workspace-restore-interrupt-1",
+  "created_at": "2026-10-22T22:34:21.972813+02:00",
+  "timezone": "Europe/Berlin",
+  "scenario": "Five fixed real-process interruptions of one quarantined historical restore format",
+  "summary": {
+    "baseline_public_file_count": 227,
+    "restore_interrupt_stage_count": 7,
+    "restore_interrupt_case_count": 5,
+    "restore_interrupt_worker_process_count": 5,
+    "restore_interrupt_cli_child_process_count": 20,
+    "restore_interrupt_child_process_count": 25,
+    "total_cli_child_process_count": 76,
+    "total_cli_and_interrupt_worker_process_count": 81,
+    "observed_interrupted_file_counts": [
+      0,
+      0,
+      1,
+      3,
+      3
+    ],
+    "actual_sigkill_count": 5,
+    "completed_before_response_case_count": 1,
+    "own_partial_staging_observed": true,
+    "own_full_staging_observed": true,
+    "own_hardlink_pair_observed_and_repaired": true,
+    "status_repairs_staging": false,
+    "ready_recovered_without_source": true,
+    "completed_recovered_without_source": true,
+    "all_original_paths_restored": true,
+    "operator_rejection_count": 10,
+    "captured_revision": 4,
+    "captured_event_count": 36,
+    "live_revision": 5,
+    "live_event_count": 59,
+    "complete_archive_count": 2,
+    "restored_workspace_quarantined": true,
+    "full_history_preserved": true,
+    "old_authority_activated": false,
+    "private_plan_contents_read_by_demo": false,
+    "private_owner_contents_read_by_demo": false,
+    "private_manifest_contents_read_by_demo": false,
+    "private_origin_contents_read_by_demo": false,
+    "private_fingerprints_exported": false,
+    "hardware_or_power_failure_simulated": false,
+    "external_fencing_established": false,
+    "external_llm_used": false,
+    "human_review_recorded": false,
+    "proposed_code_executed": false,
+    "measured_capacity": false
+  },
+  "stages": [
+    {
+      "label": "historical-source-before-interruption",
+      "explanation": "The unchanged file-sized restore scenario supplies a quarantined R4 snapshot and two archives; the live workspace remains R5.",
+      "artifact": "restore-interrupt-stage-01-historical-source-before-interruption.json"
+    },
+    {
+      "label": "staging-partial",
+      "explanation": "A trusted worker acknowledges the fixed boundary, is killed and reaped; ordinary status observes it and ordinary step resumes the same quarantined operation.",
+      "artifact": "restore-interrupt-stage-02-staging-partial.json"
+    },
+    {
+      "label": "staging-synced",
+      "explanation": "A trusted worker acknowledges the fixed boundary, is killed and reaped; ordinary status observes it and ordinary step resumes the same quarantined operation.",
+      "artifact": "restore-interrupt-stage-03-staging-synced.json"
+    },
+    {
+      "label": "target-linked",
+      "explanation": "A trusted worker acknowledges the fixed boundary, is killed and reaped; ordinary status observes it and ordinary step resumes the same quarantined operation.",
+      "artifact": "restore-interrupt-stage-04-target-linked.json"
+    },
+    {
+      "label": "data-ready",
+      "explanation": "A trusted worker acknowledges the fixed boundary, is killed and reaped; ordinary status observes it and ordinary step resumes the same quarantined operation.",
+      "artifact": "restore-interrupt-stage-05-data-ready.json"
+    },
+    {
+      "label": "completed",
+      "explanation": "A trusted worker acknowledges the fixed boundary, is killed and reaped; ordinary status observes it and ordinary step resumes the same quarantined operation.",
+      "artifact": "restore-interrupt-stage-06-completed.json"
+    },
+    {
+      "label": "historical-and-live-state-preserved",
+      "explanation": "All five recovered bundles remain quarantined; the captured source, both archives, live R5 workspace and preceding restore retain their public records.",
+      "artifact": "restore-interrupt-stage-07-historical-and-live-state-preserved.json"
+    }
+  ],
+  "artifacts": [
+    "restore-interrupt-archive-observations.json",
+    "restore-interrupt-cases.json",
+    "restore-interrupt-cli-outcomes.json",
+    "restore-interrupt-live-observations.json",
+    "restore-interrupt-previous-observations.json",
+    "restore-interrupt-rejections.json",
+    "restore-interrupt-source-observations.json",
+    "restore-interrupt-source-summary.json",
+    "restore-interrupt-target-observations.json",
+    "restore-interrupt-worker-outcomes.json"
+  ],
+  "limits": [
+    "Five separate fresh three-data-file jobs are killed only after an exact allowlisted acknowledgement from the trusted worker; every child is reaped with return code -SIGKILL.",
+    "The partial staging checkpoint follows flush and fsync of a nonempty proper prefix. The full staging checkpoint follows complete verification and fsync. The linked checkpoint follows link and target-parent fsync before unlink.",
+    "Status runs after the worker has been killed and reaped. It observes a proven own hardlink pair without modifying metadata; ordinary step repairs that pair and resumes copying.",
+    "Ready and completed recovery temporarily rename only the source bundle and restore it in finally. The earlier file-sized scenario separately exercises all original workspace paths becoming unavailable.",
+    "The completed checkpoint is before API return: a business response was not issued or received. Stable recovered status is compared with later ordinary step and inspect, without asserting equality to nonexistent response bytes.",
+    "This worker is restricted to the demonstration's current DB plus two archives; it is not a general interruption runner for the core's maximum seventeen data files.",
+    "A local process SIGKILL does not establish hardware, kernel, storage or power-loss durability and does not cover every possible instruction, crash point, concurrent schedule or hostile filesystem mutation.",
+    "The driver inspects only lstat metadata of fixed staging/DB/outer-manifest paths. Private plan, owner, checksum, manifest and origin contents are not read or exported.",
+    "Public equality excludes only the changing top-level governance observed_at wrapper, preserving expired flags and full addressed proof bodies.",
+    "Quarantine persists across recovery; historical grants, leases and opinions are not active authority. Programmed roles do not establish human independence, factual truth, external fencing or measured capacity."
+  ]
+}

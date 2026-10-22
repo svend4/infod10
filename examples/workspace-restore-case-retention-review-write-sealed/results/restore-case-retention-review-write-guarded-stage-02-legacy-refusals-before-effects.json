@@ -1,0 +1,74 @@
+{
+  "label": "legacy-refusals-before-effects",
+  "explanation": "Legacy step, status, prepare and catalog selection refuse the new family because its legacy coordination control is absent. New prepare refuses an existing legacy job. Wrong step/revoke credentials and changed immutable prepare requests leave metadata unchanged.",
+  "observations": {
+    "legacy_refusals": {
+      "step": {
+        "label": "legacy-step-refuses-new-family",
+        "command": "workspace-restore-case-retention-review-write",
+        "action": "step",
+        "code": "workspace_restore_case_retention_review_write_incomplete",
+        "rejected": true
+      },
+      "status": {
+        "label": "legacy-status-refuses-new-family",
+        "command": "workspace-restore-case-retention-review-write",
+        "action": "status",
+        "code": "workspace_restore_case_retention_review_write_incomplete",
+        "rejected": true
+      },
+      "prepare": {
+        "label": "legacy-prepare-refuses-new-family",
+        "command": "workspace-restore-case-retention-review-write",
+        "action": "prepare",
+        "code": "workspace_restore_case_retention_review_write_incomplete",
+        "rejected": true
+      },
+      "catalog": {
+        "label": "legacy-catalog-refuses-new-family",
+        "command": "workspace-restore-case-retention-review-write-catalog",
+        "action": "create",
+        "code": "workspace_restore_case_retention_review_write_catalog_incomplete",
+        "rejected": true
+      },
+      "guarded_prepare_old_job": {
+        "label": "guarded-prepare-refuses-legacy-job",
+        "command": "workspace-restore-case-retention-review-write-guarded",
+        "action": "prepare",
+        "code": "workspace_restore_case_retention_review_write_guarded_incomplete",
+        "rejected": true
+      }
+    },
+    "wrong_step": {
+      "label": "wrong-credential-prepared-step",
+      "command": "workspace-restore-case-retention-review-write-guarded",
+      "action": "step",
+      "code": "workspace_restore_case_retention_review_write_guarded_credential_invalid",
+      "rejected": true
+    },
+    "wrong_revoke": {
+      "label": "wrong-credential-before-revoke",
+      "command": "workspace-restore-case-retention-review-write-guarded",
+      "action": "revoke",
+      "code": "workspace_restore_case_retention_review_write_guarded_credential_invalid",
+      "rejected": true
+    },
+    "wrong_prepare": {
+      "label": "prepare-replay-other-credential",
+      "command": "workspace-restore-case-retention-review-write-guarded",
+      "action": "prepare",
+      "code": "workspace_restore_case_retention_review_write_guarded_conflict",
+      "rejected": true
+    },
+    "changed_principal": {
+      "label": "prepare-replay-other-principal",
+      "command": "workspace-restore-case-retention-review-write-guarded",
+      "action": "prepare",
+      "code": "workspace_restore_case_retention_review_write_guarded_conflict",
+      "rejected": true
+    },
+    "legacy_controls_created": false,
+    "catalog_reserved": false,
+    "original_control_metadata_unchanged": true
+  }
+}

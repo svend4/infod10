@@ -569,6 +569,20 @@ python3 -m agentwiki workspace-restore-case-retention-review-write-guarded-issue
 
 Отзыв издателя прекращает будущую выдачу; действующий guard имеет самостоятельный отзыв holder. Запись guard и issuance receipt не атомарна: отказ внешнего issue может оставить действующий guard. Выдача не удостоверяет человека и не является смысловым одобрением документации.
 
+## Сороковой этап: единая запись задания и выдачи
+
+`workspace-restore-case-retention-review-write-sealed` создаёт отдельный job, в котором полное намерение записи и свидетельство выдачи входят в один Seal14. Поддержанный `step` требует эту запись; прежние writer и guarded APIs новый формат не принимают.
+
+- [Подробный протокол и анализ](docs/development/workspace-restore-case-retention-review-write-sealed.md).
+- [Прикладной сценарий](examples/workspace-restore-case-retention-review-write-sealed/README.md).
+- [Фактический отчёт](examples/workspace-restore-case-retention-review-write-sealed/results/restore-case-retention-review-write-sealed-report.md).
+
+~~~sh
+python3 -m agentwiki workspace-restore-case-retention-review-write-sealed-demo --workspace /tmp/agentwiki-review-write-sealed-01 --workers 3
+~~~
+
+Свидетельство выдачи обязательно для нового пути выполнения. Ошибка после полного сохранения Seal14 может оставить действующее задание; гарантий отката и всех отказов питания нет. Прежняя политика издателя остаётся доступной и для старой выдачи другого job. Качество и истинность документации требуют отдельных оснований.
+
 ## Начать чтение
 
 - [Каталог всех частей переписки и форматов](docs/sessions/README.md).
@@ -613,12 +627,13 @@ python3 -m agentwiki workspace-restore-case-retention-review-write-guarded-issue
 - [Часть 39: локальные permits, результаты тридцать шестого этапа и продолжение — 18 сообщений](docs/sessions/session-039/transcript.md).
 - [Часть 40: политика издателя, результаты тридцать седьмого этапа и продолжение — 14 сообщений](docs/sessions/session-040/transcript.md).
 - [Часть 41: обязательный ключ guarded job, результаты тридцать восьмого этапа и продолжение — 16 сообщений](docs/sessions/session-041/transcript.md).
+- [Часть 42: выдача guarded jobs, результаты тридцать девятого этапа и продолжение — 13 сообщений](docs/sessions/session-042/transcript.md).
 - [Границы первого снимка](docs/sessions/session-001/README.md) и [продолжения](docs/sessions/session-002/README.md).
 - [Тематическая база знаний](docs/knowledge/README.md).
 - [Источники и ограничения утверждений](docs/knowledge/sources.md).
 - [Решения, предложения и открытые вопросы](docs/knowledge/decisions.md).
 
-Исходные сообщения сохранены отдельно от конспекта: 465 сообщений в сорока одной части, до запроса «Продолжение» после тридцать восьмого этапа включительно. Текущая разработка описана в docs/development; прежняя архитектура шире возможностей прототипа. Результаты проверок среды относятся к моменту соответствующего сообщения.
+Исходные сообщения сохранены отдельно от конспекта: 478 сообщений в сорока двух частях, до запроса «Продолжение» после тридцать девятого этапа включительно. Текущая разработка описана в docs/development; прежняя архитектура шире возможностей прототипа. Результаты проверок среды относятся к моменту соответствующего сообщения.
 
 ## Содержимое
 
@@ -664,6 +679,7 @@ python3 -m agentwiki workspace-restore-case-retention-review-write-guarded-issue
 | examples/workspace-restore-case-retention-review-write-issuer/ | Явная политика локальной выдачи и отдельные исторические квитанции permits |
 | examples/workspace-restore-case-retention-review-write-guarded/ | Отдельный формат задания с обязательным ключом для step и историческими квитанциями фаз |
 | examples/workspace-restore-case-retention-review-write-guarded-issuer/ | Явная политика создания guarded jobs, отдельные ключи и исторические квитанции выдачи |
+| examples/workspace-restore-case-retention-review-write-sealed/ | Одна полная запись задания и выдачи, обязательная перед поддержанным step |
 | corpora/urllib3-retry-v2.5.0/ | Закреплённый реальный исходник и авторская адаптация контракта Retry |
 | examples/multi-agent/ | Запуск и фактические результаты с экспортом документов и кода |
 | docs/development/ | Практическое руководство, теория и план следующих этапов |

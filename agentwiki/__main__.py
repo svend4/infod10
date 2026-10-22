@@ -45,6 +45,7 @@ from .workspace_restore_case_retention_review_write_permit_cli import register_r
 from .workspace_restore_case_retention_review_write_issuer_cli import register_restore_case_retention_review_write_issuer_parser, run_restore_case_retention_review_write_issuer_command
 from .workspace_restore_case_retention_review_write_guarded_cli import register_restore_case_retention_review_write_guarded_parser, run_restore_case_retention_review_write_guarded_command
 from .workspace_restore_case_retention_review_write_guarded_issuer_cli import register_restore_case_retention_review_write_guarded_issuer_parser, run_restore_case_retention_review_write_guarded_issuer_command
+from .workspace_restore_case_retention_review_write_sealed_cli import register_restore_case_retention_review_write_sealed_parser, run_restore_case_retention_review_write_sealed_command
 
 
 def _workers(value: str) -> int:
@@ -196,6 +197,7 @@ def main(argv: list[str] | None = None) -> int:
     register_restore_case_retention_review_write_issuer_parser(commands)
     register_restore_case_retention_review_write_guarded_parser(commands)
     register_restore_case_retention_review_write_guarded_issuer_parser(commands)
+    register_restore_case_retention_review_write_sealed_parser(commands)
     editorial_demo = commands.add_parser("editorial-demo", help="Показать историю решений программных проверяющих и устаревание оснований.")
     editorial_demo.add_argument("--workspace", type=Path, required=True)
     editorial_demo.add_argument("--workers", default=3, type=_workers)
@@ -307,6 +309,9 @@ def main(argv: list[str] | None = None) -> int:
     restore_case_retention_review_write_guarded_issuer_demo = commands.add_parser("workspace-restore-case-retention-review-write-guarded-issuer-demo", help="Создать guarded job по точной локальной политике отдельного издателя.")
     restore_case_retention_review_write_guarded_issuer_demo.add_argument("--workspace", type=Path, required=True)
     restore_case_retention_review_write_guarded_issuer_demo.add_argument("--workers", default=3, type=_workers)
+    restore_case_retention_review_write_sealed_demo = commands.add_parser("workspace-restore-case-retention-review-write-sealed-demo", help="Создать sealed job с единым полным свидетельством задания и выдачи.")
+    restore_case_retention_review_write_sealed_demo.add_argument("--workspace", type=Path, required=True)
+    restore_case_retention_review_write_sealed_demo.add_argument("--workers", default=3, type=_workers)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -387,6 +392,13 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(run_fence_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "store-transfer":
             print(json.dumps(run_transfer_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "workspace-restore-case-retention-review-write-sealed":
+            print(json.dumps(run_restore_case_retention_review_write_sealed_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "workspace-restore-case-retention-review-write-sealed-demo":
+            from .workspace_restore_case_retention_review_write_sealed_demo import run_workspace_restore_case_retention_review_write_sealed_demo
+
+            report = run_workspace_restore_case_retention_review_write_sealed_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "restore-case-retention-review-write-sealed-report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "workspace-restore-case-retention-review-write-guarded-issuer":
             print(json.dumps(run_restore_case_retention_review_write_guarded_issuer_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "workspace-restore-case-retention-review-write-guarded-issuer-demo":
