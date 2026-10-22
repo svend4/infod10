@@ -1,0 +1,72 @@
+{
+  "label": "active-source-and-historical-copy",
+  "explanation": "The source continues at its current state; the old restored copy remains quarantined.",
+  "source_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 5,
+      "leased": 1,
+      "pending": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 4
+    },
+    "events": 62,
+    "rules_version": "mvp-1"
+  },
+  "snapshot_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 4,
+      "leased": 1
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 3
+    },
+    "events": 52,
+    "rules_version": "mvp-1"
+  },
+  "observations": {
+    "fence_status": {
+      "rules_version": "source-fence-1",
+      "source_fenced": false,
+      "source_writes_blocked": false,
+      "publication_blocked": false,
+      "irreversible": false,
+      "receipt": null
+    },
+    "source_access": {
+      "rules_version": "store-snapshot-1",
+      "quarantined": false,
+      "source_fenced": false,
+      "imported_workspace": false,
+      "inspection_only": false,
+      "domain_writes_allowed": true,
+      "historical_authorization_only": false,
+      "live_authorization_allowed": true,
+      "trusted_database_owner_can_bypass": true
+    },
+    "snapshot_access": {
+      "rules_version": "store-snapshot-1",
+      "quarantined": true,
+      "source_fenced": false,
+      "imported_workspace": false,
+      "inspection_only": true,
+      "domain_writes_allowed": false,
+      "historical_authorization_only": true,
+      "live_authorization_allowed": false,
+      "trusted_database_owner_can_bypass": true,
+      "backup_id": "sbk_1e3319242e7954e2a3c3d101a802f60a",
+      "quarantine_id": "sq_df6ea4f9fd2827b03608f0ab76a31841",
+      "source_revision": 2,
+      "event_high_water": 52,
+      "created_at": 1792676768.1605132
+    }
+  }
+}

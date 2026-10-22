@@ -1,0 +1,42 @@
+{
+  "label": "prepared-job-blocks-uninitialized-store",
+  "explanation": "Prepare records one operation; no current DB is copied yet, and Store cannot initialize an active database at that path.",
+  "observations": {
+    "prepared": {
+      "completed": false,
+      "copied_file_count": 0,
+      "created_at": 1792676796.3851664,
+      "domain_writes_allowed": false,
+      "external_fencing_established": false,
+      "full_history_preserved": false,
+      "inspection_only": true,
+      "job_id": "wrj_a1166842c4fdd0e4dd58245f927d1e9b",
+      "old_authority_activated": false,
+      "operation_id": "restore-job-demo-main",
+      "result": null,
+      "rules_version": "workspace-restore-job-1",
+      "state": "prepared",
+      "total_file_count": 3,
+      "workspace_id": "wsp_6e0cdaf5ae76173b77486e43ecd8e727"
+    },
+    "rejections": [
+      {
+        "label": "missing-target-db-cannot-initialize-active-store",
+        "category": "incomplete_boundary",
+        "code": "store_snapshot_incomplete",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      },
+      {
+        "label": "prepared-full-bundle-is-incomplete",
+        "category": "incomplete_boundary",
+        "code": "workspace_backup_incomplete",
+        "rejected": true,
+        "public_observations_unchanged": true,
+        "comparison_excludes_only_governance_wrapper_observed_at": true
+      }
+    ],
+    "target_database_created": false
+  }
+}

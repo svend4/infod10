@@ -68,6 +68,8 @@
 
 **Тридцать второй этап:** [поэтапная запись рассмотрения](workspace-restore-case-retention-review-write.md) закрепляет будущую review в неизменяемом private intent и продолжает запись без исходных путей. Status сохраняет различие состояний; три step последовательно заполняют staging, устанавливают ссылку и завершают публикацию совместимой записи. [Прикладной сценарий](../../examples/workspace-restore-case-retention-review-write/README.md) показывает двух callers и восстановление потерянного ответа без новых прерываний процесса.
 
+**Тридцать третий этап:** [каталог заданий записи review](workspace-restore-case-retention-review-write-catalog.md) фиксирует явно выбранную membership и порядок до 256 jobs. Страницы до 16 позиций сохраняют исторические descriptor7 рядом с текущим status17 либо changed/unavailable. [Прикладной сценарий](../../examples/workspace-restore-case-retention-review-write-catalog/README.md) показывает отдельный прогресс задания, недоступность, смену привязки и исторический replay без автоматического выполнения шагов.
+
 ## 1. Что уже сделано
 
 | Область | Реализация | Свидетельство |

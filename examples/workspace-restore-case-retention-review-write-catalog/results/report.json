@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "kind": "private_WAL_snapshot_and_quarantined_restore_product_example",
+  "created_at": "2026-10-22T15:46:09.203117+02:00",
+  "created_at_utc": "2026-10-22T13:46:09.203211+00:00",
+  "workers": 3,
+  "actors": {
+    "authenticated_local_capability_principals": true,
+    "persons_authenticated": false,
+    "human_review_recorded": false,
+    "independent_people_or_models_established": false,
+    "external_llm_used": false,
+    "proposed_code_executed": false
+  },
+  "main_proposal_id": "p_e383137f6461cc1a7eddb14e",
+  "main_audit_id": "rha_8697aa37e89de670da3491e0f56f9e30a8db3d710b430426288a63fc2e9df364",
+  "main_source_decision_id": "gvd_422ab045c7c69f7c895f45b01133bffa7be9ac83aa05d6db8a09ca4774cc0826",
+  "main_audit_start_operation_id": "snapshot-audit-start",
+  "main_audit_step_operation_id": "snapshot-audit-first-step",
+  "main_partial_checkpoint_id": "rhs_6f8ccd68d048b70388772779639a92a01d00c403866746a4b5971b5b98002473",
+  "main_live_completed_checkpoint_id": "rhs_a29861961a22870e77f1393877b9707708866b05488c9f5c28b4daf46e5b0daf",
+  "main_target_packet_id": "cgp_4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d",
+  "main_target_governance_generation": 7,
+  "accepted_content_packet_id": "cgp_4cc32776d3902e5dacb98e84414c4e29982e4f2783336387481b4a2e9160537d",
+  "original_approval_ids": [
+    "gvd_f47ea5d7316af25085063717ec1218bac1b213bc7c0eb68fbc65b05a97f9a895",
+    "gvd_adfcc0da5508a53466cdbd5a6c27121388b1399f311fa19ff5a6e7b5dede6746",
+    "gvd_588876c1e3c45b7893691f4c6d523ec4b8e84f5ab7a2ac8525893f179fb0adf4",
+    "gvd_cc1a0c909b5916dc9dbb38d0fc1f7cf69b2f2bb296dfa0b6031c1f72a482e666"
+  ],
+  "backup_id": "sbk_1e3319242e7954e2a3c3d101a802f60a",
+  "restore_id": "sbk_1e3319242e7954e2a3c3d101a802f60a",
+  "captured_governance_policy_generation": 7,
+  "final_source_governance_policy_generation": 8,
+  "stages": [
+    {
+      "label": "authenticated-candidate",
+      "explanation": "Three author jobs and one composition prepare the fictional A document/code candidate; no proposed code is executed.",
+      "artifact": "stage-01-authenticated-candidate.json",
+      "source_revision": 1
+    },
+    {
+      "label": "quorum-veto-and-three-catalog-edges",
+      "explanation": "Original A/B approvals and C's objection survive three unrelated D updates; the active objection still blocks acceptance.",
+      "artifact": "stage-02-quorum-veto-and-three-catalog-edges.json",
+      "source_revision": 1
+    },
+    {
+      "label": "partial-audit-and-active-author-lease",
+      "explanation": "The audit is pending after one of three edges. A separate D author lease has token 1 and remains unsubmitted at capture.",
+      "artifact": "stage-03-partial-audit-and-active-author-lease.json",
+      "source_revision": 1
+    },
+    {
+      "label": "committed-WAL-state-captured",
+      "explanation": "A SELECT-only reader remains at revision 1 while ordinary APIs accept revision 2 into WAL; the backup captures revision 2 without changing source events.",
+      "artifact": "stage-04-committed-WAL-state-captured.json",
+      "source_revision": 2
+    },
+    {
+      "label": "source-continues-after-capture",
+      "explanation": "The live source revokes B, completes the audit, submits the original D lease and changes D policy. Historical acceptance replay still returns the same receipt.",
+      "artifact": "stage-05-source-continues-after-capture.json",
+      "source_revision": 2
+    },
+    {
+      "label": "restored-historical-state-is-readable",
+      "explanation": "The restored copy preserves receipt, packets, partial checkpoint and the old leased task; B remains historically unrevoked there while the live source has revoked B.",
+      "artifact": "stage-06-restored-historical-state-is-readable.json",
+      "source_revision": 2
+    },
+    {
+      "label": "restored-writes-and-publish-rejected",
+      "explanation": "The restored copy rejects acceptance replay, B's old decision, the old lease submit, enqueue and publish before domain changes; publish creates no output directory.",
+      "artifact": "stage-07-restored-writes-and-publish-rejected.json",
+      "source_revision": 2
+    },
+    {
+      "label": "quarantine-persists-in-the-database",
+      "explanation": "Opening the backup DB directly and copying only that marked DB without sidecars both retain the inspection boundary; enqueue is rejected in each copy.",
+      "artifact": "stage-08-quarantine-persists-in-the-database.json",
+      "source_revision": 2
+    },
+    {
+      "label": "safe-operator-rejections",
+      "explanation": "Missing authority, an existing backup destination, an incomplete empty directory and an existing restore destination are rejected without SQL corruption or overwrites.",
+      "artifact": "stage-09-safe-operator-rejections.json",
+      "source_revision": 2
+    }
+  ],
+  "initial_runtime_revision": 1,
+  "final_runtime_status": {
+    "revision": 2,
+    "artifacts": 4,
+    "sources": 0,
+    "tasks": {
+      "done": 5
+    },
+    "proposals": {
+      "accepted": 1,
+      "proposed": 4
+    },
+    "events": 59,
+    "rules_version": "mvp-1"
+  },
+  "summary": {
+    "author_job_count_before_capture": 3,
+    "author_pool_workers": 3,
+    "observed_author_thread_count": 3,
+    "authenticated_local_principal_count": 8,
+    "composite_proposal_count": 1,
+    "decision_count": 6,
+    "stage_count": 9,
+    "catalog_update_count": 4,
+    "catalog_updates_before_capture": 3,
+    "catalog_updates_after_capture": 1,
+    "audit_count": 1,
+    "checkpoint_count": 3,
+    "captured_audit_checked_transitions": 1,
+    "later_source_audit_checked_transitions": 3,
+    "captured_runtime_revision": 2,
+    "source_runtime_revision": 2,
+    "keeper_runtime_revision": 1,
+    "committed_WAL_revision_captured": true,
+    "backup_did_not_change_source_events": true,
+    "captured_event_count": 52,
+    "source_event_count": 59,
+    "restored_event_count": 52,
+    "cli_child_process_count": 4,
+    "quarantined_write_rejection_count": 7,
+    "operator_api_rejection_count": 4,
+    "source_accepted_proposal_count": 1,
+    "snapshot_accepted_proposal_count": 1,
+    "acceptance_receipt_schema": 4,
+    "original_approval_ids_retained": true,
+    "historical_B_grant_unrevoked_in_snapshot": true,
+    "later_source_B_grant_revoked": true,
+    "old_source_lease_completed_after_capture": true,
+    "captured_task_state": "leased",
+    "snapshot_activated": false,
+    "snapshot_inspection_only": true,
+    "snapshot_domain_writes_allowed": false,
+    "credential_files_in_bundle": false,
+    "private_database_or_manifest_exported": false,
+    "private_database_digest_exported": false,
+    "raw_source_database_copied": false,
+    "network_failure_simulated": false,
+    "process_crash_simulated": false,
+    "measured_capacity": false,
+    "semantic_equivalence_proved": false,
+    "release_created": false
+  },
+  "private_file_layout": {
+    "source_workspace": "private/source",
+    "backup_bundle": "private/backup-01",
+    "restored_workspace": "private/restore-01",
+    "database_only_copy": "private/database-only",
+    "administrator": "private/admin.credential",
+    "document_author": "private/document-author.credential",
+    "code_author": "private/code-author.credential",
+    "integrator": "private/integrator.credential",
+    "reviewer_a": "private/reviewer-a.credential",
+    "reviewer_b": "private/reviewer-b.credential",
+    "reviewer_c": "private/reviewer-c.credential",
+    "coordinator": "private/coordinator.credential"
+  },
+  "limitations": [
+    "The backup uses SQLite online backup of committed source state while a separate read-only transaction remains at an older revision. No raw live database file is copied.",
+    "Private checksums, manifest, schema fingerprints, intent and database files remain outside all public artifacts. Safe inspection summaries report validation outcomes and counts only.",
+    "The backup and restored DB are marked inspection-only. Historical grants, leases, approvals and accepted receipts are readable records, not permission to resume writes in a copy.",
+    "The marker also survives a copy of only the already-quarantined snapshot DB without filesystem sidecars; no activation operation is provided.",
+    "The original source continues independently after capture: revocation, audit advance, D task submission and a later content policy are absent from the captured copy.",
+    "Checksums and SQLite integrity/foreign-key checks establish internal file consistency under trust in the implementation and local owner, not external authenticity or semantic truth.",
+    "Public snapshot records may disclose the example's public artifact history; bearer files are separate and the private DB still contains credential hashes, so the bundle must remain private.",
+    "Configured worker counts and child processes are bounded functional workflow evidence; no throughput, load or service-capacity measurement is made.",
+    "The workflow executes no proposed Python, uses no external LLM, performs no SQL corruption and reproduces no process crash or network failure.",
+    "Local capability principals establish neither independent people/models nor human understanding, factual truth, inventory completeness or program behavior."
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "label": "full-inspection-and-restore-with-all-source-paths-unavailable",
+  "explanation": "All three original workspace paths are temporarily renamed; the full bundle still inspects and restores complete quarantined history.",
+  "observations": {
+    "detachment": {
+      "previous_workspace_directory_count": 3,
+      "mechanism": "reversible directory rename with finally restoration",
+      "source_paths_unavailable_during_inspect_and_restore": true,
+      "restored_store_records_equal_capture": true,
+      "restored_archive_records_equal_ancestry": true,
+      "all_source_paths_restored": true,
+      "process_crash_simulated": false,
+      "private_origin_or_manifest_contents_read_by_demo": false
+    },
+    "backup_summary": {
+      "archive_count": 2,
+      "created_at": 1792676790.574059,
+      "domain_writes_allowed": false,
+      "event_count": 36,
+      "event_high_water": 36,
+      "external_fencing_established": false,
+      "foreign_keys": "ok",
+      "full_history_preserved": true,
+      "inspection_only": true,
+      "integrity": "ok",
+      "kind": "backup",
+      "old_authority_activated": false,
+      "receipts": [
+        {
+          "artifact_count": 4,
+          "created_at": 1792676777.5814555,
+          "dependencies_preserved": true,
+          "external_fencing_established": false,
+          "new_administrator_id": "transfer-administrator",
+          "old_authority_transferred": false,
+          "operation_id": "source-transfer-demo-create",
+          "rules_version": "source-transfer-1",
+          "schema_version": 1,
+          "source_count": 0,
+          "source_epoch": "sfe_a74b4d7523c23977554cca1877c47c0b",
+          "source_event_high_water_before": 63,
+          "source_fence_id": "sfn_d1580cab0c8ed6d27baa5fbaa3b41016",
+          "source_revision": 2,
+          "transfer_event_seq": 64,
+          "transfer_id": "sft_53f1175d83b04907b2e348e580719e6c",
+          "workspace_id": "wsp_18f2f1a8a539d7d5dc8bd8384bcc9b41"
+        },
+        {
+          "artifact_count": 4,
+          "created_at": 1792676782.763024,
+          "dependencies_preserved": true,
+          "external_fencing_established": false,
+          "new_administrator_id": "chain-administrator",
+          "old_authority_transferred": false,
+          "operation_id": "source-transfer-chain-demo-create",
+          "rules_version": "source-transfer-1",
+          "schema_version": 1,
+          "source_count": 0,
+          "source_epoch": "sfe_0caa461be801762dc28865b9ff5b88ea",
+          "source_event_high_water_before": 37,
+          "source_fence_id": "sfn_39088941bc7cedbeffb9379a6c088aea",
+          "source_revision": 3,
+          "transfer_event_seq": 38,
+          "transfer_id": "sft_4c9ff31d4946aebcf29e72f04f9569d1",
+          "workspace_id": "wsp_6e0cdaf5ae76173b77486e43ecd8e727"
+        }
+      ],
+      "revision": 4,
+      "rules_version": "workspace-backup-1",
+      "table_counts": {
+        "artifacts": 4,
+        "authorship_leases": 4,
+        "authorship_settings": 1,
+        "content_packets": 1,
+        "content_policies": 1,
+        "content_settings": 1,
+        "events": 36,
+        "governance_decisions": 4,
+        "governance_grants": 7,
+        "governance_heads": 4,
+        "governance_operations": 10,
+        "governance_policies": 4,
+        "governance_receipts": 1,
+        "governance_revocations": 0,
+        "governance_settings": 1,
+        "meta": 2,
+        "proposal_authorship": 4,
+        "proposal_components": 2,
+        "proposals": 4,
+        "review_continuity_settings": 1,
+        "review_continuity_transitions": 0,
+        "review_history_audit_checkpoints": 0,
+        "review_history_audit_heads": 0,
+        "review_history_audit_operations": 0,
+        "review_history_audits": 0,
+        "reviews": 1,
+        "revisions": 2,
+        "sources": 0,
+        "tasks": 4
+      },
+      "workspace_backup_id": "wbk_de814007ea847522d125be3565d5d77b",
+      "workspace_id": "wsp_6e0cdaf5ae76173b77486e43ecd8e727"
+    },
+    "restore_summary": {
+      "archive_count": 2,
+      "created_at": 1792676792.9843378,
+      "domain_writes_allowed": false,
+      "event_count": 36,
+      "event_high_water": 36,
+      "external_fencing_established": false,
+      "foreign_keys": "ok",
+      "full_history_preserved": true,
+      "inspection_only": true,
+      "integrity": "ok",
+      "kind": "restore",
+      "old_authority_activated": false,
+      "receipts": [
+        {
+          "artifact_count": 4,
+          "created_at": 1792676777.5814555,
+          "dependencies_preserved": true,
+          "external_fencing_established": false,
+          "new_administrator_id": "transfer-administrator",
+          "old_authority_transferred": false,
+          "operation_id": "source-transfer-demo-create",
+          "rules_version": "source-transfer-1",
+          "schema_version": 1,
+          "source_count": 0,
+          "source_epoch": "sfe_a74b4d7523c23977554cca1877c47c0b",
+          "source_event_high_water_before": 63,
+          "source_fence_id": "sfn_d1580cab0c8ed6d27baa5fbaa3b41016",
+          "source_revision": 2,
+          "transfer_event_seq": 64,
+          "transfer_id": "sft_53f1175d83b04907b2e348e580719e6c",
+          "workspace_id": "wsp_18f2f1a8a539d7d5dc8bd8384bcc9b41"
+        },
+        {
+          "artifact_count": 4,
+          "created_at": 1792676782.763024,
+          "dependencies_preserved": true,
+          "external_fencing_established": false,
+          "new_administrator_id": "chain-administrator",
+          "old_authority_transferred": false,
+          "operation_id": "source-transfer-chain-demo-create",
+          "rules_version": "source-transfer-1",
+          "schema_version": 1,
+          "source_count": 0,
+          "source_epoch": "sfe_0caa461be801762dc28865b9ff5b88ea",
+          "source_event_high_water_before": 37,
+          "source_fence_id": "sfn_39088941bc7cedbeffb9379a6c088aea",
+          "source_revision": 3,
+          "transfer_event_seq": 38,
+          "transfer_id": "sft_4c9ff31d4946aebcf29e72f04f9569d1",
+          "workspace_id": "wsp_6e0cdaf5ae76173b77486e43ecd8e727"
+        }
+      ],
+      "revision": 4,
+      "rules_version": "workspace-backup-1",
+      "table_counts": {
+        "artifacts": 4,
+        "authorship_leases": 4,
+        "authorship_settings": 1,
+        "content_packets": 1,
+        "content_policies": 1,
+        "content_settings": 1,
+        "events": 36,
+        "governance_decisions": 4,
+        "governance_grants": 7,
+        "governance_heads": 4,
+        "governance_operations": 10,
+        "governance_policies": 4,
+        "governance_receipts": 1,
+        "governance_revocations": 0,
+        "governance_settings": 1,
+        "meta": 2,
+        "proposal_authorship": 4,
+        "proposal_components": 2,
+        "proposals": 4,
+        "review_continuity_settings": 1,
+        "review_continuity_transitions": 0,
+        "review_history_audit_checkpoints": 0,
+        "review_history_audit_heads": 0,
+        "review_history_audit_operations": 0,
+        "review_history_audits": 0,
+        "reviews": 1,
+        "revisions": 2,
+        "sources": 0,
+        "tasks": 4
+      },
+      "workspace_backup_id": "wbk_de814007ea847522d125be3565d5d77b",
+      "workspace_id": "wsp_6e0cdaf5ae76173b77486e43ecd8e727"
+    },
+    "restored_status": {
+      "revision": 4,
+      "artifacts": 4,
+      "sources": 0,
+      "tasks": {
+        "done": 4
+      },
+      "proposals": {
+        "accepted": 1,
+        "proposed": 3
+      },
+      "events": 36,
+      "rules_version": "mvp-1"
+    },
+    "restored_archive_statuses": {
+      "oldest": {
+        "revision": 2,
+        "artifacts": 4,
+        "sources": 0,
+        "tasks": {
+          "done": 5,
+          "leased": 1,
+          "pending": 1
+        },
+        "proposals": {
+          "accepted": 1,
+          "proposed": 4
+        },
+        "events": 64,
+        "rules_version": "mvp-1"
+      },
+      "nearest": {
+        "revision": 3,
+        "artifacts": 4,
+        "sources": 0,
+        "tasks": {
+          "done": 4
+        },
+        "proposals": {
+          "accepted": 1,
+          "proposed": 3
+        },
+        "events": 38,
+        "rules_version": "mvp-1"
+      }
+    }
+  }
+}

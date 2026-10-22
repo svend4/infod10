@@ -38,6 +38,7 @@ from .workspace_restore_case_catalog_cli import register_restore_case_catalog_pa
 from .workspace_restore_case_retention_cli import register_restore_case_retention_parser, run_restore_case_retention_command
 from .workspace_restore_case_retention_review_cli import register_restore_case_retention_review_parser, run_restore_case_retention_review_command
 from .workspace_restore_case_retention_review_write_cli import register_restore_case_retention_review_write_parser, run_restore_case_retention_review_write_command
+from .workspace_restore_case_retention_review_write_catalog_cli import register_restore_case_retention_review_write_catalog_parser, run_restore_case_retention_review_write_catalog_command
 
 
 def _workers(value: str) -> int:
@@ -182,6 +183,7 @@ def main(argv: list[str] | None = None) -> int:
     register_restore_case_retention_parser(commands)
     register_restore_case_retention_review_parser(commands)
     register_restore_case_retention_review_write_parser(commands)
+    register_restore_case_retention_review_write_catalog_parser(commands)
     editorial_demo = commands.add_parser("editorial-demo", help="Показать историю решений программных проверяющих и устаревание оснований.")
     editorial_demo.add_argument("--workspace", type=Path, required=True)
     editorial_demo.add_argument("--workers", default=3, type=_workers)
@@ -272,6 +274,9 @@ def main(argv: list[str] | None = None) -> int:
     restore_case_retention_review_write_demo = commands.add_parser("workspace-restore-case-retention-review-write-demo", help="Поэтапно записать рассмотрение с сохранённым намерением и продолжением без исходных путей.")
     restore_case_retention_review_write_demo.add_argument("--workspace", type=Path, required=True)
     restore_case_retention_review_write_demo.add_argument("--workers", default=3, type=_workers)
+    restore_case_retention_review_write_catalog_demo = commands.add_parser("workspace-restore-case-retention-review-write-catalog-demo", help="Обойти явный каталог заданий записи review и наблюдать их текущие состояния.")
+    restore_case_retention_review_write_catalog_demo.add_argument("--workspace", type=Path, required=True)
+    restore_case_retention_review_write_catalog_demo.add_argument("--workers", default=3, type=_workers)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -352,6 +357,13 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(run_fence_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "store-transfer":
             print(json.dumps(run_transfer_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "workspace-restore-case-retention-review-write-catalog":
+            print(json.dumps(run_restore_case_retention_review_write_catalog_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "workspace-restore-case-retention-review-write-catalog-demo":
+            from .workspace_restore_case_retention_review_write_catalog_demo import run_workspace_restore_case_retention_review_write_catalog_demo
+
+            report = run_workspace_restore_case_retention_review_write_catalog_demo(arguments.workspace, arguments.workers)
+            print(json.dumps({"report": str(arguments.workspace / "restore-case-retention-review-write-catalog-report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "workspace-restore-case-retention-review-write":
             print(json.dumps(run_restore_case_retention_review_write_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "workspace-restore-case-retention-review-write-demo":
