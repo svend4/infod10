@@ -512,6 +512,21 @@ python3 -m agentwiki workspace-restore-case-retention-review-write-action execut
 
 Уже достигнутая точная целевая фаза сохраняется отдельным наблюдением без следующего шага или заявления о причине её достижения. Более поздняя фаза вызывает отказ. Общей SQL/файловой транзакции и аутентификации worker нет; прежний прямой step остаётся доступен отдельно.
 
+## Тридцать шестой этап: локальный ключ допуска к действию
+
+`workspace-restore-case-retention-review-write-permit` связывает отдельный bearer credential с точным action и его исходной арендой. Каждый защищённый execute проверяет ключ и отсутствие отзыва перед чтением результата либо новым эффектом. Отозванный допуск блокирует и повтор защищённой выдачи; ранее сохранённый action остаётся историческим фактом.
+
+- [Протокол и анализ](docs/development/workspace-restore-case-retention-review-write-permit.md).
+- [Прикладной сценарий](examples/workspace-restore-case-retention-review-write-permit/README.md).
+- [Фактический отчёт](examples/workspace-restore-case-retention-review-write-permit/results/restore-case-retention-review-write-permit-report.md).
+
+~~~sh
+python3 -m agentwiki workspace-restore-case-retention-review-write-permit-demo --workspace /tmp/agentwiki-review-write-permit-01 --workers 3
+python3 -m agentwiki workspace-restore-case-retention-review-write-permit execute --permit /path/to/private/permit --credential-file /path/to/private/operator.credential
+~~~
+
+Это локальная проверка владения ключом допуска. Principal/worker остаются самозаявленными, выдача доверяет владельцу частной файловой среды, а прежние action API и direct step доступны отдельно. Credential и его хеш находятся вне публикации. Защищённая выдача не удостоверяет автора исторического эффекта или истинность документации.
+
 ## Начать чтение
 
 - [Каталог всех частей переписки и форматов](docs/sessions/README.md).
@@ -552,12 +567,13 @@ python3 -m agentwiki workspace-restore-case-retention-review-write-action execut
 - [Часть 35: поэтапная запись, результаты тридцать второго этапа и продолжение — 15 сообщений](docs/sessions/session-035/transcript.md).
 - [Часть 36: каталог заданий, результаты тридцать третьего этапа и продолжение — 21 сообщение](docs/sessions/session-036/transcript.md).
 - [Часть 37: локальные аренды, результаты тридцать четвёртого этапа и продолжение — 15 сообщений](docs/sessions/session-037/transcript.md).
+- [Часть 38: действия одной фазы, результаты тридцать пятого этапа и продолжение — 14 сообщений](docs/sessions/session-038/transcript.md).
 - [Границы первого снимка](docs/sessions/session-001/README.md) и [продолжения](docs/sessions/session-002/README.md).
 - [Тематическая база знаний](docs/knowledge/README.md).
 - [Источники и ограничения утверждений](docs/knowledge/sources.md).
 - [Решения, предложения и открытые вопросы](docs/knowledge/decisions.md).
 
-Исходные сообщения сохранены отдельно от конспекта: 403 сообщения в тридцати семи частях, до запроса «Продолжение» после тридцать четвёртого этапа включительно. Текущая разработка описана в docs/development; прежняя архитектура шире возможностей прототипа. Результаты проверок среды относятся к моменту соответствующего сообщения.
+Исходные сообщения сохранены отдельно от конспекта: 417 сообщений в тридцати восьми частях, до запроса «Продолжение» после тридцать пятого этапа включительно. Текущая разработка описана в docs/development; прежняя архитектура шире возможностей прототипа. Результаты проверок среды относятся к моменту соответствующего сообщения.
 
 ## Содержимое
 
@@ -599,6 +615,7 @@ python3 -m agentwiki workspace-restore-case-retention-review-write-action execut
 | examples/workspace-restore-case-retention-review-write-catalog/ | Явный неизменяемый состав write jobs и отдельные страницы текущих состояний |
 | examples/workspace-restore-case-retention-review-write-leases/ | Частный локальный журнал назначений позиций, поколения и исторический replay |
 | examples/workspace-restore-case-retention-review-write-action/ | Одна закреплённая фаза с проверкой аренды, отдельным наблюдением и историческим результатом |
+| examples/workspace-restore-case-retention-review-write-permit/ | Локальный ключ допуска к точному action, отзыв и защищённая выдача результата |
 | corpora/urllib3-retry-v2.5.0/ | Закреплённый реальный исходник и авторская адаптация контракта Retry |
 | examples/multi-agent/ | Запуск и фактические результаты с экспортом документов и кода |
 | docs/development/ | Практическое руководство, теория и план следующих этапов |

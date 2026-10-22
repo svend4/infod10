@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "rules_version": "workspace-restore-case-retention-review-write-1",
+  "created_at": "2026-10-22T18:18:39.690349+02:00",
+  "timezone": "Europe/Berlin",
+  "scenario": "Ordinary staged publication of exact advisory review records without new fault injection",
+  "summary": {
+    "baseline_public_file_count": 341,
+    "review_write_stage_count": 6,
+    "private_review_write_job_count": 2,
+    "new_private_review_record_count": 2,
+    "total_private_review_record_count": 4,
+    "selected_case_count_per_review": 4,
+    "simulated_self_declared_actor_count": 2,
+    "review_write_cli_child_process_count": 58,
+    "review_write_successful_cli_count": 41,
+    "review_write_refused_cli_count": 17,
+    "total_cli_child_process_count": 371,
+    "total_cli_and_interrupt_worker_process_count": 385,
+    "launched_step_caller_count": 2,
+    "step_callers_launched_before_response_collection": true,
+    "temporal_process_overlap_measured": false,
+    "new_interrupt_worker_process_count": 0,
+    "new_fault_worker_count": 0,
+    "injected_partial_write_count": 0,
+    "partial_write_recovery_exercised": false,
+    "discarded_public_response_count": 2,
+    "discarded_prepare_response_recovered_exactly": true,
+    "discarded_step_response_recovered_by_status_exactly": true,
+    "operator_rejection_count": 17,
+    "offline_live_path_count": 14,
+    "prepared_write_completed_without_live_inputs": true,
+    "old_review_reader_compatible_after_completion": true,
+    "old_review_reader_refused_unpublished_or_linked_states": true,
+    "completed_replays_preserved_control_metadata": true,
+    "all_detached_paths_restored": true,
+    "original_control_metadata_unchanged": true,
+    "old_blocked_job_metadata_unchanged": true,
+    "original_blocked_jobs_still_blocked": true,
+    "completed_write_control_metadata_unchanged": true,
+    "current_basis_revalidation_count": 2,
+    "minimum_held_count": 2,
+    "long_held_count": 4,
+    "original_identity_reconstructed": false,
+    "request_equivalence_verified": false,
+    "new_restore_attempt_count": 0,
+    "archival_performed": false,
+    "deletion_performed": false,
+    "captured_revision": 4,
+    "captured_event_count": 36,
+    "live_revision": 5,
+    "live_event_count": 59,
+    "private_control_contents_read_by_demo": false,
+    "private_stage_contents_read_by_demo": false,
+    "private_fingerprints_exported": false,
+    "actor_authenticated": false,
+    "old_authority_activated": false,
+    "external_fencing_established": false,
+    "external_llm_used": false,
+    "human_review_recorded": false,
+    "proposed_code_executed": false,
+    "measured_capacity": false
+  },
+  "stages": [
+    {
+      "label": "durable-intent-fixes-a-whole-review",
+      "explanation": "Two ordinary prepare requests fix complete advisory reviews; exact replay recovers a discarded response, status preserves controls, and the old reader refuses the unpublished target.",
+      "artifact": "restore-case-retention-review-write-stage-01-durable-intent-fixes-a-whole-review.json"
+    },
+    {
+      "label": "two-launched-callers-advance-one-fixed-write",
+      "explanation": "Two step processes start before reply collection and return unordered ready/linked states. The old reader refuses the two-link state; a third step completes publication and historical readers become compatible.",
+      "artifact": "restore-case-retention-review-write-stage-02-two-launched-callers-advance-one-fixed-write.json"
+    },
+    {
+      "label": "prepared-write-completes-without-live-inputs",
+      "explanation": "With fourteen old live paths absent, a prepared job advances ready/linked/completed from its durable intent. Status recovers a discarded ready reply; old show/record and completed prepare replay remain source-free. Every path returns in finally.",
+      "artifact": "restore-case-retention-review-write-stage-03-prepared-write-completes-without-live-inputs.json"
+    },
+    {
+      "label": "compatible-review-keeps-old-assessment",
+      "explanation": "Completed files are ordinary review records: old show and separate revalidation retain the full original plans. Minimum keeps two unknown-identity holds and long keeps four holds; matching basis authorizes no domain action.",
+      "artifact": "restore-case-retention-review-write-stage-04-compatible-review-keeps-old-assessment.json"
+    },
+    {
+      "label": "different-requests-do-not-rebind-an-intent",
+      "explanation": "Five malformed inputs and five different exact requests refuse without creating unsupported targets or changing either completed job. The immutable operation, actor, verdict, plan and target remain fixed.",
+      "artifact": "restore-case-retention-review-write-stage-05-different-requests-do-not-rebind-an-intent.json"
+    },
+    {
+      "label": "publication-preserves-prior-domain-history",
+      "explanation": "Both completed statuses, previous reviews, source plans, catalog pages, case details and blocked jobs remain consistent. Source/live history is unchanged, and no domain action, new fault worker or injected partial write occurs.",
+      "artifact": "restore-case-retention-review-write-stage-06-publication-preserves-prior-domain-history.json"
+    }
+  ],
+  "artifacts": [
+    "restore-case-retention-review-write-cli-outcomes.json",
+    "restore-case-retention-review-write-control-observations.json",
+    "restore-case-retention-review-write-current-basis-observations.json",
+    "restore-case-retention-review-write-launched-callers.json",
+    "restore-case-retention-review-write-live-observations.json",
+    "restore-case-retention-review-write-rejections.json",
+    "restore-case-retention-review-write-reply-recovery.json",
+    "restore-case-retention-review-write-review-compatibility.json",
+    "restore-case-retention-review-write-source-observations.json",
+    "restore-case-retention-review-write-states.json"
+  ],
+  "limits": [
+    "This ordinary product workflow introduces no fault callback, injected partial write, forced interruption or new fault worker. Staging-prefix recovery is implemented separately and is not exercised here.",
+    "Two ordinary step processes are launched before either reply is collected and return successive ready/linked states. Temporal overlap, lock wait duration, throughput and production capacity are not measured.",
+    "Each durable intent fixes one complete self-declared advisory review. Completion preserves old review format, identity, operation, clock, actor, verdict, plan and all original reasons.",
+    "Prepared, ready and linked states do not provide an old-reader result. The old reader refuses until the proven staging alias is removed and the final record has one link.",
+    "Before a complete durable intent exists, bootstrap directories, empty staging and partial intent remain outside supported continuation; this scenario does not construct or repair them.",
+    "After preparation, status, step and exact prepare replay use captured job controls without live plan, catalog, case, attempt or source bundle reads. Fourteen original paths return in finally; old blocked jobs never move.",
+    "An actual prepare reply is discarded and recovered by exact replay. An actual ready step reply is discarded and recovered through status without repeating a state-changing step. Comparison digests remain unpublished.",
+    "Source/live public Store comparison excludes only top-level governance observed_at. New write-job and review metadata are separate from domain history; no new restoration, grant, credential, archival or deletion occurs beyond baseline.",
+    "Actors and verdicts do not establish authentication, independent expertise, semantic truth or authorization. Matching basis revalidation is separate from publication and authorizes no action.",
+    "No power failure, storage failure, new SIGKILL schedule, arbitrary partial control repair, noncooperating file owner or full concurrency schedule is demonstrated."
+  ]
+}
