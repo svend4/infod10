@@ -1,0 +1,343 @@
+{
+  "case_id": "baseline",
+  "summary": {
+    "report_id": "spc_e964ac8f9c1ac1b628fda248682f55f601d0a7cefaad35d888a7fbe368da6913",
+    "report_digest": "e964ac8f9c1ac1b628fda248682f55f601d0a7cefaad35d888a7fbe368da6913",
+    "rules_version": "source-promise-coverage-1",
+    "atomic_capture": false,
+    "auto_accept": false,
+    "blockers": [],
+    "counts": {
+      "anchor_verified": 4,
+      "assigned": 4,
+      "assigned_mapping_ids": 4,
+      "covered": 4,
+      "covered_unique_requirements": 4,
+      "invalid_mapping": 0,
+      "mapped": 4,
+      "mapped_mapping_ids": 4,
+      "matching": 4,
+      "mismatch": 0,
+      "total": 4,
+      "uncovered": 0,
+      "unique_requirements": 4,
+      "unresolved": 0,
+      "unresolved_anchor": 0
+    },
+    "coverage_fraction": {
+      "denominator": 4,
+      "numerator": 4
+    },
+    "coverage_state": "declared_promises_covered",
+    "duplicate_requirements": [],
+    "live_state_checked": false,
+    "prose_semantics_verified": false,
+    "requires_human_review": true,
+    "results": [
+      {
+        "anchor": {
+          "document_sha256": "9d702c63a2723cf44f5a4dd167ecff4c60be24e7d26346a4cdaa5becc0c11659",
+          "location": {
+            "end_line": 9,
+            "end_offset": 512,
+            "start_line": 9,
+            "start_offset": 403
+          },
+          "occurrence_count": 1,
+          "outside_fenced_blocks": true,
+          "quote": "Набор Retry.DEFAULT_ALLOWED_METHODS содержит HEAD, GET, PUT, DELETE, OPTIONS и TRACE; POST в нём отсутствует.",
+          "quote_sha256": "a9aa4236fccdf0bea6fbcf0bba6470592387ff6f66f64a186028383b19742762",
+          "reasons": [],
+          "resolved": true,
+          "snippet": "Набор Retry.DEFAULT_ALLOWED_METHODS содержит HEAD, GET, PUT, DELETE, OPTIONS и TRACE; POST в нём отсутствует."
+        },
+        "anchor_verified": true,
+        "document_endpoint": {
+          "location": {
+            "end_line": 23,
+            "end_offset": 1183,
+            "start_line": 18,
+            "start_offset": 951
+          },
+          "normalized_value": [
+            "DELETE",
+            "GET",
+            "HEAD",
+            "OPTIONS",
+            "PUT",
+            "TRACE"
+          ],
+          "reasons": [],
+          "resolved": true,
+          "selector": {
+            "fence_id": "retry-defaults",
+            "field": "default_allowed_methods"
+          },
+          "sha256": "9d702c63a2723cf44f5a4dd167ecff4c60be24e7d26346a4cdaa5becc0c11659",
+          "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10,\n  \"default_remove_headers_on_redirect\": [\"Cookie\", \"Authorization\", \"Proxy-Authorization\"],\n  \"backoff_factor_default\": 0\n}\n",
+          "value": [
+            "HEAD",
+            "GET",
+            "PUT",
+            "DELETE",
+            "OPTIONS",
+            "TRACE"
+          ]
+        },
+        "id": "retry-methods-promise",
+        "mapping_state": "mapped",
+        "reasons": [],
+        "references": [
+          {
+            "actual_requirement_digest": "e313afbd3c7f1c22bdab540435767cbfc6199cfae6852baf9391cdc751d9b563",
+            "comparison": {
+              "adapter_document": "match",
+              "source_adapter": "match",
+              "source_document": "match",
+              "state": "match"
+            },
+            "mapping_id": "retry-methods",
+            "reasons": [],
+            "valid": true
+          }
+        ],
+        "requirement_digest": "e313afbd3c7f1c22bdab540435767cbfc6199cfae6852baf9391cdc751d9b563",
+        "satisfaction_state": "match"
+      },
+      {
+        "anchor": {
+          "document_sha256": "9d702c63a2723cf44f5a4dd167ecff4c60be24e7d26346a4cdaa5becc0c11659",
+          "location": {
+            "end_line": 11,
+            "end_offset": 616,
+            "start_line": 11,
+            "start_offset": 514
+          },
+          "occurrence_count": 1,
+          "outside_fenced_blocks": true,
+          "quote": "У конструктора Retry значение total по умолчанию равно 10; параметр считает повторы, а не все попытки.",
+          "quote_sha256": "81bea61ab24f9486f434c57ed1a5080d77e3b098fa42140fb5cc0fd9a8378ca2",
+          "reasons": [],
+          "resolved": true,
+          "snippet": "У конструктора Retry значение total по умолчанию равно 10; параметр считает повторы, а не все попытки."
+        },
+        "anchor_verified": true,
+        "document_endpoint": {
+          "location": {
+            "end_line": 23,
+            "end_offset": 1183,
+            "start_line": 18,
+            "start_offset": 951
+          },
+          "normalized_value": 10,
+          "reasons": [],
+          "resolved": true,
+          "selector": {
+            "fence_id": "retry-defaults",
+            "field": "total_default"
+          },
+          "sha256": "9d702c63a2723cf44f5a4dd167ecff4c60be24e7d26346a4cdaa5becc0c11659",
+          "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10,\n  \"default_remove_headers_on_redirect\": [\"Cookie\", \"Authorization\", \"Proxy-Authorization\"],\n  \"backoff_factor_default\": 0\n}\n",
+          "value": 10
+        },
+        "id": "retry-total-promise",
+        "mapping_state": "mapped",
+        "reasons": [],
+        "references": [
+          {
+            "actual_requirement_digest": "1002375f3d2c03c3d71279de74cf38e319a2c2797bc9eaf6b4f4250cde96d299",
+            "comparison": {
+              "adapter_document": "match",
+              "source_adapter": "match",
+              "source_document": "match",
+              "state": "match"
+            },
+            "mapping_id": "retry-total",
+            "reasons": [],
+            "valid": true
+          }
+        ],
+        "requirement_digest": "1002375f3d2c03c3d71279de74cf38e319a2c2797bc9eaf6b4f4250cde96d299",
+        "satisfaction_state": "match"
+      },
+      {
+        "anchor": {
+          "document_sha256": "9d702c63a2723cf44f5a4dd167ecff4c60be24e7d26346a4cdaa5becc0c11659",
+          "location": {
+            "end_line": 13,
+            "end_offset": 788,
+            "start_line": 13,
+            "start_offset": 618
+          },
+          "occurrence_count": 1,
+          "outside_fenced_blocks": true,
+          "quote": "Набор Retry.DEFAULT_REMOVE_HEADERS_ON_REDIRECT содержит Cookie, Authorization и Proxy-Authorization; это имена в объявлении константы, до преобразования в нижний регистр.",
+          "quote_sha256": "f585b77683a728d2740033500123f19bb783d43f7d77180fff7153846e811218",
+          "reasons": [],
+          "resolved": true,
+          "snippet": "Набор Retry.DEFAULT_REMOVE_HEADERS_ON_REDIRECT содержит Cookie, Authorization и Proxy-Authorization; это имена в объявлении константы, до преобразования в нижний регистр."
+        },
+        "anchor_verified": true,
+        "document_endpoint": {
+          "location": {
+            "end_line": 23,
+            "end_offset": 1183,
+            "start_line": 18,
+            "start_offset": 951
+          },
+          "normalized_value": [
+            "Authorization",
+            "Cookie",
+            "Proxy-Authorization"
+          ],
+          "reasons": [],
+          "resolved": true,
+          "selector": {
+            "fence_id": "retry-defaults",
+            "field": "default_remove_headers_on_redirect"
+          },
+          "sha256": "9d702c63a2723cf44f5a4dd167ecff4c60be24e7d26346a4cdaa5becc0c11659",
+          "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10,\n  \"default_remove_headers_on_redirect\": [\"Cookie\", \"Authorization\", \"Proxy-Authorization\"],\n  \"backoff_factor_default\": 0\n}\n",
+          "value": [
+            "Cookie",
+            "Authorization",
+            "Proxy-Authorization"
+          ]
+        },
+        "id": "retry-remove-headers-promise",
+        "mapping_state": "mapped",
+        "reasons": [],
+        "references": [
+          {
+            "actual_requirement_digest": "d5423ab88367145ec9a91b0f36ad3473d1aa95e7fe7ae6ebdf356977bd88ffc3",
+            "comparison": {
+              "adapter_document": "match",
+              "source_adapter": "match",
+              "source_document": "match",
+              "state": "match"
+            },
+            "mapping_id": "retry-remove-headers",
+            "reasons": [],
+            "valid": true
+          }
+        ],
+        "requirement_digest": "d5423ab88367145ec9a91b0f36ad3473d1aa95e7fe7ae6ebdf356977bd88ffc3",
+        "satisfaction_state": "match"
+      },
+      {
+        "anchor": {
+          "document_sha256": "9d702c63a2723cf44f5a4dd167ecff4c60be24e7d26346a4cdaa5becc0c11659",
+          "location": {
+            "end_line": 15,
+            "end_offset": 916,
+            "start_line": 15,
+            "start_offset": 790
+          },
+          "occurrence_count": 1,
+          "outside_fenced_blocks": true,
+          "quote": "У конструктора Retry выражение по умолчанию для backoff_factor — целочисленный литерал 0, хотя параметр аннотирован как float.",
+          "quote_sha256": "11a501ef201291d2d8af735ddb35b266997fd508d4829847cc4016116759e9d5",
+          "reasons": [],
+          "resolved": true,
+          "snippet": "У конструктора Retry выражение по умолчанию для backoff_factor — целочисленный литерал 0, хотя параметр аннотирован как float."
+        },
+        "anchor_verified": true,
+        "document_endpoint": {
+          "location": {
+            "end_line": 23,
+            "end_offset": 1183,
+            "start_line": 18,
+            "start_offset": 951
+          },
+          "normalized_value": 0,
+          "reasons": [],
+          "resolved": true,
+          "selector": {
+            "fence_id": "retry-defaults",
+            "field": "backoff_factor_default"
+          },
+          "sha256": "9d702c63a2723cf44f5a4dd167ecff4c60be24e7d26346a4cdaa5becc0c11659",
+          "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10,\n  \"default_remove_headers_on_redirect\": [\"Cookie\", \"Authorization\", \"Proxy-Authorization\"],\n  \"backoff_factor_default\": 0\n}\n",
+          "value": 0
+        },
+        "id": "retry-backoff-factor-promise",
+        "mapping_state": "mapped",
+        "reasons": [],
+        "references": [
+          {
+            "actual_requirement_digest": "ad960f7803748adb3e68d366264845537d37f7ab3dc19e52866fb81129778d7c",
+            "comparison": {
+              "adapter_document": "match",
+              "source_adapter": "match",
+              "source_document": "match",
+              "state": "match"
+            },
+            "mapping_id": "retry-backoff-factor",
+            "reasons": [],
+            "valid": true
+          }
+        ],
+        "requirement_digest": "ad960f7803748adb3e68d366264845537d37f7ab3dc19e52866fb81129778d7c",
+        "satisfaction_state": "match"
+      }
+    ],
+    "runtime_binding_verified": false,
+    "shared_mappings": [],
+    "source_report_digest": "f604ea33b61fd5773d775190474f0edd83ac0c263e925bb90000a6ecf50ac09b",
+    "source_report_id": "sad_f604ea33b61fd5773d775190474f0edd83ac0c263e925bb90000a6ecf50ac09b",
+    "state": "current_for_human_review",
+    "unique_requirement_fraction": {
+      "denominator": 4,
+      "numerator": 4
+    },
+    "unknown_mapping_ids": [],
+    "unmapped_mapping_ids": [],
+    "upstream_blockers": [],
+    "upstream_comparisons": [
+      {
+        "comparison": {
+          "adapter_document": "match",
+          "source_adapter": "match",
+          "source_document": "match",
+          "state": "match"
+        },
+        "mapping_id": "retry-methods"
+      },
+      {
+        "comparison": {
+          "adapter_document": "match",
+          "source_adapter": "match",
+          "source_document": "match",
+          "state": "match"
+        },
+        "mapping_id": "retry-total"
+      },
+      {
+        "comparison": {
+          "adapter_document": "match",
+          "source_adapter": "match",
+          "source_document": "match",
+          "state": "match"
+        },
+        "mapping_id": "retry-remove-headers"
+      },
+      {
+        "comparison": {
+          "adapter_document": "match",
+          "source_adapter": "match",
+          "source_document": "match",
+          "state": "match"
+        },
+        "mapping_id": "retry-backoff-factor"
+      }
+    ],
+    "upstream_state": "current_for_human_review"
+  },
+  "input_directory_absent_during_show": true,
+  "source_report_directory_absent_during_show": true,
+  "all_inputs_and_parent_reports_absent": true,
+  "own_report_online": true,
+  "own_report_bytes_and_metadata_unchanged": true,
+  "all_directories_restored": true,
+  "live_sources_checked": false
+}

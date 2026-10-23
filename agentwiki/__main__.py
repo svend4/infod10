@@ -320,6 +320,8 @@ def main(argv: list[str] | None = None) -> int:
     source_adapter_demo.add_argument("--workspace", type=Path, required=True)
     source_promise_coverage_demo = commands.add_parser("source-promise-coverage-demo", help="Связать явную опись обещаний с captured source/adapter/document сравнением.")
     source_promise_coverage_demo.add_argument("--workspace", type=Path, required=True)
+    retry_source_study_demo = commands.add_parser("retry-source-study-demo", help="Рассмотреть четыре объявления Retry, явные исключения и границу структурной проверки прозы.")
+    retry_source_study_demo.add_argument("--workspace", type=Path, required=True)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -415,6 +417,11 @@ def main(argv: list[str] | None = None) -> int:
             from .source_adapter_demo import run_source_adapter_demo
 
             report = run_source_adapter_demo(arguments.workspace)
+            print(json.dumps({"report": str(arguments.workspace / "report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
+        elif arguments.command == "retry-source-study-demo":
+            from .retry_source_study_demo import run_retry_source_study_demo
+
+            report = run_retry_source_study_demo(arguments.workspace)
             print(json.dumps({"report": str(arguments.workspace / "report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "workspace-restore-case-retention-review-write-sealed-demo":
             from .workspace_restore_case_retention_review_write_sealed_demo import run_workspace_restore_case_retention_review_write_sealed_demo

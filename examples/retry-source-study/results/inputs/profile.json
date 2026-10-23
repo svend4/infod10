@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "mappings": [
+    {
+      "adapter_symbol": "DEFAULT_ALLOWED_METHODS",
+      "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+      "document_selector": {
+        "fence_id": "retry-defaults",
+        "field": "default_allowed_methods"
+      },
+      "id": "retry-methods",
+      "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+      "source_selector": {
+        "class_name": "Retry",
+        "kind": "class_frozenset_strings",
+        "symbol": "DEFAULT_ALLOWED_METHODS"
+      },
+      "value_type": "string_set"
+    },
+    {
+      "adapter_symbol": "TOTAL_DEFAULT",
+      "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+      "document_selector": {
+        "fence_id": "retry-defaults",
+        "field": "total_default"
+      },
+      "id": "retry-total",
+      "scope": "urllib3 2.5.0 Retry constructor total default expression",
+      "source_selector": {
+        "class_name": "Retry",
+        "kind": "parameter_default",
+        "method_name": "__init__",
+        "parameter": "total"
+      },
+      "value_type": "integer"
+    },
+    {
+      "id": "retry-remove-headers",
+      "scope": "urllib3 2.5.0 Retry.DEFAULT_REMOVE_HEADERS_ON_REDIRECT captured declaration",
+      "annotation": "Raw names in the captured class declaration, not the lowercased runtime attribute or all redirect behavior.",
+      "value_type": "string_set",
+      "source_selector": {
+        "kind": "class_frozenset_strings",
+        "class_name": "Retry",
+        "symbol": "DEFAULT_REMOVE_HEADERS_ON_REDIRECT"
+      },
+      "adapter_symbol": "DEFAULT_REMOVE_HEADERS_ON_REDIRECT",
+      "document_selector": {
+        "fence_id": "retry-defaults",
+        "field": "default_remove_headers_on_redirect"
+      }
+    },
+    {
+      "id": "retry-backoff-factor",
+      "scope": "urllib3 2.5.0 Retry constructor backoff_factor default expression",
+      "annotation": "The captured default is an integer AST literal 0 despite the float annotation; this does not establish allowed runtime values or complete scheduling behavior.",
+      "value_type": "integer",
+      "source_selector": {
+        "kind": "parameter_default",
+        "class_name": "Retry",
+        "method_name": "__init__",
+        "parameter": "backoff_factor"
+      },
+      "adapter_symbol": "BACKOFF_FACTOR_DEFAULT",
+      "document_selector": {
+        "fence_id": "retry-defaults",
+        "field": "backoff_factor_default"
+      }
+    }
+  ]
+}

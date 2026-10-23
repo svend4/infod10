@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "source_path": "upstream/retry.py",
+  "source_sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+  "source_commit": "aaab4eccc10c965897540b21e15f11859d0b62e7",
+  "entries": [
+    {
+      "id": "retry-methods",
+      "selection": "selected",
+      "mapping_id": "retry-methods",
+      "declaration_form": "class_assignment",
+      "source_selector": {
+        "class_name": "Retry",
+        "member": "DEFAULT_ALLOWED_METHODS",
+        "parameter": null
+      },
+      "reason_code": null,
+      "evidence": {
+        "quote": "frozenset(\n        [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"]\n    )",
+        "sha256": "45ac11c791a0e44fbf2a8a18602813625a7b7145378257430a2515a1ddcd62ff",
+        "location": {
+          "start_offset": 6193,
+          "end_offset": 6270,
+          "start_line": 184,
+          "end_line": 186
+        }
+      },
+      "annotation": "Selected raw six-method class declaration; no universal POST retry prohibition is inferred."
+    },
+    {
+      "id": "retry-total",
+      "selection": "selected",
+      "mapping_id": "retry-total",
+      "declaration_form": "parameter_default",
+      "source_selector": {
+        "class_name": "Retry",
+        "member": "__init__",
+        "parameter": "total"
+      },
+      "reason_code": null,
+      "evidence": {
+        "quote": "10",
+        "sha256": "4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5",
+        "location": {
+          "start_offset": 6815,
+          "end_offset": 6817,
+          "start_line": 204,
+          "end_line": 204
+        }
+      },
+      "annotation": "Selected integer constructor default expression; prose units remain a separate editorial question."
+    },
+    {
+      "id": "retry-remove-headers",
+      "selection": "selected",
+      "mapping_id": "retry-remove-headers",
+      "declaration_form": "class_assignment",
+      "source_selector": {
+        "class_name": "Retry",
+        "member": "DEFAULT_REMOVE_HEADERS_ON_REDIRECT",
+        "parameter": null
+      },
+      "reason_code": null,
+      "evidence": {
+        "quote": "frozenset(\n        [\"Cookie\", \"Authorization\", \"Proxy-Authorization\"]\n    )",
+        "sha256": "201f148f8eacbd2ef555361deefac6487ecdba58acd6556c722ddc6eb7f0d57a",
+        "location": {
+          "start_offset": 6505,
+          "end_offset": 6580,
+          "start_line": 192,
+          "end_line": 194
+        }
+      },
+      "annotation": "Selected raw mixed-case header names before the separate lowercase expression."
+    },
+    {
+      "id": "retry-backoff-factor",
+      "selection": "selected",
+      "mapping_id": "retry-backoff-factor",
+      "declaration_form": "parameter_default",
+      "source_selector": {
+        "class_name": "Retry",
+        "member": "__init__",
+        "parameter": "backoff_factor"
+      },
+      "reason_code": null,
+      "evidence": {
+        "quote": "0",
+        "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+        "location": {
+          "start_offset": 7179,
+          "end_offset": 7180,
+          "start_line": 212,
+          "end_line": 212
+        }
+      },
+      "annotation": "Selected integer AST default 0 even though the parameter annotation is float."
+    },
+    {
+      "id": "retry-after-status-codes",
+      "selection": "excluded_before_analysis",
+      "mapping_id": null,
+      "declaration_form": "class_assignment",
+      "source_selector": {
+        "class_name": "Retry",
+        "member": "RETRY_AFTER_STATUS_CODES",
+        "parameter": null
+      },
+      "reason_code": "integer_frozenset_not_supported",
+      "evidence": {
+        "quote": "frozenset([413, 429, 503])",
+        "sha256": "99504906901b292bc7e9d1530ca08344ac1c29d6a19d40251dc76f66ce6d7034",
+        "location": {
+          "start_offset": 6367,
+          "end_offset": 6393,
+          "start_line": 189,
+          "end_line": 189
+        }
+      },
+      "annotation": "Integer members 413, 429 and 503 are not a string_set mapping and are not submitted as one."
+    },
+    {
+      "id": "retry-backoff-max-constant",
+      "selection": "excluded_before_analysis",
+      "mapping_id": null,
+      "declaration_form": "class_assignment",
+      "source_selector": {
+        "class_name": "Retry",
+        "member": "DEFAULT_BACKOFF_MAX",
+        "parameter": null
+      },
+      "reason_code": "class_integer_not_supported",
+      "evidence": {
+        "quote": "120",
+        "sha256": "2abaca4911e68fa9bfbf3482ee797fd5b9045b841fdff7253557c5fe15de6477",
+        "location": {
+          "start_offset": 6645,
+          "end_offset": 6648,
+          "start_line": 197,
+          "end_line": 197
+        }
+      },
+      "annotation": "The class integer declaration 120 is outside the current class-frozenset-string selector grammar."
+    },
+    {
+      "id": "retry-backoff-max-default",
+      "selection": "excluded_before_analysis",
+      "mapping_id": null,
+      "declaration_form": "parameter_default",
+      "source_selector": {
+        "class_name": "Retry",
+        "member": "__init__",
+        "parameter": "backoff_max"
+      },
+      "reason_code": "name_default_not_evaluated",
+      "evidence": {
+        "quote": "DEFAULT_BACKOFF_MAX",
+        "sha256": "057d55af3dd0922e802814209b980f531ab5442a5e8e87134a40a31b6dc5a035",
+        "location": {
+          "start_offset": 7211,
+          "end_offset": 7230,
+          "start_line": 213,
+          "end_line": 213
+        }
+      },
+      "annotation": "The default is the Name DEFAULT_BACKOFF_MAX; this study does not evaluate or bind the reference."
+    },
+    {
+      "id": "retry-backoff-jitter",
+      "selection": "excluded_before_analysis",
+      "mapping_id": null,
+      "declaration_form": "parameter_default",
+      "source_selector": {
+        "class_name": "Retry",
+        "member": "__init__",
+        "parameter": "backoff_jitter"
+      },
+      "reason_code": "float_default_not_supported",
+      "evidence": {
+        "quote": "0.0",
+        "sha256": "8aed642bf5118b9d3c859bd4be35ecac75b6e873cce34e7b6f554b06f75550d7",
+        "location": {
+          "start_offset": 7569,
+          "end_offset": 7572,
+          "start_line": 221,
+          "end_line": 221
+        }
+      },
+      "annotation": "The default is the float literal 0.0; it is not coerced to the supported integer literal 0."
+    }
+  ],
+  "caveats": [
+    {
+      "id": "total-retries-unit",
+      "annotation": "The source docstring describes total as the number of retries, not the total number of attempts.",
+      "evidence": {
+        "quote": "    :param int total:\n        Total number of retries to allow. Takes precedence over other counts.\n\n        Set to ``None`` to remove this constraint and fall back on other\n        counts.\n\n        Set to ``0`` to fail on the first retry.\n\n        Set to ``False`` to disable and imply ``raise_on_redirect=False``.",
+        "sha256": "5ddb754504d7333ba59f9da3710fc8fda8874e5ce1d9c498c138b22129649fef",
+        "location": {
+          "start_offset": 1710,
+          "end_offset": 2025,
+          "start_line": 70,
+          "end_line": 78
+        }
+      },
+      "source_url": "https://github.com/urllib3/urllib3/blob/aaab4eccc10c965897540b21e15f11859d0b62e7/src/urllib3/util/retry.py#L70"
+    },
+    {
+      "id": "allowed-methods-none",
+      "annotation": "The source docstring describes allowed_methods=None as retrying any verb; the method constant is not a universal prohibition on POST retries.",
+      "evidence": {
+        "quote": "    :param Collection allowed_methods:\n        Set of uppercased HTTP method verbs that we should retry on.\n\n        By default, we only retry on methods which are considered to be\n        idempotent (multiple requests with the same parameters end with the\n        same state). See :attr:`Retry.DEFAULT_ALLOWED_METHODS`.\n\n        Set to a ``None`` value to retry on any verb.",
+        "sha256": "d3bfc4004436be993e3ff1b86df680a5e1fa26ec31737b97c66630e08c44b483",
+        "location": {
+          "start_offset": 3671,
+          "end_offset": 4046,
+          "start_line": 127,
+          "end_line": 134
+        }
+      },
+      "source_url": "https://github.com/urllib3/urllib3/blob/aaab4eccc10c965897540b21e15f11859d0b62e7/src/urllib3/util/retry.py#L127"
+    },
+    {
+      "id": "header-lowercase-expression",
+      "annotation": "The constructor source separately contains frozenset(h.lower() for h in remove_headers_on_redirect); inspecting the raw class constant does not execute that expression.",
+      "evidence": {
+        "quote": "self.remove_headers_on_redirect = frozenset(\n            h.lower() for h in remove_headers_on_redirect\n        )",
+        "sha256": "2322f6c699659e9090faf528b53e2bf7f95756eb044122d37f04f69c51a5237d",
+        "location": {
+          "start_offset": 8275,
+          "end_offset": 8387,
+          "start_line": 242,
+          "end_line": 244
+        }
+      },
+      "source_url": "https://github.com/urllib3/urllib3/blob/aaab4eccc10c965897540b21e15f11859d0b62e7/src/urllib3/util/retry.py#L242"
+    },
+    {
+      "id": "backoff-factor-annotation",
+      "annotation": "The parameter declaration is annotated float while its default expression is the integer literal 0; a syntax comparison does not establish runtime type restrictions or scheduling behavior.",
+      "evidence": {
+        "quote": "backoff_factor: float = 0",
+        "sha256": "7668473487dc092325de50b9a6c4ec26e01184d03e6749687e2fb7507325c6b7",
+        "location": {
+          "start_offset": 7155,
+          "end_offset": 7180,
+          "start_line": 212,
+          "end_line": 212
+        }
+      },
+      "source_url": "https://github.com/urllib3/urllib3/blob/aaab4eccc10c965897540b21e15f11859d0b62e7/src/urllib3/util/retry.py#L212"
+    }
+  ],
+  "limits": [
+    "Eight entries are manually selected candidates, not an exhaustive inventory of the source or documentation.",
+    "Four selected mappings define the analyzed inventory; four excluded forms are recorded before analysis, not reported as analyzer unresolved results.",
+    "Evidence quotes, hashes and positions establish correspondence to captured source bytes, not runtime behavior, independent authorship or semantic truth.",
+    "The register is authored by AI project participants; no independent human or expert annotation was performed.",
+    "A deliberate prose-unit misstatement can retain matching structured values and full declared structural coverage; prose semantics are not verified."
+  ],
+  "authorship": "AI project authors; manually selected declarations and source-backed caveats, not independent human or expert annotation."
+}

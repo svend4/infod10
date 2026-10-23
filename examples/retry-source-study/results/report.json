@@ -1,0 +1,373 @@
+{
+  "schema_version": 1,
+  "rules_version": "retry-source-study-demo-1",
+  "created_at": "2026-10-23T17:38:41.838149+02:00",
+  "timezone": "Europe/Berlin",
+  "scenario": "Four selected Retry declarations, explicit selection gaps and an authored prose-unit boundary",
+  "summary": {
+    "case_count": 6,
+    "new_source_report_count": 2,
+    "new_inventory_count": 6,
+    "selected_mapping_count": 4,
+    "declared_register_entry_count": 8,
+    "excluded_before_analysis_count": 4,
+    "source_caveat_count": 4,
+    "source_report_comparison_states": {
+      "match": 8,
+      "mismatch": 0,
+      "unresolved": 0
+    },
+    "source_report_pair_states": {
+      "match": 24,
+      "mismatch": 0,
+      "unresolved": 0
+    },
+    "source_report_endpoints": {
+      "total": 24,
+      "resolved": 24,
+      "unresolved": 0
+    },
+    "aggregate_counts": {
+      "total": 25,
+      "assigned": 24,
+      "mapped": 23,
+      "anchor_verified": 24,
+      "covered": 22,
+      "matching": 22,
+      "mismatch": 0,
+      "unresolved": 0,
+      "uncovered": 1,
+      "invalid_mapping": 1,
+      "unresolved_anchor": 1,
+      "unique_requirements": 24,
+      "covered_unique_requirements": 21,
+      "assigned_mapping_ids": 23,
+      "mapped_mapping_ids": 22
+    },
+    "case_states": {
+      "current_for_human_review": 3,
+      "blocked": 3
+    },
+    "coverage_states": {
+      "declared_promises_covered": 3,
+      "declared_coverage_incomplete": 3
+    },
+    "reference_counts": {
+      "total": 24,
+      "valid": 23,
+      "invalid": 1,
+      "unknown": 0
+    },
+    "reference_comparison_states": {
+      "match": 24,
+      "mismatch": 0,
+      "unresolved": 0,
+      "unavailable": 0
+    },
+    "reference_pair_states": {
+      "match": 72,
+      "mismatch": 0,
+      "unresolved": 0
+    },
+    "upstream_comparison_states": {
+      "match": 24,
+      "mismatch": 0,
+      "unresolved": 0
+    },
+    "upstream_pair_states": {
+      "match": 72,
+      "mismatch": 0,
+      "unresolved": 0
+    },
+    "upstream_blocker_count": 0,
+    "local_blocker_count": 3,
+    "total_blocker_count": 3,
+    "shared_mapping_group_count": 1,
+    "duplicate_requirement_group_count": 1,
+    "unknown_mapping_id_instance_count": 0,
+    "unmapped_mapping_id_instance_count": 2,
+    "new_cli_child_process_count": 18,
+    "new_successful_cli_count": 17,
+    "new_refused_cli_count": 1,
+    "source_adapter_cli_count": 4,
+    "source_promise_coverage_cli_count": 14,
+    "analyze_command_count": 9,
+    "show_command_count": 9,
+    "unique_cli_process_count": 18,
+    "public_file_count": 29,
+    "public_json_file_count": 23,
+    "public_markdown_file_count": 3,
+    "public_python_data_file_count": 2,
+    "public_license_file_count": 1,
+    "new_corpus_file_count": 10,
+    "old_public_files_checked": 68,
+    "source_and_license_bytes_match_original_corpus": true,
+    "new_corpus_bytes_unchanged": true,
+    "old_public_files_unchanged": true,
+    "all_new_source_reports_validated": true,
+    "new_inventories_explicitly_authored": true,
+    "legacy_inventory_converted": false,
+    "all_upstream_comparisons_preserved": true,
+    "known_invalid_reference_comparison_preserved": true,
+    "excluded_candidates_submitted_to_analyzers": false,
+    "declared_register_is_exhaustive": false,
+    "misstated_prose_case_is_authored": true,
+    "misstated_prose_case_formally_ready": true,
+    "automatic_semantic_detection_performed": false,
+    "shared_mapping_is_not_independent_evidence": true,
+    "report_roundtrip_summaries_equal": true,
+    "historical_show_with_inputs_and_source_reports_offline": true,
+    "offline_directories_restored": true,
+    "output_collision_refused": true,
+    "output_collision_report_bytes_and_metadata_unchanged": true,
+    "upstream_code_executed": false,
+    "adapter_code_executed": false,
+    "old_demonstrations_rerun": false,
+    "store_writes_performed": false,
+    "human_review_recorded": false,
+    "external_llm_used": false,
+    "live_upstream_refetched": false,
+    "independent_human_annotation": false,
+    "benchmark": false,
+    "measured_capacity": false,
+    "process_overlap_measured": false,
+    "private_credentials_created": 0,
+    "database_files_created": 0,
+    "requires_human_review": true,
+    "auto_accept": false,
+    "live_state_checked": false,
+    "runtime_binding_verified": false,
+    "prose_semantics_verified": false,
+    "atomic_capture": false
+  },
+  "cases": [
+    {
+      "id": "baseline",
+      "title": "Четыре выбранных обещания и объявления",
+      "report": "coverage-reports/baseline.json",
+      "state": "current_for_human_review",
+      "counts": {
+        "total": 4,
+        "assigned": 4,
+        "mapped": 4,
+        "anchor_verified": 4,
+        "covered": 4,
+        "matching": 4,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 0,
+        "invalid_mapping": 0,
+        "unresolved_anchor": 0,
+        "unique_requirements": 4,
+        "covered_unique_requirements": 4,
+        "assigned_mapping_ids": 4,
+        "mapped_mapping_ids": 4
+      },
+      "coverage_fraction": {
+        "numerator": 4,
+        "denominator": 4
+      },
+      "unique_requirement_fraction": {
+        "numerator": 4,
+        "denominator": 4
+      }
+    },
+    {
+      "id": "uncovered-headers",
+      "title": "Новая запись заголовков без назначенной ссылки",
+      "report": "coverage-reports/uncovered-headers.json",
+      "state": "blocked",
+      "counts": {
+        "total": 4,
+        "assigned": 3,
+        "mapped": 3,
+        "anchor_verified": 4,
+        "covered": 3,
+        "matching": 3,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 1,
+        "invalid_mapping": 0,
+        "unresolved_anchor": 0,
+        "unique_requirements": 4,
+        "covered_unique_requirements": 3,
+        "assigned_mapping_ids": 3,
+        "mapped_mapping_ids": 3
+      },
+      "coverage_fraction": {
+        "numerator": 3,
+        "denominator": 4
+      },
+      "unique_requirement_fraction": {
+        "numerator": 3,
+        "denominator": 4
+      }
+    },
+    {
+      "id": "invalid-headers-scope",
+      "title": "Иная scope не принимается за выбранное объявление",
+      "report": "coverage-reports/invalid-headers-scope.json",
+      "state": "blocked",
+      "counts": {
+        "total": 4,
+        "assigned": 4,
+        "mapped": 3,
+        "anchor_verified": 4,
+        "covered": 3,
+        "matching": 3,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 0,
+        "invalid_mapping": 1,
+        "unresolved_anchor": 0,
+        "unique_requirements": 4,
+        "covered_unique_requirements": 3,
+        "assigned_mapping_ids": 4,
+        "mapped_mapping_ids": 3
+      },
+      "coverage_fraction": {
+        "numerator": 3,
+        "denominator": 4
+      },
+      "unique_requirement_fraction": {
+        "numerator": 3,
+        "denominator": 4
+      }
+    },
+    {
+      "id": "missing-headers-quote",
+      "title": "Отсутствующая цитата заголовков остаётся видимой",
+      "report": "coverage-reports/missing-headers-quote.json",
+      "state": "blocked",
+      "counts": {
+        "total": 4,
+        "assigned": 4,
+        "mapped": 4,
+        "anchor_verified": 3,
+        "covered": 3,
+        "matching": 3,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 0,
+        "invalid_mapping": 0,
+        "unresolved_anchor": 1,
+        "unique_requirements": 4,
+        "covered_unique_requirements": 3,
+        "assigned_mapping_ids": 4,
+        "mapped_mapping_ids": 4
+      },
+      "coverage_fraction": {
+        "numerator": 3,
+        "denominator": 4
+      },
+      "unique_requirement_fraction": {
+        "numerator": 3,
+        "denominator": 4
+      }
+    },
+    {
+      "id": "shared-headers",
+      "title": "Повтор новой записи не создаёт независимое основание",
+      "report": "coverage-reports/shared-headers.json",
+      "state": "current_for_human_review",
+      "counts": {
+        "total": 5,
+        "assigned": 5,
+        "mapped": 5,
+        "anchor_verified": 5,
+        "covered": 5,
+        "matching": 5,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 0,
+        "invalid_mapping": 0,
+        "unresolved_anchor": 0,
+        "unique_requirements": 4,
+        "covered_unique_requirements": 4,
+        "assigned_mapping_ids": 4,
+        "mapped_mapping_ids": 4
+      },
+      "coverage_fraction": {
+        "numerator": 5,
+        "denominator": 5
+      },
+      "unique_requirement_fraction": {
+        "numerator": 4,
+        "denominator": 4
+      }
+    },
+    {
+      "id": "misstated-total-unit",
+      "title": "Заведомо неверная единица в авторской прозе при совпавших значениях",
+      "report": "coverage-reports/misstated-total-unit.json",
+      "state": "current_for_human_review",
+      "counts": {
+        "total": 4,
+        "assigned": 4,
+        "mapped": 4,
+        "anchor_verified": 4,
+        "covered": 4,
+        "matching": 4,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 0,
+        "invalid_mapping": 0,
+        "unresolved_anchor": 0,
+        "unique_requirements": 4,
+        "covered_unique_requirements": 4,
+        "assigned_mapping_ids": 4,
+        "mapped_mapping_ids": 4
+      },
+      "coverage_fraction": {
+        "numerator": 4,
+        "denominator": 4
+      },
+      "unique_requirement_fraction": {
+        "numerator": 4,
+        "denominator": 4
+      }
+    }
+  ],
+  "artifacts": [
+    "case-observations.json",
+    "cli-outcomes.json",
+    "coverage-reports/baseline.json",
+    "coverage-reports/invalid-headers-scope.json",
+    "coverage-reports/missing-headers-quote.json",
+    "coverage-reports/misstated-total-unit.json",
+    "coverage-reports/shared-headers.json",
+    "coverage-reports/uncovered-headers.json",
+    "inputs/LICENSE.txt",
+    "inputs/adapter.py",
+    "inputs/document-misstated-total-unit.md",
+    "inputs/document.md",
+    "inputs/inventory-baseline.json",
+    "inputs/inventory-invalid-headers-scope.json",
+    "inputs/inventory-missing-headers-quote.json",
+    "inputs/inventory-misstated-total-unit.json",
+    "inputs/inventory-shared-headers.json",
+    "inputs/inventory-uncovered-headers.json",
+    "inputs/profile.json",
+    "inputs/promise-specs.json",
+    "inputs/selection-register.json",
+    "inputs/source.py",
+    "offline-observations.json",
+    "output-collision.json",
+    "report.json",
+    "report.md",
+    "source-import.json",
+    "source-reports/baseline.json",
+    "source-reports/misstated-total-unit.json"
+  ],
+  "limits": [
+    "Four mappings and eight candidate register entries are explicitly authored selections, not an exhaustive inventory or an eight-promise coverage denominator.",
+    "The pinned source and MIT license are unchanged copies of the earlier captured corpus; no current upstream version, authenticity or fresh network retrieval is established.",
+    "The four excluded forms are recorded before analysis; they are not submitted under incorrect integer or string-set types and are not analyzer unresolved observations.",
+    "The backoff_factor projection is the syntactic integer literal zero despite a float annotation; allowed runtime values and scheduling behavior are not established.",
+    "Raw header declaration names precede the later lowercase transformation; matching selected strings does not establish all redirect behavior.",
+    "A deliberately incorrect project-authored total-unit sentence still has full structural coverage and matching values. The existing analyzers do not verify its prose meaning.",
+    "Repeated promises and reused source parents are not independent evidence, human annotation, semantic-quality measurements or an agent-capacity benchmark.",
+    "Historical show reconstructs the full saved report while both input and separate source-report directories are absent; current freshness and atomic capture are not established.",
+    "No captured Python, external LLM, database, credential, Store acceptance or worker pool is executed or created; advisory results still require human review."
+  ]
+}

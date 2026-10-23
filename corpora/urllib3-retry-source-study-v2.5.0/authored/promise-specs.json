@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "authorship": "AI project authors; explicit new selected promises, not independent human or expert annotation.",
+  "promises": [
+    {
+      "id": "retry-methods-promise",
+      "description": "Selected raw method declaration; not a universal prohibition on retrying POST.",
+      "anchor": {
+        "quote": "Набор Retry.DEFAULT_ALLOWED_METHODS содержит HEAD, GET, PUT, DELETE, OPTIONS и TRACE; POST в нём отсутствует."
+      },
+      "requirement": {
+        "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+        "value_type": "string_set",
+        "source_selector": {
+          "class_name": "Retry",
+          "kind": "class_frozenset_strings",
+          "symbol": "DEFAULT_ALLOWED_METHODS"
+        },
+        "adapter_symbol": "DEFAULT_ALLOWED_METHODS",
+        "document_selector": {
+          "fence_id": "retry-defaults",
+          "field": "default_allowed_methods"
+        }
+      },
+      "mapping_ids": [
+        "retry-methods"
+      ]
+    },
+    {
+      "id": "retry-total-promise",
+      "description": "Selected constructor default expression; retries-versus-attempts meaning still requires source-backed editorial review.",
+      "anchor": {
+        "quote": "У конструктора Retry значение total по умолчанию равно 10; параметр считает повторы, а не все попытки."
+      },
+      "requirement": {
+        "scope": "urllib3 2.5.0 Retry constructor total default expression",
+        "value_type": "integer",
+        "source_selector": {
+          "class_name": "Retry",
+          "kind": "parameter_default",
+          "method_name": "__init__",
+          "parameter": "total"
+        },
+        "adapter_symbol": "TOTAL_DEFAULT",
+        "document_selector": {
+          "fence_id": "retry-defaults",
+          "field": "total_default"
+        }
+      },
+      "mapping_ids": [
+        "retry-total"
+      ]
+    },
+    {
+      "id": "retry-remove-headers-promise",
+      "description": "Selected raw header-name declaration before the separate lowercase expression; not complete redirect behavior.",
+      "anchor": {
+        "quote": "Набор Retry.DEFAULT_REMOVE_HEADERS_ON_REDIRECT содержит Cookie, Authorization и Proxy-Authorization; это имена в объявлении константы, до преобразования в нижний регистр."
+      },
+      "requirement": {
+        "scope": "urllib3 2.5.0 Retry.DEFAULT_REMOVE_HEADERS_ON_REDIRECT captured declaration",
+        "value_type": "string_set",
+        "source_selector": {
+          "kind": "class_frozenset_strings",
+          "class_name": "Retry",
+          "symbol": "DEFAULT_REMOVE_HEADERS_ON_REDIRECT"
+        },
+        "adapter_symbol": "DEFAULT_REMOVE_HEADERS_ON_REDIRECT",
+        "document_selector": {
+          "fence_id": "retry-defaults",
+          "field": "default_remove_headers_on_redirect"
+        }
+      },
+      "mapping_ids": [
+        "retry-remove-headers"
+      ]
+    },
+    {
+      "id": "retry-backoff-factor-promise",
+      "description": "Selected integer AST default 0 despite a float annotation; not a runtime type restriction or scheduling proof.",
+      "anchor": {
+        "quote": "У конструктора Retry выражение по умолчанию для backoff_factor — целочисленный литерал 0, хотя параметр аннотирован как float."
+      },
+      "requirement": {
+        "scope": "urllib3 2.5.0 Retry constructor backoff_factor default expression",
+        "value_type": "integer",
+        "source_selector": {
+          "kind": "parameter_default",
+          "class_name": "Retry",
+          "method_name": "__init__",
+          "parameter": "backoff_factor"
+        },
+        "adapter_symbol": "BACKOFF_FACTOR_DEFAULT",
+        "document_selector": {
+          "fence_id": "retry-defaults",
+          "field": "backoff_factor_default"
+        }
+      },
+      "mapping_ids": [
+        "retry-backoff-factor"
+      ]
+    }
+  ],
+  "misstated_total_quote": "У конструктора Retry значение total по умолчанию равно 10; параметр задаёт общее число попыток, включая первоначальную."
+}

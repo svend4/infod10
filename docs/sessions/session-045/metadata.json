@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "session_id": "session-045",
+  "language": "ru",
+  "archive_method": "manual_transcription_from_available_conversation_context",
+  "scope": "User messages and user-facing assistant commentary/final responses; nonempty messages in transcript.jsonl, one directly visible empty final separately retained in metadata",
+  "previous_session": "session-044",
+  "coverage_start": "Первое пояснение ассистента после запроса продолжения, завершившего session-044",
+  "coverage_end": "Запрос пользователя «продолжение» после публикации версии 0.42.0 и последующих повторных итоговых ответов включительно",
+  "rendered_coverage": "запрос пользователя «продолжение» после публикации версии 0.42.0 и повторных итоговых ответов включительно; один пустой final сохранён отдельно в metadata.json.",
+  "message_timestamps_available": false,
+  "message_ids": "Locally assigned chronological IDs for nonempty messages scoped to this session; not platform message IDs",
+  "channel_convention": "Assistant commentary/final distinguishes visible progress from final responses; user records use final by archive convention",
+  "integrity_scope": "SHA-256 detects changes relative to this saved snapshot; it does not authenticate a platform export or verify external claims",
+  "repository": {
+    "name": "svend4/infod10",
+    "archive_branch": "archive/session-001",
+    "previous_verified_remote_commit": "2e79ca3b6cbafa34c9f97936bb1fe241723ac9bf"
+  },
+  "expected_message_count": 17,
+  "expected_role_counts": {
+    "assistant": 16,
+    "user": 1
+  },
+  "expected_assistant_channel_counts": {
+    "commentary": 10,
+    "final": 6
+  },
+  "cumulative_message_count": 524,
+  "visible_message_record_count_including_empty": 18,
+  "nonempty_canonical_message_count": 17,
+  "separately_preserved_empty_message_count": 1,
+  "parts": [
+    {
+      "part": 1,
+      "title": "Явная опись обещаний поверх source adapter, сохранение всех сравнений и upstream blockers, выполненный сценарий, аудиты и проверка GitHub версии 0.42.0, повторные итоговые ответы и следующий запрос продолжения",
+      "expected_message_count": 17
+    }
+  ],
+  "message_provenance": [
+    {
+      "message_ids": [
+        "m0001",
+        "m0002",
+        "m0003",
+        "m0004"
+      ],
+      "source": "Verbatim user-facing quotations retained in the available conversation summary; original message records were not directly visible at transcription time"
+    },
+    {
+      "message_ids": [
+        "m0005",
+        "m0006",
+        "m0007",
+        "m0008",
+        "m0009",
+        "m0010",
+        "m0011",
+        "m0012",
+        "m0013",
+        "m0014",
+        "m0015",
+        "m0016",
+        "m0017"
+      ],
+      "source": "Directly visible user-facing messages in the available conversation context"
+    }
+  ],
+  "separately_preserved_empty_visible_messages": [
+    {
+      "id": "empty-final-001",
+      "role": "assistant",
+      "channel": "final",
+      "source_part": 1,
+      "timestamp": null,
+      "content": "",
+      "chronological_position": {
+        "after_canonical_message_id": "m0012",
+        "before_canonical_message_id": "m0013"
+      },
+      "source": "Directly visible assistant final record with empty content in the available conversation context",
+      "storage_reason": "The unchanged archive builder rejects empty content in transcript.jsonl; the exact empty string is retained here without an invented placeholder."
+    }
+  ],
+  "excluded": [
+    "Messages already preserved in session-001 through session-044",
+    "Development work and visible responses after the final included user message",
+    "Other chats not available in this conversation context",
+    "Hidden system/developer instructions and internal reasoning",
+    "Subagent communications",
+    "Raw tool arguments and results",
+    "Automatic runtime/UI metadata, including environment_context, external_goal_objective and external_codex_apps_open_page, as user conversation messages"
+  ],
+  "limitations": [
+    "Not a platform/API export; fidelity is bounded by the available conversation context.",
+    "The first four commentaries were available as verbatim user-facing quotations in the retained summary, not directly visible original message records. The other thirteen nonempty messages and the separately retained empty final were directly visible.",
+    "The canonical transcript contains seventeen nonempty records. One empty final is preserved exactly in metadata at its chronological position because the unchanged builder rejects empty transcript content. The cumulative canonical message count excludes that separately preserved empty record.",
+    "All directly visible repeated nonempty final responses are retained verbatim; they are not silently deduplicated.",
+    "No invented per-message timestamps; timestamp fields are null.",
+    "Statements about verification in archived messages describe historical checks at that point in the conversation.",
+    "The snapshot ends before the next analysis and development stage."
+  ]
+}
