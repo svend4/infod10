@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "source_report_id": "sad_dc844b9701e4c98060cc06c99ee95ba474de083e5acb88a2d59d4af65a25d4e6",
+  "source_report_digest": "dc844b9701e4c98060cc06c99ee95ba474de083e5acb88a2d59d4af65a25d4e6",
+  "promises": [
+    {
+      "id": "retry-methods-promise",
+      "description": "Selected declaration for the documented default method set; not a universal POST retry rule.",
+      "anchor": {
+        "quote": "Набор Retry.DEFAULT_ALLOWED_METHODS содержит HEAD, GET, PUT, DELETE, OPTIONS и TRACE; POST в нём отсутствует."
+      },
+      "requirement": {
+        "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+        "value_type": "string_set",
+        "source_selector": {
+          "class_name": "Retry",
+          "kind": "class_frozenset_strings",
+          "symbol": "DEFAULT_ALLOWED_METHODS"
+        },
+        "adapter_symbol": "DEFAULT_ALLOWED_METHODS",
+        "document_selector": {
+          "fence_id": "retry-defaults",
+          "field": "default_allowed_methods"
+        }
+      },
+      "mapping_ids": [
+        "retry-methods"
+      ]
+    }
+  ]
+}

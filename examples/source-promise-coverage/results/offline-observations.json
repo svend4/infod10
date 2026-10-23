@@ -1,0 +1,204 @@
+{
+  "case_id": "baseline",
+  "summary": {
+    "report_id": "spc_f388adb59bcb75d70de1da3e874443f5de1ce40bda0d3b59c799ab5ce90753f2",
+    "report_digest": "f388adb59bcb75d70de1da3e874443f5de1ce40bda0d3b59c799ab5ce90753f2",
+    "rules_version": "source-promise-coverage-1",
+    "atomic_capture": false,
+    "auto_accept": false,
+    "blockers": [],
+    "counts": {
+      "anchor_verified": 2,
+      "assigned": 2,
+      "assigned_mapping_ids": 2,
+      "covered": 2,
+      "covered_unique_requirements": 2,
+      "invalid_mapping": 0,
+      "mapped": 2,
+      "mapped_mapping_ids": 2,
+      "matching": 2,
+      "mismatch": 0,
+      "total": 2,
+      "uncovered": 0,
+      "unique_requirements": 2,
+      "unresolved": 0,
+      "unresolved_anchor": 0
+    },
+    "coverage_fraction": {
+      "denominator": 2,
+      "numerator": 2
+    },
+    "coverage_state": "declared_promises_covered",
+    "duplicate_requirements": [],
+    "live_state_checked": false,
+    "prose_semantics_verified": false,
+    "requires_human_review": true,
+    "results": [
+      {
+        "anchor": {
+          "document_sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+          "location": {
+            "end_line": 6,
+            "end_offset": 290,
+            "start_line": 6,
+            "start_offset": 181
+          },
+          "occurrence_count": 1,
+          "outside_fenced_blocks": true,
+          "quote": "Набор Retry.DEFAULT_ALLOWED_METHODS содержит HEAD, GET, PUT, DELETE, OPTIONS и TRACE; POST в нём отсутствует.",
+          "quote_sha256": "a9aa4236fccdf0bea6fbcf0bba6470592387ff6f66f64a186028383b19742762",
+          "reasons": [],
+          "resolved": true,
+          "snippet": "Набор Retry.DEFAULT_ALLOWED_METHODS содержит HEAD, GET, PUT, DELETE, OPTIONS и TRACE; POST в нём отсутствует."
+        },
+        "anchor_verified": true,
+        "document_endpoint": {
+          "location": {
+            "end_line": 14,
+            "end_offset": 538,
+            "start_line": 11,
+            "start_offset": 429
+          },
+          "normalized_value": [
+            "DELETE",
+            "GET",
+            "HEAD",
+            "OPTIONS",
+            "PUT",
+            "TRACE"
+          ],
+          "reasons": [],
+          "resolved": true,
+          "selector": {
+            "fence_id": "retry-defaults",
+            "field": "default_allowed_methods"
+          },
+          "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+          "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+          "value": [
+            "HEAD",
+            "GET",
+            "PUT",
+            "DELETE",
+            "OPTIONS",
+            "TRACE"
+          ]
+        },
+        "id": "retry-methods-promise",
+        "mapping_state": "mapped",
+        "reasons": [],
+        "references": [
+          {
+            "actual_requirement_digest": "e313afbd3c7f1c22bdab540435767cbfc6199cfae6852baf9391cdc751d9b563",
+            "comparison": {
+              "adapter_document": "match",
+              "source_adapter": "match",
+              "source_document": "match",
+              "state": "match"
+            },
+            "mapping_id": "retry-methods",
+            "reasons": [],
+            "valid": true
+          }
+        ],
+        "requirement_digest": "e313afbd3c7f1c22bdab540435767cbfc6199cfae6852baf9391cdc751d9b563",
+        "satisfaction_state": "match"
+      },
+      {
+        "anchor": {
+          "document_sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+          "location": {
+            "end_line": 8,
+            "end_offset": 394,
+            "start_line": 8,
+            "start_offset": 292
+          },
+          "occurrence_count": 1,
+          "outside_fenced_blocks": true,
+          "quote": "У конструктора Retry значение total по умолчанию равно 10; параметр считает повторы, а не все попытки.",
+          "quote_sha256": "81bea61ab24f9486f434c57ed1a5080d77e3b098fa42140fb5cc0fd9a8378ca2",
+          "reasons": [],
+          "resolved": true,
+          "snippet": "У конструктора Retry значение total по умолчанию равно 10; параметр считает повторы, а не все попытки."
+        },
+        "anchor_verified": true,
+        "document_endpoint": {
+          "location": {
+            "end_line": 14,
+            "end_offset": 538,
+            "start_line": 11,
+            "start_offset": 429
+          },
+          "normalized_value": 10,
+          "reasons": [],
+          "resolved": true,
+          "selector": {
+            "fence_id": "retry-defaults",
+            "field": "total_default"
+          },
+          "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+          "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+          "value": 10
+        },
+        "id": "retry-total-promise",
+        "mapping_state": "mapped",
+        "reasons": [],
+        "references": [
+          {
+            "actual_requirement_digest": "1002375f3d2c03c3d71279de74cf38e319a2c2797bc9eaf6b4f4250cde96d299",
+            "comparison": {
+              "adapter_document": "match",
+              "source_adapter": "match",
+              "source_document": "match",
+              "state": "match"
+            },
+            "mapping_id": "retry-total",
+            "reasons": [],
+            "valid": true
+          }
+        ],
+        "requirement_digest": "1002375f3d2c03c3d71279de74cf38e319a2c2797bc9eaf6b4f4250cde96d299",
+        "satisfaction_state": "match"
+      }
+    ],
+    "runtime_binding_verified": false,
+    "shared_mappings": [],
+    "source_report_digest": "d10fb7c9f1448f907c8690164debc24c88201b18f017936c04fa379a1c3e331f",
+    "source_report_id": "sad_d10fb7c9f1448f907c8690164debc24c88201b18f017936c04fa379a1c3e331f",
+    "state": "current_for_human_review",
+    "unique_requirement_fraction": {
+      "denominator": 2,
+      "numerator": 2
+    },
+    "unknown_mapping_ids": [],
+    "unmapped_mapping_ids": [],
+    "upstream_blockers": [],
+    "upstream_comparisons": [
+      {
+        "comparison": {
+          "adapter_document": "match",
+          "source_adapter": "match",
+          "source_document": "match",
+          "state": "match"
+        },
+        "mapping_id": "retry-methods"
+      },
+      {
+        "comparison": {
+          "adapter_document": "match",
+          "source_adapter": "match",
+          "source_document": "match",
+          "state": "match"
+        },
+        "mapping_id": "retry-total"
+      }
+    ],
+    "upstream_state": "current_for_human_review"
+  },
+  "input_directory_absent_during_show": true,
+  "all_parent_reports_and_inventories_absent": true,
+  "own_report_online": true,
+  "own_report_bytes_and_metadata_unchanged": true,
+  "all_inputs_restored": true,
+  "live_sources_checked": false
+}

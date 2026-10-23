@@ -1,0 +1,467 @@
+{
+  "schema_version": 1,
+  "rules_version": "source-promise-coverage-demo-1",
+  "created_at": "2026-10-23T17:10:42.446627+02:00",
+  "timezone": "Europe/Berlin",
+  "scenario": "Explicit promise coverage over three unchanged captured source-adapter reports",
+  "summary": {
+    "case_count": 10,
+    "parent_report_count": 3,
+    "new_inventory_count": 10,
+    "aggregate_counts": {
+      "total": 18,
+      "assigned": 17,
+      "mapped": 15,
+      "anchor_verified": 15,
+      "covered": 12,
+      "matching": 11,
+      "mismatch": 0,
+      "unresolved": 1,
+      "uncovered": 1,
+      "invalid_mapping": 2,
+      "unresolved_anchor": 3,
+      "unique_requirements": 17,
+      "covered_unique_requirements": 11,
+      "assigned_mapping_ids": 16,
+      "mapped_mapping_ids": 14
+    },
+    "case_states": {
+      "current_for_human_review": 2,
+      "blocked": 8
+    },
+    "coverage_states": {
+      "declared_promises_covered": 4,
+      "declared_coverage_incomplete": 5,
+      "no_declared_promises": 1
+    },
+    "reference_counts": {
+      "total": 17,
+      "valid": 15,
+      "invalid": 2,
+      "unknown": 1
+    },
+    "reference_comparison_states": {
+      "match": 15,
+      "mismatch": 0,
+      "unresolved": 1,
+      "unavailable": 1
+    },
+    "reference_pair_states": {
+      "match": 45,
+      "mismatch": 1,
+      "unresolved": 2
+    },
+    "upstream_comparison_states": {
+      "match": 18,
+      "mismatch": 1,
+      "unresolved": 1
+    },
+    "upstream_pair_states": {
+      "match": 55,
+      "mismatch": 3,
+      "unresolved": 2
+    },
+    "upstream_blocker_count": 2,
+    "local_blocker_count": 8,
+    "total_blocker_count": 10,
+    "shared_mapping_group_count": 1,
+    "duplicate_requirement_group_count": 1,
+    "unknown_mapping_id_instance_count": 1,
+    "unmapped_mapping_id_instance_count": 6,
+    "new_cli_child_process_count": 22,
+    "new_successful_cli_count": 21,
+    "new_refused_cli_count": 1,
+    "analyze_command_count": 11,
+    "show_command_count": 11,
+    "unique_cli_process_count": 22,
+    "public_file_count": 31,
+    "public_json_file_count": 29,
+    "public_markdown_file_count": 1,
+    "public_license_file_count": 1,
+    "parent_reports_byte_identical_to_previous_example": true,
+    "license_bytes_match_corpus": true,
+    "previous_source_example_bytes_unchanged": true,
+    "all_parent_reports_validated_offline": true,
+    "new_inventory_explicitly_authored": true,
+    "legacy_inventory_converted": false,
+    "all_upstream_blockers_preserved": true,
+    "all_upstream_comparisons_preserved": true,
+    "known_pair_mismatch_preserved": true,
+    "full_coverage_parent_mismatch_still_blocked": true,
+    "fenced_quote_snippet_and_location_retained": true,
+    "shared_mapping_is_not_independent_evidence": true,
+    "empty_inventory_fractions_are_null": true,
+    "report_roundtrip_summaries_equal": true,
+    "historical_show_with_inputs_offline": true,
+    "offline_inputs_restored": true,
+    "output_collision_refused": true,
+    "output_collision_report_bytes_and_metadata_unchanged": true,
+    "upstream_code_executed": false,
+    "proposed_code_executed": false,
+    "store_writes_performed": false,
+    "human_review_recorded": false,
+    "external_llm_used": false,
+    "live_upstream_refetched": false,
+    "independent_human_annotation": false,
+    "benchmark": false,
+    "measured_capacity": false,
+    "process_overlap_measured": false,
+    "private_credentials_created": 0,
+    "database_files_created": 0,
+    "requires_human_review": true,
+    "auto_accept": false,
+    "live_state_checked": false,
+    "runtime_binding_verified": false,
+    "prose_semantics_verified": false,
+    "atomic_capture": false
+  },
+  "cases": [
+    {
+      "id": "baseline",
+      "title": "Два явно объявленных обещания связаны с совпавшими значениями",
+      "report": "reports/baseline.json",
+      "state": "current_for_human_review",
+      "counts": {
+        "total": 2,
+        "assigned": 2,
+        "mapped": 2,
+        "anchor_verified": 2,
+        "covered": 2,
+        "matching": 2,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 0,
+        "invalid_mapping": 0,
+        "unresolved_anchor": 0,
+        "unique_requirements": 2,
+        "covered_unique_requirements": 2,
+        "assigned_mapping_ids": 2,
+        "mapped_mapping_ids": 2
+      },
+      "coverage_fraction": {
+        "numerator": 2,
+        "denominator": 2
+      },
+      "unique_requirement_fraction": {
+        "numerator": 2,
+        "denominator": 2
+      }
+    },
+    {
+      "id": "uncovered-total",
+      "title": "Обещание total сохранено без назначенной связи",
+      "report": "reports/uncovered-total.json",
+      "state": "blocked",
+      "counts": {
+        "total": 2,
+        "assigned": 1,
+        "mapped": 1,
+        "anchor_verified": 2,
+        "covered": 1,
+        "matching": 1,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 1,
+        "invalid_mapping": 0,
+        "unresolved_anchor": 0,
+        "unique_requirements": 2,
+        "covered_unique_requirements": 1,
+        "assigned_mapping_ids": 1,
+        "mapped_mapping_ids": 1
+      },
+      "coverage_fraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "unique_requirement_fraction": {
+        "numerator": 1,
+        "denominator": 2
+      }
+    },
+    {
+      "id": "invalid-requirements",
+      "title": "Неизвестная ссылка и изменённая scope не создают покрытия",
+      "report": "reports/invalid-requirements.json",
+      "state": "blocked",
+      "counts": {
+        "total": 2,
+        "assigned": 2,
+        "mapped": 0,
+        "anchor_verified": 2,
+        "covered": 0,
+        "matching": 0,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 0,
+        "invalid_mapping": 2,
+        "unresolved_anchor": 0,
+        "unique_requirements": 2,
+        "covered_unique_requirements": 0,
+        "assigned_mapping_ids": 2,
+        "mapped_mapping_ids": 0
+      },
+      "coverage_fraction": {
+        "numerator": 0,
+        "denominator": 2
+      },
+      "unique_requirement_fraction": {
+        "numerator": 0,
+        "denominator": 2
+      }
+    },
+    {
+      "id": "missing-quote",
+      "title": "Отсутствующая цитата оставляет обещание без anchor",
+      "report": "reports/missing-quote.json",
+      "state": "blocked",
+      "counts": {
+        "total": 2,
+        "assigned": 2,
+        "mapped": 2,
+        "anchor_verified": 1,
+        "covered": 1,
+        "matching": 1,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 0,
+        "invalid_mapping": 0,
+        "unresolved_anchor": 1,
+        "unique_requirements": 2,
+        "covered_unique_requirements": 1,
+        "assigned_mapping_ids": 2,
+        "mapped_mapping_ids": 2
+      },
+      "coverage_fraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "unique_requirement_fraction": {
+        "numerator": 1,
+        "denominator": 2
+      }
+    },
+    {
+      "id": "ambiguous-quote",
+      "title": "Повторяющаяся цитата не выбирается по первому совпадению",
+      "report": "reports/ambiguous-quote.json",
+      "state": "blocked",
+      "counts": {
+        "total": 2,
+        "assigned": 2,
+        "mapped": 2,
+        "anchor_verified": 1,
+        "covered": 1,
+        "matching": 1,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 0,
+        "invalid_mapping": 0,
+        "unresolved_anchor": 1,
+        "unique_requirements": 2,
+        "covered_unique_requirements": 1,
+        "assigned_mapping_ids": 2,
+        "mapped_mapping_ids": 2
+      },
+      "coverage_fraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "unique_requirement_fraction": {
+        "numerator": 1,
+        "denominator": 2
+      }
+    },
+    {
+      "id": "fenced-quote",
+      "title": "Уникальный фрагмент внутри JSON fence не принят за внешний anchor",
+      "report": "reports/fenced-quote.json",
+      "state": "blocked",
+      "counts": {
+        "total": 2,
+        "assigned": 2,
+        "mapped": 2,
+        "anchor_verified": 1,
+        "covered": 1,
+        "matching": 1,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 0,
+        "invalid_mapping": 0,
+        "unresolved_anchor": 1,
+        "unique_requirements": 2,
+        "covered_unique_requirements": 1,
+        "assigned_mapping_ids": 2,
+        "mapped_mapping_ids": 2
+      },
+      "coverage_fraction": {
+        "numerator": 1,
+        "denominator": 2
+      },
+      "unique_requirement_fraction": {
+        "numerator": 1,
+        "denominator": 2
+      }
+    },
+    {
+      "id": "shared-duplicates",
+      "title": "Повтор требования и общий mapping показаны отдельно",
+      "report": "reports/shared-duplicates.json",
+      "state": "current_for_human_review",
+      "counts": {
+        "total": 3,
+        "assigned": 3,
+        "mapped": 3,
+        "anchor_verified": 3,
+        "covered": 3,
+        "matching": 3,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 0,
+        "invalid_mapping": 0,
+        "unresolved_anchor": 0,
+        "unique_requirements": 2,
+        "covered_unique_requirements": 2,
+        "assigned_mapping_ids": 2,
+        "mapped_mapping_ids": 2
+      },
+      "coverage_fraction": {
+        "numerator": 3,
+        "denominator": 3
+      },
+      "unique_requirement_fraction": {
+        "numerator": 2,
+        "denominator": 2
+      }
+    },
+    {
+      "id": "empty",
+      "title": "Пустая опись блокируется без доли покрытия",
+      "report": "reports/empty.json",
+      "state": "blocked",
+      "counts": {
+        "total": 0,
+        "assigned": 0,
+        "mapped": 0,
+        "anchor_verified": 0,
+        "covered": 0,
+        "matching": 0,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 0,
+        "invalid_mapping": 0,
+        "unresolved_anchor": 0,
+        "unique_requirements": 0,
+        "covered_unique_requirements": 0,
+        "assigned_mapping_ids": 0,
+        "mapped_mapping_ids": 0
+      },
+      "coverage_fraction": null,
+      "unique_requirement_fraction": null
+    },
+    {
+      "id": "omitted-parent-mismatch",
+      "title": "Полное покрытие выбранного обещания сохраняет чужой parent blocker",
+      "report": "reports/omitted-parent-mismatch.json",
+      "state": "blocked",
+      "counts": {
+        "total": 1,
+        "assigned": 1,
+        "mapped": 1,
+        "anchor_verified": 1,
+        "covered": 1,
+        "matching": 1,
+        "mismatch": 0,
+        "unresolved": 0,
+        "uncovered": 0,
+        "invalid_mapping": 0,
+        "unresolved_anchor": 0,
+        "unique_requirements": 1,
+        "covered_unique_requirements": 1,
+        "assigned_mapping_ids": 1,
+        "mapped_mapping_ids": 1
+      },
+      "coverage_fraction": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "unique_requirement_fraction": {
+        "numerator": 1,
+        "denominator": 1
+      }
+    },
+    {
+      "id": "mixed-parent-unresolved",
+      "title": "Source unresolved сохраняет известный adapter/document mismatch",
+      "report": "reports/mixed-parent-unresolved.json",
+      "state": "blocked",
+      "counts": {
+        "total": 2,
+        "assigned": 2,
+        "mapped": 2,
+        "anchor_verified": 2,
+        "covered": 2,
+        "matching": 1,
+        "mismatch": 0,
+        "unresolved": 1,
+        "uncovered": 0,
+        "invalid_mapping": 0,
+        "unresolved_anchor": 0,
+        "unique_requirements": 2,
+        "covered_unique_requirements": 2,
+        "assigned_mapping_ids": 2,
+        "mapped_mapping_ids": 2
+      },
+      "coverage_fraction": {
+        "numerator": 2,
+        "denominator": 2
+      },
+      "unique_requirement_fraction": {
+        "numerator": 2,
+        "denominator": 2
+      }
+    }
+  ],
+  "artifacts": [
+    "case-observations.json",
+    "cli-outcomes.json",
+    "inputs/LICENSE.txt",
+    "inputs/inventory-ambiguous-quote.json",
+    "inputs/inventory-baseline.json",
+    "inputs/inventory-empty.json",
+    "inputs/inventory-fenced-quote.json",
+    "inputs/inventory-invalid-requirements.json",
+    "inputs/inventory-missing-quote.json",
+    "inputs/inventory-mixed-parent-unresolved.json",
+    "inputs/inventory-omitted-parent-mismatch.json",
+    "inputs/inventory-shared-duplicates.json",
+    "inputs/inventory-uncovered-total.json",
+    "inputs/source-adapter-total-11.json",
+    "inputs/source-baseline.json",
+    "inputs/source-mixed-unresolved-and-mismatch.json",
+    "offline-observations.json",
+    "output-collision.json",
+    "report.json",
+    "report.md",
+    "reports/ambiguous-quote.json",
+    "reports/baseline.json",
+    "reports/empty.json",
+    "reports/fenced-quote.json",
+    "reports/invalid-requirements.json",
+    "reports/missing-quote.json",
+    "reports/mixed-parent-unresolved.json",
+    "reports/omitted-parent-mismatch.json",
+    "reports/shared-duplicates.json",
+    "reports/uncovered-total.json",
+    "source-import.json"
+  ],
+  "limits": [
+    "The denominator is a newly and explicitly authored inventory of selected promises, not an automatically inferred complete documentation contract.",
+    "Exact quotes outside the supported fenced-block grammar and exact selector metadata bind locations; they do not establish prose semantics or semantic entailment.",
+    "Coverage, comparison satisfaction and all upstream blockers remain separate. A fully covered selected inventory cannot remove an unreferenced parent mismatch or unresolved result.",
+    "Every known reference and every upstream mapping retains its full Comparison4, including an adapter/document mismatch while source comparisons are unresolved.",
+    "Repeated requirements and shared mapping IDs are shown as groups, without claiming independent checks, reviewers or evidence.",
+    "Ten inventories are authored illustrations bound to three unchanged captured source-adapter reports; no legacy inventory is silently converted or rewritten.",
+    "Historical show reconstructs its own full captured report while the input directory is absent. This does not establish current source freshness or an atomic cross-file capture.",
+    "No input Python, database, credential, Store acceptance, external LLM or parallel worker pool is created or executed. Process counts are not capacity, throughput or semantic-quality measurements."
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "source_report_id": "sad_d10fb7c9f1448f907c8690164debc24c88201b18f017936c04fa379a1c3e331f",
+  "source_report_digest": "d10fb7c9f1448f907c8690164debc24c88201b18f017936c04fa379a1c3e331f",
+  "promises": [
+    {
+      "id": "retry-methods-promise",
+      "description": "Selected declaration for the documented default method set; not a universal POST retry rule.",
+      "anchor": {
+        "quote": "Набор Retry.DEFAULT_ALLOWED_METHODS содержит HEAD, GET, PUT, DELETE, OPTIONS и TRACE; POST в нём отсутствует."
+      },
+      "requirement": {
+        "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+        "value_type": "string_set",
+        "source_selector": {
+          "class_name": "Retry",
+          "kind": "class_frozenset_strings",
+          "symbol": "DEFAULT_ALLOWED_METHODS"
+        },
+        "adapter_symbol": "DEFAULT_ALLOWED_METHODS",
+        "document_selector": {
+          "fence_id": "retry-defaults",
+          "field": "default_allowed_methods"
+        }
+      },
+      "mapping_ids": [
+        "retry-methods"
+      ]
+    },
+    {
+      "id": "retry-total-promise",
+      "description": "Selected constructor total default; retries-versus-attempts meaning remains authored prose metadata.",
+      "anchor": {
+        "quote": "Retry"
+      },
+      "requirement": {
+        "scope": "urllib3 2.5.0 Retry constructor total default expression",
+        "value_type": "integer",
+        "source_selector": {
+          "class_name": "Retry",
+          "kind": "parameter_default",
+          "method_name": "__init__",
+          "parameter": "total"
+        },
+        "adapter_symbol": "TOTAL_DEFAULT",
+        "document_selector": {
+          "fence_id": "retry-defaults",
+          "field": "total_default"
+        }
+      },
+      "mapping_ids": [
+        "retry-total"
+      ]
+    }
+  ]
+}

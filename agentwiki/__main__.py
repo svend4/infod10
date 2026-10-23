@@ -47,6 +47,7 @@ from .workspace_restore_case_retention_review_write_guarded_cli import register_
 from .workspace_restore_case_retention_review_write_guarded_issuer_cli import register_restore_case_retention_review_write_guarded_issuer_parser, run_restore_case_retention_review_write_guarded_issuer_command
 from .workspace_restore_case_retention_review_write_sealed_cli import register_restore_case_retention_review_write_sealed_parser, run_restore_case_retention_review_write_sealed_command
 from .source_adapter_cli import register_source_adapter_parser, run_source_adapter_command
+from .source_promise_coverage_cli import register_source_promise_coverage_parser, run_source_promise_coverage_command
 
 
 def _workers(value: str) -> int:
@@ -200,6 +201,7 @@ def main(argv: list[str] | None = None) -> int:
     register_restore_case_retention_review_write_guarded_issuer_parser(commands)
     register_restore_case_retention_review_write_sealed_parser(commands)
     register_source_adapter_parser(commands)
+    register_source_promise_coverage_parser(commands)
     editorial_demo = commands.add_parser("editorial-demo", help="Показать историю решений программных проверяющих и устаревание оснований.")
     editorial_demo.add_argument("--workspace", type=Path, required=True)
     editorial_demo.add_argument("--workers", default=3, type=_workers)
@@ -316,6 +318,8 @@ def main(argv: list[str] | None = None) -> int:
     restore_case_retention_review_write_sealed_demo.add_argument("--workers", default=3, type=_workers)
     source_adapter_demo = commands.add_parser("source-adapter-demo", help="Сверить выбранные AST-объявления закреплённого исходника с авторским адаптером и документом.")
     source_adapter_demo.add_argument("--workspace", type=Path, required=True)
+    source_promise_coverage_demo = commands.add_parser("source-promise-coverage-demo", help="Связать явную опись обещаний с captured source/adapter/document сравнением.")
+    source_promise_coverage_demo.add_argument("--workspace", type=Path, required=True)
     compose = commands.add_parser("compose", help="Собрать предложение по уже выданной аренде задания integrator.")
     compose.add_argument("--workspace", type=Path, required=True)
     compose.add_argument("--task", required=True)
@@ -400,6 +404,13 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(run_restore_case_retention_review_write_sealed_command(arguments), ensure_ascii=False, indent=2))
         elif arguments.command == "source-adapter":
             print(json.dumps(run_source_adapter_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "source-promise-coverage":
+            print(json.dumps(run_source_promise_coverage_command(arguments), ensure_ascii=False, indent=2))
+        elif arguments.command == "source-promise-coverage-demo":
+            from .source_promise_coverage_demo import run_source_promise_coverage_demo
+
+            report = run_source_promise_coverage_demo(arguments.workspace)
+            print(json.dumps({"report": str(arguments.workspace / "report.md"), "summary": report["summary"]}, ensure_ascii=False, indent=2))
         elif arguments.command == "source-adapter-demo":
             from .source_adapter_demo import run_source_adapter_demo
 
