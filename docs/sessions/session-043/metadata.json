@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "session_id": "session-043",
+  "language": "ru",
+  "archive_method": "manual_transcription_from_available_conversation_context",
+  "scope": "User messages and user-facing assistant commentary/final responses",
+  "previous_session": "session-042",
+  "coverage_start": "Первое пояснение ассистента после запроса продолжения, завершившего session-042",
+  "coverage_end": "Запрос пользователя «Продолжение» после публикации версии 0.40.0 включительно",
+  "rendered_coverage": "запрос пользователя «Продолжение» после публикации версии 0.40.0 включительно.",
+  "message_timestamps_available": false,
+  "message_ids": "Locally assigned chronological IDs scoped to this session; not platform message IDs",
+  "channel_convention": "Assistant commentary/final distinguishes visible progress from final responses; user records use final by archive convention",
+  "integrity_scope": "SHA-256 detects changes relative to this saved snapshot; it does not authenticate a platform export or verify external claims",
+  "repository": {
+    "name": "svend4/infod10",
+    "archive_branch": "archive/session-001",
+    "previous_verified_remote_commit": "884ced16a84ef8b02e66cdc866b13c6193321f2e"
+  },
+  "expected_message_count": 17,
+  "expected_role_counts": {
+    "assistant": 16,
+    "user": 1
+  },
+  "expected_assistant_channel_counts": {
+    "commentary": 15,
+    "final": 1
+  },
+  "cumulative_message_count": 495,
+  "parts": [
+    {
+      "part": 1,
+      "title": "Sealed review write: задание и свидетельство выдачи в одной записи, независимые отзывы, историческое восстановление ответа без живых источников, выполненный сценарий, аудиты и проверка GitHub версии 0.40.0, следующий запрос продолжения",
+      "expected_message_count": 17
+    }
+  ],
+  "message_provenance": [
+    {
+      "message_ids": [
+        "m0001",
+        "m0002",
+        "m0003"
+      ],
+      "source": "Verbatim user-facing quotations retained in the available conversation summary; original message records were not directly visible at transcription time"
+    },
+    {
+      "message_ids": [
+        "m0004",
+        "m0005",
+        "m0006",
+        "m0007",
+        "m0008",
+        "m0009",
+        "m0010",
+        "m0011",
+        "m0012",
+        "m0013",
+        "m0014",
+        "m0015",
+        "m0016",
+        "m0017"
+      ],
+      "source": "Directly visible user-facing messages in the available conversation context"
+    }
+  ],
+  "excluded": [
+    "Messages already preserved in session-001 through session-042",
+    "Development work and visible responses after the final included user message",
+    "Other chats not available in this conversation context",
+    "Hidden system/developer instructions and internal reasoning",
+    "Subagent communications",
+    "Raw tool arguments and results",
+    "Automatic runtime/UI metadata, including environment_context and external_codex_apps_open_page, as conversation messages"
+  ],
+  "limitations": [
+    "Not a platform/API export; fidelity is bounded by the available conversation context.",
+    "The first three commentaries were available as verbatim user-facing quotations in the retained summary, not as directly visible original message records. The other twelve commentaries, final response and user request were directly visible.",
+    "No invented per-message timestamps; timestamp fields are null.",
+    "Statements about verification in archived messages describe historical checks at that point in the conversation.",
+    "The snapshot ends before the next analysis and development stage."
+  ]
+}

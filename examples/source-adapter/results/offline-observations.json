@@ -1,0 +1,203 @@
+{
+  "case_id": "baseline",
+  "summary": {
+    "report_id": "sad_d10fb7c9f1448f907c8690164debc24c88201b18f017936c04fa379a1c3e331f",
+    "report_digest": "d10fb7c9f1448f907c8690164debc24c88201b18f017936c04fa379a1c3e331f",
+    "rules_version": "source-adapter-1",
+    "state": "current_for_human_review",
+    "counts": {
+      "mappings": 2,
+      "match": 2,
+      "mismatch": 0,
+      "unresolved": 0
+    },
+    "results": [
+      {
+        "adapter": {
+          "location": {
+            "end_line": 6,
+            "end_offset": 283,
+            "start_line": 6,
+            "start_offset": 205
+          },
+          "normalized_value": [
+            "DELETE",
+            "GET",
+            "HEAD",
+            "OPTIONS",
+            "PUT",
+            "TRACE"
+          ],
+          "reasons": [],
+          "resolved": true,
+          "selector": {
+            "symbol": "DEFAULT_ALLOWED_METHODS"
+          },
+          "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+          "snippet": "DEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}",
+          "value": [
+            "HEAD",
+            "GET",
+            "PUT",
+            "DELETE",
+            "OPTIONS",
+            "TRACE"
+          ]
+        },
+        "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+        "comparison": {
+          "adapter_document": "match",
+          "source_adapter": "match",
+          "source_document": "match",
+          "state": "match"
+        },
+        "document": {
+          "location": {
+            "end_line": 14,
+            "end_offset": 538,
+            "start_line": 11,
+            "start_offset": 429
+          },
+          "normalized_value": [
+            "DELETE",
+            "GET",
+            "HEAD",
+            "OPTIONS",
+            "PUT",
+            "TRACE"
+          ],
+          "reasons": [],
+          "resolved": true,
+          "selector": {
+            "fence_id": "retry-defaults",
+            "field": "default_allowed_methods"
+          },
+          "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+          "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+          "value": [
+            "HEAD",
+            "GET",
+            "PUT",
+            "DELETE",
+            "OPTIONS",
+            "TRACE"
+          ]
+        },
+        "id": "retry-methods",
+        "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+        "source": {
+          "location": {
+            "end_line": 186,
+            "end_offset": 6270,
+            "start_line": 184,
+            "start_offset": 6167
+          },
+          "normalized_value": [
+            "DELETE",
+            "GET",
+            "HEAD",
+            "OPTIONS",
+            "PUT",
+            "TRACE"
+          ],
+          "reasons": [],
+          "resolved": true,
+          "selector": {
+            "class_name": "Retry",
+            "kind": "class_frozenset_strings",
+            "symbol": "DEFAULT_ALLOWED_METHODS"
+          },
+          "sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+          "snippet": "DEFAULT_ALLOWED_METHODS = frozenset(\n        [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"]\n    )",
+          "value": [
+            "HEAD",
+            "GET",
+            "PUT",
+            "DELETE",
+            "OPTIONS",
+            "TRACE"
+          ]
+        },
+        "value_type": "string_set"
+      },
+      {
+        "adapter": {
+          "location": {
+            "end_line": 7,
+            "end_offset": 302,
+            "start_line": 7,
+            "start_offset": 284
+          },
+          "normalized_value": 10,
+          "reasons": [],
+          "resolved": true,
+          "selector": {
+            "symbol": "TOTAL_DEFAULT"
+          },
+          "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+          "snippet": "TOTAL_DEFAULT = 10",
+          "value": 10
+        },
+        "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+        "comparison": {
+          "adapter_document": "match",
+          "source_adapter": "match",
+          "source_document": "match",
+          "state": "match"
+        },
+        "document": {
+          "location": {
+            "end_line": 14,
+            "end_offset": 538,
+            "start_line": 11,
+            "start_offset": 429
+          },
+          "normalized_value": 10,
+          "reasons": [],
+          "resolved": true,
+          "selector": {
+            "fence_id": "retry-defaults",
+            "field": "total_default"
+          },
+          "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+          "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+          "value": 10
+        },
+        "id": "retry-total",
+        "scope": "urllib3 2.5.0 Retry constructor total default expression",
+        "source": {
+          "location": {
+            "end_line": 204,
+            "end_offset": 6817,
+            "start_line": 204,
+            "start_offset": 6815
+          },
+          "normalized_value": 10,
+          "reasons": [],
+          "resolved": true,
+          "selector": {
+            "class_name": "Retry",
+            "kind": "parameter_default",
+            "method_name": "__init__",
+            "parameter": "total"
+          },
+          "sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+          "snippet": "10",
+          "value": 10
+        },
+        "value_type": "integer"
+      }
+    ],
+    "blockers": [],
+    "requires_human_review": true,
+    "auto_accept": false,
+    "live_state_checked": false,
+    "runtime_binding_verified": false
+  },
+  "input_directory_absent_during_show": true,
+  "source_adapter_document_and_profile_absent": true,
+  "own_report_online": true,
+  "own_report_bytes_and_metadata_unchanged": true,
+  "all_inputs_restored": true,
+  "live_sources_checked": false
+}

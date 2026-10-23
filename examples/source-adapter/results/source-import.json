@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "kind": "captured_syntax_source_adapter_demonstration",
+  "pinned_source": {
+    "repository": "https://github.com/urllib3/urllib3",
+    "requested_tag": "2.5.0",
+    "commit": "aaab4eccc10c965897540b21e15f11859d0b62e7",
+    "corpus_path": "corpora/urllib3-retry-v2.5.0/upstream/retry.py",
+    "byte_count": 18459,
+    "sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+    "manifest_sha256": "9a07622ba8fe57bcac39b4f678eba91aad181395f50e133d905a4ea4503e7ec9"
+  },
+  "baseline_inputs": [
+    {
+      "role": "source",
+      "corpus_path": "upstream/retry.py",
+      "path": "inputs/upstream-retry.py",
+      "byte_count": 18459,
+      "sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026"
+    },
+    {
+      "role": "adapter",
+      "corpus_path": "authored/retry_config.py",
+      "path": "inputs/adapter.py",
+      "byte_count": 303,
+      "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137"
+    },
+    {
+      "role": "document",
+      "corpus_path": "authored/contract.md",
+      "path": "inputs/contract.md",
+      "byte_count": 1623,
+      "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79"
+    }
+  ],
+  "license": {
+    "corpus_path": "upstream/LICENSE.txt",
+    "path": "inputs/LICENSE.txt",
+    "byte_count": 1093,
+    "sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686"
+  },
+  "input_pins": [
+    {
+      "path": "inputs/upstream-retry.py",
+      "byte_count": 18459,
+      "sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026"
+    },
+    {
+      "path": "inputs/adapter.py",
+      "byte_count": 303,
+      "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137"
+    },
+    {
+      "path": "inputs/contract.md",
+      "byte_count": 1623,
+      "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79"
+    },
+    {
+      "path": "inputs/profile.json",
+      "byte_count": 1270,
+      "sha256": "99d3fdc0eaac9142dc24010697cd42f52b87b70f55a093e292507a58fa247c1a"
+    },
+    {
+      "path": "inputs/LICENSE.txt",
+      "byte_count": 1093,
+      "sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686"
+    },
+    {
+      "path": "inputs/adapter-total-11.py",
+      "byte_count": 303,
+      "sha256": "fc70fd587e236b4068cc136b9a90b6db7bcd02777fb95adfefbbf56fd09abcf7"
+    },
+    {
+      "path": "inputs/source-computed-total.py",
+      "byte_count": 18462,
+      "sha256": "132a9192e14a7fad5d799ee50fabaa8c94b32a7787bc7d0334febb0dd5961641"
+    },
+    {
+      "path": "inputs/source-shadowed-frozenset.py",
+      "byte_count": 18522,
+      "sha256": "f761fb7a0adcacded87f1bc10388086d2eabd476ea166985bc29fd22d9df03b2"
+    },
+    {
+      "path": "inputs/source-duplicate-class.py",
+      "byte_count": 18526,
+      "sha256": "bbbeb375d2bbcfa8950865a00b21d706cd6dbb3b50cfd498f84df9904ee9e0ba"
+    },
+    {
+      "path": "inputs/document-ambiguous-fence.md",
+      "byte_count": 1833,
+      "sha256": "4590cd24074c534267185c45f7934a9692b6baa58ef3a7fd4cc0c434f46d590a"
+    },
+    {
+      "path": "inputs/source-bool-total.py",
+      "byte_count": 18461,
+      "sha256": "046ea23d1385f7a898631f841ecb55bb9b4859d5569523935462b292b989d3bb"
+    }
+  ],
+  "original_corpus_files": [
+    {
+      "path": "README.md",
+      "byte_count": 5415,
+      "sha256": "c9e6e9bf2e36cc02c3468c5614bd791f53fcd4457fc698611db4d5deec6a3465"
+    },
+    {
+      "path": "authored/artifact-map.json",
+      "byte_count": 326,
+      "sha256": "500722933647e1497f9827b94dead0a3cf4867404b1d4e370c0d7d97c67a2b9a"
+    },
+    {
+      "path": "authored/contract.md",
+      "byte_count": 1623,
+      "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79"
+    },
+    {
+      "path": "authored/inventory.json",
+      "byte_count": 2169,
+      "sha256": "5f05b9d62376a328d4a3220b950314df8efc44988c4922eb0781f699e720e5cb"
+    },
+    {
+      "path": "authored/obligations.json",
+      "byte_count": 1386,
+      "sha256": "0c7f7e5e3dab3adf5496ef8883fc873025948013dac838b2682e7361453c1d99"
+    },
+    {
+      "path": "authored/retry_config.py",
+      "byte_count": 303,
+      "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137"
+    },
+    {
+      "path": "manifest.json",
+      "byte_count": 2914,
+      "sha256": "9a07622ba8fe57bcac39b4f678eba91aad181395f50e133d905a4ea4503e7ec9"
+    },
+    {
+      "path": "source-facts.json",
+      "byte_count": 7939,
+      "sha256": "54b0cb845f3e53e20832345dd80d7f4f7509f13b200ff252793da984396a08f5"
+    },
+    {
+      "path": "upstream/LICENSE.txt",
+      "byte_count": 1093,
+      "sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686"
+    },
+    {
+      "path": "upstream/reference.html",
+      "byte_count": 124383,
+      "sha256": "bbdd44c8ad80dbd60a554972f31349a1c442100ed494d7a207ede0bc7022ec6d"
+    },
+    {
+      "path": "upstream/retry.py",
+      "byte_count": 18459,
+      "sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026"
+    }
+  ],
+  "corpus_bytes_unchanged": true,
+  "upstream_code_executed": false,
+  "adapter_code_executed": false,
+  "live_upstream_refetched": false,
+  "independent_human_annotation": false,
+  "benchmark": false
+}

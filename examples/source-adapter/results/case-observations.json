@@ -1,0 +1,3250 @@
+[
+  {
+    "id": "baseline",
+    "title": "Закреплённый исходник и прежний авторский адаптер",
+    "source": "inputs/upstream-retry.py",
+    "adapter": "inputs/adapter.py",
+    "document": "inputs/contract.md",
+    "fixture_note": "All three texts are byte-identical copies of the existing pinned corpus.",
+    "expected_counts": {
+      "mappings": 2,
+      "match": 2,
+      "mismatch": 0,
+      "unresolved": 0
+    },
+    "report": "reports/baseline.json",
+    "analyze": {
+      "report_id": "sad_d10fb7c9f1448f907c8690164debc24c88201b18f017936c04fa379a1c3e331f",
+      "report_digest": "d10fb7c9f1448f907c8690164debc24c88201b18f017936c04fa379a1c3e331f",
+      "rules_version": "source-adapter-1",
+      "state": "current_for_human_review",
+      "counts": {
+        "mappings": 2,
+        "match": 2,
+        "mismatch": 0,
+        "unresolved": 0
+      },
+      "results": [
+        {
+          "adapter": {
+            "location": {
+              "end_line": 6,
+              "end_offset": 283,
+              "start_line": 6,
+              "start_offset": 205
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "DEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "match",
+            "source_document": "match",
+            "state": "match"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "default_allowed_methods"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "id": "retry-methods",
+          "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+          "source": {
+            "location": {
+              "end_line": 186,
+              "end_offset": 6270,
+              "start_line": 184,
+              "start_offset": 6167
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "class_frozenset_strings",
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+            "snippet": "DEFAULT_ALLOWED_METHODS = frozenset(\n        [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"]\n    )",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "value_type": "string_set"
+        },
+        {
+          "adapter": {
+            "location": {
+              "end_line": 7,
+              "end_offset": 302,
+              "start_line": 7,
+              "start_offset": 284
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "TOTAL_DEFAULT"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "TOTAL_DEFAULT = 10",
+            "value": 10
+          },
+          "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "match",
+            "source_document": "match",
+            "state": "match"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "total_default"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": 10
+          },
+          "id": "retry-total",
+          "scope": "urllib3 2.5.0 Retry constructor total default expression",
+          "source": {
+            "location": {
+              "end_line": 204,
+              "end_offset": 6817,
+              "start_line": 204,
+              "start_offset": 6815
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "parameter_default",
+              "method_name": "__init__",
+              "parameter": "total"
+            },
+            "sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+            "snippet": "10",
+            "value": 10
+          },
+          "value_type": "integer"
+        }
+      ],
+      "blockers": [],
+      "requires_human_review": true,
+      "auto_accept": false,
+      "live_state_checked": false,
+      "runtime_binding_verified": false
+    },
+    "show": {
+      "report_id": "sad_d10fb7c9f1448f907c8690164debc24c88201b18f017936c04fa379a1c3e331f",
+      "report_digest": "d10fb7c9f1448f907c8690164debc24c88201b18f017936c04fa379a1c3e331f",
+      "rules_version": "source-adapter-1",
+      "state": "current_for_human_review",
+      "counts": {
+        "mappings": 2,
+        "match": 2,
+        "mismatch": 0,
+        "unresolved": 0
+      },
+      "results": [
+        {
+          "adapter": {
+            "location": {
+              "end_line": 6,
+              "end_offset": 283,
+              "start_line": 6,
+              "start_offset": 205
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "DEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "match",
+            "source_document": "match",
+            "state": "match"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "default_allowed_methods"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "id": "retry-methods",
+          "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+          "source": {
+            "location": {
+              "end_line": 186,
+              "end_offset": 6270,
+              "start_line": 184,
+              "start_offset": 6167
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "class_frozenset_strings",
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+            "snippet": "DEFAULT_ALLOWED_METHODS = frozenset(\n        [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"]\n    )",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "value_type": "string_set"
+        },
+        {
+          "adapter": {
+            "location": {
+              "end_line": 7,
+              "end_offset": 302,
+              "start_line": 7,
+              "start_offset": 284
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "TOTAL_DEFAULT"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "TOTAL_DEFAULT = 10",
+            "value": 10
+          },
+          "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "match",
+            "source_document": "match",
+            "state": "match"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "total_default"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": 10
+          },
+          "id": "retry-total",
+          "scope": "urllib3 2.5.0 Retry constructor total default expression",
+          "source": {
+            "location": {
+              "end_line": 204,
+              "end_offset": 6817,
+              "start_line": 204,
+              "start_offset": 6815
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "parameter_default",
+              "method_name": "__init__",
+              "parameter": "total"
+            },
+            "sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+            "snippet": "10",
+            "value": 10
+          },
+          "value_type": "integer"
+        }
+      ],
+      "blockers": [],
+      "requires_human_review": true,
+      "auto_accept": false,
+      "live_state_checked": false,
+      "runtime_binding_verified": false
+    },
+    "captured_summary_verified": true
+  },
+  {
+    "id": "adapter-total-11",
+    "title": "Авторский адаптер меняет TOTAL_DEFAULT на 11",
+    "source": "inputs/upstream-retry.py",
+    "adapter": "inputs/adapter-total-11.py",
+    "document": "inputs/contract.md",
+    "fixture_note": "Only the authored adapter fixture changes; upstream and document remain captured baseline data.",
+    "expected_counts": {
+      "mappings": 2,
+      "match": 1,
+      "mismatch": 1,
+      "unresolved": 0
+    },
+    "report": "reports/adapter-total-11.json",
+    "analyze": {
+      "report_id": "sad_dc844b9701e4c98060cc06c99ee95ba474de083e5acb88a2d59d4af65a25d4e6",
+      "report_digest": "dc844b9701e4c98060cc06c99ee95ba474de083e5acb88a2d59d4af65a25d4e6",
+      "rules_version": "source-adapter-1",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 1,
+        "mismatch": 1,
+        "unresolved": 0
+      },
+      "results": [
+        {
+          "adapter": {
+            "location": {
+              "end_line": 6,
+              "end_offset": 283,
+              "start_line": 6,
+              "start_offset": 205
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "fc70fd587e236b4068cc136b9a90b6db7bcd02777fb95adfefbbf56fd09abcf7",
+            "snippet": "DEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "match",
+            "source_document": "match",
+            "state": "match"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "default_allowed_methods"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "id": "retry-methods",
+          "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+          "source": {
+            "location": {
+              "end_line": 186,
+              "end_offset": 6270,
+              "start_line": 184,
+              "start_offset": 6167
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "class_frozenset_strings",
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+            "snippet": "DEFAULT_ALLOWED_METHODS = frozenset(\n        [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"]\n    )",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "value_type": "string_set"
+        },
+        {
+          "adapter": {
+            "location": {
+              "end_line": 7,
+              "end_offset": 302,
+              "start_line": 7,
+              "start_offset": 284
+            },
+            "normalized_value": 11,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "TOTAL_DEFAULT"
+            },
+            "sha256": "fc70fd587e236b4068cc136b9a90b6db7bcd02777fb95adfefbbf56fd09abcf7",
+            "snippet": "TOTAL_DEFAULT = 11",
+            "value": 11
+          },
+          "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+          "comparison": {
+            "adapter_document": "mismatch",
+            "source_adapter": "mismatch",
+            "source_document": "match",
+            "state": "mismatch"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "total_default"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": 10
+          },
+          "id": "retry-total",
+          "scope": "urllib3 2.5.0 Retry constructor total default expression",
+          "source": {
+            "location": {
+              "end_line": 204,
+              "end_offset": 6817,
+              "start_line": 204,
+              "start_offset": 6815
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "parameter_default",
+              "method_name": "__init__",
+              "parameter": "total"
+            },
+            "sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+            "snippet": "10",
+            "value": 10
+          },
+          "value_type": "integer"
+        }
+      ],
+      "blockers": [
+        {
+          "code": "mapping_mismatch",
+          "mapping_id": "retry-total"
+        }
+      ],
+      "requires_human_review": true,
+      "auto_accept": false,
+      "live_state_checked": false,
+      "runtime_binding_verified": false
+    },
+    "show": {
+      "report_id": "sad_dc844b9701e4c98060cc06c99ee95ba474de083e5acb88a2d59d4af65a25d4e6",
+      "report_digest": "dc844b9701e4c98060cc06c99ee95ba474de083e5acb88a2d59d4af65a25d4e6",
+      "rules_version": "source-adapter-1",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 1,
+        "mismatch": 1,
+        "unresolved": 0
+      },
+      "results": [
+        {
+          "adapter": {
+            "location": {
+              "end_line": 6,
+              "end_offset": 283,
+              "start_line": 6,
+              "start_offset": 205
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "fc70fd587e236b4068cc136b9a90b6db7bcd02777fb95adfefbbf56fd09abcf7",
+            "snippet": "DEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "match",
+            "source_document": "match",
+            "state": "match"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "default_allowed_methods"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "id": "retry-methods",
+          "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+          "source": {
+            "location": {
+              "end_line": 186,
+              "end_offset": 6270,
+              "start_line": 184,
+              "start_offset": 6167
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "class_frozenset_strings",
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+            "snippet": "DEFAULT_ALLOWED_METHODS = frozenset(\n        [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"]\n    )",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "value_type": "string_set"
+        },
+        {
+          "adapter": {
+            "location": {
+              "end_line": 7,
+              "end_offset": 302,
+              "start_line": 7,
+              "start_offset": 284
+            },
+            "normalized_value": 11,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "TOTAL_DEFAULT"
+            },
+            "sha256": "fc70fd587e236b4068cc136b9a90b6db7bcd02777fb95adfefbbf56fd09abcf7",
+            "snippet": "TOTAL_DEFAULT = 11",
+            "value": 11
+          },
+          "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+          "comparison": {
+            "adapter_document": "mismatch",
+            "source_adapter": "mismatch",
+            "source_document": "match",
+            "state": "mismatch"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "total_default"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": 10
+          },
+          "id": "retry-total",
+          "scope": "urllib3 2.5.0 Retry constructor total default expression",
+          "source": {
+            "location": {
+              "end_line": 204,
+              "end_offset": 6817,
+              "start_line": 204,
+              "start_offset": 6815
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "parameter_default",
+              "method_name": "__init__",
+              "parameter": "total"
+            },
+            "sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+            "snippet": "10",
+            "value": 10
+          },
+          "value_type": "integer"
+        }
+      ],
+      "blockers": [
+        {
+          "code": "mapping_mismatch",
+          "mapping_id": "retry-total"
+        }
+      ],
+      "requires_human_review": true,
+      "auto_accept": false,
+      "live_state_checked": false,
+      "runtime_binding_verified": false
+    },
+    "captured_summary_verified": true
+  },
+  {
+    "id": "computed-total",
+    "title": "Вычисляемое выражение 5 + 5 не исполняется",
+    "source": "inputs/source-computed-total.py",
+    "adapter": "inputs/adapter.py",
+    "document": "inputs/contract.md",
+    "fixture_note": "Synthetic source fixture replaces the selected integer expression with 5 + 5; it is not an upstream change.",
+    "expected_counts": {
+      "mappings": 2,
+      "match": 1,
+      "mismatch": 0,
+      "unresolved": 1
+    },
+    "report": "reports/computed-total.json",
+    "analyze": {
+      "report_id": "sad_6af76473e580277b4e2f8c9fc371f160296f9653ee999aee86574b52ffa16ad9",
+      "report_digest": "6af76473e580277b4e2f8c9fc371f160296f9653ee999aee86574b52ffa16ad9",
+      "rules_version": "source-adapter-1",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 1,
+        "mismatch": 0,
+        "unresolved": 1
+      },
+      "results": [
+        {
+          "adapter": {
+            "location": {
+              "end_line": 6,
+              "end_offset": 283,
+              "start_line": 6,
+              "start_offset": 205
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "DEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "match",
+            "source_document": "match",
+            "state": "match"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "default_allowed_methods"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "id": "retry-methods",
+          "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+          "source": {
+            "location": {
+              "end_line": 186,
+              "end_offset": 6270,
+              "start_line": 184,
+              "start_offset": 6167
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "class_frozenset_strings",
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "132a9192e14a7fad5d799ee50fabaa8c94b32a7787bc7d0334febb0dd5961641",
+            "snippet": "DEFAULT_ALLOWED_METHODS = frozenset(\n        [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"]\n    )",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "value_type": "string_set"
+        },
+        {
+          "adapter": {
+            "location": {
+              "end_line": 7,
+              "end_offset": 302,
+              "start_line": 7,
+              "start_offset": 284
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "TOTAL_DEFAULT"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "TOTAL_DEFAULT = 10",
+            "value": 10
+          },
+          "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "unresolved",
+            "source_document": "unresolved",
+            "state": "unresolved"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "total_default"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": 10
+          },
+          "id": "retry-total",
+          "scope": "urllib3 2.5.0 Retry constructor total default expression",
+          "source": {
+            "location": {
+              "end_line": 204,
+              "end_offset": 6820,
+              "start_line": 204,
+              "start_offset": 6815
+            },
+            "normalized_value": null,
+            "reasons": [
+              {
+                "code": "unsupported_python_literal"
+              }
+            ],
+            "resolved": false,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "parameter_default",
+              "method_name": "__init__",
+              "parameter": "total"
+            },
+            "sha256": "132a9192e14a7fad5d799ee50fabaa8c94b32a7787bc7d0334febb0dd5961641",
+            "snippet": "5 + 5",
+            "value": null
+          },
+          "value_type": "integer"
+        }
+      ],
+      "blockers": [
+        {
+          "code": "mapping_unresolved",
+          "mapping_id": "retry-total"
+        }
+      ],
+      "requires_human_review": true,
+      "auto_accept": false,
+      "live_state_checked": false,
+      "runtime_binding_verified": false
+    },
+    "show": {
+      "report_id": "sad_6af76473e580277b4e2f8c9fc371f160296f9653ee999aee86574b52ffa16ad9",
+      "report_digest": "6af76473e580277b4e2f8c9fc371f160296f9653ee999aee86574b52ffa16ad9",
+      "rules_version": "source-adapter-1",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 1,
+        "mismatch": 0,
+        "unresolved": 1
+      },
+      "results": [
+        {
+          "adapter": {
+            "location": {
+              "end_line": 6,
+              "end_offset": 283,
+              "start_line": 6,
+              "start_offset": 205
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "DEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "match",
+            "source_document": "match",
+            "state": "match"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "default_allowed_methods"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "id": "retry-methods",
+          "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+          "source": {
+            "location": {
+              "end_line": 186,
+              "end_offset": 6270,
+              "start_line": 184,
+              "start_offset": 6167
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "class_frozenset_strings",
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "132a9192e14a7fad5d799ee50fabaa8c94b32a7787bc7d0334febb0dd5961641",
+            "snippet": "DEFAULT_ALLOWED_METHODS = frozenset(\n        [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"]\n    )",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "value_type": "string_set"
+        },
+        {
+          "adapter": {
+            "location": {
+              "end_line": 7,
+              "end_offset": 302,
+              "start_line": 7,
+              "start_offset": 284
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "TOTAL_DEFAULT"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "TOTAL_DEFAULT = 10",
+            "value": 10
+          },
+          "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "unresolved",
+            "source_document": "unresolved",
+            "state": "unresolved"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "total_default"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": 10
+          },
+          "id": "retry-total",
+          "scope": "urllib3 2.5.0 Retry constructor total default expression",
+          "source": {
+            "location": {
+              "end_line": 204,
+              "end_offset": 6820,
+              "start_line": 204,
+              "start_offset": 6815
+            },
+            "normalized_value": null,
+            "reasons": [
+              {
+                "code": "unsupported_python_literal"
+              }
+            ],
+            "resolved": false,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "parameter_default",
+              "method_name": "__init__",
+              "parameter": "total"
+            },
+            "sha256": "132a9192e14a7fad5d799ee50fabaa8c94b32a7787bc7d0334febb0dd5961641",
+            "snippet": "5 + 5",
+            "value": null
+          },
+          "value_type": "integer"
+        }
+      ],
+      "blockers": [
+        {
+          "code": "mapping_unresolved",
+          "mapping_id": "retry-total"
+        }
+      ],
+      "requires_human_review": true,
+      "auto_accept": false,
+      "live_state_checked": false,
+      "runtime_binding_verified": false
+    },
+    "captured_summary_verified": true
+  },
+  {
+    "id": "shadowed-frozenset",
+    "title": "Видимое связывание имени frozenset",
+    "source": "inputs/source-shadowed-frozenset.py",
+    "adapter": "inputs/adapter.py",
+    "document": "inputs/contract.md",
+    "fixture_note": "Synthetic source fixture binds frozenset after its future import; no name or constructor is executed.",
+    "expected_counts": {
+      "mappings": 2,
+      "match": 1,
+      "mismatch": 0,
+      "unresolved": 1
+    },
+    "report": "reports/shadowed-frozenset.json",
+    "analyze": {
+      "report_id": "sad_989f22229e80b7b62a7a8fde763e5f10cb9340145b99981ae65de1f78ebf53df",
+      "report_digest": "989f22229e80b7b62a7a8fde763e5f10cb9340145b99981ae65de1f78ebf53df",
+      "rules_version": "source-adapter-1",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 1,
+        "mismatch": 0,
+        "unresolved": 1
+      },
+      "results": [
+        {
+          "adapter": {
+            "location": {
+              "end_line": 6,
+              "end_offset": 283,
+              "start_line": 6,
+              "start_offset": 205
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "DEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "unresolved",
+            "source_document": "unresolved",
+            "state": "unresolved"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "default_allowed_methods"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "id": "retry-methods",
+          "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+          "source": {
+            "location": null,
+            "normalized_value": null,
+            "reasons": [
+              {
+                "code": "source_frozenset_binding_unsupported"
+              }
+            ],
+            "resolved": false,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "class_frozenset_strings",
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "f761fb7a0adcacded87f1bc10388086d2eabd476ea166985bc29fd22d9df03b2",
+            "snippet": null,
+            "value": null
+          },
+          "value_type": "string_set"
+        },
+        {
+          "adapter": {
+            "location": {
+              "end_line": 7,
+              "end_offset": 302,
+              "start_line": 7,
+              "start_offset": 284
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "TOTAL_DEFAULT"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "TOTAL_DEFAULT = 10",
+            "value": 10
+          },
+          "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "match",
+            "source_document": "match",
+            "state": "match"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "total_default"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": 10
+          },
+          "id": "retry-total",
+          "scope": "urllib3 2.5.0 Retry constructor total default expression",
+          "source": {
+            "location": {
+              "end_line": 207,
+              "end_offset": 6880,
+              "start_line": 207,
+              "start_offset": 6878
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "parameter_default",
+              "method_name": "__init__",
+              "parameter": "total"
+            },
+            "sha256": "f761fb7a0adcacded87f1bc10388086d2eabd476ea166985bc29fd22d9df03b2",
+            "snippet": "10",
+            "value": 10
+          },
+          "value_type": "integer"
+        }
+      ],
+      "blockers": [
+        {
+          "code": "mapping_unresolved",
+          "mapping_id": "retry-methods"
+        }
+      ],
+      "requires_human_review": true,
+      "auto_accept": false,
+      "live_state_checked": false,
+      "runtime_binding_verified": false
+    },
+    "show": {
+      "report_id": "sad_989f22229e80b7b62a7a8fde763e5f10cb9340145b99981ae65de1f78ebf53df",
+      "report_digest": "989f22229e80b7b62a7a8fde763e5f10cb9340145b99981ae65de1f78ebf53df",
+      "rules_version": "source-adapter-1",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 1,
+        "mismatch": 0,
+        "unresolved": 1
+      },
+      "results": [
+        {
+          "adapter": {
+            "location": {
+              "end_line": 6,
+              "end_offset": 283,
+              "start_line": 6,
+              "start_offset": 205
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "DEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "unresolved",
+            "source_document": "unresolved",
+            "state": "unresolved"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "default_allowed_methods"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "id": "retry-methods",
+          "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+          "source": {
+            "location": null,
+            "normalized_value": null,
+            "reasons": [
+              {
+                "code": "source_frozenset_binding_unsupported"
+              }
+            ],
+            "resolved": false,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "class_frozenset_strings",
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "f761fb7a0adcacded87f1bc10388086d2eabd476ea166985bc29fd22d9df03b2",
+            "snippet": null,
+            "value": null
+          },
+          "value_type": "string_set"
+        },
+        {
+          "adapter": {
+            "location": {
+              "end_line": 7,
+              "end_offset": 302,
+              "start_line": 7,
+              "start_offset": 284
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "TOTAL_DEFAULT"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "TOTAL_DEFAULT = 10",
+            "value": 10
+          },
+          "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "match",
+            "source_document": "match",
+            "state": "match"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "total_default"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": 10
+          },
+          "id": "retry-total",
+          "scope": "urllib3 2.5.0 Retry constructor total default expression",
+          "source": {
+            "location": {
+              "end_line": 207,
+              "end_offset": 6880,
+              "start_line": 207,
+              "start_offset": 6878
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "parameter_default",
+              "method_name": "__init__",
+              "parameter": "total"
+            },
+            "sha256": "f761fb7a0adcacded87f1bc10388086d2eabd476ea166985bc29fd22d9df03b2",
+            "snippet": "10",
+            "value": 10
+          },
+          "value_type": "integer"
+        }
+      ],
+      "blockers": [
+        {
+          "code": "mapping_unresolved",
+          "mapping_id": "retry-methods"
+        }
+      ],
+      "requires_human_review": true,
+      "auto_accept": false,
+      "live_state_checked": false,
+      "runtime_binding_verified": false
+    },
+    "captured_summary_verified": true
+  },
+  {
+    "id": "duplicate-class",
+    "title": "Два объявления выбранного класса",
+    "source": "inputs/source-duplicate-class.py",
+    "adapter": "inputs/adapter.py",
+    "document": "inputs/contract.md",
+    "fixture_note": "Synthetic source fixture appends a second top-level Retry class; selection is ambiguous.",
+    "expected_counts": {
+      "mappings": 2,
+      "match": 0,
+      "mismatch": 0,
+      "unresolved": 2
+    },
+    "report": "reports/duplicate-class.json",
+    "analyze": {
+      "report_id": "sad_e4d6acf223f2942e0960a1fa457cd0a3f2356b20ac19b5d92dec7849bd55262b",
+      "report_digest": "e4d6acf223f2942e0960a1fa457cd0a3f2356b20ac19b5d92dec7849bd55262b",
+      "rules_version": "source-adapter-1",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 0,
+        "mismatch": 0,
+        "unresolved": 2
+      },
+      "results": [
+        {
+          "adapter": {
+            "location": {
+              "end_line": 6,
+              "end_offset": 283,
+              "start_line": 6,
+              "start_offset": 205
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "DEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "unresolved",
+            "source_document": "unresolved",
+            "state": "unresolved"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "default_allowed_methods"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "id": "retry-methods",
+          "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+          "source": {
+            "location": null,
+            "normalized_value": null,
+            "reasons": [
+              {
+                "code": "ambiguous_source_class"
+              }
+            ],
+            "resolved": false,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "class_frozenset_strings",
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "bbbeb375d2bbcfa8950865a00b21d706cd6dbb3b50cfd498f84df9904ee9e0ba",
+            "snippet": null,
+            "value": null
+          },
+          "value_type": "string_set"
+        },
+        {
+          "adapter": {
+            "location": {
+              "end_line": 7,
+              "end_offset": 302,
+              "start_line": 7,
+              "start_offset": 284
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "TOTAL_DEFAULT"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "TOTAL_DEFAULT = 10",
+            "value": 10
+          },
+          "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "unresolved",
+            "source_document": "unresolved",
+            "state": "unresolved"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "total_default"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": 10
+          },
+          "id": "retry-total",
+          "scope": "urllib3 2.5.0 Retry constructor total default expression",
+          "source": {
+            "location": null,
+            "normalized_value": null,
+            "reasons": [
+              {
+                "code": "ambiguous_source_class"
+              }
+            ],
+            "resolved": false,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "parameter_default",
+              "method_name": "__init__",
+              "parameter": "total"
+            },
+            "sha256": "bbbeb375d2bbcfa8950865a00b21d706cd6dbb3b50cfd498f84df9904ee9e0ba",
+            "snippet": null,
+            "value": null
+          },
+          "value_type": "integer"
+        }
+      ],
+      "blockers": [
+        {
+          "code": "mapping_unresolved",
+          "mapping_id": "retry-methods"
+        },
+        {
+          "code": "mapping_unresolved",
+          "mapping_id": "retry-total"
+        }
+      ],
+      "requires_human_review": true,
+      "auto_accept": false,
+      "live_state_checked": false,
+      "runtime_binding_verified": false
+    },
+    "show": {
+      "report_id": "sad_e4d6acf223f2942e0960a1fa457cd0a3f2356b20ac19b5d92dec7849bd55262b",
+      "report_digest": "e4d6acf223f2942e0960a1fa457cd0a3f2356b20ac19b5d92dec7849bd55262b",
+      "rules_version": "source-adapter-1",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 0,
+        "mismatch": 0,
+        "unresolved": 2
+      },
+      "results": [
+        {
+          "adapter": {
+            "location": {
+              "end_line": 6,
+              "end_offset": 283,
+              "start_line": 6,
+              "start_offset": 205
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "DEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "unresolved",
+            "source_document": "unresolved",
+            "state": "unresolved"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "default_allowed_methods"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "id": "retry-methods",
+          "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+          "source": {
+            "location": null,
+            "normalized_value": null,
+            "reasons": [
+              {
+                "code": "ambiguous_source_class"
+              }
+            ],
+            "resolved": false,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "class_frozenset_strings",
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "bbbeb375d2bbcfa8950865a00b21d706cd6dbb3b50cfd498f84df9904ee9e0ba",
+            "snippet": null,
+            "value": null
+          },
+          "value_type": "string_set"
+        },
+        {
+          "adapter": {
+            "location": {
+              "end_line": 7,
+              "end_offset": 302,
+              "start_line": 7,
+              "start_offset": 284
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "TOTAL_DEFAULT"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "TOTAL_DEFAULT = 10",
+            "value": 10
+          },
+          "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "unresolved",
+            "source_document": "unresolved",
+            "state": "unresolved"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "total_default"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": 10
+          },
+          "id": "retry-total",
+          "scope": "urllib3 2.5.0 Retry constructor total default expression",
+          "source": {
+            "location": null,
+            "normalized_value": null,
+            "reasons": [
+              {
+                "code": "ambiguous_source_class"
+              }
+            ],
+            "resolved": false,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "parameter_default",
+              "method_name": "__init__",
+              "parameter": "total"
+            },
+            "sha256": "bbbeb375d2bbcfa8950865a00b21d706cd6dbb3b50cfd498f84df9904ee9e0ba",
+            "snippet": null,
+            "value": null
+          },
+          "value_type": "integer"
+        }
+      ],
+      "blockers": [
+        {
+          "code": "mapping_unresolved",
+          "mapping_id": "retry-methods"
+        },
+        {
+          "code": "mapping_unresolved",
+          "mapping_id": "retry-total"
+        }
+      ],
+      "requires_human_review": true,
+      "auto_accept": false,
+      "live_state_checked": false,
+      "runtime_binding_verified": false
+    },
+    "captured_summary_verified": true
+  },
+  {
+    "id": "ambiguous-fence",
+    "title": "Два одинаковых JSON fence документа",
+    "source": "inputs/upstream-retry.py",
+    "adapter": "inputs/adapter.py",
+    "document": "inputs/document-ambiguous-fence.md",
+    "fixture_note": "Synthetic authored-document fixture duplicates the selected whole fenced block.",
+    "expected_counts": {
+      "mappings": 2,
+      "match": 0,
+      "mismatch": 0,
+      "unresolved": 2
+    },
+    "report": "reports/ambiguous-fence.json",
+    "analyze": {
+      "report_id": "sad_a1ce8ea4c6bf72e51660291199f0a57d704af4d49a2dd51938155d01af9abb22",
+      "report_digest": "a1ce8ea4c6bf72e51660291199f0a57d704af4d49a2dd51938155d01af9abb22",
+      "rules_version": "source-adapter-1",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 0,
+        "mismatch": 0,
+        "unresolved": 2
+      },
+      "results": [
+        {
+          "adapter": {
+            "location": {
+              "end_line": 6,
+              "end_offset": 283,
+              "start_line": 6,
+              "start_offset": 205
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "DEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+          "comparison": {
+            "adapter_document": "unresolved",
+            "source_adapter": "match",
+            "source_document": "unresolved",
+            "state": "unresolved"
+          },
+          "document": {
+            "location": null,
+            "normalized_value": null,
+            "reasons": [
+              {
+                "code": "duplicate_document_fence"
+              }
+            ],
+            "resolved": false,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "default_allowed_methods"
+            },
+            "sha256": "4590cd24074c534267185c45f7934a9692b6baa58ef3a7fd4cc0c434f46d590a",
+            "snippet": null,
+            "value": null
+          },
+          "id": "retry-methods",
+          "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+          "source": {
+            "location": {
+              "end_line": 186,
+              "end_offset": 6270,
+              "start_line": 184,
+              "start_offset": 6167
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "class_frozenset_strings",
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+            "snippet": "DEFAULT_ALLOWED_METHODS = frozenset(\n        [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"]\n    )",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "value_type": "string_set"
+        },
+        {
+          "adapter": {
+            "location": {
+              "end_line": 7,
+              "end_offset": 302,
+              "start_line": 7,
+              "start_offset": 284
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "TOTAL_DEFAULT"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "TOTAL_DEFAULT = 10",
+            "value": 10
+          },
+          "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+          "comparison": {
+            "adapter_document": "unresolved",
+            "source_adapter": "match",
+            "source_document": "unresolved",
+            "state": "unresolved"
+          },
+          "document": {
+            "location": null,
+            "normalized_value": null,
+            "reasons": [
+              {
+                "code": "duplicate_document_fence"
+              }
+            ],
+            "resolved": false,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "total_default"
+            },
+            "sha256": "4590cd24074c534267185c45f7934a9692b6baa58ef3a7fd4cc0c434f46d590a",
+            "snippet": null,
+            "value": null
+          },
+          "id": "retry-total",
+          "scope": "urllib3 2.5.0 Retry constructor total default expression",
+          "source": {
+            "location": {
+              "end_line": 204,
+              "end_offset": 6817,
+              "start_line": 204,
+              "start_offset": 6815
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "parameter_default",
+              "method_name": "__init__",
+              "parameter": "total"
+            },
+            "sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+            "snippet": "10",
+            "value": 10
+          },
+          "value_type": "integer"
+        }
+      ],
+      "blockers": [
+        {
+          "code": "mapping_unresolved",
+          "mapping_id": "retry-methods"
+        },
+        {
+          "code": "mapping_unresolved",
+          "mapping_id": "retry-total"
+        }
+      ],
+      "requires_human_review": true,
+      "auto_accept": false,
+      "live_state_checked": false,
+      "runtime_binding_verified": false
+    },
+    "show": {
+      "report_id": "sad_a1ce8ea4c6bf72e51660291199f0a57d704af4d49a2dd51938155d01af9abb22",
+      "report_digest": "a1ce8ea4c6bf72e51660291199f0a57d704af4d49a2dd51938155d01af9abb22",
+      "rules_version": "source-adapter-1",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 0,
+        "mismatch": 0,
+        "unresolved": 2
+      },
+      "results": [
+        {
+          "adapter": {
+            "location": {
+              "end_line": 6,
+              "end_offset": 283,
+              "start_line": 6,
+              "start_offset": 205
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "DEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+          "comparison": {
+            "adapter_document": "unresolved",
+            "source_adapter": "match",
+            "source_document": "unresolved",
+            "state": "unresolved"
+          },
+          "document": {
+            "location": null,
+            "normalized_value": null,
+            "reasons": [
+              {
+                "code": "duplicate_document_fence"
+              }
+            ],
+            "resolved": false,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "default_allowed_methods"
+            },
+            "sha256": "4590cd24074c534267185c45f7934a9692b6baa58ef3a7fd4cc0c434f46d590a",
+            "snippet": null,
+            "value": null
+          },
+          "id": "retry-methods",
+          "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+          "source": {
+            "location": {
+              "end_line": 186,
+              "end_offset": 6270,
+              "start_line": 184,
+              "start_offset": 6167
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "class_frozenset_strings",
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+            "snippet": "DEFAULT_ALLOWED_METHODS = frozenset(\n        [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"]\n    )",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "value_type": "string_set"
+        },
+        {
+          "adapter": {
+            "location": {
+              "end_line": 7,
+              "end_offset": 302,
+              "start_line": 7,
+              "start_offset": 284
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "TOTAL_DEFAULT"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "TOTAL_DEFAULT = 10",
+            "value": 10
+          },
+          "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+          "comparison": {
+            "adapter_document": "unresolved",
+            "source_adapter": "match",
+            "source_document": "unresolved",
+            "state": "unresolved"
+          },
+          "document": {
+            "location": null,
+            "normalized_value": null,
+            "reasons": [
+              {
+                "code": "duplicate_document_fence"
+              }
+            ],
+            "resolved": false,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "total_default"
+            },
+            "sha256": "4590cd24074c534267185c45f7934a9692b6baa58ef3a7fd4cc0c434f46d590a",
+            "snippet": null,
+            "value": null
+          },
+          "id": "retry-total",
+          "scope": "urllib3 2.5.0 Retry constructor total default expression",
+          "source": {
+            "location": {
+              "end_line": 204,
+              "end_offset": 6817,
+              "start_line": 204,
+              "start_offset": 6815
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "parameter_default",
+              "method_name": "__init__",
+              "parameter": "total"
+            },
+            "sha256": "6e3fb6614a9b9712e5bfc4c78397f1c30f83339e1709b8e0657210ef55e2a026",
+            "snippet": "10",
+            "value": 10
+          },
+          "value_type": "integer"
+        }
+      ],
+      "blockers": [
+        {
+          "code": "mapping_unresolved",
+          "mapping_id": "retry-methods"
+        },
+        {
+          "code": "mapping_unresolved",
+          "mapping_id": "retry-total"
+        }
+      ],
+      "requires_human_review": true,
+      "auto_accept": false,
+      "live_state_checked": false,
+      "runtime_binding_verified": false
+    },
+    "captured_summary_verified": true
+  },
+  {
+    "id": "bool-total",
+    "title": "True не принимается за integer default",
+    "source": "inputs/source-bool-total.py",
+    "adapter": "inputs/adapter.py",
+    "document": "inputs/contract.md",
+    "fixture_note": "Synthetic source fixture replaces the selected integer with True; bool/int equality is not used.",
+    "expected_counts": {
+      "mappings": 2,
+      "match": 1,
+      "mismatch": 0,
+      "unresolved": 1
+    },
+    "report": "reports/bool-total.json",
+    "analyze": {
+      "report_id": "sad_3234ef2f7bfcb660ad81d0374446cd5942381dfaf2344a8ad7fb498401166539",
+      "report_digest": "3234ef2f7bfcb660ad81d0374446cd5942381dfaf2344a8ad7fb498401166539",
+      "rules_version": "source-adapter-1",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 1,
+        "mismatch": 0,
+        "unresolved": 1
+      },
+      "results": [
+        {
+          "adapter": {
+            "location": {
+              "end_line": 6,
+              "end_offset": 283,
+              "start_line": 6,
+              "start_offset": 205
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "DEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "match",
+            "source_document": "match",
+            "state": "match"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "default_allowed_methods"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "id": "retry-methods",
+          "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+          "source": {
+            "location": {
+              "end_line": 186,
+              "end_offset": 6270,
+              "start_line": 184,
+              "start_offset": 6167
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "class_frozenset_strings",
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "046ea23d1385f7a898631f841ecb55bb9b4859d5569523935462b292b989d3bb",
+            "snippet": "DEFAULT_ALLOWED_METHODS = frozenset(\n        [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"]\n    )",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "value_type": "string_set"
+        },
+        {
+          "adapter": {
+            "location": {
+              "end_line": 7,
+              "end_offset": 302,
+              "start_line": 7,
+              "start_offset": 284
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "TOTAL_DEFAULT"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "TOTAL_DEFAULT = 10",
+            "value": 10
+          },
+          "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "unresolved",
+            "source_document": "unresolved",
+            "state": "unresolved"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "total_default"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": 10
+          },
+          "id": "retry-total",
+          "scope": "urllib3 2.5.0 Retry constructor total default expression",
+          "source": {
+            "location": {
+              "end_line": 204,
+              "end_offset": 6819,
+              "start_line": 204,
+              "start_offset": 6815
+            },
+            "normalized_value": null,
+            "reasons": [
+              {
+                "code": "value_type_mismatch"
+              }
+            ],
+            "resolved": false,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "parameter_default",
+              "method_name": "__init__",
+              "parameter": "total"
+            },
+            "sha256": "046ea23d1385f7a898631f841ecb55bb9b4859d5569523935462b292b989d3bb",
+            "snippet": "True",
+            "value": true
+          },
+          "value_type": "integer"
+        }
+      ],
+      "blockers": [
+        {
+          "code": "mapping_unresolved",
+          "mapping_id": "retry-total"
+        }
+      ],
+      "requires_human_review": true,
+      "auto_accept": false,
+      "live_state_checked": false,
+      "runtime_binding_verified": false
+    },
+    "show": {
+      "report_id": "sad_3234ef2f7bfcb660ad81d0374446cd5942381dfaf2344a8ad7fb498401166539",
+      "report_digest": "3234ef2f7bfcb660ad81d0374446cd5942381dfaf2344a8ad7fb498401166539",
+      "rules_version": "source-adapter-1",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 1,
+        "mismatch": 0,
+        "unresolved": 1
+      },
+      "results": [
+        {
+          "adapter": {
+            "location": {
+              "end_line": 6,
+              "end_offset": 283,
+              "start_line": 6,
+              "start_offset": 205
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "DEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "match",
+            "source_document": "match",
+            "state": "match"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "default_allowed_methods"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "id": "retry-methods",
+          "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+          "source": {
+            "location": {
+              "end_line": 186,
+              "end_offset": 6270,
+              "start_line": 184,
+              "start_offset": 6167
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "class_frozenset_strings",
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "046ea23d1385f7a898631f841ecb55bb9b4859d5569523935462b292b989d3bb",
+            "snippet": "DEFAULT_ALLOWED_METHODS = frozenset(\n        [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"]\n    )",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "value_type": "string_set"
+        },
+        {
+          "adapter": {
+            "location": {
+              "end_line": 7,
+              "end_offset": 302,
+              "start_line": 7,
+              "start_offset": 284
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "TOTAL_DEFAULT"
+            },
+            "sha256": "e10e1de71ac51830b78b61f6d78039907dbac55e1f87fce3e4a3444a21556137",
+            "snippet": "TOTAL_DEFAULT = 10",
+            "value": 10
+          },
+          "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "unresolved",
+            "source_document": "unresolved",
+            "state": "unresolved"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "total_default"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": 10
+          },
+          "id": "retry-total",
+          "scope": "urllib3 2.5.0 Retry constructor total default expression",
+          "source": {
+            "location": {
+              "end_line": 204,
+              "end_offset": 6819,
+              "start_line": 204,
+              "start_offset": 6815
+            },
+            "normalized_value": null,
+            "reasons": [
+              {
+                "code": "value_type_mismatch"
+              }
+            ],
+            "resolved": false,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "parameter_default",
+              "method_name": "__init__",
+              "parameter": "total"
+            },
+            "sha256": "046ea23d1385f7a898631f841ecb55bb9b4859d5569523935462b292b989d3bb",
+            "snippet": "True",
+            "value": true
+          },
+          "value_type": "integer"
+        }
+      ],
+      "blockers": [
+        {
+          "code": "mapping_unresolved",
+          "mapping_id": "retry-total"
+        }
+      ],
+      "requires_human_review": true,
+      "auto_accept": false,
+      "live_state_checked": false,
+      "runtime_binding_verified": false
+    },
+    "captured_summary_verified": true
+  },
+  {
+    "id": "mixed-unresolved-and-mismatch",
+    "title": "Неразрешимый source сохраняет mismatch других сторон",
+    "source": "inputs/source-computed-total.py",
+    "adapter": "inputs/adapter-total-11.py",
+    "document": "inputs/contract.md",
+    "fixture_note": "Two existing synthetic fixtures are combined; the adapter/document mismatch remains visible.",
+    "expected_counts": {
+      "mappings": 2,
+      "match": 1,
+      "mismatch": 0,
+      "unresolved": 1
+    },
+    "report": "reports/mixed-unresolved-and-mismatch.json",
+    "analyze": {
+      "report_id": "sad_6e48f559830e1bac504aaee5a300c5bc81fbb4c74af0ddc3bba543f032d89d48",
+      "report_digest": "6e48f559830e1bac504aaee5a300c5bc81fbb4c74af0ddc3bba543f032d89d48",
+      "rules_version": "source-adapter-1",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 1,
+        "mismatch": 0,
+        "unresolved": 1
+      },
+      "results": [
+        {
+          "adapter": {
+            "location": {
+              "end_line": 6,
+              "end_offset": 283,
+              "start_line": 6,
+              "start_offset": 205
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "fc70fd587e236b4068cc136b9a90b6db7bcd02777fb95adfefbbf56fd09abcf7",
+            "snippet": "DEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "match",
+            "source_document": "match",
+            "state": "match"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "default_allowed_methods"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "id": "retry-methods",
+          "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+          "source": {
+            "location": {
+              "end_line": 186,
+              "end_offset": 6270,
+              "start_line": 184,
+              "start_offset": 6167
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "class_frozenset_strings",
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "132a9192e14a7fad5d799ee50fabaa8c94b32a7787bc7d0334febb0dd5961641",
+            "snippet": "DEFAULT_ALLOWED_METHODS = frozenset(\n        [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"]\n    )",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "value_type": "string_set"
+        },
+        {
+          "adapter": {
+            "location": {
+              "end_line": 7,
+              "end_offset": 302,
+              "start_line": 7,
+              "start_offset": 284
+            },
+            "normalized_value": 11,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "TOTAL_DEFAULT"
+            },
+            "sha256": "fc70fd587e236b4068cc136b9a90b6db7bcd02777fb95adfefbbf56fd09abcf7",
+            "snippet": "TOTAL_DEFAULT = 11",
+            "value": 11
+          },
+          "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+          "comparison": {
+            "adapter_document": "mismatch",
+            "source_adapter": "unresolved",
+            "source_document": "unresolved",
+            "state": "unresolved"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "total_default"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": 10
+          },
+          "id": "retry-total",
+          "scope": "urllib3 2.5.0 Retry constructor total default expression",
+          "source": {
+            "location": {
+              "end_line": 204,
+              "end_offset": 6820,
+              "start_line": 204,
+              "start_offset": 6815
+            },
+            "normalized_value": null,
+            "reasons": [
+              {
+                "code": "unsupported_python_literal"
+              }
+            ],
+            "resolved": false,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "parameter_default",
+              "method_name": "__init__",
+              "parameter": "total"
+            },
+            "sha256": "132a9192e14a7fad5d799ee50fabaa8c94b32a7787bc7d0334febb0dd5961641",
+            "snippet": "5 + 5",
+            "value": null
+          },
+          "value_type": "integer"
+        }
+      ],
+      "blockers": [
+        {
+          "code": "mapping_unresolved",
+          "mapping_id": "retry-total"
+        }
+      ],
+      "requires_human_review": true,
+      "auto_accept": false,
+      "live_state_checked": false,
+      "runtime_binding_verified": false
+    },
+    "show": {
+      "report_id": "sad_6e48f559830e1bac504aaee5a300c5bc81fbb4c74af0ddc3bba543f032d89d48",
+      "report_digest": "6e48f559830e1bac504aaee5a300c5bc81fbb4c74af0ddc3bba543f032d89d48",
+      "rules_version": "source-adapter-1",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 1,
+        "mismatch": 0,
+        "unresolved": 1
+      },
+      "results": [
+        {
+          "adapter": {
+            "location": {
+              "end_line": 6,
+              "end_offset": 283,
+              "start_line": 6,
+              "start_offset": 205
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "fc70fd587e236b4068cc136b9a90b6db7bcd02777fb95adfefbbf56fd09abcf7",
+            "snippet": "DEFAULT_ALLOWED_METHODS = {\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"}",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+          "comparison": {
+            "adapter_document": "match",
+            "source_adapter": "match",
+            "source_document": "match",
+            "state": "match"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "default_allowed_methods"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "id": "retry-methods",
+          "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+          "source": {
+            "location": {
+              "end_line": 186,
+              "end_offset": 6270,
+              "start_line": 184,
+              "start_offset": 6167
+            },
+            "normalized_value": [
+              "DELETE",
+              "GET",
+              "HEAD",
+              "OPTIONS",
+              "PUT",
+              "TRACE"
+            ],
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "class_frozenset_strings",
+              "symbol": "DEFAULT_ALLOWED_METHODS"
+            },
+            "sha256": "132a9192e14a7fad5d799ee50fabaa8c94b32a7787bc7d0334febb0dd5961641",
+            "snippet": "DEFAULT_ALLOWED_METHODS = frozenset(\n        [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"]\n    )",
+            "value": [
+              "HEAD",
+              "GET",
+              "PUT",
+              "DELETE",
+              "OPTIONS",
+              "TRACE"
+            ]
+          },
+          "value_type": "string_set"
+        },
+        {
+          "adapter": {
+            "location": {
+              "end_line": 7,
+              "end_offset": 302,
+              "start_line": 7,
+              "start_offset": 284
+            },
+            "normalized_value": 11,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "symbol": "TOTAL_DEFAULT"
+            },
+            "sha256": "fc70fd587e236b4068cc136b9a90b6db7bcd02777fb95adfefbbf56fd09abcf7",
+            "snippet": "TOTAL_DEFAULT = 11",
+            "value": 11
+          },
+          "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+          "comparison": {
+            "adapter_document": "mismatch",
+            "source_adapter": "unresolved",
+            "source_document": "unresolved",
+            "state": "unresolved"
+          },
+          "document": {
+            "location": {
+              "end_line": 14,
+              "end_offset": 538,
+              "start_line": 11,
+              "start_offset": 429
+            },
+            "normalized_value": 10,
+            "reasons": [],
+            "resolved": true,
+            "selector": {
+              "fence_id": "retry-defaults",
+              "field": "total_default"
+            },
+            "sha256": "2c6f40781ee3fd98d4633dc373246a41c686b84183aefef589def07a8d1eca79",
+            "snippet": "{\n  \"default_allowed_methods\": [\"HEAD\", \"GET\", \"PUT\", \"DELETE\", \"OPTIONS\", \"TRACE\"],\n  \"total_default\": 10\n}\n",
+            "value": 10
+          },
+          "id": "retry-total",
+          "scope": "urllib3 2.5.0 Retry constructor total default expression",
+          "source": {
+            "location": {
+              "end_line": 204,
+              "end_offset": 6820,
+              "start_line": 204,
+              "start_offset": 6815
+            },
+            "normalized_value": null,
+            "reasons": [
+              {
+                "code": "unsupported_python_literal"
+              }
+            ],
+            "resolved": false,
+            "selector": {
+              "class_name": "Retry",
+              "kind": "parameter_default",
+              "method_name": "__init__",
+              "parameter": "total"
+            },
+            "sha256": "132a9192e14a7fad5d799ee50fabaa8c94b32a7787bc7d0334febb0dd5961641",
+            "snippet": "5 + 5",
+            "value": null
+          },
+          "value_type": "integer"
+        }
+      ],
+      "blockers": [
+        {
+          "code": "mapping_unresolved",
+          "mapping_id": "retry-total"
+        }
+      ],
+      "requires_human_review": true,
+      "auto_accept": false,
+      "live_state_checked": false,
+      "runtime_binding_verified": false
+    },
+    "captured_summary_verified": true
+  }
+]

@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "rules_version": "source-adapter-demo-1",
+  "created_at": "2026-10-23T13:45:32.645060+02:00",
+  "timezone": "Europe/Berlin",
+  "scenario": "Captured syntax provenance for two selected urllib3 Retry defaults and seven authored fixture variations",
+  "summary": {
+    "case_count": 8,
+    "mapping_count": 16,
+    "mapping_match_count": 7,
+    "mapping_mismatch_count": 1,
+    "mapping_unresolved_count": 8,
+    "pair_match_count": 29,
+    "pair_mismatch_count": 3,
+    "pair_unresolved_count": 16,
+    "current_for_human_review_case_count": 1,
+    "blocked_case_count": 7,
+    "resolved_endpoint_count": 40,
+    "unresolved_endpoint_count": 8,
+    "source_endpoint_unresolved_count": 6,
+    "adapter_endpoint_unresolved_count": 0,
+    "document_endpoint_unresolved_count": 2,
+    "new_cli_child_process_count": 18,
+    "new_successful_cli_count": 17,
+    "new_refused_cli_count": 1,
+    "analyze_command_count": 9,
+    "show_command_count": 9,
+    "unique_cli_process_count": 18,
+    "public_file_count": 26,
+    "public_json_file_count": 15,
+    "public_markdown_file_count": 3,
+    "public_python_input_file_count": 7,
+    "public_license_file_count": 1,
+    "baseline_input_file_count": 3,
+    "pinned_upstream_source_sha256_verified": true,
+    "baseline_three_input_bytes_match_corpus": true,
+    "license_bytes_match_corpus": true,
+    "corpus_bytes_unchanged": true,
+    "report_roundtrip_summaries_equal": true,
+    "historical_show_with_inputs_offline": true,
+    "offline_inputs_restored": true,
+    "output_collision_refused": true,
+    "output_collision_report_bytes_and_metadata_unchanged": true,
+    "computed_source_not_evaluated": true,
+    "bool_default_not_treated_as_integer": true,
+    "mixed_adapter_document_mismatch_preserved": true,
+    "upstream_code_executed": false,
+    "adapter_code_executed": false,
+    "proposed_code_executed": false,
+    "live_upstream_refetched": false,
+    "live_state_checked": false,
+    "runtime_binding_verified": false,
+    "human_review_recorded": false,
+    "auto_accept": false,
+    "store_writes_performed": false,
+    "external_llm_used": false,
+    "independent_human_annotation": false,
+    "benchmark": false,
+    "measured_capacity": false,
+    "process_overlap_measured": false,
+    "syntax_projection_only": true,
+    "selection_completeness_established": false,
+    "semantic_entailment_established": false,
+    "private_credentials_created": 0,
+    "database_files_created": 0
+  },
+  "cases": [
+    {
+      "id": "baseline",
+      "title": "Закреплённый исходник и прежний авторский адаптер",
+      "report": "reports/baseline.json",
+      "state": "current_for_human_review",
+      "counts": {
+        "mappings": 2,
+        "match": 2,
+        "mismatch": 0,
+        "unresolved": 0
+      }
+    },
+    {
+      "id": "adapter-total-11",
+      "title": "Авторский адаптер меняет TOTAL_DEFAULT на 11",
+      "report": "reports/adapter-total-11.json",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 1,
+        "mismatch": 1,
+        "unresolved": 0
+      }
+    },
+    {
+      "id": "computed-total",
+      "title": "Вычисляемое выражение 5 + 5 не исполняется",
+      "report": "reports/computed-total.json",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 1,
+        "mismatch": 0,
+        "unresolved": 1
+      }
+    },
+    {
+      "id": "shadowed-frozenset",
+      "title": "Видимое связывание имени frozenset",
+      "report": "reports/shadowed-frozenset.json",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 1,
+        "mismatch": 0,
+        "unresolved": 1
+      }
+    },
+    {
+      "id": "duplicate-class",
+      "title": "Два объявления выбранного класса",
+      "report": "reports/duplicate-class.json",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 0,
+        "mismatch": 0,
+        "unresolved": 2
+      }
+    },
+    {
+      "id": "ambiguous-fence",
+      "title": "Два одинаковых JSON fence документа",
+      "report": "reports/ambiguous-fence.json",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 0,
+        "mismatch": 0,
+        "unresolved": 2
+      }
+    },
+    {
+      "id": "bool-total",
+      "title": "True не принимается за integer default",
+      "report": "reports/bool-total.json",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 1,
+        "mismatch": 0,
+        "unresolved": 1
+      }
+    },
+    {
+      "id": "mixed-unresolved-and-mismatch",
+      "title": "Неразрешимый source сохраняет mismatch других сторон",
+      "report": "reports/mixed-unresolved-and-mismatch.json",
+      "state": "blocked",
+      "counts": {
+        "mappings": 2,
+        "match": 1,
+        "mismatch": 0,
+        "unresolved": 1
+      }
+    }
+  ],
+  "artifacts": [
+    "case-observations.json",
+    "cli-outcomes.json",
+    "inputs/LICENSE.txt",
+    "inputs/adapter-total-11.py",
+    "inputs/adapter.py",
+    "inputs/contract.md",
+    "inputs/document-ambiguous-fence.md",
+    "inputs/profile.json",
+    "inputs/source-bool-total.py",
+    "inputs/source-computed-total.py",
+    "inputs/source-duplicate-class.py",
+    "inputs/source-shadowed-frozenset.py",
+    "inputs/upstream-retry.py",
+    "offline-observations.json",
+    "output-collision.json",
+    "report.json",
+    "report.md",
+    "reports/adapter-total-11.json",
+    "reports/ambiguous-fence.json",
+    "reports/baseline.json",
+    "reports/bool-total.json",
+    "reports/computed-total.json",
+    "reports/duplicate-class.json",
+    "reports/mixed-unresolved-and-mismatch.json",
+    "reports/shadowed-frozenset.json",
+    "source-import.json"
+  ],
+  "limits": [
+    "Only the two explicitly selected declarations are projected from supported syntax; no library code, adapter code or proposed Python is executed.",
+    "A parsed frozenset call and absence of detected shadowing do not establish runtime name binding, constructor behavior, metaclass effects or later mutation.",
+    "Scope, units and prose-to-field correspondence are authored annotations. Integer 10 does not infer retries rather than attempts, and absence of POST is not a universal prohibition on POST retries.",
+    "Unsupported expressions and ambiguous selections remain unresolved. An unresolved source does not hide a mismatch between the separately resolved adapter and document.",
+    "Hashes and captured line spans bind the stored local texts; no upstream refetch, signature verification, author authentication or independent human annotation is performed.",
+    "The seven nonbaseline scenarios are explicitly authored illustrations using separate derived fixtures. They are not upstream changes, a benchmark or a measurement of error detection quality.",
+    "Historical show recomputes a saved report from its own captured inputs. Its original input directory may be absent; this does not establish current live source freshness or semantic truth.",
+    "The demonstration creates no database, credentials, Store acceptance, external publication, LLM calls or parallel worker pool. Child process counts do not measure concurrency, capacity or independent expertise."
+  ]
+}

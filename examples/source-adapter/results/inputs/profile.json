@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "mappings": [
+    {
+      "id": "retry-methods",
+      "value_type": "string_set",
+      "scope": "urllib3 2.5.0 Retry.DEFAULT_ALLOWED_METHODS captured declaration",
+      "annotation": "Selected allowlist syntax only. Absence of POST does not prohibit every POST retry branch.",
+      "source_selector": {
+        "kind": "class_frozenset_strings",
+        "class_name": "Retry",
+        "symbol": "DEFAULT_ALLOWED_METHODS"
+      },
+      "adapter_symbol": "DEFAULT_ALLOWED_METHODS",
+      "document_selector": {
+        "fence_id": "retry-defaults",
+        "field": "default_allowed_methods"
+      }
+    },
+    {
+      "id": "retry-total",
+      "value_type": "integer",
+      "scope": "urllib3 2.5.0 Retry constructor total default expression",
+      "annotation": "The retries unit comes from authored interpretation of pinned prose; integer syntax does not infer that meaning or a universal request limit.",
+      "source_selector": {
+        "kind": "parameter_default",
+        "class_name": "Retry",
+        "method_name": "__init__",
+        "parameter": "total"
+      },
+      "adapter_symbol": "TOTAL_DEFAULT",
+      "document_selector": {
+        "fence_id": "retry-defaults",
+        "field": "total_default"
+      }
+    }
+  ]
+}
